@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Lytics
 
-> A [Lytics](https://www.lytics.com/) é a plataforma de dados do cliente (CDP) preferida para a próxima geração de empresas centradas no cliente. As soluções Lytics Decision Engine, Conductor e Cloud Connect oferecem aos profissionais de marketing e às equipes de dados oportunidades de realizar resolução de identidade, orquestração e otimização de campanhas em tempo real e em conformidade com a privacidade.
+> A [Lytics](https://www.lytics.com/) é a CDP (CDP) preferida para a próxima geração de empresas centradas no cliente. As soluções Lytics Decision Engine, Conductor e Cloud Connect oferecem aos profissionais de marketing e às equipes de dados oportunidades de realizar resolução de identidade, orquestração e otimização de campanhas em tempo real e em conformidade com a privacidade.
 
 _Essa integração é mantida pela Lytics._
 
@@ -162,7 +162,7 @@ Após definir o tipo de solicitação (método HTTP `POST`) e configurar o resta
 
 ### De um arquivo CSV {#from-a-csv-file}
 
-Esta seção descreve como importar dados de usuários da Braze de um segmento para a Lytics.
+Esta seção descreve como importar dados de usuários da Braze de um Segment para a Lytics.
 
 #### Etapa 1: Criar uma autorização
 
@@ -180,9 +180,9 @@ As autorizações SFTP de chave pública são apenas para exportação SFTP.
 
 No prompt **Configure Authorization** exibido, forneça um rótulo e uma descrição e preencha o restante dos requisitos de configuração. Selecione **Complete** quando terminar.
 
-#### Etapa 2: Exportar seus dados de segmento para CSV {#step-2-export-your-segment-data-to-csv}
+#### Etapa 2: Exportar seus dados de Segment para CSV {#step-2-export-your-segment-data-to-csv}
 
-Na Braze, navegue até **Público** > **Segments**. Localize o segmento que deseja exportar e selecione <i class="fas fa-gear" aria-label="Configurações"></i> e, em seguida, **Exportar dados de usuários em CSV**. É possível exportar até 500.000 usuários em um segmento. Para obter detalhes, consulte [Exportação de dados de segmento para CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv).
+Na Braze, navegue até **Público** > **Segments**. Localize o Segment que deseja exportar e selecione <i class="fas fa-gear" aria-label="Configurações"></i> e, em seguida, **Exportar dados de usuários em CSV**. É possível exportar até 500.000 usuários em um Segment. Para obter detalhes, consulte [Exportação de dados de Segment para CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv).
 
 #### Etapa 3: Configurar um trabalho de importação de CSV {#step-3-configure-a-csv-import-job}
 

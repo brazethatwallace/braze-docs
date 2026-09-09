@@ -5,8 +5,7 @@ search_tag: Endpoint
 page_order: 2
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Eliminar ID externos."
-
+description: "En este artículo se describen los detalles del endpoint Eliminar ID externos."
 ---
 {% api %}
 # Eliminar ID externo {#remove-external-id}
@@ -14,19 +13,19 @@ description: "En este artículo se describen los detalles del punto de conexión
 /users/external_ids/remove
 {% endapimethod %}
 
-> Utiliza este punto de conexión para eliminar los antiguos ID externos obsoletos de tus usuarios.
+> Utiliza este endpoint para eliminar los antiguos ID externos obsoletos de tus usuarios.
 
 Puedes enviar hasta 50 ID externos por solicitud.
 
 {% alert warning %}
-Este punto de conexión elimina completamente el ID obsoleto y no puede deshacerse. Si utilizas este punto de conexión para eliminar los `external_ids` obsoletos que todavía están asociados a usuarios de tu sistema, puedes impedir permanentemente que encuentres los datos de esos usuarios.
+Este endpoint elimina completamente el ID obsoleto y no puede deshacerse. Si utilizas este endpoint para eliminar los `external_ids` obsoletos que todavía están asociados a usuarios de tu sistema, puedes impedir permanentemente que encuentres los datos de esos usuarios.
 {% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#e16b5340-5f44-42b6-9033-2398faf8908e {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/api_key) con el permiso `users.external_ids.remove`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics) con el permiso `users.external_ids.remove`.
 
 ## Límite de velocidad {#rate-limit}
 

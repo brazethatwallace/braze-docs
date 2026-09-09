@@ -42,7 +42,7 @@ Agentes que transformam entradas não estruturadas em campos consistentes e estr
 
 ### Classificação e roteamento {#classification-and-routing}
 
-Agentes que classificam entradas com base em critérios definidos e retornam valores que suas jornadas usam para ramificação. Os exemplos incluem detecção de intenção de cancelamento de inscrição em mensagens recebidas para que você possa direcionar os usuários de forma conservadora antes de enviar mais mensagens.
+Agentes que classificam entradas com base em critérios definidos e retornam valores que suas jornadas usam para Branch. Os exemplos incluem detecção de intenção de cancelamento de inscrição em mensagens recebidas para que você possa direcionar os usuários de forma conservadora antes de enviar mais mensagens.
 
 ### Enriquecimento de catálogo {#catalog-enrichment}
 
@@ -77,9 +77,9 @@ Estas instruções pressupõem que as seguintes informações estejam disponíve
 - Atributo personalizado para o status de fidelidade do usuário
 - Variável de contexto para a cidade que o usuário pesquisou por último
 - Variável de contexto para a última resposta de pesquisa do usuário
-- Um [segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) chamado "Logged multiple searches in the past 30D" que rastreia usuários com múltiplas pesquisas registradas nos últimos 30 dias
+- Um [Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) chamado "Logged multiple searches in the past 30D" que rastreia usuários com múltiplas pesquisas registradas nos últimos 30 dias
 - **Contexto do agente** das [instruções do Console do Agente]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources):
-    - **Associação a segmento:** "Logged multiple searches in the past 30D" para que o agente possa verificar se o usuário está neste segmento, conforme descrito nas instruções
+    - **Associação a Segment:** "Logged multiple searches in the past 30D" para que o agente possa verificar se o usuário está neste Segment, conforme descrito nas instruções
     - **Todo o contexto do Canvas:** Passa quaisquer variáveis de contexto adicionais para o agente que você ainda não definiu nas instruções do agente, caso sejam úteis ou relevantes
     - **Diretrizes da marca:** `<Brand guidelines name>` é obrigatório para que o agente possa aplicar as regras de voz, tom e formatação referenciadas nestas instruções.
 

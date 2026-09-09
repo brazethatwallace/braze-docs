@@ -4,7 +4,6 @@ article_title: Merkury
 description: "This reference article outlines the partnership between Braze and Merkury, an enterprise identity platform for your apps, that allows you to leverages the `MerkuryID` to increase site visitor recognition rates for Braze customers."
 page_type: partner
 search_tag: Partner
-
 ---
 
 # Merkury
@@ -46,7 +45,7 @@ Deploy the Merkury tag on your website to make the Merkury identity connector av
 
 ### Step 3: Create custom attributes
 
-The Merkury identity connector populates the following fields, which you must create in Braze as [custom attributes]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes#custom-attributes).
+The Merkury identity connector populates the following fields, which you must create in Braze as [custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes).
 
 | Attribute name | Data type | Description |
 | --- | --- | --- |

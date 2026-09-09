@@ -33,7 +33,7 @@ Para lançar uma Campaign, você deve aprovar estes componentes:
 Para lançar um Canvas, você deve aprovar estes componentes principais:
 
 - **Conversion Events:** Esta é a métrica que você está rastreando para fins de engajamento e relatórios.
-- **Entry Schedule:** Inclui o tipo de cronograma de entrada e quando os usuários entram no Canvas.
+- **Entry agendar/cronograma:** Inclui o tipo de cronograma de entrada e quando os usuários entram no Canvas.
 - **Target Audience:** Determina quem entrará neste Canvas.
 - **Send Settings:** São as opções de envio para todas as etapas do Canvas.
 - **Build Canvas:** Esta é a jornada do usuário no Canvas.

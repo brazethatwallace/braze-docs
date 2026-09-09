@@ -289,31 +289,31 @@ tool: Currents
     * Se añadió un nuevo campo `boolean` `is_sms_fallback`: Indica que se envió un mensaje SMS alternativo debido a un mensaje RCS rechazado. El mensaje puede resultar en entrega, fallo de entrega o rechazo. Se puede vincular al evento de rechazo de RCS mediante un ID de envío y un ID de despacho
 
 * Cambios de campo en el tipo de evento `users.messages.whatsapp.Delivery`:
-    * Se añadió un nuevo campo `string` `flow_id`: El ID único del flujo en WhatsApp Manager. Presente si el mensaje incluye un CTA para responder a un flujo de WhatsApp
-    * Se añadió un nuevo campo `string` `template_name`: [PII] Nombre de la plantilla en WhatsApp Manager. Presente si se envía un mensaje de plantilla
+    * Se añadió un nuevo campo `string` `flow_id`: El ID único del flujo en WhatsApp Administrador. Presente si el mensaje incluye un CTA para responder a un flujo de WhatsApp
+    * Se añadió un nuevo campo `string` `template_name`: [PII] Nombre de la plantilla en WhatsApp Administrador. Presente si se envía un mensaje de plantilla
     * Se añadió un nuevo campo `string` `message_id`: El ID único generado por Meta para este mensaje
 
 * Cambios de campo en el tipo de evento `users.messages.whatsapp.Failure`:
     * Se añadió un nuevo campo `string` `message_id`: El ID único generado por Meta para este mensaje
-    * Se añadió un nuevo campo `string` `template_name`: [PII] Nombre de la plantilla en WhatsApp Manager. Presente si se envía un mensaje de plantilla
-    * Se añadió un nuevo campo `string` `flow_id`: El ID único del flujo en WhatsApp Manager. Presente si el mensaje incluye un CTA para responder a un flujo de WhatsApp
+    * Se añadió un nuevo campo `string` `template_name`: [PII] Nombre de la plantilla en WhatsApp Administrador. Presente si se envía un mensaje de plantilla
+    * Se añadió un nuevo campo `string` `flow_id`: El ID único del flujo en WhatsApp Administrador. Presente si el mensaje incluye un CTA para responder a un flujo de WhatsApp
 
 * Cambios de campo en el tipo de evento `users.messages.whatsapp.InboundReceive`:
     * Se añadió un nuevo campo `string` `catalog_id`: ID del catálogo de un producto si se hace referencia a un producto en el mensaje entrante. De lo contrario, vacío.
     * Se añadió un nuevo campo `string` `product_id`: SKU del producto si se hace referencia a un producto en el mensaje entrante. De lo contrario, vacío.
-    * Se añadió un nuevo campo `string` `flow_id`: El ID único del flujo en WhatsApp Manager. Presente si el usuario está respondiendo a un flujo de WhatsApp.
+    * Se añadió un nuevo campo `string` `flow_id`: El ID único del flujo en WhatsApp Administrador. Presente si el usuario está respondiendo a un flujo de WhatsApp.
     * Se añadió un nuevo campo `string` `flow_response_json`: [PII] Los valores del formulario con los que respondió el usuario. Presente si el usuario está respondiendo a un flujo de WhatsApp.
     * Se añadió un nuevo campo `string` `message_id`: El ID único generado por Meta para este mensaje
     * Se añadió un nuevo campo `string` `in_reply_to`: El message_id del mensaje al que este mensaje estaba respondiendo
 
 * Cambios de campo en el tipo de evento `users.messages.whatsapp.Read`:
-    * Se añadió un nuevo campo `string` `template_name`: [PII] Nombre de la plantilla en WhatsApp Manager. Presente si se envía un mensaje de plantilla
+    * Se añadió un nuevo campo `string` `template_name`: [PII] Nombre de la plantilla en WhatsApp Administrador. Presente si se envía un mensaje de plantilla
     * Se añadió un nuevo campo `string` `message_id`: El ID único generado por Meta para este mensaje
-    * Se añadió un nuevo campo `string` `flow_id`: El ID único del flujo en WhatsApp Manager. Presente si el mensaje incluye un CTA para responder a un flujo de WhatsApp
+    * Se añadió un nuevo campo `string` `flow_id`: El ID único del flujo en WhatsApp Administrador. Presente si el mensaje incluye un CTA para responder a un flujo de WhatsApp
 
 * Cambios de campo en el tipo de evento `users.messages.whatsapp.Send`:
-    * Se añadió un nuevo campo `string` `flow_id`: El ID único del flujo en WhatsApp Manager. Presente si el mensaje incluye un CTA para responder a un flujo de WhatsApp
-    * Se añadió un nuevo campo `string` `template_name`: [PII] Nombre de la plantilla en WhatsApp Manager. Presente si se envía un mensaje de plantilla
+    * Se añadió un nuevo campo `string` `flow_id`: El ID único del flujo en WhatsApp Administrador. Presente si el mensaje incluye un CTA para responder a un flujo de WhatsApp
+    * Se añadió un nuevo campo `string` `template_name`: [PII] Nombre de la plantilla en WhatsApp Administrador. Presente si se envía un mensaje de plantilla
     * Se añadió un nuevo campo `string` `message_id`: El ID único generado por Meta para este mensaje
 
 ## Cambios en la versión 2 (fecha de lanzamiento nula) {#changes-in-version-2-release-date-null}

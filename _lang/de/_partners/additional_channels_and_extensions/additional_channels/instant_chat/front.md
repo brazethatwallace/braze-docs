@@ -12,7 +12,7 @@ search_tag: Partner
 
 > Mit der Integration von Front können Sie die Braze-Datentransformation und Webhooks beider Plattformen nutzen, um eine bidirektionale SMS-Pipeline für Konversationen einzurichten.
 
-Der eingehende Webhook von Front enthält eine Nutzlast mit der vom Live-Agenten gesendeten Nachricht. Die Anfrage muss neu formatiert werden, bevor sie von Braze-Endpunkten akzeptiert werden kann. Das Front-Datentransformations-Template formatiert die Nutzlast um und schreibt ein angepasstes Event mit dem Titel **Outbound SMS Sent** in das Nutzerprofil, wobei der Nachrichtentext als Event-Eigenschaft übergeben wird.
+Der eingehende Webhook von Front enthält eine Nutzlast mit der vom Live-Agenten gesendeten Nachricht. Die Anfrage muss neu formatiert werden, bevor sie von Braze-Endpunkten akzeptiert werden kann. Das Front-Datentransformations-Template formatiert die Nutzlast um und schreibt ein angepasstes Event mit dem Titel **Outbound SMS Sent** in das Kundenprofil, wobei der Nachrichtentext als Event-Eigenschaft übergeben wird.
 
 Bevor Sie eine neue Transformation in Braze einrichten, empfehlen wir Ihnen, die Support-Matrix für jede Ebene in unserer Dokumentation zur [Datentransformation]({{site.baseurl}}/user_guide/data/unification/data_transformation) zu lesen. Unsere Free- und Pro-Tiers bieten eine unterschiedliche Anzahl aktiver Transformationen und eingehender Anfragen pro Monat. Vergewissern Sie sich, dass Ihr aktueller Plan Ihren Anwendungsfall unterstützen kann.
 
@@ -222,7 +222,7 @@ Konfigurieren Sie dann Ihren Filter:
 
 ### Datenpunkte protokollieren {#logging-data-points}
 
-Derzeit erfordert diese Integration, dass jedes Mal ein angepasstes Event in ein Nutzerprofil geschrieben wird, wenn ein Live-Agent eine SMS von Front sendet. Dies mag für einen schnellen Austausch mit nur wenigen Nachrichten geeignet sein – aber je länger die Konversationen werden, desto mehr Datenpunkte fallen an. Wenn Sie Fragen zu den Feinheiten der Braze-Datenpunkte haben, kann Ihr Braze Account Manager diese beantworten.
+Derzeit erfordert diese Integration, dass jedes Mal ein angepasstes Event in ein Kundenprofil geschrieben wird, wenn ein Live-Agent eine SMS von Front sendet. Dies mag für einen schnellen Austausch mit nur wenigen Nachrichten geeignet sein – aber je länger die Konversationen werden, desto mehr Datenpunkte fallen an. Wenn Sie Fragen zu den Feinheiten der Braze-Datenpunkte haben, kann Ihr Braze Account Manager:in diese beantworten.
 
 ### Links in SMS-Nachrichten einfügen {#including-links-in-sms-messages}
 

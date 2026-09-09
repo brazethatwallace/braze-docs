@@ -14,32 +14,32 @@ channel:
 
 > Usa esta página para diagnosticar problemas comunes de vinculación en profundidad en iOS. Para obtener ayuda sobre cómo elegir el tipo de enlace adecuado, consulta la [guía de vinculación en profundidad de iOS]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide). Para más detalles de implementación, consulta [Vinculación en profundidad]({{site.baseurl}}/developer_guide/push_notifications/deep_linking?sdktab=swift).
 
-## Empieza aquí: Identifica tu síntoma {#start-here-match-your-symptom}
+## Comienza aquí: Identifica tu síntoma {#start-here-match-your-symptom}
 
-Busca el comportamiento que estás observando en la tabla y luego sigue los pasos de esa sección. Si no estás seguro de qué sección aplica, utiliza la [ruta de investigación estándar](#standard-investigation-path).
+Busca el comportamiento que estás observando en la tabla y sigue los pasos de esa sección. Si no estás seguro de cuál sección aplica, usa la [ruta de investigación estándar](#standard-investigation-path).
 
 | Síntoma | Ir a |
 | --- | --- |
-| El enlace de esquema personalizado abre la aplicación pero muestra la pantalla incorrecta | [El vínculo profundo de esquema personalizado no abre la vista correcta](#custom-scheme-deep-link-does-not-open-the-correct-view) |
-| El enlace universal abre Safari en lugar de la aplicación | [El enlace universal se abre en Safari en lugar de la aplicación](#universal-link-opens-in-safari-instead-of-the-app) |
-| El enlace del correo electrónico no abre la aplicación | [El vínculo profundo desde el correo electrónico no abre la aplicación](#deep-link-from-email-does-not-open-the-app) |
-| Todos los enlaces del correo electrónico abren la aplicación | [Todos los enlaces del correo electrónico abren la aplicación](#every-email-link-opens-the-app) |
-| Funciona desde push pero no desde mensaje dentro de la aplicación (o viceversa) | [El vínculo profundo funciona desde push pero no desde mensaje dentro de la aplicación](#deep-link-works-from-push-but-not-from-in-app-message) |
+| Un vínculo de esquema personalizado abre la aplicación pero muestra la pantalla incorrecta | [El vínculo profundo de esquema personalizado no abre la vista correcta](#custom-scheme-deep-link-does-not-open-the-correct-view) |
+| Un enlace universal abre Safari en lugar de la aplicación | [El enlace universal se abre en Safari en lugar de la aplicación](#universal-link-opens-in-safari-instead-of-the-app) |
+| Un enlace de correo electrónico no abre la aplicación | [El vínculo profundo desde correo electrónico no abre la aplicación](#deep-link-from-email-does-not-open-the-app) |
+| Todos los enlaces de correo electrónico abren la aplicación | [Todos los enlaces de correo electrónico abren la aplicación](#every-email-link-opens-the-app) |
+| Funciona desde push pero no desde mensajes dentro de la aplicación (o al revés) | [El vínculo profundo funciona desde push pero no desde mensajes dentro de la aplicación](#deep-link-works-from-push-but-not-from-in-app-message) |
 | "Open Web URL Inside App" muestra un WebView en blanco | ["Open Web URL Inside App" muestra una página en blanco o rota](#open-web-url-inside-app-shows-a-blank-or-broken-page) |
-| El enlace de Branch no abre la aplicación o no enruta correctamente | [Solución de problemas de Branch con Braze](#branch) |
-| El vínculo profundo falla sin causa clara | [Consejos generales de depuración](#general-debugging-tips) |
+| Un enlace de Branch no abre la aplicación o no redirige correctamente | [Solución de problemas de Branch con Braze](#branch) |
+| El vínculo profundo falla sin una causa clara | [Consejos generales de depuración](#general-debugging-tips) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Síntoma de vinculación en profundidad" }
 
 ## Ruta de investigación estándar {#standard-investigation-path}
 
-Utiliza este flujo de trabajo para cada incidente de vinculación en profundidad. Comienza en el paso 1.
+Usa este flujo de trabajo para cada incidente de vinculación en profundidad. Empieza en el paso 1.
 
-1. Prueba el enlace fuera de Braze. Para esquemas personalizados, ejecuta `xcrun simctl openurl booted "<URL>"` en Terminal (por ejemplo, `xcrun simctl openurl booted "myapp://products/123"`). Para enlaces universales, pega la URL en la aplicación Notas en un dispositivo físico y tócala.
+1. Prueba el enlace fuera de Braze. Para esquemas personalizados, ejecuta `xcrun simctl openurl booted "<URL>"` en Terminal (por ejemplo, `xcrun simctl openurl booted "myapp://products/123"`). Para enlaces universales, pega la URL en la aplicación Notas en un dispositivo físico y púlsala.
 2. [Habilita el registro detallado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging) y reproduce el problema. Busca entradas `Opening '<URL>':` con `channel`, `useWebView` e `isUniversalLink`.
-3. Para enlaces universales, valida tu archivo AASA y el permiso de Associated Domains.
+3. Para enlaces universales, valida tu archivo AASA y el entitlement de Associated Domains.
 4. Para enlaces de correo electrónico, confirma que el dominio de seguimiento de clics aloja un archivo AASA válido.
-5. Si implementas `BrazeDelegate.braze(_:shouldOpenURL:)`, verifica que gestione los enlaces de manera consistente en todos los canales.
-6. Si el problema persiste, contacta con [soporte de Braze]({{site.baseurl}}/braze_support) con los registros detallados y la URL del enlace.
+5. Si implementas `BrazeDelegate.braze(_:shouldOpenURL:)`, verifica que gestione los enlaces de forma consistente en todos los canales.
+6. Si el problema persiste, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) con los registros detallados y la URL del enlace.
 
 ## El vínculo profundo con esquema personalizado no abre la vista correcta {#custom-scheme-deep-link-does-not-open-the-correct-view}
 
@@ -240,9 +240,9 @@ Prueba el enlace de Branch fuera de Braze para aislar el problema:
 
 ## Consejos generales de depuración {#general-debugging-tips}
 
-### Usa el registro detallado {#use-verbose-logging}
+### Usar el registro detallado {#use-verbose-logging}
 
-[Habilita el registro detallado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging) para ver exactamente cómo el SDK procesa los enlaces. Entradas clave a buscar:
+[Habilita el registro detallado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging) para ver exactamente cómo el SDK procesa los enlaces. Entradas clave que debes buscar:
 
 | Entrada de registro | Qué significa |
 |---|---|
@@ -251,18 +251,18 @@ Prueba el enlace de Branch fuera de Braze para aislar el problema:
 | `Opening '<URL>': - channel: contentCard` | El SDK está procesando un enlace de una tarjeta de contenido |
 | `useWebView: true` | El SDK abre la URL en el WebView dentro de la aplicación |
 | `isUniversalLink: true` | El SDK identificó la URL como un enlace universal |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Usa el registro detallado" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Usar el registro detallado" }
 
 Para más detalles sobre cómo leer estos registros, consulta [Lectura de registros detallados]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging).
 
-### Prueba los enlaces de forma aislada {#test-links-in-isolation}
+### Probar los enlaces de forma aislada {#test-links-in-isolation}
 
 Antes de probar a través de Braze, verifica que tu vínculo profundo o enlace universal funcione por sí solo:
 
-- **Esquema personalizado**: Ejecuta `xcrun simctl openurl booted "myapp://path"` en la Terminal.
-- **Enlace universal**: Pega la URL en la aplicación Notas en un dispositivo físico y tócala. No pruebes desde la barra de direcciones de Safari, ya que iOS trata las URL escritas de forma diferente a los enlaces que se tocan.
+- **Esquema personalizado**: Ejecuta `xcrun simctl openurl booted "myapp://path"` en Terminal.
+- **Enlace universal**: Pega la URL en la aplicación Notas en un dispositivo físico y tócala. No pruebes desde la barra de direcciones de Safari, ya que iOS trata las URL escritas de forma diferente a los enlaces tocados.
 - **Enlace de Branch**: Abre el enlace de Branch desde la aplicación Notas en un dispositivo.
 
-### Prueba en un dispositivo físico {#test-on-a-physical-device}
+### Probar en un dispositivo físico {#test-on-a-physical-device}
 
 Los enlaces universales tienen soporte limitado en el simulador de iOS. Siempre prueba en un dispositivo físico para obtener resultados precisos. Si necesitas probar en un simulador, añade el archivo `.entitlements` a la fase de compilación **Copy Bundle Resources**.

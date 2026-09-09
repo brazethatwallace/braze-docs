@@ -1,12 +1,11 @@
 ---
-nav_title: "POST:APIトリガーによる配信でキャンペーンを送信する"
-article_title: "POST:APIトリガー配信でキャンペーンを送信する"
+nav_title: "POST: APIトリガー配信でキャンペーンを送信する"
+article_title: "APIトリガー配信を使用したキャンペーンメッセージの送信"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
 description: "この記事では、APIトリガー配信を使用したキャンペーンの送信Brazeエンドポイントの詳細について説明します。"
-
 ---
 {% api %}
 # APIトリガー配信を使用したキャンペーンメッセージの送信 {#send-campaign-messages-using-api-triggered-delivery}
@@ -24,7 +23,7 @@ APIトリガー配信を使用すると、メッセージのコンテンツをBr
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`campaigns.trigger.send` 権限を持つAPIキーを生成する必要があります。
+このエンドポイントを使用するには、`campaigns.trigger.send`権限を持つAPIキーを生成する必要があります。
 
 ## レート制限 {#rate-limit}
 
@@ -217,7 +216,7 @@ Brazeには`attributes`というメッセージングオブジェクトがあり
 このエンドポイントのキャンバスバージョンをお探しですか？[APIトリガー配信を使用したキャンバスメッセージの送信]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)をご確認ください。
 {% endalert %}
 
-### JSONボディにLiquidを直接記述してもレンダリングされないのはなぜですか {#why-doesnt-liquid-render-when-i-put-it-directly-in-my-json-body}
+### JSONボディにLiquidを直接記述してもレンダリングされないのはなぜですか？ {#why-doesnt-liquid-render-when-i-put-it-directly-in-my-json-body}
 
 リクエストボディが有効なJSONの場合、Brazeはペイロード内のLiquidをサーバー上で評価します。Liquidを生の文字列として埋め込む場合は、ボディが有効なJSONのままになるよう、文字列を引用符で囲みエスケープしてください。たとえば、文字列内のダブルクォートをエスケープします。ボディがJSONの解析に失敗した場合、BrazeはLiquidを評価する前に`400`を返します。サポートされている場合は、ペイロードにLiquidを直接埋め込む代わりに、[`trigger_properties`]({{site.baseurl}}/api/objects_filters/trigger_properties_object)を通じてダイナミックな値を渡してください。
 

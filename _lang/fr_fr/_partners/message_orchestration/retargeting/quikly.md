@@ -25,7 +25,7 @@ Le partenariat entre Braze et Quikly vous permet d'accélérer les conversions s
 | Compte Quikly | Un compte partenaire de marque [Quikly](https://www.quikly.com) est nécessaire pour bénéficier de ce partenariat. |
 | Clé REST API Braze | Une clé REST API Braze avec les autorisations `users.track`, `subscription.status.set`, `users.export.ids` et `subscription.status.get`. <br><br> Elle peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
 | Endpoint REST de Braze | [L'URL de votre endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Votre endpoint dépendra de l'URL de Braze pour votre instance. |
-| Clé API Quikly (facultatif) | Une clé API Quikly fournie par votre client success manager (webhook uniquement). |
+| Clé API Quikly (facultatif) | Une clé API Quikly fournie par votre client success gestionnaire (webhook uniquement). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Cas d'usage {#use-cases}
@@ -88,7 +88,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ### Abonnements SMS {#sms-subscriptions}
 
-Les activations Quikly peuvent collecter les numéros de téléphone mobile directement auprès des clients et lancer un nouvel abonnement SMS. Pour activer cette intégration, fournissez à votre client success manager Quikly le `subscription_group_id`. Vous pouvez accéder au `subscription_group_id` d'un groupe d'abonnement en accédant à la page **Subscription Group**.
+Les activations Quikly peuvent collecter les numéros de téléphone mobile directement auprès des clients et lancer un nouvel abonnement SMS. Pour activer cette intégration, fournissez à votre client success gestionnaire Quikly le `subscription_group_id`. Vous pouvez accéder au `subscription_group_id` d'un groupe d'abonnement en accédant à la page **Subscription Group**.
 
 Quikly effectuera une recherche d'abonnement à l'aide du numéro de téléphone du client et le créditera automatiquement lors de l'activation si un abonnement SMS existe déjà. Dans le cas contraire, un nouvel abonnement sera lancé et, après vérification du statut de l'abonnement, le client sera crédité.
 
@@ -175,4 +175,4 @@ N'oubliez pas d'enregistrer votre modèle avant de quitter la page ! <br>Les mod
 {% endtabs %}
 
 ## Assistance {#support}
-Contactez votre client success manager chez Quikly pour toute question.
+Contactez votre client success gestionnaire chez Quikly pour toute question.

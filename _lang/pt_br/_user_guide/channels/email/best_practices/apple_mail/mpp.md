@@ -2,7 +2,7 @@
 nav_title: Proteção de privacidade de e-mail da Apple
 article_title: Proteção de privacidade de e-mail da Apple para iOS 15
 page_order: 1
-description: "Este artigo de referência aborda a atualização da proteção de privacidade de e-mail da Apple, quem será afetado por ela e algumas etapas para se preparar para o recurso."
+description: "Este artigo de referência aborda a atualização da MPP da Apple, quem será afetado por ela e algumas etapas para se preparar para o recurso."
 channel:
   - email
 
@@ -12,7 +12,7 @@ channel:
 
 > Este artigo aborda a Proteção de Privacidade de E-mail (MPP) da Apple, quem ela afeta e como se preparar para seu impacto nas métricas de entregabilidade de e-mail.
 
-## O que é a atualização da proteção de privacidade de e-mail da Apple? {#what-is-apples-mail-privacy-protection-update}
+## O que é a atualização da MPP da Apple? {#what-is-apples-mail-privacy-protection-update}
 
 A Proteção de Privacidade de E-mail (MPP) da Apple é uma atualização de privacidade disponível para usuários do app Apple Mail no iOS 15, iPadOS 15, macOS Monterey e watchOS 8, lançada em meados de setembro de 2021. Para os usuários que fizerem aceitação do MPP (o que prevemos que a maioria dos usuários fará), os e-mails agora serão pré-carregados usando servidores proxy, armazenando imagens em cache e dificultando a capacidade de aproveitar os pixels de rastreamento para métricas como [rastreamento de abertura]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#update-the-placement).
 

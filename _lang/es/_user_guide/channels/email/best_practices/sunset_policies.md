@@ -43,7 +43,7 @@ Los filtros de segmentación ayudan a evitar que tus mensajes parezcan correo no
 - ¿Enviarás alguna campaña especial a los usuarios antes de excluirlos de tus segmentos?
 - ¿A qué canales de mensajería se aplicará tu política de extinción?
 
-Por ejemplo, si tienes usuarios que optan por la [protección de la privacidad en los correos electrónicos (MPP) de Apple]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/mpp), considera cómo esto puede afectar tus campañas de correo electrónico y las métricas de capacidad de entrega, y determina cómo estructurar mejor tu política de extinción.
+Por ejemplo, si tienes usuarios que optan por la [MPP (MPP) de Apple]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/mpp), considera cómo esto puede afectar tus campañas de correo electrónico y las métricas de capacidad de entrega, y determina cómo estructurar mejor tu política de extinción.
 
 Para incorporar políticas de extinción en tus campañas, crea un [segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) que excluya automáticamente a los usuarios que han marcado tus correos electrónicos como correo no deseado o que no han interactuado con tus mensajes durante un período de tiempo determinado.
 

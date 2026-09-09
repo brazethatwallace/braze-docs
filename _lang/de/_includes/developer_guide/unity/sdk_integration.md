@@ -145,7 +145,7 @@ implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1"
 implementation 'androidx.core:core:1.6.0'
 ```
 
-Sie können diese Abhängigkeiten auch mit dem [External Dependency Manager](https://github.com/googlesamples/unity-jar-resolver) festlegen.
+Sie können diese Abhängigkeiten auch mit dem [External Dependency Manager:in](https://github.com/googlesamples/unity-jar-resolver) festlegen.
 
 #### Schritt 3.4: Unity-Android-Integration automatisieren {#step-34-automate-the-unity-android-integration}
 
@@ -177,9 +177,9 @@ Wenn Ihre Anwendung bereits eine andere `UnityAppController`-Unterklasse verwend
 
 ## Unity-Paket anpassen {#customizing-the-unity-package}
 
-### Schritt 1: Repository klonen {#step-1-clone-the-repository}
+### Schritt 1: Repository Klon {#step-1-clone-the-repository}
 
-Klonen Sie in Ihrem Terminal das [Braze Unity SDK GitHub-Repository](https://github.com/braze-inc/braze-unity-sdk) und navigieren Sie dann zu diesem Ordner:
+Klon Sie in Ihrem Terminal das [Braze Unity SDK GitHub-Repository](https://github.com/braze-inc/braze-unity-sdk) und navigieren Sie dann zu diesem Ordner:
 
 {% tabs local %}
 {% tab MacOS %}

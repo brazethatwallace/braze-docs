@@ -41,7 +41,7 @@
 
 {% if include.section == "email validation" %}
 
-사용자가 허용되지 않는 특수 문자가 포함된 이메일 주소를 입력하면 일반 오류 표시기가 나타나며 양식을 제출할 수 없습니다. 이 오류 메시지는 커스터마이즈할 수 없습니다. **미리보기 및 테스트** 탭과 테스트 기기에서 오류 동작을 확인할 수 있습니다. Braze가 이메일 주소 형식을 지정하는 방법에 대해 자세히 알아보려면 [이메일 유효성 검사]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/email_validation)를 참조하세요.
+사용자가 허용되지 않는 특수 문자가 포함된 이메일 주소를 입력하면 일반 오류 표시기가 나타나며 양식을 제출할 수 없습니다. 이 오류 메시지는 커스터마이즈할 수 없습니다. **미리보기 및 테스트** 탭과 테스트 기기에서 오류 동작을 확인할 수 있습니다. Braze가 이메일 주소 형식을 지정하는 방법에 대해 자세히 알아보려면 [이메일 유효성 검사]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation)를 참조하세요.
 
 {% endif %}
 
@@ -63,6 +63,6 @@
 
 {% if include.section == "reporting" %}
 
-Campaign이 시작된 후에는 실시간으로 결과를 분석하여 얼마나 많은 사용자가 Campaign에 참여했는지 확인할 수 있습니다. 얼마나 많은 사용자가 구독 그룹에 옵트인했는지 확인하려면, 인앱 메시지를 수신하고 양식을 제출한 사용자를 필터링하여 구독 그룹에 가입한 사용자의 [Segment를 생성]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment)할 수 있습니다.
+Campaign이 시작된 후에는 실시간으로 결과를 분석하여 얼마나 많은 사용자가 Campaign에 참여했는지 확인할 수 있습니다. 얼마나 많은 사용자가 구독 그룹에 옵트인했는지 확인하려면, 인앱 메시지를 수신하고 양식을 제출한 사용자를 필터링하여 구독 그룹에 가입한 사용자의 [Segment를 생성]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)할 수 있습니다.
 
 {% endif %}

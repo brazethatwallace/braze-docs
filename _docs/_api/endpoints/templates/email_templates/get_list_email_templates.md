@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "This article outlines details about the List available email templates Braze endpoint."
-
 ---
 {% api %}
 # List available email templates
@@ -19,7 +18,7 @@ description: "This article outlines details about the List available email templ
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#eec24bf4-a3f4-47cb-b4d8-bb8f03964cca {% endapiref %}
 
 ## Prerequisites
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key) with the `templates.email.list` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics) with the `templates.email.list` permission.
 
 ## Rate limit
 

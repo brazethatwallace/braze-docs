@@ -17,9 +17,9 @@ Da der Abfrage-Builder direkten Zugriff auf bestimmte Kundendaten ermöglicht, k
 
 Der Abfrage-Builder verwendet dieselben Snowflake-SQL-Tabellen wie [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) und [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Eine vollständige Liste der verfügbaren Tabellen und ihrer Spalten finden Sie in der [SQL-Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
 
-### Nutzerprofil-Attribut-Views {#user-profile-attribute-views}
+### Kundenprofil-Attribut-Views {#user-profile-attribute-views}
 
-Der Abfrage-Builder und SQL-Segmenterweiterungen enthalten die meisten [Nutzerprofil-Attribut-Views]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#user-profile-attribute-views), wie z. B. periodische Snapshots und den Verlauf der Standardattribute.
+Der Abfrage-Builder und SQL-Segmenterweiterungen enthalten die meisten [Kundenprofil-Attribut-Views]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#user-profile-attribute-views), wie z. B. periodische Snapshots und den Verlauf der Standardattribute.
 
 Zwei Views für angepasste Attribute sind nur über [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/user_attributes) verfügbar:
 
@@ -52,7 +52,7 @@ Eine Liste der verfügbaren Templates finden Sie unter [Abfrage-Builder-Template
 
 ### Datenzeitraum {#data-timeframe}
 
-Abfragen liefern Daten aus den letzten 60 Tagen. Wenn Sie Currents oder [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake) verwenden, können Sie möglicherweise Daten aus bis zu zwei Jahren abfragen – so lange werden Ihre Daten in Snowflake aufbewahrt. Für weitere Details zur erweiterten Datenaufbewahrung wenden Sie sich an Ihren Customer-Success-Manager.
+Abfragen liefern Daten aus den letzten 60 Tagen. Wenn Sie Currents oder [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake) verwenden, können Sie möglicherweise Daten aus bis zu zwei Jahren abfragen – so lange werden Ihre Daten in Snowflake aufbewahrt. Für weitere Details zur erweiterten Datenaufbewahrung wenden Sie sich an Ihren CSM.
 
 ### Zeitzone im Abfrage-Builder {#query-builder-time-zone}
 
@@ -103,7 +103,7 @@ Der KI-Abfrage-Builder nutzt [GPT](https://openai.com/gpt-4), unterstützt von O
 
 So generieren Sie SQL mit dem KI-Abfrage-Builder:
 
-1. Nachdem Sie einen Bericht im Abfrage-Builder erstellt haben, wählen Sie den Tab **AI Query Builder** aus.
+1. Nachdem Sie einen Bericht im Abfrage-Builder erstellt haben, wählen Sie den Tab **KI Query Builder** aus.
 2. Geben Sie Ihren Prompt ein oder wählen Sie einen Beispiel-Prompt aus und wählen Sie **Generate**, um Ihren Prompt in SQL zu übersetzen.
 3. Überprüfen Sie das generierte SQL, um sicherzustellen, dass es korrekt aussieht, und wählen Sie dann **Insert into Editor**.
 
@@ -148,7 +148,7 @@ Wenn Sie nach `CANVAS_ID`, `CANVAS_VARIATION_API_ID` oder `CAMPAIGN_ID` abfragen
 | ID-Name | Zugehörige Namensspalte |
 | --- | --- |
 | `CANVAS_ID` | Canvas Name |
-| `CANVAS_VARIATION_API_ID` | Canvas Variant Name |
+| `CANVAS_VARIATION_API_ID` | Canvas-Variante Name |
 | `CAMPAIGN_ID` | Campaign Name |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Eigene SQL-Anfragen schreiben" }
 

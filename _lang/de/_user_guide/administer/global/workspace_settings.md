@@ -4,7 +4,7 @@ article_title: Workspace-Einstellungen
 page_order: 4
 layout: dev_guide
 guide_top_header: "Workspace-Einstellungen"
-guide_top_text: "Workspace-Einstellungen gelten nur für den Workspace, den Sie gerade anzeigen. Verwenden Sie diese Einstellungen, um API-Schlüssel zu verwalten, E-Mail- und Push-Präferenzen zu konfigurieren, Markenrichtlinien einzurichten und die Workspace-Aktivität über Protokolle und Benachrichtigungen zu überwachen.<br><br>Die meisten Features innerhalb der <b>Workspace-Einstellungen</b> sind nur für Braze-Kontoadministrator:innen verfügbar. Wenn Sie keinen Zugriff haben, aber der Meinung sind, dass Sie ihn haben sollten, wenden Sie sich an die Braze-Kontoadministrator:innen Ihres Unternehmens. Für unternehmensweite Konfigurationen, die alle Workspaces betreffen, siehe <a href='/docs/user_guide/administer/global/admin_settings'>Admin-Einstellungen</a>."
+guide_top_text: "Workspace-Einstellungen gelten nur für den Workspace, den Sie gerade anzeigen. Verwenden Sie diese Einstellungen, um API-Schlüssel zu verwalten, E-Mail- und Push-Präferenzen zu konfigurieren, Markenrichtlinien einzurichten und die Workspace-Aktivität über Protokolle und Benachrichtigungen zu überwachen.<br><br>Die meisten Features innerhalb der <b>Workspace-Einstellungen</b> sind nur für Braze-Kontoadministrator:innen verfügbar. Wenn Sie keinen Zugriff haben, aber der Meinung sind, dass Sie ihn haben sollten, wenden Sie sich an die Braze-Kontoadministrator:innen Ihres Unternehmens. Unternehmensweite OAuth-Richtlinien, einschließlich MCP-Zugriff, werden in den <a href='/docs/user_guide/administer/global/admin_settings'>Admin-Einstellungen</a> konfiguriert."
 
 page_type: landing
 description: "Dieser Abschnitt behandelt Einstellungen auf Workspace-Ebene – APIs und Bezeichner, Markenrichtlinien, E-Mail-Präferenzen, Protokolle und Benachrichtigungen und mehr."
@@ -38,6 +38,9 @@ guide_featured_list:
 - name: Messaging-Rate-Limits
   link: /docs/user_guide/administer/global/workspace_settings/messaging_rate_limits
   image: /assets/img/braze_icons/mail-01.svg
+- name: OAuth und MCP-Zugriff
+  link: /docs/user_guide/administer/global/workspace_settings/oauth_settings
+  image: /assets/img/braze_icons/lock-04.svg
 ---
 
 <br>

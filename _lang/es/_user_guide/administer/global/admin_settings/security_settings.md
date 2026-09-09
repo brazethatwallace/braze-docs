@@ -5,7 +5,6 @@ page_order: 2
 toc_headers: h2
 page_type: reference
 description: "Este artículo de referencia cubre la configuración genérica de seguridad entre empresas, incluidas las reglas de autenticación, las listas de IP permitidas, la PII y la autenticación de dos factores (2FA)."
-
 ---
 
 # Configuración de seguridad {#security-settings}
@@ -22,7 +21,7 @@ Utiliza este campo para cambiar la longitud mínima requerida de la contraseña.
 
 ### Complejidad de la contraseña {#password-complexity}
 
-Selecciona **Aplicar contraseñas complejas** para requerir que las contraseñas incluyan al menos uno de cada uno de los siguientes elementos:
+Selecciona **Aplicar contraseñas complejas** para requerir que las contraseñas incluyan al menos uno de cada uno de los siguientes:
 - Letra mayúscula
 - Letra minúscula
 - Número
@@ -34,17 +33,17 @@ Determina el número mínimo de contraseñas nuevas que deben establecerse antes
 
 ### Reglas de expiración de contraseñas {#password-expiration-rules}
 
-Utiliza este campo para establecer cuándo quieres que los usuarios de tu cuenta de Braze restablezcan su contraseña.
+Utiliza este campo para establecer cuándo deseas que los usuarios de tu cuenta de Braze restablezcan su contraseña.
 
 ### Reglas de duración de la sesión {#session-duration-rules}
 
-Utiliza este campo para definir cuánto tiempo Braze mantendrá tu sesión activa. Cuando Braze considere que tu sesión está inactiva (sin actividad durante el número de minutos definido), cerrará la sesión del usuario. El número máximo de minutos que puedes introducir es 10 080 (equivalente a una semana) si la autenticación de dos factores está habilitada para tu empresa; de lo contrario, la duración máxima de la sesión es de 1440 minutos (equivalente a 24 horas).
+Utiliza este campo para definir cuánto tiempo Braze mantendrá tu sesión activa. Una vez que Braze determine que tu sesión está inactiva (sin actividad durante el número de minutos definido), Braze cerrará la sesión del usuario. El número máximo de minutos que puedes introducir es 10 080 (equivalente a una semana) si la autenticación de dos factores está habilitada para tu empresa; de lo contrario, la duración máxima de la sesión es de 1440 minutos (equivalente a 24 horas).
 
 ### Autenticación de inicio de sesión único (SSO) {#single-sign-on-sso-authentication}
 
 Puedes restringir a tus usuarios para que inicien sesión utilizando una contraseña o SSO.
 
-Para [SAML SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on), los clientes deben configurar sus ajustes de SAML antes de aplicar esta opción. Si los clientes utilizan Google SSO, solo necesitan aplicar la página de configuración de seguridad sin ningún esfuerzo adicional.
+Para [SAML SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on), los clientes necesitan configurar sus ajustes de SAML antes de aplicarlos. Si los clientes utilizan Google SSO, solo necesitan aplicar la página de configuración de seguridad sin ningún esfuerzo adicional.
 
 ## Lista de IP permitidas del panel {#dashboard-ip-allowlisting}
 
@@ -52,14 +51,14 @@ Usa el campo que se muestra para añadir a la lista de permitidas las direccione
 
 ## Autenticación de dos factores (2FA) {#two-factor-authentication-2fa}
 
-La autenticación de dos factores es obligatoria para todos los usuarios de la empresa. Añade un segundo nivel de verificación de identidad a un inicio de sesión de cuenta, haciéndolo más seguro que solo un nombre de usuario y una contraseña. Si tu panel no puede admitir la autenticación de dos factores, ponte en contacto con tu administrador de éxito de cliente.
+La autenticación de dos factores es obligatoria para todos los usuarios de la empresa. Añade un segundo nivel de verificación de identidad a un inicio de sesión de la cuenta, lo que la hace más segura que usar solo un nombre de usuario y una contraseña. Si tu panel no es compatible con la autenticación de dos factores, contacta con tu administrador de éxito de cliente.
 
 Cuando la autenticación de dos factores está activada:
 
-- Además de introducir una contraseña, los usuarios necesitan introducir un código de verificación al iniciar sesión en su cuenta de Braze. El código puede enviarse a través de una aplicación de autenticación, correo electrónico o SMS.
+- Además de introducir una contraseña, los usuarios necesitan introducir un código de verificación al iniciar sesión en su cuenta de Braze. El código se puede enviar a través de una aplicación de autenticación, correo electrónico o SMS.
 - La casilla **Recordar esta cuenta durante 30 días** pasa a estar disponible para los usuarios.
 
-Braze bloquea a los usuarios que no configuren su autenticación de dos factores en su cuenta de Braze. Los usuarios de cuentas de Braze también pueden configurar la autenticación de dos factores por su cuenta en **Configuración de la cuenta**, aunque no sea obligatorio por parte del administrador.
+Braze bloquea a los usuarios que no configuren su autenticación de dos factores en su cuenta de Braze. Los usuarios de cuentas de Braze también pueden configurar la autenticación de dos factores por su cuenta en **Configuración de la cuenta**, aunque el administrador no lo exija.
 
 ¡Asegúrate de guardar los cambios antes de salir de la página!
 
@@ -67,47 +66,47 @@ Braze bloquea a los usuarios que no configuren su autenticación de dos factores
 
 Esta característica está disponible cuando la autenticación de dos factores está activada.
 
-Cuando seleccionas **Recordar esta cuenta durante 30 días**, se almacena una cookie en tu dispositivo, y solo necesitarás iniciar sesión con autenticación de dos factores una vez en el transcurso de 30 días.
+Al seleccionar **Recordar esta cuenta durante 30 días**, se almacena una cookie en tu dispositivo, y solo se te pedirá iniciar sesión con autenticación de dos factores una vez en un periodo de 30 días.
 
-![Casilla Recordar esta cuenta durante 30 días]({% image_buster /assets/img/remember_me.png %}){: style="float:right;max-width:50%;margin-left:15px;"}
+![Casilla de Recordar esta cuenta durante 30 días]({% image_buster /assets/img/remember_me.png %}){: style="float:right;max-width:50%;margin-left:15px;"}
 
-Los clientes con varias cuentas en una empresa del panel pueden experimentar problemas al usar esta característica, ya que la cookie está vinculada a un dispositivo específico. Si los usuarios utilizan el mismo dispositivo para iniciar sesión en varias cuentas, la cookie se reemplazará para las cuentas previamente autorizadas en ese dispositivo. Braze espera que solo un dispositivo esté asociado a una cuenta, no un dispositivo para varias cuentas.
+Los clientes con varias cuentas en una empresa del panel pueden tener problemas al usar esta característica, ya que la cookie está vinculada a un dispositivo específico. Si los usuarios utilizan el mismo dispositivo para iniciar sesión en varias cuentas, la cookie se sustituirá para las cuentas previamente autorizadas en ese dispositivo. Braze espera que solo un dispositivo esté asociado a una cuenta, no un dispositivo para varias cuentas.
 
 ### Restablecer la autenticación de usuario {#resetting-user-authentication}
 
-Si tienes problemas para iniciar sesión con la autenticación de dos factores, ponte en contacto con los administradores de tu empresa para restablecer tu autenticación de dos factores. Los administradores pueden realizar los siguientes pasos:
+Si tienes problemas para iniciar sesión con la autenticación de dos factores, contacta con los administradores de tu empresa para restablecer tu autenticación de dos factores. Los administradores pueden seguir estos pasos:
 
 1. Ve a **Configuración** > **Configuración de la empresa** > **Gestión de usuarios** > **Usuarios de la empresa**.
 2. Selecciona el usuario de la lista proporcionada.
 3. Selecciona **Restablecer** en **Autenticación de dos factores**.
 
-Un restablecimiento puede resolver problemas comunes de autenticación, como dificultades con aplicaciones de autenticación, verificación por correo electrónico que no se envía, fallos de inicio de sesión debido a interrupciones de SMS o errores del usuario, y más.
+Un restablecimiento puede resolver problemas comunes de autenticación, como dificultades con aplicaciones de autenticación, correos electrónicos de verificación que no se envían, fallos de inicio de sesión por interrupciones de SMS o errores del usuario, y más.
 
-### Requisitos para 2FA a nivel de empresa {#requirements-for-2fa-at-the-company-level}
+### Requisitos de 2FA a nivel de empresa {#requirements-for-2fa-at-the-company-level}
 
-Primero, verifica si 2FA está habilitado para tu panel yendo a **Configuración** > **Configuración de la empresa** > **Configuración de administrador** > **Configuración de seguridad** > **Autenticación de dos factores**. Si el interruptor está en gris, 2FA no se ha activado para tu empresa y no es obligatorio para todos los usuarios de la empresa.
+Primero, verifica si la 2FA está habilitada para tu panel yendo a **Configuración** > **Configuración de la empresa** > **Configuración de administrador** > **Configuración de seguridad** > **Autenticación de dos factores**. Si el interruptor está en gris, la 2FA no se ha activado para tu empresa y no es obligatoria para todos los usuarios de la empresa.
 
-#### Opciones del usuario cuando 2FA no es obligatorio {#user-options-when-2fa-isnt-mandatory}
+#### Opciones de usuario cuando la 2FA no es obligatoria {#user-options-when-2fa-isnt-mandatory}
 
-Si 2FA no se aplica a nivel de empresa, los usuarios individuales pueden configurar 2FA por su cuenta en su página de configuración de la cuenta. En este caso, los usuarios no serán bloqueados de sus cuentas si no lo configuran. Puedes identificar qué usuarios han optado por habilitar 2FA consultando la lista de **Usuarios de la empresa**.
+Si la 2FA no se aplica a nivel de empresa, los usuarios individuales pueden configurar la 2FA por su cuenta en su página de configuración de la cuenta. En este caso, los usuarios no serán bloqueados de sus cuentas si no la configuran. Puedes identificar qué usuarios han optado por habilitar la 2FA consultando la lista de **Usuarios de la empresa**.
 
-#### Requisitos cuando 2FA es obligatorio {#requirements-when-2fa-is-mandatory}
+#### Requisitos cuando la 2FA es obligatoria {#requirements-when-2fa-is-mandatory}
 
-Si 2FA se aplica a nivel de empresa, los usuarios que no lo configuren en sus propias cuentas al iniciar sesión serán bloqueados del panel. Los usuarios deben completar la configuración de 2FA para mantener el acceso.
+Si la 2FA se aplica a nivel de empresa, los usuarios que no la configuren en sus propias cuentas al iniciar sesión serán bloqueados del panel. Los usuarios deben completar la configuración de 2FA para mantener el acceso.
 
 {% alert important %}
-2FA es obligatorio para todos los usuarios de la empresa solo si el inicio de sesión único (SSO) no está habilitado. Si se utiliza SSO, no es necesario aplicar 2FA a nivel de empresa.
+La 2FA es obligatoria para todos los usuarios de la empresa solo si el inicio de sesión único (SSO) no está habilitado. Si se utiliza SSO, la 2FA no necesita aplicarse a nivel de empresa.
 {% endalert %}
 
-## Configurar 2FA manualmente {#manually-set-up-2fa}
+## Configurar manualmente la 2FA {#manually-set-up-2fa}
 
 Para activar manualmente la autenticación de dos factores (2FA) en tu cuenta de Braze, sigue estos pasos:
 
 1. En Braze, selecciona el icono de tu perfil en el encabezado global y luego selecciona **Administrar tu cuenta**. Desplázate hasta la sección **Autenticación de dos factores** y selecciona **Iniciar configuración**.
-2. Introduce tu contraseña en el modal de inicio de sesión y selecciona **Verificar contraseña**.
-3. En el modal **Configuración de autenticación de dos factores**, introduce tu número de teléfono y selecciona **Habilitar**.
-4. Copia el código de siete dígitos generado desde tu correo electrónico o mensaje SMS, luego regresa a Braze y pégalo en el modal **Configuración de autenticación de dos factores**. Selecciona **Verificar**.
-5. (Opcional) Para evitar introducir 2FA durante los próximos 30 días, habilita la opción **Recordar esta cuenta durante 30 días**.
+2. Ingresa tu contraseña en el modal de inicio de sesión y selecciona **Comprobar contraseña**.
+3. En el modal **Configuración de autenticación de dos factores**, ingresa tu número de teléfono y selecciona **Habilitar**.
+4. Copia el código de siete dígitos generado desde tu correo electrónico o mensaje SMS y regresa a Braze para pegarlo en el modal **Configuración de autenticación de dos factores**. Selecciona **Verificar**.
+5. (Opcional) Para evitar ingresar la 2FA durante los próximos 30 días, habilita la opción **Recordar esta cuenta durante 30 días**.
 
 ## Acceso elevado {#elevated-access}
 
@@ -304,11 +303,11 @@ Al previsualizar un mensaje, el permiso **View PII** no se aplica, por lo que lo
 
 ## Preferencias de eliminación de datos {#data-deletion-preferences}
 
-Puedes usar esta configuración para establecer preferencias sobre si Braze debe eliminar ciertos campos durante el proceso de eliminación de usuarios para eventos. Estas preferencias solo afectan a los datos de los usuarios que Braze ha eliminado.
+Puedes usar esta configuración para establecer preferencias sobre si Braze debe eliminar determinados campos durante el proceso de eliminación de usuarios para los eventos. Estas preferencias solo afectan a los datos de los usuarios que Braze ha eliminado.
 
-Cuando se elimina un usuario, Braze elimina toda la PII de los datos de eventos, pero conserva los datos anonimizados con fines de análisis. Algunos campos definidos por el usuario pueden contener PII si envías información de usuarios finales a Braze. Si estos campos contienen PII, puedes optar por eliminar los datos cuando Braze anonimiza los datos de eventos de los usuarios eliminados; si los campos no contienen PII, puedes conservarlos para análisis.
+Cuando se elimina un usuario, Braze elimina toda la PII de los datos de eventos, pero conserva los datos anonimizados con fines de análisis. Algunos campos definidos por el usuario pueden contener PII si envías información del usuario final a Braze. Si estos campos contienen PII, puedes optar por eliminar los datos cuando Braze anonimiza los datos de eventos de los usuarios eliminados; si los campos no contienen PII, puedes conservarlos para análisis.
 
-Eres responsable de determinar las preferencias correctas para tu espacio de trabajo. La mejor manera de determinar la configuración adecuada es revisarla con los equipos internos que envían datos de eventos a Braze y con los equipos que utilizan extras de mensaje en Braze para confirmar si los campos pueden contener PII.
+Tú eres responsable de determinar las preferencias correctas para tu espacio de trabajo. La mejor manera de determinar la configuración adecuada es revisarla con los equipos internos que envían datos de eventos a Braze y con los equipos que utilizan message extras en Braze para confirmar si los campos pueden contener PII.
 
 ### Campos relevantes {#relevant-fields}
 
@@ -316,33 +315,33 @@ Eres responsable de determinar las preferencias correctas para tu espacio de tra
 | -------------------- | ------ | ----- |
 | Evento personalizado | properties |  |
 | Evento de compra | properties |  |
-| Envío de mensaje | message_extras | Varios tipos de eventos contienen un campo `message_extras`. La preferencia se aplica a todos los tipos de eventos de envío de mensaje que admiten `message_extras`, incluidos los tipos de eventos que se añadan en el futuro. |
+| Envío de mensaje | message_extras | Varios tipos de eventos contienen un campo `message_extras`. La preferencia se aplica a todos los tipos de eventos de envío de mensajes que admiten `message_extras`, incluidos los tipos de eventos que se añadan en el futuro. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Campos relevantes" }
 
 {% alert warning %}
-**¡La eliminación es permanente!** Si optas por eliminar cualquier campo de Snowflake para los usuarios eliminados, la configuración se aplica a todos los datos históricos en tus espacios de trabajo y a cualquier evento de usuarios eliminados en el futuro. Después de que Braze haya ejecutado el proceso para aplicar la configuración a los datos históricos de eventos de usuarios eliminados, **no puedes restaurar** los datos.
+**¡La eliminación es permanente!** Si optas por eliminar cualquier campo de Snowflake para los usuarios eliminados, la configuración se aplica a todos los datos históricos de tus espacios de trabajo y a cualquier evento de usuarios eliminados en el futuro. Después de que Braze haya ejecutado el proceso para aplicar la configuración a los datos históricos de eventos de los usuarios eliminados, **no puedes restaurar** los datos.
 {% endalert %}
 
 ### Configurar preferencias {#configure-preferences}
 
-Establece las preferencias predeterminadas marcando las casillas de los campos que Braze debe eliminar si se elimina un usuario. Selecciona cualquiera de los campos que contengan PII. Esta preferencia se aplica a todos los espacios de trabajo actuales y futuros, a menos que los espacios de trabajo se añadan explícitamente a un grupo de preferencias.
+Establece las preferencias predeterminadas marcando las casillas de los campos que Braze debe eliminar si se elimina un usuario. Selecciona los campos que contengan PII. Esta preferencia se aplica a todos los espacios de trabajo actuales y futuros, a menos que se añadan explícitamente espacios de trabajo a un grupo de preferencias.
 
-Para personalizar las preferencias por espacio de trabajo, puedes añadir grupos de preferencias con configuraciones diferentes a las predeterminadas. Aplicamos la configuración predeterminada a cualquier espacio de trabajo que no se haya añadido a un grupo de preferencias adicional, incluidos los espacios de trabajo creados en el futuro.
+Para personalizar las preferencias por espacio de trabajo, puedes añadir grupos de preferencias con una configuración diferente a la predeterminada. Aplicamos la configuración predeterminada a cualquier espacio de trabajo que no se haya añadido a un grupo de preferencias adicional, incluidos los espacios de trabajo que se creen en el futuro.
 
-![Sección de preferencias de eliminación de datos con el interruptor activado para personalizar las preferencias de eliminación de datos por espacio de trabajo.]({% image_buster /assets/img/deletion_preferences_1.png %})
+![Sección de preferencias de eliminación de datos con el conmutador activado para personalizar las preferencias de eliminación de datos por espacio de trabajo.]({% image_buster /assets/img/deletion_preferences_1.png %})
 
 ## Solución de problemas {#troubleshooting}
 
 ### Problemas de bucle en la configuración de la autenticación de dos factores (2FA) {#two-factor-authentication-2fa-setup-loop-issues}
 
-Si te encuentras atrapado en un bucle después de introducir correctamente tu número de teléfono para 2FA y se te redirige de vuelta a la página de inicio de sesión, es probable que se deba a un fallo en la verificación en el primer intento. Para resolver este problema, sigue estos pasos:
+Si te encuentras atrapado en un bucle después de introducir correctamente tu número de teléfono para 2FA y se te redirige de vuelta a la página de inicio de sesión, probablemente se deba a que no verificaste en el primer intento. Para resolver este problema, sigue estos pasos:
 
 1. Desactiva cualquier bloqueador de anuncios.
 2. Habilita las cookies en la configuración de tu navegador.
 3. Reinicia tu PC o portátil.
 4. Intenta configurar 2FA de nuevo.
 
-Si el problema persiste después de estos pasos, ponte en contacto con [Soporte]({{site.baseurl}}/braze_support) para obtener ayuda.
+Si el problema persiste después de estos pasos, contacta con [Soporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) para obtener ayuda.
 
 ### No se puede habilitar la autenticación de dos factores (2FA) {#cant-enable-two-factor-authentication-2fa}
 
@@ -356,9 +355,9 @@ Si 2FA está habilitada pero no ocurre nada cuando seleccionas el botón **Habil
 
 Si tienes problemas al introducir tu número de teléfono en la página de Authy y no recibes un SMS, sigue estos pasos:
 
-1. Instala la aplicación Authy en tu teléfono e inicia sesión en el autenticador Authy.
+1. Instala la aplicación Authy en tu teléfono e inicia sesión en el autenticador de Authy.
 2. Introduce tu número de teléfono y comprueba la aplicación Authy en busca de cambios o notificaciones por SMS.
-3. Si sigues sin recibir el SMS, intenta usar una conexión de red diferente, como tu red doméstica o una red Wi-Fi no corporativa. Las redes corporativas pueden tener políticas de seguridad que interfieren con la entrega de SMS.
+3. Si aún no recibes el SMS, intenta utilizar una conexión de red diferente, como tu red doméstica o una red Wi-Fi no corporativa. Las redes corporativas pueden tener políticas de seguridad que interfieran con la entrega de SMS.
 
 Si los problemas persisten, elimina el perfil antiguo en la aplicación Authy y escanea el código QR de nuevo para configurar 2FA. Asegúrate de haber desactivado cualquier bloqueador de anuncios, habilitado las cookies de terceros o utilizado un navegador diferente antes de intentar la configuración de nuevo.
 
@@ -366,5 +365,9 @@ Si los problemas persisten, elimina el perfil antiguo en la aplicación Authy y 
 
 Para obtener más información sobre autenticación y acceso, consulta:
 
-- [SAML e inicio de sesión único]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on) para configurar SSO con tu proveedor de identidad.
-- [Permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) para controlar qué acciones pueden realizar los usuarios en el panel.
+{% article_tiles %}
+- name: SAML e inicio de sesión único
+  link: /docs/user_guide/administer/global/saml_single_sign_on
+- name: Permisos
+  link: /docs/user_guide/administer/global/user_management/permissions
+{% endarticle_tiles %}

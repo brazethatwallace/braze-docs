@@ -21,7 +21,7 @@ description: "Cet article présente les détails de l'endpoint Braze Rechercher 
 
 {% multi_lang_include scim/scim_alerts.md alert='custom_endpoint' %}
 
-## Conditions préalables {#prerequisites}
+## Prérequis {#prerequisites}
 
 Pour utiliser cet endpoint, vous aurez besoin d'un jeton SCIM. Vous utiliserez l'origine de votre service comme en-tête `X-Request-Origin`. Pour plus d'informations, consultez la section [Provisionnement automatisé des utilisateurs]({{site.baseurl}}/scim/automated_user_provisioning).
 
@@ -36,19 +36,24 @@ Pour utiliser cet endpoint, vous aurez besoin d'un jeton SCIM. Vous utiliserez l
 | `id` | Requis | Chaîne de caractères | L'ID de ressource de l'utilisateur. Ce paramètre est renvoyé par les méthodes `POST` `/scim/v2/Users/` ou `GET` `/scim/v2/Users?filter=userName eq "user@example.com"`. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Paramètres de chemin" }
 
-## Corps de la requête {#request-body}
+## Paramètres de la requête {#request-parameters}
+
 ```http
 Content-Type: application/json
 X-Request-Origin: YOUR-REQUEST-ORIGIN-HERE
-Authorization: Bearer YOUR-REST-API-KEY
+Authorization: Bearer YOUR-SCIM-TOKEN-HERE
 ```
+
+{% alert note %}
+Si vous recevez une réponse `401`, vérifiez que vous utilisez un jeton SCIM (et non une clé API REST), que `X-Request-Origin` correspond à l'origine de votre service et que votre adresse IP figure dans la liste d'autorisation SCIM. Pour plus de détails, consultez la section [Provisionnement automatisé des utilisateurs]({{site.baseurl}}/scim/automated_user_provisioning).
+{% endalert %}
 
 ## Exemple de requête {#example-request}
 ```bash
 curl --location --request GET 'https://rest.iad-01.braze.com/scim/v2/Users/dfa245b7-24195aec-887bb3ad-602b3340' \
 --header 'Content-Type: application/json' \
 --header 'X-Request-Origin: YOUR-REQUEST-ORIGIN-HERE' \
---header 'Authorization: Bearer YOUR-API-KEY-HERE' \
+--header 'Authorization: Bearer YOUR-SCIM-TOKEN-HERE' \
 ```
 
 ## Réponse {#response}
@@ -62,8 +67,8 @@ curl --location --request GET 'https://rest.iad-01.braze.com/scim/v2/Users/dfa24
         "familyName": "User"
     },
     "department": "finance",
-    "lastSignInAt": "Thursday, January 1, 1970 12:00:00 AM",
-    "createdAt": "Thursday, January 1, 1970 12:00:00 AM",
+    "lastSignInAt": "2024 Nov 11, 4:20 PM",
+    "createdAt": "2024 Nov 11, 4:20 PM",
     "permissions": {
         "companyPermissions": ["manage_company_settings"],
         "roles": [
@@ -100,6 +105,35 @@ curl --location --request GET 'https://rest.iad-01.braze.com/scim/v2/Users/dfa24
             }
         ]
     }
+}
+```
+
+## Paramètres de réponse {#response-parameters}
+
+| Paramètre | Type de données | Description |
+|---|---|---|
+| `schemas` | Tableau de chaînes de caractères | Schéma utilisateur SCIM. |
+| `id` | Chaîne de caractères | L'ID de ressource de l'utilisateur. |
+| `userName` | Chaîne de caractères | L'adresse e-mail de l'utilisateur. |
+| `name` | Objet | Contient `givenName` et `familyName`. |
+| `department` | Chaîne de caractères | Le service de l'utilisateur, s'il est défini. |
+| `createdAt` | Chaîne de caractères | Date de création du compte utilisateur. Renvoie `N/A` si non défini ; sinon au format `YYYY Mon DD, H:MM AM/PM`. |
+| `lastSignInAt` | Chaîne de caractères | Date de la dernière connexion de l'utilisateur. Renvoie `N/A` si l'utilisateur ne s'est jamais connecté ; sinon au format `YYYY Mon DD, H:MM AM/PM`. |
+| `permissions` | Objet | Permissions de l'utilisateur au niveau de l'entreprise, de l'espace de travail, de l'équipe et du rôle. Consultez l'[objet permissions]({{site.baseurl}}/api/objects_filters/scim_api_appendix). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paramètres de réponse" }
+
+### États d'erreur {#error-states}
+
+Si aucun utilisateur n'existe pour l'`id` de ressource fourni, l'endpoint renvoie :
+
+```http
+HTTP/1.1 404 Not Found
+Content-Type: application/json
+
+{
+  "schemas": ["urn:ietf:params:scim:api:messages:2.0:Error"],
+  "status": 404,
+  "detail": "Resource not found"
 }
 ```
 

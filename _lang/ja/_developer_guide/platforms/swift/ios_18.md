@@ -15,24 +15,24 @@ Appleの[WWDC](https://developer.apple.com/wwdc24/)は、2024年6月9日〜11日
 
 ## iOS 18の変更点 {#changes-in-ios-18}
 
-### Apple Watchでのライブアクティビティ {#live-activities-on-apple-watch}
+### Apple WatchでのLive Activities {#live-activities-on-apple-watch}
 
-[ライブアクティビティ]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?sdktab=swift)はwatchOS 11でサポートされます。追加の設定は必要ありません。ただし、Appleではウォッチインターフェイスをカスタマイズするオプションが用意されています。
+[Live Activities]({{site.baseurl}}/developer_guide/live_notifications?sdktab=swift)はwatchOS 11でサポートされます。追加の設定は必要ありません。ただし、Appleはウォッチインターフェイスをカスタマイズするオプションを提供しています。
 
 ### Apple Vision Pro
 
-Vision Proは現在、中国、日本、シンガポール、オーストラリア、カナダ、フランス、ドイツ、英国で販売されています。[BrazeがvisionOSをどのようにサポートしているか](https://www.braze.com/resources/articles/building-braze-a-new-era-of-customer-engagement-braze-announces-visionos-support)については、弊社のブログをご覧ください。
+Vision Proは現在、中国、日本、シンガポール、オーストラリア、カナダ、フランス、ドイツ、英国で利用可能です。[BrazeがvisionOSをサポートする方法](https://www.braze.com/resources/articles/building-braze-a-new-era-of-customer-engagement-braze-announces-visionos-support)については、ブログをご覧ください。
 
-### macOSでのiPhone通知 {#iphone-notifications-on-macos}
+### MacOSでのiPhone通知 {#iphone-notifications-on-macos}
 
-Appleの新しい[iPhoneミラーリング](https://www.apple.com/newsroom/2024/06/macos-sequoia-takes-productivity-and-intelligence-on-mac-to-new-heights/)機能により、ユーザーはmacOSデバイスでiPhoneの通知を受け取ることができます。Push Storyの画像やGIFなど、一部のメディアタイプはmacOS通知としてレンダリングできないため、サポートされていない点にご注意ください。
+Appleの新しい[iPhoneミラーリング](https://www.apple.com/newsroom/2024/06/macos-sequoia-takes-productivity-and-intelligence-on-mac-to-new-heights/)機能により、ユーザーはiPhoneの通知をMacOSデバイスで受け取ることができます。Push Storyの画像やGIFなど、一部のメディアタイプはMacOS通知としてレンダリングできないため、サポートされていないことにご注意ください。
 
 ### Apple Intelligence
 
-[Apple Intelligence](https://developer.apple.com/documentation/Updates/Apple-Intelligence)は、iOS 18.1以降を実行しているデバイスで利用できるようになりました。
+[Apple Intelligence](https://developer.apple.com/documentation/Updates/Apple-Intelligence)は、iOS 18.1以降を搭載したデバイスで利用可能になりました。
 
-Brazeユーザーとして知っておくべき最も重要な新機能は[通知サマリー](https://support.apple.com/en-us/108781)です。これは、デバイス上の処理を使用して、1つのアプリから送信される関連するプッシュ通知を自動的にグループ化し、テキストサマリーを生成します。エンドユーザーはサマリーをタップして展開し、最初に送信されたときの各プッシュ通知を表示できます。
+Brazeユーザーとして最も注目すべき新機能は[通知の要約](https://support.apple.com/en-us/108781)です。これはオンデバイス処理を使用して、単一のアプリから送信された関連するプッシュ通知を自動的にグループ化し、テキストの要約を生成します。エンドユーザーは要約をタップして展開し、元の送信時のまま各プッシュ通知を確認できます。
 
-これらのサマリーの生成方法の性質上、特定の動作や生成されるテキストを制御することはできません。ただし、プッシュクリックのトラッキングなどの分析機能やレポート機能には影響しません。
+これらの要約の生成方法の性質上、特定の動作や生成されるテキストをコントロールすることはできません。ただし、プッシュクリックのトラッキングなど、分析やレポート機能に影響はありません。
 
-![プッシュ通知プレビューサマリーのサンプルスクリーンショット。]({% image_buster /assets/img/apple/apple_intelligence/notification_preview_summary.png %})
+![プッシュ通知プレビュー要約のサンプルスクリーンショット。]({% image_buster /assets/img/apple/apple_intelligence/notification_preview_summary.png %})

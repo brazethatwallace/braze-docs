@@ -13,7 +13,7 @@ description: "Este artículo te guiará sobre cómo usar, interpretar y comparti
 
 > Aprende a usar, interpretar y compartir la información del segmento.
 
-La información del segmento te muestra cómo se desempeña un segmento en comparación con otro a través de un conjunto de KPI preseleccionados.
+La información del segmento te muestra cómo se desempeña un segmento en comparación con otro a través de un conjunto de indicador clave de rendimiento preseleccionados.
 
 ## Visualización de la información del segmento {#viewing-segment-insights}
 
@@ -66,7 +66,7 @@ La información del segmento puede ayudar a descubrir diferencias entre los grup
 
 ![Desglose de información del segmento para segmentos de inglés, alemán, francés y español.]({% image_buster /assets/img_archive/Segment_Language_Insights.png %})
 
-En este ejemplo, los hablantes de alemán se registraron hace más tiempo en promedio, lo que podría explicar por qué ya no son tan activos. Esto podría deberse a una multitud de factores. Por ejemplo, si la aplicación se lanzó primero en Europa pero ahora es más popular en EE. UU., donde la mayoría de las personas hablan inglés o español. Para obtener hallazgos más sólidos al analizar KPI entre grupos demográficos, es sensato probar los hallazgos de un estudio general de demografía (por ejemplo, si el idioma impacta el LTV en todos los usuarios) observando una población más pequeña y similar para ver si los hallazgos persisten.
+En este ejemplo, los hablantes de alemán se registraron hace más tiempo en promedio, lo que podría explicar por qué ya no son tan activos. Esto podría deberse a una multitud de factores. Por ejemplo, si la aplicación se lanzó primero en Europa pero ahora es más popular en EE. UU., donde la mayoría de las personas hablan inglés o español. Para obtener hallazgos más sólidos al analizar indicador clave de rendimiento entre grupos demográficos, es sensato probar los hallazgos de un estudio general de demografía (por ejemplo, si el idioma impacta el LTV en todos los usuarios) observando una población más pequeña y similar para ver si los hallazgos persisten.
 
 Para mejorar las conversiones entre hablantes de idiomas distintos al inglés, un buen primer paso sería [localizar las campañas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization) al idioma del dispositivo del usuario y asegurarse de que el texto de esos mensajes esté captando a los usuarios mediante una [campaña multivariante]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests) para probar diferentes versiones del texto en el idioma extranjero.
 

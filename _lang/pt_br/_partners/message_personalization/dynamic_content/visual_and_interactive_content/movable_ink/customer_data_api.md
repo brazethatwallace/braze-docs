@@ -90,7 +90,7 @@ A Braze oferece suporte a entregas agendadas, baseadas em ação e disparadas po
 Para entrega baseada em ação:
 
 1. Especifique a ação-gatilho. Esse é o evento que disparará o webhook para a Movable Ink.
-2. Certifique-se de que a **Schedule Delay** esteja definida como **Immediately**. Os dados do evento devem ser enviados à Movable Ink imediatamente após a ocorrência do evento, sem postergação.
+2. Certifique-se de que a **agendar/cronograma Delay** esteja definida como **Immediately**. Os dados do evento devem ser enviados à Movable Ink imediatamente após a ocorrência do evento, sem postergação.
 3. Defina a duração da campanha especificando uma hora de início. É provável que um horário de término não seja aplicável, mas ele pode ser definido se necessário para o caso de uso.
 
 {% alert note %}

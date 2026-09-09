@@ -22,23 +22,23 @@ hide_toc: true
   - [MMSメッセージ](#mms-messages)
   - [RCSタイプ](#rcs-types)
 - [WhatsAppチャネルの詳細](#whatsapp-channel-details)
-  - [請求リージョンの内訳](#billing-region-breakdown)
+  - [課金リージョンの内訳](#billing-region-breakdown)
 - [エージェントコンソールの詳細](#agent-console-details)
 - [その他のチャネルの詳細](#additional-channel-details)
   - [LINE](#line)
   - [KakaoTalk](#kakaotalk)
   - [Content Cards](#content-cards)
   - [バナー](#banners)
-  - [オーディエンス同期](#audience-sync)
+  - [Audience Sync](#audience-sync)
   - [メッセージアーカイブ](#message-archiving)
-  - [Webhook](#webhooks)
+  - [webhook](#webhooks)
 
 ## メールチャネルの詳細 {#email-channel-details}
 
 メールクレジットの比率は、Brazeプラットフォームから送信されるメール1,000通単位（CPM）で計算されます。
 
 {% alert note %}
-メールチャネルの詳細については、[メールドキュメント]({{site.baseurl}}/user_guide/message_building_by_channel/email)を参照してください。
+メールチャネルの詳細については、[メールのドキュメント]({{site.baseurl}}/user_guide/channels/email)を参照してください。
 {% endalert %}
 
 ## SMS、MMS、RCSチャネルの詳細 {#sms-mms-and-rcs-channel-details}
@@ -46,25 +46,25 @@ hide_toc: true
 SMSおよびMMSのクレジット比率は、Brazeプラットフォームから送信されたセグメント単位で計算されます。RCSのクレジット比率は、Brazeプラットフォームから配信されたBasicおよびRich Mediaタイプ、またはSingleおよびRich Mediaタイプの単位で計算されます。受信と送信の両方のタイプが課金対象となります。
 
 {% alert note %}
-これらのチャネルに該当する場合、キャリア料金は別途（後払いで）請求され、アクションクレジットの一部とはみなされません。
+これらのチャネルに該当する場合、キャリア料金は別途（後払いで）課金され、アクションクレジットの一部としては考慮されません。
 {% endalert %}
 
 ### SMSセグメント {#sms-segments}
 
-SMS業界では、メッセージをSMSメッセージセグメント単位でカウントします。メッセージセグメントとは、定義された文字数（GSM-7エンコーディングの場合は160文字、UCS-2エンコーディングの場合は67文字）までのグループであり、1回のSMS送信で送られます。GSM-7エンコーディングを使用して161文字のSMSを送信した場合、2つのメッセージセグメントが送信されます。複数のメッセージセグメントを送信すると、追加料金が発生します。
+SMS業界では、メッセージをSMSメッセージセグメント単位でカウントします。メッセージセグメントとは、定義された文字数（GSM-7エンコーディングでは160文字、UCS-2エンコーディングでは67文字）までのグループで、1回のSMS送信で送られます。GSM-7エンコーディングで161文字のSMSを送信した場合、2つのメッセージセグメントが送信されます。複数のメッセージセグメントを送信すると、追加料金が発生します。
 
 ### MMSメッセージ {#mms-messages}
 
-MMSの場合、メッセージの上限は5 MBです（これにはマルチメディアアセットとメッセージ本文のサイズが含まれます）。安全のため、Brazeではマルチメディアアセットを600 KB以下に抑え、メッセージ本文も含めることを推奨しています。
+MMSの場合、メッセージの上限は5 MB（マルチメディアアセットとメッセージ本文のサイズを含む）です。安全を考慮して、Brazeではマルチメディアアセットを600 KB以下に抑え、メッセージ本文も含めることを推奨しています。
 
 ### RCSタイプ {#rcs-types}
 
-RCSはSMSおよびMMSの次世代版です。SMSのようなダイレクトで高エンゲージメントなチャネルの利点を備えつつ、リッチコンテンツ（画像、動画、ドキュメント）、認証済みおよびブランド付き送信、提案された返信やアクションなどのインタラクティブ機能など、現代の消費者が期待するよりリッチな機能を提供します。
+RCSは、SMSおよびMMSの次世代版です。SMSのようなダイレクトで高いエンゲージメントを持つチャネルの利点に加え、リッチコンテンツ（画像、動画、ドキュメント）、認証済みおよびブランド付きの送信、候補返信やアクションなどのインタラクティブ機能など、現代の消費者が期待するより豊富な機能を提供します。
 
 {% multi_lang_include pricing/rcs_billing_message_types.md %}
 
 {% alert note %}
-BrazeのSMSファミリーの提供内容について詳しくは、[SMSおよびMMSドキュメント]({{site.baseurl}}/user_guide/message_building_by_channel/sms)を参照してください。
+BrazeのSMSファミリーのサービスについて詳しくは、[SMSおよびMMSのドキュメント]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs)を参照してください。
 {% endalert %}
 
 ## WhatsAppチャネルの詳細 {#whatsapp-channel-details}
@@ -75,7 +75,7 @@ BrazeのSMSファミリーの提供内容について詳しくは、[SMSおよ�
 
 ### 北米 {#north-america}
 
-米国、カナダ
+アメリカ合衆国、カナダ
 
 ### その他のアフリカ {#rest-of-africa}
 
@@ -85,7 +85,7 @@ BrazeのSMSファミリーの提供内容について詳しくは、[SMSおよ�
 
 アフガニスタン、オーストラリア、バングラデシュ、カンボジア、中国、日本、ラオス、モンゴル、ネパール、ニュージーランド、パプアニューギニア、フィリピン、スリランカ、台湾、タジキスタン、タイ、トルクメニスタン、ウズベキスタン、ベトナム
 
-### その他の中央・東ヨーロッパ {#rest-of-central-eastern-europe}
+### その他の中東欧 {#rest-of-central-eastern-europe}
 
 アルバニア、アルメニア、アゼルバイジャン、ベラルーシ、ブルガリア、クロアチア、チェコ共和国、ジョージア、ギリシャ、ラトビア、リトアニア、マケドニア、モルドバ、セルビア、スロバキア、スロベニア、ウクライナ
 
@@ -97,30 +97,30 @@ BrazeのSMSファミリーの提供内容について詳しくは、[SMSおよ�
 
 バーレーン、イラク、ヨルダン、クウェート、レバノン、オマーン、イエメン
 
-### その他の西ヨーロッパ {#rest-of-western-europe}
+### その他の西欧 {#rest-of-western-europe}
 
 オーストリア、ベルギー、デンマーク、フィンランド、アイルランド、ノルウェー、ポルトガル、スウェーデン、スイス
 
 {% alert note %}
-BrazeのWhatsAppサービスの詳細については、[WhatsAppドキュメント]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp)を参照してください。
+WhatsAppの提供内容について詳しくは、[WhatsAppドキュメント]({{site.baseurl}}/user_guide/channels/whatsapp)を参照してください。
 {% endalert %}
 
 ## エージェントコンソールの詳細 {#agent-console-details}
 
-エージェントコンソールのクレジット比率は、Brazeプラットフォームから実行される1,000回の呼び出し（Invocation）単位で計算されます。Invocationは、エージェントがLLMへの呼び出しを開始した際に記録されます。デフォルトでは、契約にはサブスクリプション期間の各期間ごとにプラットフォームエディションで指定された呼び出し回数の割り当てが含まれています。追加の呼び出しについては、注文書に従って課金されます。
+エージェントコンソールのクレジット比率は、Brazeプラットフォームから実行された1,000回の呼び出し（Invocations）単位で計算されます。呼び出し（Invocation）は、エージェントがLLMへのコールを開始した際に記録されます。デフォルトでは、契約にはサブスクリプション期間の各期間ごとにプラットフォームエディションで指定された呼び出し回数の割り当てが含まれています。追加の呼び出しについては、注文書に従って課金されます。
 
 {% alert note %}
 エージェントコンソールの詳細については、[Brazeエージェントのドキュメント]({{site.baseurl}}/user_guide/brazeai/agents)を参照してください。
 {% endalert %}
 
-## チャネルの追加詳細 {#additional-channel-details}
+## チャネルに関する追加詳細 {#additional-channel-details}
 
 ### LINE {#line}
 
 LINEのクレジット比率は、Brazeプラットフォームから送信されたLINEメッセージの増分単位で計算されます。
 
 {% alert note %}
-BrazeでのLINEの使用について詳しくは、[LINEドキュメント]({{site.baseurl}}/user_guide/message_building_by_channel/line)を参照してください。
+BrazeでのLINEの使用について詳しくは、[LINEのドキュメント]({{site.baseurl}}/user_guide/channels/line)を参照してください。
 {% endalert %}
 
 ### KakaoTalk {#kakaotalk}
@@ -128,20 +128,20 @@ BrazeでのLINEの使用について詳しくは、[LINEドキュメント]({{si
 KakaoTalkのクレジット比率は、Brazeプラットフォームから送信されたKakaoTalkメッセージの増分単位で計算されます。
 
 {% alert note %}
-BrazeでのKakaoTalkの使用について詳しくは、[KakaoTalkドキュメント]({{site.baseurl}}/kakaotalk)を参照してください。
+BrazeでのKakaoTalkの使用について詳しくは、[KakaoTalkのドキュメント]({{site.baseurl}}/kakaotalk)を参照してください。
 {% endalert %}
 
 ### Content Cards {#content-cards}
 
 Content Cardsのクレジット比率は、1日あたりのユニークインプレッション1,000件の増分単位で計算されます。
 
-Brazeは、顧客がBrazeのガイダンスに従ってユニークインプレッションを記録するようにContent Cardsを設定していない場合、送信されたContent Cardsの数に基づいてクレジットを請求する権利を留保します。Content Cardsの最初の送信から6か月以内に、顧客が以下の条件に該当する場合、これが適用されるものとみなされます。
-- 500万（5,000,000）件を超えるContent Cardsを送信し、かつ以下のいずれかに該当する場合
-    - インプレッションの記録がゼロ（0）件
-    - 送信数と1日あたりのユニークインプレッション数の比率が100（100）を超えている
+Brazeは、顧客がBrazeのガイダンスに従ってユニークインプレッションを記録するようにContent Cardsを設定していない場合、送信されたContent Cardsの数に基づいてクレジットを請求する権利を留保します。これは、Content Cardsの初回送信から6か月以内に、顧客が以下の条件を満たした場合に適用されます。
+- Content Cardsを500万件（5,000,000件）超送信しており、かついずれかに該当する場合
+    - インプレッションがゼロ（0）件である
+    - 送信数と1日あたりのユニークインプレッション数の比率が100を超えている
 
 {% alert note %}
-Braze Content Cardsについて詳しくは、[Content Cardsドキュメント]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards)を参照してください。
+Braze Content Cardsについて詳しくは、[Content Cardsのドキュメント]({{site.baseurl}}/user_guide/channels/content_cards)を参照してください。
 {% endalert %}
 
 ### バナー {#banners}
@@ -149,31 +149,35 @@ Braze Content Cardsについて詳しくは、[Content Cardsドキュメント](
 バナーのクレジット比率は、1日あたりのユニークインプレッション1,000件の増分単位で計算されます。
 
 {% alert note %}
-Brazeバナーについて詳しくは、[バナードキュメント]({{site.baseurl}}/developer_guide/banner_cards)を参照してください。
+Brazeバナーについて詳しくは、[バナーのドキュメント]({{site.baseurl}}/developer_guide/banners)を参照してください。
 {% endalert %}
 
-### Audience Sync {#audience-sync}
+### オーディエンスSync {#audience-sync}
 
-Audience Syncのクレジット比率は、合計ユーザー同期1,000件の増分単位で計算されます。デフォルトでは、契約にはサブスクリプション期間の各期間ごとに500万件のユーザー同期が含まれています。追加のユーザー同期は、注文書に従って請求されます。
+オーディエンスSyncのクレジット比率は、合計ユーザー同期1,000件の増分単位で計算されます。デフォルトでは、契約にはサブスクリプション期間の各期間につき500万件のユーザー同期が含まれています。追加のユーザー同期は、注文書に従って請求されます。
 
 {% alert note %}
-キャンバスのAudience Syncと利用可能なパートナーについて詳しくは、[キャンバスドキュメント]({{site.baseurl}}/partners/canvas_steps)を参照してください。
+キャンバスオーディエンスSyncと利用可能なパートナーについて詳しくは、[キャンバスのドキュメント]({{site.baseurl}}/partners/canvas_audience_sync)を参照してください。
 {% endalert %}
 
 ### メッセージアーカイブ {#message-archiving}
 
-メッセージアーカイブのクレジット比率は、プッシュ、メール、SMS/MMSチャネル全体でアーカイブされたメッセージ1,000件の増分単位で計算されます。
+メッセージアーカイブのクレジット比率は、プッシュ、メール、SMS/MMS、およびアプリ内メッセージチャネル全体でアーカイブに成功したメッセージ1,000件の増分単位で計算されます。
 
 {% alert note %}
-メッセージアーカイブについて詳しくは、[メッセージアーカイブドキュメント]({{site.baseurl}}/user_guide/data/export_braze_data/message_archiving#message-archiving)を参照してください。
+2026年9月2日以降、アーカイブの失敗は利用料金の請求対象から除外され、アクションクレジットを消費するのは成功したアーカイブのみとなります。この変更は、2026年9月2日より前に請求された利用分には影響しません。
+{% endalert %}
+
+{% alert note %}
+メッセージアーカイブについて詳しくは、[メッセージアーカイブのドキュメント]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/message_archiving)を参照してください。
 {% endalert %}
 
 ### Webhook {#webhooks}
 
-webhookのクレジット比率は、Brazeプラットフォームから正常に送信されたwebhook 1,000件の増分単位で計算されます。デフォルトでは、契約にはサブスクリプション期間の各期間ごとに10万件のwebhookが含まれています。追加のwebhookは、注文書に従って請求されます。
+Webhookのクレジット比率は、Brazeプラットフォームから正常に送信されたwebhook 1,000件の増分単位で計算されます。デフォルトでは、契約にはサブスクリプション期間の各期間につき10万件のwebhookが含まれています。追加のwebhookは、注文書に従って請求されます。
 
 {% multi_lang_include pricing/webhook_failed_requests_billing.md credit_name='Action Credits' %}
 
 {% alert note %}
-Braze webhookについて詳しくは、[webhookドキュメント]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks)を参照してください。
+Braze Webhookについて詳しくは、[webhookのドキュメント]({{site.baseurl}}/user_guide/channels/webhooks)を参照してください。
 {% endalert %}

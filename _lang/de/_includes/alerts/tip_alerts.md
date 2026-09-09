@@ -9,7 +9,7 @@ Sie können Abos auch auf einer Braze Landing-Page verwalten. Fügen Sie einen B
 {% if include.alert == "Liquid email display name and reply-to address" %}
 
 {% alert tip %}
-Sie können [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/) in den Feldern **Anzeigename + Adresse** und **Antwortadresse** verwenden, um diese basierend auf angepassten Attributen dynamisch zu gestalten. So können Sie mit einer einzigen E-Mail-Campaign oder einem einzigen Canvas-Schritt Nachrichten von verschiedenen Marken, Regionen oder Abteilungen versenden.
+Sie können [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) in den Feldern **From Display Name + Address** und **Reply-To Address** verwenden, um diese basierend auf angepassten Attributen dynamisch zu gestalten. So können Sie mit einer einzigen E-Mail-Campaign oder einem einzigen Canvas-Schritt Nachrichten von verschiedenen Marken, Regionen oder Abteilungen versenden.
 {% endalert %}
 
 {% endif %}
@@ -17,7 +17,7 @@ Sie können [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_con
 {% if include.alert == "Reference properties from triggering event" %}
 
 {% alert tip %}
-Sie benötigen keinen Kontext-Schritt, um in [Zielgruppenpfaden]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/audience_paths) oder [Decision-Split]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/decision_split)-Schritten auf Eigenschaften des auslösenden Ereignisses zu verweisen. Sie können die Eigenschaften direkt in den Filtergruppen mit dem Filter **Kontextvariable** referenzieren. Stellen Sie sicher, dass Sie den korrekten Datentyp auswählen.
+Sie benötigen keinen Kontext-Schritt, um in [Zielgruppenpfaden]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) oder [Decision-Split]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split)-Schritten auf Eigenschaften des auslösenden Ereignisses zu verweisen. Sie können die Eigenschaften direkt in den Filtergruppen mit dem Filter **Context Variable** referenzieren. Stellen Sie sicher, dass Sie den korrekten Datentyp auswählen.
 {% endalert %}
 
 {% endif %}
@@ -33,7 +33,7 @@ Um Bilder für Katalog-Trigger-Artikel abzurufen, muss Ihr Katalog ein Feld mit 
 {% if include.alert == 'Export troubleshooting' %}
 
 {% alert tip %}
-Hilfe zu CSV- und API-Exporten finden Sie unter [Fehlerbehebung bei Exporten]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+Hilfe zu CSV- und API-Exporten finden Sie unter [Fehlerbehebung bei Exporten]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endif %}
@@ -45,7 +45,7 @@ Hilfe zu CSV- und API-Exporten finden Sie unter [Fehlerbehebung bei Exporten]({{
 
 <br>
 
-Wenn Sie wissen möchten, in wie vielen Segmenten Ihre Nachricht versendet wird, geben Sie Ihren Text in den Rechner ein. Beachten Sie, dass die Ausgabe von Liquid oder Connected Content dabei nicht verarbeitet oder vorhergesagt wird.
+Wenn Sie wissen möchten, in wie vielen Segmenten Ihre Nachricht versendet wird, geben Sie Ihren Text in den Rechner ein. Beachten Sie, dass die Ausgabe von Liquid oder Connected-Content dabei nicht verarbeitet oder vorhergesagt wird.
 <!-- Note: This calculator uses fixed DOM IDs and global variables. Include only once per page to avoid conflicts. -->
 <style>
   .segment_data_hide {

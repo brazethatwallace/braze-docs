@@ -25,11 +25,11 @@ description: "Saiba como definir e configurar o público do seu agente do BrazeA
 {% tabs %}
 {% tab Braze %}
 
-1. Crie um segmento para o público que você deseja direcionar.
-2. Forneça o ID do segmento à sua equipe de AI Decisioning Services.
+1. Crie um Segment para o público que você deseja direcionar.
+2. Forneça o ID do Segment à sua equipe de AI Decisioning Services.
 
 {% alert note %}
-Na Braze, é possível ingerir múltiplos segmentos e combiná-los para criar o público. O Decisioning Studio pode ingerir um segmento para uma Campaign de comparação Business-as-Usual. Todos esses padrões são aceitáveis.
+Na Braze, é possível ingerir múltiplos segmentos e combiná-los para criar o público. O Decisioning Studio pode ingerir um Segment para uma Campaign de comparação Business-as-Usual. Todos esses padrões são aceitáveis.
 {% endalert %}
 
 {% endtab %}

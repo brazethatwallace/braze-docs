@@ -1,8 +1,11 @@
-> Learn how to use the Query Builder, so you can generate reports using Braze data in Snowflake. The Query Builder comes with pre-built SQL [query templates]({{site.baseurl}}/user_guide/analytics/query_builder/query_templates/) to get you started, or you can write your own custom SQL queries to unlock even more insights.
+> Learn how to use the Query Builder, so you can generate reports using Braze data in Snowflake. The Query Builder comes with pre-built SQL [query templates]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates/) to get you started, or you can write your own custom SQL queries to unlock even more insights.
 
 ## Prerequisites
 
-You'll need ["View PII" permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) to use Query Builder, since it allows direct access to some customer data.
+To use Query Builder, you'll need the following [permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/):
+
+- **View PII:** Query Builder allows direct access to some customer data.
+- **View Dashboard Reports:** This permission is required for non-admin users to view Query Builder in the dashboard.
 
 ## Using the Query Builder
 
@@ -12,7 +15,7 @@ To create a new query, go to **Analytics** > **Query Builder**, then select **Cr
 
 ![The "Query Template" and "SQL Editor" options found within the "Create SQL Query" dropdown.]({% image_buster /assets/img_archive/create_sql_query_button.png %}){: style="max-width:60%;"}
 
-If you need inspiration or help in crafting your query, choose **Query Template** and select a [pre-made template]({{site.baseurl}}/user_guide/analytics/query_builder/query_templates/). To start with a blank query, select **SQL Editor**.
+If you need inspiration or help in crafting your query, choose **Query Template** and select a [pre-made template]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates/). To start with a blank query, select **SQL Editor**.
 
 Your report is automatically given a name with the current date and time. Hover over the name and select <i class="fas fa-pencil" alt="Edit"></i> to give your SQL query a meaningful name.
 
@@ -34,7 +37,7 @@ The AI Query Builder leverages [GPT](https://openai.com/gpt-4), powered by OpenA
 
 #### Tips
 
-- Familiarize yourself with the available [Snowflake data tables]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/sql_segments_tables/). Asking for data that doesn't exist in these tables may result in ChatGPT making up a fake table.
+- Familiarize yourself with the available [Snowflake data tables]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/). Asking for data that doesn't exist in these tables may result in ChatGPT making up a fake table.
 - Familiarize yourself with the [SQL writing rules]({{site.baseurl}}/user_guide/data_and_analytics/query_builder/#custom-sql) for this feature. Not following these rules will cause an error.
 - You can send up to 20 prompts per minute with the AI Query Builder.
 
@@ -42,7 +45,7 @@ The AI Query Builder leverages [GPT](https://openai.com/gpt-4), powered by OpenA
 {% endtab %}
 
 {% tab On My Own %}
-Write your SQL query using [Snowflake syntax](https://docs.snowflake.com/en/sql-reference). Consult the [table reference]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/sql_segments_tables/) for a full list of tables and columns available to be queried.
+Write your SQL query using [Snowflake syntax](https://docs.snowflake.com/en/sql-reference). Consult the [table reference]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/) for a full list of tables and columns available to be queried.
 
 To view table details within the Query Builder:
 
@@ -130,7 +133,7 @@ For the full list of `ABORT_TYPE` values and their descriptions, see [Abort type
 
 ## Data and results
 
-All queries surface data from the last 60 days. When you export your results, it will only contain up to 1,000 rows. For reports that require larger amounts of data, you can use tools such as [Currents]({{site.baseurl}}/user_guide/data/braze_currents/) or the [export API endpoint]({{site.baseurl}}/api/endpoints/export).
+All queries surface data from the last 60 days. When you export your results, it will only contain up to 1,000 rows. For reports that require larger amounts of data, you can use tools such as [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) or the [export API endpoint]({{site.baseurl}}/api/endpoints/export).
 
 ## Snowflake credits
 

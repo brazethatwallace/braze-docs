@@ -141,7 +141,7 @@ function getPushStatus(event){
 
 루트 도메인에 서비스 종사자를 등록할 수 없는 경우 다른 방법은 서비스 종사자 파일을 제공할 때 [`Service-Worker-Allowed`](https://w3c.github.io/ServiceWorker/#service-worker-script-response) HTTP 헤더를 사용하는 것입니다. 서비스 워커에 대한 응답으로 `Service-Worker-Allowed: /` 을 반환하도록 서버를 구성하면 브라우저가 범위를 넓혀 다른 디렉토리 내에서 사용할 수 있도록 지시합니다.
 
-#### Tag Manager를 사용하여 서비스 종사자를 생성할 수 있나요?
+#### Tag 매니저를 사용하여 서비스 종사자를 생성할 수 있나요?
 
 아니요, 서비스 워커는 웹사이트의 서버에서 호스팅되어야 하며 태그 관리자를 통해 로드할 수 없습니다.
 

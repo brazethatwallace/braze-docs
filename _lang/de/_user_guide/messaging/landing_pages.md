@@ -14,14 +14,14 @@ alias: /landing_pages/
 Nutzen Sie Landing-Pages, um Ihre Zielgruppe zu vergrößern, Nutzerdaten zu erfassen, Sonderangebote zu bewerben und Multichannel-Kampagnen zu unterstützen. Eine Referenz der Drag-and-Drop-Blöcke für Landing-Pages finden Sie unter [Editor-Blöcke (Landing-Pages)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=landing%20pages).
 
 {% alert note %}
-Die Verfügbarkeit von Landing-Pages und angepassten Domains hängt von Ihrem Braze-Paket ab. Kontaktieren Sie Ihren Account Manager oder Customer-Success-Manager, um loszulegen.
+Die Verfügbarkeit von Landing-Pages und angepassten Domains hängt von Ihrem Braze-Paket ab. Kontaktieren Sie Ihren Account Manager:in oder CSM, um loszulegen.
 {% endalert %}
 
 {% multi_lang_include video.html id="eg4r7agod1" source="wistia" %}
 
 ## Voraussetzungen {#prerequisites}
 
-Bevor Sie auf Landing-Pages zugreifen, diese erstellen und veröffentlichen können, benötigen Sie entweder Administrator-[Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions) oder alle folgenden Berechtigungen:
+Bevor Sie auf Landing-Pages zugreifen, diese erstellen und veröffentlichen können, benötigen Sie entweder [Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions) als Administrator:in oder alle folgenden Berechtigungen:
 
 - Landing-Pages anzeigen
 - Landing-Page-Entwürfe bearbeiten
@@ -41,9 +41,15 @@ Die Anzahl der veröffentlichten Landing-Pages, angepassten Domains und Features
 | Vorausgefüllte Formularfelder | Nicht verfügbar | Verfügbar |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Planstufen" }
 
+## Rate-Limits {#rate-limits}
+
+Braze wendet ein Rate-Limit von 500 Anfragen pro drei Sekunden (ca. 167 Anfragen pro Sekunde) pro Workspace für nicht zwischengespeicherte Landing-Pages an. Dieses Limit trägt dazu bei, die Systemleistung und Zuverlässigkeit während Zeiten mit hohem Datenverkehr aufrechtzuerhalten.
+
+Zwischengespeicherte Landing-Page-Aufrufe werden nicht auf dieses Limit angerechnet. Informationen dazu, wie Caching den Datenverkehr beeinflusst, finden Sie unter [Können Landing-Pages Szenarien mit hohem Datenverkehr bewältigen?](#can-landing-pages-handle-high-traffic-scenarios).
+
 ## Google Tag Manager zu einer Landing-Page hinzufügen {#adding-google-tag-manager-to-a-landing-page}
 
-Um Google Tag Manager zu Ihren Landing-Pages hinzuzufügen, fügen Sie im Drag-and-Drop-Editor einen **Custom Code**-Block zu Ihrer Landing-Page hinzu und fügen Sie dann den Tag-Manager-Code in den Block ein. Stellen Sie sicher, dass Sie vor dem Tag-Manager-Code einen Data Layer hinzufügen, wie in diesem Beispiel:
+Um Google Tag Manager zu Ihren Landing-Pages hinzuzufügen, fügen Sie im Drag-and-Drop-Editor einen **Custom Code**-Block zu Ihrer Landing-Page hinzu und setzen Sie dann den Tag Manager-Code in den Block ein. Stellen Sie sicher, dass Sie vor dem Tag Manager-Code einen Data Layer hinzufügen, wie in diesem Beispiel:
 
 ```
 <script>
@@ -62,15 +68,17 @@ Weitere Informationen zur Implementierung von Google Tag Manager finden Sie in d
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 
-### Wie groß dürfen Landing-Pages maximal sein? {#whats-the-maximum-size-for-landing-pages}
+### Wie groß darf eine Landing-Page maximal sein? {#whats-the-maximum-size-for-landing-pages}
 
-Die Größe des Landing-Page-Bodys kann bis zu 500 KB betragen.
+Die maximale Größe des Landing-Page-Bodys beträgt 500 KB.
 
-### Können Landing-Pages Szenarien mit hohem Traffic bewältigen? {#can-landing-pages-handle-high-traffic-scenarios}
+### Können Landing-Pages hohe Traffic-Szenarien bewältigen? {#can-landing-pages-handle-high-traffic-scenarios}
 
-Ja, nicht personalisierte Landing-Pages können Szenarien mit hohem Traffic effektiv bewältigen. Wenn eine nicht personalisierte Landing-Page zum ersten Mal angefordert wird, wird sie von Braze über Cloudflare gecacht. Das bedeutet, dass alle nachfolgenden Anfragen für denselben Link aus dem Cache bedient werden, sodass die Performance bei hohem Anfragevolumen nicht beeinträchtigt wird. Dieser Cache ist 24 Stunden gültig, und gecachte Seitenaufrufe werden nicht auf Rate-Limits angerechnet.
+Ja. Nicht personalisierte Landing-Pages bewältigen hohe Traffic-Szenarien effektiv. Wenn eine Landing-Page zum ersten Mal angefordert wird, wird sie von Braze über Cloudflare zwischengespeichert. Nachfolgende Anfragen für denselben Link werden aus dem Cache bedient, was in Zeiten mit hohem Traffic hilfreich ist. Dieser Cache gilt 24 Stunden, und zwischengespeicherte Seitenaufrufe werden nicht auf die [Rate-Limits](#rate-limits) angerechnet.
 
-Für personalisierte Landing-Pages (mit Liquid-Personalisierung) gelten Rate-Limits für nicht gecachte Anfragen. Um eine optimale Performance aufrechtzuerhalten, siehe [Überlegungen zur Personalisierung]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages#personalization-considerations).
+Personalisierte Landing-Pages verwenden einen kürzeren Cloudflare-Cache und erzeugen mehr nicht zwischengespeicherte Anfragen an Braze. Diese nicht zwischengespeicherten Anfragen unterliegen dem pro Workspace geltenden Rate-Limit, das unter [Rate-Limits](#rate-limits) beschrieben ist.
+
+Informationen zu Größenlimits und weiteren Performance-Empfehlungen für personalisierte Seiten finden Sie unter [Überlegungen zur Personalisierung]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages#personalization-considerations).
 
 ### Gibt es technische Voraussetzungen, um eine Landing-Page zu veröffentlichen? {#are-there-any-technical-requirements-to-publish-a-landing-page}
 
@@ -78,13 +86,13 @@ Nein, es gibt keine technischen Voraussetzungen.
 
 ### Gibt es einen HTML-Editor für Landing-Pages? {#is-there-an-html-editor-for-landing-pages}
 
-Ja. Verwenden Sie den Block **Custom Code** im Drag-and-Drop-Editor, um HTML hinzuzufügen oder zu bearbeiten. Um über Ihren benutzerdefinierten Code mit dem Braze SDK zu interagieren, siehe [JavaScript-Bridge für Landing-Pages]({{site.baseurl}}/user_guide/messaging/landing_pages/javascript_bridge). Um eine vollständig benutzerdefinierte UI mit einem Landing-Page-Formular zu verbinden, siehe [Benutzerdefinierte Formularblöcke erstellen]({{site.baseurl}}/user_guide/messaging/landing_pages/custom_form_blocks).
+Ja. Verwenden Sie den **Custom Code**-Block im Drag-and-Drop-Editor, um HTML hinzuzufügen oder zu bearbeiten. Informationen zur Anbindung an das Braze SDK aus Ihrem angepassten Code finden Sie unter [JavaScript-Bridge für Landing-Pages]({{site.baseurl}}/user_guide/messaging/landing_pages/javascript_bridge). Um eine vollständig angepasste UI mit einem Landing-Page-Formular zu verbinden, lesen Sie [Angepasste Formularblöcke erstellen]({{site.baseurl}}/user_guide/messaging/landing_pages/custom_form_blocks).
 
 ### Kann ich iframes auf Landing-Pages verwenden? {#can-i-use-iframes-on-landing-pages}
 
-Ja. Fügen Sie einen Block **Custom Code** im Drag-and-Drop-Editor hinzu und fügen Sie ein iframe-Element mit der URL des Inhalts ein, den Sie einbetten möchten.
+Ja. Fügen Sie einen **Custom Code**-Block im Drag-and-Drop-Editor hinzu und ergänzen Sie ein iframe-Element mit der URL des Inhalts, den Sie einbetten möchten.
 
-Wenn die eingebettete Website das Framing über `frame-ancestors` in ihrer Content Security Policy (CSP) oder `X-Frame-Options` einschränkt, wird die Seite möglicherweise nicht im iframe geladen. Braze kann diese Einstellungen nicht überschreiben – die eingebettete Website muss so konfiguriert sein, dass sie Ihre Landing-Page-Domain zulässt.
+Wenn die eingebettete Website das Framing über `frame-ancestors` in ihrer Content Security Policy (CSP) oder `X-Frame-Options` einschränkt, wird die Seite möglicherweise nicht im iframe geladen. Braze kann diese Einstellungen nicht überschreiben – die eingebettete Website muss so konfiguriert sein, dass Ihre Landing-Page-Domain zugelassen wird.
 
 ### Kann ich einen Webhook innerhalb einer Landing-Page erstellen? {#can-i-create-a-webhook-inside-a-landing-page}
 
@@ -93,6 +101,6 @@ Nein, aber das Ereignis **Submitted a Landing Page form** kann als Trigger für 
 - **Canvas:** Verwenden Sie das Ereignis **Submitted a Landing Page form** als Canvas-Entry-Trigger und fügen Sie einen Webhook-Schritt hinzu.
 - **Campaign:** Verwenden Sie das Ereignis **Submitted a Landing Page form**, um basierend auf der Formularübermittlung zu triggern.
 
-Wenn die Seite nicht über einen Braze-Kanal gesendet wird (z. B. über eine Website oder Anzeige), kann bei der Übermittlung ein neues Nutzerprofil erstellt werden – selbst wenn diese Person bereits in Braze existiert. Um dies zu handhaben, richten Sie einen Canvas ein, der durch **Submitted a Landing Page form** getriggert wird, und fügen Sie einen Braze-zu-Braze-Webhook-Schritt hinzu, der den Endpunkt [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) aufruft, um das neue Profil mit dem bestehenden zusammenzuführen.
+Wenn die Seite nicht über einen Braze-Kanal gesendet wird (z. B. über eine Website oder Anzeige), kann bei der Übermittlung ein neues Kundenprofil erstellt werden – auch wenn diese Person bereits in Braze existiert. Um dies zu handhaben, richten Sie ein Canvas ein, das durch **Submitted a Landing Page form** getriggert wird, und fügen Sie einen Braze-to-Braze-Webhook-Schritt hinzu, der den Endpunkt [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) aufruft, um das neue Profil mit dem bestehenden zusammenzuführen.
 
-Wenn Sie den Liquid-Tag `landing_page_url` verwenden, um die Seite zu teilen, werden Formularübermittlungen automatisch dem bestehenden Nutzerprofil zugeordnet. Sie können dann die auf der Landing-Page übermittelten Nutzerattribute über Liquid für nachfolgendes Templating referenzieren.
+Wenn Sie den Liquid-Tag `landing_page_url` verwenden, um die Seite zu teilen, werden Formularübermittlungen automatisch dem bestehenden Kundenprofil zugeordnet. Sie können dann die auf der Landing-Page übermittelten Nutzerattribute über Liquid für nachfolgendes Templating referenzieren.

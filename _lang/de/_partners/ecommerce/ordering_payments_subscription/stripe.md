@@ -21,8 +21,8 @@ Durch die Integration von Braze und Stripe können Sie:
 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
-| Stripe-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Stripe-Konto mit Zugang zu Webhooks. |
-| Braze-Datentransformation | Um Daten von Stripe zu empfangen, ist eine [URL für die Datentransformation]({{site.baseurl}}/data_transformation) erforderlich. |
+| Stripe-Konto | Ein Stripe-Konto mit Zugriff auf Webhooks ist erforderlich, um diese Partnerschaft nutzen zu können. |
+| Braze-Datentransformation | Eine [Datentransformations-URL]({{site.baseurl}}/user_guide/data/unification/data_transformation) ist erforderlich, um Daten von Stripe zu empfangen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
@@ -233,18 +233,18 @@ Nachdem Sie Ihre Datentransformation geschrieben haben, wählen Sie **Validate**
 }
 ```
 
-## Anwendungsfälle der Datentransformation {#data-transformation-use-cases}
+## Anwendungsfälle für Datentransformation {#data-transformation-use-cases}
 
-Nachfolgend finden Sie Beispiel-Templates, die mit unserem [Stripe-Webhook-Beispiel](#example) erstellt wurden. Diese Templates können als Ausgangspunkt verwendet werden. Sie können ganz von vorne anfangen oder bestimmte Komponenten löschen, wenn Sie es für richtig halten.
+Die folgenden Beispiel-Templates basieren auf unserem [Beispiel-Stripe-Webhook-Payload](#example). Diese Templates können als Ausgangspunkt verwendet werden. Sie können bei Null anfangen oder bestimmte Komponenten nach Bedarf löschen.
 
-In diesem Beispiel-Template protokollieren wir ein angepasstes Event für das Braze-Profil. Der Event-Typ wird als angepasster Event-Name gesendet, und das Datenobjekt wird als Event-Eigenschaften übergeben.
+In diesem Beispiel-Template protokollieren wir ein angepasstes Event im Braze-Profil. Der Event-Typ wird als Name des angepassten Events gesendet, und das Datenobjekt wird als Event-Eigenschaften übergeben.
 
 ### Anwendungsfall: Kund:in als Bezeichner {#use-case-customer-as-an-identifier}
 
 In diesem Beispiel-Template verwenden wir das Feld „customer“ als Bezeichner.
 
 {% tabs local %}
-{% tab Input %}
+{% tab Eingabe %}
 
 ```javascript
 
@@ -283,7 +283,7 @@ return brazecall;
 ```
 
 {% endtab %}
-{% tab Output %}
+{% tab Ausgabe %}
 
 ```json
 {
@@ -305,6 +305,6 @@ return brazecall;
 {% endtab %}
 {% endtabs %}
 
-## Überwachung und Fehlerbehebung {#monitoring-and-troubleshooting}
+## Monitoring und Fehlerbehebung {#monitoring-and-troubleshooting}
 
-Weitere Informationen zur Überwachung und Fehlerbehebung Ihrer Transformation finden Sie unter [Überwachung Ihrer Transformation]({{site.baseurl}}/user_guide/data_and_analytics/data_transformation/creating_a_transformation#step-5-monitor-your-transformation).
+Weitere Informationen zum Monitoring und zur Fehlerbehebung Ihrer Transformation finden Sie unter [Ihre Transformation überwachen]({{site.baseurl}}/user_guide/data_and_analytics/data_transformation/creating_a_transformation#step-5-monitor-your-transformation).

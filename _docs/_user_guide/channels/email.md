@@ -79,6 +79,11 @@ Use [seed groups]({{site.baseurl}}/user_guide/administer/global/user_management/
 
 ## Next steps
 
-- [Email setup]({{site.baseurl}}/user_guide/channels/email/email_setup)
-- [Create an email with the drag-and-drop editor]({{site.baseurl}}/user_guide/channels/email/drag_and_drop)
-- [Create an email with the HTML editor]({{site.baseurl}}/user_guide/channels/email/html_editor)
+{% article_tiles %}
+- name: Email setup
+  link: /docs/user_guide/channels/email/email_setup
+- name: Create an email with the drag-and-drop editor
+  link: /docs/user_guide/channels/email/drag_and_drop
+- name: Create an email with the HTML editor
+  link: /docs/user_guide/channels/email/html_editor
+{% endarticle_tiles %}

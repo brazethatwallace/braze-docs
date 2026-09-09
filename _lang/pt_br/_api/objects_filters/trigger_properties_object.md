@@ -22,7 +22,7 @@ O objeto `trigger_properties` e a sintaxe {% raw %}`api_trigger_properties.${pro
 
 ## Corpo do objeto {#object-body}
 
-O objeto `trigger_properties` suporta strings, números, booleanos, datas, objetos e arrays como tipos de dados.
+O objeto `trigger_properties` suporta strings, números, booleanos, datas, objetos e vetores como tipos de dados.
 
 ```json
 {
@@ -36,16 +36,37 @@ O objeto `trigger_properties` suporta strings, números, booleanos, datas, objet
         "country" : "US"
       }
     },
-    "related_skus": ["123", "456", "789"]
+    "related_skus": ["123", "456", "789"],
+    "line_items": [
+      {
+        "sku": "WH-9000",
+        "name": "Wireless Headphones",
+        "quantity": 1,
+        "pricing": {
+          "amount": 79.99,
+          "currency": "USD"
+        }
+      },
+      {
+        "sku": "RS-450",
+        "name": "Running Shoes",
+        "quantity": 2,
+        "pricing": {
+          "amount": 129.99,
+          "currency": "USD"
+        }
+      }
+    ]
   }
 }
 ```
 
 ## Exemplos de modelos Liquid {#liquid-templating-examples}
 
-Faça referência às propriedades de disparo nos seus modelos de mensagem usando o namespace `api_trigger_properties`:
+Referencie propriedades de disparo nos seus modelos de mensagem usando o namespace `api_trigger_properties`:
 
 - Strings: {% raw %}`{{api_trigger_properties.${product_name}}}`{% endraw %} retorna `"shoes"`
 - Números: {% raw %}`{{api_trigger_properties.${product_price}}}`{% endraw %} retorna `79.99`
 - Objetos aninhados: {% raw %}`{{api_trigger_properties.${details}.${color}}}`{% endraw %} retorna `"red"`
-- Elementos de array: {% raw %}`{{api_trigger_properties.${related_skus}[0]}}`{% endraw %} retorna `"123"`
+- Elementos de vetor: {% raw %}`{{api_trigger_properties.${related_skus}[0]}}`{% endraw %} retorna `"123"`
+- Vetores de objeto complexos: {% raw %}`{{api_trigger_properties.${line_items}[0]}}`{% endraw %} retorna o primeiro objeto de item de linha

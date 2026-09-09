@@ -13,7 +13,7 @@ description: "En este artículo se describen los detalles del endpoint de Braze 
 /sms/invalid_phone_numbers
 {% endapimethod %}
 
-> Utiliza este endpoint para obtener una lista de números de teléfono que se han marcado como "no válidos" en un periodo de tiempo determinado. Consulta la documentación [Manejo de números de teléfono no válidos]({{site.baseurl}}/user_guide/message_building_by_channel/sms/phone_numbers/user_phone_numbers#handling-invalid-phone-numbers) para obtener más información.
+> Utiliza este endpoint para obtener una lista de números de teléfono que se han marcado como "no válidos" en un periodo de tiempo determinado. Consulta [Manejo de números de teléfono no válidos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#handling-invalid-phone-numbers) para obtener más información.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#81ceae19-15d1-4ac1-ad22-a6b86a92456d {% endapiref %}
 
@@ -29,12 +29,12 @@ Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/ap
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | ----------|-----------| ----------|----- |
-| `start_date` | Opcional <br>(ver nota) | Cadena en formato AAAA-MM-DD| Fecha de inicio del intervalo para recuperar números de teléfono no válidos, debe ser anterior a `end_date`. La API lo considera medianoche en hora UTC. |
-| `end_date` | Opcional <br>(ver nota) | Cadena en formato AAAA-MM-DD | Fecha final del intervalo para recuperar números de teléfono no válidos. La API lo considera medianoche en hora UTC. |
+| `start_date` | Opcional <br>(ver nota) | Cadena en formato AAAA-MM-DD | Fecha de inicio del intervalo para recuperar números de teléfono no válidos, debe ser anterior a `end_date`. La API la considera medianoche en hora UTC. |
+| `end_date` | Opcional <br>(ver nota) | Cadena en formato AAAA-MM-DD | Fecha final del intervalo para recuperar números de teléfono no válidos. La API la considera medianoche en hora UTC. Los resultados incluyen números no válidos detectados hasta el final de ese día del calendario en UTC (inclusive). |
 | `limit` | Opcional | Entero | Campo opcional para limitar el número de resultados devueltos. De forma predeterminada es 100, el máximo es 500. |
 | `offset` | Opcional | Entero | Punto de inicio opcional de la lista desde el que recuperar. |
-| `phone_numbers` | Opcional <br>(ver nota) | Matriz de cadenas en formato e.164 | Si lo proporcionas, te devolveremos el número de teléfono si se comprueba que no es válido. |
-| `reason` | Opcional <br>(ver nota) | Cadena | Los valores disponibles son "provider_error" (el error del proveedor indica que el teléfono no puede recibir SMS) o "deactivated" (el número de teléfono ha sido desactivado). Si se omite, se devuelven todas las razones. |
+| `phone_numbers` | Opcional <br>(ver nota) | Matriz de cadenas en formato e.164 | Si se proporciona, Braze devuelve el número de teléfono si se comprueba que no es válido. |
+| `reason` | Opcional <br>(ver nota) | Cadena | Los valores disponibles son `provider_error` (el proveedor indica que el teléfono no puede recibir SMS), `deactivated` (el número de teléfono ha sido desactivado) o `invalid_format` (el número no pasó la validación de formato, como un valor que no cumple con E.164). Si se omite, se devuelven todas las razones. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 {% alert note %}
@@ -68,7 +68,7 @@ Las entradas aparecen en orden descendente.
     {
       "phone": (string) phone number in e.164 format,
       "invalid_detected_at": (string) the time the invalid number was detected in ISO 8601
-      "reason" : "provider_error"
+      "reason" : "invalid_format"
     }
   ],
   "message": "success"

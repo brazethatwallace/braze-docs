@@ -12,79 +12,96 @@ tool: Segments
 > Mit berechneten Filtern können Sie sehr präzise Segmente über einen längeren Zeitraum der Nutzer:innenhistorie erstellen. Verwenden Sie berechnete Filter beispielsweise, um Nutzer:innen anzusprechen, die in den letzten 16 Monaten ein bestimmtes Produkt gekauft oder einen bestimmten Betrag für Ihren Dienst ausgegeben haben. Verfeinern Sie diese Zielgruppe mithilfe von Event-Eigenschaften, um das Targeting noch granularer zu gestalten.
 
 {% alert important %}
-Berechnete Filter befinden sich derzeit im Early Access. Wenn Sie am Early Access teilnehmen möchten, wenden Sie sich an Ihren Customer-Success-Manager.
+Berechnete Filter befinden sich derzeit im Early Access. Wenn Sie am Early Access teilnehmen möchten, wenden Sie sich an Ihren Account Manager:in.
 {% endalert %}
 
 ## So funktioniert es {#how-it-works}
 
-Segments in Braze bieten Ihnen leistungsstarke Targeting-Tools, um dynamische Gruppen von Nutzer:innen zu erstellen. Für die meisten Anwendungsfälle reicht dies aus, um Ihre Zielgruppe effektiv zu erreichen. Berechnete Filter sind für fortgeschrittene Anwendungsfälle konzipiert, bei denen Sie Verhaltensweisen von bis zu zwei Jahren analysieren oder komplexe Logik anwenden müssen – ohne die Datenaufbewahrung oder Systemleistung zu beeinträchtigen. Sie können Daten aus Ihrem eigenen [Data Warehouse]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments) verwenden, um Ihre Zielgruppe weiter zu verfeinern.
+Segments in Braze bieten Ihnen leistungsstarke Targeting-Tools, um dynamische Gruppen von Nutzer:innen zu erstellen. Für die meisten Anwendungsfälle reicht dies aus, um Ihre Zielgruppe effektiv zu erreichen. Berechnete Filter sind für fortgeschrittene Anwendungsfälle konzipiert, bei denen Sie Verhaltensweisen von bis zu zwei Jahren analysieren oder komplexe Logik anwenden müssen – ohne dabei die Datenaufbewahrung oder Systemleistung zu beeinträchtigen. Verwenden Sie **Nutzeraktivitätsfilter** für Kauf- und E-Commerce-Event-Kriterien oder **Datenobjekt-Filter** für Account- und angepasstes Objekt-Targeting.
 
-Zum Beispiel findet die Standard-Segmentierung von Braze Nutzer:innen, die bestimmte von Ihnen definierte Kriterien erfüllen, wie etwa die Identifizierung von Nutzer:innen, die kürzlich eines Ihrer Produkte gekauft haben. Berechnete Filter ermöglichen es Ihnen, tiefer zu gehen – etwa um Nutzer:innen zu identifizieren, die eine bestimmte Farbe eines bestimmten Produkts mindestens zweimal zwischen 18 und 24 Monaten in der Vergangenheit gekauft haben. Berechnete Filter sind eine Erweiterung, keine Voraussetzung. Wenn Sie fortgeschrittenere Filter oder ein längeres historisches Zeitfenster benötigen, sind sie ein großartiges Tool, das Ihnen hilft und gleichzeitig Ihre Datennutzung optimiert hält.
+Beispielsweise findet die Standard-Segmentierung in Braze Nutzer:innen, die bestimmte von Ihnen definierte Kriterien erfüllen, wie etwa die Identifizierung von Nutzer:innen, die kürzlich eines Ihrer Produkte gekauft haben. Mit berechneten Filtern können Sie noch tiefer gehen – zum Beispiel Nutzer:innen identifizieren, die eine bestimmte Farbe eines bestimmten Produkts mindestens zweimal in einem Zeitraum von 18 bis 24 Monaten gekauft haben. Berechnete Filter sind eine Erweiterung, keine Voraussetzung. Wenn Sie fortgeschrittenere Filter oder ein längeres historisches Zeitfenster benötigen, sind sie ein großartiges Tool, das Ihnen hilft und gleichzeitig Ihre Datennutzung optimiert hält.
 
 ## Berechnete Filter und SQL-Segmenterweiterungen {#calculated-filters-and-sql-segment-extensions}
 
-[SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) und berechnete Filter helfen Ihnen beide dabei, Zielgruppen auf Basis von Kauf- und angepasstem Event-Verhalten zu erstellen, verwenden jedoch unterschiedliche Tools und Datenquellen. SQL-Segmenterweiterungen nutzen SQL, das Sie gegen Ihre verbundenen Snowflake-Daten schreiben.
+[SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) und berechnete Filter helfen Ihnen beide dabei, Zielgruppen auf Basis von Kaufverhalten zu erstellen, verwenden jedoch unterschiedliche Tools und Datenquellen. SQL-Segmenterweiterungen nutzen SQL, das Sie gegen Ihre verbundenen Snowflake-Daten schreiben.
 
 | Verhalten | Berechnete Filter | SQL-Segmenterweiterungen |
 |---|---|---|
-| Wie Sie die Zielgruppe definieren | Wählen Sie Käufe, empfohlene E-Commerce-Events, Nachrichteninteraktionen oder angepasste Events sowie Anzahlen, Zeitfenster und optionale Eigenschaftsfilter aus | Schreiben Sie SQL gegen Ihre Snowflake-Verbindung; verwenden Sie Templates, inkrementelle Aktualisierung oder vollständige Aktualisierung |
-| Wo die Logik ausgeführt wird | Kriterien und Aktualisierung werden in Braze als berechnete Filter verwaltet | Die Abfrage wird in Ihrem Data-Warehouse-Kontext gemäß Ihrer Erweiterungskonfiguration ausgeführt |
-| Filterlistenseite | Ein berechneter Filtertyp, die Spalte **Segments** zeigt, wie viele Segments jeden Filter verwenden, die Status **Processing** und **Processing Failed** spiegeln den Generierungszustand wider | Enthält eine Spalte **Type** und Filter, die je nach Erweiterungstyp variieren |
-| Typische Anwendungsfälle | Kaufhäufigkeit, Gesamtausgaben, Anzahl angepasster Events und eigenschaftsbasierte Regeln über Ihr ausgewähltes Zeitfenster | Data-Warehouse-gestützte Logik, Joins über Tabellen hinweg und historische Zeitfenster oder Aggregationen, die über das Formular für berechnete Filter hinausgehen |
+| Wie Sie die Zielgruppe definieren | Wählen Sie Käufe oder empfohlene E-Commerce-Events sowie Anzahl, Zeitfenster und optionale Eigenschaftsfilter aus | Schreiben Sie SQL gegen Ihre Snowflake-Verbindung; verwenden Sie Templates, inkrementelle Aktualisierung oder vollständige Aktualisierung |
+| Wo die Logik ausgeführt wird | Kriterien und Aktualisierung werden in Braze als berechnete Filter verwaltet | Die Abfrage wird in Ihrem Warehouse-Kontext gemäß Ihrer Erweiterungskonfiguration ausgeführt |
+| Filterlistenseite | Eine gemeinsame Liste für Nutzer:innenaktivitäts- und Datenobjektfilter; die Spalte **Segments** zeigt, wie viele Segmente jeden Filter verwenden, und der Verarbeitungsstatus spiegelt den Generierungszustand wider | Enthält eine Spalte **Type** und Filter, die je nach Erweiterungstyp variieren |
+| Typische Anwendungsfälle | Kaufhäufigkeit, Gesamtausgaben und eigenschaftsbasierte Regeln über das ausgewählte Zeitfenster | Warehouse-gestützte Logik, Joins über Tabellen hinweg sowie historische Zeitfenster oder Aggregationen, die über das berechnete Filterformular hinausgehen |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Berechnete Filter und SQL-Segmenterweiterungen" }
 
 ### Wann Sie berechnete Filter verwenden sollten {#when-to-use-calculated-filters}
 
-Verwenden Sie berechnete Filter, wenn Dashboard-gestützte Regeln für Käufe, E-Commerce, Nachrichteninteraktionen und angepasste Events ausreichen und Sie kein beliebiges SQL über Data-Warehouse-Tabellen benötigen.
+Verwenden Sie berechnete Filter, wenn Dashboard-gesteuerte Nutzer:innenaktivitäts- oder Datenobjektregeln ausreichen und Sie kein beliebiges SQL über Warehouse-Tabellen hinweg benötigen.
 
 ### Wann Sie andere Segmenterweiterungstypen verwenden sollten {#when-to-use-other-segment-extension-types}
 
-Verwenden Sie [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments), wenn Sie vollständiges SQL, Snowflake-gestützte Daten, Templates oder Aktualisierungsmodi benötigen, die für große oder komplexe Data-Warehouse-Abfragen konzipiert sind. Verwenden Sie [CDI-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments), wenn Sie SQL benötigen, das Ihr Data Warehouse direkt über Verbindungen aus der [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion) abfragt.
+Verwenden Sie [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments), wenn Sie vollständiges SQL, Snowflake-gestützte Daten, Templates oder Aktualisierungsmodi benötigen, die für große oder komplexe Warehouse-Abfragen konzipiert sind. Verwenden Sie [CDI-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments), wenn Sie SQL benötigen, das Ihr Data Warehouse direkt über Verbindungen aus der [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion) abfragt.
 
-### Berechnete Filter und Segmenterweiterungen gemeinsam verwenden {#use-calculated-filters-and-segment-extensions-together}
+### Berechnete Filter und Segmenterweiterungen gemeinsam nutzen {#use-calculated-filters-and-segment-extensions-together}
 
-Ein Segment kann einen berechneten Filter zusammen mit einer SQL- oder CDI-Segmenterweiterung referenzieren – zum Beispiel eine Data-Warehouse-definierte Kohorte aus einer Erweiterung plus Kauf- oder angepasste Event-Regeln, die Sie im Builder für berechnete Filter pflegen.
+Ein Segment kann einen berechneten Filter zusammen mit einer SQL- oder CDI-Segmenterweiterung referenzieren – beispielsweise eine Warehouse-definierte Kohorte aus einer Erweiterung plus Kaufregeln, die Sie im Builder für berechnete Filter pflegen.
 
 ## Berechneten Filter erstellen {#create-a-calculated-filter}
 
-Um einen berechneten Filter zu erstellen, definieren Sie Kriterien basierend auf dem Nutzer:innenverhalten, speichern und aktivieren Sie den Filter und verwenden Sie ihn dann in einem Segment.
+Um einen berechneten Filter zu erstellen, wählen Sie bei Aufforderung einen Filtertyp aus, definieren Sie Ihre Kriterien und speichern und aktivieren Sie den Filter, bevor Sie ihn in einem Segment verwenden.
 
 ### Schritt 1: Details einrichten {#step-1-set-up-details}
 
 1. Gehen Sie zu **Audience** > **Calculated Filters**.
-2. Wählen Sie **Create Calculated Filter** aus.
-3. Benennen Sie Ihren berechneten Filter, indem Sie die Nutzer:innen beschreiben, die Sie ansprechen möchten. Ein aussagekräftiger Name erleichtert das Auffinden des Filters, wenn Sie ihn zu einem Segment hinzufügen.
-4. (Optional) Fügen Sie [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) hinzu, um berechnete Filter in Ihrem Workspace zu organisieren.
+2. Wählen Sie **Create filter** aus.
+3. Wenn in Ihrem Workspace [Accounts]({{site.baseurl}}/user_guide/data/activation/accounts) aktiviert sind, wählen Sie einen Filtertyp aus:
+   - **User activity filters:** Aktionen und Verhaltensweisen von Nutzer:innen.
+   - **Data Object filters:** Attribute und Beziehungen für Datenobjekte.
+4. Geben Sie einen Namen ein, der die Zielgruppe beschreibt, die Sie ansprechen möchten. Ein aussagekräftiger Name erleichtert das Auffinden des Filters, wenn Sie ihn einem Segment hinzufügen.
+5. (Optional) Fügen Sie [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) hinzu, um berechnete Filter in Ihrem Workspace zu organisieren.
 
-Sie können auch **Enable recurring audience update** auswählen, um den Filter nach einem wiederkehrenden Zeitplan zu aktualisieren. Wenn Sie diese Einstellung nicht aktivieren, wird der berechnete Filter nur aktualisiert, wenn Sie den Filter ändern oder **Update audience** auswählen.
+Wählen Sie bei **User activity filters** die Option **Enable recurring audience update** aus, um den Filter nach einem wiederkehrenden Zeitplan zu aktualisieren. Wenn Sie diese Einstellung nicht aktivieren, wird der Filter nur aktualisiert, wenn Sie ihn bearbeiten oder **Update audience** auswählen. **Data Object filters** werden stündlich aktualisiert.
 
 ### Schritt 2: Kriterien auswählen {#step-2-choose-your-criteria}
 
-Wählen Sie ein Kriterium für Kauf-, E-Commerce-, angepasste oder Nachrichteninteraktions-Events für das Targeting aus. Nachdem Sie einen Event-Typ ausgewählt haben, wählen Sie das spezifische Event, wie oft die Nutzer:innen es abgeschlossen haben müssen (mehr als, weniger als oder gleich) und den Zeitraum.
+{% tabs %}
+{% tab Data Object filters %}
+
+Wenn Sie **Data Object filters** ausgewählt haben, wählen Sie ein Datenobjekt und fügen Sie dann Attribut-, Beziehungs- oder Filtergruppenbedingungen hinzu. Informationen zum kontobasierten Targeting finden Sie unter [Account-Objekte]({{site.baseurl}}/user_guide/data/activation/accounts).
+
+{% endtab %}
+{% tab User activity filters %}
+
+Wenn **Create filter** direkt den User-Activity-Builder öffnet oder Sie **User activity filters** auswählen, wählen Sie eine der folgenden **Criterion**-Optionen für das Targeting:
+
+- **Made a Purchase**
+- **Performed an eCommerce event**
+
+Nachdem Sie einen Event-Typ ausgewählt haben, wählen Sie das spezifische Event, wie oft die Nutzer:innen es abgeschlossen haben müssen (mehr als, weniger als oder gleich) und den Zeitraum.
 
 {% alert note %}
-Die Filter **mehr als** und **weniger als** sind exklusiv – sie schließen die angegebene Zahl nicht ein. Zum Beispiel umfasst ein Filter für **mehr als 4 Mal und weniger als 16 Mal** Nutzer:innen, die 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 oder 15 Mal gezählt wurden.
+Die Filter **more than** und **less than** sind exklusiv – sie schließen die angegebene Zahl nicht ein. Beispielsweise umfasst ein Filter für **more than 4 times and less than 16 times** Nutzer:innen mit 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 oder 15 Mal.
 {% endalert %}
 
-Bei der Auswahl Ihres Zeitraums können Sie einen relativen Datumsbereich (die letzten X Tage), ein Startdatum, ein Enddatum oder einen exakten Datumsbereich angeben.
-
-![Kriterien für berechnete Filter für Nutzer:innen, die ein angepasstes Event mehr als null Mal im Datumsbereich vom 21. Juni 2026 bis 27. Juni 2026 ausgeführt haben.]({% image_buster /assets/img/segment/calculated_filter_example.png %})
+Bei der Auswahl des Zeitraums können Sie einen relativen Datumsbereich (die letzten X Tage), ein Startdatum, ein Enddatum oder einen exakten Datumsbereich angeben. Geben Sie bei relativen Bereichen **1** bis **730** Tage (zwei Jahre) ein. Bei absoluten Datumsbereichen muss das Startdatum innerhalb der letzten zwei Jahre und das Enddatum innerhalb der nächsten zwei Jahre liegen.
 
 #### Event-Eigenschafts-Segmentierung {#event-property-segmentation}
 
-Um die Targeting-Präzision zu erhöhen, wählen Sie **Add Property Filters** aus. Damit können Sie nach Eigenschaften Ihrer Kauf-, E-Commerce- oder angepassten Events filtern. Braze unterstützt die Event-Eigenschafts-Segmentierung basierend auf String-, numerischen, booleschen und Zeitobjekten.
+Um die Targeting-Präzision zu erhöhen, wählen Sie **Add event property filters** aus. Damit können Sie nach Eigenschaften Ihres Kauf- oder E-Commerce-Events filtern. Braze unterstützt die Event-Eigenschafts-Segmentierung basierend auf String-, numerischen, booleschen und Zeit-Objekten.
 
-Für String-Eigenschaften können Sie mehrere Werte auf einmal eingeben – zum Beispiel Nutzer:innen mit einem Status gleich Gold, Silber oder Bronze ansprechen. Für empfohlene E-Commerce-Events wird das Eigenschafts-Dropdown mit den für dieses Event verfügbaren Eigenschaften befüllt.
+Bei String-Eigenschaften können Sie mehrere Werte auf einmal eingeben – zum Beispiel für das Targeting von Nutzer:innen mit einem Status gleich Gold, Silber oder Bronze. Bei empfohlenen E-Commerce-Events wird das Eigenschafts-Dropdown mit den für dieses Event verfügbaren Eigenschaften befüllt.
 
 {% alert note %}
-Sie benötigen keine berechneten Filter, um Event-Eigenschaften in Ihrem Segment zu verwenden. Berechnete Filter erweitern lediglich das historische Zeitfenster, das zur Erstellung eines Standard-Segments verwendet wird. Sie können ein Realtime-Standard-[Segment]({{site.baseurl}}/user_guide/audience/segments) erstellen, das Event-Eigenschaften der letzten 30 Tage verwendet. Ebenso können Sie [Ihre Nachricht planen]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery), um sie in Realtime basierend auf einer Event-Eigenschaft zu triggern – kein berechneter Filter erforderlich.
+Sie benötigen keine berechneten Filter, um Event-Eigenschaften in Ihrem Segment zu verwenden. Berechnete Filter erweitern lediglich das historische Zeitfenster, das zur Erstellung eines Standard-Segments verwendet wird. Sie können ein Realtime-Standard-[Segment]({{site.baseurl}}/user_guide/audience/segments) erstellen, das Event-Eigenschaften der letzten 30 Tage nutzt. Ebenso können Sie [Ihre Nachricht planen]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery), sodass sie in Realtime basierend auf einer Event-Eigenschaft ausgelöst wird – kein berechneter Filter erforderlich.
 {% endalert %}
+
+{% endtab %}
+{% endtabs %}
 
 ### Schritt 3: Filter speichern und aktivieren {#step-3-save-and-activate-your-filter}
 
-Wählen Sie **Save** aus, um Ihren berechneten Filter zu speichern. Sie können einen Filter speichern, ohne ihn zu aktivieren, aber Sie müssen einen Filter aktivieren, bevor er als Option beim Erstellen eines Segments angezeigt wird.
+Wählen Sie **Save as draft** aus, um einen neuen berechneten Filter zu speichern, ohne ihn zu aktivieren. Wählen Sie bei einem aktivierten Filter **Save changes** aus, um Ihre Änderungen zu speichern. Sie müssen **Activate filter** auswählen, bevor der Filter im Segment-Builder verfügbar ist.
 
-Nachdem Sie einen berechneten Filter aktiviert haben, wertet Braze ihn in Realtime aus, wenn ein Segment, eine Campaign oder ein Canvas, das darauf verweist, ausgewertet wird.
+Nachdem Sie einen berechneten Filter aktiviert haben, beginnt Braze mit der Berechnung der Zielgruppe. Wenn die Verarbeitung abgeschlossen ist, können Sie den Filter beim Erstellen einer Zielgruppe auswählen.
 
 ## Einen berechneten Filter in einem Segment verwenden {#use-a-calculated-filter-in-a-segment}
 
@@ -98,38 +115,67 @@ Nachdem Sie den Filter hinzugefügt haben, wählen Sie das Symbol neben dem Filt
 
 ![Berechneter Filter in einem Segment-Builder mit einem Symbol zum Anzeigen weiterer Details.]({% image_buster /assets/img/segment/view_cf_details.png %}){: style="max-width:70%;"}
 
-Weitere Informationen zum Erstellen von Segments finden Sie unter [Ein Segment erstellen]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment).
+Weitere Informationen zum Erstellen von Segments finden Sie unter [Segment erstellen]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment).
 
 ## Berechnete Filter verwalten {#manage-calculated-filters}
 
-Gehen Sie zu **Zielgruppe** > **Berechnete Filter**, um berechnete Filter in Ihrem Workspace anzuzeigen, zu bearbeiten und zu verwalten.
+Gehen Sie zu **Audience** > **Calculated Filters**, um berechnete Filter in Ihrem Workspace anzuzeigen, zu bearbeiten und zu verwalten.
 
-Die Seite **Berechnete Filter** listet alle berechneten Filter in Ihrem Workspace auf. Sie können die Liste mit den verfügbaren Steuerelementen eingrenzen. Da es nur einen Typ berechneter Filter gibt, gibt es keine Option zum Filtern nach Typ, und die Tabelle enthält keine Spalte **Typ**. Verwenden Sie die Spalte **Segments**, um zu sehen, wie viele Segments jeden berechneten Filter verwenden.
+Die Seite **Calculated Filters** listet Filter für Nutzer:innenaktivitäten und Datenobjekte zusammen auf. Sie können die Liste mit den verfügbaren Steuerelementen eingrenzen, aber die Seite enthält weder eine Filterung nach Typ noch eine Spalte **Type**. Verwenden Sie die Spalte **Segments**, um zu sehen, wie viele Segments jeden berechneten Filter nutzen.
 
 ### Statusbezeichnungen {#status-labels}
 
-Jeder berechnete Filter zeigt einen der folgenden Status an. **Verarbeitung** und **Verarbeitung fehlgeschlagen** werden angezeigt, wenn die Mitgliedschaftsgenerierung gerade läuft oder nicht erfolgreich abgeschlossen wurde.
+Jeder berechnete Filter zeigt einen der folgenden Status an. **Processing** und **Processing failed** werden angezeigt, wenn die Mitgliedschaftsgenerierung gerade läuft oder nicht erfolgreich abgeschlossen wurde.
 
 | Status | Beschreibung |
 |---|---|
-| Aktiv | Der Filter ist aktiviert und kann in Segments verwendet werden. |
-| Entwurf | Der Filter ist gespeichert, aber nicht aktiviert. |
-| Archiviert | Der Filter ist archiviert. |
-| Verarbeitung | Braze verarbeitet eine Aktualisierung des Filters. |
-| Verarbeitung fehlgeschlagen | Der letzte Verarbeitungsversuch wurde nicht erfolgreich abgeschlossen. |
+| Active | Der Filter ist aktiviert und kann in Segments verwendet werden. |
+| Draft | Der Filter ist gespeichert, aber nicht aktiviert. |
+| Archived | Der Filter ist archiviert. |
+| Refresh disabled | Wiederkehrende Zielgruppen-Updates sind deaktiviert. Braze kann diesen Status automatisch setzen, wenn ein Filter mit geplanter Aktualisierung nicht genutzt wird. |
+| Processing | Braze verarbeitet ein Update für den Filter. |
+| Processing failed | Der letzte Verarbeitungsversuch wurde nicht erfolgreich abgeschlossen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Statusbezeichnungen" }
 
 ### Einzelne Filter bearbeiten und verwalten {#edit-and-manage-individual-filters}
 
-Öffnen Sie das Zeilenmenü eines berechneten Filters, um ihn zu bearbeiten, zu archivieren, die Zielgruppe zu aktualisieren oder zu sehen, wie er im Messaging verwendet wird. Sie können einen berechneten Filter nicht bearbeiten, während er verarbeitet wird.
+Öffnen Sie das Zeilenmenü eines berechneten Filters, um eine Aktion durchzuführen. Die verfügbaren Aktionen hängen vom Status des Filters ab.
+
+Für nicht archivierte Filter enthält das Zeilenmenü **Edit**, **Messaging use**, **Archive** und **Update audience**. **Update audience** ist für aktive Filter verfügbar, die gerade nicht verarbeitet werden. Sie können einen berechneten Filter während der Verarbeitung bearbeiten, aber Sie können Ihre Änderungen erst speichern, wenn die Verarbeitung abgeschlossen ist.
+
+#### Archivieren {#can-i-archive-calculated-filters-if-they-exist-in-an-active-campaign}
+
+Bevor Sie einen berechneten Filter archivieren, prüfen Sie, ob er noch verwendet wird. Das Archivieren kann aktive Campaigns, Canvases oder Segments, die darauf verweisen, unbemerkt beeinträchtigen.
+
+- **Datenobjekt-Filter:** Wenn eine aktive Campaign, ein Canvas oder ein Segment noch auf den Filter verweist, bedeutet das Archivieren, dass diese Campaign, dieses Canvas oder dieses Segment beim nächsten Start oder Versand keine Nutzer:innen mehr zuordnet. Entfernen Sie zuerst den Verweis, um dies zu vermeiden.
+- **Nutzer:innenaktivitäts-Filter:** Wenn eine Campaign oder ein Canvas im Entwurfsstatus noch auf den Filter verweist, friert das Archivieren die Zielgruppe dieses Entwurfs beim letzten aktualisierten Ergebnis des Filters ein. Sie wird künftig nicht mehr aktualisiert, es sei denn, Sie entfernen zuerst den Verweis.
+
+Um herauszufinden, wo ein Filter verwendet wird, wählen Sie **Messaging use** aus dem Zeilenmenü.
+
+Sie können einen berechneten Filter nicht archivieren, wenn er von einer aktiven (nicht im Entwurf befindlichen) Campaign, einem Canvas oder einem Segment referenziert wird. Entfernen Sie diese Verweise, bevor Sie archivieren. Wenn Sie mehrere Filter verschiedener Typen gleichzeitig archivieren, erhalten Sie für jeden Typ eine separate Bestätigung.
 
 {% alert note %}
-Ihr Workspace kann gleichzeitig bis zu 100 aktivierte berechnete Filter enthalten. Wenden Sie sich an Ihren Braze Account Manager, wenn Sie dieses Limit erhöhen müssen.
+Ihr Workspace kann maximal 100 aktive berechnete Filter gleichzeitig enthalten. Wenden Sie sich an Ihren Braze Account Manager, wenn Sie dieses Limit erhöhen müssen.
 {% endalert %}
+
+#### Archivierung aufheben {#unarchive}
+
+Sie können die Archivierung eines Filters auf folgende Arten aufheben:
+
+- Wählen Sie **Unarchive** im Zeilenmenü des Filters.
+- Wählen Sie einen oder mehrere archivierte Filter aus und wählen Sie dann **Unarchive**.
+- Öffnen Sie einen archivierten berechneten Filter und wählen Sie **Unarchive** auf seiner Seite.
+
+Wenn Sie die Archivierung eines Filters aufheben, kehrt sein Status zu dem Zustand zurück, den er vor der Archivierung hatte:
+
+- Ein Entwurf kehrt zu **Draft** zurück.
+- Ein aktivierter Filter kehrt zu **Active** zurück, wird auf das Limit aktiver Filter angerechnet, und Braze startet eine Zielgruppenaktualisierung.
+
+Warten Sie, bis die Verarbeitung abgeschlossen ist, bevor Sie die Archivierung eines Filters aufheben, der **Processing** anzeigt. Wenn Sie das Limit aktiver Filter erreicht haben, archivieren Sie einen aktiven Filter, bevor Sie die Archivierung eines anderen aktiven Filters aufheben.
 
 #### Speichern versus Aktivieren {#save-versus-activate}
 
-Sie können einen berechneten Filter speichern, ohne ihn zu aktivieren. Inaktive Filter verbleiben in Ihrem Workspace, können aber erst zu Segments hinzugefügt werden, wenn Sie sie aktivieren. Wählen Sie **Filter aktivieren**, um den Filter in der Segmentierung zu verwenden.
+Sie können einen berechneten Filter speichern, ohne ihn zu aktivieren. Inaktive Filter bleiben in Ihrem Workspace, können aber erst zu Segments hinzugefügt werden, wenn Sie sie aktivieren. Wählen Sie **Activate filter**, um den Filter in der Segmentierung zu verwenden.
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 
@@ -139,10 +185,6 @@ Bei der Verwendung berechneter Filter können Sie ein angepasstes Event, ein Kau
 
 Sie können mehrere Events hinzufügen oder auf mehrere Snowflake-Tabellen verweisen, wenn Sie [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) verwenden.
 
-### Kann ich berechnete Filter archivieren, wenn sie in einer aktiven Campaign vorhanden sind? {#can-i-archive-calculated-filters-if-they-exist-in-an-active-campaign}
-
-Nein. Bevor Sie einen berechneten Filter archivieren können, müssen Sie ihn aus allen aktiven Messaging-Aktivitäten entfernen.
-
 ### Kann ich Arrays in berechneten Filtern verwenden? {#can-i-use-arrays-in-calculated-filters}
 
 Ja. Um Arrays zu verwenden, hängen Sie eckige Klammern (`[]`) an Ihren Eigenschaftsnamen an. Wenn Ihre Eigenschaft `location_code` ist, würden Sie `location_code[]` eingeben.
@@ -151,6 +193,6 @@ Braze verwendet `[]`, um Arrays zu durchlaufen und zu prüfen, ob ein Element im
 
 ### Wie berechnet Braze den Zeitraum für einen relativen Zeitraum von „letzten X Tagen“? {#how-does-braze-calculate-the-time-period-for-a-relative-time-period-of-last-x-days}
 
-Wenn berechnete Filter den relativen Zeitraum („letzte X Tage“) berechnen, wird die Startzeit auf Mitternacht UTC festgelegt. Beispielsweise wird bei einem berechneten Filter, der am 16.09.2024 um 21:00 UTC aktualisiert wird und 10 Tage angibt, die Startzeit auf den 06.09.2024 00:00 UTC festgelegt, nicht auf den 06.09.2024 21:00 UTC.
+Wenn berechnete Filter den relativen Zeitraum („letzte X Tage“) berechnen, wird die Startzeit auf Mitternacht UTC festgelegt. Beispielsweise wird bei einem berechneten Filter, der am 16.09.2024 um 21:00 UTC aktualisiert wird und 10 Tage angibt, die Startzeit auf den 06.09.2024 um 00:00 UTC gesetzt, nicht auf den 06.09.2024 um 21:00 UTC. Berechnete Filter verwenden immer UTC für Zeitfenster; die Zeitzone Ihres Workspace gilt nicht.
 
-Sie können die Zeitzonen jedoch angeben, indem Sie SQL-Segmente verwenden, um Nutzer:innen zu identifizieren, die das angepasste Event vor 10 Tagen basierend auf Mitternacht in der Unternehmenszeit ausgeführt haben, oder Nutzer:innen, die das Event vor 10 Tagen basierend auf der aktuellen Uhrzeit ausgeführt haben.
+Sie können jedoch Zeitzonen angeben, indem Sie [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) verwenden, um Nutzer:innen zu identifizieren, die ein Event vor 10 Tagen basierend auf Mitternacht in der Unternehmenszeit ausgeführt haben, oder Nutzer:innen, die das Event vor 10 Tagen basierend auf der aktuellen Uhrzeit ausgeführt haben.

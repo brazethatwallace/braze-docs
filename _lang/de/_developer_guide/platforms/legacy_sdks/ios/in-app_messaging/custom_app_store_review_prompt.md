@@ -15,7 +15,7 @@ noindex: true
 # Angepasste App Store-Bewertungsaufforderung {#custom-app-store-review-prompt}
 
 {% alert note %}
-Sobald Sie diese Aufforderung implementieren, hört Braze auf, Impressionen automatisch zu tracken, und Sie müssen Ihre eigenen [Analytics]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/customization/handing_in_app_display#logging-impressions-and-clicks) protokollieren.
+Sobald Sie diese Aufforderung implementieren, hört Braze auf, Impressionen automatisch zu tracken, und Sie müssen Ihre eigenen [Analytics]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/customization/handling_in_app_display#logging-impressions-and-clicks) protokollieren.
 {% endalert %}
 
 Eine Campaign zu erstellen, um Nutzer:innen um eine Bewertung im App Store zu bitten, ist eine beliebte Verwendung von In-App-Nachrichten.

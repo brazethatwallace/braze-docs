@@ -189,6 +189,14 @@ MMS is only displayed on the Braze dashboard when a subscription group is consid
 
 Additionally, certain situations will require Twilio to re-approve the enablement of short codes that originally didn't have MMS enabled. This approval process could take weeks.
 
+### Why does my MMS with an image fail to send?
+
+Some SMS providers validate the `Content-Type` header on image URLs. If an MMS with an image aborts, confirm the hosted image URL returns `image/png` or another supported image type (for example, with `curl -I <image-url>`). Re-host the asset in the Braze media library or on a CDN that serves the correct `Content-Type`.
+
+### Why doesn't my contact card image appear in an MMS?
+
+MMS contact card photos can fail to render when the contact card file references an image URL the recipient's device can't fetch. Create the contact card on a phone, export the file, and upload it to the media library for use in your MMS message.
+
 ## RCS
 
 ### Why doesn't my RCS message render accurately on iOS devices?
@@ -197,10 +205,22 @@ RCS messages may render differently on an iOS device depending on the operating 
 
 - Suggested actions from different RCS messages in the same conversation thread may be grouped together and shown in the wrong order.
 - Rich card buttons and suggested actions that are outside the rich card may remain visible even after tapping a rich card button or a suggested action.
+- GIFs in rich cards display as static images. For details, see [Why do GIFs in RCS rich cards appear static on iOS?](#why-do-gifs-in-rcs-rich-cards-appear-static-on-ios).
 
 {% alert note %}
 Braze sends the RCS payload you compose, while the messaging client controls how suggested actions are ordered, grouped, and hidden. Be sure to test RCS messages, especially those that use rich cards with suggested actions or suggested replies, on both Android and iOS devices before sending.
 {% endalert %}
+
+### Why do GIFs in RCS rich cards appear static on iOS?
+
+On iOS, GIFs in RCS rich cards display as a static image (the first frame). On Android, they animate as expected.
+
+The iOS messaging client controls this behavior. A GIF may still animate in the Braze preview. Send a test message to an iOS device to confirm how the delivered message looks.
+
+To send animated content to iOS:
+
+- Use an RCS **Media** message, which sends the GIF as a file
+- Use video in the rich card
 
 ### Can I send pre-recorded voicemails with RCS?
 

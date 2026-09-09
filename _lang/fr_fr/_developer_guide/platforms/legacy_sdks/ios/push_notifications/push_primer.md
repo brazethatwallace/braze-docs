@@ -79,7 +79,7 @@ if #available(iOS 10, *) {
 {% endtab %}
 {% endtabs %}
 
-## Étape 2 : Ajouter un vérificateur d'événements personnalisés au fichier AppDelegate.m {#step-2-append-custom-event-checker-to-appdelegatem-file}
+## Étape 2 : Ajouter le vérificateur d'événement personnalisé au fichier AppDelegate.m {#step-2-append-custom-event-checker-to-appdelegatem-file}
 
 L'extrait de code suivant vérifie si un événement personnalisé doit être déclenché. Ajoutez la ligne de code suivante à votre fichier `AppDelegate.m`.
 
@@ -128,11 +128,11 @@ let notificationSettiings = UIApplication.shared.currentUserNotificationSettings
 {% endtab %}
 {% endtabs %}
 
-## Étape 3 : Configurer un gestionnaire de liens profonds {#step-3-set-up-a-deep-link-handler}
+## Étape 3 : Configurer un gestionnaire de deep link {#step-3-set-up-a-deep-link-handler}
 
-Placez l'extrait de code suivant dans votre code de gestion des liens profonds. Vous devez uniquement exécuter ce code de création de liens profonds pour votre message in-app de push primer.
+Placez l'extrait de code suivant dans votre code de gestion des deep links. Vous ne devez exécuter ce code de création de liens profonds que pour votre message in-app d'amorce de notification push.
 
-Consultez la [personnalisation de la gestion des liens]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/advanced_use_cases/linking#linking-handling-customization) pour plus d'informations sur la création de liens profonds.
+Consultez la section [personnalisation de la gestion des liens]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/advanced_use_cases/linking#linking-handling-customization) pour plus d'informations sur la création de liens profonds.
 
 {% tabs %}
 {% tab OBJECTIVE-C %}

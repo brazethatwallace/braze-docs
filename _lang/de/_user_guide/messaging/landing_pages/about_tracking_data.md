@@ -34,7 +34,7 @@ Da diese Daten nicht mit identifizierbaren Nutzer:innen verknüpft sind, können
 
 ## Zusammenführen doppelter Nutzerprofile {#merging-duplicate-user-profiles}
 
-Braze führt Nutzer:innen nicht automatisch anhand von Attributen wie E-Mail oder Telefonnummer zusammen, wenn ein Landing-Page-Formular abgesendet wird. Wenn ein Formular mit einer E-Mail oder Telefonnummer abgesendet wird, die mit einem bestehenden Nutzerprofil übereinstimmt, erstellt Braze ein separates Nutzerprofil.
+Braze führt Nutzer:innen nicht automatisch anhand von Attributen wie E-Mail oder Telefonnummer zusammen, wenn ein Landing-Page-Formular abgesendet wird. Wenn ein Formular mit einer E-Mail oder Telefonnummer abgesendet wird, die mit einem bestehenden Kundenprofil übereinstimmt, erstellt Braze ein separates Kundenprofil.
 
 Um doppelte Nutzerprofile zusammenzuführen, können Sie:
 

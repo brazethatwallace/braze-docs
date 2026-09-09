@@ -15,7 +15,7 @@ noindex: true
 # Aviso personalizado de revisión de la App Store {#custom-app-store-review-prompt}
 
 {% alert note %}
-Una vez que implementes esta solicitud, Braze dejará de hacer un seguimiento automático de las impresiones, y deberás registrar tus propios [análisis]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/customization/handing_in_app_display#logging-impressions-and-clicks).
+Una vez que implementes esta solicitud, Braze dejará de hacer un seguimiento automático de las impresiones, y deberás registrar tus propios [análisis]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/customization/handling_in_app_display#logging-impressions-and-clicks).
 {% endalert %}
 
 Crear una campaña para pedir a los usuarios una reseña de la App Store es un uso popular de los mensajes dentro de la aplicación.

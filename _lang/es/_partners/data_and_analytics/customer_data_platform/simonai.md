@@ -55,7 +55,7 @@ Después de autenticar tu cuenta de Braze en Simon AI, puedes añadir acciones d
 Hay tres acciones disponibles:
 
 - **Sync Simon segment attribute**: sincroniza los detalles de tu segmento con un atributo personalizado nuevo o existente en Braze.
-- **Trigger a Braze Canvas**: desencadena un Canvas de Braze que aproveche los datos de tu segmento de Simon.
+- **Trigger a BRAZE CANVAS**: desencadena un Canvas de Braze que aproveche los datos de tu segmento de Simon.
 - **Send a Braze campaign**: lanza una Campaign completa de Braze desde Simon.
 
 ![Menú desplegable que muestra la lista de acciones de Braze disponibles en Simon AI.][9]{: style="max-width:60%"}

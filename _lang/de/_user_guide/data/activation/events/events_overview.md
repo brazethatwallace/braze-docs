@@ -47,7 +47,7 @@ Kauf-Events erfassen die folgenden wichtigen Informationen über einen Kauf:
 - Preis
 - Menge
 
-Sie können diese Daten dann nutzen, um Ihre Nutzer:innen basierend auf ihrem Lifetime-Value, ihrer Kaufhäufigkeit, bestimmten Käufen und mehr zu segmentieren.
+Sie können diese Daten dann nutzen, um Ihre Nutzer:innen basierend auf ihrem LTV, ihrer Kaufhäufigkeit, bestimmten Käufen und mehr zu segmentieren.
 
 Braze unterstützt auch Käufe in mehreren Währungen. Wenn ein Kauf in einer anderen Währung als USD gemeldet wird, wird er im Braze-Dashboard in USD angezeigt, basierend auf dem Wechselkurs zum Zeitpunkt der Kaufmeldung.
 
@@ -55,7 +55,7 @@ Mehr erfahren Sie in unserem speziellen Artikel zu [Kauf-Events]({{site.baseurl}
 
 {% details Beispielimplementierung %}
 
-Beachten Sie, dass die tatsächliche Implementierung von Kauf-Events technisches Wissen erfordert, da sie die Integration des Braze SDK in Ihre App umfasst. Ihr Customer-Success-Manager wird Ihr Team im Rahmen des Onboardings durch diesen Prozess führen, aber die allgemeinen Schritte sind wie folgt:
+Beachten Sie, dass die tatsächliche Implementierung von Kauf-Events technisches Wissen erfordert, da sie die Integration des Braze SDK in Ihre App umfasst. Ihr CSM wird Ihr Team im Rahmen des Onboardings durch diesen Prozess führen, aber die allgemeinen Schritte sind wie folgt:
 
 1. **Integrieren Sie das Braze SDK:** Bevor Sie Events protokollieren können, müssen Sie das Braze SDK in Ihre App integrieren.
 2. **Protokollieren Sie das Kauf-Event:** Nach der SDK-Integration können Sie ein Kauf-Event protokollieren, wann immer ein:e Nutzer:in einen Kauf in Ihrer App tätigt. Dies geschieht typischerweise in der Funktion oder Methode, die aufgerufen wird, wenn ein Kauf abgeschlossen wird.
@@ -85,7 +85,7 @@ Hier ist ein Beispiel, wie Sie ein angepasstes Event in einer iOS-App mit Swift 
 Appboy.sharedInstance()?.logCustomEvent("completed_level")
 ```
 
-In diesem Beispiel ist „completed_level“ der Name des angepassten Events, das protokolliert wird, wenn ein:e Nutzer:in ein Level in einem Spiel abschließt. Dieses angepasste Event wird dann im Nutzerprofil in Braze erfasst, das Sie nutzen können, um Campaigns zu triggern und Messaging zu personalisieren.
+In diesem Beispiel ist „completed_level“ der Name des angepassten Events, das protokolliert wird, wenn ein:e Nutzer:in ein Level in einem Spiel abschließt. Dieses angepasste Event wird dann im Kundenprofil in Braze erfasst, das Sie nutzen können, um Campaigns zu triggern und Messaging zu personalisieren.
 
 Mehr erfahren Sie in unserem speziellen Artikel zu [angepassten Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events).
 

@@ -367,7 +367,7 @@ func logPendingCustomEventsIfNecessary() {
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
-{% tab Custom Attributes %}
+{% tab 커스텀 속성 %}
 
 ##### 커스텀 속성 저장 {#saving-custom-attributes}
 

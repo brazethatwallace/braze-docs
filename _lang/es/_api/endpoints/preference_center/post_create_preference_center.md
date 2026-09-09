@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "En este artículo se describen los detalles del endpoint Crear un centro de preferencias de Braze."
-
 ---
 {% api %}
 # Crear un centro de preferencias {#create-preference-center}
@@ -14,7 +13,7 @@ description: "En este artículo se describen los detalles del endpoint Crear un 
 /preference_center/v1
 {% endapimethod %}
 
-> Usa este endpoint para crear un centro de preferencias que permita a los usuarios gestionar sus preferencias de notificación para tus campañas de correo electrónico. Consulta [Crear un centro de preferencias con API]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview#creating-a-preference-center-with-api) para conocer los pasos sobre cómo crear un centro de preferencias generado por API.
+> Usa este endpoint para crear un centro de preferencias que permita a los usuarios gestionar sus preferencias de notificación para tus campañas de correo electrónico. Consulta [Crear un centro de preferencias con API]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/api_preference_center) para conocer los pasos sobre cómo crear un centro de preferencias generado por API.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#e15d7065-2cbc-4eb3-ae16-32efe43357a6 {% endapiref %}
 
@@ -60,7 +59,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
 | `name` | Obligatorio | Cadena | El nombre del centro de preferencias que cumple los siguientes requisitos: <br>- Solo contiene letras, números, guiones y guiones bajos <br>- No tiene espacios |
-| `preference_center_title` | Opcional | Cadena | El título del centro de preferencias y las páginas de confirmación. Si no se especifica un título, el de las páginas será por defecto "Preference Center". |
+| `preference_center_title` | Opcional | Cadena | El título del centro de preferencias y las páginas de confirmación. Si no se especifica un título, el de las páginas será predeterminado a "Preference Center". |
 | `preference_center_page_html` | Obligatorio | Cadena | El HTML de la página del centro de preferencias. |
 | `confirmation_page_html` | Obligatorio | Cadena | El HTML de la página de confirmación. |
 | `state` | Opcional | Cadena | Elige `active` o `draft`. El valor predeterminado es `active` si no se especifica. |

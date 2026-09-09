@@ -81,6 +81,7 @@ If the user wants only analysis, stop after step 3.
 | `docs/contributing/style_guide/alerts.md` | Important, Note, Tip, Warning alerts — when and how to use |
 | `docs/contributing/style_guide/product_feedback_ctas.md` | In-article product feedback include (`product_feedback_cta.md`) — contexts, placement, reviewer checklist |
 | `docs/contributing/style_guide/api_endpoint_guidelines.md` | API endpoint article structure and formatting |
+| `docs/contributing/style_guide/seo_aeo_page_template.md` | SEO/AEO page structure — titles, intros, FAQs, linking, pilot audit workflow |
 
 When the full style guide has specific guidance on a topic, defer to the source file over this summary.
 
@@ -146,6 +147,8 @@ description: "This reference article covers how user permissions work at Braze."
 | `description` | SEO meta description | Wrap in quotes |
 
 Optional fields: `tool`, `noindex`, `hidden`, `layout`, `local_redirect`, `search_rank`.
+
+`date_published`: quoted `YYYY-MM-DD` equal to today's UTC date, or the UTC date you expect the PR to merge. Must not be in the past. CI requires it the first time a public article in `user_guide`, `developer_guide`, `api`, `partners`, or `help` ships. Confirm the date before merge. Do not change it later. Hidden, `config_only`, and `layout: redirect` pages are exempt; if a date is already present when you unhide, keep it. Redirect stubs stay exempt. See [`docs/contributing/yaml_front_matter/metadata.md`](../../../docs/contributing/yaml_front_matter/metadata.md#date-published).
 
 ## Internal linking
 

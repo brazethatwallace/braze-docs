@@ -46,12 +46,12 @@ Die folgende Tabelle beschreibt die Unterschiede zwischen der kostenlosen und de
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Datentransformationsebenen" }
 
 {% alert important %}
-Um ein Upgrade auf Data Transformation Pro anzufordern, wenden Sie sich an Ihren Braze Account Manager oder wählen Sie den Button **Request Upgrade** im Braze-Dashboard.
+Um ein Upgrade auf Data Transformation Pro anzufordern, wenden Sie sich an Ihren Braze Account Manager:in oder wählen Sie den Button **Request Upgrade** im Braze-Dashboard.
 {% endalert %}
 
 ### Rate-Limits {#rate-limits}
 
-Das Rate-Limit für Braze Datentransformationen liegt bei 1.000 eingehenden Anfragen pro Minute und Workspace. Wenn Sie Data Transformation Pro haben und ein höheres Rate-Limit benötigen, wenden Sie sich an Ihren Braze Account Manager.
+Das Rate-Limit für Braze Datentransformationen liegt bei 1.000 eingehenden Anfragen pro Minute und Workspace. Wenn Sie Data Transformation Pro haben und ein höheres Rate-Limit benötigen, wenden Sie sich an Ihren Braze Account Manager:in.
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 
@@ -79,4 +79,4 @@ Ja, in den meisten Fällen. Braze Datentransformation erstellt letztlich einen `
 
 ### Wie kann ich Hilfe bei der Einrichtung meines Anwendungsfalls oder bei meinem Transformationscode erhalten? {#how-can-i-get-help-setting-up-my-use-case-or-with-my-transformation-code}
 
-Wenden Sie sich an Ihren Braze Account Manager, wenn Sie weitere Hilfe benötigen.
+Wenden Sie sich an Ihren Braze Account Manager:in, wenn Sie weitere Hilfe benötigen.

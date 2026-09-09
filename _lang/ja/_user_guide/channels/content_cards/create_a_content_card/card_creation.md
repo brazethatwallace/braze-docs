@@ -31,7 +31,7 @@ SDKをアップグレードした後、モバイルユーザーはアプリを�
 
 スケジュール配信による新しい[Content Cardsキャンペーン]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card)を作成するとき、**配信**ステップでBrazeがカードを作成するタイミングを選択できます。
 
-![スケジュールされたContent Cardの配信を編集する際のContent Cardコントロールセクション。]({% image_buster /assets/img_archive/card_creation.png %})
+![スケジュールされたContent カードの配信を編集する際のContent カードコントロールセクション。]({% image_buster /assets/img_archive/card_creation.png %})
 
 以下のオプションが利用できます。
 
@@ -45,7 +45,7 @@ SDKをアップグレードした後、モバイルユーザーはアプリを�
 
 Content Cardsの[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)の**メッセージングチャネル**タブで、Brazeがカードを作成するタイミングを選択できます。
 
-![スケジュールされたContent Cardの配信を編集する際のContent Cardコントロールセクション。]({% image_buster /assets/img_archive/card_creation_canvas.png %})
+![スケジュールされたContent カードの配信を編集する際のContent カードコントロールセクション。]({% image_buster /assets/img_archive/card_creation_canvas.png %})
 
 以下のオプションが利用できます。
 
@@ -55,7 +55,7 @@ Content Cardsの[メッセージステップ]({{site.baseurl}}/user_guide/messag
 選択したオプションにかかわらず、Content Cardsの有効期限のカウントダウンはユーザーがキャンバスステップに入った時点で始まります。
 
 {% alert tip %}
-匿名ユーザーに最初のセッションでContent Cardを表示したい場合は、キャンバスではなくキャンペーンを使用してください。匿名ユーザーがキャンバスに入るとき、セッションはすでに開始されているため、新しいセッションを開始するまでContent Cardは表示されません。
+匿名ユーザーに最初のセッションでContent カードを表示したい場合は、キャンバスではなくキャンペーンを使用してください。匿名ユーザーがキャンバスに入るとき、セッションはすでに開始されているため、新しいセッションを開始するまでContent カードは表示されません。
 {% endalert %}
 
 ### 削除イベント {#removal-event}

@@ -8,7 +8,7 @@ channel:
   - MMS
   - RCS
 search_rank: 3
-description: "This landing page is home to SMS (Short Messaging Service), MMS (Multimedia Messaging Service), and RCS (Rich Communication Services). These services offer a more direct way to reach your users than most other messaging channels, as they utilize their phone number, allowing you to reach them in real-time."
+description: "Learn SMS, MMS, and RCS in Braze, including setup, compliance, and best practices for reaching users by phone number."
 ---
 
 # SMS, MMS, and RCS
@@ -69,5 +69,11 @@ Set up short codes, long codes, or alphanumeric sender IDs in Braze before you l
 
 ## Next steps
 
-- [Message setup]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup)
-- [Create a message]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create)
+{% article_tiles %}
+- name: Message setup
+  link: /docs/user_guide/channels/sms_mms_and_rcs/message_setup
+  description: Configure sender numbers, compliance settings, and channel prerequisites before you send.
+- name: Create a message
+  link: /docs/user_guide/channels/sms_mms_and_rcs/create
+  description: Build and launch SMS, MMS, or RCS campaigns in Braze.
+{% endarticle_tiles %}

@@ -27,7 +27,7 @@ Para otras limitaciones de los envíos de prueba, consulta [Enviar mensajes de p
 
 | Método | Vista previa del diseño | Guardar cambios de suscripción |
 | --- | --- | --- |
-| Pestaña **Preview** del editor de arrastrar y soltar | Sí | No |
+| Pestaña **vista previa** del editor de arrastrar y soltar | Sí | No |
 | **Send Test** de Campaign o Canvas | Parcial (el correo electrónico llega) | No |
 | Envío en vivo a un usuario de prueba o Segment | Sí | Sí |
 | API [Generar URL del centro de preferencias]({{site.baseurl}}/api/endpoints/preference_center/get_create_url_preference_center) | Sí | Sí |

@@ -35,7 +35,7 @@ Enter a name and description for the landing page. These details are used to sea
 
 #### Site details
 
-Set up metatags to customize how your page appears on the browser tab and optimize for search engine results. These will be visible to your customers.
+Set up metatags to customize how your page appears on the browser tab and optimize for search engine results. These are visible to your customers.
 
 We suggest following these best practices:
 
@@ -49,7 +49,7 @@ We suggest following these best practices:
 
 ### Step 3: Customize the page
 
-If you haven't already, select **Save as draft**. To start customizing your page, select **Edit landing page**. The drag-and-drop editor will preload with a default template that you can customize to fit your use case.
+If you haven't already, select **Save as draft**. To start customizing your page, select **Edit landing page**. The drag-and-drop editor preloads with a default template that you can customize to fit your use case.
 
 ![An example landing page being created in the drag-and-drop editor.]({% image_buster /assets/img/landing_pages/template.png %})
 
@@ -110,7 +110,7 @@ You can break a long form into multiple steps, each with its own fields and a bu
 | Dropdown      | Users can select an item from a pre-defined list. You can add any custom attribute strings to the list. |
 | Checkbox      | If a user checks the box, the block's attribute is set to `true`. If left unchecked, its attribute is set to `false`. |
 | Checkbox Group| Users can select from multiple choices presented. Values are either set or added to a defined array custom attribute. |
-| Manage Subscriptions | A checklist of email subscription groups. Users select which groups they want to join when they submit the form. For more information, see [Manage Subscriptions block]({{site.baseurl}}/user_guide/messaging/landing_pages/manage_subscriptions/). |
+| Manage Subscriptions | A checklist of email, SMS, or WhatsApp subscription groups. Users select which groups they want to join when they submit the form. Each block is for one channel. For more information, see [Manage Subscriptions block]({{site.baseurl}}/user_guide/messaging/landing_pages/manage_subscriptions/). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Span text" }
 
 {% alert important %}
@@ -136,7 +136,11 @@ When enabled, you can also reverse stack columns to control the vertical order o
 
 ![The "Vertically stack on smaller screens" toggle in the "Customize columns" section.]({% image_buster /assets/img/landing_pages/device_responsive_toggle.png %}){: style="max-width:50%;"}
 
-{% multi_lang_include drag_and_drop/hide_rows_and_blocks_by_device.md channel='landing_page' %}
+#### Hide rows and blocks by device
+
+You can hide a row or block on desktop or on tablet and mobile devices. Select the row or block on the canvas. In the properties panel, select **Hide on**, then select **Desktop** or **Tablet and smaller devices**.
+
+A hidden row or block doesn't appear for that device type in the drag-and-drop editor preview or on the live landing page.
 
 #### Optional and required fields
 
@@ -158,11 +162,12 @@ If your landing page doesn’t include a form, continue to the next step.
 If your form uses a [multi-step form]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/multi_step_forms), skip this step. Multi-step forms include a built-in, locked confirmation step, so you don't need a separate confirmation page.
 {% endalert %}
 
-If your landing page includes a [form](#form-blocks), create a second landing page to serve as the confirmation experience. This page should thank users or provide a next step after form submission.
+If your landing page includes a [form](#form-blocks), you can optionally create a second landing page to serve as the confirmation experience. This page should thank users or provide a next step after form submission.
 
-To link the confirmation page:
-- Select the **Submit** button on your form
-- Use the **Open web URL** action to link to your confirmation page
+1. Select the **Submit** button on your form
+2. Choose whether to include a confirmation page when users submit your form
+    - Use the **Open web URL** on-click behavior to send users to a confirmation page
+    - Use the **None** on-click behavior for users to remain on the landing page
 
 If you don’t include a confirmation page, users may not know their form was submitted successfully. Always include a confirmation experience to complete the journey.
 

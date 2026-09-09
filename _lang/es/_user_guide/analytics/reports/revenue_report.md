@@ -3,7 +3,7 @@ nav_title: Informe de ingresos
 article_title: Informe de ingresos
 page_order: 7
 page_type: reference
-description: "Esta página describe cómo usar la página Informe de ingresos para ver datos sobre ingresos en periodos de tiempo específicos, los ingresos de un producto específico y los ingresos totales de tu aplicación."
+description: "Esta página describe dónde encontrar el informe de ingresos en el panel de Braze y cómo ver datos sobre ingresos en periodos de tiempo específicos, los ingresos de un producto específico y los ingresos totales de tu aplicación."
 tool: Reports
 ---
 
@@ -11,9 +11,9 @@ tool: Reports
 
 > La página **Informe de ingresos** te permite ver datos sobre ingresos en periodos de tiempo específicos, los ingresos de un producto específico y los ingresos totales de tu aplicación.
 
-Para ver un informe de tus ingresos desde el dashboard, ve a **Analytics** > **Revenue Report**.
+Para ver tu informe de ingresos en el panel de Braze, ve a **Analytics** > **Reports** > **Revenue Report**.
 
-## Personalizar tu informe de ingresos {#customizing-your-revenue-report}
+## Personalización de tu informe de ingresos {#customizing-your-revenue-report}
 
 Puedes personalizar tu informe de ingresos seleccionando un rango de fechas, las aplicaciones sobre las que informar y los parámetros.
 
@@ -25,10 +25,10 @@ Selecciona el rango de fechas para tu informe de ingresos y, si lo deseas, una a
 
 ### Filtrar por parámetros {#filtering-by-parameters}
 
-El gráfico **Performance Over Time** muestra los datos de diferentes parámetros, que se pueden seleccionar en el desplegable **Statistics for**. Opcionalmente, puedes desglosar los datos de ciertos parámetros en el desplegable **Breakdown**.
+El gráfico **Performance Over Time** muestra los datos de diferentes parámetros, que se pueden seleccionar en el menú desplegable **Statistics for**. Opcionalmente, puedes desglosar los datos de ciertos parámetros en el menú desplegable **Breakdown**.
 
 Puedes ver los siguientes datos en el gráfico **Performance Over Time**:
-- Fórmulas de KPI
+- Fórmulas de indicadores clave de rendimiento
 - Compras
     - (Opcional) Compras por producto
 - Ingresos
@@ -41,7 +41,7 @@ Puedes ver los siguientes datos en el gráfico **Performance Over Time**:
 ## Comprender los cálculos de ingresos {#understanding-revenue-calculations}
 
 {% alert note %}
-Cuando registras ingresos en una moneda sin tipo de cambio, Braze los registra como una compra de 0,00 USD.
+Cuando registras ingresos en una moneda sin tipo de cambio, Braze lo registra como una compra de 0,00 USD.
 {% endalert %}
 
 <style>
@@ -84,20 +84,20 @@ Cuando registras ingresos en una moneda sin tipo de cambio, Braze los registra c
 
 ## Ver el desglose de productos {#viewing-the-product-breakdown}
 
-Consulta la tabla **Product Breakdown** para ver una lista de los productos comprados durante el rango de fechas seleccionado, cuántos de cada producto se compraron y cuántos ingresos generó cada producto.
+Consulta la tabla **Desglose de productos** para ver una lista de los productos comprados durante el período seleccionado, cuántas unidades de cada producto se compraron y cuántos ingresos generó cada uno.
 
-![La tabla "Product Breakdown" mostrando las columnas "Product Name", "Purchased" y "Revenue".]({% image_buster /assets/img/revenue_report_product_breakdown.png %})
+![La tabla "Desglose de productos" que muestra las columnas "Nombre del producto", "Comprados" e "Ingresos".]({% image_buster /assets/img/revenue_report_product_breakdown.png %})
 
 ## Exportar datos de ingresos {#exporting-revenue-data}
 
-Para exportar tus datos de ingresos, selecciona <i class="fas fa-bars" title="Menú contextual del gráfico"></i> **Menú contextual del gráfico** en el gráfico **Performance Over Time** y selecciona tu opción de exportación.
+Para exportar tus datos de ingresos, selecciona <i class="fas fa-bars" title="Menú contextual del gráfico"></i> **Menú contextual del gráfico** en el gráfico **Rendimiento a lo largo del tiempo** y selecciona tu opción de exportación.
 
 {% alert tip %}
-¿Buscas más formas de obtener datos de ingresos? Intenta añadir comportamiento de compra (así como la compra de un producto) a Campaigns o Canvas como [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events).
+¿Buscas más formas de obtener datos de ingresos? Prueba añadir el comportamiento de compra (así como la compra de un producto) a Campaigns o Canvas como [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events).
 {% endalert %}
 
 También puedes ver estadísticas de ingresos caso por caso en las páginas de [análisis de Campaign]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics) o [análisis de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics).
 
 {% alert tip %}
-Los informes de ingresos no se pueden exportar a través de API. Para obtener ayuda con las exportaciones CSV, consulta [solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
+Los informes de ingresos no se pueden exportar a través de la API. Para obtener ayuda con las exportaciones de CSV, consulta [solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}

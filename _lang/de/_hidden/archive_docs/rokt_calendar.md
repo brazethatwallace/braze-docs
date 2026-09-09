@@ -22,10 +22,10 @@ Die Integration von Braze und Rokt Calendar ermöglicht es, Ihre Rokt-Calendar-A
 
 | Anforderung  | Beschreibung |
 | ------------ | ----------- |
-| Rokt-Calendar-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein kundenspezifisches Rokt-Calendar-Konto. Kontaktieren Sie [sales-calendar@rokt.com](mailto:sales-calendar@rokt.com), um mit einem Account Manager zu sprechen.  |
-| Rokt-Calendar-Einrichtung | Ihr Account Manager von Rokt Calendar wird mit Ihnen zusammenarbeiten, um den Kalender so einzurichten, dass er Ihren Bedürfnissen am besten entspricht, einschließlich Einstellungen wie:<br>- Merge-Flag<br>- Fallback-Flag für Abonnenten-ID<br>- E-Mail-Erfassung, falls erforderlich |
-| Rokt-Calendar-OAuth-Zugangsdaten | Dieser Schlüssel, den Ihnen Ihr Account Manager von Rokt Calendar zur Verfügung stellt, ermöglicht es Ihnen, Ihre Braze- und Rokt-Calendar-Konten miteinander zu verbinden.<br><br>Dieser kann im Braze-Dashboard unter **Settings** > **Connected Content** erstellt werden. |
-| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit `users.track`-Berechtigungen. Diesen Schlüssel müssen Sie Ihrem Rokt-Calendar-Account-Manager mitteilen.<br><br> Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden. |
+| Rokt-Calendar-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein kundenspezifisches Rokt-Calendar-Konto. Kontaktieren Sie [sales-calendar@rokt.com](mailto:sales-calendar@rokt.com), um mit einem Account Manager:in zu sprechen.  |
+| Rokt-Calendar-Einrichtung | Ihr Account Manager:in von Rokt Calendar wird mit Ihnen zusammenarbeiten, um den Kalender so einzurichten, dass er Ihren Bedürfnissen am besten entspricht, einschließlich Einstellungen wie:<br>- Merge-Flag<br>- Fallback-Flag für Abonnenten-ID<br>- E-Mail-Erfassung, falls erforderlich |
+| Rokt-Calendar-OAuth-Zugangsdaten | Dieser Schlüssel, den Ihnen Ihr Account Manager:in von Rokt Calendar zur Verfügung stellt, ermöglicht es Ihnen, Ihre Braze- und Rokt-Calendar-Konten miteinander zu verbinden.<br><br>Dieser kann im Braze-Dashboard unter **Settings** > **Connected Content** erstellt werden. |
+| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit `users.track`-Berechtigungen. Diesen Schlüssel müssen Sie Ihrem Rokt-Calendar-Account-Manager:in mitteilen.<br><br> Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden. |
 | [Braze-REST-Endpunkt]({{site.baseurl}}/api/basics/#endpoints) | Ihre REST-Endpunkt-URL. Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
 | Externe Abonnenten-ID | Dies ist der Bezeichner, der vom Rokt-Calendar-Abo-Prozess verwendet wird, um die Kalender-Abonnent:innen mit den Braze-Nutzer:innen abzugleichen. Diesen Wert übergeben Sie an Rokt Calendar. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }

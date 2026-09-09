@@ -1,7 +1,7 @@
 ---
 nav_title: Personalize.AI
 article_title: Personalize.AI
-description: "이 참조 문서에서는 개인화된 추천을 통해 매출 성장을 촉진하는 AI 기반 SaaS 비즈니스 플랫폼인 Personalize.AI와 Braze 간의 파트너십에 대해 설명합니다."
+description: "이 참조 문서에서는 개인화된 추천을 통해 매출 성장을 촉진하는 AI 기반 SaaS(software-as-a-service) 비즈니스 플랫폼인 Personalize.AI와 Braze 간의 파트너십에 대해 설명합니다."
 alias: /partners/personalize_ai/
 page_type: partner
 search_tag: Partner

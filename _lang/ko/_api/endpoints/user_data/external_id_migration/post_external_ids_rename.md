@@ -6,7 +6,6 @@ page_order: 1
 layout: api_page
 page_type: reference
 description: "이 문서에서는 외부 ID 이름 바꾸기 엔드포인트에 대한 자세한 내용을 설명합니다."
-
 ---
 {% api %}
 # 외부 ID 이름 바꾸기 {#rename-external-id}
@@ -38,7 +37,7 @@ description: "이 문서에서는 외부 ID 이름 바꾸기 엔드포인트에 
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `users.external_ids.rename` 권한이 있는 [API 키]({{site.baseurl}}/api/api_key)가 필요합니다.
+이 엔드포인트를 사용하려면 `users.external_ids.rename` 권한이 있는 [API 키]({{site.baseurl}}/api/basics)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -112,7 +111,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/external_ids
 
 대량 마이그레이션을 실행할 때:
 
-1. 전체 사용자 집단을 최대 50쌍의 배치로 반복 처리합니다.
+1. 전체 사용자 집단을 최대 50쌍의 배치로 Iterate하여 처리합니다.
 2. 각 응답에서 `external_ids`(성공)와 `rename_errors`(실패)를 모두 검사하여 재시도가 필요한 사용자를 식별합니다.
 3. 실패한 오브젝트를 수집하고 재시도 배치를 별도로 예약합니다. 일반적인 실패 원인으로는 `new_external_id`가 이미 사용 중이거나 `current_external_id`가 기본 ID가 아닌 더 이상 사용되지 않는 ID인 경우가 있습니다.
 4. 마이그레이션 상태가 Braze 외부에서 추적될 수 있도록 성공과 실패를 자체 기록에 로깅합니다.

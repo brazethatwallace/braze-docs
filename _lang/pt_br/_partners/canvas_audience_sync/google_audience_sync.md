@@ -44,7 +44,7 @@ Esse recurso permite que as marcas controlem quais dados primários específicos
 
 ## Pré-requisitos {#prerequisites}
 
-Certifique-se de que os itens a seguir foram criados e concluídos antes de configurar sua etapa de público do Google no Canvas.
+Certifique-se de que os itens a seguir foram criados e concluídos antes de configurar sua etapa de Google Audience no Canvas.
 
 | Requisito | Origin | Descrição |
 | ----------- | ------ | ----------- |
@@ -127,7 +127,7 @@ Se você planeja exportar IDFA do iOS ou IDs de publicidade do Google na sincron
 
 Se você tiver vários apps em um único espaço de trabalho, pode inserir qualquer um dos IDs de app na configuração, pois os IDs de publicidade móvel dos seus usuários serão os mesmos em vários apps. Isso ocorre porque tanto o GAID do Android quanto o IDFA do iOS são identificadores de publicidade universais no dispositivo e não são específicos de um app. Para sincronizar IDs de publicidade móvel de usuários de um app específico, você pode usar filtros de Segment ("Last Used Specific App" ou "Most Recent App Version") para direcionar esses usuários.
 
-### Etapa 2: Adicionar uma etapa de público do Google no Canvas {#step-2-add-a-google-audience-step-in-canvas}
+### Etapa 2: Adicionar uma etapa de Google Audience no Canvas {#step-2-add-a-google-audience-step-in-canvas}
 
 Adicione um componente no seu Canvas e selecione **Audience Sync**.
 
@@ -167,7 +167,7 @@ Os usuários serão notificados na parte superior do editor de etapas se o públ
 
 ![Um alerta que aparece após a criação de um novo público no componente do Canvas.]({% image_buster /assets/img/audience_sync/g_sync3.png %})
 
-Quando você lança um Canvas com um novo público, a Braze cria um novo público personalizado ao lançar o Canvas e, em seguida, sincroniza os usuários em tempo quase real à medida que eles entram na etapa de público do Google.
+Quando você lança um Canvas com um novo público, a Braze cria um novo público personalizado ao lançar o Canvas e, em seguida, sincroniza os usuários em tempo quase real à medida que eles entram na etapa de Google Audience.
 
 {% alert important %}
 Devido aos requisitos do Google Customer Match, você não pode ter informações de contato do cliente e IDs de publicidade móvel nas mesmas listas de clientes. O Google Customer Match usará essas informações para determinar quem pode ser direcionado no Google Search, Google Display, YouTube e Gmail. Para mais detalhes sobre os requisitos do Google Customer Match, consulte a [documentação](https://support.google.com/google-ads/answer/7474166?hl=en&ref_topic=6296507) deles.
@@ -179,8 +179,8 @@ A Braze também oferece a capacidade de adicionar ou remover usuários de listas
 
 1. Selecione um público personalizado existente para sincronizar.
 2. Escolha se deseja **Add to the audience** ou **Remove from the audience**.
-3. A Braze adicionará ou removerá usuários em tempo quase real à medida que eles entrarem na etapa de público do Google.
-4. Após configurar sua etapa de público do Google, selecione **Done**. Sua etapa de público do Google incluirá detalhes sobre o novo público.
+3. A Braze adicionará ou removerá usuários em tempo quase real à medida que eles entrarem na etapa de Google Audience.
+4. Após configurar sua etapa de Google Audience, selecione **Done**. Sua etapa de Google Audience incluirá detalhes sobre o novo público.
 
 ![Visualização expandida do componente Canvas de público personalizado. Aqui, a conta de anúncios desejada e o público existente estão selecionados, assim como o botão de opção "Add user to Audience".]({% image_buster /assets/img/audience_sync/g_sync2.png %})
 
@@ -206,7 +206,7 @@ A tabela a seguir inclui métricas e descrições para ajudar você a entender m
 | Métrica | Descrição |
 | ------ | ----------- |
 | *Entered* | Número de usuários que entraram nesta etapa para serem sincronizados com o Google. |
-| *Proceeded to Next Step* | Quantos usuários avançaram para o próximo componente, se houver um. Todos os usuários avançam automaticamente. Se esta for a última etapa na ramificação do Canvas, essa métrica será 0. |
+| *Proceeded to Next Step* | Quantos usuários avançaram para o próximo componente, se houver um. Todos os usuários avançam automaticamente. Se esta for a última etapa na Branch do Canvas, essa métrica será 0. |
 | *Users Synced* | Número de usuários que foram sincronizados com sucesso com o Google. |
 | *User Not Synced* | Número de usuários que não foram sincronizados devido a campos ausentes para correspondência ou porque o atributo de consentimento foi definido como `false`. |
 | *Users Errored* | Número de usuários que não foram sincronizados com o Google devido a um erro, após &#126;13 horas de tentativas. Para erros específicos, como interrupções no serviço da API do Google Ads, o Canvas tentará novamente a sincronização por até &#126;13 horas. Se a sincronização ainda não for possível nesse ponto, o campo *User Not Synced* será preenchido. |
@@ -216,7 +216,7 @@ A tabela a seguir inclui métricas e descrições para ajudar você a entender m
 
 ## Perguntas frequentes {#frequently-asked-questions}
 
-### Por que não consigo selecionar vários campos para correspondência na configuração da minha etapa de público do Google? {#why-can-i-not-select-multiple-fields-to-match-in-my-google-audience-step-configuration}
+### Por que não consigo selecionar vários campos para correspondência na configuração da minha etapa de Google Audience? {#why-can-i-not-select-multiple-fields-to-match-in-my-google-audience-step-configuration}
 
 O Google Customer Match tem requisitos rigorosos sobre como esses públicos são formatados e quais informações de clientes são incluídas. Especificamente, os IDs de anunciantes de dispositivos móveis precisam ser enviados separadamente das informações de contato do cliente (como e-mail e número de telefone). Para mais detalhes, consulte a [documentação do Google Customer Match](https://support.google.com/google-ads/answer/7659867?hl=en#undefined).
 

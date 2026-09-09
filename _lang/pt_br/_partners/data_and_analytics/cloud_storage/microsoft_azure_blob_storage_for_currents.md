@@ -14,10 +14,10 @@ search_tag: Partner
 > O [Microsoft Azure Blob Storage](https://azure.microsoft.com/en-us/services/storage/blobs/) é um armazenamento de objetos massivamente escalável para dados não estruturados oferecido pela Microsoft como parte do conjunto de produtos Azure.
 
 {% alert important %}
-Se estiver alternando entre provedores de armazenamento em nuvem, entre em contato com o gerente de sucesso do cliente da Braze para obter mais assistência na configuração e validação da nova integração.
+Se estiver alternando entre provedores de armazenamento em nuvem, entre em contato com o CSM da Braze para obter mais assistência na configuração e validação da nova integração.
 {% endalert %}
 
-A integração da Braze com o Microsoft Azure Blob Storage permite exportar dados de volta para o Azure e transmitir dados do Currents. Depois, você pode usar um processo ETL (Extract, Transform, Load) para transferir seus dados para outros locais.
+A integração da Braze com o Microsoft Azure Blob Storage permite exportar dados de volta para o Azure e transmitir dados do Currents. Depois, você pode usar um processo ETL (ETL) para transferir seus dados para outros locais.
 
 ## Pré-requisitos {#prerequisites}
 

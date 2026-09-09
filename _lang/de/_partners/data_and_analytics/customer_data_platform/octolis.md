@@ -10,7 +10,7 @@ search_tag: Octolis
 
 # Octolis
 
-> [Octolis](http://octolis.com) ist eine leistungsstarke Plattform zur Aktivierung von Daten (oder headless CDP). Octolis basiert auf einer Datenbank, die Sie besitzen, und ist eine einfache Möglichkeit, Daten in Ihren Geschäftsanwendungen zu vereinheitlichen, aufzubereiten, zu bewerten und zu synchronisieren.
+> [Octolis](http://octolis.com) ist eine leistungsstarke Plattform zur Aktivierung von Daten (oder headless Customer Data Platform (CDP)). Octolis basiert auf einer Datenbank, die Sie besitzen, und ist eine einfache Möglichkeit, Daten in Ihren Geschäftsanwendungen zu vereinheitlichen, aufzubereiten, zu bewerten und zu synchronisieren.
 
 _Diese Integration wird von Octolis gepflegt._
 

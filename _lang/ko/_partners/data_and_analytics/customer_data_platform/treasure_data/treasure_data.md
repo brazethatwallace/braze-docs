@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Treasure Data
 
-> [Treasure Data](https://www.treasuredata.com/)는 여러 소스에서 정보를 수집하고 마케팅 스택의 다양한 위치로 라우팅하는 고객 데이터 플랫폼(CDP)입니다.
+> [Treasure Data](https://www.treasuredata.com/)는 여러 소스에서 정보를 수집하고 마케팅 스택의 다양한 위치로 라우팅하는 고객 데이터 플랫폼(고객 데이터 플랫폼)입니다.
 
 Braze와 Treasure Data 통합을 사용하면 Treasure Data의 작업 결과를 Braze에 직접 기록할 수 있으며, 다음과 같은 작업이 가능합니다.
 * **외부 ID 매핑**: 고객 관계 관리 시스템에서 Braze 사용자 계정에 ID를 매핑합니다.

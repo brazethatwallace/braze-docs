@@ -15,51 +15,47 @@ search_tag: Partner
 
 ## À propos de cette intégration {#about-this-integration}
 
-Vous pouvez exploiter les informations de Fullstory dans Braze pour créer des images instantanées de l'expérience d'un utilisateur sur un site web ou une application, afin de diffuser des messages hyper-contextuels. L'API de résumé de session de Fullstory permet de capturer des métadonnées détaillées sur le comportement de navigation d'un utilisateur pour les utiliser dans les messages Braze, ce qui est particulièrement puissant dans le cadre d'un parcours de messages en plusieurs étapes comme un Canvas.
+Vous pouvez tirer parti des informations exploitables de Fullstory dans Braze pour créer des instantanés de l'expérience d'un utilisateur sur un site web ou une application, et ainsi envoyer des messages ultra-contextuels. L'API Session Summary de Fullstory permet de capturer des métadonnées détaillées sur le comportement de navigation d'un utilisateur afin de les utiliser dans les messages Braze, ce qui est particulièrement puissant lorsqu'on l'exploite dans un parcours de communication en plusieurs étapes comme un Canvas.
 
-La valeur en temps réel des données du résumé de session de Fullstory est mieux exploitée grâce au contenu connecté. En utilisant du contenu connecté dans une étape de contexte Canvas, vous pouvez stocker les données de Fullstory tout au long du parcours Canvas d'un utilisateur pour les utiliser dans toutes les étapes Canvas suivantes. Cela évite également de devoir écrire ces données dans un profil utilisateur Braze par le biais d'événements personnalisés ou d'attributs.
+La valeur en temps réel des données de résumé de session de Fullstory est optimisée grâce au contenu connecté. En utilisant le contenu connecté dans une étape Canvas Context, vous pouvez stocker les données de Fullstory tout au long du parcours Canvas d'un utilisateur pour les réutiliser dans toutes les étapes Canvas suivantes. Cela évite également d'écrire ces données dans un profil utilisateur Braze via des custom events ou des attributs personnalisés.
 
-Dans l'exemple suivant, les données de contexte Canvas sont exploitées dans une étape Canvas Agent IA afin de générer le message optimal pour encourager un utilisateur à reprendre un panier abandonné. Cependant, vous pouvez exploiter les données pour personnaliser directement le message, pour déterminer le parcours de l'utilisateur via les parcours d'audience, ou pour déterminer le texte ou les ressources utilisées dans les étapes ultérieures de l'envoi de messages.
+Dans l'exemple suivant, les données de Canvas Context sont exploitées dans une étape Canvas Agent AI pour générer le message optimal encourageant un utilisateur à reprendre un panier abandonné. Cependant, vous pouvez également tirer parti de ces données pour personnaliser directement le message, déterminer le parcours de l'utilisateur à l'aide de parcours d'audience, ou encore définir le texte ou les ressources utilisés dans les étapes de communication suivantes.
 
-## Conditions préalables {#prerequisites}
+## Prérequis {#prerequisites}
 
-Avant de commencer, vous devez disposer des éléments suivants :
+Avant de commencer, vous avez besoin des éléments suivants :
 
-| Condition | Description |
+|Condition requise     | Description |
 |-----------------------|-----------------|
-| Un jeton d'autorisation de l'API Session de Fullstory | Voir l'étape 1 de ce guide. |
-| Un jeton d'autorisation de contenu connecté Braze activé | Voir la note sur l'accès anticipé dans cette section. |
-| Une étape de contexte Canvas Braze | Voir la note sur l'accès anticipé dans cette section. |
-| Étape Agent IA Braze activée | Voir la note sur l'accès anticipé dans cette section. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
-
-{% alert important %}
-Les agents Braze, le contexte Canvas et les jetons d'autorisation de contenu connecté sont tous en accès anticipé. Si vous souhaitez tirer parti de cette solution, contactez votre CSM Braze pour activer ces outils.
-{% endalert %}
+| Un jeton d'autorisation pour l'API Session de Fullstory   | Voir l'étape 1 de ce guide. |
+| Un jeton d'autorisation pour le contenu connecté Braze activé | Voir la note d'accès anticipé dans cette section. |
+| Une étape de contexte Canvas Braze | Voir la note d'accès anticipé dans cette section. |
+| Une étape BrazeAI Agent activée | Voir la note d'accès anticipé dans cette section. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prérequis" }
 
 ## Intégrer Fullstory {#integrate-fullstory}
 
-### Étape 1 : Configurer Fullstory pour l'activation de l'API de résumé de session {#step-1}
+### Étape 1 : Configurer Fullstory pour l'activation de l'API Session Summary {#step-1}
 
-#### Étape 1.1 : Récupérer le jeton d'authentification pour l'endpoint de l'API de résumé de session {#step-11-retrieve-the-authentication-token-for-the-session-summary-api-endpoint}
+#### Étape 1.1 : Récupérer le jeton d'authentification pour l'endpoint de l'API Session Summary {#step-11-retrieve-the-authentication-token-for-the-session-summary-api-endpoint}
 
 Pour créer une [clé API Fullstory](https://developer.fullstory.com/server/authentication/) :
 
 1. Dans Fullstory, accédez à **Settings** > **API Keys**.
-2. Sélectionnez le niveau d'autorisation **Standard**.
+2. Sélectionnez le niveau de permission **Standard**.
 3. Copiez immédiatement la valeur de la clé, car elle n'apparaît qu'une seule fois.
 
-#### Étape 1.2 : Créer un ID de profil de résumé de session {#step-12-create-a-session-summary-profile-id}
+#### Étape 1.2 : Créer un identifiant de profil de résumé de session {#step-12-create-a-session-summary-profile-id}
 
-En suivant les [conseils de Fullstory](https://developer.fullstory.com/anywhere/activation/ai-session-summary-api/#step-1-creating-and-managing-summary-profiles), créez un profil de résumé de session à l'aide de l'endpoint dédié. C'est ici que vous définissez le type de données que vous souhaitez que la réponse du résumé de session fournisse à Braze.
+En suivant [les instructions de Fullstory](https://developer.fullstory.com/anywhere/activation/ai-session-summary-api/#step-1-creating-and-managing-summary-profiles), créez un profil de résumé de session à l'aide de l'endpoint dédié. C'est ici que vous définissez le type de données que vous souhaitez que la réponse du résumé de session fournisse à Braze.
 
-En réponse à cette requête, Fullstory fournit un ID de profil de session. Cet ID de profil est un élément clé du corps de la requête de contenu connecté utilisé dans le cas d'usage suivant.
+Dans la réponse à cette requête, Fullstory fournit un identifiant de profil de session. Cet identifiant de profil est un élément clé du corps de la requête de contenu connecté utilisé dans le cas d'usage suivant.
 
-### Étape 2 : Créer le jeton d'authentification du contenu connecté {#step-2-create-the-connected-content-token-authentication}
+### Étape 2 : Créer l'authentification par jeton pour le contenu connecté {#step-2-create-the-connected-content-token-authentication}
 
 1. Dans Braze, accédez à **Settings** > **Workspace Settings** > **Connected Content** > **Add Credential** > **Token Authentication**.
 2. Nommez l'authentification `fullstory`.
-3. Ajoutez la clé d'en-tête « Authorization ». Indiquez la valeur de l'en-tête fournie par Fullstory à l'étape précédente.
+3. Ajoutez la clé d'en-tête « Authorization ». Indiquez la valeur d'en-tête fournie par Fullstory à l'étape précédente.
 4. Sous **Allowed Domain**, saisissez **api.fullstory.com**.
 
 ![Capture d'écran de Braze montrant les champs de modification des identifiants]({% image_buster /assets/img/fullstory/1.png %}){: style="max-width:50%;"}
@@ -68,13 +64,13 @@ En réponse à cette requête, Fullstory fournit un ID de profil de session. Cet
 
 ### Créer des parcours de messages dynamiques {#create-dynamic-message-journeys}
 
-En utilisant les [flux d'activation](https://help.fullstory.com/hc/en-us/articles/360045134554-Streams) de Fullstory, vous pouvez déclencher des Canvas Braze immédiatement après les interactions clés de l'utilisateur. La puissance de cette intégration réside dans l'identifiant unique `client_session_id` (accessible via {% raw %}`{{canvas_entry_properties.${client_session_id}}}`{% endraw %}), que le système transmet automatiquement de Fullstory à Braze. Cet ID sert de clé, permettant à Braze de récupérer le résumé de session complet de ce que l'utilisateur a vécu.
+En utilisant les [Activation Streams](https://help.fullstory.com/hc/en-us/articles/360045134554-Streams) de Fullstory, vous pouvez déclencher des Canvas Braze immédiatement après des interactions utilisateur clés. La puissance de cette intégration réside dans l'identifiant unique `client_session_id` (accessible via {% raw %}`{{canvas_entry_properties.${client_session_id}}}`{% endraw %}), que le système transmet automatiquement de Fullstory à Braze. Cet ID agit comme une clé, permettant à Braze de récupérer le résumé de session complet correspondant exactement à ce que l'utilisateur a vécu.
 
-En tirant parti des étapes de contexte Canvas et du contenu connecté, vous pouvez utiliser cet ID pour effectuer une requête API à Fullstory, récupérer les données de session et les stocker en tant que variable pour les utiliser plus tard dans le parcours.
+En tirant parti des étapes Context du Canvas et du contenu connecté, vous pouvez utiliser cet ID pour envoyer une requête API à Fullstory, récupérer les données de session et les stocker en tant que variable pour une utilisation ultérieure dans le parcours.
 
-![Étape de contexte Canvas Braze montrant la variable de contexte « summary_result » créée et alimentée par un appel de contenu connecté à Fullstory pour récupérer un résumé de session]({% image_buster /assets/img/fullstory/2.png %})
+![Étape Context d'un Canvas Braze montrant la variable de contexte « summary_result » en cours de création et alimentée par un appel de contenu connecté à Fullstory pour récupérer un résumé de session]({% image_buster /assets/img/fullstory/2.png %})
 
-Avec le jeton d'autorisation créé précédemment, utilisez la structure de requête suivante pour extraire les données du résumé de session.
+Avec le jeton d'autorisation créé précédemment, utilisez la structure de requête suivante pour récupérer les données du résumé de session.
 
 {% raw %}
 ```bash
@@ -84,12 +80,12 @@ Avec le jeton d'autorisation créé précédemment, utilisez la structure de req
 {% endraw %}
 
 {% alert note %}
-La réponse est enregistrée sous la forme de l'étiquette Liquid {% raw %}`{{context.${summary_result}.response}}`{% endraw %}. Utilisez cette étiquette de contexte dans les étapes Canvas suivantes.
+La réponse est stockée sous la forme de l'étiquette Liquid {% raw %}`{{context.${summary_result}.response}}`{% endraw %}. Utilisez cette étiquette Context dans les étapes suivantes du Canvas.
 {% endalert %}
 
-À ce stade, le Canvas peut accéder à la réponse de l'appel de contenu connecté, qui contient l'intégralité du payload du message pour la session d'un utilisateur.
+À ce stade, le Canvas peut accéder à la réponse de l'appel de contenu connecté, qui contient l'intégralité du payload du message pour la session de l'utilisateur.
 
-{% details Exemple de payload de l'API de résumé de session %}
+{% details Exemple de payload de l'API Session Summary %}
 
 {% raw %}
 ```bash
@@ -151,33 +147,33 @@ La réponse est enregistrée sous la forme de l'étiquette Liquid {% raw %}`{{co
 {% endraw %}
 {% enddetails %}
 
-Vous pouvez exploiter n'importe laquelle des données disponibles dans l'objet ci-dessus à l'aide de l'étiquette Liquid de contexte à un stade ultérieur du parcours Canvas de l'utilisateur. Les étapes suivantes montrent comment utiliser ces données dans une étape [Agent]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/agent_step).
+Vous pouvez exploiter n'importe quelle donnée disponible dans l'objet précédent en utilisant l'étiquette Liquid de contexte plus tard dans le parcours Canvas de l'utilisateur. Les étapes suivantes montrent comment utiliser ces données dans une étape [Agent]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step).
 
 {% alert note %}
-Pour éviter tout comportement inattendu, incluez une étape de parcours d'audience après l'étape de contexte, qui peut exclure les utilisateurs du contexte si leur étiquette de contexte est vide, ce qui indique que l'appel au contenu connecté a échoué ou n'a renvoyé aucune information.
+Pour éviter tout comportement inattendu, incluez une étape de parcours d'audience après l'étape Context. Celle-ci peut exclure les utilisateurs du contexte si leur étiquette Context est vide, ce qui indique que l'appel de contenu connecté a échoué ou n'a renvoyé aucune information.
 
-![Étape de parcours d'audience dans Braze]({% image_buster /assets/img/fullstory/3.png %})
+![L'étape de parcours d'audience dans Braze]({% image_buster /assets/img/fullstory/3.png %})
 
 {% endalert %}
 
-### Produire un texte approprié {#produce-appropriate-copy}
+### Produire un contenu approprié {#produce-appropriate-copy}
 
-En créant une [étape Agent]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents) dans un Canvas déclenché par Fullstory, et en incluant l'étape de contexte décrite dans cette section, vous pouvez référencer les données de résumé de session de Fullstory dans l'agent.
+En créant une [étape Agent]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents) dans un Canvas déclenché par Fullstory et en incluant l'étape Context décrite dans cette section, vous pouvez référencer les données du résumé de session de Fullstory dans l'agent.
 
-Dans cet exemple, vous utilisez ces données pour permettre à l'agent Braze de générer un texte de message approprié à utiliser dans une content card, qui peut encourager l'utilisateur à retourner dans son panier abandonné.
+Dans cet exemple, vous utilisez ces données pour permettre à l'agent Braze de générer un contenu de message approprié destiné à une Content Card, qui peut encourager l'utilisateur à revenir à son panier abandonné.
 
-![Capture d'écran du créateur de contexte de l'agent Braze avec l'invite]({% image_buster /assets/img/fullstory/4.png %})
+![Capture d'écran du créateur de contexte de l'agent Braze avec le prompt]({% image_buster /assets/img/fullstory/4.png %})
 
-Utilisez le même nom pour l'étiquette Liquid de contexte créée dans cette étape que pour l'étiquette Liquid de contexte utilisée dans l'étape Agent IA créée précédemment.
+Utilisez le même nom pour l'étiquette Liquid Context créée dans cette étape que celle utilisée dans l'étape AI Agent créée précédemment.
 
-L'invite requise pour votre cas d'usage varie. Pour connaître les bonnes pratiques en matière de création d'invites efficaces pour les agents, consultez [Rédaction d'instructions]({{site.baseurl}}/user_guide/brazeai/agents/reference#writing-instructions).
+Le prompt requis varie en fonction de votre cas d'usage. Pour les bonnes pratiques sur la création de prompts d'agent efficaces, consultez [Rédiger des instructions]({{site.baseurl}}/user_guide/brazeai/agents/reference#writing-instructions).
 
-Dans votre Canvas, sélectionnez une étape Agent IA, puis sélectionnez l'agent **Session Context** dans le menu déroulant. Enregistrez la sortie sous forme de variable, dans ce cas « message », que vous pouvez placer dans le texte du message en utilisant l'étiquette Liquid {% raw %}`{{context.${message}.message}}`{% endraw %}.
+Dans votre Canvas, sélectionnez une étape AI Agent, puis sélectionnez l'agent **Session Context** dans le menu déroulant. Enregistrez la sortie en tant que variable, dans ce cas « message », que vous pouvez insérer dans le contenu du message en utilisant l'étiquette Liquid {% raw %}`{{context.${message}.message}}`{% endraw %}.
 
-![Capture d'écran de l'étape Canvas de contexte de l'agent Braze avec l'invite]({% image_buster /assets/img/fullstory/5.png %})
+![Capture d'écran de l'étape Canvas de contexte de l'agent Braze avec le prompt]({% image_buster /assets/img/fullstory/5.png %})
 
-Créez une étape de message qui exploite le texte créé par l'agent IA. Utilisez l'étiquette Liquid dans cette étape.
+Créez une étape Message qui exploite le contenu généré par l'AI Agent. Utilisez l'étiquette Liquid dans cette étape.
 
 {% alert important %}
-L'API de résumé de session de Fullstory peut renvoyer des données utilisateur sensibles et identifiables. Pour garantir la conformité lors du traitement des données d'identification personnelle, assurez-vous que vos règles de capture de données Fullstory excluent les données d'identification avant de tirer parti de ce cas d'usage.
+L'API Session Summary de Fullstory peut renvoyer des données d'identification sensibles concernant les utilisateurs. Pour garantir la conformité lors du traitement des données d'identification (PII), confirmez que vos règles de capture de données Fullstory excluent les PII avant d'exploiter ce cas d'usage.
 {% endalert %}

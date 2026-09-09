@@ -10,7 +10,6 @@ channel:
   - push
 tool:
   - Campaigns
-
 ---
 
 # Create rich push notifications for iOS
@@ -21,7 +20,7 @@ tool:
 
 Before you create a rich push notification for iOS, note the following details:
 
-- To ensure your app can send rich notifications, follow the [iOS push integration]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#ios-10-rich-notifications) instructions, as your developer will need to add a service extension to your app.
+- To ensure your app can send rich notifications, follow the [iOS push integration]({{site.baseurl}}/developer_guide/push_notifications/rich?sdktab=swift) instructions, as your developer will need to add a service extension to your app.
 - File types that we currently support for direct uploading within our dashboard include JPEG, PNG, or GIF. These files can also be entered into the templatable URL field along with these additional file types: AIF, M4A, MP3, MP4, or WAV.
 - Reference [Apple's documentation](https://developer.apple.com/reference/usernotifications/unnotificationattachment) for media limitations and specs.
 - iOS will scale images to fit in the screen and will scale rich images for the active or locked view.

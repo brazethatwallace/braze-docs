@@ -94,8 +94,8 @@ Authorization: Bearer YOUR-SCIM-TOKEN-KEY
 | --------- | -------- | --------- | ----------- |
 | `schemas` | 필수 | 문자열 배열 | 사용자 오브젝트에 대한 예상 SCIM 2.0 스키마 이름입니다. |
 | `name` | 필수 | JSON 오브젝트 | 이 오브젝트에는 사용자의 이름과 성이 포함되어 있습니다. |
-| `department` | 필수 | 문자열 | [부서 문자열 설명서]({{site.baseurl}}/scim_api_appendix#department-strings)에 있는 유효한 부서 문자열입니다. |
-| `permissions` | 필수 | JSON 오브젝트 | [권한 오브젝트 설명서]({{site.baseurl}}/scim_api_appendix#permissions-object)에 설명된 권한 오브젝트입니다. |
+| `department` | 필수 | 문자열 | [부서 문자열 설명서]({{site.baseurl}}/api/objects_filters/scim_api_appendix)에 있는 유효한 부서 문자열입니다. |
+| `permissions` | 필수 | JSON 오브젝트 | [권한 오브젝트 설명서]({{site.baseurl}}/api/objects_filters/scim_api_appendix)에 설명된 권한 오브젝트입니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 

@@ -9,7 +9,7 @@ description: "Diese Landing-Page listet die Braze-Übersetzungsendpunkte auf."
 page_type: landing
 
 guide_top_header: "Übersetzungsendpunkte"
-guide_top_text: "Verwenden Sie die Braze-Übersetzungsendpunkte, um Übersetzungen in Ihren Campaigns, Canvases und Content Blocks zu verwalten und zu aktualisieren."
+guide_top_text: "Verwenden Sie die Braze-Übersetzungsendpunkte, um Übersetzungen in Ihren Campaigns, Canvases, Content Blocks, E-Mail-Templates und Webhook-Templates zu verwalten und zu aktualisieren."
 
 guide_featured_title: "Campaign-Endpunkte"
 guide_featured_list:
@@ -59,28 +59,40 @@ guide_menu_list3:
     link: /docs/api/endpoints/translations/content_blocks/put_update_translation_content_block
     image: /assets/img/braze_icons/target-04.svg
 
+guide_menu_title4: "Webhook-Template-Endpunkte"
+guide_menu_list4:
+  - name: "GET: Standardquellwerte für Webhook-Template-Übersetzungen anzeigen"
+    link: /docs/api/endpoints/translations/webhook_templates/get_view_source_webhook_template
+    image: /assets/img/braze_icons/message-plus-square.svg
+  - name: "GET: Webhook-Template-Übersetzungen anzeigen"
+    link: /docs/api/endpoints/translations/webhook_templates/get_view_translations_webhook_template
+    image: /assets/img/braze_icons/target-04.svg
+  - name: "PUT: Übersetzungen in einem Webhook-Template aktualisieren"
+    link: /docs/api/endpoints/translations/webhook_templates/put_update_webhook_template
+    image: /assets/img/braze_icons/target-04.svg
+
 ---
 
 {% multi_lang_include alerts/early_access_beta_alert.md feature='Access to the Braze translation endpoints' %}
 
-## So funktionieren unsere Übersetzungsendpunkte {#how-our-translation-endpoints-work}
+## Wie unsere Übersetzungsendpunkte funktionieren {#how-our-translation-endpoints-work}
 
-Unsere Übersetzungsendpunkte arbeiten mit der [mehrsprachigen Komposition]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings), bei der eine Nachricht verschiedene Versionen haben kann, die je nach empfangender Nutzer:in unterschiedlich gerendert werden.
+Unsere Übersetzungsendpunkte arbeiten mit der [mehrsprachigen Komposition]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings), bei der eine Nachricht verschiedene Versionen haben kann, die je nach Nutzer:in, die/der die Nachricht empfängt, gerendert werden.
 
 ### Voraussetzungen {#prerequisites}
 
-Bevor Sie diese Endpunkte verwenden, müssen Sie [Ihre Locales hinzufügen]({{site.baseurl}}/user_guide/administrative/app_settings/multi_language_settings#add-a-locale).
+Bevor Sie diese Endpunkte verwenden, müssen Sie [Ihre Locales hinzufügen]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings#add-a-locale).
 
 ### So testen Sie Ihre Übersetzungen {#how-to-test-your-translations}
 
-Es gibt zwei Möglichkeiten, die Übersetzungsunterstützung mithilfe der API und des Braze-Dashboards für Campaigns, Canvases (einschließlich einzelner Schritte), Content Blocks und E-Mail-Templates zu überprüfen:
+Es gibt zwei Möglichkeiten, die Übersetzungsunterstützung mithilfe der API und des Braze-Dashboards für Campaigns, Canvases (einschließlich einzelner Schritte), Content Blocks, E-Mail-Templates und Webhook-Templates zu validieren:
 
-- Während der Komposition (vor dem Start)
+- Während der Erstellung (vor dem Start)
 - Nach dem Start (mithilfe von Entwürfen nach dem Start)
 
 Bevor Sie das Aktualisieren von Übersetzungen testen, müssen Sie:
 
-1. [Ihre Locales hinzufügen]({{site.baseurl}}/user_guide/administrative/app_settings/multi_language_settings#add-a-locale).
-2. Eine Nachricht erstellen und gegebenenfalls Übersetzungs-Tags verwenden.
+1. [Ihre Locales hinzufügen]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings#add-a-locale).
+2. Eine Nachricht erstellen und an den entsprechenden Stellen Übersetzungs-Tags verwenden.
 3. Die Nachricht speichern.
 4. Die einzubeziehenden Locales auswählen.

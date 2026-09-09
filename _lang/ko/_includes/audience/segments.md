@@ -11,7 +11,7 @@ Campaign이나 Canvas에 표시되는 대상 집단 규모는 추가 필터 없�
 
 {% if include.section == "Refresh settings" %}
 
-정기적으로 확장을 새로고침할 필요가 없는 경우 새로고침 설정을 사용하지 않고 저장할 수 있으며, Braze는 해당 시점의 사용자 멤버십을 기반으로 세그먼트 확장을 생성하는 기본 동작을 적용합니다. 오디언스를 한 번만 생성한 다음 일회성 Campaign으로 타겟팅하려는 경우 기본 동작을 사용하세요.
+정기적으로 확장을 새로고침할 필요가 없는 경우 새로고침 설정을 사용하지 않고 저장할 수 있으며, Braze는 해당 시점의 사용자 멤버십을 기반으로 세그먼트 확장을 생성하는 기본값을 적용합니다. 오디언스를 한 번만 생성한 다음 일회성 Campaign으로 타겟팅하려는 경우 기본 동작을 사용하세요.
 
 세그먼트는 항상 최초 저장 후 처리가 시작됩니다. 세그먼트가 새로고침될 때마다 Braze는 세그먼트를 다시 실행하고 새로고침 시점의 사용자를 반영하도록 세그먼트 멤버십을 업데이트합니다. 이를 통해 반복 Campaign이 가장 관련성 높은 사용자에게 도달하는 데 도움이 됩니다.
 
@@ -73,5 +73,15 @@ Campaign이나 Canvas에 표시되는 대상 집단 규모는 추가 필터 없�
 {% if include.section == "same channel identifier" %}
 
 메시지가 수신, 열람 또는 클릭되면 Braze는 해당 상호작용을 기록한 프로필과 동일한 채널 식별자를 공유하는 모든 프로필의 데이터를 업데이트합니다(예: 이메일의 경우 동일한 이메일 주소, SMS 또는 WhatsApp의 경우 동일한 전화번호). 메시지를 수신, 열람 또는 클릭한 사용자와 식별자를 공유하는 사용자는 원래 Campaign에 포함되지 않았거나 메시지를 직접 받지 않았더라도 이 필터에 매칭될 수 있습니다.
+
+{% endif %}
+
+{% if include.section == "Canvas variant archived segment" %}
+
+### 아카이브된 Segment로 인해 캔버스 배리언트를 삭제할 수 없는 경우 {#cant-delete-a-canvas-variant-because-of-an-archived-segment}
+
+Braze가 Segment 필터가 해당 배리언트를 여전히 참조하고 있어 캔버스 배리언트 삭제를 차단하는 경우, 해당 참조를 사용하는 Segment(아카이브된 Segment 포함)를 열고 필터에서 해당 배리언트를 제거하세요. Segment를 저장한 다음 Canvas로 돌아가 배리언트 삭제를 다시 시도하세요.
+
+Canvas를 참조하는 Segment를 찾으려면 Canvas를 열고 오디언스 필터를 검토하거나, 각 Segment의 [메시징 사용 현황]({{site.baseurl}}/user_guide/audience/segments/managing_segments#messaging-use) 섹션에서 연결된 Canvases를 확인하세요.
 
 {% endif %}

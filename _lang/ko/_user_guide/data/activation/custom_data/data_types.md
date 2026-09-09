@@ -95,21 +95,21 @@ toc_headers: h2
 
 ### 개인 식별 정보(PII)로 표시 {#marking-as-personally-identifiable-information-pii}
 
-관리자는 이 페이지에서 커스텀 속성을 생성하고 PII로 표시할 수도 있습니다. 이러한 속성은 관리자와 "View Custom Attributes Marked as PII" 권한이 있는 대시보드 사용자에게만 표시됩니다.
+관리자는 이 페이지에서 커스텀 속성을 생성하고 PII로 표시할 수도 있습니다. 이러한 속성은 관리자와 "View 커스텀 속성 Marked as PII" 권한이 있는 대시보드 사용자에게만 표시됩니다.
 
 ### 설명 추가 {#adding-descriptions}
 
-`Manage Events, Attributes, Purchases` [사용자 권한]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions)이 있는 경우 커스텀 속성을 생성한 후 설명을 추가할 수 있습니다. 커스텀 속성을 편집하고 팀을 위한 메모 등 원하는 내용을 입력하세요.
+`Manage Events, Attributes, Purchases` [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)이 있는 경우 커스텀 속성을 생성한 후 설명을 추가할 수 있습니다. 커스텀 속성을 편집하고 팀을 위한 메모 등 원하는 내용을 입력하세요.
 
 ### 태그 추가 {#adding-tags}
 
-"Manage Events, Attributes, Purchases" [사용자 권한]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions)이 있는 경우 커스텀 속성을 생성한 후 태그를 추가할 수 있습니다. 그런 다음 태그를 사용하여 속성 목록을 필터링할 수 있습니다.
+"Manage Events, Attributes, Purchases" [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)이 있는 경우 커스텀 속성을 생성한 후 태그를 추가할 수 있습니다. 그런 다음 태그를 사용하여 속성 목록을 필터링할 수 있습니다.
 
 ### 커스텀 속성 제거 {#removing-custom-attributes}
 
 고객 프로필에서 커스텀 속성을 제거하는 방법은 두 가지입니다:
 
-- [사용자 업데이트 단계]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update#removing-custom-attributes)에서 제거할 커스텀 속성 이름을 선택합니다.
+- [사용자 업데이트 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)에서 제거할 커스텀 속성 이름을 선택합니다.
 - [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)에 대한 API 요청에서 `null` 값을 설정합니다.
 
 #### `null` 값 설정 {#setting-the-null-value}
@@ -127,17 +127,17 @@ toc_headers: h2
 
 커스텀 속성 목록을 CSV 파일로 내보내려면 페이지 상단에서 **Export all**을 선택합니다. 시스템이 CSV 파일을 생성하고 다운로드 링크를 이메일로 보내드립니다.
 
-## 사용량 보고서 보기 {#viewing-usage-reports}
+## 사용 보고서 보기 {#viewing-usage-reports}
 
-사용량 보고서에는 특정 커스텀 속성을 사용하는 모든 Canvases, Campaigns 및 Segments가 나열됩니다. 이 목록에는 Liquid 사용은 포함되지 않습니다.
+사용 보고서에는 특정 커스텀 속성을 사용하는 모든 Canvases, Campaigns 및 Segments가 표시됩니다. 이 목록에는 Liquid 사용 내역은 포함되지 않습니다.
 
-해당 커스텀 속성 옆의 체크박스를 선택한 다음 **사용량 보고서 보기**를 선택하면 한 번에 최대 100개의 사용량 보고서를 볼 수 있습니다.
+해당 커스텀 속성 옆의 확인란을 선택한 다음 **사용 보고서 보기**를 선택하면 한 번에 최대 100개의 사용 보고서를 볼 수 있습니다.
 
 ### 값 탭 {#values-tab}
 
-사용량 보고서를 볼 때 **값** 탭을 선택하면 약 250,000명의 사용자 샘플을 기반으로 선택한 커스텀 속성의 상위 값을 확인할 수 있습니다. 결과는 사용자 하위 집합에서 샘플링되므로 기존의 모든 값이 포함되지 않을 수 있습니다. 따라서 **값** 탭은 문제 해결이나 모든 사용자의 데이터를 통합해야 하는 사용 사례에는 사용하지 않아야 합니다.
+사용 보고서를 볼 때 **값** 탭을 선택하면 약 250,000명의 사용자 샘플을 기반으로 선택한 커스텀 속성의 상위 값을 확인할 수 있습니다. 결과는 사용자 하위 집합에서 샘플링되므로 기존의 모든 값이 포함되지 않을 수 있습니다. 따라서 **값** 탭은 문제 해결이나 모든 사용자의 데이터를 통합해야 하는 사용 사례에는 사용하지 않는 것이 좋습니다.
 
-![선택한 커스텀 속성의 사용량 보고서에서 "값" 탭이 열려 있으며, "US" 및 "PR" 등 국가 속성 값의 원형 차트가 표시됩니다.]({% image_buster /assets/img/usage_report_values.png %}){: style="max-width:80%;"}
+![선택한 커스텀 속성의 사용 보고서에서 "값" 탭이 열려 있으며, "US" 및 "PR" 같은 국가 속성 값의 파이 차트가 표시됩니다.]({% image_buster /assets/img/usage_report_values.png %}){: style="max-width:80%;"}
 
 ## 커스텀 속성 설정 {#setting-custom-attributes}
 
@@ -148,43 +148,43 @@ toc_headers: h2
 - [Android 및 FireOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=android)
 - [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=swift)
 - [웹]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=web)
-- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics#logging-custom-attributes)
+- [React Native]({{site.baseurl}}/developer_guide/analytics)
 - [Unity]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=unity)
-- [.NET MAUI(이전 Xamarin)]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics#setting-custom-attributes)
+- [.NET MAUI(이전 Xamarin)]({{site.baseurl}}/developer_guide/analytics?sdktab=xamarin)
 - [Roku]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes)
 
 {% enddetails %}
 
 ## 커스텀 속성 저장 {#custom-attribute-storage}
 
-커스텀 속성 데이터를 포함하여 **고객 프로필**에 저장된 모든 데이터는 각 프로필이 [활성]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival#active-users) 상태인 한 무기한 보존됩니다.
+**고객 프로필**에 저장된 모든 데이터(커스텀 속성 데이터 포함)는 각 프로필이 [활성]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival#active-users) 상태인 한 무기한 보존됩니다.
 
 ## 커스텀 속성 데이터 유형
 
-커스텀 속성은 뛰어난 타겟팅을 가능하게 하는 매우 유연한 도구입니다.
+커스텀 속성은 뛰어난 유연성을 갖춘 도구로, 강력한 타겟팅을 가능하게 합니다.
 
-다음 데이터 유형을 커스텀 속성으로 저장할 수 있습니다:
+다음 데이터 유형은 커스텀 속성으로 저장할 수 있습니다:
 
 - [부울](#booleans)
 - [숫자](#numbers)
 - [문자열](#strings)
 - [배열](#arrays)
 - [시간](#time)
-- [오브젝트]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support)
-- [오브젝트 배열]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects)
+- [오브젝트]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support)
+- [오브젝트 배열]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects)
 
-### 부울(참/거짓) {#booleans}
+### 부울(true/false) {#booleans}
 
-부울 속성은 가입 상태와 같은 사용자에 대한 간단한 이진 데이터를 저장하는 데 유용합니다. 변수가 참 또는 거짓 값으로 명시적으로 설정된 사용자뿐만 아니라 해당 속성이 아직 기록되지 않은 사용자도 찾을 수 있습니다.
+부울 속성은 구독 상태와 같이 사용자에 대한 간단한 이진 데이터를 저장하는 데 유용합니다. 변수가 명시적으로 true 또는 false 값으로 설정된 사용자뿐만 아니라, 해당 속성이 아직 기록되지 않은 사용자도 찾을 수 있습니다.
 
-**부울** 속성에는 다음과 같은 세분화 옵션을 사용할 수 있습니다.
+**부울** 속성의 경우 다음 세분화 옵션을 사용할 수 있습니다.
 
 | 세분화 옵션 | 드롭다운 필터 | 입력 옵션 | 예시 |
 | ---------------------| --------------- | ------------- | -------- |
-| 부울 값이 참, 거짓, 참 또는 미설정, 거짓 또는 미설정 중 하나**인지** 확인 | **IS**  | **TRUE**, **FALSE**, **TRUE OR NOT SET** 또는 **FALSE OR NOT SET** | 이 필터가 `coffee_drinker`를 지정하는 경우, 사용자는 다음 상황에서 이 필터와 일치합니다: <br> {::nomarkdown}<ul><li>이 필터가 <code>true</code>이고 사용자에게 <code>coffee_drinker</code> 값이 있는 경우</li><li>이 필터가 <code>false</code>이고 사용자에게 <code>coffee_drinker</code> 값이 없는 경우</li><li>이 필터가 <code>true or not set</code>이고 사용자에게 <code>coffee_drinker</code> 값이 있거나 값이 없는 경우</li><li>이 필터가 <code>false or not set</code>이고 사용자에게 <code>coffee_drinker</code> 또는 어떤 값도 없는 경우</li></ul>{:/} |
-| 부울 값이 사용자 프로필에 **존재하고** null이 아닌지 확인 | **IS NOT BLANK**  | **N/A** | 이 필터가 `coffee_drinker`를 지정하고 사용자에게 `coffee_drinker` 속성 값이 있는 경우, 사용자는 이 필터와 일치합니다. |
-| 부울 값이 사용자 프로필에 **존재하지 않거나** null인지 확인 | **IS BLANK**  | **N/A** | 이 필터가 `coffee_drinker`를 지정하고 사용자에게 `coffee_drinker` 속성이 없거나 `coffee_drinker` 값이 null인 경우, 사용자는 이 필터와 일치합니다.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Booleans (true/false) #booleans" }
+| 부울 값이 true, false, true 또는 설정되지 않음, false 또는 설정되지 않음 중 하나**인지** 확인 | **IS**  | **TRUE**, **FALSE**, **TRUE OR NOT SET**, 또는 **FALSE OR NOT SET** | 이 필터에서 `coffee_drinker`를 지정하면 사용자는 다음 상황에서 이 필터와 일치합니다: <br> {::nomarkdown}<ul><li>이 필터가 <code>true</code>이고 사용자에게 <code>coffee_drinker</code> 값이 있는 경우</li><li>이 필터가 <code>false</code>이고 사용자에게 <code>coffee_drinker</code> 값이 없는 경우</li><li>이 필터가 <code>true or not set</code>이고 사용자에게 <code>coffee_drinker</code> 값이 있거나 값이 없는 경우</li><li>이 필터가 <code>false or not set</code>이고 사용자에게 <code>coffee_drinker</code> 또는 어떤 값도 없는 경우</li></ul>{:/} |
+| 부울 값이 사용자 프로필에 **존재하며** null이 아닌지 확인 | **IS NOT BLANK**  | **N/A** | 이 필터에서 `coffee_drinker`를 지정하고 사용자에게 `coffee_drinker` 속성 값이 있으면 해당 사용자가 이 필터와 일치합니다. |
+| 부울 값이 사용자 프로필에 **존재하지 않거나** null인지 확인 | **IS BLANK**  | **N/A** | 이 필터에서 `coffee_drinker`를 지정하고 사용자에게 `coffee_drinker` 속성이 없거나 `coffee_drinker` 값이 null이면 해당 사용자가 이 필터와 일치합니다.|
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="부울(true/false) #booleans" }
 
 {% endtab %}
 {% tab 숫자 %}
@@ -193,46 +193,46 @@ toc_headers: h2
 지출 금액은 이 방법으로 기록하면 안 됩니다. 대신 [구매 이벤트]({{site.baseurl}}/user_guide/data/activation/events/purchase_events)를 통해 기록해야 합니다.
 {% endalert %}
 
-**숫자** 속성에는 다음과 같은 세분화 옵션을 사용할 수 있습니다.
+**숫자** 속성의 경우 다음 세분화 옵션을 사용할 수 있습니다.
 
 | 세분화 옵션 | 드롭다운 필터 | 입력 옵션 | 예시 |
 | ---------------------| --------------- | ------------- | -------- |
-| 숫자 속성이 **숫자**와 **정확히 일치하는지** 확인 | **EXACTLY** | **NUMBER** | 이 필터가 `10`을 지정하고 고객 프로필에 `10` 값이 있는 경우, 사용자는 이 필터와 일치합니다. |
-| 숫자 속성이 **숫자**와 **같지 않은지** 확인 | **DOES NOT EQUAL** | **NUMBER** | 이 필터가 `10`을 지정하고 고객 프로필에 `10` 값이 없는 경우, 사용자는 이 필터와 일치합니다. |
-| 숫자 속성이 **숫자**보다 **큰지** 확인 | **MORE THAN** | **NUMBER** | 이 필터가 `10`을 지정하고 고객 프로필에 `10`보다 큰 값이 있는 경우, 사용자는 이 필터와 일치합니다. |
-| 숫자 속성이 **숫자**보다 **작은지** 확인 | **LESS THAN** | **NUMBER** | 이 필터가 `10`을 지정하고 고객 프로필에 `10`보다 작은 값이 있는 경우, 사용자는 이 필터와 일치합니다. |
-| 숫자 속성이 사용자 프로필에 **존재하고** null이 아닌지 확인 | **IS NOT BLANK** | **N/A** | 고객 프로필에 지정된 숫자 속성이 포함되어 있으면 값에 관계없이 사용자는 이 필터와 일치합니다. |
-| 숫자 속성이 사용자 프로필에 **존재하지 않거나** null인지 확인 | **IS BLANK** | **N/A** | 고객 프로필에 지정된 숫자 속성이 포함되어 있지 않거나 속성 값이 null인 경우, 사용자는 이 필터와 일치합니다.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Booleans (true/false) #booleans" }
+| 숫자 속성이 **숫자**와 **정확히 같은지** 확인 | **EXACTLY** | **NUMBER** | 이 필터에서 `10`을 지정하고 고객 프로필에 `10` 값이 있으면 해당 사용자가 이 필터와 일치합니다. |
+| 숫자 속성이 **숫자**와 **같지 않은지** 확인 | **DOES NOT EQUAL** | **NUMBER** | 이 필터에서 `10`을 지정하고 고객 프로필에 `10` 값이 없으면 해당 사용자가 이 필터와 일치합니다. |
+| 숫자 속성이 **숫자**보다 **큰지** 확인 | **MORE THAN** | **NUMBER** | 이 필터에서 `10`을 지정하고 고객 프로필에 `10`보다 큰 값이 있으면 해당 사용자가 이 필터와 일치합니다. |
+| 숫자 속성이 **숫자**보다 **작은지** 확인 | **LESS THAN** | **NUMBER** | 이 필터에서 `10`을 지정하고 고객 프로필에 `10`보다 작은 값이 있으면 해당 사용자가 이 필터와 일치합니다. |
+| 숫자 속성이 사용자 프로필에 **존재하며** null이 아닌지 확인 | **IS NOT BLANK** | **N/A** | 고객 프로필에 지정된 숫자 속성이 포함되어 있으면 값에 관계없이 해당 사용자가 이 필터와 일치합니다. |
+| 숫자 속성이 사용자 프로필에 **존재하지 않거나** null인지 확인 | **IS BLANK** | **N/A** | 고객 프로필에 지정된 숫자 속성이 없거나 속성 값이 null이면 해당 사용자가 이 필터와 일치합니다.|
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="부울(true/false) #booleans" }
 
-#### 숫자 속성 세부 정보 {#number-attribute-details}
+#### 숫자 속성 세부 사항 {#number-attribute-details}
 
-- "정확히 0" 및 "미만" 필터에는 NULL 필드가 있는 사용자가 포함됩니다
+- "정확히 0" 및 "미만" 필터는 NULL 필드가 있는 사용자를 포함합니다
   - 커스텀 속성에 값이 없는 사용자를 제외하려면 **is not blank** 필터를 포함해야 합니다.
 
 {% endtab %}
 {% tab 문자열 %}
 
-문자열 속성은 최대 255자까지 가능합니다. 단어 사이, 앞 또는 뒤에 공백이 있는 값을 입력하면 Braze도 동일한 공백을 확인합니다.
+문자열 속성의 최대 길이는 255자입니다. 단어 사이, 앞 또는 뒤에 공백이 포함된 값을 입력하면 Braze도 동일한 공백을 확인합니다.
 
-**문자열** 속성에는 다음과 같은 세분화 옵션을 사용할 수 있습니다.
+**문자열** 속성의 경우 다음 세분화 옵션을 사용할 수 있습니다.
 
 | 세분화 옵션 | 드롭다운 필터 | 입력 옵션 | 예시 |
 | ---------------------| --------------- | ------------- | -------- |
 | 문자열 속성이 입력된 문자열 **또는** 정규표현식과 **부분적으로 일치하는지** 확인 | **MATCHES REGEX** | **STRING** **또는** **REGULAR EXPRESSION** <br>대소문자 구분 없음; 최대 32,764자 |
 | 문자열 속성이 입력된 문자열 **또는** 정규표현식과 **부분적으로 일치하지 않는지** 확인 | **DOES NOT MATCH REGEX** * | **STRING** **또는** **REGULAR EXPRESSION**<br>대소문자 구분 없음; 최대 32,764자 |
-| 문자열 속성이 사용자 프로필에 **존재하고** 빈 문자열이 아닌지 확인 | **IS NOT BLANK** | **N/A** | 이 필터가 `favorite_genre`를 지정하고 고객 프로필에 `favorite_genre` 속성이 있는 경우, 속성 값에 관계없이 사용자는 이 필터와 일치합니다. 예를 들어 사용자는 `sci-fi`, `romance` 또는 다른 값을 가질 수 있습니다.|
-| 문자열 속성이 사용자 프로필에 **존재하지 않는지** 확인 | **BLANK** | **N/A** | 이 필터가 `favorite_genre`를 지정하고 고객 프로필에 `favorite_genre` 속성이 없는 경우, 사용자는 이 필터와 일치합니다.|
-| 문자열이 입력된 문자열 중 **하나와 정확히 일치하는지** 확인 | **IS ANY OF** | **STRING**<br>대소문자 구분; 여러 문자열 허용(최대 256개) | 이 필터가 `book`, `bookmark`, `reading light`를 지정하고 고객 프로필에 해당 문자열 중 하나 이상이 있는 경우, 사용자는 이 필터와 일치합니다. |
-| 문자열 속성이 입력된 문자열 중 **어느 것과도 정확히 일치하지 않는지** 확인 | **IS NONE OF** |**STRING**<br>대소문자 구분; 여러 문자열 허용(최대 256개) | 이 필터가 `book`, `bookmark`, `reading light`를 지정하고 고객 프로필에 해당 문자열이 하나도 포함되어 있지 않은 경우, 사용자는 이 필터와 일치합니다.|
-| 문자열 속성이 입력된 문자열 중 **하나와 부분적으로 일치하는지** 확인 | **CONTAINS ANY OF** | **STRING**<br>대소문자 구분; 여러 문자열 허용(최대 256개) | 이 필터가 `gold`를 지정하고 고객 프로필에 `gold_tier` 또는 `former_gold_tier`와 같이 `gold`가 포함된 문자열이 있는 경우, 사용자는 이 필터와 일치합니다. |
-| 문자열 속성이 입력된 문자열 중 **어느 것과도 부분적으로 일치하지 않는지** 확인 | **DOESN'T CONTAIN ANY OF** | **STRING**<br>대소문자 구분; 여러 문자열 허용(최대 256개) | 이 필터가 `gold`를 지정하고 고객 프로필에 `gold`가 포함된 문자열이 없는 경우, 사용자는 이 필터와 일치합니다.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Number attribute details" }
+| 문자열 속성이 사용자 프로필에 **존재하며** 빈 문자열이 아닌지 확인 | **IS NOT BLANK** | **N/A** | 이 필터에서 `favorite_genre`를 지정하고 고객 프로필에 `favorite_genre` 속성이 있으면 속성 값에 관계없이 해당 사용자가 이 필터와 일치합니다. 예를 들어 사용자의 값이 `sci-fi`, `romance` 또는 다른 값일 수 있습니다.|
+| 문자열 속성이 사용자 프로필에 **존재하지 않는지** 확인 | **BLANK** | **N/A** | 이 필터에서 `favorite_genre`를 지정하고 고객 프로필에 `favorite_genre` 속성이 없으면 해당 사용자가 이 필터와 일치합니다.|
+| 문자열이 입력된 문자열 중 **하나와 정확히 일치하는지** 확인 | **IS ANY OF** | **STRING**<br>대소문자 구분; 여러 문자열 허용(최대 256개) | 이 필터에서 `book`, `bookmark`, `reading light`를 지정하고 고객 프로필에 해당 문자열 중 하나 이상이 있으면 해당 사용자가 이 필터와 일치합니다. |
+| 문자열 속성이 입력된 문자열 중 **어느 것과도 정확히 일치하지 않는지** 확인 | **IS NONE OF** |**STRING**<br>대소문자 구분; 여러 문자열 허용(최대 256개) | 이 필터에서 `book`, `bookmark`, `reading light`를 지정하고 고객 프로필에 해당 문자열이 포함되어 있지 않으면 해당 사용자가 이 필터와 일치합니다.|
+| 문자열 속성이 입력된 문자열 중 **하나와 부분적으로 일치하는지** 확인 | **CONTAINS ANY OF** | **STRING**<br>대소문자 구분; 여러 문자열 허용(최대 256개) | 이 필터에서 `gold`를 지정하고 고객 프로필에 `gold_tier` 또는 `former_gold_tier`와 같이 `gold`가 포함된 문자열이 있으면 해당 사용자가 이 필터와 일치합니다. |
+| 문자열 속성이 입력된 문자열 중 **어느 것과도 부분적으로 일치하지 않는지** 확인 | **DOESN'T CONTAIN ANY OF** | **STRING**<br>대소문자 구분; 여러 문자열 허용(최대 256개) | 이 필터에서 `gold`를 지정하고 고객 프로필에 `gold`가 포함된 문자열이 없으면 해당 사용자가 이 필터와 일치합니다.|
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="숫자 속성 세부 사항" }
 
 {% multi_lang_include alerts/note_alerts.md alert='Custom Attributes time attribute' %}
 
 {% alert important %}
-**DOES NOT MATCH REGEX** 필터를 사용하여 세분화할 때, 해당 고객 프로필에 값이 할당된 커스텀 속성이 이미 있어야 합니다. Braze는 사용자가 올바르게 타겟팅되도록 커스텀 속성이 비어 있는지 확인하기 위해 "OR" 로직을 사용할 것을 권장합니다.
+**DOES NOT MATCH REGEX** 필터를 사용하여 세분화할 때, 해당 고객 프로필에 값이 할당된 커스텀 속성이 이미 있어야 합니다. Braze에서는 사용자가 올바르게 타겟팅되도록 커스텀 속성이 비어 있는지 확인하는 "OR" 로직을 사용하는 것을 권장합니다.
 {% endalert %}
 
 {% endtab %}
@@ -240,51 +240,51 @@ toc_headers: h2
 
 ### 배열 {#arrays}
 
-배열의 최대 크기는 100&nbsp;KB입니다. 속성의 기본 길이는 최대 500개 항목입니다(예: "시청한 영화" 속성을 500으로 설정하여 전송하는 경우, 사용자가 501번째 영화를 시청하면 첫 번째 영화가 제거되고 가장 최근 영화가 추가됩니다). 단어 사이, 앞 또는 뒤에 공백이 있는 값을 입력하면 Braze도 동일한 공백을 확인합니다.
+배열의 최대 크기는 100&nbsp;KB입니다. 속성의 기본 길이는 최대 500개 항목입니다(예: "시청한 영화" 속성을 500으로 설정한 경우, 사용자가 501번째 영화를 시청하면 첫 번째 영화가 제거되고 가장 최근 영화가 추가됩니다). 단어 사이, 앞 또는 뒤에 공백이 포함된 값을 입력하면 Braze도 동일한 공백을 확인합니다.
 
-배열 유형 커스텀 속성은 [CSV 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import)를 통해 가져올 수 없습니다. 배열 값을 업로드하려면 [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track) 또는 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/cloud_ingestion)을 사용하세요.
+배열 유형 커스텀 속성은 [CSV 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import)를 통해 가져올 수 없습니다. 배열 값을 업로드하려면 [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track) 또는 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)을 사용하세요.
 
 {% alert note %}
-속성이 데이터 유형을 자동으로 감지하도록 설정된 경우 최대 길이를 늘리는 옵션을 사용할 수 없습니다. 데이터 유형을 배열로 설정해야 합니다.
+속성이 데이터 유형을 자동으로 감지하도록 설정된 경우 최대 길이를 늘리는 옵션을 사용할 수 없습니다. 데이터 유형이 배열로 설정되어 있어야 합니다.
 {% endalert %}
 
 #### 문제 해결: 배열 커스텀 속성이 고객 프로필에 값을 표시하지 않음 {#troubleshooting-array-custom-attribute-shows-no-value-on-a-user-profile}
 
-배열 커스텀 속성이 고객 프로필에 나타나지만 값이 표시되지 않는 경우, 대시보드에서 해당 속성의 **최대 길이**가 `0`으로 설정되어 있는지 확인하세요.
+배열 커스텀 속성이 고객 프로필에 표시되지만 값이 나타나지 않는 경우, 대시보드에서 속성의 **최대 길이**가 `0`으로 설정되어 있는지 확인하세요.
 
 1. **데이터 설정** > **커스텀 속성**으로 이동합니다.
-2. **배열**로 목록을 필터링합니다.
-3. 해당 속성을 찾아 **최대 길이**를 확인합니다.
-4. **최대 길이**가 `0`인 경우 `0`보다 큰 값으로 업데이트합니다.
+2. **배열**으로 목록을 필터링합니다.
+3. 해당 속성을 찾고 **최대 길이**를 확인합니다.
+4. **최대 길이**가 `0`이면 `0`보다 큰 값으로 업데이트합니다.
 
 **최대 길이**를 `0`으로 설정하면 고객 프로필에 값이 표시되지 않습니다.
 
-SDK 중심의 배열 동작 예시는 [분석 개요]({{site.baseurl}}/developer_guide/analytics#arrays)를 참조하세요.
+SDK 중심의 배열 동작 예시는 [분석 개요]({{site.baseurl}}/developer_guide/analytics)를 참조하세요.
 
-**배열** 속성에는 다음과 같은 세분화 옵션을 사용할 수 있습니다.
+**배열** 속성의 경우 다음 세분화 옵션을 사용할 수 있습니다.
 
 | 세분화 옵션 | 드롭다운 필터 | 입력 옵션 | 예시 |
 | ---------------------| --------------- | ------------- | -------- |
-| 배열 속성이 입력된 값과 **정확히 일치하는 값을 포함하는지** 확인 | **INCLUDES VALUE** | **STRING** | 이 필터가 `sci-fi`를 지정하고 고객 프로필에 `sci-fi` 값이 있는 경우, 사용자는 이 필터와 일치합니다.|
-| 배열 속성이 입력된 값과 **정확히 일치하는 값을 포함하지 않는지** 확인 | **DOESN'T INCLUDE VALUE** | **STRING** | 이 필터가 `sci-fi`를 지정하고 고객 프로필에 `sci-fi` 값이 없는 경우, 사용자는 이 필터와 일치합니다.|
-| 배열 속성이 입력된 값 **또는** 정규표현식과 **부분적으로 일치하는 값을 포함하는지** 확인 | **MATCHES REGEX** | **STRING** **또는** **REGULAR EXPRESSION**<br>최대 32,764자 | |
-| 배열 속성에 **값이 있거나** 비어 있지 않은지 확인 | **HAS A VALUE** | **N/A** | 이 필터가 `favorite_genres`를 지정하고 고객 프로필에 어떤 값이든 포함된 `favorite_genres`가 있는 경우, 사용자는 이 필터와 일치합니다. |
-| 배열 속성이 **비어 있거나** 존재하지 않는지 확인 | **IS EMPTY** | **N/A** | 이 필터가 `favorite_genres`를 지정하고 고객 프로필에 `favorite_genres`가 없거나 `favorite_genres`가 있지만 값이 없는 경우, 사용자는 이 필터와 일치합니다.|
-| 배열 속성이 입력된 값 중 **하나와 정확히 일치하는 값을 포함하는지** 확인 | **INCLUDES ANY OF** | **STRING**<br>대소문자 구분; 여러 값 허용(최대 256개) | 이 필터가 `sci-fi, fantasy, romance`를 지정하고 고객 프로필에 `sci-fi`, `fantasy` 또는 `romance`의 조합이 있는 경우(하나만 있는 경우, 예: `sci-fi`만 포함). 사용자는 `sci-fi`, `fantasy`, `romance` 중 하나라도 있으면 `horror` 또는 다른 값도 가질 수 있습니다.|
-| 배열 속성이 입력된 값 중 **어느 것과도 정확히 일치하는 값을 포함하지 않는지** 확인 | **INCLUDES NONE OF** | **STRING**<br>대소문자 구분; 여러 값 허용(최대 256개) | 이 필터가 `sci-fi, fantasy, romance`를 지정하고 고객 프로필에 `sci-fi`, `fantasy` 또는 `romance`의 조합이 없는 경우, 사용자는 이 필터와 일치합니다. 사용자는 `sci-fi`, `fantasy`, `romance` 중 어느 것도 없으면 `horror` 또는 다른 값을 가질 수 있습니다.|
-| 배열 속성이 입력된 값 중 **하나와 부분적으로 일치하는 값을 포함하는지** 확인 | **VALUES CONTAIN ANY OF** | **STRING**<br>대소문자 구분; 여러 값 허용(최대 256개) | 이 필터가 `gold`를 지정하고 고객 프로필 배열에 하나 이상의 문자열에 `gold`가 포함되어 있는 경우, 사용자는 이 필터와 일치합니다. 여기에는 `gold_tier`, `former_gold_tier` 등의 문자열 값이 포함됩니다.|
-| 배열 속성이 입력된 값 중 **어느 것과도 부분적으로 일치하는 값을 포함하지 않는지** 확인 | **VALUES DON'T CONTAIN ANY OF** | **STRING**<br>대소문자 구분; 여러 값 허용(최대 256개) | 이 필터가 `gold`를 지정하고 고객 프로필 배열에 어떤 문자열에도 `gold`가 포함되어 있지 않은 경우, 사용자는 이 필터와 일치합니다. 즉, `gold_tier` 및 `former_gold_tier`와 같은 문자열 값을 가진 사용자는 이 필터와 일치하지 않습니다.|
-| 배열 속성이 입력된 값을 **모두 포함하는지** 확인 | **IS ALL OF** | **STRING**<br>대소문자 구분; 여러 값 허용(최대 256개) | 이 필터가 `sci-fi, fantasy, romance`를 지정하고 고객 프로필에 해당 값이 모두 있는 경우, 사용자는 이 필터와 일치합니다. 사용자는 `horror` 또는 다른 값도 가지고 있어도 이 필터와 일치할 수 있습니다.|
-| 배열 속성이 입력된 값을 **모두 포함하지 않는지** 확인 | **ISN'T ALL OF** | **STRING**<br>대소문자 구분; 여러 값 허용(최대 256개) | 이 필터가 `sci-fi, fantasy, romance`를 지정하고 고객 프로필에 해당 값이 모두 포함되어 있지 않은 경우, 사용자는 이 필터와 일치합니다.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Number attribute details" }
+| 배열 속성에 입력된 값과 **정확히 일치하는 값이 포함되어 있는지** 확인 | **INCLUDES VALUE** | **STRING** | 이 필터에서 `sci-fi`를 지정하고 고객 프로필에 `sci-fi` 값이 있으면 해당 사용자가 이 필터와 일치합니다.|
+| 배열 속성에 입력된 값과 **정확히 일치하는 값이 포함되어 있지 않은지** 확인 | **DOESN'T INCLUDE VALUE** | **STRING** | 이 필터에서 `sci-fi`를 지정하고 고객 프로필에 `sci-fi` 값이 없으면 해당 사용자가 이 필터와 일치합니다.|
+| 배열 속성에 입력된 값 **또는** 정규표현식과 **부분적으로 일치하는 값이 포함되어 있는지** 확인 | **MATCHES REGEX** | **STRING** **또는** **REGULAR EXPRESSION**<br>최대 32,764자 | |
+| 배열 속성에 **값이 있거나** 비어 있지 않은지 확인 | **HAS A VALUE** | **N/A** | 이 필터에서 `favorite_genres`를 지정하고 고객 프로필에 어떤 값이든 포함된 `favorite_genres`가 있으면 해당 사용자가 이 필터와 일치합니다. |
+| 배열 속성이 **비어 있거나** 존재하지 않는지 확인 | **IS EMPTY** | **N/A** | 이 필터에서 `favorite_genres`를 지정하고 고객 프로필에 `favorite_genres`가 없거나 `favorite_genres`가 있지만 값이 없으면 해당 사용자가 이 필터와 일치합니다.|
+| 배열 속성에 입력된 값 중 **하나와 정확히 일치하는 값이 포함되어 있는지** 확인 | **INCLUDES ANY OF** | **STRING**<br>대소문자 구분; 여러 값 허용(최대 256개) | 이 필터에서 `sci-fi, fantasy, romance`를 지정하고 고객 프로필에 `sci-fi`, `fantasy`, `romance`의 어떤 조합이든 포함되어 있으면 해당 사용자가 일치합니다(예: `sci-fi`만 있어도 일치). `horror` 또는 다른 값이 있더라도 `sci-fi`, `fantasy`, `romance` 중 하나라도 있으면 일치합니다.|
+| 배열 속성에 입력된 값 중 **어느 것과도 정확히 일치하는 값이 포함되어 있지 않은지** 확인 | **INCLUDES NONE OF** | **STRING**<br>대소문자 구분; 여러 값 허용(최대 256개) | 이 필터에서 `sci-fi, fantasy, romance`를 지정하고 고객 프로필에 `sci-fi`, `fantasy`, `romance`의 어떤 조합도 없으면 해당 사용자가 이 필터와 일치합니다. `horror` 또는 다른 값이 있더라도 `sci-fi`, `fantasy`, `romance` 중 어느 것도 없으면 일치합니다.|
+| 배열 속성에 입력된 값 중 **하나와 부분적으로 일치하는 값이 포함되어 있는지** 확인 | **VALUES CONTAIN ANY OF** | **STRING**<br>대소문자 구분; 여러 값 허용(최대 256개) | 이 필터에서 `gold`를 지정하고 고객 프로필 배열에 하나 이상의 문자열에 `gold`가 포함되어 있으면 해당 사용자가 이 필터와 일치합니다. 여기에는 `gold_tier`, `former_gold_tier` 등의 문자열 값이 포함됩니다.|
+| 배열 속성에 입력된 값 중 **어느 것과도 부분적으로 일치하는 값이 포함되어 있지 않은지** 확인 | **VALUES DON'T CONTAIN ANY OF** | **STRING**<br>대소문자 구분; 여러 값 허용(최대 256개) | 이 필터에서 `gold`를 지정하고 고객 프로필 배열의 어떤 문자열에도 `gold`가 포함되어 있지 않으면 해당 사용자가 이 필터와 일치합니다. 따라서 `gold_tier`나 `former_gold_tier`와 같은 문자열 값이 있는 사용자는 이 필터와 일치하지 않습니다.|
+| 배열 속성에 입력된 값이 **모두 포함되어 있는지** 확인 | **IS ALL OF** | **STRING**<br>대소문자 구분; 여러 값 허용(최대 256개) | 이 필터에서 `sci-fi, fantasy, romance`를 지정하고 고객 프로필에 해당 값이 모두 있으면 해당 사용자가 이 필터와 일치합니다. `horror` 또는 다른 값이 있어도 이 필터와 일치합니다.|
+| 배열 속성에 입력된 값이 **모두 포함되어 있지 않은지** 확인 | **ISN'T ALL OF** | **STRING**<br>대소문자 구분; 여러 값 허용(최대 256개) | 이 필터에서 `sci-fi, fantasy, romance`를 지정하고 고객 프로필에 해당 값이 모두 포함되어 있지 않으면 해당 사용자가 이 필터와 일치합니다.|
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="숫자 속성 세부 사항" }
 
 {% alert tip %}
-정규표현식(regex)을 사용하는 방법에 대한 자세한 내용은 다음 리소스를 참조하세요:
+정규표현식(regex) 사용 방법에 대한 자세한 내용은 다음 리소스를 참조하세요:
 
 - [Perl 호환 정규표현식(PCRE)](https://www.regextester.com/pregsyntax.html)
-- [Braze에서의 정규식]({{site.baseurl}}/user_guide/audience/segments/regex)
-- [정규식 디버거 및 테스터](https://www.regex101.com/)
-- [정규식 튜토리얼](https://www.medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285)
+- [Braze에서 정규표현식 사용하기]({{site.baseurl}}/user_guide/audience/segments/regex)
+- [정규표현식 디버거 및 테스터](https://www.regex101.com/)
+- [정규표현식 튜토리얼](https://www.medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285)
 {% endalert %}
 
 {% endtab %}
@@ -292,40 +292,40 @@ SDK 중심의 배열 동작 예시는 [분석 개요]({{site.baseurl}}/developer
 
 시간 속성은 특정 작업이 마지막으로 수행된 시간을 저장하는 데 유용하므로, 사용자에게 콘텐츠별 재참여 메시징을 제공할 수 있습니다.
 
-상대적 날짜를 사용하는 시간 필터(예: 1일 전 이상, 2일 전 미만)는 1일을 24시간으로 측정합니다. 이러한 필터를 사용하여 실행하는 모든 Campaign은 24시간 단위로 모든 사용자를 포함합니다. 예를 들어, `last used app more than 1 day ago`는 Campaign이 실행되는 정확한 시점으로부터 "24시간 이상 전에 마지막으로 앱을 사용한" 모든 사용자를 캡처합니다. 더 긴 날짜 범위로 설정된 Campaign에도 동일하게 적용됩니다. 따라서 활성화로부터 5일은 이전 120시간을 의미합니다.
+상대적 날짜를 사용하는 시간 필터(예: 1일 전 초과, 2일 전 미만)는 1일을 24시간으로 계산합니다. 이러한 필터를 사용하여 실행하는 모든 Campaign은 24시간 단위로 모든 사용자를 포함합니다. 예를 들어, `last used app more than 1 day ago`는 Campaign이 실행되는 정확한 시점에서 "24시간 이상 전에 마지막으로 앱을 사용한" 모든 사용자를 캡처합니다. 더 긴 날짜 범위로 설정된 Campaign에도 동일하게 적용됩니다. 따라서 활성화로부터 5일은 이전 120시간을 의미합니다.
 
-시간 범위 내에 해당하는 시간 속성을 가진 사용자를 타겟팅하려면 두 개의 오디언스 필터를 사용하세요: 하한에는 `in more than`, 상한에는 `in less than`을 사용합니다. 단일 필터로는 해당 범위의 양쪽을 모두 표현할 수 없습니다. 예를 들어, 향후 24시간(지금부터 1일 후 사이) 내의 시간 속성을 가진 사용자를 타겟팅하려면 `in more than 0 days`와 `in less than 1 day`를 적용하세요.
+특정 시간 범위 내에 해당하는 시간 속성을 가진 사용자를 타겟팅하려면 두 개의 오디언스 필터를 사용합니다: 하한값에는 `in more than`, 상한값에는 `in less than`을 사용합니다. 단일 필터로는 해당 범위의 양쪽을 표현할 수 없습니다. 예를 들어, 향후 24시간(현재부터 1일 후 사이) 내의 시간 속성을 가진 사용자를 타겟팅하려면 `in more than 0 days`와 `in less than 1 day`를 적용합니다.
 
 {% alert warning %}
-커스텀 이벤트 또는 구매 이벤트가 마지막으로 발생한 날짜는 자동으로 기록되므로 커스텀 시간 속성을 통해 다시 기록하면 안 됩니다.
+커스텀 이벤트 또는 구매 이벤트가 마지막으로 발생한 날짜는 자동으로 기록되므로, 커스텀 시간 속성을 통해 다시 기록하지 않아야 합니다.
 {% endalert %}
 
-**시간** 속성에는 다음과 같은 세분화 옵션을 사용할 수 있습니다.
+**시간** 속성의 경우 다음 세분화 옵션을 사용할 수 있습니다.
 
 | 세분화 옵션 | 드롭다운 필터 | 입력 옵션 | 예시 |
 | ---------------------| --------------- | ------------- | -------- |
-| 시간 속성이 **선택한 날짜** **이전인지** 확인 | **BEFORE** | **캘린더 날짜 선택기** | 이 필터가 `2024-01-31`을 지정하고 고객 프로필에 `2024-1-31` 이전 날짜가 있는 경우, 사용자는 이 필터와 일치합니다. |
-| 시간 속성이 **선택한 날짜** **이후인지** 확인 | **AFTER** | **캘린더 날짜 선택기** | 이 필터가 `2024-01-31`을 지정하고 고객 프로필에 `2024-1-31` 이후 날짜가 있는 경우, 사용자는 이 필터와 일치합니다. |
-| 시간 속성이 **X일** **이전보다 더 오래되었는지** 확인 | **MORE THAN** | **일 전 숫자** | 이 필터가 `7`을 지정하고 고객 프로필에 7일 이전보다 더 오래된 날짜가 있는 경우, 사용자는 이 필터와 일치합니다. |
-| 시간 속성이 **X일** **이전보다 덜 오래되었는지** 확인 | **LESS THAN** | **일 전 숫자** | 이 필터가 `7`을 지정하고 고객 프로필에 7일 이전보다 덜 오래된 날짜가 있는 경우, 사용자는 이 필터와 일치합니다.|
-| 시간 속성이 **미래 X일** **이후인지** 확인 | **IN MORE THAN** | **미래 일 수** | 이 필터가 `7`을 지정하고 고객 프로필에 미래 7일 이후의 날짜가 있는 경우, 사용자는 이 필터와 일치합니다.|
-| 시간 속성이 **미래 X일** **이내인지** 확인 | **IN LESS THAN** | **미래 일 수**  | 이 필터가 `7`을 지정하고 고객 프로필에 미래 7일 이내의 날짜가 있는 경우, 사용자는 이 필터와 일치합니다.|
-| 시간 속성이 사용자 프로필에 **존재하고** null이 아닌지 확인 | **IS NOT BLANK** | **N/A** | 이 필터가 고객 프로필에 있는 시간 속성을 지정하는 경우, 사용자는 이 필터와 일치합니다.|
-| 시간 속성이 사용자 프로필에 **존재하지 않거나** null인지 확인 | **IS BLANK** | **N/A** | 이 필터가 고객 프로필에 없는 시간 속성을 지정하는 경우, 사용자는 이 필터와 일치합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Number attribute details" }
+| 시간 속성이 **선택한 날짜** **이전인지** 확인 | **BEFORE** | **캘린더 날짜 선택기** | 이 필터에서 `2024-01-31`을 지정하고 고객 프로필에 `2024-1-31` 이전 날짜가 있으면 해당 사용자가 이 필터와 일치합니다. |
+| 시간 속성이 **선택한 날짜** **이후인지** 확인 | **AFTER** | **캘린더 날짜 선택기** | 이 필터에서 `2024-01-31`을 지정하고 고객 프로필에 `2024-1-31` 이후 날짜가 있으면 해당 사용자가 이 필터와 일치합니다. |
+| 시간 속성이 **X일** 전 **초과인지** 확인 | **MORE THAN** | **일 전 숫자** | 이 필터에서 `7`을 지정하고 고객 프로필에 7일 초과 전의 날짜가 있으면 해당 사용자가 이 필터와 일치합니다. |
+| 시간 속성이 **X일** 전 **미만인지** 확인 | **LESS THAN** | **일 전 숫자** | 이 필터에서 `7`을 지정하고 고객 프로필에 7일 미만 전의 날짜가 있으면 해당 사용자가 이 필터와 일치합니다.|
+| 시간 속성이 미래 **X일** **초과인지** 확인 | **IN MORE THAN** | **미래 일 수** | 이 필터에서 `7`을 지정하고 고객 프로필에 미래 7일 초과의 날짜가 있으면 해당 사용자가 이 필터와 일치합니다.|
+| 시간 속성이 미래 **X일** **미만인지** 확인 | **IN LESS THAN** | **미래 일 수** | 이 필터에서 `7`을 지정하고 고객 프로필에 미래 7일 미만의 날짜가 있으면 해당 사용자가 이 필터와 일치합니다.|
+| 시간 속성이 사용자 프로필에 **존재하며** null이 아닌지 확인 | **IS NOT BLANK** | **N/A** | 이 필터에서 지정한 시간 속성이 고객 프로필에 있으면 해당 사용자가 이 필터와 일치합니다.|
+| 시간 속성이 사용자 프로필에 **존재하지 않거나** null인지 확인 | **IS BLANK** | **N/A** | 이 필터에서 지정한 시간 속성이 고객 프로필에 없으면 해당 사용자가 이 필터와 일치합니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="숫자 속성 세부 사항" }
 
 {% alert note %}
-**in less than** 또는 **in more than** 연산자를 90일 이상으로 사용하면, Segment를 저장할 때 Braze가 자동으로 값을 주 단위로 변환합니다. 예를 들어, 90일은 13주로 변환됩니다.
+**in less than** 또는 **in more than** 연산자를 90일 이상으로 사용하면 Segment를 저장할 때 Braze가 자동으로 값을 주 단위로 변환합니다. 예를 들어, 90일은 13주로 변환됩니다.
 {% endalert %}
 
-#### 시간 속성 세부 정보 {#time-attribute-details}
+#### 시간 속성 세부 사항 {#time-attribute-details}
 
 {% multi_lang_include data_activation/day_of_recurring_event_filter.md %}
 
 {% endtab %}
 {% tab 오브젝트 %}
 
-중첩 커스텀 속성을 사용하여 오브젝트를 커스텀 속성의 데이터 유형으로 전송할 수 있습니다. 자세한 내용은 [중첩 커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support)을 참조하세요.
+중첩 커스텀 속성을 사용하여 커스텀 속성의 데이터 유형으로 오브젝트를 전송할 수 있습니다. 자세한 내용은 [중첩 커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support)을 참조하세요.
 
 {% endtab %}
 {% tab 오브젝트 배열 %}
@@ -339,7 +339,7 @@ SDK 중심의 배열 동작 예시는 [분석 개요]({{site.baseurl}}/developer
 
 ### 통합 연산자 {#consolidated-operators}
 
-속성 필터, 커스텀 속성 필터 및 중첩 커스텀 속성 필터에서 사용할 수 있는 연산자 목록이 통합되었습니다. 이러한 연산자를 사용하는 기존 필터가 있는 경우, 새 연산자를 사용하도록 자동으로 업데이트됩니다.
+속성 필터, 커스텀 속성 필터 및 중첩 커스텀 속성 필터에서 사용할 수 있는 연산자 목록을 통합했습니다. 이러한 연산자를 사용하는 기존 필터가 있는 경우 자동으로 새 연산자를 사용하도록 업데이트됩니다.
 
 | 데이터 유형 | 이전 연산자 | 새 연산자 | 값 |
 | --- | --- | --- | --- |
@@ -347,7 +347,7 @@ SDK 중심의 배열 동작 예시는 [분석 개요]({{site.baseurl}}/developer
 | 문자열 | does not equal | is none of | 1개 이상의 값 |
 | 배열 | includes value | includes any of | 1개 이상의 값 |
 | 배열 | doesn't include value | includes none of | 1개 이상의 값 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Consolidated operators #consolidated-operators" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="통합 연산자 #consolidated-operators" }
 
 ## 이벤트 속성정보 데이터 유형 {#event-property-data-types}
 
@@ -376,7 +376,7 @@ SDK 중심의 배열 동작 예시는 [분석 개요]({{site.baseurl}}/developer
 권장 이벤트에는 설정된 데이터 유형이 포함된 사전 정의된 스키마가 있습니다. 자세한 내용은 [이커머스 권장 이벤트]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events)를 참조하세요.
 {% endalert %}
 
-구매 이벤트를 기록하면 각 고객 프로필에 대한 생애주기 가치(LTV)가 설정되며, 이 데이터는 매출 페이지에서 시계열로 확인할 수 있습니다. 지출 금액, 마지막 구매 날짜, 기간 내 구매 횟수 등으로 세분화할 수 있습니다.
+구매 이벤트를 기록하면 각 고객 프로필에 대한 LTV(LTV)가 설정되며, 이 데이터는 매출 페이지에서 시계열로 확인할 수 있습니다. 지출 금액, 마지막 구매 날짜, 기간 내 구매 횟수 등으로 세분화할 수 있습니다.
 
 ### 구매 이벤트 속성정보 데이터 유형 {#purchase-event-property-data-types}
 
@@ -390,7 +390,7 @@ SDK 중심의 배열 동작 예시는 [분석 개요]({{site.baseurl}}/developer
 
 커스텀 속성 또는 이벤트의 데이터 유형을 변경하려면:
 
-1. **Data Settings**로 이동하여 **Custom Attributes** 또는 **Custom Events**를 선택합니다.
+1. **Data Settings**로 이동하여 **커스텀 속성** 또는 **Custom Events**를 선택합니다.
 2. 목록에서 속성 또는 이벤트를 찾고 <i class="fa fa-ellipsis-v" aria-hidden="true"></i> **More actions**를 선택합니다.
 3. 드롭다운에서 새 **Data type**을 선택합니다.
 4. **Save**를 선택합니다.

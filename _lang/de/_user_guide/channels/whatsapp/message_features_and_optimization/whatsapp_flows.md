@@ -19,27 +19,27 @@ channel:
 
 1. Melden Sie sich bei Ihrem Meta-Konto an.
 2. Erstellen Sie Flows von einem der beiden Hauptstandorte aus:
-    - **Account tools:** Gehen Sie zum Tab **Flows**, um die Flow-ID anzuzeigen und einen neuen Flow zu erstellen.
-    - **Manage templates:** Dies ist die empfohlene Methode zum Erstellen von Flows. Hier können Sie Templates generieren und während des Template-Erstellungsprozesses eine Flow-Option auswählen.
+    - **Account-Tools:** Rufen Sie den Tab **Flows** auf, um die Flow-ID anzuzeigen und einen neuen Flow zu erstellen.
+    - **Templates verwalten:** Dies ist die empfohlene Methode zum Erstellen von Flows. Hier können Sie Templates generieren und während des Template-Erstellungsprozesses eine Flow-Option auswählen.
 
 ![WhatsApp Manager mit einer Seite zum Erstellen eines Flows-Templates.]({% image_buster /assets/img/whatsapp/flows/create_flows_template.png %})
 
 {% alert tip %}
-Sie können auch ein Marketing- oder Utility-Flow-Template in Braze mit dem [WhatsApp Template Builder]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder) erstellen. Erstellen und verwalten Sie den Flow selbst im WhatsApp Manager von Meta und wählen Sie dann diesen Flow aus, wenn Sie das Template in Braze erstellen.
+Sie können auch ein Marketing- oder Utility-Flow-Template in Braze mit dem [WhatsApp Template Builder]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder) erstellen. Erstellen und verwalten Sie den Flow selbst im WhatsApp Manager:in von Meta und wählen Sie dann diesen Flow aus, wenn Sie das Template in Braze erstellen.
 {% endalert %}
 
 {: start="3"}
 3. Wählen Sie einen vorhandenen Flow aus oder erstellen Sie einen neuen. Wenn Sie einen Flow erstellen, wählen Sie aus zwei Optionen:
-  - **Custom Form:** Für spezifische Anforderungen
-  - **Pre-designed Elements:** Für eine schnellere Einrichtung
+  - **Benutzerdefiniertes Formular:** Für spezifische Anforderungen
+  - **Vorgefertigte Elemente:** Für eine schnellere Einrichtung
 
-## Konfigurieren von WhatsApp-Flow-Nachrichten und -Antworten {#configuring-whatsapp-flow-messages-and-responses}
+## WhatsApp-Flow-Nachrichten und -Antworten konfigurieren {#configuring-whatsapp-flow-messages-and-responses}
 
 {% tabs local %}
 {% tab Template-Nachricht %}
 
 1. Erstellen Sie in einem Braze-Canvas einen WhatsApp-Nachrichtenschritt, der die Template-Nachricht mit dem jeweiligen Flow verwendet.
-2. Fahren Sie mit der Erstellung Ihres Templates fort. Fügen Sie bei Bedarf Medien, variable Inhalte oder beides zu Ihrer Nachricht hinzu. Ihre Flow-Auswahl wurde bei der Erstellung des Templates festgelegt, sodass keine zusätzlichen Informationen für das Flow-Erlebnis erforderlich sind.
+2. Fahren Sie mit der Erstellung Ihres Templates fort. Fügen Sie bei Bedarf Medien, variable Inhalte oder beides zu Ihrer Nachricht hinzu. Ihre Flow-Auswahl wurde beim Erstellen des Templates festgelegt, sodass keine zusätzlichen Informationen für das Flow-Erlebnis erforderlich sind.
 
 ![WhatsApp-Nachrichten-Editor mit einem WhatsApp-Flow-Template.]({% image_buster /assets/img/whatsapp/flows/composer_flow_template.png %}){: style="max-width:80%;"}
 
@@ -53,16 +53,16 @@ Sie können auch ein Marketing- oder Utility-Flow-Template in Braze mit dem [Wha
 {: start="2"}
 2. Wählen Sie den jeweiligen Flow aus und fahren Sie dann mit der Erstellung Ihrer Nachricht fort.
 
-![Ein Flow-Nachrichten-Antwort-Editor mit einem ausgeklappten Dropdown zur Auswahl eines Flows.]({% image_buster /assets/img/whatsapp/flows/flow_message_composer.png %}){: style="max-width:80%;"}
+![Ein Flow-Nachricht-Antwort-Editor mit einem aufgeklappten Dropdown zur Auswahl eines Flows.]({% image_buster /assets/img/whatsapp/flows/flow_message_composer.png %}){: style="max-width:80%;"}
 
 {% endtab %}
 {% endtabs %}
 
 ### Flow-Vorschau {#preview-flow}
 
-Bevor Sie ein Canvas mit einem Flow starten, können Sie **Preview Flow** auswählen, um den Flow direkt in Braze in der Vorschau anzuzeigen und zu bestätigen, dass er sich wie erwartet verhält. Sie können auch mit dem Flow in der Vorschau interagieren, um zu erleben, wie Nutzer:innen durch den Flow navigieren würden, und dann Anpassungen in Echtzeit vornehmen. Wenn ein Flow mehrere Seiten enthält, können Sie mit jeder Seite interagieren.
+Bevor Sie ein Canvas mit einem Flow starten, können Sie **Preview Flow** auswählen, um den Flow direkt in Braze in der Vorschau anzuzeigen und zu bestätigen, dass er wie erwartet funktioniert. Sie können auch mit dem Flow in der Vorschau interagieren, um zu erleben, wie Nutzer:innen den Flow durchlaufen würden, und dann Realtime-Anpassungen vornehmen. Wenn ein Flow mehrere Seiten enthält, können Sie mit jeder Seite interagieren.
 
-![Vorschaufenster mit einem Formular, in dem Nutzer:innen die Registrierung abschließen können.]({% image_buster /assets/img/whatsapp/flows/flow_preview.png %}){: style="max-width:50%;"}
+![Vorschaufenster mit einem Formular, in dem Nutzer:innen ihre Registrierung abschließen können.]({% image_buster /assets/img/whatsapp/flows/flow_preview.png %}){: style="max-width:50%;"}
 
 ## Die vollständige Flow-Antwort speichern {#full-flow}
 
@@ -109,7 +109,7 @@ Geben Sie im erweiterten JSON-Editor {% raw %}`{"attributes": [{"flow_1": {{what
 
 ![Nutzeraktualisierungsschritt, der den UI-Editor verwendet.]({% image_buster /assets/img/whatsapp/flows/user_update_ui_editor.png %})
 
-Nachdem Braze eine Flow-Antwort erhalten hat, wird das verschachtelte angepasste Attribut mit der vorgegebenen Benennung im Nutzerprofil gespeichert. Dieses angepasste Attribut kann beim Erstellen von Canvases abgerufen werden.
+Nachdem Braze eine Flow-Antwort erhalten hat, wird das verschachtelte angepasste Attribut mit der vorgegebenen Benennung im Kundenprofil gespeichert. Dieses angepasste Attribut kann beim Erstellen von Canvases abgerufen werden.
 
 ![Ein Fenster, das den Inhalt eines angepassten Attributs „flow_1“ anzeigt.]({% image_buster /assets/img/whatsapp/flows/user_attribute_flow.png %})
 
@@ -120,7 +120,7 @@ Nachdem Braze eine Flow-Antwort erhalten hat, wird das verschachtelte angepasste
 
 ### 2. Schritt: Die gespeicherte Flow-Antwort anzeigen {#step-2-view-the-saved-flow-response}
 
-Wenn der Flow abgeschlossen ist, erstellt Braze automatisch ein angepasstes Flow-Attribut mit einem Namen, der auf der Flow-ID basiert. Sie können dann zum Nutzerprofil gehen, um die gespeicherte Flow-Antwort als verschachteltes Objekt im Abschnitt **Custom Attributes** anzuzeigen.
+Wenn der Flow abgeschlossen ist, erstellt Braze automatisch ein angepasstes Flow-Attribut mit einem Namen, der auf der Flow-ID basiert. Sie können dann zum Kundenprofil gehen, um die gespeicherte Flow-Antwort als verschachteltes Objekt im Abschnitt **angepasste Attribute** anzuzeigen.
 
 Nachdem das Schema generiert wurde, zeigt der Abschnitt **Custom Attribute** des Flows die erwartete Struktur an, einschließlich der erwarteten Datentypen für jede Antwort (zum Beispiel „String“ oder „String Array“).
 
@@ -133,13 +133,13 @@ Nachdem das Schema generiert wurde, zeigt der Abschnitt **Custom Attribute** des
 - **Konsistenz:** Das generierte angepasste Flow-Attribut ist konsistent und ist dasselbe Attribut für diesen spezifischen Flow, unabhängig davon, in welchem Canvas es verwendet wird.
 - **Manuelle Option:** Sie müssen das Kontrollkästchen **Save Flow responses as a custom attribute** nicht aktivieren. Sie können das angepasste Attribut manuell generieren, indem Sie [bestimmte Felder aus Flow-Antworten in einem bestimmten angepassten Attribut speichern](#saving-specific-fields-from-flow-responses-to-a-specific-custom-attribute), wodurch doppelte Nutzerschritte vermieden werden.
 
-## Bestimmte Felder aus Flow-Antworten in einem bestimmten angepassten Attribut speichern {#saving-specific-fields-from-flow-responses-to-a-specific-custom-attribute}
+## Speichern bestimmter Felder aus Flow-Antworten in einem bestimmten angepassten Attribut {#saving-specific-fields-from-flow-responses-to-a-specific-custom-attribute}
 
 ### Schritt 1: Einen Aktionspfad erstellen {#step-1-create-an-action-path}
 
-Erstellen Sie einen [Aktionspfad]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) als Canvas-Schritt oder eine aktionsbasierte Campaign. Wählen Sie einen Trigger **Eingehende WhatsApp-Nachricht senden** und die Bedingung **Auf Flow geantwortet** aus, und wählen Sie dann den entsprechenden Flow oder **Beliebiger Flow** aus.
+Erstellen Sie einen [Aktionspfad]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) als Canvas-Schritt oder eine aktionsbasierte Campaign. Wählen Sie einen **Send a WhatsApp inbound message**-Trigger und die Bedingung **Responded to Flow** aus, und wählen Sie dann den entsprechenden Flow oder **Any Flow**.
 
-![Ein Trigger für Nutzer:innen, die eine eingehende WhatsApp-Nachricht gesendet und auf einen beliebigen Flow geantwortet haben.]({% image_buster /assets/img/whatsapp/flows/trigger_responded_flow.png %})
+![Ein Trigger für Nutzer:innen, die eine eingehende WhatsApp-Nachricht gesendet und auf einen Flow geantwortet haben.]({% image_buster /assets/img/whatsapp/flows/trigger_responded_flow.png %})
 
 ### Schritt 2: Felder aus Flow-Antworten extrahieren {#step-2-extract-fields-from-flow-responses}
 
@@ -148,15 +148,15 @@ Sie können verschachtelte angepasste Attribute oder den Liquid-Tag `json_parse`
 {% tabs %}
 {% tab Verschachtelte angepasste Attribute %}
 
-Um bestimmte Teile der Flow-Antwort der Nutzer:innen zu speichern, führen Sie alle Schritte unter [Die vollständige Flow-Antwort speichern](#full-flow) aus, **einschließlich des Startens des Canvas**. Der Canvas muss gestartet werden, um das verschachtelte angepasste Attribut zu erstellen, auf das Sie verweisen werden. Nachdem Sie den Canvas gestartet und einen Flow abgeschlossen haben, führen Sie die folgenden Schritte aus:
+Um bestimmte Teile der Flow-Antwort der Nutzer:innen zu speichern, führen Sie alle Schritte unter [Speichern der vollständigen Flow-Antwort](#full-flow) aus, **einschließlich des Startens des Canvas**. Der Canvas muss gestartet werden, um das verschachtelte angepasste Attribut zu erstellen, auf das Sie verweisen werden. Nachdem Sie den Canvas gestartet und einen Flow abgeschlossen haben, führen Sie die folgenden Schritte aus:
 
-1. Erstellen Sie einen nachfolgenden Nutzeraktualisierungsschritt, der den UI-Editor verwendet.
-2. Wählen Sie **Personalisierung hinzufügen** aus, dann wählen Sie **Verschachteltes angepasstes Attribut** und das entsprechende übergeordnete Attribut, in dem der Flow gespeichert ist.
+1. Erstellen Sie einen nachfolgenden Nutzer:innen-Update-Schritt, der den UI-Editor verwendet.
+2. Wählen Sie **Add Personalization** und dann **Nested Custom Attribute** sowie das entsprechende Attribut der obersten Ebene aus, in dem der Flow gespeichert ist.
 
-![Nutzeraktualisierungsschritt mit einer Personalisierung für verschachtelte angepasste Attribute.]({% image_buster /assets/img/whatsapp/flows/nested_custom_attributes.png %})
+![Nutzer:innen-Update-Schritt mit einer Personalisierung für verschachtelte angepasste Attribute.]({% image_buster /assets/img/whatsapp/flows/nested_custom_attributes.png %})
 
 {: start="3" }
-3. Wählen Sie das Schlüsselattribut aus, das Sie speichern möchten, und fügen Sie das Liquid in das Feld **Schlüsselwert** ein.
+3. Wählen Sie das Schlüsselattribut aus, das Sie speichern möchten, und fügen Sie das Liquid in das Feld **Key Value** ein.
 
 ![Fenster für „flow_1“ mit auswählbaren Attributen.]({% image_buster /assets/img/whatsapp/flows/attribute_key.png %})
 
@@ -171,11 +171,11 @@ Verwenden Sie den Liquid-Tag `json_parse`, um bestimmte Antworten aus dem Flow z
 
 Wählen Sie im UI-Editor Folgendes aus:
 
-- **Attributname:** IHR_ANGEPASSTES_ATTRIBUT (in diesem Beispiel: „First_name“)
-- **Aktion:** Aktualisieren
-- **Schlüsselwert:** {% raw %} `{% assign parsed_json = {{whats_app.${inbound_flow_response}}} | json_parse %}{{ parsed_json.FIELDS_THAT_APPLY }}`{% endraw %}
+- **Attribute Name:** IHR_ANGEPASSTES_ATTRIBUT (in diesem Beispiel: „First_name“)
+- **Action:** Update
+- **Key Value:** {% raw %} `{% assign parsed_json = {{whats_app.${inbound_flow_response}}} | json_parse %}{{ parsed_json.FIELDS_THAT_APPLY }}`{% endraw %}
 
-![WhatsApp-Nachrichten-Editor mit einer Komponente „Personalisierung hinzufügen“ zum Einfügen einer WhatsApp-Eigenschaften-Personalisierung mit dem angepassten Attribut `inbound_flow_response`.]({% image_buster /assets/img/whatsapp/flows/parsed_json.png %})
+![WhatsApp-Nachrichten-Editor mit einer Komponente „Add Personalization“ zum Einfügen einer WhatsApp-Eigenschaften-Personalisierung mit dem angepassten Attribut `inbound_flow_response`.]({% image_buster /assets/img/whatsapp/flows/parsed_json.png %})
 
 Wenn Sie bereit sind, senden Sie eine Testnachricht, um den Flow zu testen. Starten Sie dann den Canvas!
 
@@ -183,16 +183,16 @@ Wenn Sie bereit sind, senden Sie eine Testnachricht, um den Flow zu testen. Star
 {% endtabs %}
 
 {% alert note %}
-Eine neue WhatsApp-Nachricht „löscht“ die Fähigkeit des Canvas, die Liquid-Flow-Antwort zu verwenden (und wiederzuverwenden). Stellen Sie daher sicher, dass Folgenachrichten nach allen Nutzeraktualisierungsschritten, Webhooks oder anderen Schritten stehen, die die Liquid-Flow-Antwort verwenden.
+Eine neue WhatsApp-Nachricht „löscht“ die Fähigkeit des Canvas, die Liquid-Flow-Antwort zu verwenden (und wiederzuverwenden). Stellen Sie daher sicher, dass Folgenachrichten nach allen Nutzer:innen-Update-Schritten, Webhooks oder anderen Schritten stehen, die die Liquid-Flow-Antwort verwenden.
 {% endalert %}
 
 ## Hinzufügen eines Flow-Personalisierungs-Tags {#adding-a-flow-personalization-tag}
 
 Um die Flow-Antwort über Liquid mit [unterstützten Personalisierungs-Tags]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags) zu verwenden, führen Sie die folgenden Schritte aus:
 
-1. Wählen Sie beim Verfassen Ihrer WhatsApp-Nachricht <i class="fas fa-plus-circle" aria-label="Personalisierung hinzufügen"></i> **Personalisierung hinzufügen** aus, um das Fenster **Personalisierung hinzufügen** zu öffnen.
-2. Wählen Sie **WhatsApp Properties** als Personalisierungstyp und **inbound_flow_response** als angepasstes Attribut aus. Dies kann verwendet werden, um Informationen in Nutzerprofilen zu speichern, sie in Nachrichten einzubinden oder an andere Dienste wie Webhooks weiterzuleiten.
+1. Wählen Sie beim Erstellen Ihrer WhatsApp-Nachricht <i class="fas fa-plus-circle" aria-label="Personalisierung hinzufügen"></i> **Personalisierung hinzufügen** aus, um das Fenster **Personalisierung hinzufügen** zu öffnen.
+2. Wählen Sie **WhatsApp Properties** als Personalisierungstyp und **inbound_flow_response** als angepasstes Attribut aus. Damit können Sie Informationen in Nutzerprofilen speichern, in Nachrichten einbinden oder an andere Dienste wie Webhooks weiterleiten.
 
 ![WhatsApp-Nachrichten-Editor mit einer Komponente „Personalisierung hinzufügen“ zum Einfügen einer WhatsApp-Properties-Personalisierung mit dem angepassten Attribut inbound_flow_response.]({% image_buster /assets/img/whatsapp/flows/inbound_flow_response.png %}){: style="max-width:80%;"}
 
-Bei Fragen oder für weitere Unterstützung wenden Sie sich an den [Support]({{site.baseurl}}/braze_support).
+Bei Fragen oder für weitere Unterstützung wenden Sie sich an den [Support]({{site.baseurl}}/user_guide/administer/personal/braze_support).

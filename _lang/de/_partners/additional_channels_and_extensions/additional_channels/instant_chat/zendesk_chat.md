@@ -33,7 +33,7 @@ Verbessern Sie die Effizienz des Kundensupports, indem Sie die SMS-Funktionen vo
 1. Gehen Sie in der Zendesk-Entwicklungskonsole zu Webhooks: {% raw %}`https://{{url}}.zendesk.com/admin/apps-integrations/webhooks/webhooks`{% endraw %}
 2. Wählen Sie unter **Create Webhook** die Option **Trigger or automation** aus.
 3. Fügen Sie als **Endpoint URL** den Endpunkt **/campaign/trigger/send** hinzu.
-4. Wählen Sie unter **Authentication** die Option **Bearer token** aus und fügen Sie den Braze REST-API-Schlüssel mit den Berechtigungen `campaigns.trigger.send` hinzu.
+4. Wählen Sie unter **Authentication** die Option **Bearer Token** aus und fügen Sie den Braze REST-API-Schlüssel mit den Berechtigungen `campaigns.trigger.send` hinzu.
 
 ![Ein Beispiel für einen Zendesk-Webhook.]({% image_buster /assets/img/zendesk/instant_chat/chat1.png %}){: style="max-width:70%;"}
 

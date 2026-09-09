@@ -63,7 +63,7 @@ Si vous n'ajoutez pas votre application à un groupe d'applications, votre appli
 ## Étape 4 : Ajouter le framework Push Stories à votre application {#step-4-adding-the-push-story-framework-to-your-app}
 
 {% tabs local %}
-{% tab Swift Package Manager %}
+{% tab gestionnaire de paquets swift %}
 
 Après avoir suivi le [guide d'intégration du gestionnaire de paquets Swift]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/swift_package_manager), ajoutez `AppboyPushStory` à votre `Notification Content Extension` :
 

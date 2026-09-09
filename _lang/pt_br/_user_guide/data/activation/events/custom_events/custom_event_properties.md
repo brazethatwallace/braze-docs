@@ -126,7 +126,7 @@ As propriedades de eventos para eventos personalizados são atualizadas em tempo
 
 Você precisa da permissão de usuário "Edit Custom Event Property Segmentation" ([permissão de usuário]({{site.baseurl}}/user_guide/data/infrastructure/data_points#viewing-data-point-usage)) para criar Segments com base na recência e frequência de propriedades de evento.
 
-Por padrão, você pode ter 20 propriedades de evento segmentáveis por espaço de trabalho. Entre em contato com seu gerente de conta da Braze para aumentar esse limite.
+Por padrão, você pode ter 20 propriedades de evento Segmentáveis por espaço de trabalho. Entre em contato com seu gerente de conta da Braze para aumentar esse limite.
 
 Para adicionar propriedades de evento para segmentação, faça o seguinte:
 
@@ -165,6 +165,6 @@ As propriedades de eventos personalizados foram projetadas para ajudar você a a
 Você pode segmentar com base nos valores das propriedades de eventos de duas maneiras:
 
 1. **Nos últimos 30 dias:** Você pode usar a segmentação por propriedades de eventos com base na frequência e na recência de valores específicos de propriedades de eventos dentro dos Segments da Braze. Essa opção impacta o uso de dados.<br><br>
-2. **Nos últimos 30 dias e além:** Para cobrir tanto a segmentação de propriedades de eventos a curto quanto a longo prazo, você pode usar as [extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension). Esse recurso segmenta os usuários com base em eventos personalizados e propriedades de eventos rastreados nos últimos dois anos. Essa opção não impacta o uso de dados.
+2. **Nos últimos 30 dias e além:** Para cobrir tanto a segmentação de propriedades de eventos a curto quanto a longo prazo, você pode usar as [extensões de Segment]({{site.baseurl}}/user_guide/audience/segments/segment_extension). Esse recurso segmenta os usuários com base em eventos personalizados e propriedades de eventos rastreados nos últimos dois anos. Essa opção não impacta o uso de dados.
 
-Entre em contato com seu gerente de sucesso do cliente da Braze para obter recomendações sobre a melhor abordagem de acordo com suas necessidades específicas.
+Entre em contato com seu CSM da Braze para obter recomendações sobre a melhor abordagem de acordo com suas necessidades específicas.

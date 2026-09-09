@@ -66,7 +66,7 @@ Sobald die Erweiterung installiert ist, klicken Sie auf das Sendbird-Symbol in d
 
 ### 4. Schritt: Sendbird-Nutzer-ID der Braze-Nutzer-ID zuordnen {#step-4-map-sendbird-user-id-to-braze-user-id}
 
-Eine Sendbird-Nutzer-ID muss als [angepasstes Attribut]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) zu einem Braze-Nutzerprofil hinzugefügt werden, damit die Integration genutzt werden kann. Sie können Nutzerprofile über CSV-Dateien von der Seite [Nutzerimport]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_import#csv) hochladen und aktualisieren. Alternativ können Sie auch die Braze-Nutzer-ID als Sendbird-Nutzer-ID verwenden.
+Eine Sendbird-Nutzer-ID muss als [angepasstes Attribut]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) zu einem Braze-Kundenprofil hinzugefügt werden, damit die Integration genutzt werden kann. Sie können Nutzerprofile über CSV-Dateien von der Seite [Nutzerimport]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_import#csv) hochladen und aktualisieren. Alternativ können Sie auch die Braze-Nutzer-ID als Sendbird-Nutzer-ID verwenden.
 
 ### 5. Schritt: Richten Sie Ihr Webhook-Template ein {#step-5-set-up-your-webhook-template}
 

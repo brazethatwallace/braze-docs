@@ -21,7 +21,7 @@ WhatsApp에서 사용자에게 처음 메시지를 보내면 메시지 스레드
 ![비즈니스를 차단하거나 신고할 수 있는 옵션이 있는 WhatsApp 메시지 스레드]({% image_buster /assets/img/whatsapp/whatsapp_block_report.png %}){: style="max-width:30%;"}
 
 {% alert note %}
-차단 및 신고에 대한 측정기준을 확인하려면 WhatsApp Manager에서 [인사이트 탭](https://www.facebook.com/business/help/683499390267496)이 활성화되어 있는지 확인하세요.
+차단 및 신고에 대한 측정기준을 확인하려면 WhatsApp 매니저에서 [인사이트 탭](https://www.facebook.com/business/help/683499390267496)이 활성화되어 있는지 확인하세요.
 {% endalert %}
 
 높은 차단 및 신고 발생을 방지하기 위해 Braze는 높은 전화 품질 등급과 안정적인 메시징 한도를 유지하기 위한 다음 모범 사례를 권장합니다.

@@ -149,7 +149,7 @@ Variant-level constraints on specific images or CTAs aren't supported in this re
 
 The **Review** screen displays your full configuration: audience and random control split, schedule, base creatives, variant counts, and active constraints. Review and resolve any validation warnings (for example, segment overlap with another campaign) that display in this section.
 
-Select **Launch** to activate the agent. It transitions from **Draft** to **Live** and begins sending on the next eligible day.
+Select **Launch** to activate the agent. It transitions from **Draft** to **Active** and begins sending on the next eligible day.
 
 ## After launch
 
@@ -172,13 +172,13 @@ The reporting interface offers three main views:
 
 Element-level breakdowns show how individual subject lines, CTAs, and images perform across all combinations.
 
-### Edit a live agent
+### Edit an active agent
 
 Go to the **Configuration** view to modify audience, schedule, creatives, or constraints after launch. The Configuration view shows a summary of changes. Promote changes before they take effect. Adding new variants doesn't reset the agent's training on existing variants; it adds new options to the agent's menu.
 
 ### Pause or stop
 
-An agent's lifecycle is **Draft** > **Live** > **Stopped**. Select **Stop** at any time to halt an agent; it stops sending and resumes when you reactivate it.
+An agent's lifecycle is **Draft** > **Active** > **Stopped**. Select **Stop** at any time to halt an agent; it stops sending and resumes when you reactivate it.
 
 ## Reference
 

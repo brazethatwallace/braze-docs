@@ -20,8 +20,8 @@ Unsere Windows Integration protokolliert die Öffnung der Sitzung, wenn die App 
 
 ### Testen des Sitzungs-Trackings
 
-Um Sitzungen über Ihren Nutzer:innen zu erkennen, suchen Sie Ihren Nutzer auf dem Dashboard und navigieren Sie im Nutzerprofil zu "App-Nutzung". Sie können sich vergewissern, dass das Session Tracking funktioniert, indem Sie überprüfen, ob die Metrik "Sessions" in dem Maße ansteigt, wie Sie es erwarten.
+Um Sitzungen über Ihren Nutzer:innen zu erkennen, suchen Sie Ihren Nutzer auf dem Dashboard und navigieren Sie im Kundenprofil zu "App-Nutzung". Sie können sich vergewissern, dass das Session Tracking funktioniert, indem Sie überprüfen, ob die Metrik "Sessions" in dem Maße ansteigt, wie Sie es erwarten.
 
-![Ein Nutzerprofil, das die App-Nutzung mit 25 Sitzungen anzeigt, die letzte Nutzung vor zwei Stunden und die erste Nutzung vor zwanzig Tagen]({% image_buster /assets/img_archive/test_session.png %})
+![Ein Kundenprofil, das die App-Nutzung mit 25 Sitzungen anzeigt, die letzte Nutzung vor zwei Stunden und die erste Nutzung vor zwanzig Tagen]({% image_buster /assets/img_archive/test_session.png %})
 
 

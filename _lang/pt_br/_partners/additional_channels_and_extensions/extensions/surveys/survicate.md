@@ -184,7 +184,7 @@ Por padrão, a Survicate envia o conteúdo de uma resposta de pesquisa como um v
 ![Clique em Edit mapping para modificar esses valores]({% image_buster /assets/img/survicate/survicate_19.png %})
 
 {% alert note %}
-Para o NPS, a Survicate envia valores mapeados com base no grupo de resposta para a pergunta do NPS®. No entanto, se quiser receber valores numéricos, você pode ativar a opção Send Answers as 0-10 values.
+Para o Net Promoter Score (NPS), a Survicate envia valores mapeados com base no grupo de resposta para a pergunta do Net Promoter Score (NPS)®. No entanto, se quiser receber valores numéricos, você pode ativar a opção Send Answers as 0-10 values.
 {% endalert %}
 
 ![A Survicate envia valores mapeados com base no grupo de resposta]({% image_buster /assets/img/survicate/survicate_20.png %})
@@ -205,7 +205,7 @@ Se você optar por enviar os eventos, poderá ver nos perfis dos usuários quant
 
 ![Respostas]({% image_buster /assets/img/survicate/survicate_23.png %})
 
-O evento contém propriedades de evento com a resposta à pergunta e informações sobre a pesquisa, a pergunta e o respondente. Você pode usar esse evento para criar segmentos. Por exemplo, crie um segmento de usuários que responderam a uma pesquisa após uma determinada data ou um determinado número de vezes:
+O evento contém propriedades de evento com a resposta à pergunta e informações sobre a pesquisa, a pergunta e o respondente. Você pode usar esse evento para criar segmentos. Por exemplo, crie um Segment de usuários que responderam a uma pesquisa após uma determinada data ou um determinado número de vezes:
 
 ![O evento contém propriedades de evento com a resposta]({% image_buster /assets/img/survicate/survicate_24.png %})
 

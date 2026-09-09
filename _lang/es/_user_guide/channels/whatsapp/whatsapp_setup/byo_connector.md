@@ -2,7 +2,7 @@
 nav_title: Conector BYO WhatsApp
 article_title: Conector Bring Your Own WhatsApp
 page_order: 2
-description: "Este artículo de referencia proporciona un recorrido paso a paso para configurar un conector Bring Your Own WhatsApp, que otorga a Braze acceso a tu Infobip WhatsApp Business Manager."
+description: "Este artículo de referencia proporciona un recorrido paso a paso para configurar un conector Bring Your Own WhatsApp, que otorga a Braze acceso a tu Infobip WhatsApp Business Administrador."
 page_type: reference
 channel:
   - WhatsApp
@@ -10,7 +10,7 @@ channel:
 
 # Conector Bring Your Own WhatsApp {#bring-your-own-whatsapp-connector}
 
-> El conector Bring Your Own (BYO) WhatsApp ofrece una asociación entre Braze e Infobip, en la que le das a Braze acceso a tu Infobip WhatsApp Business Manager (WABA). Esto te permite gestionar y pagar los costos de mensajería directamente con Infobip mientras usas Braze para segmentación, personalización y orquestación de campañas. Braze mantiene toda la funcionalidad existente que ofrece el canal de WhatsApp, como mensajes salientes, procesamiento de mensajes entrantes, flujos de WhatsApp y análisis.
+> El conector Bring Your Own (BYO) WhatsApp ofrece una asociación entre Braze e Infobip, en la que le das a Braze acceso a tu Infobip WhatsApp Business Administrador (WABA). Esto te permite gestionar y pagar los costos de mensajería directamente con Infobip mientras usas Braze para segmentación, personalización y orquestación de campañas. Braze mantiene toda la funcionalidad existente que ofrece el canal de WhatsApp, como mensajes salientes, procesamiento de mensajes entrantes, flujos de WhatsApp y análisis.
 
 {% alert note %}
 Para migrar desde otros proveedores de soluciones de negocio (BSP) a la integración de Braze, consulta [Migrar desde otro proveedor de soluciones de negocio]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number#migrate-from-another-business-solution-provider).

@@ -192,7 +192,7 @@ Para obtener una lista de zonas horarias válidas, consulta [https://roktcalenda
 
 ### Paso 3: Previsualizar tu solicitud {#step-3-preview-your-request}
 
-Previsualiza tu solicitud en el panel de **Preview** o navega a la pestaña **Test**, donde puedes seleccionar un usuario al azar, un usuario existente o personalizar el tuyo propio para probar tu webhook.
+Previsualiza tu solicitud en el panel de **vista previa** o navega a la pestaña **Test**, donde puedes seleccionar un usuario al azar, un usuario existente o personalizar el tuyo propio para probar tu webhook.
 
 {% alert important %}
 Recuerda guardar tu plantilla antes de salir de la página. <br>Las plantillas de webhook actualizadas se pueden encontrar en la lista **Saved Webhook Templates** al crear una nueva [campaña de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).

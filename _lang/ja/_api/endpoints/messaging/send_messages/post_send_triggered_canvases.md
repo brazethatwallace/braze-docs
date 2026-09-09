@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "この記事では、APIトリガー配信を使用したキャンバス送信Brazeエンドポイントの詳細について説明します。"
-
 ---
 {% api %}
 # APIトリガー配信を使用したキャンバスメッセージの送信 {#send-canvas-messages-using-api-triggered-delivery}
@@ -24,7 +23,7 @@ APIトリガー配信を使用すると、メッセージのコンテンツをBr
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`canvas.trigger.send` 権限を持つAPIキーを生成する必要があります。
+このエンドポイントを使用するには、`canvas.trigger.send`権限を持つAPIキーを生成する必要があります。
 
 ## レート制限 {#rate-limit}
 

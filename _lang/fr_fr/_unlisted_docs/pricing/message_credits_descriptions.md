@@ -23,7 +23,7 @@ Notez que le « ratio de crédits » référencé sur cette page correspond au n
   - [Types RCS](#rcs-types)
 - [Détails du canal WhatsApp](#whatsapp-channel-details)
   - [Répartition par région de facturation](#billing-region-breakdown)
-- [Détails de la console Agent](#agent-console-details)
+- [Détails de la console d'agents](#agent-console-details)
 - [Détails des canaux supplémentaires](#additional-channel-details)
   - [LINE](#line)
   - [KakaoTalk](#kakaotalk)
@@ -38,33 +38,33 @@ Notez que le « ratio de crédits » référencé sur cette page correspond au n
 Les ratios de crédits e-mail sont exprimés en incréments de mille e-mails envoyés (CPM) depuis la plateforme Braze.
 
 {% alert note %}
-Consultez notre [documentation sur les e-mails]({{site.baseurl}}/user_guide/message_building_by_channel/email) pour en savoir plus sur notre canal e-mail.
+Consultez notre [documentation sur les e-mails]({{site.baseurl}}/user_guide/channels/email) pour en savoir plus sur notre canal e-mail.
 {% endalert %}
 
 ## Détails des canaux SMS, MMS et RCS {#sms-mms-and-rcs-channel-details}
 
-Les ratios de crédits SMS et MMS sont calculés par incréments de segments de message envoyés depuis la plateforme Braze. Les ratios de crédits RCS sont calculés par incréments de types Basic et Rich Media, ou de types Single et Rich Media délivrés depuis la plateforme Braze. Les messages entrants et sortants sont tous deux facturés.
+Les ratios de crédits SMS et MMS sont calculés en incréments de segments de message envoyés depuis la plateforme Braze. Les ratios de crédits RCS sont calculés en incréments de types Basic et Rich Media, ou de types Single et Rich Media délivrés depuis la plateforme Braze. Les types entrants et sortants sont tous deux facturés.
 
 {% alert note %}
-Le cas échéant pour ces canaux, les frais opérateur sont facturés séparément (à terme échu) et ne sont pas comptabilisés dans les Action Credits.
+Le cas échéant pour ces canaux, les frais des opérateurs sont facturés séparément (en différé) et ne sont pas pris en compte dans les Action Credits.
 {% endalert %}
 
 ### Segments de message SMS {#sms-segments}
 
-L'industrie du SMS comptabilise les messages en segments de message SMS. Un segment de message est un regroupement pouvant contenir jusqu'à un nombre défini de caractères (160 pour l'encodage GSM-7 ; 67 pour l'encodage UCS-2) qui sera envoyé en un seul envoi SMS. Si vous envoyez un SMS de 161 caractères en utilisant l'encodage GSM-7, deux (2) segments de message seront envoyés. L'envoi de plusieurs segments de message entraînera des frais supplémentaires.
+L'industrie du SMS comptabilise les messages en segments de message SMS. Un segment de message est un regroupement d'un nombre défini de caractères maximum (160 pour l'encodage GSM-7 ; 67 pour l'encodage UCS-2) qui sera envoyé en un seul envoi SMS. Si vous envoyez un SMS de 161 caractères en utilisant l'encodage GSM-7, deux (2) segments de message seront envoyés. L'envoi de plusieurs segments de message entraîne des frais supplémentaires.
 
 ### Messages MMS {#mms-messages}
 
-Pour les MMS, la limite de taille du message est de 5 Mo (cela inclut la ressource multimédia et la taille du corps du message). Par mesure de précaution, Braze recommande de ne pas dépasser 600 Ko pour votre ressource multimédia tout en incluant un corps de message.
+Pour les MMS, la limite de message est de 5 Mo (cela inclut la ressource multimédia et la taille du corps du message). Par mesure de précaution, Braze recommande de ne pas dépasser 600 Ko pour votre ressource multimédia tout en incluant un corps de message.
 
 ### Types RCS {#rcs-types}
 
-Le RCS est la nouvelle génération du SMS et du MMS. Il offre les avantages d'un canal direct et à fort engagement comme le SMS, avec des fonctionnalités plus riches auxquelles les consommateurs modernes s'attendent, telles que du contenu enrichi (images, vidéos, documents), un envoi vérifié et brandé, des fonctionnalités interactives comme les réponses et actions suggérées, et bien plus encore.
+Le RCS est la prochaine génération du SMS et du MMS. Il offre les avantages d'un canal direct et à fort engagement comme le SMS, avec des fonctionnalités plus riches auxquelles les consommateurs modernes s'attendent, telles que du contenu enrichi (images, vidéos, documents), des envois vérifiés et brandés, des fonctionnalités interactives comme les réponses et actions suggérées, et bien plus encore.
 
 {% multi_lang_include pricing/rcs_billing_message_types.md %}
 
 {% alert note %}
-Consultez notre [documentation SMS et MMS]({{site.baseurl}}/user_guide/message_building_by_channel/sms) pour en savoir plus sur nos offres de la famille SMS.
+Consultez notre [documentation SMS et MMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs) pour en savoir plus sur nos offres de la famille SMS.
 {% endalert %}
 
 ## Détails du canal WhatsApp {#whatsapp-channel-details}
@@ -91,7 +91,7 @@ Albanie, Arménie, Azerbaïdjan, Biélorussie, Bulgarie, Croatie, République tc
 
 ### Reste de l'Amérique latine {#rest-of-latin-america}
 
-Bolivie, Costa Rica, République dominicaine, Équateur, El Salvador, Guatemala, Haïti, Honduras, Jamaïque, Nicaragua, Panama, Paraguay, Porto Rico, Uruguay, Venezuela
+Bolivie, Costa Rica, République dominicaine, Équateur, Salvador, Guatemala, Haïti, Honduras, Jamaïque, Nicaragua, Panama, Paraguay, Porto Rico, Uruguay, Venezuela
 
 ### Reste du Moyen-Orient {#rest-of-middle-east}
 
@@ -102,7 +102,7 @@ Bahreïn, Irak, Jordanie, Koweït, Liban, Oman, Yémen
 Autriche, Belgique, Danemark, Finlande, Irlande, Norvège, Portugal, Suède, Suisse
 
 {% alert note %}
-Consultez notre [documentation WhatsApp]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp) pour en savoir plus sur nos offres WhatsApp.
+Consultez notre [documentation WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp) pour en savoir plus sur nos offres WhatsApp.
 {% endalert %}
 
 ## Détails de la console Agent {#agent-console-details}
@@ -120,7 +120,7 @@ Consultez notre [documentation Braze Agents]({{site.baseurl}}/user_guide/brazeai
 Les ratios de crédits LINE sont calculés par incréments de messages LINE envoyés depuis la plateforme Braze.
 
 {% alert note %}
-Consultez notre [documentation LINE]({{site.baseurl}}/user_guide/message_building_by_channel/line) pour en savoir plus sur l'utilisation de LINE avec Braze.
+Consultez notre [documentation LINE]({{site.baseurl}}/user_guide/channels/line) pour en savoir plus sur l'utilisation de LINE avec Braze.
 {% endalert %}
 
 ### KakaoTalk {#kakaotalk}
@@ -135,13 +135,13 @@ Consultez notre [documentation KakaoTalk]({{site.baseurl}}/kakaotalk) pour en sa
 
 Les ratios de crédits Content Cards sont calculés par incréments de mille impressions uniques quotidiennes.
 
-Braze se réserve le droit de facturer des crédits pour les Content Cards en fonction du nombre de Content Cards envoyées si le client ne configure pas les Content Cards pour enregistrer les impressions uniques conformément aux recommandations de Braze. Cela sera considéré comme applicable si, dans les six (6) mois suivant le premier envoi de Content Cards, le client a :
+Braze se réserve le droit de facturer des crédits pour les Content Cards sur la base du nombre de Content Cards envoyées si le Client ne configure pas les Content Cards pour enregistrer les impressions uniques conformément aux recommandations de Braze. Cela sera considéré comme applicable si, dans les six (6) mois suivant le premier envoi de Content Cards, le Client a :
 - Envoyé plus de cinq millions (5 000 000) de Content Cards, ET SOIT
     - Zéro (0) impression enregistrée
     - Un ratio envois/impressions uniques quotidiennes supérieur à cent (100)
 
 {% alert note %}
-Consultez notre [documentation Content Cards]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards) pour en savoir plus sur les Content Cards de Braze.
+Consultez notre [documentation Content Cards]({{site.baseurl}}/user_guide/channels/content_cards) pour en savoir plus sur les Content Cards de Braze.
 {% endalert %}
 
 ### Banners {#banners}
@@ -149,7 +149,7 @@ Consultez notre [documentation Content Cards]({{site.baseurl}}/user_guide/messag
 Les ratios de crédits Banners sont calculés par incréments de mille impressions uniques quotidiennes.
 
 {% alert note %}
-Consultez notre [documentation Banner]({{site.baseurl}}/developer_guide/banner_cards) pour en savoir plus sur les Banners de Braze.
+Consultez notre [documentation Banner]({{site.baseurl}}/developer_guide/banners) pour en savoir plus sur les Banners de Braze.
 {% endalert %}
 
 ### Audience Sync {#audience-sync}
@@ -157,15 +157,19 @@ Consultez notre [documentation Banner]({{site.baseurl}}/developer_guide/banner_c
 Les ratios de crédits Audience Sync sont calculés par incréments de mille synchronisations totales d'utilisateurs. Par défaut, votre contrat inclut cinq millions de synchronisations d'utilisateurs par période de votre durée d'abonnement. Les synchronisations d'utilisateurs supplémentaires seront facturées conformément à votre bon de commande.
 
 {% alert note %}
-Consultez notre [documentation Canvas]({{site.baseurl}}/partners/canvas_steps) pour en savoir plus sur Canvas Audience Sync et les partenaires disponibles.
+Consultez notre [documentation Canvas]({{site.baseurl}}/partners/canvas_audience_sync) pour en savoir plus sur Canvas Audience Sync et les partenaires disponibles.
 {% endalert %}
 
 ### Archivage des messages {#message-archiving}
 
-Les ratios de crédits d'archivage des messages sont calculés par incréments de mille messages archivés sur les canaux notification push, e-mail et SMS/MMS.
+Les ratios de crédits d'archivage des messages sont calculés par incréments de mille messages archivés avec succès sur les canaux notifications push, e-mail, SMS/MMS et messages in-app.
 
 {% alert note %}
-Consultez notre [documentation sur l'archivage des messages]({{site.baseurl}}/user_guide/data/export_braze_data/message_archiving#message-archiving) pour en savoir plus sur l'archivage des messages.
+À compter du 2 septembre 2026, les tentatives d'archivage échouées sont exclues de la facturation de l'utilisation ; seuls les archivages réussis consomment des Action Credits. Ce changement n'affecte pas l'utilisation facturée avant le 2 septembre 2026.
+{% endalert %}
+
+{% alert note %}
+Consultez notre [documentation sur l'archivage des messages]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/message_archiving) pour en savoir plus sur l'archivage des messages.
 {% endalert %}
 
 ### Webhooks {#webhooks}
@@ -175,5 +179,5 @@ Les ratios de crédits webhooks sont calculés par incréments de mille webhooks
 {% multi_lang_include pricing/webhook_failed_requests_billing.md credit_name='Action Credits' %}
 
 {% alert note %}
-Consultez notre [documentation webhooks]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks) pour en savoir plus sur les webhooks de Braze.
+Consultez notre [documentation webhooks]({{site.baseurl}}/user_guide/channels/webhooks) pour en savoir plus sur les webhooks de Braze.
 {% endalert %}

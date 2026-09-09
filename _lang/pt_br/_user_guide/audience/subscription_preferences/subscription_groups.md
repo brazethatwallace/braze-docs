@@ -46,13 +46,13 @@ A forma de obter um grupo de inscrições depende do canal. Grupos de e-mail sã
 
 ## Segmentar com grupos de inscrições {#segment-with-subscription-groups}
 
-Ao criar um segmento, adicione um filtro de grupo de inscrições para direcionar usuários que aceitaram receber mensagens daquele grupo. Isso é útil para newsletters mensais, programas de cupons, níveis de associação e outros envios baseados em categorias.
+Ao criar um Segment, adicione um filtro de grupo de inscrições para direcionar usuários que aceitaram receber mensagens daquele grupo. Isso é útil para newsletters mensais, programas de cupons, níveis de associação e outros envios baseados em categorias.
 
 ![Exemplo de direcionamento de usuários no segmento "Lapsed Users" com o filtro para usuários no grupo de inscrições "Weekly Emails".]({% image_buster /assets/img/segment_sub_group.png %}){: style="max-width:90%"}
 
 ## Arquivar grupos de inscrições {#archive-subscription-groups}
 
-Grupos de inscrições arquivados não podem ser editados e não aparecem mais em filtros de segmento ou centrais de preferências. Se você arquivar um grupo usado como filtro de segmento em uma Campaign, Canvas ou segmento ativo, receberá um erro até remover essas referências.
+Grupos de inscrições arquivados não podem ser editados e não aparecem mais em filtros de Segment ou centrais de preferências. Se você arquivar um grupo usado como filtro de Segment em uma Campaign, Canvas ou Segment ativo, receberá um erro até remover essas referências.
 
 Para arquivar um grupo em **Gerenciamento de grupos de inscrições**, encontre o grupo e selecione **Arquivar** no menu <i class="fa-solid fa-ellipsis-vertical" aria-label="Mais opções"></i>.
 
@@ -93,7 +93,7 @@ Em **Gerenciamento de grupos de inscrições**, gráficos de séries temporais r
 - **Tamanho do grupo de inscrições:** usuários inscritos naquele grupo em uma data específica
 - **Tamanho de cancelamentos do grupo de inscrições:** usuários que cancelaram a inscrição daquele grupo em uma data específica
 
-Essas contagens refletem a associação àquele grupo, não o estado de inscrição global de e-mail. Elas podem diferir de um segmento que usa **Email Subscription Status is Unsubscribed**, que reflete o [estado de inscrição global de e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-states).
+Essas contagens refletem a associação àquele grupo, não o estado de inscrição global de e-mail. Elas podem diferir de um Segment que usa **Email Subscription Status is Unsubscribed**, que reflete o [estado de inscrição global de e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-states).
 
 O tamanho do grupo de inscrições de hoje não é calculado por padrão. Se o seu intervalo de datas incluir hoje, selecione **Calculate today's statistics** para adicionar o valor de hoje à série temporal. Para espaços de trabalho muito grandes, a Braze pode exibir contagens estimadas em vez de contagens exatas.
 

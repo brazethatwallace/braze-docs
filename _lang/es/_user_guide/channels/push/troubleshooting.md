@@ -20,22 +20,25 @@ channel: push
 | Los envíos push son más lentos de lo esperado | [Las notificaciones push se envían más lento de lo esperado](#push-notifications-are-sending-slower-than-expected) |
 | Error `MismatchSenderID` (Android) | [Error: MismatchSenderID](#error-mismatch-sender-id) |
 | Tocar una notificación push no abre la aplicación | [Hacer clic en una notificación push no abre la aplicación](#clicking-a-push-notification-does-not-open-the-app) |
-| Los enlaces push se abren en la aplicación en lugar del navegador | [Los clics push se abren inesperadamente en la aplicación](#push-clicks-unexpectedly-open-in-app) |
-| Problemas con permisos o entrega de notificaciones push web | [Las notificaciones push web no se comportan como se esperaba](#web-push-notifications-are-not-behaving-as-expected) |
+| Los enlaces push se abren en la aplicación en lugar del navegador | [Los clics en push se abren inesperadamente en la aplicación](#push-clicks-unexpectedly-open-in-app) |
+| Problemas con permisos o entrega de notificaciones push web | [Las notificaciones push web no se comportan como se espera](#web-push-notifications-are-not-behaving-as-expected) |
 | Necesitas migrar de `.p12` a `.p8` (iOS) | [Migrar a una clave de autenticación .p8](#migrate-to-a-p8-authentication-key) |
 | Código de error push específico en los registros | [Mensajes de error push](#push-error-messages) |
+| Los recuentos de desinstalaciones no coinciden por plataforma | [Métricas de desinstalación](#uninstall-metrics) |
+| Migrar usuarios o datos push a otro espacio de trabajo | [Migración de datos de espacio de trabajo](#workspace-data-migration) |
+| Necesitas saber si una sesión se inició a partir de la apertura de un push | [Sesión y atribución](#session-and-attribution) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Síntoma push" }
 
 ## Ruta de investigación estándar {#standard-investigation-path}
 
-Usa este flujo de trabajo cuando un usuario o dispositivo de prueba no recibió una notificación push. Empieza en el paso 1.
+Usa este flujo de trabajo cuando un usuario o dispositivo de prueba no recibió una notificación push. Empieza por el paso 1.
 
-1. Confirma que el usuario está suscrito o ha optado por recibir notificaciones push y tiene un token de notificaciones push válido en la pestaña **Engagement** de su perfil.
+1. Confirma que el usuario está suscrito o tiene aceptación de push y tiene un token de notificaciones push válido en la pestaña **Engagement** de su perfil.
 2. Confirma que el usuario está en el público objetivo de la Campaign o Canvas en el momento del envío (los Segments se actualizan en tiempo real).
-3. Comprueba los límites de frecuencia globales, los límites de velocidad y la asignación al grupo de control de la Campaign o Canvas.
-4. Confirma que estás usando el tipo de push correcto para el dispositivo (por ejemplo, Android, iOS o Kindle).
-5. Para pruebas internas, confirma que el tester ha iniciado sesión en la aplicación correcta en el dispositivo.
-6. Si la entrega sigue fallando, revisa los [mensajes de error de push comunes]({{site.baseurl}}/user_guide/channels/push/push_error_codes) o ponte en contacto con [soporte de Braze]({{site.baseurl}}/braze_support) con el ID de la Campaign o Canvas, el ID de usuario y la marca de tiempo con zona horaria.
+3. Revisa la limitación de frecuencia global, los límites de velocidad y la asignación de grupo de control para la Campaign o Canvas.
+4. Confirma que estás utilizando el tipo correcto de push para el dispositivo (por ejemplo, Android, iOS o Kindle).
+5. Para pruebas internas, confirma que la persona que realiza la prueba ha iniciado sesión en la aplicación correcta en el dispositivo.
+6. Si la entrega sigue fallando, revisa los [Mensajes de error push comunes]({{site.baseurl}}/user_guide/channels/push/push_error_codes) o ponte en contacto con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) con el ID de la Campaign o Canvas, el ID de usuario y la marca de tiempo con zona horaria.
 
 ## Notificaciones push faltantes {#missing-push-notifications}
 
@@ -144,13 +147,13 @@ No cambies tu ID de remitente en el panel de Braze. Hacerlo invalida los registr
 
 **Síntoma:** Las notificaciones push llegan más tarde de lo esperado.
 
-Tus notificaciones push pueden retrasarse por estas razones:
+Tus notificaciones push pueden retrasarse por las siguientes razones:
 
 - Una conexión de datos débil en el dispositivo
 - Código personalizado en la aplicación que puede suprimir las notificaciones push de Braze
 - Preferencias del usuario para las notificaciones push en la configuración del dispositivo
-- Prioridad del mensaje de la notificación push cuando se crea en la Campaign o Canvas
-- Retrasos en el tráfico o problemas con los proveedores de servicios de notificaciones push (FCM y APN)
+- Prioridad del mensaje de la notificación push cuando se creó en la Campaign o Canvas
+- Retrasos en el tráfico o problemas con los proveedores de servicios de notificaciones push (FCM y APNs)
 
 ### Las notificaciones push se envían más lento de lo esperado {#push-notifications-are-sending-slower-than-expected}
 
@@ -159,8 +162,8 @@ Tus notificaciones push pueden retrasarse por estas razones:
 Confirma que la configuración de tus notificaciones push sigue estas prácticas recomendadas:
 
 - Si estás enviando a audiencias grandes sin considerar el estado de habilitación de push, esto puede provocar una velocidad de envío más lenta. En su lugar, considera enviar solo a usuarios con push habilitado para reducir el tamaño de tu audiencia.
-- Si es posible, intenta programar tus Campaigns con antelación en lugar de enviarlas de inmediato.
-- Si estás dirigiéndote a un número mayor de usuarios con notificaciones push en un Canvas, puedes anticipar que los pasos de mensaje posteriores en el Canvas requerirán tiempos de procesamiento diferentes a los de una Campaign que envía a los usuarios de inmediato. En este caso, las Campaigns normalmente terminarían de enviarse antes que un Canvas, ya que el primer "paso" de un Canvas es comprobar si los usuarios califican para el recorrido de usuario específico.
+- Si es posible, intenta programar tus Campaigns con anticipación en lugar de enviarlas de inmediato.
+- Si estás dirigiéndote a un número grande de usuarios con notificaciones push en un Canvas, puedes anticipar que los pasos de mensaje subsiguientes en el Canvas requerirán tiempos de procesamiento diferentes a los de una Campaign que envía a los usuarios de inmediato. En este caso, las Campaigns normalmente terminarían de enviarse antes que un Canvas, ya que el primer "paso" de un Canvas es verificar si los usuarios califican para el recorrido de usuario específico.
 
 ## Al hacer clic en una notificación push no se abre la aplicación {#clicking-a-push-notification-does-not-open-the-app}
 
@@ -192,7 +195,7 @@ Si tienes problemas con enlaces en notificaciones push que se abren inesperadame
 
 En tu Campaign o paso en Canvas, verifica que **Open web URL inside mobile app** no esté seleccionado. Si lo está, desmarca la selección y vuelve a lanzar.
 
-La interacción predeterminada para el comportamiento al hacer clic «Open web URL» difiere según la versión del SDK. Para las versiones del SDK iOS 2.29.0 y Android 2.0.0 y superiores, esta opción está seleccionada de forma predeterminada y las URL web se abren en una vista web dentro de la aplicación. Antes de estas versiones, esta opción está desmarcada de forma predeterminada y las URL web se abren en el navegador web predeterminado del dispositivo.
+La interacción predeterminada para el comportamiento al hacer clic "Open web URL" difiere según la versión del SDK. Para las versiones del SDK iOS 2.29.0 y Android 2.0.0 y superiores, esta opción está seleccionada de forma predeterminada y las URL web se abren en una vista web dentro de la aplicación. Antes de estas versiones, esta opción está desmarcada de forma predeterminada y las URL web se abren en el navegador web predeterminado del dispositivo.
 
 Si este no es el problema, puede haber un problema con tu implementación push.
 
@@ -200,10 +203,10 @@ Si este no es el problema, puede haber un problema con tu implementación push.
 
 Si los enlaces en tus notificaciones push se abren inesperadamente en la aplicación, puede deberse a problemas con la integración de notificaciones push o la configuración de personalización. Sigue estos pasos para solucionar el problema:
 
-1. **Revisa la implementación del delegado push:** asegúrate de que el delegado push de Braze esté implementado correctamente. Para instrucciones detalladas, consulta la guía de integración de notificaciones push para tu [plataforma]({{site.baseurl}}/developer_guide/home).
-2. **Inspecciona el manejo personalizado de enlaces:** comprueba si la aplicación incluye un manejo personalizado para todos los enlaces `https://`. Las configuraciones personalizadas pueden anular los comportamientos predeterminados. Colabora con tu equipo de desarrollo para revisar y ajustar esta configuración si es necesario.
-3. **Verifica el registro push en iOS:** para iOS, revisa el paso 1 de la guía de integración push sobre [registrar notificaciones push con APNs]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#step-1-register-for-push-notifications-with-apns). Asegúrate de que tu objeto delegado se asigne de forma sincrónica antes de que la aplicación termine de lanzarse. Este paso debe completarse en el método `application:didFinishLaunchingWithOptions:`.
-4. **Prueba tu integración:** después de realizar los ajustes, prueba el comportamiento de las notificaciones push en dispositivos iOS y Android para confirmar que el problema se ha resuelto.
+1. **Revisa la implementación del delegado push:** Asegúrate de que el delegado push de Braze esté implementado correctamente. Para instrucciones detalladas, consulta la guía de integración de notificaciones push para tu [plataforma]({{site.baseurl}}/developer_guide/home).
+2. **Inspecciona el manejo personalizado de enlaces:** Comprueba si la aplicación incluye un manejo personalizado para todos los enlaces `https://`. Las configuraciones personalizadas pueden anular los comportamientos predeterminados. Colabora con tu equipo de desarrollo para revisar y ajustar esta configuración si es necesario.
+3. **Verifica el registro push en iOS:** Para iOS, revisa el paso 1 de la guía de integración push sobre [registrar notificaciones push con APN]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift). Asegúrate de que tu objeto delegado se asigne de forma sincrónica antes de que la aplicación termine de lanzarse. Este paso debe completarse en el método `application:didFinishLaunchingWithOptions:`.
+4. **Prueba tu integración:** Después de realizar los ajustes, prueba el comportamiento de las notificaciones push en dispositivos iOS y Android para confirmar que el problema se ha resuelto.
 
 ### Vínculos profundos con la aplicación aún ejecutándose en segundo plano (iOS) {#deep-links-with-app-still-running-in-the-background-ios}
 
@@ -327,9 +330,9 @@ Tus permisos de push se han restablecido. Abre una nueva pestaña con tu sitio y
 
 ## Métricas de apertura de push {#push-open-metrics}
 
-Braze registra una apertura directa cuando un usuario toca la notificación y tu aplicación inicia una sesión. Expandir una notificación push enriquecida sin abrir la aplicación no registra una apertura directa.
+Braze registra un Direct Opens cuando un usuario toca la notificación y tu aplicación inicia una sesión. Expandir una notificación push enriquecida sin abrir la aplicación no registra un Direct Opens.
 
-Si un usuario abre tu aplicación después de recibir una notificación push sin tocar la notificación, Braze puede registrar una Influenced Open en su lugar. Para definiciones e informes, consulta [Influenced Opens]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens).
+Si un usuario abre tu aplicación después de recibir una notificación push sin tocar la notificación, Braze puede registrar un Influenced Opens en su lugar. Para definiciones e informes, consulta [Influenced Opens]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens).
 
 ## Mensajes de error de push {#push-error-messages}
 
@@ -337,4 +340,32 @@ Si un usuario abre tu aplicación después de recibir una notificación push sin
 
 Para definiciones de códigos de error push comunes (incluyendo `DEVICE_UNREGISTERED`, `NotRegistered` y `Unregistered`), consulta [Mensajes de error push comunes]({{site.baseurl}}/user_guide/channels/push/push_error_codes).
 
-Cuando FCM devuelve errores como `DEVICE_UNREGISTERED` o `NotRegistered`, Braze normalmente elimina el token de notificaciones push afectado del perfil de usuario. Esa eliminación generalmente indica que la aplicación fue desinstalada o que el token ya no es válido. Las campañas de Uninstall Tracking utilizan la misma lógica de eliminación de tokens a escala.
+Cuando un proveedor de push indica que un token de registro ya no es válido (por ejemplo, `DEVICE_UNREGISTERED` o `NotRegistered` de FCM), Braze elimina el token de notificaciones push afectado del perfil de usuario y cuenta al usuario como desinstalado. Las Campaigns de Uninstall Tracking utilizan la misma lógica de eliminación de tokens a escala.
+
+Otros errores de push se registran como rebotes y no eliminan el token. Por ejemplo, un fallo de autenticación como [`MismatchSenderID`](#error-mismatch-sender-id) significa que Braze no pudo autenticarse con FCM, así que corrige la credencial en lugar de tratarlo como una señal de desinstalación.
+
+Para el seguimiento de desinstalaciones en Android, Braze envía notificaciones push de detección de desinstalaciones como un dry run (solo validación) o como un push silencioso en vivo, según la configuración de tu espacio de trabajo. Dado que un dry run valida la solicitud sin entregar el mensaje, sus resultados pueden diferir de un envío en vivo. Si los recuentos de desinstalaciones parecen bajos, confirma que tu integración de Android cumple los requisitos previos de [Uninstall Tracking]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking) y revisa los errores de rebote en el Message Activity Log.
+
+## Métricas de desinstalación {#uninstall-metrics}
+
+### ¿Por qué el total de desinstalaciones no coincide con la suma de Android más iOS? {#why-dont-total-uninstalls-match-android-plus-ios}
+
+Las **desinstalaciones totales** del espacio de trabajo pueden superar la suma de las métricas de desinstalación específicas de cada plataforma porque la invalidación de tokens de notificaciones push web también contribuye a los recuentos de desinstalación. Cuando un token de notificaciones push web deja de ser válido (por ejemplo, después de que el usuario borra los datos del sitio o revoca el permiso), Braze puede registrar una desinstalación para ese registro web incluso cuando las métricas de desinstalación móvil no han cambiado.
+
+### ¿Qué estado de suscripción muestran los tokens de notificaciones push de iOS importados? {#what-subscription-status-do-imported-ios-push-tokens-show}
+
+Los tokens de notificaciones push de iOS importados suelen aparecer como **Subscribed** hasta que el usuario registra una sesión en una aplicación que utiliza el SDK de Braze para ese espacio de trabajo. Después de que el SDK registra el token al iniciar la sesión, el perfil normalmente pasa a **Opted-In** cuando se concede la autorización de push. Para conocer los estados de suscripción y los campos de perfil, consulta [Estados de suscripción push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states).
+
+## Migración de datos del espacio de trabajo {#workspace-data-migration}
+
+### ¿Puedo migrar datos entre espacios de trabajo? {#can-i-migrate-data-between-workspaces}
+
+Braze no ofrece una migración con un solo clic entre espacios de trabajo. Apunta tu aplicación o sitio a la clave de API del espacio de trabajo de destino y luego recrea los usuarios allí con el endpoint [Users Track]({{site.baseurl}}/api/endpoints/user_data/post_user_track) o la [importación CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import). Exporta primero los perfiles de origen con [Exportar usuarios por identificador]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) o [Exportar usuarios por Segment]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment).
+
+Para saber qué puedes copiar, qué debes reconstruir y los límites de tokens de notificaciones push, consulta [Migrar datos entre espacios de trabajo]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces/migrate_workspace_data). Trabaja con tu equipo de cuenta de Braze cuando planifiques un traslado grande de espacio de trabajo.
+
+## Sesión y atribución {#session-and-attribution}
+
+### ¿Puedo saber a partir del inicio de sesión si el usuario abrió la aplicación desde una notificación push? {#can-i-tell-from-session-start-whether-the-user-opened-the-app-from-a-push}
+
+No. Los eventos de inicio de sesión no incluyen un indicador que señale si la sesión comenzó a partir de la apertura de una notificación push. Usa **Direct Opens**, **Influenced Opens** o eventos personalizados (por ejemplo, registrando un controlador de clics en tu aplicación) para correlacionar sesiones con la participación push. Consulta [Métricas de apertura push](#push-open-metrics).

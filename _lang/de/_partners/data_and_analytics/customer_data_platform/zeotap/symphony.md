@@ -52,7 +52,7 @@ Wenn die Integration erfolgreich eingerichtet ist, können Sie nur E-Mail-Campai
 
 Die Daten fließen von Zeotap zu Braze über den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track). Die folgenden Punkte fassen den Datenfluss zusammen:
 
-1. Zeotap sendet Nutzerprofil-Attribute, angepasste Attribute, angepasste Events und Kauffelder.
+1. Zeotap sendet Kundenprofil-Attribute, angepasste Attribute, angepasste Events und Kauffelder.
 2. Sie bilden alle relevanten Zeotap-Katalogfelder auf die Braze-Felder unter dem Tab **Data To Send** ab.
 3. Die Daten werden anschließend in Braze hochgeladen.
 

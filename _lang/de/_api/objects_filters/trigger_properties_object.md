@@ -36,16 +36,37 @@ Das Objekt `trigger_properties` unterstützt Strings, Zahlen, Booleans, Datumsan
         "country" : "US"
       }
     },
-    "related_skus": ["123", "456", "789"]
+    "related_skus": ["123", "456", "789"],
+    "line_items": [
+      {
+        "sku": "WH-9000",
+        "name": "Wireless Headphones",
+        "quantity": 1,
+        "pricing": {
+          "amount": 79.99,
+          "currency": "USD"
+        }
+      },
+      {
+        "sku": "RS-450",
+        "name": "Running Shoes",
+        "quantity": 2,
+        "pricing": {
+          "amount": 129.99,
+          "currency": "USD"
+        }
+      }
+    ]
   }
 }
 ```
 
 ## Beispiele für Liquid-Templates {#liquid-templating-examples}
 
-Referenzieren Sie Trigger-Eigenschaften in Ihren Nachrichten-Templates mithilfe des `api_trigger_properties`-Namespace:
+Referenzieren Sie Trigger-Eigenschaften in Ihren Nachrichtentemplates mithilfe des `api_trigger_properties`-Namespace:
 
 - Strings: {% raw %}`{{api_trigger_properties.${product_name}}}`{% endraw %} gibt `"shoes"` zurück
 - Zahlen: {% raw %}`{{api_trigger_properties.${product_price}}}`{% endraw %} gibt `79.99` zurück
 - Verschachtelte Objekte: {% raw %}`{{api_trigger_properties.${details}.${color}}}`{% endraw %} gibt `"red"` zurück
 - Array-Elemente: {% raw %}`{{api_trigger_properties.${related_skus}[0]}}`{% endraw %} gibt `"123"` zurück
+- Komplexe Objekt-Arrays: {% raw %}`{{api_trigger_properties.${line_items}[0]}}`{% endraw %} gibt das erste Positionsobjekt zurück

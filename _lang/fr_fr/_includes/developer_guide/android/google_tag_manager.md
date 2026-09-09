@@ -1,8 +1,8 @@
 {% multi_lang_include developer_guide/prerequisites/android.md %}
 
-## Utilisation de Google Tag Manager pour Android
+## Utilisation de Google Tag gestionnaire pour Android
 
-Dans l'exemple suivant, une application de flux d'événements musicaux souhaite journaliser différents événements au fur et à mesure que les utilisateurs écoutent des chansons. À l'aide du Google Tag Manager pour Android, ils peuvent contrôler quels fournisseurs tiers de Braze reçoivent cet événement, et créer des tags spécifiques à Braze.
+Dans l'exemple suivant, une application de flux d'événements musicaux souhaite journaliser différents événements au fur et à mesure que les utilisateurs écoutent des chansons. À l'aide du Google Tag gestionnaire pour Android, ils peuvent contrôler quels fournisseurs tiers de Braze reçoivent cet événement, et créer des tags spécifiques à Braze.
 
 ### Étape 1 : Créer un déclencheur pour les événements personnalisés
 
@@ -22,13 +22,13 @@ Dans les paramètres personnalisés de l'étiquette (également connus sous le n
 Lors de l'envoi d'un événement personnalisé, veillez à définir `actionType` sur `logEvent` et à attribuer une valeur à `eventName` afin que Braze reçoive le nom d'événement correct et l'action à entreprendre.
 {% endalert %}
 
-Vous pouvez également inclure des arguments de paires clé-valeur supplémentaires à la balise, qui seront envoyés en tant que propriétés d’événement personnalisé à Braze. `eventName` et `actionType` ne seront pas ignorés pour les propriétés d’événement personnalisé. Dans l'exemple de balise suivant, `genre` est transmis et défini à l'aide d'une variable de balise dans Google Tag Manager, qui provient de l'événement personnalisé enregistré dans l'application.
+Vous pouvez également inclure des arguments de paires clé-valeur supplémentaires à la balise, qui seront envoyés en tant que propriétés d’événement personnalisé à Braze. `eventName` et `actionType` ne seront pas ignorés pour les propriétés d’événement personnalisé. Dans l'exemple de balise suivant, `genre` est transmis et défini à l'aide d'une variable de balise dans Google Tag gestionnaire, qui provient de l'événement personnalisé enregistré dans l'application.
 
-Étant donné que Google Tag Manager pour Android utilise Firebase comme couche de données, la propriété d'événement `genre` est envoyée à Google Tag Manager en tant que variable "Firebase - Paramètre d'événement".
+Étant donné que Google Tag gestionnaire pour Android utilise Firebase comme couche de données, la propriété d'événement `genre` est envoyée à Google Tag gestionnaire en tant que variable "Firebase - Paramètre d'événement".
 
 ![Une variable du Google Tag Manager où « genre » est ajouté en tant que paramètre de l’événement pour la bibliothèque « Braze - événement de musique jouée ».]({% image_buster /assets/img/android_google_tag_manager/gtm_android_eventname_variable.png %})
 
-Lorsqu'un utilisateur joue une chanson dans l'application, un événement sera enregistré via Firebase et Google Tag Manager en utilisant le nom de l'événement d'analyse/analytique de Firebase qui correspond au nom du déclencheur de l'étiquette, `played song`:
+Lorsqu'un utilisateur joue une chanson dans l'application, un événement sera enregistré via Firebase et Google Tag gestionnaire en utilisant le nom de l'événement d'analyse/analytique de Firebase qui correspond au nom du déclencheur de l'étiquette, `played song`:
 
 {% tabs %}
 {% tab JAVA %}
@@ -107,15 +107,15 @@ mFirebaseAnalytics.logEvent("changeUser", params)
 
 ### Étape 4 : Ajouter un fournisseur d'étiquettes personnalisé {#adding-android-google-tag-provider}
 
-Une fois les tags et les déclencheurs gérés, vous devrez également implémenter Google Tag Manager dans votre application Android, ce que vous trouverez dans la [documentation de](https://developers.google.com/tag-manager/android/v5/) Google.
+Une fois les tags et les déclencheurs gérés, vous devrez également implémenter Google Tag gestionnaire dans votre application Android, ce que vous trouverez dans la [documentation de](https://developers.google.com/tag-manager/android/v5/) Google.
 
-Une fois le gestionnaire Google Tag Manager installé dans votre application, ajoutez un fournisseur d'étiquettes personnalisé pour appeler les méthodes du SDK Braze en fonction des tags que vous avez configurés dans le gestionnaire Google Tag Manager.
+Une fois le gestionnaire Google Tag gestionnaire installé dans votre application, ajoutez un fournisseur d'étiquettes personnalisé pour appeler les méthodes du SDK Braze en fonction des tags que vous avez configurés dans le gestionnaire Google Tag gestionnaire.
 
 Veillez à noter le "chemin de classe" du fichier - c'est ce que vous indiquerez lorsque vous configurerez une étiquette dans la console du [gestionnaire Google.](https://tagmanager.google.com/) 
 
 Cet exemple illustre l'une des nombreuses façons dont vous pouvez structurer votre fournisseur d'étiquettes personnalisées. Plus précisément, il montre comment déterminer la méthode SDK Braze à appeler en fonction de la paire clé-valeur `actionType` envoyée par l'étiquette GTM.
 
-Les `actionType` présentés dans cet exemple sont `logEvent`, `customAttribute`, et `changeUser`, mais il se peut que vous préfériez modifier la façon dont votre fournisseur d'étiquettes traite les données provenant de Google Tag Manager.
+Les `actionType` présentés dans cet exemple sont `logEvent`, `customAttribute`, et `changeUser`, mais il se peut que vous préfériez modifier la façon dont votre fournisseur d'étiquettes traite les données provenant de Google Tag gestionnaire.
 
 {% tabs %}
 {% tab JAVA %}

@@ -37,9 +37,9 @@ description: "この記事では、一括ユーザートラッキングエンド
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`users.track.bulk`権限を持つ[APIキー]({{site.baseurl}}/api/api_key)が必要です。
+このエンドポイントを使用するには、`users.track.bulk`権限を持つ[APIキー]({{site.baseurl}}/api/basics)が必要です。
 
-ファイアウォールの背後でサーバー間呼び出しを行う場合は、Braze RESTエンドポイント（例: `rest.iad-01.braze.com`）を許可リストに追加する必要がある場合があります。詳細については、[APIエンドポイント]({{site.baseurl}}/api/basics#api-definitions)を参照してください。
+ファイアウォールの背後でサーバー間呼び出しを行う場合は、Braze RESTエンドポイント（例：`rest.iad-01.braze.com`）を許可リストに追加する必要がある場合があります。詳細については、[APIエンドポイント]({{site.baseurl}}/api/basics#api-definitions)を参照してください。
 
 ## レート制限 {#rate-limit}
 
@@ -163,11 +163,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/bulk' 
 }'
 ```
 
-## 応答 {#responses}
+## レスポンス {#responses}
 
 ### 成功メッセージ {#successful-message}
 
-成功メッセージは次の応答を返します。
+成功した場合は次のレスポンスが返されます。
 
 ```json
 {
@@ -180,7 +180,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/bulk' 
 
 ### 非致命的エラーを含む成功メッセージ {#successful-message-with-non-fatal-errors}
 
-リクエストが成功したが非致命的エラーがある場合（例: 大きなバッチ内の1つの無効なイベントオブジェクト）、次の応答を受け取ります。
+リクエストが成功したが非致命的エラーがある場合（例：大きなバッチ内の1つの無効なイベントオブジェクト）、次のレスポンスを受け取ります。
 
 ```json
 {
@@ -195,7 +195,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/bulk' 
 
 ### 致命的エラーを含むメッセージ {#message-with-fatal-errors}
 
-リクエストに致命的エラーがある場合、次の応答を受け取ります。
+リクエストに致命的エラーがある場合、次のレスポンスを受け取ります。
 
 ```json
 {
@@ -208,9 +208,9 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/bulk' 
 }
 ```
 
-### 致命的エラーの応答コード {#fatal-error-response-codes}
+### 致命的エラーのレスポンスコード {#fatal-error-response-codes}
 
-リクエストに致命的エラーがある場合にBrazeが返すステータスコードと関連するエラーメッセージについては、[致命的エラーと応答]({{site.baseurl}}/api/errors#fatal-errors)を参照してください。
+リクエストに致命的エラーがある場合にBrazeが返すステータスコードと関連するエラーメッセージについては、[致命的エラーとレスポンス]({{site.baseurl}}/api/errors#fatal-errors)を参照してください。
 
 「provided external_id is blacklisted and disallowed」というエラーを受け取った場合、リクエストに「ダミーユーザー」が含まれている可能性があります。詳細については、[スパムブロック]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival#spam-blocking)を参照してください。
 

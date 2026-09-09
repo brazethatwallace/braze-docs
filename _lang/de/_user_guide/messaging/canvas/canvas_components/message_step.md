@@ -50,7 +50,7 @@ Wählen Sie **Using Intelligent Timing** im Tab **Delivery Settings**. Hier kön
 
 Zustellungsvalidierungen bieten eine zusätzliche Prüfung beim Nachrichtenversand, um zu bestätigen, dass Ihre Zielgruppe Ihre Kriterien noch erfüllt. Wir empfehlen die Verwendung, wenn Ruhezeiten, intelligentes Timing oder Rate-Limiting aktiviert sind. Wählen Sie **Validate audience at message send** und fügen Sie dann ein Segment oder zusätzliche Filter hinzu. Wenn Nutzer:innen die Validierungen nicht erfüllen, wählen Sie, ob sie den Canvas verlassen oder zum nächsten Schritt weitergeleitet werden.
 
-Zustellungsvalidierungen bewerten die Nutzerprofil-Kriterien zum Zeitpunkt des Versands. App-bezogene Filter prüfen, ob Nutzer:innen eine bestimmte App kürzlich oder jemals verwendet haben, bestätigen aber nicht, welche App Nutzer:innen in ihrer aktuellen Sitzung verwenden.
+Zustellungsvalidierungen bewerten die Kundenprofil-Kriterien zum Zeitpunkt des Versands. App-bezogene Filter prüfen, ob Nutzer:innen eine bestimmte App kürzlich oder jemals verwendet haben, bestätigen aber nicht, welche App Nutzer:innen in ihrer aktuellen Sitzung verwenden.
 
 Wenn Ihr Workspace mehrere Apps enthält und ein Nachrichten-Schritt auf eine bestimmte App abzielen soll, verwenden Sie stattdessen einen der folgenden Ansätze:
 

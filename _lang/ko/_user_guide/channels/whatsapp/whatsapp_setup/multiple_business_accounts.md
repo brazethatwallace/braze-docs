@@ -16,13 +16,13 @@ channel:
 
 다중 WhatsApp 비즈니스 계정은 여러 브랜드를 보유한 Braze 워크스페이스의 사용자에게 WhatsApp 메시지를 보내려는 경우에 유용합니다. 각 비즈니스 계정은 WhatsApp 내에서 독립적으로 운영되며, 자체 전화번호, 메시지 템플릿, 품질 등급을 갖습니다.
 
-동일한 Meta Business Manager 내에 중첩된 비즈니스 계정은 사용자 액세스 권한 관리 및 카탈로그(아직 Braze에서 지원되지 않음)도 공유합니다.
+동일한 Meta Business 매니저 내에 중첩된 비즈니스 계정은 사용자 액세스 권한 관리 및 카탈로그(아직 Braze에서 지원되지 않음)도 공유합니다.
 
 ![Braze와 WhatsApp 에코시스템 다이어그램으로, 워크스페이스와 WhatsApp 비즈니스 계정이 서로 어떻게 연결되는지 보여줍니다: 하나의 구독 그룹을 하나의 전화번호에, 여러 WhatsApp 비즈니스 계정을 하나의 워크스페이스에, 하나의 워크스페이스를 여러 Meta Business Portfolio에 연결할 수 있습니다.]({% image_buster /assets/img/whatsapp/whatsapp_braze_ecosystem.png %})
 
 ### WhatsApp 비즈니스 계정 추가 {#adding-a-whatsapp-business-account}
 
-워크스페이스당 최대 10개의 WhatsApp 비즈니스 계정을 추가할 수 있습니다. 비즈니스 계정은 서로 다른 Meta Business Manager에 중첩될 수 있습니다. 계정을 추가하려면:
+워크스페이스당 최대 10개의 WhatsApp 비즈니스 계정을 추가할 수 있습니다. 비즈니스 계정은 서로 다른 Meta Business 매니저에 중첩될 수 있습니다. 계정을 추가하려면:
 
 1. **기술 파트너** > **WhatsApp**으로 이동하여 **Add WhatsApp Business Account**를 선택합니다.
 
@@ -59,4 +59,4 @@ WhatsApp 비즈니스 계정당 최대 20개의 구독 그룹(및 발송 전화�
 ### 구독 그룹 및 전화번호 제거 {#removing-a-subscription-group-and-phone-number}
 
 1. **오디언스** > **구독**으로 이동하여 구독 그룹을 아카이브합니다.
-2. Meta Business Manager로 이동하여 전화번호를 삭제합니다.
+2. Meta Business 매니저로 이동하여 전화번호를 삭제합니다.

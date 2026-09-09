@@ -59,4 +59,4 @@ Sie können bis zu 20 Abo-Gruppen (und Sende-Telefonnummern) pro WhatsApp-Gesch�
 ### Eine Abo-Gruppe und Telefonnummer entfernen {#removing-a-subscription-group-and-phone-number}
 
 1. Gehen Sie zu **Zielgruppe** > **Abos** und archivieren Sie die Abo-Gruppe.
-2. Gehen Sie zu Ihrem Meta Business Manager und löschen Sie die Telefonnummer.
+2. Gehen Sie zu Ihrem Meta Business Manager:in und löschen Sie die Telefonnummer.

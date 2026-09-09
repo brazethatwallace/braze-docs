@@ -14,27 +14,27 @@ description: "Diagnostiquez les échecs d'exportation CSV et API à l'aide d'un 
 
 Trouvez le comportement que vous observez dans le tableau, puis accédez à la section correspondante pour des vérifications ciblées.
 
-| Symptôme | Aller à |
+| Symptôme | Accéder à |
 | --- | --- |
-| Le lien de téléchargement CSV renvoie `AccessDenied`, `ExpiredToken` ou « le fichier n'existe plus » | [Exportation par défaut : erreurs CSV](#defaultexport_csv-exports) ou [Stockage cloud : erreurs CSV](#csv-exports-1) |
-| L'URL de téléchargement de l'exportation API renvoie `403 Forbidden` | [Impossible de télécharger un fichier ZIP de segment exporté](#cant-download-an-exported-segment-zip-from-a-braze-url) |
-| L'exportation de segment échoue ou indique que le segment est trop volumineux | [Le segment est trop volumineux](#segment-is-too-large-or-export-fails-when-my-segment-looks-under-500000-users) |
-| Aucun e-mail d'exportation de segment reçu | [Pas d'e-mail d'exportation de segment](#not-receiving-segment-export-emails) |
-| Le nombre de lignes du CSV ne correspond pas aux analyses de la campagne | [Écart entre les analyses de Campaign et Canvas](#number-of-users-in-csv-export-doesnt-match-messages-sent-or-unique-recipients) |
+| Le lien de téléchargement CSV renvoie `AccessDenied`, `ExpiredToken` ou « le fichier n'existe pas » | [Exportation par défaut : erreurs CSV](#defaultexport_csv-exports) ou [Stockage cloud : erreurs CSV](#csv-exports-1) |
+| L'URL de téléchargement d'exportation API renvoie `403 Forbidden` | [Impossible de télécharger un ZIP de Segment exporté](#cant-download-an-exported-segment-zip-from-a-braze-url) |
+| L'exportation de Segment échoue ou indique que le Segment est trop volumineux | [Le Segment est trop volumineux](#segment-is-too-large-or-export-fails-when-my-segment-looks-under-500000-users) |
+| Aucun e-mail d'exportation de Segment reçu | [Pas d'e-mail d'exportation de Segment](#not-receiving-segment-export-emails) |
+| Le nombre de lignes du CSV ne correspond pas aux analyses de la campagne | [Écart entre les analyses de Campaign et de Canvas](#number-of-users-in-csv-export-doesnt-match-messages-sent-or-unique-recipients) |
 | Des colonnes attendues sont absentes du fichier d'exportation | [Colonnes manquantes](#expected-columns-are-missing-from-a-segment-export-file) |
 | L'exportation vers le stockage cloud affiche `AccessDenied` ou `ExpiredToken` | [Stockage cloud connecté : erreurs API](#common-errors-1) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Symptôme d'exportation" }
 
-## Parcours d'investigation standard {#standard-investigation-path}
+## Processus d'investigation standard {#standard-investigation-path}
 
-Utilisez ce flux de travail pour chaque incident d'exportation. Commencez à l'étape 1.
+Utilisez ce workflow pour chaque incident d'exportation. Commencez à l'étape 1.
 
-1. Vérifiez si vous exportez vers le compartiment S3 par défaut de Braze ou vers un partenaire de stockage cloud connecté. L'expiration des liens et le comportement de nouvelle tentative diffèrent entre les deux.
-2. Pour les exportations CSV depuis le tableau de bord, vérifiez que vous êtes connecté à Braze lorsque vous ouvrez le lien de téléchargement. Les liens du compartiment par défaut nécessitent une session active dans le tableau de bord.
-3. Vérifiez depuis combien de temps l'exportation est terminée. Les liens de téléchargement envoyés par e-mail depuis le tableau de bord expirent au bout de quatre heures, que vous utilisiez le compartiment par défaut de Braze ou un partenaire de stockage connecté. Lorsqu'un partenaire de stockage est connecté, Braze envoie également une copie dans votre compartiment ; cette copie suit vos politiques de conservation et peut rester disponible après l'expiration du lien envoyé par e-mail.
-4. Pour les exportations de segments volumineux, vérifiez que l'audience est en dessous de la limite de 500 000 utilisateurs pour l'exportation CSV depuis le tableau de bord. Les estimations du générateur de segments peuvent différer de l'évaluation du pipeline d'exportation.
-5. Pour les exportations API, attendez la fin du traitement avant de télécharger. Utilisez `callback_endpoint` sur [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) ou interrogez l'URL avec des délais exponentiels au lieu de demander l'URL immédiatement.
-6. Si le problème persiste, contactez l'[assistance Braze]({{site.baseurl}}/braze_support) en indiquant le type d'exportation (CSV ou API), l'ID du segment ou de la campagne, l'horodatage (avec le fuseau horaire) et le message d'erreur exact.
+1. Confirmez si vous exportez vers le compartiment S3 Braze par défaut ou un partenaire de stockage cloud connecté. L'expiration des liens et le comportement de relance diffèrent entre les deux.
+2. Pour les exportations CSV depuis le tableau de bord, confirmez que vous êtes connecté à Braze lorsque vous ouvrez le lien de téléchargement. Les liens du compartiment par défaut nécessitent une session active sur le tableau de bord.
+3. Vérifiez depuis combien de temps l'exportation est terminée. Les liens de téléchargement envoyés par e-mail depuis le tableau de bord expirent au bout de quatre heures, que vous utilisiez le compartiment Braze par défaut ou un partenaire de stockage connecté. Lorsqu'un partenaire de stockage est connecté, Braze envoie également une copie dans votre compartiment ; cette copie suit vos politiques de conservation et peut rester disponible après l'expiration du lien envoyé par e-mail.
+4. Pour les exportations de Segments volumineux, confirmez que l'audience est inférieure à la limite de 500 000 utilisateurs pour l'exportation CSV depuis le tableau de bord. Les estimations du générateur de Segments peuvent différer de l'évaluation du pipeline d'exportation.
+5. Pour les exportations via l'API, attendez la fin du traitement avant de télécharger. Utilisez `callback_endpoint` sur [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) ou interrogez avec des délais exponentiels au lieu de demander l'URL immédiatement.
+6. Si vous êtes toujours bloqué, contactez le [support Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) en indiquant le type d'exportation (CSV ou API), l'identifiant du Segment ou de la Campaign, l'horodatage (avec le fuseau horaire) et le message d'erreur exact.
 
 ## Destinations de stockage {#cloud-storage-connected}
 
@@ -116,70 +116,70 @@ Les fichiers apparaissent généralement dans votre compartiment au fur et à me
 {% endsdktab %}
 {% endsdktabs %}
 
-## Analyses de Campaign et Canvas {#campaign-and-canvas-analytics}
+## Analyse de Campaign et Canvas {#campaign-and-canvas-analytics}
 
-### Le nombre d'utilisateurs dans l'exportation CSV ne correspond pas aux *messages envoyés* ou aux *destinataires uniques* {#number-of-users-in-csv-export-doesnt-match-messages-sent-or-unique-recipients}
+### Le nombre d'utilisateurs dans l'export CSV ne correspond pas aux *Messages envoyés* ou aux *Destinataires uniques* {#number-of-users-in-csv-export-doesnt-match-messages-sent-or-unique-recipients}
 
-Symptôme : l'exportation CSV d'une Campaign affiche un nombre d'utilisateurs différent de celui des *messages envoyés* ou des *destinataires uniques* sur la page d'analyse.
+Symptôme : l'export CSV d'une Campaign affiche un nombre d'utilisateurs différent de celui des *Messages envoyés* ou des *Destinataires uniques* sur la page d'analyse.
 
 
-L'exportation CSV d'une Campaign peut afficher un nombre d'utilisateurs différent de celui des *messages envoyés* et des *destinataires uniques* pour les raisons suivantes :
+L'export CSV d'une Campaign peut afficher un nombre d'utilisateurs différent de celui des *Messages envoyés* et des *Destinataires uniques* pour les raisons suivantes :
 
 #### La rééligibilité est activée {#re-eligibility-is-turned-on}
 
-Si les utilisateurs sont (ou ont été à un moment donné) en mesure de recevoir la Campaign plus d'une fois, les chiffres d'analyse de la Campaign et le nombre de lignes dans l'exportation des données utilisateur ne correspondent pas. *Messages envoyés* comptabilise chaque envoi, y compris lorsque le même utilisateur reçoit le message plusieurs fois. Le téléchargement **Exporter les données utilisateur en CSV** répertorie les utilisateurs uniques — une ligne par profil ayant reçu la Campaign — et non une ligne par envoi. Par exemple, si *Messages envoyés* indique 12 et que le fichier CSV contient 10 lignes, ces 12 envois ont été adressés à 10 utilisateurs distincts (certains utilisateurs ont reçu la Campaign plus d'une fois).
+Si les utilisateurs peuvent (ou pouvaient à un moment donné) recevoir la Campaign plus d'une fois, les chiffres d'analyse de la Campaign et le nombre de lignes dans l'export de données utilisateur ne correspondent pas. *Messages envoyés* comptabilise chaque envoi, y compris lorsque le même utilisateur reçoit le message plusieurs fois. Le téléchargement **Export CSV des données utilisateur** répertorie les utilisateurs uniques — une ligne par profil ayant reçu la Campaign — et non une ligne par envoi. Par exemple, si *Messages envoyés* indique 12 et que le fichier CSV contient 10 lignes, ces 12 envois ont été adressés à 10 utilisateurs distincts (certains utilisateurs ont reçu la Campaign plus d'une fois).
 
 #### Des utilisateurs ont été supprimés ou fusionnés depuis l'envoi de la Campaign ou du Canvas {#users-were-deleted-or-merged-since-the-campaign-or-canvas-sent}
 
-L'exportation CSV fournit un instantané des utilisateurs existants ayant reçu une Campaign ou un Canvas donné. Étant donné que des utilisateurs peuvent être supprimés ou fusionnés, le nombre dans l'exportation CSV peut être inférieur au nombre de destinataires uniques. Par exemple, si 1 000 utilisateurs reçoivent une Campaign, celle-ci affiche 1 000 destinataires uniques, et l'exportation CSV du même jour indique également 1 000 utilisateurs. Si un mois plus tard, 50 de ces 1 000 utilisateurs sont supprimés, l'exportation CSV contient 950 utilisateurs tandis que le compteur incrémenté de destinataires uniques reste à 1 000.
+L'export CSV fournit un instantané des utilisateurs existants ayant reçu une Campaign ou un Canvas donné. Étant donné que des utilisateurs peuvent être supprimés ou fusionnés, le nombre dans l'export CSV peut être inférieur au nombre de destinataires uniques. Par exemple, si 1 000 utilisateurs reçoivent une Campaign, celle-ci affiche 1 000 destinataires uniques, et l'export CSV du même jour affiche également 1 000 utilisateurs. Si un mois plus tard, 50 de ces 1 000 utilisateurs sont supprimés, l'export CSV contient 950 utilisateurs alors que le nombre incrémenté de destinataires uniques reste à 1 000.
 
-## E-mails d'exportation de segments depuis le tableau de bord {#dashboard-segment-export-emails}
+## E-mails d'exportation de Segments depuis le tableau de bord {#dashboard-segment-export-emails}
 
-### Le segment est trop volumineux ou l'exportation échoue alors que mon segment semble contenir moins de 500 000 utilisateurs {#segment-is-too-large-or-export-fails-when-my-segment-looks-under-500000-users}
+### Le Segment est trop volumineux ou l'exportation échoue alors que mon Segment semble contenir moins de 500 000 utilisateurs {#segment-is-too-large-or-export-fails-when-my-segment-looks-under-500000-users}
 
-Symptôme : l'exportation de segment depuis le tableau de bord échoue ou affiche une erreur de taille alors que l'estimation du segment semble acceptable.
-
-
-La **taille d'un segment dans le tableau de bord est une estimation**. L'exportation CSV utilise cette estimation pour appliquer la [limite d'exportation de 500 000 utilisateurs]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#segment-csv-export-details) ; le pipeline d'exportation peut également évaluer la taille différemment de l'interface du générateur de segments. Si les exportations échouent pour un segment proche de ce seuil, utilisez les [numéros de compartiment aléatoires]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers) ou divisez l'audience en segments plus petits, ou utilisez l'[endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) comme décrit dans [Exporter des segments volumineux]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#exporting-large-segments).
-
-### Pourquoi est-ce que je ne reçois pas les e-mails d'exportation de segments ? {#not-receiving-segment-export-emails}
-
-Symptôme : une exportation CSV de segment a été déclenchée, mais aucun e-mail n'est arrivé.
+Symptôme : l'exportation de Segment depuis le tableau de bord échoue ou affiche une erreur de taille, même si l'estimation du Segment semble acceptable.
 
 
-Commencez par vérifier votre dossier de courrier indésirable pour un e-mail provenant de `no-reply@alerts.braze.com`. Si l'e-mail s'y trouve, ajoutez cette adresse à votre liste d'expéditeurs approuvés afin que les futurs messages d'exportation ne soient pas filtrés.
+La **taille d'un Segment dans le tableau de bord est une estimation**. L'exportation CSV utilise cette estimation pour appliquer la [limite d'exportation de 500 000 utilisateurs]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#segment-csv-export-details) ; le pipeline d'exportation peut également évaluer la taille différemment de l'interface du générateur de Segments. Si les exportations échouent pour un Segment proche de ce seuil, utilisez les [numéros de compartiment aléatoires]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers) ou divisez l'audience en Segments plus petits, ou bien utilisez l'[endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) comme décrit dans [Exporter des Segments volumineux]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#exporting-large-segments).
 
-Si l'e-mail ne se trouve pas dans votre dossier de courrier indésirable, vérifiez si un autre membre de votre équipe peut recevoir l'exportation. Si personne ne la reçoit, tenez compte de la taille de votre exportation. Le délai de réception varie en fonction de la taille de l'exportation, mais si l'e-mail n'est pas arrivé au bout d'une heure, contactez l'[assistance]({{site.baseurl}}/braze_support).
+### Pourquoi est-ce que je ne reçois pas les e-mails d'exportation de Segments ? {#not-receiving-segment-export-emails}
 
-## Téléchargements de l'API d'exportation de segments {#segment-export-api-downloads}
+Symptôme : une exportation CSV de Segment a été déclenchée mais aucun e-mail n'est arrivé.
 
-### Impossible de télécharger un fichier ZIP de segment exporté depuis une URL Braze {#cant-download-an-exported-segment-zip-from-a-braze-url}
+
+Commencez par vérifier votre dossier de courrier indésirable pour un e-mail provenant de `no-reply@alerts.braze.com`. Si l'e-mail s'y trouve, ajoutez cette adresse à votre liste d'expéditeurs autorisés afin que les futurs messages d'exportation ne soient pas filtrés.
+
+Si l'e-mail ne se trouve pas dans votre dossier de courrier indésirable, vérifiez si un autre membre de votre équipe peut recevoir l'exportation. Si personne ne la reçoit, examinez la taille de votre exportation. Le délai de réception varie en fonction de la taille de l'exportation, mais si l'e-mail n'est toujours pas arrivé au bout d'une heure, contactez le [Support]({{site.baseurl}}/user_guide/administer/personal/braze_support).
+
+## Téléchargements de l'API d'exportation de Segments {#segment-export-api-downloads}
+
+### Impossible de télécharger un fichier ZIP de Segment exporté depuis une URL Braze {#cant-download-an-exported-segment-zip-from-a-braze-url}
 
 Symptôme : une erreur `403 Forbidden` lors du téléchargement depuis l'URL de réponse de `/users/export/segment`.
 
 
-Si vous obtenez une erreur `403 Forbidden` lors de l'utilisation de l'[endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment), il est possible que le fichier ne soit pas encore prêt. Les exportations volumineuses peuvent prendre du temps à traiter. Patientez jusqu'à une heure avant de réessayer le téléchargement.
+Si vous obtenez une erreur `403 Forbidden` en utilisant l'[endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment), le fichier n'est peut-être pas encore prêt. Les exportations volumineuses peuvent prendre un certain temps à traiter. Attendez jusqu'à une heure avant de relancer le téléchargement.
 
-Si vous utilisez un script automatisé pour récupérer le fichier, vous pouvez également recevoir une erreur `403 Forbidden` lorsque vous demandez l'URL trop tôt. Si vous exportez régulièrement des données de segments, envisagez de connecter votre propre intégration de compartiment S3 et de transmettre les fichiers à votre propre pipeline ETL (extraire, transformer, charger).
+Si vous utilisez un script automatisé pour récupérer le fichier, vous pouvez également recevoir une erreur `403 Forbidden` lorsque vous demandez l'URL trop tôt. Si vous exportez régulièrement des données de Segments, envisagez de connecter votre propre intégration de compartiment S3 et de transmettre les fichiers vers votre propre pipeline ETL (ETL).
 
-Les exportations prennent du temps, c'est pourquoi un accès immédiat depuis un script échoue souvent. Vous pouvez :
+Les exportations nécessitent du temps pour se terminer, c'est pourquoi un accès immédiat depuis un script échoue souvent. Vous pouvez :
 
 - Interroger l'URL de téléchargement avec des délais exponentiels, ou
 - Utiliser le [paramètre `callback_endpoint`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment#request-parameters) et le diriger vers un service qui exécute votre script lorsque l'exportation est prête.
 
-## Champs des API d'exportation de segments et d'utilisateurs {#segment-and-user-export-api-fields}
+## Champs de l'API d'exportation de Segments et d'utilisateurs {#segment-and-user-export-api-fields}
 
-### Des colonnes attendues sont absentes d'un fichier d'exportation de segment {#expected-columns-are-missing-from-a-segment-export-file}
+### Des colonnes attendues sont absentes d'un fichier d'exportation de Segment {#expected-columns-are-missing-from-a-segment-export-file}
 
-Symptôme : une exportation API ou depuis le tableau de bord ne contient pas les champs attendus.
+Symptôme : Une exportation via l'API ou le tableau de bord ne contient pas les champs attendus.
 
 
-L'option **Exporter les données utilisateur en CSV** du tableau de bord pour un segment utilise un ensemble de colonnes fixe (voir [Exporter les données de segment au format CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#data-included-in-export)). Elle n'inclut pas de colonne ni de paramètre `fields_to_export`.
+L'option **CSV Export User Data** du tableau de bord pour un Segment utilise un ensemble fixe de colonnes (voir [Exporter les données d'un Segment au format CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#data-included-in-export)). Elle n'inclut pas de colonne ou de paramètre `fields_to_export`.
 
-Pour les exportations de segments via l'API, vous devez transmettre `fields_to_export` dans le corps de la requête. Certains champs récupèrent automatiquement des données associées — par exemple, demander `canvases_received` nécessite également des données de résumé de parcours sur le profil utilisateur. Consultez la référence de l'[endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) pour connaître les noms de champs valides et les prérequis.
+Pour les exportations de Segments via l'API, vous devez transmettre `fields_to_export` dans le corps de la requête. Certains champs récupèrent automatiquement des données associées — par exemple, demander `canvases_received` nécessite également les données de résumé de parcours dans le profil utilisateur. Consultez la référence de l'endpoint [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) pour connaître les noms de champs valides et les conditions requises.
 
-Si des colonnes sont absentes d'un fichier ZIP d'exportation API, vérifiez que le tableau `fields_to_export` de votre requête inclut bien chaque champ dont vous avez besoin et que votre espace de travail dispose des autorisations d'exportation requises.
+Si des colonnes sont absentes d'un fichier ZIP d'exportation via l'API, vérifiez que le tableau `fields_to_export` de votre requête inclut bien tous les champs dont vous avez besoin et que votre espace de travail dispose des autorisations d'exportation requises.
 
-## Quand contacter l'assistance {#when-to-contact-support}
+## Quand contacter le support {#when-to-contact-support}
 
-Contactez l'[assistance Braze]({{site.baseurl}}/braze_support) si vous avez suivi le [parcours d'investigation standard](#standard-investigation-path) et que vous avez toujours besoin d'aide. Indiquez le type d'exportation, l'ID du segment ou de la campagne, l'horodatage (avec le fuseau horaire) et le message d'erreur exact ou le code de statut HTTP.
+Contactez le [support Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) si vous avez suivi le [parcours d'investigation standard](#standard-investigation-path) et que vous avez toujours besoin d'aide. Incluez le type d'exportation, l'ID du Segment ou de la Campaign, l'horodatage (avec le fuseau horaire), ainsi que le message d'erreur exact ou le code de statut HTTP.

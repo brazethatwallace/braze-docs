@@ -61,15 +61,15 @@ Como os eventos recomendados são eventos personalizados mais específicos, voc�
 
 Segmente seus usuários com filtros de eCommerce, como **Ecommerce Source** e **Total Revenue**, acessando a seção **eCommerce** dentro do segmentador.
 
-Para ver uma lista de filtros de eCommerce e suas definições, consulte [Filtros de segmento]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) e selecione a categoria de pesquisa "eCommerce".
+Para ver uma lista de filtros de eCommerce e suas definições, consulte [Filtros de Segment]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) e selecione a categoria de pesquisa "eCommerce".
 
-![Menu suspenso de filtros de segmento com filtros "eCommerce".]({% image_buster /assets/img_archive/ecommerce_filters.png %}){: style="max-width:50%"}
+![Menu suspenso de filtros de Segment com filtros "eCommerce".]({% image_buster /assets/img_archive/ecommerce_filters.png %}){: style="max-width:50%"}
 
 {% multi_lang_include alerts/important_alerts.md alert='Purchase event deprecation for eCommerce filters' %}
 
 ## Propriedades de evento aninhadas {#nested-event-properties}
 
-Para segmentar por propriedades de evento aninhadas, você pode usar as [extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension#why-use-segment-extensions). Por exemplo, você pode usar extensões de segmento para encontrar quem comprou o produto "SKU-123" nos últimos 90 dias.
+Para segmentar por propriedades de evento aninhadas, você pode usar as [extensões de Segment]({{site.baseurl}}/user_guide/audience/segments/segment_extension#why-use-segment-extensions). Por exemplo, você pode usar extensões de Segment para encontrar quem comprou o produto "SKU-123" nos últimos 90 dias.
 
 ## Análise de dados {#analytics}
 

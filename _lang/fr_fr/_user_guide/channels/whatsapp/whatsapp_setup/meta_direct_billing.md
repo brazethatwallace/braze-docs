@@ -22,7 +22,7 @@ Avant de configurer la facturation directe Meta, assurez-vous de disposer des é
 | Exigence | Description |
 | --- | --- |
 | Accès à l'espace de travail Braze | Vous devez avoir accès à **Intégrations partenaires** > **Partenaires technologiques** dans Braze pour démarrer le flux d'inscription intégré. |
-| Compte Meta Business Manager | La facturation est configurée dans Meta Business Manager, sous **Facturation et paiements**. |
+| Compte Meta Business gestionnaire | La facturation est configurée dans Meta Business gestionnaire, sous **Facturation et paiements**. |
 | Carte de débit ou de crédit | Une carte valide est nécessaire pour finaliser la configuration. La facturation mensuelle peut apparaître comme option sur certains comptes, mais n'est pas garantie. |
 | Informations commerciales complètes | Le nom de votre entreprise, votre adresse et votre devise doivent être renseignés et exacts. Meta vérifie ces informations avant d'activer la messagerie. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prérequis" }
@@ -39,8 +39,8 @@ Avant de configurer la facturation directe Meta, assurez-vous de disposer des é
 
 Après avoir terminé l'inscription intégrée de Meta, effectuez l'une des actions suivantes :
 
-- Sélectionnez **Add payment method**, ce qui vous redirige vers Meta Business Manager.
-- Dans Meta Business Manager, accédez à **Billing & payments** > **Accounts**, puis sélectionnez votre WABA.
+- Sélectionnez **Add payment method**, ce qui vous redirige vers Meta Business gestionnaire.
+- Dans Meta Business gestionnaire, accédez à **Billing & payments** > **Accounts**, puis sélectionnez votre WABA.
 
 ### Étape 3 : Ajouter un mode de paiement {#step-3-add-a-payment-method}
 

@@ -97,7 +97,7 @@ Para um passo a passo completo, consulte o [guia sobre o uso de tags de traduç�
 Você pode colar manualmente seu conteúdo no corpo da mensagem e usar [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize) para exibir [condicionalmente]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#conditional-logic) o idioma correto para o destinatário. Para fazer isso:
 
 1. Componha sua mensagem e selecione **Idioma** para gerar a lógica condicional Liquid para cada um dos idiomas selecionados.
-2. Você pode usar o seguinte modelo Liquid para ajudar a construir sua mensagem. Para cada campo com modelo, insira as variações após o segmento entre colchetes do modelo. A variação deve corresponder ao código de idioma referenciado nos colchetes antes dela.
+2. Você pode usar o seguinte modelo Liquid para ajudar a construir sua mensagem. Para cada campo com modelo, insira as variações após o Segment entre colchetes do modelo. A variação deve corresponder ao código de idioma referenciado nos colchetes antes dela.
     {% raw %}
     ```liquid
     {% if ${language} == 'en' %}

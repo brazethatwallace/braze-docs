@@ -33,6 +33,7 @@ channel:
   - SMS
   - Webhooks
 
+
 noindex: true
 #ATTENTION: remove noindex and this alert from template
 
@@ -48,35 +49,35 @@ En el segundo párrafo, deberías explorar y explicar la relación entre Braze y
 
 ## Requisitos o prerrequisitos {#requirements-or-prerequisites}
 
-Esta sección trata de todo lo que necesitas para integrarte con el socio y empezar a utilizar sus servicios. La mejor forma de presentar esta información es con un párrafo instructivo rápido que describa cualquier detalle importante no técnico de información "que es necesario saber", como si tu integración estará sujeta o no a comprobaciones o autorizaciones de seguridad adicionales. A continuación, debes utilizar un cuadro para describir los requisitos técnicos de la integración.
+Esta sección trata sobre lo que necesitas para integrarte con el partner y empezar a usar sus servicios. La mejor forma de presentar esta información es con un breve párrafo instructivo que describa cualquier detalle importante no técnico que sea necesario conocer, como si tu integración estará sujeta a comprobaciones de seguridad o autorizaciones adicionales. A continuación, deberías usar una tabla para describir los requisitos técnicos de la integración.
 
 {% alert important %}
-Los siguientes requisitos son los típicos que puedes necesitar de Braze. Recomendamos utilizar el título, origen, enlaces y fraseología atribuidos que se indican en el siguiente cuadro. Asegúrate de ajustar la descripción para que sepas para qué sirve cada uno de estos requisitos.
+Los siguientes requisitos son requisitos típicos que podrías necesitar de Braze. Recomendamos usar los títulos, el origen, los enlaces y la redacción tal como se indican en la siguiente tabla. Asegúrate de ajustar la descripción para que sepas para qué se utiliza cada uno de estos requisitos.
 {% endalert %}
 
 | Requisito | Origin | Acceso | Descripción |
 |---|---|---|---|
-| Clave de API REST del espacio de trabajo de Braze | Plataforma Braze | Página de **Settings** > **App Settings** | Esta descripción debería indicarte qué hacer con la clave de API REST del espacio de trabajo. |
-| Punto de conexión de la API de Braze | Plataforma Braze | Consulta nuestra [lista de puntos finales]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints) o abre un [ticket de soporte]({{site.baseurl}}/braze_support/). | Descripción pendiente. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| Clave de API REST del espacio de trabajo de Braze | Plataforma Braze | Página **Configuración** > **Configuración de la aplicación** | Esta descripción debe indicarte qué hacer con la clave de API REST del espacio de trabajo. |
+| Endpoint de API de Braze | Plataforma Braze | Consulta nuestros [endpoints listados]({{site.baseurl}}/api/basics#endpoints) o abre un [ticket de soporte]({{site.baseurl}}/braze_support). | Descripción pendiente. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Requisitos o prerrequisitos" }
 
 ## Integración [tipo de integración] {#type-of-integration-integration}
 
-Aquí es donde divides la integración en pasos. No te limites a escribir párrafos interminables: se trata de documentación técnica que utilizarán tanto especialistas en marketing como desarrolladores para poner en marcha la integración. Tu único objetivo en esta sección es escribir documentación descriptiva que ayude al usuario de Braze a realizar su trabajo. Con "Tipo de integración" en el título de la sección, queremos indicar si se trata de una integración en paralelo, de servidor a servidor o predeterminada. Esto te permite tener múltiples secciones de integración si hay más de una forma de integrarse con este socio.
+Aquí es donde desglosarás la integración en pasos. No escribas párrafos interminables; estos son documentos técnicos que serán utilizados tanto por especialistas en marketing como por desarrolladores para poner en marcha la integración. Tu único objetivo en esta sección es escribir documentación descriptiva que ayude al usuario de Braze a realizar el trabajo. Con "tipo de integración" en el título de la sección, nos referimos a indicar si se trata de una integración en paralelo, de servidor a servidor o predeterminada. Esto te permite tener varias secciones de integración si hay más de una forma de integrar con este partner.
 
-Si se trata de una integración de Currents, esta página debe estar ubicada en la sección Currents, y debe crearse una página de navegación correspondiente que redirija a esa ubicación en Currents.
+Si se trata de una integración de Currents, esta página debe ubicarse en la sección de Currents, y se debe crear una página de navegación correspondiente que redirija a esa ubicación en Currents.
 
-### Paso 1: Esta es una breve descripción del primer paso {#step-1-this-is-a-short-description-of-step-one}
+### Paso 1: Esta es una breve descripción del paso uno {#step-1-this-is-a-short-description-of-step-one}
 
-Desglosa esto, incluyendo cualquier código que sea necesario. Recuerda que puedes ofrecer varios conjuntos de código diferentes: no es necesario que solo ofrezcas una forma de integración.
+Simplemente desglósalo, incluyendo cualquier código que sea necesario. Recuerda que puedes ofrecer varios conjuntos de código diferentes; no es necesario ofrecer solo una forma de integrar.
 
-### Paso 2: Este paso describirá las imágenes {#step-2-this-step-will-describe-images}
+### Paso 2: Este paso describirá imágenes {#step-2-this-step-will-describe-images}
 
-Tienes la opción de poner imágenes en tu documentación, por lo que te recomendamos que lo hagas y que lo hagas con cuidado.
+Tienes la opción de incluir imágenes en tu documentación, así que te recomendamos que lo hagas y de forma cuidadosa.
 
 ### Ejemplo de código {#code-sample}
 
-Si estás explicando un concepto técnico, anótalo aquí y muestra un ejemplo de código.
+Si estás explicando un concepto técnico, indícalo aquí y muestra un ejemplo de código.
 
 ```html
 <!DOCTYPE html>
@@ -93,34 +94,34 @@ Si estás explicando un concepto técnico, anótalo aquí y muestra un ejemplo d
 </html>
 ```
 
-Asegúrate de definir los parámetros o elementos que los usuarios podrían tener que ajustar a partir del ejemplo de código. Muchos usuarios se limitan a copiar y pegar.
+Asegúrate de definir los parámetros o elementos que los usuarios podrían necesitar ajustar del ejemplo de código. Muchos usuarios simplemente copiarán y pegarán.
 
 | Variable | Descripción |
 | -------- | ----------- |
-| Page Title | Puedes titular tu página como quieras. Es obligatorio incluirlo. |
-| My First Heading | Recomendamos ponerlo en mayúsculas. Esto es opcional. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Page Title | Puedes titular tu página como quieras. Es obligatorio tenerlo. |
+| My First Heading | Recomendamos ponerlo en mayúsculas. Esto también es opcional. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Ejemplo de código" }
 
 
 ### Paso 3: Cuántos pasos {#step-3-how-many-steps}
 
-Esboza el uso de la integración, sobre todo si implica insertar Liquid en nuestro creador de mensajes.
+Describe el uso de la integración, especialmente si implica insertar Liquid en nuestro creador de mensajes.
 
 ## Personalización {#customization}
 
-Esta sección **es opcional**. Aquí podrías esbozar cualquier forma específica de personalizar tu integración entre los dos socios.
+Esta es una sección **opcional**. Aquí puedes describir cualquier forma específica de personalizar tu integración entre los dos partners.
 
-## Utilizar esta integración {#using-this-integration}
+## Uso de esta integración {#using-this-integration}
 
-Debe describir cómo utilizar la integración: informa a tu lector de si tiene que pulsar algunos botones o si no tiene que hacer nada en absoluto tras la integración.
+Esto debería describir cómo usar la integración: informa a tu lector si necesita pulsar algunos botones o si no necesita hacer nada en absoluto después de la integración.
 
-### Paso 1: Esta es una breve descripción del primer paso
+### Paso 1: Esta es una breve descripción del paso uno
 
-El típico paso a paso.
+Solo tu típico paso a paso.
 
 ### Ejemplo de código
 
-Si estás explicando un concepto técnico, anótalo aquí y muestra un ejemplo de código.
+Si estás explicando un concepto técnico, menciónalo aquí y muestra un ejemplo de código.
 
 ```html
 <!DOCTYPE html>
@@ -137,15 +138,14 @@ Si estás explicando un concepto técnico, anótalo aquí y muestra un ejemplo d
 </html>
 ```
 
-Asegúrate de definir los parámetros o elementos que los usuarios podrían tener que ajustar a partir del ejemplo de código. Muchos usuarios se limitan a copiar y pegar.
+Asegúrate de definir los parámetros o elementos que los usuarios podrían necesitar ajustar del ejemplo de código. Muchos usuarios simplemente copiarán y pegarán.
 
 | Variable | Descripción |
 | -------- | ----------- |
-| Page Title | Puedes titular tu página como quieras. Es obligatorio incluirlo. |
-| My First Heading | Recomendamos ponerlo en mayúsculas. Esto es opcional. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Page Title | Puedes ponerle cualquier título a tu página. Esto es obligatorio. |
+| My First Heading | Recomendamos ponerlo en mayúsculas. Esto también es opcional. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Ejemplo de código" }
 
+## Ejemplos {#use-cases}
 
-## Casos de uso {#use-cases}
-
-Puede ser una parte fundamental de tu documentación. Aunque es opcional, es un buen lugar para esbozar casos de uso típicos o incluso novedosos para la integración. Esto puede utilizarse como una forma de vender o mejorar la relación: proporciona contexto, ideas y, lo que es más importante, una forma de visualizar las capacidades de la integración.
+Esta puede ser una parte fundamental de tu documentación. Aunque es opcional, es un buen lugar para describir ejemplos típicos o incluso novedosos de la integración. Esto puede utilizarse como una forma de vender o potenciar la relación: proporciona contexto, ideas y, lo más importante, una manera de visualizar las capacidades de la integración.

@@ -3,7 +3,7 @@ nav_title: Daten von Amazon S3 zu Snowflake übertragen
 article_title: Daten von Amazon S3 zu Snowflake übertragen
 page_order: 7
 page_type: tutorial
-description: "In diesem Artikel erfahren Sie, wie Sie mit Hilfe des Extract, Transform, Load-Prozesses (ETL) Daten aus einem Cloud-Speicher (z. B. Amazon S3) in ein Data Warehouse (z. B. Snowflake) übertragen."
+description: "In diesem Artikel erfahren Sie, wie Sie mit Hilfe des ETL-Prozesses (ETL) Daten aus einem Cloud-Speicher (z. B. Amazon S3) in ein Data Warehouse (z. B. Snowflake) übertragen."
 tool: Currents
 
 ---

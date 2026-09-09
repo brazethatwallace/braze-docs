@@ -5,7 +5,7 @@ Editor blocks are in the **Content** section for email messages. Drag a block in
 For more information about creating emails in the **Drag-And-Drop Editor**, see [Create an email with drag-and-drop]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/) and <a href="{{site.baseurl}}/user_guide/channels/email/drag_and_drop/#other-customizations">Other customizations</a> in that article.
 
 {% alert tip %}
-You can also add [custom attributes]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes/) to any URL within the `Image`, `Button`, or `Text` editor blocks.
+You can also add [custom attributes]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/) to any URL within the `Image`, `Button`, or `Text` editor blocks.
 {% endalert %}
 
 ### Title

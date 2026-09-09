@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "Cet article détaille l'endpoint Braze Créer un centre de préférences."
-
 ---
 {% api %}
 # Créer un centre de préférences {#create-preference-center}
@@ -14,7 +13,7 @@ description: "Cet article détaille l'endpoint Braze Créer un centre de préfé
 /preference_center/v1
 {% endapimethod %}
 
-> Utilisez cet endpoint pour créer un centre de préférences permettant aux utilisateurs de gérer leurs préférences de notification pour vos campagnes par e-mail. Consultez la section [Créer un centre de préférences avec l'API]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview#creating-a-preference-center-with-api) pour découvrir les étapes de création d'un centre de préférences généré par API.
+> Utilisez cet endpoint pour créer un centre de préférences permettant aux utilisateurs de gérer leurs préférences de notification pour vos campagnes par e-mail. Consultez la section [Créer un centre de préférences avec l'API]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/api_preference_center) pour découvrir les étapes de création d'un centre de préférences généré par API.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#e15d7065-2cbc-4eb3-ae16-32efe43357a6 {% endapiref %}
 

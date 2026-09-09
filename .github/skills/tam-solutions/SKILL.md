@@ -302,12 +302,16 @@ Tracker sync and Jira Story create are **independent**. Always match the tracker
 
 2. **Write the PR onto the tracker** — Always run this after `gh pr create`, using the row from step 1. Do **not** wait for Story create. Use Google Sheets MCP `update_cell` (Editor access on the Sheet). Do **not** `WebFetch`. Do **not** insert a new row.
 
-   | Tab | **PR link** column |
-   |-----|-------------------|
-   | **Customer agnostic — Confluence** | **PR link** (column `E`) already exists |
-   | **TAM assets — Google Drive** | If row 1 has no **PR link** header, set `E1` to `PR link` once, then use column `E` for the matched row |
+   Resolve the cell from **row 1 of the matched tab**. Use the column whose header is exactly **PR link**. Do **not** hardcode column `E` for both tabs — layouts differ:
 
-   Call `update_cell` with `spreadsheet_id` `1YChWu-L-hPMRo9cVIMfqSYKBQQdNRs4PkFnXPnKk5RE`, the tab name, cell (for example `E3`), and content `[{"text": "<pr url>", "url": "<pr url>"}]`.
+   | Tab | **PR link** | Adjacent columns (do not write) |
+   |-----|-------------|--------------------------------|
+   | **Customer agnostic — Confluence** | Column `E` (`E1` is already **PR link**) | `D` = **PM**, `F` = **Status** |
+   | **TAM assets — Google Drive** | Column `D` (`D1` is already **PR link**) | `E` = **Status**, `F` = **Note** |
+
+   If row 1 has no **PR link** header, stop and tell the user. Do **not** create `E1` as **PR link** on Drive (that overwrites **Status**). Never write a PR URL into a **Status**, **PM**, **Product team**, or **Note** cell.
+
+   Call `update_cell` with `spreadsheet_id` `1YChWu-L-hPMRo9cVIMfqSYKBQQdNRs4PkFnXPnKk5RE`, the tab name, the resolved cell (for example `E3` on Confluence, `D31` on Drive), and content `[{"text": "<pr url>", "url": "<pr url>"}]`.
 
    - If **PR link** is empty, write the new PR URL.
    - If it already equals this PR, skip.

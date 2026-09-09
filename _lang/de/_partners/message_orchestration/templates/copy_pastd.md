@@ -86,9 +86,9 @@ Die Verbindung von Building Blocks mit Braze ist eine einmalige Einrichtung. Nac
 
 Building Blocks enthält die standardmäßigen Braze-Nutzerattribute (`first_name`, `email`, `country` usw.). Um Blöcke an Ihre eigenen angepassten Attribute zu binden, importieren Sie diese einmalig in Building Blocks – danach stehen sie in jedem **Personalize**-Dropdown zur Verfügung.
 
-1. Navigieren Sie in Building Blocks zu **Team Settings** > **Connect** > **Custom Attributes**.
+1. Navigieren Sie in Building Blocks zu **Team Settings** > **Connect** > **angepasste Attribute**.
 2. Importieren Sie Ihre angepassten Attribute mit einer der folgenden Methoden:
-* **Massenimport (empfohlen).** Navigieren Sie in Braze zu **Data Settings** > **Custom Attributes** und wählen Sie **Export** aus. Laden Sie die CSV-Datei in Building Blocks hoch.
+* **Massenimport (empfohlen).** Navigieren Sie in Braze zu **Data Settings** > **angepasste Attribute** und wählen Sie **Export** aus. Laden Sie die CSV-Datei in Building Blocks hoch.
 * **Attribute einzeln hinzufügen.** Geben Sie den Attributnamen ein (zum Beispiel `loyalty_tier`) und wählen Sie **Add** aus. Diese Methode ist nützlich, wenn Sie nur wenige Attribute hinzufügen oder ein neues Attribut zwischen Braze-Exporten ergänzen möchten.
 
 Nach dem Speichern erscheinen Ihre angepassten Attribute im **Personalize**-Dropdown des Builders neben den Standardattributen. Beim Einfügen wird beim Export das korrekte {% raw %}`{{custom_attribute.${name}}}`{% endraw %}-Liquid erzeugt, sodass Braze den Wert pro Empfänger:in zum Sendezeitpunkt auflöst.

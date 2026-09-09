@@ -32,7 +32,7 @@ Verbinden Sie Braze mit Lytics, um E-Mail-, SMS- und Push-Aktivitäten zu [impor
 | ----------- | ----------- |
 | Lytics-Konto | Um die Vorteile dieser Integration zu nutzen, ist ein Lytics-Konto erforderlich. |
 | Lytics-Kontonummer | Für die Konfiguration der Webhook-Endpunkt-URL ist eine Lytics-Kontonummer erforderlich. |
-| Lytics-API-Token | Ein Lytics-REST-API-Token mit Data-Manager-Berechtigungen. <br><br> Dieses kann im Lytics-Dashboard unter **Account Settings Console** > **Access Tokens** > **Create New Token** erstellt werden. |
+| Lytics-API-Token | Ein Lytics-REST-API-Token mit Data-Manager:in-Berechtigungen. <br><br> Dieses kann im Lytics-Dashboard unter **Account Settings Console** > **Access Tokens** > **Create New Token** erstellt werden. |
 | Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit der Berechtigung `users.track`. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
 | Braze-Instanz | Ihre [Braze-Instanz]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). Wenden Sie sich an Ihre:n Braze-Onboarding-Manager:in, wenn Sie sich nicht sicher sind. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
@@ -118,7 +118,7 @@ Navigieren Sie zum Lytics-Kontomenü, indem Sie Ihren Kontonamen auswählen, und
 
 ![Lytics-Bildschirm „Access Tokens“ mit ausgewählter Option „Create API Token“ im Kontomenü.]({% image_buster /assets/img/lytics/create_token.png %}){: style="max-width:80%;"}
 
-Geben Sie einen Namen, eine optionale Beschreibung und eine Gültigkeitsdauer für den Token ein. Aktivieren Sie als Nächstes den Bereich **Data Manager** für API-Berechtigungen und wählen Sie **Generate Token**. Kopieren Sie den Token und bewahren Sie ihn an einem sicheren Ort auf.
+Geben Sie einen Namen, eine optionale Beschreibung und eine Gültigkeitsdauer für den Token ein. Aktivieren Sie als Nächstes den Bereich **Data Manager:in** für API-Berechtigungen und wählen Sie **Generate Token**. Kopieren Sie den Token und bewahren Sie ihn an einem sicheren Ort auf.
 
 ![Lytics-API-Token-Berechtigungen mit aktiviertem Bereich „Data Manager“ vor der Token-Generierung.]({% image_buster /assets/img/lytics/data_manager.png %}){: style="max-width:80%;"}
 

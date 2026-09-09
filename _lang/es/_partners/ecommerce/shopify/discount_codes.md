@@ -28,33 +28,33 @@ Se trata de una integración enviada por la comunidad y no está soportada direc
 
 Usa el Bulk Discount Code Bot para configurar tus códigos de descuento según la cantidad de códigos a generar, la longitud del código, el valor del descuento y más.
 
-![Las opciones de configuración para un conjunto de descuentos.][1]
+![Las opciones de configuración para un conjunto de descuentos.][1]{: width="1203" height="677" style="max-width:100%;"}
 
 ### Paso 2: Exporta tus códigos {#step-2-export-your-codes}
 
-Busca tu conjunto de descuentos en la barra de búsqueda del Bulk Discount Code Bot y, a continuación, selecciona **Export Codes** > **Download Codes** para descargar un archivo CSV a tu carpeta de descargas.
+Busca tu conjunto de descuentos en la barra de búsqueda del Bulk Discount Code Bot y luego selecciona **Export Codes** > **Download Codes** para descargar un archivo CSV en tu carpeta de descargas.
 
-![Barra de búsqueda con un menú desplegable que muestra el conjunto de descuentos y una fila de botones para seleccionar.][2]{: style="max-width:70%;"}
+![Barra de búsqueda con un menú desplegable que muestra el conjunto de descuentos y una fila de botones para seleccionar.][2]{: width="1163" height="858" style="max-width:70%;"}
 
-En el archivo CSV, elimina la fila 1 para quitar el encabezado de columna "Promo". Esto evitará que "Promo" se convierta en un código de descuento en Braze.
+En el archivo CSV, elimina la fila 1 para quitar el encabezado de columna "Promo". Esto evita que "Promo" se convierta en un código de descuento en Braze.
 
-![Un diagrama de flujo que muestra la eliminación del encabezado de fila "Promo" en un archivo CSV.][3]{: style="max-width:60%;"}
+![Un diagrama de flujo que muestra la eliminación del encabezado de fila "Promo" en un archivo CSV.][3]{: width="448" height="222" style="max-width:60%;"}
 
 ### Paso 3: Añade tus códigos de descuento a Braze {#step-3-add-your-discount-codes-to-braze}
 
 En Braze, ve a **Data Settings** > **Promotion Codes** > **Create Promotion Code List** y [configura tu lista de códigos de descuento]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create#create). Asegúrate de que la fecha de vencimiento coincida con la configurada en el Bulk Discounts Code Bot.
 
-Luego, sube tu archivo CSV y selecciona **Save List**.
+Luego, carga tu archivo CSV y selecciona **Save List**.
 
-### Paso 4: Añade tus códigos de descuento a una Campaign o paso en Canvas de Braze {#step-4-add-your-discount-codes-to-a-braze-campaign-or-canvas-step}
+### Paso 4: Añade tus códigos de descuento a una Campaign o un paso en Canvas de Braze {#step-4-add-your-discount-codes-to-a-braze-campaign-or-canvas-step}
 
 Si quieres usar tus códigos de descuento únicos en una Campaign de envío único, o no te importa que los usuarios reciban múltiples códigos únicos en diferentes Campaigns o pasos en Canvas, copia el fragmento de código Liquid de la lista de códigos promocionales que guardaste.
 
-![Un fragmento de código Liquid con un botón para copiarlo.][4]{: style="max-width:60%;"}
+![Un fragmento de código Liquid con un botón para copiarlo.][4]{: width="958" height="295" style="max-width:60%;"}
 
-Pega el fragmento de código Liquid en una Campaign o paso en Canvas.
+Pega el fragmento de código Liquid en una Campaign o un paso en Canvas.
 
-<video autoplay muted loop playsinline loading="lazy" style="max-width:100%;" aria-label="Un video que muestra cómo se añade el fragmento de código Liquid a un paso en Canvas.">
+<video autoplay muted loop playsinline loading="lazy" width="800" height="540" style="max-width:100%;height:auto;aspect-ratio:800/540;" aria-label="Un video que muestra cómo se añade el fragmento de código Liquid a un paso en Canvas.">
   <source src="{% image_buster /assets/img/shopify/liquid_promo_code.mp4 %}" type="video/mp4">
 </video>
 
@@ -69,15 +69,15 @@ En el paso de User Update, haz lo siguiente para cada campo:
 - **Action:** Selecciona **Update**.
 - **Key Value:** Pega el fragmento de código Liquid.
 
-![Un paso de User Update que actualiza un atributo "Promo Code" con el fragmento de código Liquid.][6]
+![Un paso de User Update que actualiza un atributo "Promo Code" con el fragmento de código Liquid.][6]{: width="2464" height="1322" style="max-width:100%;"}
 
-Ahora puedes añadir el atributo personalizado {% raw %}`{{custom_attribute.${Promo Code}}}`{% endraw %} a cualquier mensaje, y el código de descuento se insertará automáticamente mediante plantilla.
+Ahora puedes añadir el atributo personalizado {% raw %}`{{custom_attribute.${Promo Code}}}`{% endraw %} a cualquier mensaje, y el código de descuento se incluirá automáticamente mediante la plantilla.
 
 ## Comportamiento de los códigos de descuento {#discount-code-behavior}
 
 {% details Campaign multicanal o paso en Canvas %}
 
-Cuando se usa un fragmento de código de descuento en una Campaign multicanal o un paso en Canvas, los usuarios siempre reciben un código único. Si un usuario es elegible para recibir un código a través de más de un canal, recibirá el mismo código a través de cada canal. En otras palabras, un usuario elegible solo recibiría un código en todos los mensajes enviados por esa Campaign o ese paso en Canvas.
+Cuando se usa un fragmento de código de descuento en una Campaign multicanal o un paso en Canvas, los usuarios siempre reciben un código único. Si un usuario es elegible para recibir un código a través de más de un canal, recibirá el mismo código a través de cada canal. En otras palabras, un usuario elegible solo recibiría un código en todos los mensajes enviados por esa Campaign o paso en Canvas.
 
 {% enddetails %}
 

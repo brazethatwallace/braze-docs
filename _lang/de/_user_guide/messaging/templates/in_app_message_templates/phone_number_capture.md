@@ -18,9 +18,9 @@ description: "Diese Seite beschreibt, wie Sie ein SMS-, RCS- und WhatsApp-Regist
 
 ### Schritt 1: Template auswählen {#step-1-choose-your-template}
 
-Wenn Sie eine Drag-and-Drop-In-App-Nachricht erstellen, wählen Sie **SMS sign-up** (dies deckt auch die RCS-Registrierung ab) oder **WhatsApp sign-up** als Template und dann **Build message**. Diese Templates werden sowohl für mobile Apps als auch für Webbrowser unterstützt.
+Wenn Sie eine Drag-and-Drop-In-App-Nachricht erstellen, wählen Sie **SMS Registrierung** (dies deckt auch die RCS-Registrierung ab) oder **WhatsApp Registrierung** als Template und dann **Build message**. Diese Templates werden sowohl für mobile Apps als auch für Webbrowser unterstützt.
 
-![Modal zur Auswahl von „SMS sign-up“ oder „WhatsApp sign-up“ als Template beim Erstellen einer In-App-Nachricht.]({% image_buster /assets/img_archive/dnd_iam_phone_capture_template.png %}){: style="max-width:80%"}
+![Modal zur Auswahl von „SMS Registrierung“ oder „WhatsApp Registrierung“ als Template beim Erstellen einer In-App-Nachricht.]({% image_buster /assets/img_archive/dnd_iam_phone_capture_template.png %}){: style="max-width:80%"}
 
 ### Schritt 2: Nachrichtenstile einrichten {#step-2-set-up-your-message-styles}
 

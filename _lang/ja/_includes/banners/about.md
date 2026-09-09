@@ -102,5 +102,5 @@ iframeは、コードベースの変更を必要としないダイナミック�
 - [チュートリアル：プレースメントIDでバナーを表示する]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners)
 
 {% alert tip %}
-次に優先すべき機能についてご意見をお聞かせください。[banners-feedback@braze.com](mailto:banners-feedback@braze.com) までご連絡ください。
+次に優先すべき機能についてご意見をお聞かせください。[banners-フィードバック@braze.com](mailto:banners-feedback@braze.com) までご連絡ください。
 {% endalert %}

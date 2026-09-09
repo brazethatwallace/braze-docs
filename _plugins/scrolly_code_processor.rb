@@ -106,7 +106,8 @@ module Jekyll
       html << "    <div class=\"scrolly-text\">"
       steps.each_with_index do |step, idx|
         file_attr = step["file"].gsub('.', '-')
-        html << "      <div class=\"scrolly-step\" data-index=\"#{idx}\" data-lines-#{file_attr}=\"#{step['range']}\">"
+        active_attr = idx == 0 ? ' data-active="true"' : ''
+        html << "      <div class=\"scrolly-step\" data-index=\"#{idx}\" data-lines-#{file_attr}=\"#{step['range']}\"#{active_attr}>"
         html << "        <div class=\"scrolly-narrative\">#{step['narrative']}</div>"
         html << "      </div>"
       end

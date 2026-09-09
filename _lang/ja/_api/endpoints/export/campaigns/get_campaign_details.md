@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "この記事では、「キャンペーンの詳細のエクスポート」Brazeエンドポイントの詳細について説明します。"
-
 ---
 {% api %}
 # キャンペーンの詳細のエクスポート {#export-campaign-details}

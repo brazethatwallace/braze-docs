@@ -46,6 +46,7 @@ Before you can use this feature, you'll need to complete the following:
 | Requirement | Description |
 | ----------- | ----------- |
 | Braze access | To access this feature in Braze, you'll need to contact your Braze account or customer success manager. |
+| Braze workspace permissions | [View Currents Integrations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) to view Data Sharing. [Edit Currents Integrations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) to create, update, or delete a data share. |
 | Snowflake account | A Snowflake account with `admin` permissions. For non-HIPAA customers, Snowflake Standard or Enterprise Edition is supported. For HIPAA-compliant data sharing, Business Critical Edition is required. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 

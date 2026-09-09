@@ -35,7 +35,7 @@ When using Canvas, remember that a user must first enter the Canvas based on you
 
 ## Don't refresh cards excessively
 
-Content Cards are automatically refreshed by the SDK at each new session start. You can also manually request a Content Card refresh at any time during an active session.
+Content Cards are automatically refreshed by the SDK at each new session start. You can also manually request a Content Card refresh at any time during an active session. On supported SDK versions, Braze pushes sends and removals to the device during the session through [real-time delivery]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed#real-time-delivery), which reduces how often you need to refresh manually.
 
 Calling the `requestContentCardsRefresh` method and refreshing too frequently may lead to rate limiting. If your app becomes temporarily rate-limited, you might not be able to refresh cards when you need to or at a critical time in the user's engagement with your app.
 

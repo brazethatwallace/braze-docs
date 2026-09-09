@@ -109,7 +109,7 @@ Após a integração inicial dos registros do CDP na Braze, verifique se os flux
 
 Navegue até a guia **General** na tela de **Configuration** dos canais. Defina o modelo de exportação para cada canal respectivo.
 
-Em seguida, defina um **Export path format** em ambos os canais que aponte para uma rede compartilhada, protocolo de transferência de arquivos ou local de provedor de conteúdo externo que seja acessível ao Redpoint Interaction e ao Redpoint Data Management.
+Em seguida, defina um **Export jornada format** em ambos os canais que aponte para uma rede compartilhada, protocolo de transferência de arquivos ou local de provedor de conteúdo externo que seja acessível ao Redpoint Interaction e ao Redpoint Data Management.
 
 ![Configuração do canal Redpoint com os campos de modelo de exportação e formato do caminho de exportação.]({% image_buster /assets/img/redpoint/rpi_to_braze_channel_config_specific.png %}){: style="max-width:75%;"}
 

@@ -79,7 +79,7 @@ Para definir uma variável de contexto:
 1. Dê um **nome** à sua variável de contexto.
 2. Selecione um [tipo de dado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables#data-types).
 3. Escreva uma expressão Liquid manualmente ou use **Add Personalization** para criar um snippet Liquid a partir de atributos pré-existentes.
-4. Selecione **Preview** para verificar o valor da sua variável de contexto.
+4. Selecione **prévia** para verificar o valor da sua variável de contexto.
 5. (Opcional) Para adicionar variáveis adicionais, selecione **Add Context variable** e repita as etapas 1-4.
 6. Quando terminar, selecione **Done**.
 
@@ -93,7 +93,7 @@ Ao referenciar variáveis de contexto, sempre use o formato {% raw %}`{{context.
 
 Você pode criar filtros usando variáveis de contexto em etapas de [Jornadas do público]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) e [Divisão de decisão]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split).
 
-Para direcionar usuários com base na resposta de uma [etapa de Agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step), adicione a etapa de Agente antes da sua etapa de Jornadas do público ou Divisão de decisão. A etapa de Agente armazena sua saída no contexto do Canvas, que você pode avaliar com filtros de variáveis de contexto nessas etapas de ramificação.
+Para direcionar usuários com base na resposta de uma [etapa de Agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step), adicione a etapa de Agente antes da sua etapa de Jornadas do público ou Divisão de decisão. A etapa de Agente armazena sua saída no contexto do Canvas, que você pode avaliar com filtros de variáveis de contexto nessas etapas de Branch.
 
 Se o agente retornar um objeto e você quiser filtrar por uma propriedade aninhada, insira o caminho no campo **Context variable name** usando notação de ponto em vez de apenas o nome da variável de nível superior (por exemplo, `intent_agent.persona` quando `persona` está aninhado sob `intent_agent`).
 
@@ -106,7 +106,7 @@ Para configuração de filtros, lógica de comparação e exemplos avançados, c
 Recomendamos testar e [pré-visualizar suas jornadas de usuários]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths) para garantir que suas mensagens sejam enviadas ao público certo e que as variáveis de contexto sejam avaliadas com os resultados esperados.
 
 {% alert note %}
-Se você estiver pré-visualizando seu Canvas na seção **Preview & Test Send** do editor, o timestamp na pré-visualização da mensagem de teste **não** é padronizado para UTC porque esse painel gera pré-visualizações como strings. Isso significa que, se um Canvas estiver configurado para aceitar um objeto `time`, a pré-visualização da mensagem não reflete com precisão o que ocorre quando o Canvas está ativo. Para testar seu Canvas com mais precisão, recomendamos pré-visualizar as jornadas de usuários.
+Se você estiver pré-visualizando seu Canvas na seção **prévia & Test Send** do editor, o timestamp na pré-visualização da mensagem de teste **não** é padronizado para UTC porque esse painel gera pré-visualizações como strings. Isso significa que, se um Canvas estiver configurado para aceitar um objeto `time`, a pré-visualização da mensagem não reflete com precisão o que ocorre quando o Canvas está ativo. Para testar seu Canvas com mais precisão, recomendamos pré-visualizar as jornadas de usuários.
 {% endalert %}
 
 Observe quaisquer cenários comuns que criam variáveis de contexto inválidas. Ao pré-visualizar a jornada do usuário, você pode ver os resultados de etapas de postergação personalizadas usando variáveis de contexto, e quaisquer comparações de etapas de público ou decisão que correspondam usuários a variáveis de contexto.

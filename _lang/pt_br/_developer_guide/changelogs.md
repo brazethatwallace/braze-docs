@@ -60,7 +60,7 @@ Você também pode encontrar uma cópia do [changelog do SDK da Braze para Flutt
 {% markdown_embed https://raw.githubusercontent.com/braze-inc/braze-flutter-sdk/master/CHANGELOG.md %}
 {% endsdktab %}
 
-{% sdktab react native %}
+{% sdktab React Native %}
 {% alert tip %}
 Você também pode encontrar uma cópia do [changelog do SDK da Braze para React Native no GitHub](https://github.com/braze-inc/braze-react-native-sdk/blob/master/CHANGELOG.md).
 {% endalert %}

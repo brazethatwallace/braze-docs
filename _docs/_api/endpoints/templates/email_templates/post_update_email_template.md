@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "This article outlines details about the Update email template Braze endpoint."
-
 ---
 {% api %}
 # Update existing email templates
@@ -27,7 +26,7 @@ You can also call this endpoint through the [Braze MCP server]({{site.baseurl}}/
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#afb25494-3350-458d-932d-5bf4220049fa {% endapiref %}
 
 ## Prerequisites
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key) with the `templates.email.update` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics) with the `templates.email.update` permission.
 
 ## Rate limit
 

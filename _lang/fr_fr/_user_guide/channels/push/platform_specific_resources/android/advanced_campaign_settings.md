@@ -26,9 +26,9 @@ Pour attribuer un ID de notification, accédez à la page de composition du push
 
 ## Durée de vie (TTL) {#ttl}
 
-Le champ **Time to Live** vous permet de définir une durée personnalisée de stockage des messages auprès du service d'envoi de messages push. Si l'appareil reste hors ligne au-delà du TTL, le message expirera et ne sera pas distribué.
+Le champ **Time to en direct** vous permet de définir une durée personnalisée de stockage des messages auprès du service d'envoi de messages push. Si l'appareil reste hors ligne au-delà du TTL, le message expirera et ne sera pas distribué.
 
-Pour modifier la durée de vie de votre notification push Android, accédez au composeur et sélectionnez l'onglet **Settings**. Trouvez le champ **Time to Live** et saisissez une valeur en jours, heures ou secondes.
+Pour modifier la durée de vie de votre notification push Android, accédez au composeur et sélectionnez l'onglet **Settings**. Trouvez le champ **Time to en direct** et saisissez une valeur en jours, heures ou secondes.
 
 Les valeurs par défaut de la durée de vie sont définies par votre administrateur sur la page [Paramètres de notifications push]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings). Par défaut, Braze définit le TTL des notifications push à la valeur maximale pour chaque service d'envoi de messages push. Bien que les paramètres TTL par défaut s'appliquent globalement, vous pouvez les remplacer au niveau du message lors de la création d'une campagne. Cela est utile lorsque différentes campagnes nécessitent des niveaux d'urgence ou des fenêtres de distribution différents.
 

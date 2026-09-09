@@ -213,7 +213,7 @@ Durch Auswahl des Umschalters **Mit einer Kontextvariable oder einem angepassten
 
 Nehmen wir an, Sie möchten Nutzer:innen nach einer dynamischen Inaktivitätsperiode eine personalisierte Erinnerung senden, die alle einschließt, die sich in den letzten drei Tagen nicht in Ihrer App angemeldet haben.
 
-Sie haben eine Kontextvariable `re_engagement_date`, die als {% raw %}`{{now | minus: 3 | append: ' days'}}`{% endraw %} definiert ist. Beachten Sie, dass `3 days` ein variabler Betrag sein kann, der auch als angepasstes Attribut der Nutzer:in gespeichert ist. Wenn also das `re_engagement_date` nach dem `last_login_date` (als angepasstes Attribut im Nutzerprofil gespeichert) liegt, wird ihnen eine Nachricht gesendet.
+Sie haben eine Kontextvariable `re_engagement_date`, die als {% raw %}`{{now | minus: 3 | append: ' days'}}`{% endraw %} definiert ist. Beachten Sie, dass `3 days` ein variabler Betrag sein kann, der auch als angepasstes Attribut der Nutzer:in gespeichert ist. Wenn also das `re_engagement_date` nach dem `last_login_date` (als angepasstes Attribut im Kundenprofil gespeichert) liegt, wird ihnen eine Nachricht gesendet.
 
 ![Ein Filter-Setup mit angepassten Attributen als Personalisierungstyp für die Kontextvariable „re_engagement_date“ nach dem angepassten Attribut „last_login_date“.]({% image_buster /assets/img/context_variable_filter2.png %})
 

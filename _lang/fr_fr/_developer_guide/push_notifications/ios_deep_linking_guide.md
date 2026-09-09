@@ -34,10 +34,10 @@ Les deep links à schéma personnalisé (par exemple, `myapp://products/123`) ou
 **Utilisez les deep links à schéma personnalisé lorsque :**
 - Vous envoyez des notifications push, des messages in-app ou des Content Cards
 - Vous n'avez pas besoin que le lien fonctionne si l'application n'est pas installée
-- Vous n'avez pas besoin de suivi des clics (encapsulation des liens par l'ESP d'e-mail)
+- Vous n'avez pas besoin de suivi des clics (encapsulation des liens par l'fournisseur de services d'e-mailing d'e-mail)
 
 **N'utilisez pas les deep links à schéma personnalisé lorsque :**
-- Vous envoyez des e-mails — les ESP encapsulent les liens pour le suivi des clics, ce qui casse les schémas personnalisés
+- Vous envoyez des e-mails — les fournisseur de services d'e-mailing encapsulent les liens pour le suivi des clics, ce qui casse les schémas personnalisés
 - Vous avez besoin que le lien bascule vers une page web si l'application n'est pas installée
 
 ### Liens universels {#universal-links}
@@ -45,7 +45,7 @@ Les deep links à schéma personnalisé (par exemple, `myapp://products/123`) ou
 Les liens universels (par exemple, `https://myapp.com/products/123`) sont des URL HTTPS standard qu'iOS peut rediriger vers votre application au lieu de les ouvrir dans un navigateur. Ils nécessitent une configuration côté serveur (un fichier AASA) et côté application (l'entitlement Associated Domains).
 
 **Utilisez les liens universels lorsque :**
-- Vous envoyez des e-mails. Votre ESP encapsule les liens pour le suivi des clics, les liens doivent donc être en HTTPS.
+- Vous envoyez des e-mails. Votre fournisseur de services d'e-mailing encapsule les liens pour le suivi des clics, les liens doivent donc être en HTTPS.
 - Vous envoyez des SMS ou utilisez d'autres canaux où les liens sont encapsulés ou raccourcis.
 - Vous avez besoin que le lien bascule vers une page web lorsque l'application n'est pas installée.
 - Vous utilisez un fournisseur de liens tiers comme Branch ou AppsFlyer.
@@ -107,7 +107,7 @@ Un fichier Apple App Site Association (AASA) n'est requis que lorsque vous utili
 
 Vous avez besoin d'un fichier AASA lorsque :
 
-- Vous envoyez des deep links dans des Campaigns par e-mail (car les ESP encapsulent les liens dans des URL HTTPS de suivi des clics).
+- Vous envoyez des deep links dans des Campaigns par e-mail (car les fournisseur de services d'e-mailing encapsulent les liens dans des URL HTTPS de suivi des clics).
 - Vous envoyez des deep links dans des Campaigns SMS (car les liens peuvent être raccourcis en URL HTTPS).
 - Vous utilisez Branch, AppsFlyer ou un autre fournisseur de liens (car ils utilisent leurs propres domaines HTTPS).
 - Vous utilisez des liens universels depuis des notifications push, des messages in-app ou des Content Cards (moins courant, mais possible avec `forwardUniversalLinks = true`).

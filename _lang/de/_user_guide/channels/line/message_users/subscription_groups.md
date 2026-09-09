@@ -29,7 +29,7 @@ LINE-Abo-Gruppen können nicht zwischen Workspaces verschoben werden. Wenn Sie e
 
 ## Archivierungsverhalten {#archive-behavior}
 
-- **Standardmäßige Archivierung:** Wenn Sie eine LINE-Abo-Gruppe archivieren und den Kanal nicht in einem anderen Workspace erneut integrieren, können Sie die Abo-Gruppe später wieder aus dem Archiv holen.
-- **Permanente Archivierung:** Wenn Sie den LINE-Kanal nach der Archivierung seiner Abo-Gruppe in einem anderen Workspace erneut integrieren, wird die ursprüngliche Abo-Gruppe dauerhaft archiviert und kann nicht über das Dashboard wiederhergestellt werden.
+- **Standardarchivierung:** Wenn Sie eine LINE-Abo-Gruppe archivieren und den Kanal nicht in einem anderen Workspace erneut integrieren, können Sie die Abo-Gruppe später wieder aus dem Archiv wiederherstellen.
+- **Permanente Archivierung:** Wenn Sie den LINE-Kanal nach dem Archivieren seiner Abo-Gruppe in einem anderen Workspace erneut integrieren, wird die ursprüngliche Abo-Gruppe dauerhaft archiviert und kann nicht über das Dashboard wiederhergestellt werden.
 
-Informationen zu den Schritten für die erneute Kanalintegration finden Sie unter [LINE-Einrichtung]({{site.baseurl}}/user_guide/channels/line/line_setup#re-integrate-a-line-channel-in-another-workspace).
+Informationen zur erneuten Kanalintegration finden Sie unter [LINE-Einrichtung]({{site.baseurl}}/user_guide/channels/line/line_setup#re-integrate-a-line-channel-in-another-workspace).

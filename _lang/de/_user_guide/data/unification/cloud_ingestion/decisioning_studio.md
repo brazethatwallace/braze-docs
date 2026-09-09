@@ -14,7 +14,7 @@ toc_headers: h2
 Mit dem Decisioning-Studio-Ziel von CDI können Warehouse-Daten direkt mit BrazeAI Decisioning Studio synchronisiert werden. Daten aus diesen Synchronisierungen werden Decisioning Studio zur Aktivierung bereitgestellt, Ihre Nutzerprofile und Braze-Workspaces bleiben dabei unverändert.
 
 {% alert important %}
-Dieses Feature befindet sich im Early Access. Wenden Sie sich an Ihren Customer-Success-Manager oder Account Manager, um Zugang zu erhalten.
+Dieses Feature befindet sich im Early Access. Wenden Sie sich an Ihren CSM oder Account Manager:in, um Zugang zu erhalten.
 {% endalert %}
 
 ## Funktionsweise {#how-it-works}

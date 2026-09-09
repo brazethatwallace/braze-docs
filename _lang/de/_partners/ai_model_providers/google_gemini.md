@@ -35,7 +35,7 @@ So verbinden Sie Google Gemini mit Braze:
 1. Gehen Sie im Braze-Dashboard zu **Partnerintegrationen** > **Technologie-Partner** und suchen Sie Google Gemini.
 2. Wählen Sie unter **Authentication Method** entweder **API Key** oder **Connect Google Account** aus.
 3. Schließen Sie die Einrichtung für die gewählte Methode ab:
-   - **API Key:** Wählen Sie unter **API Type** entweder **Gemini API** oder **Gemini Enterprise Agent Platform (formerly Vertex AI)** aus. Geben Sie Ihren API-Schlüssel ein. Wenn Sie Gemini Enterprise Agent Platform ausgewählt haben, geben Sie zusätzlich Ihre **Project ID** ein. Wählen Sie **Save**.
+   - **API Key:** Wählen Sie unter **API Type** entweder **Gemini API** oder **Gemini Enterprise Agent Platform (formerly Vertex KI)** aus. Geben Sie Ihren API-Schlüssel ein. Wenn Sie Gemini Enterprise Agent Platform ausgewählt haben, geben Sie zusätzlich Ihre **Project ID** ein. Wählen Sie **Save**.
    - **Connect Google Account:** Wählen Sie **Connect Google Account**, dann **Connect Google** und melden Sie sich mit Ihrem Google-Konto an. Wählen Sie Ihr **GCP Project** aus dem Dropdown-Menü aus. Wenn sowohl Gemini API als auch Gemini Enterprise Agent Platform in diesem Projekt aktiviert sind, wählen Sie den **API Type**, den Braze verwenden soll. Wählen Sie **Save**.
 
 {% alert note %}

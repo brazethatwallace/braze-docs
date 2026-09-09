@@ -63,12 +63,12 @@ Forçar tipos de dados não se aplica a propriedades de eventos ou propriedades 
 ![Menu suspenso de tipo de dados de atributos personalizados]({% image_buster /assets/img_archive/custom_events_view_data_type_dropdown.png %})
 
 {% alert warning %}
-Se você optar por forçar o tipo de dados de um atributo, todos os dados recebidos que não forem do tipo especificado serão convertidos para esse tipo. Se essa conversão for impossível (por exemplo, uma string contendo letras sendo convertida em um número), os dados serão ignorados. Todos os dados ingeridos antes da alteração do tipo continuarão armazenados como o tipo antigo (e, portanto, podem não ser segmentáveis), e um aviso aparecerá ao lado do atributo nos perfis dos usuários afetados.
+Se você optar por forçar o tipo de dados de um atributo, todos os dados recebidos que não forem do tipo especificado serão convertidos para esse tipo. Se essa conversão for impossível (por exemplo, uma string contendo letras sendo convertida em um número), os dados serão ignorados. Todos os dados ingeridos antes da alteração do tipo continuarão armazenados como o tipo antigo (e, portanto, podem não ser Segmentáveis), e um aviso aparecerá ao lado do atributo nos perfis dos usuários afetados.
 {% endalert %}
 
 ### Dados existentes após uma alteração de tipo {#existing-data-after-a-type-change}
 
-Forçar uma alteração de tipo de dados afeta apenas os novos dados que chegam à Braze. Todos os dados ingeridos antes da alteração de tipo continuam armazenados como o tipo antigo e podem não ser segmentáveis com os filtros do novo tipo. Um aviso aparece nos perfis dos usuários afetados. Para novos dados recebidos, se um valor não corresponder ao tipo forçado, a Braze pode convertê-lo para o tipo forçado (por exemplo, a string `"100"` para o número `100`). Valores que não podem ser convertidos são ignorados e não atualizam o atributo.
+Forçar uma alteração de tipo de dados afeta apenas os novos dados que chegam à Braze. Todos os dados ingeridos antes da alteração de tipo continuam armazenados como o tipo antigo e podem não ser Segmentáveis com os filtros do novo tipo. Um aviso aparece nos perfis dos usuários afetados. Para novos dados recebidos, se um valor não corresponder ao tipo forçado, a Braze pode convertê-lo para o tipo forçado (por exemplo, a string `"100"` para o número `100`). Valores que não podem ser convertidos são ignorados e não atualizam o atributo.
 
 Se você precisar que todos os dados de usuários existentes correspondam ao novo tipo, será necessário reenviar os valores do atributo para esses usuários por meio do SDK, da API ou de uma importação CSV. Não há conversão em massa automática para dados existentes.
 

@@ -16,7 +16,7 @@ search_tag: Partner
 
 > [Segment](https://segment.com) ist eine Customer Data Platform, mit der Sie Ihre Kundendaten sammeln, bereinigen und aktivieren können. Dieser Referenzartikel gibt eine Übersicht über die Verbindung zwischen [Braze und Segment Engage](https://segment.com/docs/destinations/braze/#Engage) und beschreibt die Anforderungen und Prozesse für die ordnungsgemäße Implementierung und Nutzung.
 
-Die Integration von Braze und Segment ermöglicht es Ihnen, mit [Engage](https://segment.com/docs/engage/), dem integrierten Zielgruppen-Builder von Segment, Segmente von Nutzer:innen auf der Grundlage von Daten zu erstellen, die Sie bereits über verschiedene Quellen gesammelt haben. Diese Zielgruppen werden dann als Kohorte mit Braze synchronisiert oder im Nutzerprofil durch [angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) oder [angepasste Events]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events#custom-events) gekennzeichnet, die zur Erstellung von Braze-Segmenten für das Retargeting in Campaigns und Canvas verwendet werden können.
+Die Integration von Braze und Segment ermöglicht es Ihnen, mit [Engage](https://segment.com/docs/engage/), dem integrierten Zielgruppen-Builder von Segment, Segmente von Nutzer:innen auf der Grundlage von Daten zu erstellen, die Sie bereits über verschiedene Quellen gesammelt haben. Diese Zielgruppen werden dann als Kohorte mit Braze synchronisiert oder im Kundenprofil durch [angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) oder [angepasste Events]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events#custom-events) gekennzeichnet, die zur Erstellung von Braze-Segmenten für das Retargeting in Campaigns und Canvas verwendet werden können.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -24,7 +24,7 @@ Die Integration von Braze und Segment ermöglicht es Ihnen, mit [Engage](https:/
 | ----------- | ----------- |
 | Segment-Konto | Um diese Partnerschaft nutzen zu können, ist ein [Segment-Konto](https://app.segment.com/login) erforderlich. |
 | Braze-Cloud-Ziel | Sie müssen in Ihrer Segment-Integration bereits [Braze als Ziel eingerichtet]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings/) haben.<br><br>Dazu gehört die Angabe des richtigen Braze-Rechenzentrums und des REST-API-Schlüssels in Ihren [Verbindungseinstellungen]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment#connection-settings). |
-| Braze-Datenimport-Schlüssel | Um Engage-Zielgruppen als Kohorten mit Braze zu synchronisieren, müssen Sie einen Datenimport-Schlüssel generieren.<br><br>Der Kohortenimport befindet sich im Early Access. Wenden Sie sich an Ihren Customer-Success-Manager, um Zugang zu diesem Feature zu erhalten. |
+| Braze-Datenimport-Schlüssel | Um Engage-Zielgruppen als Kohorten mit Braze zu synchronisieren, müssen Sie einen Datenimport-Schlüssel generieren.<br><br>Der Kohortenimport befindet sich im Early Access. Wenden Sie sich an Ihren CSM, um Zugang zu diesem Feature zu erhalten. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
@@ -74,7 +74,7 @@ Sie können wählen, welche Methode Sie verwenden möchten (oder beide verwenden
 
 Sie können berechnete Merkmale und Zielgruppen als `identify`-Aufrufe an Braze senden, um angepasste Attribute in Braze zu erstellen.
 
-Wenn Sie beispielsweise ein von Engage berechnetes Merkmal für „Zuletzt angesehener Artikel“ haben, finden Sie `last_product_viewed_item` im Braze-Profil der Nutzer:in unter **Custom Attributes**. Wäre dies stattdessen eine Engage-Zielgruppe, würden Sie Ihre Zielgruppe unter **Custom Attributes** als `true` aufgeführt finden.
+Wenn Sie beispielsweise ein von Engage berechnetes Merkmal für „Zuletzt angesehener Artikel“ haben, finden Sie `last_product_viewed_item` im Braze-Profil der Nutzer:in unter **angepasste Attribute**. Wäre dies stattdessen eine Engage-Zielgruppe, würden Sie Ihre Zielgruppe unter **angepasste Attribute** als `true` aufgeführt finden.
 
 | Berechnetes Merkmal | Zielgruppen |
 | -------------- | --------- |
@@ -86,7 +86,7 @@ Wenn Sie beispielsweise ein von Engage berechnetes Merkmal für „Zuletzt anges
 
 Sie können berechnete Merkmale und Zielgruppen als `track`-Aufrufe an Braze senden, um angepasste Events in Braze zu erstellen.
 
-Um das vorherige Beispiel fortzusetzen: Wenn eine Nutzer:in ein berechnetes Merkmal für „Zuletzt angesehener Artikel“ hat, erscheint dieses in den Braze-Profilen der Nutzer:innen als `Trait Computed` mit der entsprechenden Anzahl und dem letzten Zeitstempel unter **Custom Events**. Wäre dies stattdessen eine Engage-Zielgruppe, würden Sie Ihre Zielgruppe, die Anzahl und den letzten Zeitstempel unter **Custom Attributes** als `true` finden.
+Um das vorherige Beispiel fortzusetzen: Wenn eine Nutzer:in ein berechnetes Merkmal für „Zuletzt angesehener Artikel“ hat, erscheint dieses in den Braze-Profilen der Nutzer:innen als `Trait Computed` mit der entsprechenden Anzahl und dem letzten Zeitstempel unter **Custom Events**. Wäre dies stattdessen eine Engage-Zielgruppe, würden Sie Ihre Zielgruppe, die Anzahl und den letzten Zeitstempel unter **angepasste Attribute** als `true` finden.
 
 | Berechnetes Merkmal | Zielgruppen |
 | -------------- | --------- |
@@ -112,6 +112,6 @@ Obwohl die Standardeinstellung für die Verbindung von Braze zu Segment Engage `
 
 Das Dashboard von Segment bietet ein „Debugger“-Feature, mit dem Kund:innen testen können, ob die Daten von einer „Quelle“ wie erwartet an ein „Ziel“ übertragen werden.
 
-Dieses Feature stellt eine Verbindung zum Braze-[`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) her, d. h. es kann nur für identifizierte Nutzer:innen verwendet werden (Nutzer:innen, die bereits eine Nutzer-ID für ihr Braze-Nutzerprofil haben).
+Dieses Feature stellt eine Verbindung zum Braze-[`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) her, d. h. es kann nur für identifizierte Nutzer:innen verwendet werden (Nutzer:innen, die bereits eine Nutzer-ID für ihr Braze-Kundenprofil haben).
 
 Dies funktioniert nicht bei einer Side-by-Side-Integration von Braze. Es werden keine Serverdaten übertragen, wenn Sie nicht die korrekten Braze-REST-API-Informationen eingegeben haben.

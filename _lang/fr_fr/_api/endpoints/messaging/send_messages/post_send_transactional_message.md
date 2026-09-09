@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "Cet article présente les détails de l'endpoint Braze Envoyer des e-mails transactionnels via la distribution déclenchée par l'API."
-
 ---
 
 {% api %}
@@ -20,10 +19,10 @@ description: "Cet article présente les détails de l'endpoint Braze Envoyer des
 Cet endpoint est utilisé parallèlement à la création d'une [Campaign d'e-mails transactionnels]({{site.baseurl}}/api/api_campaigns/transactional_campaigns) Braze et de l'ID de Campaign correspondant.
 
 {% alert important %}
-L'e-mail transactionnel est actuellement disponible dans certains forfaits Braze. Contactez votre gestionnaire de la satisfaction client Braze pour plus de détails.
+L'e-mail transactionnel est actuellement disponible dans certains forfaits Braze. Contactez votre gestionnaire du succès des clients Braze pour plus de détails.
 {% endalert %}
 
-Similaire à l'[endpoint d'envoi de Campaign déclenchée]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns), ce type de Campaign vous permet d'héberger le contenu du message dans le tableau de bord de Braze tout en dictant quand et à qui un message est envoyé via votre API. Contrairement à l'endpoint d'envoi de Campaign déclenchée, qui accepte une audience ou un segment auquel envoyer des messages, une requête à cet endpoint doit spécifier un utilisateur unique par `external_user_id` ou `user_alias`, car ce type de Campaign est conçu pour l'envoi de messages 1:1 d'alertes telles que des confirmations de commande ou des réinitialisations de mot de passe.
+Similaire à l'[endpoint d'envoi de Campaign déclenchée]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns), ce type de Campaign vous permet d'héberger le contenu du message dans le tableau de bord de Braze tout en dictant quand et à qui un message est envoyé via votre API. Contrairement à l'endpoint d'envoi de Campaign déclenchée, qui accepte une audience ou un Segment auquel envoyer des messages, une requête à cet endpoint doit spécifier un utilisateur unique par `external_user_id` ou `user_alias`, car ce type de Campaign est conçu pour l'envoi de messages 1:1 tels que des confirmations de commande ou des réinitialisations de mot de passe.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#cec874e1-fa51-42a6-9a8d-7fc57d6a63bc {% endapiref %}
 

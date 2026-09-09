@@ -44,7 +44,7 @@ Nur Nutzer:innen, die bereits in Braze vorhanden sind, werden einer Kohorte hinz
 
 Kohortensynchronisierungen können als einmalige Synchronisierung, täglich oder stündlich geplant oder sogar in Realtime eingerichtet werden, wobei die Aktualisierung jede Minute erfolgt.
 
-Jede Integration, die Sie einrichten, protokolliert Datenpunkte. Bei Fragen zu den Details der Braze-Datenpunkte kann Ihr Braze-Account Manager diese beantworten.
+Jede Integration, die Sie einrichten, protokolliert Datenpunkte. Bei Fragen zu den Details der Braze-Datenpunkte kann Ihr Braze-Account Manager:in diese beantworten.
 
 ### Schritt 4: Nutzer:innen in Braze segmentieren {#step-4-segment-users-in-braze}
 

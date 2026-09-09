@@ -111,8 +111,6 @@ If you add a Delay component to your Canvas and there are no subsequent steps, a
 
 ### Personalized delays
 
-{% multi_lang_include alerts/early_access_beta_alert.md feature='The personalized delays and extended delays feature' %}
-
 Select the **Personalize delay** toggle to set up a personalized delay for your users. You can use this with a [Context step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) to select the context variable to delay by. This overrides the time of day set in the selected attribute or property. This is useful when applying an offset in days or weeks, and you want users to move forward at a specific time. The time zone comes from the attribute or property, or uses the fallback if none is available. 
 
 #### Time zone behavior for "At a specific time"

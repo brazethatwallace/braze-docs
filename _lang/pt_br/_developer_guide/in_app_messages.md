@@ -1,18 +1,17 @@
 ---
-nav_title: Mensagem no app
-article_title: Mensagens no aplicativo para o SDK Braze
-platform: 
+nav_title: Mensagens no app
+article_title: Mensagens no app
+platform:
   - Android
   - FireOS
   - Swift
 page_order: 2.2
-description: "Saiba mais sobre mensagens no aplicativo e como configurá-las para o SDK Braze."
-
+description: "Saiba mais sobre mensagens no app e como configurá-las para o SDK da Braze."
 ---
 
-# Mensagem no app
+# Mensagens no app {#in-app-messages}
 
-> Saiba mais sobre mensagens no aplicativo e como configurá-las para o SDK Braze.
+> Saiba mais sobre mensagens no app e como configurá-las para o SDK da Braze.
 
 {% sdktabs %}
 {% sdktab web %}
@@ -39,7 +38,7 @@ description: "Saiba mais sobre mensagens no aplicativo e como configurá-las par
 {% multi_lang_include developer_guide/flutter/in_app_messages.md %}
 {% endsdktab %}
 
-{% sdktab react native %}
+{% sdktab React Native %}
 {% multi_lang_include developer_guide/react_native/in_app_messages.md %}
 {% endsdktab %}
 
@@ -60,10 +59,15 @@ description: "Saiba mais sobre mensagens no aplicativo e como configurá-las par
 {% endsdktab %}
 {% endsdktabs %}
 
-## Próximos passos
+## Próximas etapas {#next-steps}
 
 Pronto para se aprofundar? Confira estes tutoriais passo a passo:
 
-- Ajuste o tempo de entrega das mensagens [adiando e restaurando mensagens acionadas]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/deferring_triggered_messages).  
-- Refine o direcionamento das mensagens [definindo regras de exibição condicionais]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/conditionally_displaying_messages).  
-- Combine a aparência da sua marca [personalizando o estilo das mensagens com pares chave-valor]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/customizing_message_styling).
+{% article_tiles %}
+- name: Adiando e restaurando mensagens disparadas
+  link: /docs/developer_guide/in_app_messages/tutorials/deferring_triggered_messages
+- name: Definindo regras de exibição condicional
+  link: /docs/developer_guide/in_app_messages/tutorials/conditionally_displaying_messages
+- name: Personalizando o estilo de mensagens com pares chave-valor
+  link: /docs/developer_guide/in_app_messages/tutorials/customizing_message_styling
+{% endarticle_tiles %}

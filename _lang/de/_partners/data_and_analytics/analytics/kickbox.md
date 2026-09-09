@@ -11,9 +11,9 @@ search_tag: Partner
 
 > [Kickbox](https://kickbox.com/) ist eine All-in-One-Plattform zur E-Mail-Verifizierung, die mit den Features, Integrationen und Sicherheitsfunktionen ausgestattet ist, die Sie benötigen, um Ihre E-Mail-Daten sauber und zustellbar zu halten. Die Integration von Kickbox verbessert die Zustellbarkeit Ihrer Braze Campaigns, indem die E-Mail-Verifizierung von Kickbox verwendet wird, um unzustellbare und minderwertige E-Mail-Adressen zu identifizieren, bevor Sie auf „Senden“ klicken.
 
-Mit Kickbox können Sie die Qualität der E-Mail-Adressen Ihrer Nutzer:innen in dem Moment überprüfen, in dem ein Nutzerprofil in Braze aktualisiert wird. Dies wird durch einen dedizierten Canvas- oder Campaign-Workflow erreicht, der durch die Belegung des Feldes `email` eines Profils getriggert wird.
+Mit Kickbox können Sie die Qualität der E-Mail-Adressen Ihrer Nutzer:innen in dem Moment überprüfen, in dem ein Kundenprofil in Braze aktualisiert wird. Dies wird durch einen dedizierten Canvas- oder Campaign-Workflow erreicht, der durch die Belegung des Feldes `email` eines Profils getriggert wird.
 
-Das Canvas oder die Campaign sendet einen Webhook an Kickbox, der die E-Mail-Adresse der Nutzer:innen weitergibt. Kickbox validiert die E-Mail-Adresse und verwendet den Braze-REST-API-Endpunkt, um das Nutzerprofil mit einem angepassten Attribut zu aktualisieren, das die Qualität beschreibt.
+Das Canvas oder die Campaign sendet einen Webhook an Kickbox, der die E-Mail-Adresse der Nutzer:innen weitergibt. Kickbox validiert die E-Mail-Adresse und verwendet den Braze-REST-API-Endpunkt, um das Kundenprofil mit einem angepassten Attribut zu aktualisieren, das die Qualität beschreibt.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -32,7 +32,7 @@ Um Kickbox zu integrieren, folgen Sie den Schritten unter [Integration mit Braze
 
 ### Massenverifizierung {#bulk-verification}
 
-Sie können Ihre gesamte Liste auch alle paar Monate oder vierteljährlich überprüfen, um sich vor E-Mails zu schützen, die durch Churn verloren gehen, oder vor Listen, die sich im Laufe der Zeit verschlechtern und Ihre Zustellbarkeit langsam herabsetzen.
+Sie können Ihre gesamte Liste auch alle paar Monate oder vierteljährlich überprüfen, um sich vor E-Mails zu schützen, die durch Abwanderung verloren gehen, oder vor Listen, die sich im Laufe der Zeit verschlechtern und Ihre Zustellbarkeit langsam herabsetzen.
 
 Dazu müssen Sie, wie von Kickbox beschrieben, die **Eingangseinstellungen** des Workflows ändern. Anstatt **Aktionsbasierte Zustellung** auszuwählen, wählen Sie **Geplant**. Wählen Sie dann einen Zeitplan, zu dem Ihre Liste auf einmal überprüft werden soll.
 
@@ -90,4 +90,4 @@ Gehen Sie dazu folgendermaßen vor:
 1. Gehen Sie in Braze zu **Zielgruppe** > **Segments** > **Segment erstellen**.
 2. Fügen Sie im Abschnitt **Filtergruppe** den Filter **Angepasstes Attribut** hinzu und wählen Sie in der Dropdown-Liste „result“ aus.
 
-Je nach Anwendungsfall kann es sinnvoll sein, ein Segment zu erstellen, in dem das angepasste Kickbox-Attribut „result“ in einem Nutzerprofil vorhanden ist oder dessen Wert gleich „deliverable“ ist. Dieser Filter kann für sich allein verwendet werden, um ein Segment zu erstellen, oder er kann zu einem Teil aller zukünftigen Segmente gemacht werden, um alle darin enthaltenen Nutzer:innen zu validieren.
+Je nach Anwendungsfall kann es sinnvoll sein, ein Segment zu erstellen, in dem das angepasste Kickbox-Attribut „result“ in einem Kundenprofil vorhanden ist oder dessen Wert gleich „deliverable“ ist. Dieser Filter kann für sich allein verwendet werden, um ein Segment zu erstellen, oder er kann zu einem Teil aller zukünftigen Segmente gemacht werden, um alle darin enthaltenen Nutzer:innen zu validieren.

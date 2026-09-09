@@ -4,9 +4,9 @@
 
 ## Pré-requisitos {#prerequisites}
 
-Antes que você possa rastrear dados de usuários no experimento, seu app precisa registrar quando um usuário interage com uma Feature Flag. Isso é chamado de impressão de Feature Flag. Certifique-se de registrar uma impressão de Feature Flag sempre que um usuário vir ou puder ter visto o recurso que você está testando, mesmo que ele esteja no grupo de controle.
+Antes de rastrear dados de usuários no experimento, seu app precisa registrar quando um usuário interage com uma Feature Flag. Isso é chamado de impressão de Feature Flag. Certifique-se de registrar uma impressão de Feature Flag sempre que um usuário vir ou puder ter visto o recurso que você está testando, mesmo que ele esteja no grupo de controle.
 
-Para saber mais sobre como registrar impressões de Feature Flag, consulte [Como criar Feature Flags]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create#impressions).
+Para saber mais sobre o registro de impressões de Feature Flag, consulte [Criando feature flags]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create#impressions).
 
 {% tabs %}
 {% tab Web %}
@@ -54,59 +54,59 @@ if (featureFlag?.enabled == true) {
 {% endtab %}
 {% endtabs %}
 
-## Criando um experimento de Feature Flag {#creating-a-feature-flag-experiment}
+## Criando um experimento com Feature Flag {#creating-a-feature-flag-experiment}
 
 ### Etapa 1: Criar um experimento {#step-1-create-an-experiment}
 
-1. Acesse **Envio de mensagens** > **Campaigns** e selecione **+ Create Campaign**.
+1. Acesse **Messaging** > **Campaigns** e selecione **+ Create Campaign**.
 2. Selecione **Feature Flag Experiment**.
 3. Dê à sua campanha um nome claro e significativo.
 
-### Etapa 2: Adicionar variantes de experimento {#step-2-add-experiment-variants}
+### Etapa 2: Adicionar variantes do experimento {#step-2-add-experiment-variants}
 
-Em seguida, crie variações. Para cada variante, escolha a Feature Flag que deseja ativar ou desativar e, em seguida, revise as propriedades atribuídas.
+Em seguida, crie variações. Para cada variante, escolha a Feature Flag que deseja ativar ou desativar e revise as propriedades atribuídas.
 
-Para testar o impacto do seu recurso, use variantes para dividir o tráfego em dois ou mais grupos. Nomeie um grupo como "Meu grupo de controle" e desative suas Feature Flags.
+Para testar o impacto do seu recurso, use variantes para dividir o tráfego em dois ou mais grupos. Nomeie um grupo como "Meu grupo de controle" e desative as Feature Flags dele.
 
-Experimentos com Feature Flag suportam até nove grupos no total: um grupo de controle mais até oito variantes.
+Os experimentos com Feature Flag suportam até nove grupos no total: um grupo de controle e até oito variantes.
 
-### Etapa 3: Substituir propriedades (opcional) {#step-3-overwrite-properties-optional}
+### Etapa 3: Sobrescrever propriedades (opcional) {#step-3-overwrite-properties-optional}
 
-É possível optar por substituir as propriedades padrão configuradas inicialmente para os usuários que recebem uma variante de campanha específica.
+Você pode optar por sobrescrever as propriedades padrão que configurou inicialmente para os usuários que recebem uma variante de campanha específica.
 
-Para editar, adicionar ou remover propriedades padrão adicionais, edite a própria Feature Flag em **Envio de mensagens** > **Feature Flags**. Quando uma variante estiver desativada, o SDK retornará um objeto de propriedades vazio para a Feature Flag em questão.
+Para editar, adicionar ou remover propriedades padrão adicionais, edite a própria Feature Flag em **Messaging** > **Feature Flags**. Quando uma variante está desativada, o SDK retorna um objeto de propriedades vazio para a Feature Flag correspondente.
 
-![A seção "Variantes de Experimento" com a chave da variável "link" sobrescrita com "/sales".]({% image_buster /assets/img/feature_flags/feature_flag_experiment_override.png %}){: style="max-width:80%"}
+![A seção "Variantes do experimento" com a chave de variável "link" sobrescrita com "/sales".]({% image_buster /assets/img/feature_flags/feature_flag_experiment_override.png %}){: style="max-width:80%"}
 
-### Etapa 4: Escolher os usuários a serem direcionados {#step-4-choose-users-to-target}
+### Etapa 4: Escolher os usuários-alvo {#step-4-choose-users-to-target}
 
-Use um de seus segmentos ou filtros para escolher seus [usuários-alvo]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/targeting_users). Por exemplo, é possível usar o filtro **Received Feature Flag Variant** para redirecionar os usuários que já receberam um teste A/B.
+Use um dos seus Segments ou filtros para escolher seus [usuários-alvo]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users). Por exemplo, você pode usar o filtro **Received Feature Flag Variant** para redirecionar usuários que já receberam um teste A/B.
 
-![A página "Alvo" em um experimento de Feature Flag com "Received Feature Flag Variant" destacado na barra de pesquisa do grupo de filtros.]({% image_buster /assets/img/feature_flags/variant-filter-dropdown.png %}){: style="max-width:70%"}
+![A página "Público-alvo" em um experimento com Feature Flag, com "Received Feature Flag Variant" destacado na barra de pesquisa do grupo de filtros.]({% image_buster /assets/img/feature_flags/variant-filter-dropdown.png %}){: style="max-width:70%"}
 
 {% alert note %}
-A associação ao segmento é calculada quando as Feature Flags são atualizadas para um determinado usuário. As alterações são disponibilizadas após o app atualizar as Feature Flags ou quando uma nova sessão é iniciada.
+A participação em Segments é calculada quando as Feature Flags são atualizadas para um determinado usuário. As alterações ficam disponíveis após o app atualizar as Feature Flags ou quando uma nova sessão é iniciada.
 {% endalert %}
 
 ### Etapa 5: Distribuir variantes {#step-5-distribute-variants}
 
-Escolha a distribuição percentual para o seu experimento. Como prática recomendada, você não deve alterar a distribuição após o seu experimento ter sido lançado.
+Escolha a distribuição percentual para o seu experimento. Como prática recomendada, você não deve alterar a distribuição após o lançamento do experimento.
 
 ### Etapa 6: Atribuir conversões {#step-6-assign-conversions}
 
-A Braze permite que você acompanhe com que frequência os usuários realizam ações específicas, [eventos de conversão]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/conversion_events), após receberem uma campanha. Especifique uma janela de até 30 dias durante a qual uma conversão será contada se o usuário realizar a ação especificada.
+A Braze permite que você acompanhe a frequência com que os usuários realizam ações específicas, chamadas [eventos de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), após receberem uma campanha. Especifique uma janela de até 30 dias durante a qual uma conversão será contabilizada se o usuário realizar a ação especificada.
 
 ### Etapa 7: Revisar e lançar {#step-7-review-and-launch}
 
-Depois de concluir a construção do seu experimento, revise os detalhes e selecione **Launch Experiment**.
+Após concluir a construção do seu experimento, revise os detalhes e selecione **Launch Experiment**.
 
-## Revisão dos resultados {#reviewing-the-results}
+## Revisando os resultados {#reviewing-the-results}
 
-Após a conclusão do experimento de Feature Flag, é possível revisar os dados de impressão do experimento. Acesse **Envio de mensagens** > **Campaigns** e selecione a campanha com seu experimento de Feature Flag.
+Após o término do seu experimento com Feature Flag, você pode revisar os dados de impressão do experimento. Acesse **Messaging** > **Campaigns** e selecione a campaign com seu experimento de Feature Flag.
 
-### Análise de dados da campanha {#campaign-analytics}
+### Análise de dados da campaign {#campaign-analytics}
 
-A **Campaign Analytics** oferece uma visão geral de alto nível do desempenho do seu experimento, como:
+**Campaign Analytics** oferece uma visão geral de alto nível do desempenho do seu experimento, como:
 
 - O número total de impressões
 - O número de impressões únicas
@@ -116,6 +116,6 @@ A **Campaign Analytics** oferece uma visão geral de alto nível do desempenho d
 
 Você também pode visualizar as configurações do experimento para entrega, público e conversão.
 
-### Desempenho do experimento de Feature Flag {#feature-flag-experiment-performance}
+### Desempenho do experimento com Feature Flag {#feature-flag-experiment-performance}
 
-O painel **Feature Flags Experiments Performance** mostra o desempenho da sua mensagem em várias dimensões. As métricas específicas que você vê variam de acordo com o canal de envio de mensagens escolhido e se você está executando um teste multivariante. Para ver os valores de Feature Flag associados a cada variante, selecione **Preview**.
+**Feature Flags Experiments Performance** mostra o desempenho da sua mensagem em várias dimensões. As métricas específicas que você verá variam dependendo do canal de envio de mensagens escolhido e se você está executando um teste multivariante. Para ver os valores de Feature Flag associados a cada variante, selecione **prévia**.

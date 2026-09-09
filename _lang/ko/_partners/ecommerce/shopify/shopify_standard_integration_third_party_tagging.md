@@ -10,9 +10,9 @@ page_order: 2
 
 # 타사 태그 도구와 Shopify 표준 통합 {#shopify-standard-integration-with-third-party-tagging-tool}
 
-> 이 페이지에서는 Google Tag Manager와 같은 타사 도구를 [Shopify 표준 통합]({{site.baseurl}}/shopify_standard_integration)과 함께 사용하여 Braze 웹 SDK를 초기화하고 로드하는 방법을 안내합니다.
+> 이 페이지에서는 Google Tag 매니저와 같은 타사 도구를 [Shopify 표준 통합]({{site.baseurl}}/shopify_standard_integration)과 함께 사용하여 Braze 웹 SDK를 초기화하고 로드하는 방법을 안내합니다.
 
-Shopify 온라인 스토어의 경우 Braze의 표준 통합 방법을 사용하여 사이트에서 Braze SDK를 지원하는 것을 권장합니다. 그러나 Google Tag Manager와 같은 타사 도구를 사용하는 것을 선호할 수 있다는 점을 이해합니다. 타사 도구를 Braze의 Shopify 커넥터와 함께 사용하기로 선택한 경우, 결제 프로세스 중에는 Braze 통합 및 앱 임베드가 SDK를 관리한다는 점에 유의하세요.
+Shopify 온라인 스토어의 경우 Braze의 표준 통합 방법을 사용하여 사이트에서 Braze SDK를 지원하는 것을 권장합니다. 그러나 Google Tag 매니저와 같은 타사 도구를 사용하는 것을 선호할 수 있다는 점을 이해합니다. 타사 도구를 Braze의 Shopify 커넥터와 함께 사용하기로 선택한 경우, 결제 프로세스 중에는 Braze 통합 및 앱 임베드가 SDK를 관리한다는 점에 유의하세요.
 
 ## 요구 사항 {#requirements}
 
@@ -34,7 +34,7 @@ Shopify 온라인 스토어의 경우 Braze의 표준 통합 방법을 사용하
 3. 타사 도구의 웹 SDK 구성에 API 키를 붙여넣고 SDK 버전을 Braze Shopify 통합과 일치하도록 설정합니다.
 
 {% alert note %}
-Google Tag Manager를 사용하는 경우 GTM과 Braze Shopify 통합 구성 모두에서 SDK 버전을 일치시켜야 합니다.
+Google Tag 매니저를 사용하는 경우 GTM과 Braze Shopify 통합 구성 모두에서 SDK 버전을 일치시켜야 합니다.
 {% endalert %}
 
 ## Shopify 데이터 캡처 및 사용자 동기화 {#capturing-shopify-data-and-syncing-users}

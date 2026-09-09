@@ -13,7 +13,7 @@ description: "이 문서에서는 유효하지 않은 전화번호를 조회하�
 /sms/invalid_phone_numbers
 {% endapimethod %}
 
-> 이 엔드포인트를 사용하여 특정 기간 내에 '유효하지 않음'으로 표시된 전화번호 목록을 가져올 수 있습니다. 자세한 내용은 [유효하지 않은 전화번호 처리]({{site.baseurl}}/user_guide/message_building_by_channel/sms/phone_numbers/user_phone_numbers#handling-invalid-phone-numbers) 설명서를 참조하세요.
+> 이 엔드포인트를 사용하여 특정 기간 내에 "유효하지 않음"으로 표시된 전화번호 목록을 가져올 수 있습니다. 자세한 내용은 [유효하지 않은 전화번호 처리]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#handling-invalid-phone-numbers)를 참조하세요.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#81ceae19-15d1-4ac1-ad22-a6b86a92456d {% endapiref %}
 
@@ -30,11 +30,11 @@ description: "이 문서에서는 유효하지 않은 전화번호를 조회하�
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | ----------|-----------| ----------|----- |
 | `start_date` | 선택 사항 <br>(참고 참조) | YYYY-MM-DD 형식의 문자열 | 유효하지 않은 전화번호를 검색할 범위의 시작 날짜로, `end_date`보다 이전이어야 합니다. API에서 UTC 시간 기준 자정으로 처리됩니다. |
-| `end_date` | 선택 사항 <br>(참고 참조) | YYYY-MM-DD 형식의 문자열 | 유효하지 않은 전화번호를 검색할 범위의 종료 날짜입니다. API에서 UTC 시간 기준 자정으로 처리됩니다. |
+| `end_date` | 선택 사항 <br>(참고 참조) | YYYY-MM-DD 형식의 문자열 | 유효하지 않은 전화번호를 검색할 범위의 종료 날짜입니다. API에서 UTC 시간 기준 자정으로 처리됩니다. 결과에는 UTC 기준 해당 캘린더 날짜 종료 시점까지 감지된 유효하지 않은 번호가 포함됩니다(해당 날짜 포함). |
 | `limit` | 선택 사항 | 정수 | 반환되는 결과 수를 제한하는 선택적 필드입니다. 기본값은 100이며, 최대값은 500입니다. |
 | `offset` | 선택 사항 | 정수 | 검색을 시작할 목록의 시작점입니다(선택 사항). |
-| `phone_numbers` | 선택 사항 <br>(참고 참조) | e.164 형식의 문자열 배열 | 제공된 경우, 해당 전화번호가 유효하지 않은 것으로 확인되면 반환합니다. |
-| `reason` | 선택 사항 <br>(참고 참조) | 문자열 | 사용 가능한 값은 "provider_error"(공급자 오류로 인해 해당 전화기에서 SMS를 수신할 수 없음) 또는 "deactivated"(전화번호가 비활성화됨)입니다. 생략하면 모든 사유가 반환됩니다. |
+| `phone_numbers` | 선택 사항 <br>(참고 참조) | e.164 형식의 문자열 배열 | 제공된 경우, 해당 전화번호가 유효하지 않은 것으로 확인되면 Braze가 해당 전화번호를 반환합니다. |
+| `reason` | 선택 사항 <br>(참고 참조) | 문자열 | 사용 가능한 값은 `provider_error`(공급자가 해당 전화기에서 SMS를 수신할 수 없음을 나타냄), `deactivated`(전화번호가 비활성화됨) 또는 `invalid_format`(번호가 형식 검증에 실패함, 예: E.164가 아닌 값)입니다. 생략하면 모든 사유가 반환됩니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 {% alert note %}
@@ -68,7 +68,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/sms/invalid_phone_n
     {
       "phone": (string) phone number in e.164 format,
       "invalid_detected_at": (string) the time the invalid number was detected in ISO 8601
-      "reason" : "provider_error"
+      "reason" : "invalid_format"
     }
   ],
   "message": "success"

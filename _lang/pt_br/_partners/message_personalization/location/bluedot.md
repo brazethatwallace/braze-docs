@@ -56,4 +56,4 @@ Configure uma Campaign baseada em ações na Braze que enviará mensagens com ba
 #### Direcionamento de usuários {#targeting-users}
 
 Certifique-se de direcionar **Todos os usuários** para seu espaço de trabalho.
-![Uma Campaign baseada em ações com a etapa de direcionamento de usuários incentivando você a selecionar "Todos os usuários" como o segmento desejado.]({%image_buster /assets/img_archive/Campaign-Target_users-BD.png %}){: style="max-width:80%"}
+![Uma Campaign baseada em ações com a etapa de direcionamento de usuários incentivando você a selecionar "Todos os usuários" como o Segment desejado.]({%image_buster /assets/img_archive/Campaign-Target_users-BD.png %}){: style="max-width:80%"}

@@ -1,28 +1,28 @@
 ## 사용량 제한 {#rate-limits}
 
-푸시 알림에는 사용량 제한이 있으므로 애플리케이션에 필요한 만큼 많이 보내는 것을 두려워하지 마세요. iOS 및 Apple 푸시 알림 서비스(APNs) 서버가 알림 전송 빈도를 제어하므로 너무 많이 보내도 문제가 발생하지 않습니다. 푸시 알림이 제한되는 경우, 기기가 다음 번에 연결 유지 패킷을 보내거나 다른 알림을 받을 때까지 지연될 수 있습니다.
+푸시 알림은 전송 속도가 제한되므로 애플리케이션에 필요한 만큼 많이 보내도 괜찮습니다. iOS와 Apple 푸시 알림 서비스(APNs) 서버가 알림 전송 빈도를 제어하므로 너무 많이 보내도 문제가 발생하지 않습니다. 푸시 알림이 제한되는 경우, 기기가 다음 번에 연결 유지 패킷을 보내거나 다른 알림을 받을 때까지 지연될 수 있습니다.
 
-## 푸시 알림 설정 {#setting-up-push-notifications}
+## 푸시 알림 설정하기 {#setting-up-push-notifications}
 
-### 1단계: APNs 토큰 업로드 {#step-1-upload-your-apns-token}
+### 1단계: APNs 토큰 업로드하기 {#step-1-upload-your-apns-token}
 
 {% multi_lang_include developer_guide/swift/apns_token.md %}
 
-### 2단계: 푸시 기능 활성화 {#step-2-enable-push-capabilities}
+### 2단계: 푸시 기능 활성화하기 {#step-2-enable-push-capabilities}
 
-Xcode에서 메인 앱 타겟의 **Signing & Capabilities** 섹션으로 이동하여 푸시 알림 기능을 추가하세요.
+Xcode에서 메인 앱 타겟의 **Signing & Capabilities** 섹션으로 이동하여 푸시 알림 기능을 추가합니다.
 
 ![Xcode 프로젝트의 'Signing & Capabilities' 섹션.]({% image_buster /assets/img_archive/Enable_push_capabilities.png %})
 
-### 3단계: 푸시 처리 설정 {#step-3-set-up-push-handling}
+### 3단계: 푸시 처리 설정하기 {#step-3-set-up-push-handling}
 
-Swift SDK를 사용하여 Braze에서 수신한 원격 알림의 처리를 자동화할 수 있습니다. 이것은 푸시 알림을 처리하는 가장 간단한 방법이며 권장되는 처리 메서드입니다.
+Swift SDK를 사용하여 Braze에서 수신한 원격 알림의 처리를 자동화할 수 있습니다. 이는 푸시 알림을 처리하는 가장 간단한 방법이며 권장되는 처리 방식입니다.
 
 {% tabs local %}
-{% tab Automatic %}
-#### 3.1단계: 푸시 속성정보에서 자동화 활성화 {#step-31-enable-automation-in-the-push-property}
+{% tab 자동 %}
+#### 3.1단계: push 속성에서 자동화 활성화하기 {#step-31-enable-automation-in-the-push-property}
 
-자동 푸시 통합을 활성화하려면 `push` 구성의 `automation` 속성정보를 `true`로 설정합니다:
+자동 푸시 통합을 활성화하려면 `push` 구성의 `automation` 속성을 `true`로 설정합니다:
 
 {% subtabs %}
 {% subtab Swift %}
@@ -42,23 +42,23 @@ configuration.push.automation = [[BRZConfigurationPushAutomation alloc] initEnab
 {% endsubtab %}
 {% endsubtabs %}
 
-이렇게 하면 SDK에 다음을 지시합니다:
-- 시스템에서 푸시 알림을 위해 애플리케이션을 등록합니다.
-- 초기화 시 푸시 알림 승인/권한을 요청합니다.
-- 푸시 알림 관련 시스템 델리게이트 메서드에 대한 구현을 동적으로 제공합니다.
+이렇게 하면 SDK가 다음 작업을 수행합니다:
+- 시스템에 애플리케이션의 푸시 알림을 등록합니다.
+- 초기화 시 푸시 알림 인증/권한을 요청합니다.
+- 푸시 알림 관련 시스템 델리게이트 메서드의 구현을 동적으로 제공합니다.
 
 {% alert note %}
-SDK에서 수행하는 자동화 단계는 코드베이스의 기존 푸시 알림 처리 통합과 호환됩니다. SDK는 Braze에서 수신한 원격 알림의 처리만 자동화합니다. 자체 또는 다른 서드파티 SDK 원격 알림을 처리하기 위해 구현된 모든 시스템 핸들러는 `automation`이 활성화되어 있어도 계속 작동합니다.
+SDK가 수행하는 자동화 단계는 코드베이스에 있는 기존 푸시 알림 처리 통합과 호환됩니다. SDK는 Braze에서 수신한 원격 알림의 처리만 자동화합니다. 자체 또는 타사 SDK 원격 알림을 처리하기 위해 구현된 시스템 핸들러는 `automation`이 활성화된 경우에도 계속 작동합니다.
 {% endalert %}
 
 {% alert warning %}
-푸시 알림 자동화를 활성화하려면 메인 스레드에서 SDK를 초기화해야 합니다. SDK 초기화는 애플리케이션 실행이 완료되기 전 또는 AppDelegate [`application(_:didFinishLaunchingWithOptions:)`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622921-application) 구현에서 수행해야 합니다.
-애플리케이션에서 SDK를 초기화하기 전에 추가 설정이 필요한 경우 [지연된 초기화]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift#step-2-set-up-delayed-initialization-optional) 설명서 페이지를 참조하세요.
+푸시 알림 자동화를 활성화하려면 SDK를 메인 스레드에서 초기화해야 합니다. SDK 초기화는 애플리케이션이 실행을 완료하기 전이나 AppDelegate의 [`application(_:didFinishLaunchingWithOptions:)`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622921-application) 구현 내에서 이루어져야 합니다.
+SDK를 초기화하기 전에 추가 설정이 필요한 경우 [지연 초기화]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift#step-2-set-up-delayed-initialization-optional) 설명서 페이지를 참조하세요.
 {% endalert %}
 
-#### 3.2단계: 개별 구성 재정의(선택 사항) {#step-32-override-individual-configurations-optional}
+#### 3.2단계: 개별 구성 재정의하기(선택 사항) {#step-32-override-individual-configurations-optional}
 
-보다 세분화된 제어를 위해 각 자동화 단계를 개별적으로 활성화하거나 비활성화할 수 있습니다:
+보다 세밀한 제어를 위해 각 자동화 단계를 개별적으로 활성화하거나 비활성화할 수 있습니다:
 
 {% subtabs %}
 {% subtab Swift %}
@@ -81,24 +81,24 @@ configuration.push.automation.requestAuthorizationAtLaunch = NO;
 {% endsubtab %}
 {% endsubtabs %}
 
-사용 가능한 모든 옵션은 [`Braze.Configuration.Push.Automation`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/push-swift.class/automation-swift.class)을 참조하고, 자동화 동작에 대한 자세한 내용은 [`automation`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/push-swift.class/automation-swift.property)을 참조하세요.
+사용 가능한 모든 옵션은 [`Braze.Configuration.Push.Automation`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/push-swift.class/automation-swift.class)을, 자동화 동작에 대한 자세한 내용은 [`automation`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/push-swift.class/automation-swift.property)을 참조하세요.
 {% endtab %}
 
-{% tab Manual %}
+{% tab 수동 %}
 {% alert note %}
-앱에 특정한 추가 동작을 위해 푸시 알림에 의존하는 경우에도 수동 푸시 알림 통합 대신 자동 푸시 통합을 사용할 수 있습니다. [`subscribeToUpdates(_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/notifications-swift.class/subscribetoupdates(_:)) 메서드를 통해 Braze에서 처리된 원격 알림에 대한 알림을 받을 수 있습니다.
+앱에 특화된 추가 동작을 위해 푸시 알림에 의존하는 경우에도 수동 푸시 알림 통합 대신 자동 푸시 통합을 사용할 수 있습니다. [`subscribeToUpdates(_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/notifications-swift.class/subscribetoupdates(_:)) 메서드를 통해 Braze에서 처리한 원격 알림에 대한 알림을 받을 수 있습니다.
 {% endalert %}
 
-#### 3.1단계: APNs로 푸시 알림 등록하기 {#step-31-register-for-push-notifications-with-apns}
+#### 3.1단계: APNs에 푸시 알림 등록하기 {#step-31-register-for-push-notifications-with-apns}
 
-앱의 [`application:didFinishLaunchingWithOptions:` 델리게이트 메서드](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622921-application)에 적절한 코드 샘플을 포함시켜 사용자의 기기가 APNs에 등록할 수 있도록 합니다. 애플리케이션의 메인 스레드에서 모든 푸시 통합 코드를 호출해야 합니다.
+사용자의 기기가 APNs에 등록할 수 있도록 앱의 [`application:didFinishLaunchingWithOptions:` 델리게이트 메서드](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622921-application)에 적절한 코드 샘플을 포함합니다. 모든 푸시 통합 코드는 애플리케이션의 메인 스레드에서 호출해야 합니다.
 
-Braze는 푸시 실행 버튼 지원을 위한 기본 푸시 카테고리도 제공하며, 이 카테고리는 푸시 등록 코드에 수동으로 추가해야 합니다. 추가 통합 단계는 [푸시 실행 버튼]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=swift#swift_customizing-push-categories)을 참조하세요.
+Braze는 또한 푸시 실행 버튼 지원을 위한 기본 푸시 카테고리를 제공하며, 이는 푸시 등록 코드에 수동으로 추가해야 합니다. 추가 통합 단계는 [푸시 실행 버튼]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=swift#swift_customizing-push-categories)을 참조하세요.
 
 앱 델리게이트의 `application:didFinishLaunchingWithOptions:` 메서드에 다음 코드를 추가합니다.
 
 {% alert note %}
-다음 코드 샘플에는 임시 푸시 인증(5번째 줄 및 6번째 줄)을 위한 통합이 포함되어 있습니다. 앱에서 임시 승인을 사용하지 않으려면 `requestAuthorization` 옵션에 `UNAuthorizationOptionProvisional`을 추가하는 코드 줄을 제거할 수 있습니다.<br>[iOS 알림 옵션]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options)을 방문하여 푸시 임시 인증에 대해 자세히 알아보세요.
+다음 코드 샘플에는 임시 푸시 인증을 위한 통합이 포함되어 있습니다(5번, 6번 줄). 앱에서 임시 인증을 사용할 계획이 없는 경우 `requestAuthorization` 옵션에 `UNAuthorizationOptionProvisional`을 추가하는 코드 줄을 제거할 수 있습니다.<br>푸시 임시 인증에 대해 자세히 알아보려면 [iOS 알림 옵션]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options)을 참조하세요.
 {% endalert %}
 
 {% subtabs %}
@@ -142,11 +142,11 @@ if (@available(iOS 12.0, *)) {
 {% endsubtabs %}
 
 {% alert warning %}
-앱 실행이 완료되기 전에 `center.delegate = self`를 사용하여 델리게이트 오브젝트를 동기적으로 할당해야 합니다(가급적이면 `application:didFinishLaunchingWithOptions:`에서). 그렇게 하지 않으면 앱에서 수신 푸시 알림을 놓칠 수 있습니다. Apple의 [`UNUserNotificationCenterDelegate`](https://developer.apple.com/documentation/usernotifications/unusernotificationcenterdelegate) 설명서를 참조하세요.
-앱에서 `wipeData()`를 호출한 후 동일한 앱 실행에서 Braze SDK를 다시 활성화하는 경우, SDK에서 사용하는 기기 토큰을 다시 채우려면 `registerForRemoteNotifications()`를 다시 호출해야 합니다.
+앱이 실행을 완료하기 전에, 가급적 `application:didFinishLaunchingWithOptions:`에서 `center.delegate = self`를 사용하여 동기적으로 델리게이트 객체를 할당해야 합니다. 그렇지 않으면 앱에서 수신 푸시 알림을 놓칠 수 있습니다. 자세한 내용은 Apple의 [`UNUserNotificationCenterDelegate`](https://developer.apple.com/documentation/usernotifications/unusernotificationcenterdelegate) 설명서를 참조하세요.
+앱이 `wipeData()`를 호출한 후 같은 앱 실행 중에 Braze SDK를 다시 활성화하는 경우, SDK에서 사용하는 기기 토큰을 다시 채우려면 `registerForRemoteNotifications()`를 다시 호출해야 합니다.
 {% endalert %}
 
-#### 3.2단계: Braze에 푸시 토큰 등록 {#step-32-register-push-tokens-with-braze}
+#### 3.2단계: Braze에 푸시 토큰 등록하기 {#step-32-register-push-tokens-with-braze}
 
 APNs 등록이 완료되면 결과 `deviceToken`을 Braze에 전달하여 사용자에 대한 푸시 알림을 활성화합니다.
 
@@ -172,18 +172,18 @@ AppDelegate.braze?.notifications.register(deviceToken: deviceToken)
 {% endsubtabs %}
 
 {% alert important %}
-`application:didRegisterForRemoteNotificationsWithDeviceToken:` 델리게이트 메서드는 `application.registerForRemoteNotifications()` 호출 후 항상 호출됩니다. <br><br>다른 푸시 서비스에서 Braze로 마이그레이션하고 사용자 기기가 이미 APNs에 등록되어 있는 경우, 이 메서드는 다음에 호출될 때 기존 등록에서 토큰을 수집하며, 사용자는 푸시에 다시 옵트인하지 않아도 됩니다.
+`application:didRegisterForRemoteNotificationsWithDeviceToken:` 델리게이트 메서드는 `application.registerForRemoteNotifications()`가 호출된 후 매번 호출됩니다. <br><br>다른 푸시 서비스에서 Braze로 마이그레이션하는 중이고 사용자의 기기가 이미 APNs에 등록되어 있는 경우, 이 메서드는 다음에 호출될 때 기존 등록에서 토큰을 수집하며, 사용자는 푸시에 다시 옵트인할 필요가 없습니다.
 {% endalert %}
 
-#### 3.3단계: 푸시 처리 활성화 {#step-33-enable-push-handling}
+#### 3.3단계: 푸시 처리 활성화하기 {#step-33-enable-push-handling}
 
-다음으로, 수신한 푸시 알림을 Braze에 전달합니다. 이 단계는 푸시 분석 로깅 및 링크 처리에 필요합니다. 애플리케이션의 메인 스레드에서 모든 푸시 통합 코드를 호출해야 합니다.
+다음으로, 수신한 푸시 알림을 Braze에 전달합니다. 이 단계는 푸시 분석 기록 및 링크 처리에 필요합니다. 모든 푸시 통합 코드는 애플리케이션의 메인 스레드에서 호출해야 합니다.
 
 ##### 기본 푸시 처리 {#default-push-handling}
 
 {% subtabs %}
 {% subtab Swift %}
-Braze 기본 푸시 처리를 활성화하려면 앱의 `application(_:didReceiveRemoteNotification:fetchCompletionHandler:)` 메서드에 다음 코드를 추가하세요:
+Braze 기본 푸시 처리를 활성화하려면 앱의 `application(_:didReceiveRemoteNotification:fetchCompletionHandler:)` 메서드에 다음 코드를 추가합니다:
 
 ```swift
 if let braze = AppDelegate.braze, braze.notifications.handleBackgroundNotification(
@@ -195,7 +195,7 @@ if let braze = AppDelegate.braze, braze.notifications.handleBackgroundNotificati
 completionHandler(.noData)
 ```
 
-다음으로 앱의 `userNotificationCenter(_:didReceive:withCompletionHandler:)` 메서드에 다음을 추가합니다:
+다음으로, 앱의 `userNotificationCenter(_:didReceive:withCompletionHandler:)` 메서드에 다음을 추가합니다:
 
 ```swift
 if let braze = AppDelegate.braze, braze.notifications.handleUserNotification(
@@ -209,7 +209,7 @@ completionHandler()
 {% endsubtab %}
 
 {% subtab OBJECTIVE-C %}
-Braze 기본 푸시 처리를 활성화하려면 애플리케이션의 `application:didReceiveRemoteNotification:fetchCompletionHandler:` 메서드에 다음 코드를 추가하세요:
+Braze 기본 푸시 처리를 활성화하려면 애플리케이션의 `application:didReceiveRemoteNotification:fetchCompletionHandler:` 메서드에 다음 코드를 추가합니다:
 
 ```objc
 BOOL processedByBraze = AppDelegate.braze != nil && [AppDelegate.braze.notifications handleBackgroundNotificationWithUserInfo:userInfo
@@ -221,7 +221,7 @@ if (processedByBraze) {
 completionHandler(UIBackgroundFetchResultNoData);
 ```
 
-다음으로 앱의 `(void)userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:` 메서드에 다음 코드를 추가합니다:
+다음으로, 앱의 `(void)userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:` 메서드에 다음 코드를 추가합니다:
 
 ```objc
 BOOL processedByBraze = AppDelegate.braze != nil && [AppDelegate.braze.notifications handleUserNotificationWithResponse:response
@@ -239,7 +239,7 @@ completionHandler();
 
 {% subtabs %}
 {% subtab Swift %}
-포그라운드 푸시 알림을 활성화하고 수신 시 Braze에서 인식하도록 하려면 `UNUserNotificationCenter.userNotificationCenter(_:willPresent:withCompletionHandler:)`를 구현합니다. 사용자가 포그라운드 알림을 탭하면 `userNotificationCenter(_:didReceive:withCompletionHandler:)` 푸시 델리게이트가 호출되고 Braze는 푸시 클릭 이벤트를 기록합니다.
+포그라운드 푸시 알림을 활성화하고 수신 시 Braze가 이를 인식하도록 하려면 `UNUserNotificationCenter.userNotificationCenter(_:willPresent:withCompletionHandler:)`를 구현합니다. 사용자가 포그라운드 알림을 탭하면 `userNotificationCenter(_:didReceive:withCompletionHandler:)` 푸시 델리게이트가 호출되고 Braze가 푸시 클릭 이벤트를 기록합니다.
 
 ```swift
 func userNotificationCenter(
@@ -263,7 +263,7 @@ func userNotificationCenter(
 {% endsubtab %}
 
 {% subtab OBJECTIVE-C %}
-포그라운드 푸시 알림을 활성화하고 수신 시 Braze에서 인식하도록 하려면 `userNotificationCenter:willPresentNotification:withCompletionHandler:`를 구현합니다. 사용자가 포그라운드 알림을 탭하면 `userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:` 푸시 델리게이트가 호출되고 Braze는 푸시 클릭 이벤트를 기록합니다.
+포그라운드 푸시 알림을 활성화하고 수신 시 Braze가 이를 인식하도록 하려면 `userNotificationCenter:willPresentNotification:withCompletionHandler:`를 구현합니다. 사용자가 포그라운드 알림을 탭하면 `userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:` 푸시 델리게이트가 호출되고 Braze가 푸시 클릭 이벤트를 기록합니다.
 
 ```objc
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center
@@ -314,7 +314,7 @@ curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer {YOUR
 
 ## 푸시 알림 업데이트 구독하기 {#subscribing-to-push-notifications-updates}
 
-Braze에서 처리하는 푸시 알림 페이로드에 액세스하려면 [`Braze.Notifications.subscribeToUpdates(payloadTypes:_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/notifications-swift.class/subscribetoupdates(payloadtypes:_:)/) 메서드를 사용합니다.
+Braze에서 처리한 푸시 알림 페이로드에 접근하려면 [`Braze.Notifications.subscribeToUpdates(payloadTypes:_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/notifications-swift.class/subscribetoupdates(payloadtypes:_:)/) 메서드를 사용합니다.
 
 `payloadTypes` 매개변수를 사용하여 푸시 열람 이벤트, 푸시 수신 이벤트 또는 둘 다와 관련된 알림을 구독할지 지정할 수 있습니다.
 
@@ -331,7 +331,7 @@ let cancellable = AppDelegate.braze?.notifications.subscribeToUpdates(payloadTyp
 ```
 
 {% alert important %}
-푸시 수신 이벤트는 포그라운드 알림 및 `content-available` 백그라운드 알림에 대해서만 트리거됩니다. 종료된 상태에서 수신한 알림이나 `content-available` 필드가 없는 백그라운드 알림에 대해서는 트리거되지 않습니다.
+푸시 수신 이벤트는 포그라운드 알림과 `content-available` 백그라운드 알림에서만 트리거됩니다. 앱이 종료된 상태에서 수신된 알림이나 `content-available` 필드가 없는 백그라운드 알림에서는 트리거되지 않습니다.
 {% endalert %}
 
 {% endtab %}
@@ -347,27 +347,27 @@ BRZCancellable *cancellable = [notifications subscribeToUpdatesWithPayloadTypes:
 ```
 
 {% alert important %}
-푸시 수신 이벤트는 포그라운드 알림 및 `content-available` 백그라운드 알림에 대해서만 트리거됩니다. 종료된 상태에서 수신한 알림이나 `content-available` 필드가 없는 백그라운드 알림에 대해서는 트리거되지 않습니다.
+푸시 수신 이벤트는 포그라운드 알림과 `content-available` 백그라운드 알림에서만 트리거됩니다. 앱이 종료된 상태에서 수신된 알림이나 `content-available` 필드가 없는 백그라운드 알림에서는 트리거되지 않습니다.
 {% endalert %}
 
 {% endtab %}
 
 {% endtabs %}
 {% alert note %}
-자동 푸시 통합을 사용하는 경우, `subscribeToUpdates(_:)`는 Braze에서 처리한 원격 알림에 대한 알림을 받을 수 있는 유일한 방법입니다. Braze에서 알림을 자동으로 처리하는 경우 `UIAppDelegate` 및 `UNUserNotificationCenterDelegate` 시스템 메서드는 호출되지 않습니다.
+자동 푸시 통합을 사용하는 경우, `subscribeToUpdates(_:)`는 Braze에서 처리한 원격 알림에 대한 알림을 받을 수 있는 유일한 방법입니다. 알림이 Braze에 의해 자동으로 처리될 때 `UIAppDelegate` 및 `UNUserNotificationCenterDelegate` 시스템 메서드는 호출되지 않습니다.
 {% endalert %}
 
 {% alert tip %}
-`application(_:didFinishLaunchingWithOptions:)`에서 푸시 알림 구독을 생성하여 최종 사용자가 앱이 종료된 상태에서 알림을 탭한 후에도 구독이 트리거되도록 하세요.
+앱이 종료된 상태에서 최종 사용자가 알림을 탭한 후 구독이 트리거되도록 하려면 `application(_:didFinishLaunchingWithOptions:)`에서 푸시 알림 구독을 생성하세요.
 {% endalert %}
 
-## 포그라운드 알림 처리 {#handling-foreground-notifications}
+## 포그라운드 알림 처리하기 {#handling-foreground-notifications}
 
-기본적으로 앱이 포그라운드에 있을 때 푸시 알림이 도착하면 iOS는 자동으로 표시하지 않습니다. 포그라운드에서 푸시 알림을 표시하고 Braze 분석으로 추적하려면 `UNUserNotificationCenterDelegate.userNotificationCenter(_:willPresent:withCompletionHandler:)` 구현 내에서 `handleForegroundNotification(notification:)` 메서드를 호출하세요.
+기본적으로, 앱이 포그라운드에 있는 동안 푸시 알림이 도착하면 iOS가 자동으로 표시하지 않습니다. 포그라운드에서 푸시 알림을 표시하고 Braze 분석으로 추적하려면, `UNUserNotificationCenterDelegate.userNotificationCenter(_:willPresent:withCompletionHandler:)` 구현 내에서 `handleForegroundNotification(notification:)` 메서드를 호출하세요.
 
 ### 작동 방식 {#how-it-works}
 
-`handleForegroundNotification(notification:)`을 호출하면 Braze는 알림 페이로드를 처리하여 분석을 기록하고 딥링크 또는 버튼 동작을 처리합니다. 실제 표시 동작은 완료 핸들러에 전달하는 `UNNotificationPresentationOptions`에 의해 제어됩니다.
+`handleForegroundNotification(notification:)`을 호출하면, Braze가 알림 페이로드를 처리하여 분석 데이터를 기록하고 딥링크 또는 버튼 동작을 처리합니다. 실제 표시 동작은 완료 핸들러에 전달하는 `UNNotificationPresentationOptions`에 의해 제어됩니다.
 
 ```swift
 import BrazeKit
@@ -398,21 +398,21 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 
 ## 푸시 프라이머 {#push-primers}
 
-푸시 프라이머 Campaign(캠페인)은 사용자가 기기에서 앱에 대한 푸시 알림을 활성화하도록 권장합니다. [노코드 푸시 프라이머]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages)를 사용하면 SDK 커스텀 설정 없이도 이 작업을 수행할 수 있습니다.
+푸시 프라이머 Campaign은 사용자가 기기에서 앱에 대한 푸시 알림을 활성화하도록 권장합니다. [노코드 푸시 프라이머]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages)를 사용하면 SDK 커스텀 설정 없이도 이 작업을 수행할 수 있습니다.
 
 ## 동적 APNs 게이트웨이 관리 {#dynamic-apns-gateway-management}
 
-동적 Apple 푸시 알림 서비스(APNs) 게이트웨이 관리는 올바른 APNs 환경을 자동으로 감지하여 iOS 푸시 알림의 신뢰성과 효율성을 향상시킵니다. 이전에는 푸시 알림을 위해 APNs 환경(개발 또는 프로덕션)을 수동으로 선택해야 했으며, 이로 인해 잘못된 게이트웨이 구성, 전달 실패 및 `BadDeviceToken` 오류가 발생하는 경우가 있었습니다.
+동적 Apple Push Notification Service(APNs) 게이트웨이 관리는 올바른 APNs 환경을 자동으로 감지하여 iOS 푸시 알림의 안정성과 효율성을 향상시킵니다. 이전에는 푸시 알림에 대한 APNs 환경(개발 또는 프로덕션)을 수동으로 선택해야 했으며, 이로 인해 잘못된 게이트웨이 구성, 전송 실패, `BadDeviceToken` 오류가 발생할 수 있었습니다.
 
-동적 APNs 게이트웨이 관리를 통해 다음을 얻을 수 있습니다:
+동적 APNs 게이트웨이 관리를 사용하면 다음과 같은 이점이 있습니다:
 
-- **신뢰성 향상:** 알림이 항상 올바른 APNs 환경으로 전달되어 전달 실패를 줄입니다.
-- **구성 간소화:** APNs 게이트웨이 설정을 수동으로 관리할 필요가 없습니다.
+- **향상된 안정성:** 알림이 항상 올바른 APNs 환경으로 전송되어 전송 실패가 줄어듭니다.
+- **간소화된 구성:** 더 이상 APNs 게이트웨이 설정을 수동으로 관리할 필요가 없습니다.
 - **오류 복원력:** 유효하지 않거나 누락된 게이트웨이 값이 원활하게 처리되어 중단 없는 서비스를 제공합니다.
 
-### 필수 조건 {#prerequisites}
+### 전제 조건 {#prerequisites}
 
-Braze는 다음 SDK 버전 요구 사항으로 iOS 푸시 알림을 위한 동적 APNs 게이트웨이 관리를 지원합니다:
+Braze는 다음 SDK 버전 요구 사항을 충족하는 iOS 푸시 알림에 대한 동적 APNs 게이트웨이 관리를 지원합니다:
 
 {% sdk_min_versions swift:10.0.0 %}
 
@@ -420,23 +420,23 @@ Braze는 다음 SDK 버전 요구 사항으로 iOS 푸시 알림을 위한 동�
 
 iOS 앱이 Braze Swift SDK와 통합되면, 가능한 경우 [`aps-environment`](https://developer.apple.com/documentation/bundleresources/entitlements/aps-environment)를 포함한 기기 관련 데이터를 Braze SDK API로 전송합니다. `apns_gateway` 값은 앱이 개발(`dev`) 또는 프로덕션(`prod`) APNs 환경을 사용하고 있는지를 나타냅니다.
 
-Braze는 각 기기에 대해 보고된 게이트웨이 값을 저장합니다. 새로운 유효한 게이트웨이 값이 수신되면 Braze는 저장된 값을 자동으로 업데이트합니다.
+Braze는 각 기기에 대해 보고된 게이트웨이 값도 저장합니다. 새로운 유효한 게이트웨이 값이 수신되면, Braze는 저장된 값을 자동으로 업데이트합니다.
 
-Braze가 푸시 알림을 보낼 때:
+Braze가 푸시 알림을 전송할 때:
 
-- 기기에 대해 유효한 게이트웨이 값(dev 또는 prod)이 저장되어 있으면, Braze는 이를 사용하여 올바른 APNs 환경을 결정합니다.
-- 저장된 게이트웨이 값이 없으면, Braze는 **앱 설정** 페이지에 구성된 APNs 환경을 기본값으로 사용합니다.
+- 유효한 게이트웨이 값(dev 또는 prod)이 기기에 저장되어 있는 경우, Braze는 이를 사용하여 올바른 APNs 환경을 결정합니다.
+- 게이트웨이 값이 저장되어 있지 않은 경우, Braze는 **앱 설정** 페이지에서 구성된 APNs 환경을 기본값으로 사용합니다.
 
 ### 자주 묻는 질문 {#frequently-asked-questions}
 
 #### 이 기능이 도입된 이유는 무엇인가요? {#why-was-this-feature-introduced}
 
-동적 APNs 게이트웨이 관리를 통해 올바른 환경이 자동으로 선택됩니다. 이전에는 APNs 게이트웨이를 수동으로 구성해야 했으며, 이로 인해 `BadDeviceToken` 오류, 토큰 무효화 및 잠재적인 APNs 사용량 제한 문제가 발생할 수 있었습니다.
+동적 APNs 게이트웨이 관리를 사용하면 올바른 환경이 자동으로 선택됩니다. 이전에는 APNs 게이트웨이를 수동으로 구성해야 했으며, 이로 인해 `BadDeviceToken` 오류, 토큰 무효화 및 잠재적인 APNs 사용량 제한 문제가 발생할 수 있었습니다.
 
-#### 이것이 푸시 전달 성능에 어떤 영향을 미치나요? {#how-does-this-impact-push-delivery-performance}
+#### 이 기능이 푸시 전송 성능에 어떤 영향을 미치나요? {#how-does-this-impact-push-delivery-performance}
 
-이 기능은 항상 푸시 토큰을 올바른 APNs 환경으로 라우팅하여 잘못 구성된 게이트웨이로 인한 실패를 방지함으로써 전달률을 향상시킵니다.
+이 기능은 푸시 토큰을 항상 올바른 APNs 환경으로 라우팅하여 잘못 구성된 게이트웨이로 인한 실패를 방지함으로써 전송률을 향상시킵니다.
 
 #### 이 기능을 비활성화할 수 있나요? {#can-i-disable-this-feature}
 
-동적 APNs 게이트웨이 관리는 기본적으로 활성화되어 있으며 신뢰성 향상을 제공합니다. 수동 게이트웨이 선택이 필요한 특정 사용 사례가 있는 경우 [Braze 고객지원]({{site.baseurl}}/user_guide/administrative/access_braze/support)에 문의하세요.
+동적 APNs 게이트웨이 관리는 기본적으로 활성화되어 있으며 안정성 향상을 제공합니다. 수동 게이트웨이 선택이 필요한 특정 사용 사례가 있는 경우, [Braze 지원팀]({{site.baseurl}}/user_guide/administer/personal/braze_support)에 문의하세요.

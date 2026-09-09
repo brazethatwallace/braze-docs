@@ -1,6 +1,6 @@
 {% if include.content == "Differences" %}
 
-You can use [Teams]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/teams/), [permission sets]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#creating-a-permission-set), and [user roles]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#creating-a-role) to manage company user access and responsibilities within Braze. Each feature encompasses a different collection of permissions and access-controls.
+You can use [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams/), [permission sets]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#creating-a-permission-set), and [user roles]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#creating-a-role) to manage company user access and responsibilities within Braze. Each feature encompasses a different collection of permissions and access-controls.
 
 ### Key differences
 

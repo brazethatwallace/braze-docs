@@ -43,7 +43,7 @@ The Message Composer controls have been refreshed to include wording associated 
 
 ## Azure for Currents
 
-Braze customers using Currents can now see [Azure]({{site.baseurl}}/partners/data_and_infrastructure_agility/cloud_storage/microsoft_azure_blob_storage_for_currents#microsoft-azure-blob-storage) as a potential integration.
+Braze customers using Currents can now see [Azure]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents) as a potential integration.
 
 ## Input field expansions
 

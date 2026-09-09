@@ -89,7 +89,7 @@ Hier finden Sie den REST-Endpunkt und können Ihren Braze-Datenimport-Schlüssel
 ### 3. Schritt: Daten-Feeds einrichten {#step-3-set-up-data-feeds}
 
 1. Wählen Sie in Branch unter dem Abschnitt **Exports** die Option **Data Feeds**.
-2. Wählen Sie auf der Seite **Data Feeds Manager** den Tab **Data Integrations** am oberen Rand der Seite aus.
+2. Wählen Sie auf der Seite **Data Feeds Manager:in** den Tab **Data Integrations** am oberen Rand der Seite aus.
 3. Wählen Sie Braze aus der Liste der verfügbaren Datenpartner aus.
 4. Geben Sie auf der Braze-Exportseite den Datenimport-Schlüssel und den REST-Endpunkt ein, die Sie im Braze-Dashboard gefunden haben, und wählen Sie **Enable**.
 
@@ -117,7 +117,7 @@ Attribution-Daten für Kampagnen auf Facebook und X (ehemals Twitter) sind nicht
 
 ## Branch-Klick-Tracking-URLs in Braze (optional) {#branch-click-tracking-urls-in-braze-optional}
 
-Wenn Sie Klick-Tracking-Links in Ihren Braze-Campaigns verwenden, können Sie leicht erkennen, welche Campaigns zu App-Installationen und erneuter Interaktion führen. So können Sie Ihre Marketing-Bemühungen effektiver messen und datengestützte Entscheidungen darüber treffen, wo Sie mehr Ressourcen für einen maximalen ROI investieren sollten.
+Wenn Sie Klick-Tracking-Links in Ihren Braze-Campaigns verwenden, können Sie leicht erkennen, welche Campaigns zu App-Installationen und erneuter Interaktion führen. So können Sie Ihre Marketing-Bemühungen effektiver messen und datengestützte Entscheidungen darüber treffen, wo Sie mehr Ressourcen für einen maximalen Kapitalrendite investieren sollten.
 
 Um mit Branch-Klick-Tracking-Links zu beginnen, besuchen Sie die [Dokumentation](https://help.branch.io/using-branch/docs/ad-links). Sie können die Branch-Klick-Tracking-Links direkt in Ihre Braze-Campaigns einfügen. Branch verwendet dann seine [probabilistischen Attribution-Methoden](https://help.branch.io/using-branch/docs/branch-attribution-logic-settings), um die Nutzer:innen zu attributieren, die auf den Link geklickt haben. Wir empfehlen, Ihre Branch-Tracking-Links mit einem Gerätebezeichner zu versehen, um die Genauigkeit der Attributionen Ihrer Braze-Campaigns zu verbessern. Dadurch werden die Nutzer:innen, die auf den Link geklickt haben, deterministisch attributiert.
 

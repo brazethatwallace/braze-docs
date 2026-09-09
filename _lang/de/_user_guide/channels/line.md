@@ -16,7 +16,7 @@ alias: /line/
 
 ## Voraussetzungen {#prerequisites}
 
-Die Verfügbarkeit von LINE hängt von Ihrem Braze-Paket ab. Kontaktieren Sie Ihren Account Manager oder Customer-Success-Manager, um loszulegen.
+Die Verfügbarkeit von LINE hängt von Ihrem Braze-Paket ab. Wenden Sie sich an Ihren Account Manager oder Customer-Success-Manager, um loszulegen.
 
 Bevor Sie beginnen, stellen Sie sicher, dass Sie über Folgendes verfügen:
 
@@ -30,16 +30,20 @@ Eine vollständige Anleitung finden Sie unter [LINE-Einrichtung]({{site.baseurl}
 
 | Anwendungsfall | Erklärung |
 | --- | --- |
-| Aktionen und Angebote | Senden Sie gezielte Werbenachrichten, Gutscheine und zeitlich begrenzte Angebote direkt an Kund:innen auf deren bevorzugter Messaging-Plattform. |
+| Aktionen und Angebote | Senden Sie gezielte Werbenachrichten, Gutscheine und zeitlich begrenzte Angebote direkt an Kund:innen auf ihrer bevorzugten Messaging-Plattform. |
 | Kundenbindungs-Programme | Binden Sie treue Kund:innen mit personalisierten Rewards, Punktestand-Updates und exklusiven Mitgliedervorteilen ein. |
-| Kundensupport | Ermöglichen Sie bidirektionale Konversationen, um Anfragen zu bearbeiten, Produktinformationen bereitzustellen und Probleme zu lösen. |
+| Kundensupport | Ermöglichen Sie wechselseitige Kommunikation, um Anfragen zu bearbeiten, Produktinformationen bereitzustellen und Probleme zu lösen. |
 | Bestellbenachrichtigungen | Halten Sie Kund:innen mit Bestellbestätigungen, Versand-Updates und Zustellbenachrichtigungen auf dem Laufenden. |
-| Event-Engagement | Steigern Sie Teilnahme und Engagement bei Events mit Einladungen, Erinnerungen und Follow-up-Nachrichten. |
+| Event-Engagement | Steigern Sie die Teilnahme und das Engagement bei Veranstaltungen mit Einladungen, Erinnerungen und Follow-up-Nachrichten. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Anwendungsfälle" }
 
 {% multi_lang_include drag_and_drop/drag_and_drop_access.md variable_name='dnd editors' %}
 
 ## Nächste Schritte {#next-steps}
 
-- [LINE-Einrichtung]({{site.baseurl}}/user_guide/channels/line/line_setup)
-- [LINE-Nachricht erstellen]({{site.baseurl}}/user_guide/channels/line/create_a_line_message)
+{% article_tiles %}
+- name: LINE-Einrichtung
+  link: /docs/user_guide/channels/line/line_setup
+- name: LINE-Nachricht erstellen
+  link: /docs/user_guide/channels/line/create_a_line_message
+{% endarticle_tiles %}

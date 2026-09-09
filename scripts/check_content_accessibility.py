@@ -161,6 +161,10 @@ _SPATIAL_ALLOWLIST_RES: tuple = (
         r'(?:above|below)\s+(?:a|the)?\s*certain\s+threshold\b',
         re.IGNORECASE,
     ),
+    re.compile(
+        r'(?:above|below)\s+a\s+(?:threshold|limit|cap|minimum|maximum)\b',
+        re.IGNORECASE,
+    ),
     # Quantitative phrasing with modifiers (for example, "at or below the five-variant limit").
     re.compile(
         r'(?:at\s+or\s+)?(?:above|below)\s+the\s+(?:[a-z0-9-]+\s+){0,3}(?:threshold|limit|cap)\b',

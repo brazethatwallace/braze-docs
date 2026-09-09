@@ -1,7 +1,7 @@
 ---
 nav_title: Adobe
 article_title: Adobe
-description: "Esta página describe la asociación entre Braze y Adobe, una plataforma de datos de los clientes, que permite a las marcas conectar y mapear sus datos de Adobe (atributos personalizados y segmentos) con Braze en tiempo real. A continuación, las marcas pueden actuar en función de estos datos y ofrecer experiencias personalizadas y dirigidas a esos usuarios."
+description: "Esta página describe la asociación entre Braze y Adobe, una CDP, que permite a las marcas conectar y mapear sus datos de Adobe (atributos personalizados y segmentos) con Braze en tiempo real. A continuación, las marcas pueden actuar en función de estos datos y ofrecer experiencias personalizadas y dirigidas a esos usuarios."
 page_type: partner
 page_order: 1
 search_tag: Partner
@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Adobe
 
-> Construida sobre Adobe Experience Platform, la plataforma de datos de los clientes en tiempo real de Adobe reúne datos conocidos y anónimos de múltiples fuentes empresariales para crear perfiles de clientes. Estos perfiles pueden utilizarse para ofrecer experiencias personalizadas en todos los canales y dispositivos en tiempo real.
+> Construida sobre Adobe Experience Platform, la CDP en tiempo real de Adobe reúne datos conocidos y anónimos de múltiples fuentes empresariales para crear perfiles de clientes. Estos perfiles pueden utilizarse para ofrecer experiencias personalizadas en todos los canales y dispositivos en tiempo real.
 
 La integración de Braze y Adobe CDP conecta y mapea los datos de Adobe de tu marca (atributos personalizados y segmentos) con Braze en tiempo real. A continuación, puedes actuar sobre estos datos, entregando experiencias personalizadas y dirigidas a tus usuarios. Con Adobe, la integración es intuitiva. Basta con tomar cualquier [identidad](https://experienceleague.adobe.com/docs/experience-platform/identity/namespaces.html?lang=en) de Adobe, mapearla a un ID externo de Braze y enviarla a la plataforma Braze. Todos los datos enviados serán accesibles en Braze a través de un nuevo atributo `AdobeExperiencePlatformSegments`.
 
@@ -29,7 +29,7 @@ Actualmente, la integración de Adobe Experience Platform no admite la pertenenc
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 {% alert important %}
-El envío de atributos personalizados adicionales aumentará tu uso de puntos de datos. Te sugerimos que hables con tu administrador de éxito de cliente para comprender mejor este posible aumento de puntos de datos.
+El envío de atributos personalizados adicionales aumentará tu uso de puntos de datos. Te sugerimos que hables con tu CSM para comprender mejor este posible aumento de puntos de datos.
 {% endalert %}
 
 ## Integración {#integration}

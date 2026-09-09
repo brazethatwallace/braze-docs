@@ -120,29 +120,29 @@ UNNotificationCategory *likeCategory = [UNNotificationCategory categoryWithIdent
 {% endtabs %}
 
 {% alert note %}
-Lorsque vous créez une `UNNotificationAction`, vous pouvez spécifier une liste d'options d'action. Par exemple, `.foreground` permet à vos utilisateurs d'ouvrir votre application après avoir appuyé sur le bouton d'action. Ceci est nécessaire pour les comportements de navigation au clic, tels que « Ouvrir l'application » et « Deep link dans l'application ». Si vous souhaitez un bouton d'action qui supprime simplement la notification sans ouvrir l'application, n'incluez pas `.foreground` dans le tableau `options` de l'action. Pour plus d'informations, consultez [`UNNotificationActionOptions`](https://developer.apple.com/documentation/usernotifications/unnotificationactionoptions).
+Lorsque vous créez une `UNNotificationAction`, vous pouvez spécifier une liste d'options d'action. Par exemple, `.foreground` permet à vos utilisateurs d'ouvrir votre application après avoir appuyé sur le bouton d'action. Ceci est nécessaire pour les comportements de navigation au clic, tels que « Ouvrir l'application » et « Deep link dans l'application ». Si vous souhaitez un bouton d'action qui ferme simplement la notification sans ouvrir l'application, n'incluez pas `.foreground` dans le tableau `options` de l'action. Pour plus d'informations, consultez [`UNNotificationActionOptions`](https://developer.apple.com/documentation/usernotifications/unnotificationactionoptions).
 {% endalert %}
 
-### Étape 2 : Sélectionnez vos catégories {#step-2-select-your-categories}
+### Étape 2 : Sélectionner vos catégories {#step-2-select-your-categories}
 
 Après avoir enregistré une catégorie, utilisez le tableau de bord de Braze pour envoyer des notifications de ce type aux utilisateurs.
 
 {% alert tip %}
-Il est nécessaire de définir des boutons d'action sur le tableau de bord de Braze uniquement pour les comportements qui ne peuvent pas être créés localement dans votre code Swift, tels que la création de deep links vers votre application ou les redirections vers une URL web. Ces actions doivent être configurées sur le tableau de bord afin de pouvoir définir l'URL ou le deep link à ouvrir. Pour les boutons d'action qui suppriment simplement la notification sans ouvrir l'application, il n'est pas nécessaire de les configurer sur le tableau de bord : la suppression est gérée automatiquement par iOS. Enregistrez simplement votre catégorie personnalisée et ses actions dans le code de votre application, puis saisissez le nom de catégorie correspondant dans le tableau de bord.
+Il est nécessaire de définir des boutons d'action sur le tableau de bord de Braze uniquement pour les comportements qui ne peuvent pas être créés localement dans votre code Swift, tels que la création de deep links vers votre application ou les redirections vers une URL web. Ces actions doivent être configurées sur le tableau de bord afin de pouvoir définir l'URL ou le deep link à ouvrir. Pour les boutons d'action qui ferment simplement la notification sans ouvrir l'application, il n'est pas nécessaire de les configurer sur le tableau de bord : le comportement de fermeture est géré automatiquement par iOS. Enregistrez simplement votre catégorie personnalisée et ses actions dans le code de votre application, puis saisissez le nom de catégorie correspondant dans le tableau de bord.
 {% endalert %}
 
-1. Dans le tableau de bord de Braze, sélectionnez **Messaging** > **Push Notifications**, puis choisissez votre [Campaign push]({{site.baseurl}}/user_guide/message_building_by_channel/push/creating_a_push_message) iOS.
+1. Dans le tableau de bord de Braze, sélectionnez **Messaging** > **Push Notifications**, puis choisissez votre [Campaign push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message) iOS.
 2. Sous **Compose push notification**, activez les **Action Buttons**.
 3. Dans le menu déroulant **iOS Notification Category**, sélectionnez **Enter pre-registered custom iOS Category**.
 4. Enfin, entrez l'une des catégories que vous avez créées plus tôt. L'exemple suivant utilise la catégorie personnalisée : `LIKE_CATEGORY`.
 
-![Le tableau de bord de la Campaign push avec la configuration des catégories personnalisées.]({% image_buster /assets/img_archive/ios-notification-category.png %})
+![Le tableau de bord de la Campaign de notification push avec la configuration des catégories personnalisées.]({% image_buster /assets/img_archive/ios-notification-category.png %})
 
 ### Exemple : catégorie de notification push personnalisée {#example-custom-push-category}
 
-Supposons que vous souhaitiez créer une notification push avec deux boutons d'action : **Manage**, qui crée un deep link vers votre application, et **Keep**, qui supprime simplement la notification.
+Supposons que vous souhaitiez créer une notification push avec deux boutons d'action : **Manage**, qui crée un deep link vers votre application, et **Keep**, qui ferme simplement la notification.
 
-Dans l'exemple suivant, l'action `MANAGE_IDENTIFIER` inclut l'option `.foreground`, qui ouvre l'application lorsqu'on appuie dessus. Cela est nécessaire, car elle crée un deep link vers une partie spécifique de l'application. L'action `KEEP_IDENTIFIER` utilise un tableau d'options vide, ce qui signifie qu'elle supprimera la notification sans ouvrir l'application.
+Dans l'exemple suivant, l'action `MANAGE_IDENTIFIER` inclut l'option `.foreground`, qui ouvre l'application lorsqu'on appuie dessus. Cela est nécessaire, car elle crée un deep link vers une partie spécifique de l'application. L'action `KEEP_IDENTIFIER` utilise un tableau d'options vide, ce qui signifie qu'elle fermera la notification sans ouvrir l'application.
 
 {% tabs %}
 {% tab swift %}
@@ -163,15 +163,15 @@ UNUserNotificationCenter.current().setNotificationCategories(Braze.Notifications
 {% endtab %}
 {% endtabs %}
 
-Étant donné que `MANAGE_IDENTIFIER` crée un deep link vers l'application, il est recommandé de configurer ce bouton d'action sur le tableau de bord de Braze avec l'URL du deep link associé. Cependant, il n'est pas nécessaire de définir un bouton sur le tableau de bord pour `KEEP_IDENTIFIER`, car il ne fait que fermer la notification. Sur le tableau de bord, il vous suffit de saisir le nom de la catégorie (par exemple, `YOUR_CATEGORY`) correspondant à celui que vous avez enregistré dans le code de votre application.
+Étant donné que `MANAGE_IDENTIFIER` crée un deep link vers l'application, vous devez configurer ce bouton d'action sur le tableau de bord de Braze avec l'URL du deep link associé. Cependant, il n'est pas nécessaire de définir un bouton sur le tableau de bord pour `KEEP_IDENTIFIER`, car il ne fait que fermer la notification. Sur le tableau de bord, il vous suffit de saisir le nom de la catégorie (par exemple, `YOUR_CATEGORY`) correspondant à celui que vous avez enregistré dans le code de votre application.
 
-## Personnalisation des badges {#customizing-badges}
+## Personnaliser les badges {#customizing-badges}
 
-Les badges sont de petites icônes idéales pour attirer l'attention d'un utilisateur. Vous pouvez définir un nombre de badges dans l'onglet [**Settings**]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=swift#swift_settings) lorsque vous rédigez une notification push à l'aide du tableau de bord de Braze. Vous pouvez également mettre à jour le nombre de badges manuellement par l'intermédiaire de la propriété [`applicationIconBadgeNumber`](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplication_Class/index.html#//apple_ref/occ/instp/UIApplication/applicationIconBadgeNumber) de votre application ou par le biais du [payload de notification à distance](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CreatingtheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH10-SW1).
+Les badges sont de petites icônes idéales pour attirer l'attention d'un utilisateur. Vous pouvez spécifier un nombre de badges dans l'onglet [**Paramètres**]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=swift#swift_settings) lorsque vous composez une notification push à l'aide du tableau de bord de Braze. Vous pouvez également mettre à jour manuellement le nombre de badges via la propriété [`applicationIconBadgeNumber`](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplication_Class/index.html#//apple_ref/occ/instp/UIApplication/applicationIconBadgeNumber) de votre application ou le [payload de notification à distance](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CreatingtheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH10-SW1).
 
-Braze efface automatiquement le décompte des badges lorsqu'une notification Braze est reçue alors que l'application est au premier plan. Le fait de régler manuellement le numéro de badge sur 0 permet également d'effacer les notifications dans le centre de notification.
+Braze efface automatiquement le nombre de badges lorsqu'une notification Braze est reçue alors que l'application est au premier plan. Définir manuellement le nombre de badges à 0 efface également les notifications dans le centre de notifications.
 
-Si vous n'avez pas planifié de stratégie pour effacer les badges dans le cadre du fonctionnement normal de l'application ou en envoyant des notifications push qui effacent le badge, vous devez effacer le badge lorsque l'application devient active en ajoutant le code suivant à la méthode `sceneDidBecomeActive(_:)` du fichier `SceneDelegate.swift` de votre application (ou à la méthode de délégation `applicationDidBecomeActive:` de votre application, si celle-ci n'a pas encore adopté le [cycle de vie `UIScene`](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle)) :
+Si vous n'avez pas prévu de mécanisme pour effacer les badges dans le cadre du fonctionnement normal de l'application ou en envoyant des notifications push qui effacent le badge, vous devez effacer le badge lorsque l'application devient active en ajoutant le code suivant dans la méthode `sceneDidBecomeActive(_:)` du fichier `SceneDelegate.swift` (ou dans la méthode déléguée `applicationDidBecomeActive:` de votre application, si celle-ci n'a pas encore adopté le [cycle de vie `UIScene`](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle)) :
 
 {% tabs %}
 {% tab swift %}
@@ -208,74 +208,74 @@ UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotification
 {% endtab %}
 {% endtabs %}
 
-## Personnalisation des sons {#customizing-sounds}
+## Personnaliser les sons {#customizing-sounds}
 
 ### Étape 1 : Héberger le son dans votre application {#step-1-host-the-sound-in-your-app}
 
-Les sons de notification push personnalisés doivent être hébergés localement dans le bundle principal de votre application. Les formats de données audio suivants sont acceptés :
+Les sons personnalisés pour les notifications push doivent être hébergés localement dans le bundle principal de votre application. Les formats de données audio suivants sont acceptés :
 
-- Linear PCM
+- PCM linéaire
 - MA4
 - µLaw
 - aLaw
 
-Vous pouvez regrouper les données audio dans un fichier AIFF, WAV ou CAF. Dans Xcode, ajoutez le fichier audio à votre projet en tant que ressource non localisée du bundle de l'application.
+Vous pouvez empaqueter les données audio dans un fichier AIFF, WAV ou CAF. Dans Xcode, ajoutez le fichier son à votre projet en tant que ressource non localisée du bundle de l'application.
 
 {% alert note %}
-Les sons personnalisés doivent durer moins de 30 secondes lorsqu'ils sont joués. Si un son personnalisé dépasse cette limite, le son système par défaut est joué à la place.
+Les sons personnalisés doivent durer moins de 30 secondes lors de la lecture. Si un son personnalisé dépasse cette limite, le son système par défaut est joué à la place.
 {% endalert %}
 
-#### Conversion de fichiers audio {#converting-sound-files}
+#### Convertir des fichiers son {#converting-sound-files}
 
-Vous pouvez utiliser l'outil afconvert pour convertir les sons. Par exemple, pour convertir le son système PCM linéaire 16 bits Submarine.aiff en audio IMA4 dans un fichier CAF, utilisez la commande suivante dans le terminal :
+Vous pouvez utiliser l'outil afconvert pour convertir des sons. Par exemple, pour convertir le son système PCM linéaire 16 bits Submarine.aiff en audio IMA4 dans un fichier CAF, utilisez la commande suivante dans le terminal :
 
 ```bash
 afconvert /System/Library/Sounds/Submarine.aiff ~/Desktop/sub.caf -d ima4 -f caff -v
 ```
 
 {% alert tip %}
-Vous pouvez inspecter un son pour déterminer son format de données en l'ouvrant dans QuickTime Player et en choisissant **Show Movie Inspector** dans le menu **Movie**.
+Vous pouvez inspecter un son pour déterminer son format de données en l'ouvrant dans QuickTime Player et en choisissant **Afficher l'inspecteur du film** dans le menu **Film**.
 {% endalert %}
 
 ### Étape 2 : Fournir une URL de protocole pour le son {#step-2-provide-a-protocol-url-for-the-sound}
 
 Vous devez spécifier une URL de protocole qui pointe vers l'emplacement du fichier son dans votre application. Il existe deux méthodes pour ce faire :
 
-* Utilisez le paramètre `sound` de l'[objet Apple push]({{site.baseurl}}/api/objects_filters/messaging/apple_object) pour transmettre l'URL à Braze.
-* Spécifiez l'URL dans le tableau de bord. Dans le [compositeur push]({{site.baseurl}}/user_guide/message_building_by_channel/push/creating_a_push_message#step-3-select-notification-type-ios-and-android), sélectionnez **Settings** et saisissez l'URL du protocole dans le champ **Sound**.
+* Utiliser le paramètre `sound` de l'[objet push Apple]({{site.baseurl}}/api/objects_filters/messaging/apple_object) pour transmettre l'URL à Braze.
+* Spécifier l'URL dans le tableau de bord. Dans le [composeur de notifications push]({{site.baseurl}}/user_guide/message_building_by_channel/push/creating_a_push_message#step-3-select-notification-type-ios-and-android), sélectionnez **Settings** et saisissez l'URL de protocole dans le champ **Sound**.
 
-![Le compositeur de notifications push dans le tableau de bord de Braze]({% image_buster /assets/img_archive/sound_push_ios.png %})
+![Le composeur de notifications push dans le tableau de bord de Braze]({% image_buster /assets/img_archive/sound_push_ios.png %})
 
-Si le fichier son spécifié n'existe pas ou si le mot-clé « default » est saisi, Braze utilisera le son d'alerte par défaut de l'appareil. Outre le tableau de bord, le son peut également être configuré via notre [API d'envoi de messages][12].
+Si le fichier son spécifié n'existe pas ou si le mot-clé « default » est saisi, Braze utilisera le son d'alerte par défaut de l'appareil. En plus de notre tableau de bord, le son peut également être configuré via notre [API de messaging][12].
 
-Pour plus d'informations, consultez la documentation du développeur Apple concernant [la préparation de sons d'alerte personnalisés](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/SupportingNotificationsinYourApp.html).
+Consultez la documentation Apple Developer concernant la [préparation de sons d'alerte personnalisés](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/SupportingNotificationsinYourApp.html) pour plus d'informations.
 
-## Paramètres {#settings}
+## Réglages {#settings}
 
-Lorsque vous créez une Campaign push via le tableau de bord, cliquez sur l'onglet **Settings** à l'étape **Compose** pour afficher les paramètres avancés disponibles.
+Lors de la création d'une campagne push via le tableau de bord, cliquez sur l'onglet **Réglages** à l'étape **Composer** pour afficher les réglages avancés disponibles.
 
-![Onglet des paramètres de composition d'une Campaign push iOS de Braze avec les options avancées.]({% image_buster /assets/img_archive/ios_advanced_settings.png %})
+![Onglet des réglages de composition d'une campagne push iOS dans Braze avec les options avancées.]({% image_buster /assets/img_archive/ios_advanced_settings.png %})
 
 ### Paires clé-valeur {#key-value-pairs}
 
-Braze vous permet d'envoyer des paires clé-valeur définies de manière personnalisée sous forme de chaînes de caractères, appelées `extras`, avec une notification push à votre application. Des éléments supplémentaires peuvent être définis via le tableau de bord ou l'API et seront disponibles en tant que paires clé-valeur dans le dictionnaire `notification` transmis à vos implémentations de délégué de notification push.
+Braze vous permet d'envoyer des paires clé-valeur de chaînes de caractères personnalisées, appelées `extras`, avec une notification push vers votre application. Les extras peuvent être définis via le tableau de bord ou l'API et seront disponibles en tant que paires clé-valeur dans le dictionnaire `notification` transmis aux implémentations de votre délégué push.
 
 ### Options d'alerte {#alert-options}
 
-Sélectionnez la case à cocher **Alert Options** pour voir une liste déroulante des paires clé-valeur disponibles pour ajuster l'apparence de la notification sur les appareils.
+Cochez la case **Alert Options** pour afficher un menu déroulant de clés-valeurs disponibles permettant d'ajuster la façon dont la notification apparaît sur les appareils.
 
-### Ajouter un indicateur de contenu disponible {#adding-content-available-flag}
+### Ajout du drapeau content-available {#adding-content-available-flag}
 
-Cochez la case **Add Content-Available Flag** pour indiquer aux appareils de télécharger le nouveau contenu en arrière-plan. Le plus souvent, vous pouvez cocher cette case si vous souhaitez envoyer des [notifications silencieuses]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift).
+Cochez la case **Add Content-Available Flag** pour demander aux appareils de télécharger du nouveau contenu en arrière-plan. Le plus souvent, cette option peut être cochée si vous souhaitez envoyer des [notifications silencieuses]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift).
 
-### Ajouter un indicateur de contenu mutable {#adding-mutable-content-flag}
+### Ajout du drapeau mutable-content {#adding-mutable-content-flag}
 
-Cochez la case **Add Mutable-Content Flag** pour activer la personnalisation avancée du récepteur. Cet indicateur sera automatiquement envoyé lors de la composition d'une [notification enrichie]({{site.baseurl}}/developer_guide/push_notifications/rich/?sdktab=swift), quelle que soit la valeur de cette case à cocher.
+Cochez la case **Add Mutable-Content Flag** pour activer la personnalisation avancée du récepteur. Ce drapeau sera automatiquement envoyé lors de la composition d'une [notification enrichie]({{site.baseurl}}/developer_guide/push_notifications/rich/?sdktab=swift), quelle que soit la valeur de cette case.
 
-### ID de réduction {#collapse-id}
+### ID de regroupement {#collapse-id}
 
-Spécifiez un ID de réduction pour fusionner les notifications similaires. Si vous envoyez plusieurs notifications avec le même ID de réduction, l'appareil affichera uniquement la notification la plus récemment reçue. Reportez-vous à la documentation d'Apple sur les [notifications groupées](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1).
+Spécifiez un ID de regroupement pour fusionner les notifications similaires. Si vous envoyez plusieurs notifications avec le même ID de regroupement, l'appareil n'affichera que la notification la plus récemment reçue. Consultez la documentation d'Apple sur les [notifications regroupées](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1).
 
 ### Expiration {#expiry}
 
-Cocher la case **Expiry** permettra de définir une durée d'expiration pour votre message. Si l'appareil d'un utilisateur perd sa connexion, Braze continuera d'essayer d'envoyer le message jusqu'à l'heure spécifiée. Si cette option n'est pas définie, la plateforme établit par défaut un délai d'expiration de 30 jours. Notez que les notifications push expirant avant la distribution ne sont pas considérées comme ayant échoué et ne seront pas enregistrées comme une non-remise.
+Cochez la case **Expiry** pour définir un délai d'expiration pour votre message. Si l'appareil d'un utilisateur perd la connectivité, Braze continuera d'essayer d'envoyer le message jusqu'à l'heure spécifiée. Si cette option n'est pas définie, la plateforme appliquera par défaut une expiration de 30 jours. Notez que les notifications push qui expirent avant la réception ne sont pas considérées comme échouées et ne seront pas enregistrées comme un rebond.

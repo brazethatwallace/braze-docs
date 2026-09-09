@@ -46,7 +46,7 @@ Les noms d'utilisateur professionnels doivent respecter les exigences de format 
 
 Avant que la fonctionnalité de nom d'utilisateur soit largement disponible, Meta peut avoir pré-réservé un nom d'utilisateur pour votre entreprise — correspondant généralement à un nom de page Facebook ou un nom d'utilisateur Instagram existant. Vous pouvez revendiquer ce nom d'utilisateur réservé ou en choisir un autre via [WhatsApp Manage](https://business.facebook.com/wa/manage/). Les noms d'utilisateur revendiqués ne sont pas activés tant que Meta n'a pas rendu la fonctionnalité disponible.
 
-Si le nom d'utilisateur réservé correspond à un nom déjà associé à votre page Facebook ou votre compte Instagram, vous devez d'abord lier votre numéro de téléphone professionnel à cette page ou ce compte. Vous pouvez le faire lors de la revendication du nom d'utilisateur dans WhatsApp Manager ou Meta Business Suite, ou en ajoutant votre numéro de téléphone directement depuis la page ou le compte concerné. La liaison nécessite soit un contrôle total de la page ou du compte, soit un accès partiel de base avec la permission `manage_phone`.
+Si le nom d'utilisateur réservé correspond à un nom déjà associé à votre page Facebook ou votre compte Instagram, vous devez d'abord lier votre numéro de téléphone professionnel à cette page ou ce compte. Vous pouvez le faire lors de la revendication du nom d'utilisateur dans WhatsApp gestionnaire ou Meta Business Suite, ou en ajoutant votre numéro de téléphone directement depuis la page ou le compte concerné. La liaison nécessite soit un contrôle total de la page ou du compte, soit un accès partiel de base avec la permission `manage_phone`.
 
 #### Priorité d'affichage dans les fenêtres de discussion {#display-priority-in-chat-windows}
 
@@ -67,7 +67,7 @@ Pour plus d'informations, consultez la documentation de Meta sur les [noms d'uti
 - L'activité d'un modèle inclut la création, la modification, l'envoi, la contestation ou la désarchivation d'un modèle.
 - Les modèles archivés ne peuvent pas être envoyés et sont programmés pour une suppression définitive après 28 jours.
 - Vous pouvez désarchiver les modèles dans la fenêtre de 28 jours pour les restaurer et annuler la suppression programmée.
-- Les notifications sont envoyées via le webhook `message_template_status_update`, par e-mail et par une bannière unique dans WhatsApp Manager.
+- Les notifications sont envoyées via le webhook `message_template_status_update`, par e-mail et par une bannière unique dans WhatsApp gestionnaire.
 
 Pour plus d'informations, consultez la documentation de Meta sur l'[archivage des modèles](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/template-archival).
 
@@ -88,7 +88,7 @@ Pour plus d'informations, consultez la documentation de Meta sur l'[archivage de
 ### Octobre 2025 : Changement du processus d'approbation du compte professionnel officiel (OBA) {#october-2025-official-business-account-oba-approval-process-changed}
 *Dernière mise à jour : mars 2026*
 
-- Auparavant ouvert à tous les clients via WhatsApp Manager
+- Auparavant ouvert à tous les clients via WhatsApp gestionnaire
 - Désormais restreint aux : gouvernements/grands annonceurs Meta, annonceurs directs, ou via un BSP comme Braze (jusqu'à 5 par semaine)
 - Nouveaux prérequis : vérification de l'entreprise, vérification en deux étapes, nom d'affichage approuvé, notoriété
 - Contactez votre CSM pour obtenir de l'aide
@@ -190,13 +190,13 @@ Si le taux de lecture du compte est extrêmement bas, les actions suivantes sero
 
 #### Comment rester informé de ces avertissements et mesures d'application {#how-to-stay-updated-on-these-warnings-and-enforcements}
 
-Comme pour les mesures d'application existantes de la plateforme, les entreprises seront notifiées de ces actions et pourront les confirmer via la page Qualité du compte dans WhatsApp Business Manager. Vérifiez que vous avez les coordonnées correctes indiquées dans WhatsApp Business Manager pour tous les administrateurs nécessaires, car les e-mails de notification d'application seront envoyés en fonction de ces informations.
+Comme pour les mesures d'application existantes de la plateforme, les entreprises seront notifiées de ces actions et pourront les confirmer via la page Qualité du compte dans WhatsApp Business gestionnaire. Vérifiez que vous avez les coordonnées correctes indiquées dans WhatsApp Business gestionnaire pour tous les administrateurs nécessaires, car les e-mails de notification d'application seront envoyés en fonction de ces informations.
 
 Les notifications concernant les violations graves de spam seront :
 
-- Affichées dans le Centre de notifications de WhatsApp Business Manager
-- Affichées dans une bannière dans WhatsApp Manager
-- Envoyées par e-mail à tous les administrateurs définis dans WhatsApp Business Manager
+- Affichées dans le Centre de notifications de WhatsApp Business gestionnaire
+- Affichées dans une bannière dans WhatsApp gestionnaire
+- Envoyées par e-mail à tous les administrateurs définis dans WhatsApp Business gestionnaire
 
 ### Mai 2024 : L'API Cloud devient disponible en Türkiye {#may-2024-cloud-api-going-live-in-trkiye}
 *Dernière mise à jour : mai 2024*

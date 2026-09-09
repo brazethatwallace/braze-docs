@@ -18,25 +18,25 @@ tool: Reports
 
 {% api %}
 
-## AMP 클릭 수 {#amp-clicks}
+## 가속 모바일 페이지 클릭 수 {#amp-clicks}
 
 {% apitags %}
 Email
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='AMP Clicks' %}
+{% multi_lang_include analytics/metrics.md metric='가속 모바일 페이지 Clicks' %}
 
 {% endapi %}
 
 {% api %}
 
-## AMP 열람 수 {#amp-opens}
+## 가속 모바일 페이지 열람 수 {#amp-opens}
 
 {% apitags %}
 Email
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='AMP Opens' %}
+{% multi_lang_include analytics/metrics.md metric='가속 모바일 페이지 Opens' %}
 
 {% endapi %}
 
@@ -146,7 +146,7 @@ In-App Message
 Feature Flags
 {% endapitags %}
 
-다양한 채널에 걸친 메시지의 성능입니다. 표시되는 측정기준은 선택한 메시징 채널과 [피처 플래그 실험]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/experiments#campaign-analytics)이 다변량 테스트인지 여부에 따라 달라집니다.
+다양한 채널에 걸친 메시지의 성능입니다. 표시되는 측정기준은 선택한 메시징 채널과 [피처 플래그 실험]({{site.baseurl}}/developer_guide/feature_flags/experiments#campaign-analytics)이 다변량 테스트인지 여부에 따라 달라집니다.
 
 {% endapi %}
 
@@ -527,13 +527,13 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% api %}
 
-## 사용자당 생애주기 가치 {#lifetime-value-per-user}
+## 사용자당 LTV {#lifetime-value-per-user}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, LINE
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Lifetime Value Per User' %}
+{% multi_lang_include analytics/metrics.md metric='LTV Per User' %}
 
 {% endapi %}
 
@@ -641,7 +641,7 @@ Email
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, WhatsApp
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or Primary Conversion Event' %}
+{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or 주요 전환 Event' %}
 
 | 채널 | 추가 정보 |
 |-------|-----------------------|
@@ -899,7 +899,7 @@ Email, Content Cards, SMS/MMS, LINE
 
 | 채널 | 추가 정보 |
 |-------|-------|
-| LINE | 하루 최소 20개 메시지 임계값에 도달한 후 추적됩니다. AMP 이메일에는 HTML 및 일반 텍스트 버전 모두에서 기록된 클릭이 포함됩니다. 이 수치는 스팸 방지 도구에 의해 인위적으로 부풀려질 수 있습니다.|
+| LINE | 하루 최소 20개 메시지 임계값에 도달한 후 추적됩니다. 가속 모바일 페이지 이메일에는 HTML 및 일반 텍스트 버전 모두에서 기록된 클릭이 포함됩니다. 이 수치는 스팸 방지 도구에 의해 인위적으로 부풀려질 수 있습니다.|
 | 배너 | 동일한 사용자가 여러 번 클릭했는지 여부와 관계없이, 전달된 메시지 내에서 클릭한 총 사용자 수(및 비율)입니다.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="총 클릭 수" }
 
@@ -971,7 +971,7 @@ Email, iOS Push, Android Push, Web Push, LINE
 | 채널 | 추가 정보 |
 |-------|-----------------------|
 | LINE | 하루 최소 20개 메시지 임계값에 도달한 후 추적됩니다.|
-| AMP 이메일 | HTML 및 일반 텍스트 버전의 총 열람 수입니다.|
+| 가속 모바일 페이지 이메일 | HTML 및 일반 텍스트 버전의 총 열람 수입니다.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="총 열람 수" }
 
 {::nomarkdown}

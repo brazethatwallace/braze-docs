@@ -9,7 +9,7 @@ Você também pode gerenciar inscrições em uma landing page da Braze. Adicione
 {% if include.alert == "Liquid email display name and reply-to address" %}
 
 {% alert tip %}
-Você pode usar [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid) nos campos **Nome de exibição + Endereço do remetente** e **Endereço de resposta** para criar modelos dinâmicos com base em atributos personalizados. Isso permite que você envie de diferentes marcas, regiões ou departamentos usando uma única campanha de e-mail ou etapa do Canvas.
+Você pode usar [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) nos campos **Nome de exibição + Endereço do remetente** e **Endereço de resposta** para criar modelos dinâmicos com base em atributos personalizados. Isso permite que você envie de diferentes marcas, regiões ou departamentos usando uma única campanha de e-mail ou etapa do Canvas.
 {% endalert %}
 
 {% endif %}
@@ -17,7 +17,7 @@ Você pode usar [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic
 {% if include.alert == "Reference properties from triggering event" %}
 
 {% alert tip %}
-Você não precisa de uma etapa de Contexto para referenciar propriedades do evento disparador nas etapas [Jornadas do público]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/audience_paths) ou [Divisão de decisão]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/decision_split). Você pode referenciar as propriedades diretamente nos grupos de filtro com o filtro **Variável de Contexto**. Certifique-se de selecionar o tipo de dado correto.
+Você não precisa de uma etapa de Contexto para referenciar propriedades do evento disparador nas etapas [Jornadas do público]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) ou [Divisão de decisão]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split). Você pode referenciar as propriedades diretamente nos grupos de filtro com o filtro **Variável de contexto**. Certifique-se de selecionar o tipo de dado correto.
 {% endalert %}
 
 {% endif %}
@@ -33,7 +33,7 @@ Para puxar imagens para itens de disparo de catálogo, seu catálogo deve inclui
 {% if include.alert == 'Export troubleshooting' %}
 
 {% alert tip %}
-Para obter ajuda com exportações de CSV e API, acesse [Resolução de problemas de exportação]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting).
+Para obter ajuda com exportações de CSV e API, acesse [Resolução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endif %}
@@ -51,7 +51,7 @@ Se você quiser ver quantos segmentos sua mensagem vai enviar, insira seu texto 
   .segment_data_hide {
     display: none;
   }
-  .segment {
+  .Segment {
     display: inline-flex;
     padding: 2px;
     font-size: 10px;
@@ -356,7 +356,7 @@ return function (listOfUnichrs) {
     }
     var segments = []
     while(listOfUnichrs.length > 0) {
-        var segment = {text: [], bytes: []};
+        var Segment = {text: [], bytes: []};
         var length = 0;
         function nextChrLen() {
             return bytes[0] === undefined ? length : length + bytes[0].length;
@@ -364,11 +364,11 @@ return function (listOfUnichrs) {
         while(listOfUnichrs.length > 0 && nextChrLen() <= maxConcatSegmentSize) {
             var c = listOfUnichrs.shift()
             var b = bytes.shift();
-            segment.text.push(c);
-            segment.bytes.push(b);
+            Segment.text.push(c);
+            Segment.bytes.push(b);
             if(b != undefined) length += b.length;
         }
-        segments.push(segment);
+        segments.push(Segment);
     }
     return segments;
 }
@@ -443,12 +443,12 @@ function updateSMSSplit(){
     $('#character_encoding').html(displayCharacterEncoding(sms_text, sms_type));
 
     const segmentColors = (i) => `segment_color_${i > 3 ? i%3 : i}`;
-    const segmentsHtml = smsSegments.map((segment,segment_index) =>  segment.bytes.map((byte, i) => `<div id='sms_segments_data_${segment_index}-${i}' class='segment ${segmentColors(segment_index)}'>${byte.map(b => smsutil.hexEncode(b)).join(" ")}</div>`).join("")).join("");
+    const segmentsHtml = smsSegments.map((Segment,segment_index) =>  Segment.bytes.map((byte, i) => `<div id='sms_segments_data_${segment_index}-${i}' class='segment ${segmentColors(segment_index)}'>${byte.map(b => smsutil.hexEncode(b)).join(" ")}</div>`).join("")).join("");
 
-    // Create message output with both segment and character indexing
+    // Create message output with both Segment and character indexing
     let characterIndex = 0;
-    const messageOutput = smsSegments.map((segment,segment_index) =>
-      segment.text.map((ch, i) => {
+    const messageOutput = smsSegments.map((Segment,segment_index) =>
+      Segment.text.map((ch, i) => {
         const safeCh = ch === " " ? "\u00A0" : escapeHtml(ch);
         const result = `<div id='message_output_data_${segment_index}-${i}' data-char-index='${characterIndex}' class='message_output_char ${segmentColors(segment_index)}'>${safeCh}</div>`;
         characterIndex++;

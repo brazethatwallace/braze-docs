@@ -29,7 +29,7 @@ Die Integration von Braze und B.Layer erlaubt es Ihnen, den B.Layer In-App-Nachr
 
 ## Anwendungsfälle {#use-cases}
 
-Mit B.Layer gibt es unendlich viele Möglichkeiten zum Erstellen und Experimentieren, darunter Schieberegler für Produktempfehlungen, mehrstufiges Onboarding oder Umfragen, NPS, E-Mail-Erfassung, Sonderangebote und vieles mehr.
+Mit B.Layer gibt es unendlich viele Möglichkeiten zum Erstellen und Experimentieren, darunter Schieberegler für Produktempfehlungen, mehrstufiges Onboarding oder Umfragen, Net Promoter Score, E-Mail-Erfassung, Sonderangebote und vieles mehr.
 
 Sie arbeiten mit Marken wie Lifesum, Blinkist, OnX Hunt und vielen anderen zusammen, um deren Nutzererlebnis ohne zusätzliche Ressourcen zu verbessern. Wir gehören außerdem zu den Finalisten der APS Awards 2022 in der Kategorie App-Innovation.
 
@@ -62,6 +62,6 @@ Erstellen Sie in Braze eine In-App-Nachricht mit angepasstem Code. Wenn Sie eine
 
 ## Button-Tracking
 
-Mit B.Layer können Sie Button-Interaktionen oder Texteingaben als Braze-Attribut protokollieren. Das können Sie direkt im Editor erledigen. Ein beliebtes Beispiel ist eine NPS-Umfrage.
+Mit B.Layer können Sie Button-Interaktionen oder Texteingaben als Braze-Attribut protokollieren. Das können Sie direkt im Editor erledigen. Ein beliebtes Beispiel ist eine Net Promoter Score-Umfrage.
 
 B.Layer verwendet das Braze-Button-Tracking, das zu den von Ihnen eingegebenen Links hinzugefügt wird (z. B. `?button=0`). Auf diese Weise können Sie die Button-Klicks im Analytics-Bereich Ihrer Campaign sehen.

@@ -18,7 +18,7 @@ Les attributs suivants doivent être définis sur l'objet `Braze.User` :
 
 ### Définition des attributs par défaut {#setting-default-attributes}
 
-Pour définir un attribut par défaut, configurez le champ approprié sur l'objet partagé `Braze.User`. Voici un exemple montrant comment définir l'attribut de prénom :
+Pour définir un attribut par défaut, configurez le champ approprié sur l'objet partagé `Braze.User`. Voici un exemple de définition de l'attribut prénom :
 
 {% tabs %}
 {% tab swift %}
@@ -39,7 +39,7 @@ AppDelegate.braze?.user.set(firstName: "Alex")
 
 ### Suppression des attributs par défaut {#unsetting-default-attributes}
 
-Pour supprimer un attribut par défaut, transmettez `nil` à la méthode correspondante.
+Pour supprimer un attribut par défaut, passez `nil` à la méthode correspondante.
 
 {% tabs %}
 {% tab swift %}
@@ -60,17 +60,17 @@ AppDelegate.braze?.user.set(firstName: nil)
 
 ## Attributs utilisateur personnalisés {#custom-user-attributes}
 
-En plus des attributs par défaut, Braze vous permet de définir des attributs personnalisés à l'aide de plusieurs types de données. Pour en savoir plus sur les options de segmentation de chaque attribut, consultez la section [Collecte des données utilisateur]({{site.baseurl}}/developer_guide/analytics/).
+En plus des attributs utilisateur par défaut, Braze vous permet également de définir des attributs personnalisés à l'aide de différents types de données. Pour plus d'informations sur les options de segmentation de chaque attribut, consultez [Collecte de données utilisateur]({{site.baseurl}}/developer_guide/analytics).
 
 {% alert important %}
-Les valeurs d'attribut personnalisé ont une longueur maximale de 255 caractères ; les valeurs plus longues seront tronquées. Pour plus d'informations, consultez [`Braze.User`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class).
+Les valeurs des attributs personnalisés ont une longueur maximale de 255 caractères ; les valeurs plus longues seront tronquées. Pour plus d'informations, consultez [`Braze.User`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class).
 {% endalert %}
 
 ### Définition des attributs personnalisés {#setting-custom-attributes}
 
 {% tabs local %}
 {% tab string %}
-Pour définir un attribut personnalisé avec une valeur de type `string` :
+Pour définir un attribut personnalisé avec une valeur `string` :
 
 {% subtabs %}
 {% subtab swift %}
@@ -88,7 +88,7 @@ AppDelegate.braze?.user.setCustomAttribute(key: "your_attribute_key", value: "yo
 {% endtab %}
 
 {% tab integer %}
-Pour définir un attribut personnalisé avec une valeur de type `integer` :
+Pour définir un attribut personnalisé avec une valeur `integer` :
 
 {% subtabs %}
 {% subtab swift %}
@@ -106,7 +106,7 @@ AppDelegate.braze?.user.setCustomAttribute(key: "your_attribute_key", value: you
 {% endtab %}
 
 {% tab floating-points %}
-Braze traite les valeurs `float` et `double` de la même manière dans sa base de données. Pour définir un attribut personnalisé avec une valeur double :
+Braze traite les valeurs `float` et `double` de la même manière dans notre base de données. Pour définir un attribut personnalisé avec une valeur double :
 
 {% subtabs %}
 {% subtab swift %}
@@ -124,7 +124,7 @@ AppDelegate.braze?.user.setCustomAttribute(key: "your_attribute_key", value: you
 {% endtab %}
 
 {% tab boolean %}
-Pour définir un attribut personnalisé avec une valeur de type `boolean` :
+Pour définir un attribut personnalisé avec une valeur `boolean` :
 
 {% subtabs %}
 {% subtab swift %}
@@ -142,7 +142,7 @@ AppDelegate.braze?.user.setCustomAttribute("your_attribute_key", value: yourBool
 {% endtab %}
 
 {% tab date %}
-Pour définir un attribut personnalisé avec une valeur de type `date` :
+Pour définir un attribut personnalisé avec une valeur `date` :
 
 {% subtabs %}
 {% subtab swift %}
@@ -160,9 +160,9 @@ AppDelegate.braze?.user.setCustomAttribute("your_attribute_key", dateValue:yourD
 {% endtab %}
 
 {% tab array %}
-Le nombre par défaut et le nombre maximum d'éléments dans un tableau est de 500. Vous pouvez modifier ce nombre maximum dans le tableau de bord de Braze, sous **Paramètres des données** > **Attributs personnalisés**. Les tableaux dépassant le nombre maximum d'éléments seront tronqués pour ne conserver que le nombre maximum d'éléments.
+Le nombre d'éléments par défaut et maximum dans un tableau est de 500. Vous pouvez mettre à jour le nombre maximum d'éléments dans le tableau de bord de Braze, sous **Data Settings** > **Custom Attributes**. Les tableaux dépassant le nombre maximum d'éléments sont tronqués pour contenir le nombre maximum d'éléments.
 
-Pour définir un attribut personnalisé avec une valeur de type `array` :
+Pour définir un attribut personnalisé avec une valeur `array` :
 
 {% subtabs %}
 {% subtab swift %}
@@ -194,7 +194,7 @@ AppDelegate.braze?.user.removeFromCustomAttributeArray(key: "array_name", value:
 
 ### Incrémentation ou décrémentation des attributs personnalisés {#incrementing-or-decrementing-custom-attributes}
 
-Ce code illustre l'incrémentation d'un attribut personnalisé. Vous pouvez incrémenter la valeur d'un attribut personnalisé de n'importe quelle valeur `integer` ou `long` :
+Ce code est un exemple d'incrémentation d'un attribut personnalisé. Vous pouvez incrémenter la valeur d'un attribut personnalisé par n'importe quelle valeur `integer` ou `long` :
 
 {% tabs %}
 {% tab swift %}
@@ -217,7 +217,7 @@ AppDelegate.braze?.user.incrementCustomUserAttribute(key: "your_attribute_key", 
 
 {% tabs %}
 {% tab swift %}
-Pour supprimer un attribut personnalisé, transmettez la clé d'attribut correspondante à la méthode `unsetCustomAttribute`.
+Pour supprimer un attribut personnalisé, transmettez la clé de l'attribut concerné à la méthode `unsetCustomAttribute`.
 
 ```swift
 AppDelegate.braze?.user.unsetCustomAttribute(key: "your_attribute_key")
@@ -225,7 +225,7 @@ AppDelegate.braze?.user.unsetCustomAttribute(key: "your_attribute_key")
 
 {% endtab %}
 {% tab objective-c %}
-Pour supprimer un attribut personnalisé, transmettez la clé d'attribut correspondante à la méthode `unsetCustomAttributeWithKey`.
+Pour supprimer un attribut personnalisé, transmettez la clé de l'attribut concerné à la méthode `unsetCustomAttributeWithKey`.
 
 ```objc
 [AppDelegate.braze.user unsetCustomAttributeWithKey:@"your_attribute_key"];
@@ -234,9 +234,9 @@ Pour supprimer un attribut personnalisé, transmettez la clé d'attribut corresp
 {% endtab %}
 {% endtabs %}
 
-### Imbrication d'attributs personnalisés {#nesting-custom-attributes}
+### Imbrication des attributs personnalisés {#nesting-custom-attributes}
 
-Vous pouvez également imbriquer des propriétés dans des attributs personnalisés. Dans l'exemple suivant, un objet `favorite_book` avec des propriétés imbriquées est défini comme attribut personnalisé sur le profil utilisateur. Pour plus de détails, consultez la section [Attributs personnalisés imbriqués]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/).
+Vous pouvez également imbriquer des propriétés au sein d'attributs personnalisés. Dans l'exemple suivant, un objet `favorite_book` avec des propriétés imbriquées est défini comme attribut personnalisé sur le profil utilisateur. Pour plus de détails, consultez [Attributs personnalisés imbriqués]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
 
 {% tabs %}
 {% tab swift %}
@@ -266,22 +266,22 @@ NSDictionary *favoriteBook = @{
 
 ### Utilisation de la REST API {#using-the-rest-api}
 
-Vous pouvez également utiliser notre REST API pour définir ou supprimer des attributs utilisateur. Pour plus d'informations, reportez-vous aux [endpoints de données utilisateur]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data).
+Vous pouvez également utiliser notre REST API pour définir ou supprimer des attributs utilisateur. Pour plus d'informations, consultez [Endpoints de données utilisateur]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data).
 
-## Configuration des abonnements utilisateur {#setting-user-subscriptions}
+## Définition des abonnements utilisateur {#setting-user-subscriptions}
 
-Pour configurer un abonnement pour vos utilisateurs (par e-mail ou notification push), appelez respectivement les fonctions `set(emailSubscriptionState:)` ou `set(pushNotificationSubscriptionState:)`. Ces deux fonctions prennent le type enum `Braze.User.SubscriptionState` comme argument. Ce type comporte trois états :
+Pour configurer un abonnement pour vos utilisateurs (par e-mail ou par notification push), appelez les fonctions `set(emailSubscriptionState:)` ou `set(pushNotificationSubscriptionState:)`, respectivement. Ces deux fonctions prennent le type enum `Braze.User.SubscriptionState` comme argument. Ce type possède trois états différents :
 
-| État d'abonnement | Définition |
+| Statut d'abonnement | Définition |
 | ------------------- | ---------- |
 | `optedIn` | Abonné et explicitement inscrit |
 | `subscribed` | Abonné, mais pas explicitement inscrit |
 | `unsubscribed` | Désabonné et/ou explicitement désinscrit |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Setting user subscriptions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Définition des abonnements utilisateur" }
 
 Les utilisateurs qui autorisent une application à leur envoyer des notifications push ont par défaut le statut `optedIn`, car iOS exige un abonnement explicite.
 
-Les utilisateurs sont automatiquement définis sur `subscribed` dès la réception d'une adresse e-mail valide. Nous vous recommandons toutefois de mettre en place un processus d'abonnement explicite et de définir cette valeur sur `optedIn` dès réception du consentement explicite de votre utilisateur. Reportez-vous à [Gérer les abonnements des utilisateurs]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/) pour plus de détails.
+Les utilisateurs seront automatiquement définis sur `subscribed` lors de la réception d'une adresse e-mail valide ; cependant, nous vous recommandons de mettre en place un processus d'abonnement explicite et de définir cette valeur sur `optedIn` dès réception du consentement explicite de votre utilisateur. Consultez la section [Gestion des abonnements utilisateur]({{site.baseurl}}/user_guide/channels/email/subscriptions) pour plus de détails.
 
 ### Définition des abonnements par e-mail {#setting-email-subscriptions}
 
@@ -321,4 +321,4 @@ AppDelegate.braze?.user.set(pushNotificationSubscriptionState: Braze.User.Subscr
 {% endtab %}
 {% endtabs %}
 
-Reportez-vous à [Gérer les abonnements des utilisateurs]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/) pour plus de détails.
+Consultez la section [Gestion des abonnements utilisateur]({{site.baseurl}}/user_guide/channels/email/subscriptions) pour plus de détails.

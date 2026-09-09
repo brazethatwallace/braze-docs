@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Lytics
 
-> [Lytics](https://www.lytics.com/)는 차세대 고객 중심 비즈니스를 위한 고객 데이터 플랫폼(CDP)입니다. Lytics Decision Engine, Conductor, Cloud Connect 솔루션은 마케터와 데이터 팀에게 실시간으로 개인정보 보호를 준수하면서 ID 확인, 오케스트레이션, 캠페인 최적화를 수행할 수 있는 기회를 제공합니다.
+> [Lytics](https://www.lytics.com/)는 차세대 고객 중심 비즈니스를 위한 고객 데이터 플랫폼(고객 데이터 플랫폼)입니다. Lytics Decision Engine, Conductor, Cloud Connect 솔루션은 마케터와 데이터 팀에게 실시간으로 개인정보 보호를 준수하면서 ID 확인, 오케스트레이션, 캠페인 최적화를 수행할 수 있는 기회를 제공합니다.
 
 _이 통합은 Lytics에서 유지 관리합니다._
 
@@ -32,7 +32,7 @@ Braze를 Lytics에 연결하여 이메일, SMS, 푸시 활동을 [가져와](#im
 | ----------- | ----------- |
 | Lytics 계정 | 이 통합을 활용하려면 Lytics 계정이 필요합니다. |
 | Lytics 계정 번호 | 웹훅 엔드포인트 URL을 구성하려면 Lytics 계정 번호가 필요합니다. |
-| Lytics API 토큰 | Data Manager 권한이 있는 Lytics REST API 토큰입니다. <br><br> Lytics 대시보드에서 **Account Settings Console** > **Access Tokens** > **Create New Token**으로 이동하여 생성할 수 있습니다. |
+| Lytics API 토큰 | Data 매니저 권한이 있는 Lytics REST API 토큰입니다. <br><br> Lytics 대시보드에서 **Account Settings Console** > **Access Tokens** > **Create New Token**으로 이동하여 생성할 수 있습니다. |
 | Braze REST API 키 | `users.track` 권한이 있는 Braze REST API 키입니다. <br><br> Braze 대시보드에서 **설정** > **API 키**로 이동하여 생성할 수 있습니다. |
 | Braze 인스턴스 | 사용 중인 [Braze 인스턴스]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints)입니다. 확실하지 않은 경우 Braze 온보딩 매니저에게 문의하세요. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
@@ -118,7 +118,7 @@ Lytics에서 내비게이션 바의 **Data** 콘솔 내 **Jobs** 대시보드로
 
 ![계정 메뉴에서 Create API Token이 선택된 Lytics Access Tokens 화면.]({% image_buster /assets/img/lytics/create_token.png %}){: style="max-width:80%;"}
 
-이름, 선택적 설명, 토큰 만료 기간을 입력합니다. 다음으로, API 권한에서 **Data Manager** 범위를 토글하고 **Generate Token**을 선택합니다. 토큰을 복사하여 안전한 곳에 보관합니다.
+이름, 선택적 설명, 토큰 만료 기간을 입력합니다. 다음으로, API 권한에서 **Data 매니저** 범위를 토글하고 **Generate Token**을 선택합니다. 토큰을 복사하여 안전한 곳에 보관합니다.
 
 ![토큰 생성 전 Data Manager 범위가 활성화된 Lytics API 토큰 권한 화면.]({% image_buster /assets/img/lytics/data_manager.png %}){: style="max-width:80%;"}
 

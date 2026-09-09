@@ -443,7 +443,7 @@ Füllen Sie Alt-Text nicht mit SEO-Begriffen oder Handlungsaufforderungen auf, d
   <tbody>
     <tr>
       <td>„Laptop, der das Braze-Dashboard-Analytics-Chart zeigt“</td>
-      <td>„Steigern Sie Konversionen und katapultieren Sie den ROI mit der besten Plattform der Welt!“ (Fügt unnötige Marketing-Sprache hinzu)</td>
+      <td>„Steigern Sie Konversionen und katapultieren Sie den Kapitalrendite mit der besten Plattform der Welt!“ (Fügt unnötige Marketing-Sprache hinzu)</td>
     </tr>
     <tr>
       <td>„Hinterhof-Terrassen-Set mit vier Stühlen und einem Glastisch“</td>

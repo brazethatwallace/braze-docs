@@ -24,7 +24,7 @@ Vous sélectionnez le type d'agent dans **Agent Console** lorsque vous créez l'
 
 ## Bonnes pratiques {#best-practices}
 
-Ciblez les cas d'usage à forte valeur ajoutée où les agents peuvent générer le meilleur retour sur investissement (ROI), et choisissez des audiences susceptibles de répondre. Une audience plus restreinte mais à fort potentiel surpasse souvent une audience large avec peu d'opportunités.
+Ciblez les cas d'usage à forte valeur ajoutée où les agents peuvent générer le meilleur ROI (ROI), et choisissez des audiences susceptibles de répondre. Une audience plus restreinte mais à fort potentiel surpasse souvent une audience large avec peu d'opportunités.
 
 Pour les agents d'étape Canvas, commencez par les utilisateurs qui présentent des signaux forts — tels que des recherches récentes, un engagement élevé ou des données de profil riches — avant de vous étendre à des Segments plus larges. Pour les agents de catalogue, privilégiez les lignes où les colonnes d'entrée dont vous avez besoin sont déjà renseignées, afin que chaque invocation dispose de suffisamment de contexte pour produire un résultat utile.
 

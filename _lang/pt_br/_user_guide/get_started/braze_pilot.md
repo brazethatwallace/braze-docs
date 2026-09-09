@@ -108,8 +108,8 @@ Se você estiver registrando dados como um usuário identificado, a área de sta
 
 Campaigns e Canvas são a forma como você envia mensagens aos seus usuários.
 
-- Campaigns são ideais para mensagens individuais enviadas a um segmento específico de público em vários canais.
-- Canvas são fluxos de trabalho avançados de campanhas que permitem automatizar e orquestrar jornadas personalizadas de clientes em múltiplos canais. Em um Canvas, você pode configurar lógica de ramificação, postergações, pontos de decisão e eventos de conversão para guiar os clientes por uma série de interações. Canvas ajudam a garantir uma comunicação consistente e fluida em diferentes pontos de contato, aumentando as chances de engajamento e conversão do cliente.
+- Campaigns são ideais para mensagens individuais enviadas a um Segment específico de público em vários canais.
+- Canvas são fluxos de trabalho avançados de campanhas que permitem automatizar e orquestrar jornadas personalizadas de clientes em múltiplos canais. Em um Canvas, você pode configurar lógica de Branch, postergações, pontos de decisão e eventos de conversão para guiar os clientes por uma série de interações. Canvas ajudam a garantir uma comunicação consistente e fluida em diferentes pontos de contato, aumentando as chances de engajamento e conversão do cliente.
 
 ## Canais de envio de mensagens suportados {#supported-messaging-channels}
 

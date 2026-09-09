@@ -1,6 +1,6 @@
 {% if include.content == "Differences" %}
 
-[Teams]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/teams)、[権限セット]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#creating-a-permission-set)、[ユーザーロール]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#creating-a-role)を使用して、Braze内での会社ユーザーのアクセスと責任を管理できます。各機能には、権限とアクセスコントロールの異なるコレクションが含まれています。
+[Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams)、[権限セット]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#creating-a-permission-set)、[ユーザーロール]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#creating-a-role)を使用して、Braze内での会社ユーザーのアクセスと責任を管理できます。各機能には、権限とアクセスコントロールの異なるコレクションが含まれています。
 
 ### 主な違い {#key-differences}
 

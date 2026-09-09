@@ -12,7 +12,7 @@ description: "Dieser Referenzartikel beschreibt, wie Sie Braze-Zertifizierungen 
 
 ## Zertifizierung erhalten {#get-certified}
 
-Es gibt drei Schritte, um eine Zertifizierung zu erwerben: Wählen Sie einen Braze-Zertifizierungstyp aus, bereiten Sie sich mit empfohlenen Lernmaterialien vor und registrieren Sie sich dann auf [Certiverse](https://www.certiverse.com/#/store/Braze), um Ihre Prüfung abzulegen.
+Es gibt drei Schritte, um eine Zertifizierung zu erwerben: Wählen Sie einen Braze-Zertifizierungstyp aus, bereiten Sie sich mit empfohlenen Lernmaterialien vor und Registrieren Sie sich dann auf [Certiverse](https://www.certiverse.com/#/store/Braze), um Ihre Prüfung abzulegen.
 
 ### Schritt 1: Braze-Zertifizierung auswählen {#step-1-choose-a-braze-certification}
 

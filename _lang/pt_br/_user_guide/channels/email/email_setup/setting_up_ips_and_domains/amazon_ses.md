@@ -22,7 +22,7 @@ Antes de iniciar a configuração do Amazon SES, confirme que você tem o seguin
 
 ## Exemplo de configuração {#setup-example}
 
-Uma configuração típica do Amazon SES é semelhante ao seguinte:
+Uma configuração típica do Amazon SES é semelhante à seguinte:
 
 - **Nome da subconta:** braze
 - **Cluster:** eu-02
@@ -65,14 +65,17 @@ Isso se baseia na regra de que o domínio de rastreamento de cliques precisa cor
 
 ## Considerações {#considerations}
 
-- Os pools de IP no Amazon SES hospedam apenas o endereço IP em si, enquanto os conjuntos de configuração hospedam os domínios de envio e o domínio de rastreamento de cliques.
-- Cada conjunto de configuração pode ter apenas um pool de IP atribuído por vez, mas é possível criar múltiplos conjuntos de configuração que usam o mesmo pool de IP com domínios de envio diferentes.
-- O Amazon SES gerencia os registros rDNS e A internamente, pois mantém relações próximas com provedores de caixa de entrada para ajudar a reconhecer endereços IP.
-- Cada domínio de envio tem um identificador MAIL FROM vinculado a ele para ajudar nas validações de SPF.
+- Os pools de IP na Amazon SES hospedam apenas o endereço IP em si, enquanto os conjuntos de configuração hospedam os domínios de envio e o domínio de rastreamento de cliques.
+- Cada conjunto de configuração pode ter apenas um pool de IP atribuído a ele por vez, mas é possível criar vários conjuntos de configuração que usam o mesmo pool de IP com domínios de envio diferentes.
+- A Amazon SES gerencia os registros rDNS e A internamente, pois mantém relacionamentos próximos com provedores de caixa de entrada para ajudar a reconhecer endereços IP.
+- Cada domínio de envio tem um identificador MAIL FROM associado a ele para ajudar nas validações de SPF.
     - O valor para cada domínio de envio é "e".
-    - O valor MAIL FROM não altera o endereço De que seus clientes visualizam.
-- O início e o fim do período de mensagem trap não estão disponíveis se você estiver usando o Amazon SES como seu prestador de serviço de e-mail.
+    - O valor MAIL FROM não altera o endereço de remetente que seus clientes visualizam.
+- O início do período de mensagem trap e o fim do período de mensagem trap não estão disponíveis se você estiver usando a Amazon SES como seu provedor de serviços de e-mail.
 
 ## Próximas etapas {#next-steps}
 
-- [Configurar SSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/)
+{% article_tiles %}
+- name: Configurar SSL
+  link: /docs/user_guide/channels/email/email_setup/ssl
+{% endarticle_tiles %}

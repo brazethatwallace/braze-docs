@@ -7,7 +7,6 @@ tool:
   - Dashboard
 channel:
   - email
-
 ---
 
 # Inbox Vision
@@ -157,7 +156,17 @@ Running Inbox Vision every time you make a single edit or change can quickly con
 
 Braze runs tests through actual email clients and works to ensure renderings are accurate. Braze defaults to the top 20 previews based on general industry and expert data, which covers the majority of where your users are engaging with your emails. If your data analysis points to other, more popular previews, you can define a default set of previews every time you run Inbox Vision. 
 
-If you consistently see an issue with a client, open a [support ticket]({{site.baseurl}}/braze_support).
+If you consistently see an issue with a client, open a [support ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support).
+
+### Troubleshoot iframe-heavy clients
+
+Some email clients, including GMX, render messages inside iframes and may strip or ignore CSS in `<style>` blocks. If Inbox Vision or live sends show missing styles in these clients:
+
+- Use table-based layouts instead of CSS-positioned layouts.
+- Apply critical styles as inline `style` attributes on the affected elements.
+- Note that **Hide on desktop** and **Hide on mobile** rely on media queries in the `<style>` block, so they may not work in these clients—content hidden by viewport can appear in both views.
+
+Before sending, test the updated message in Inbox Vision with the affected client preview.
 
 ### Test accuracy versus live inboxes
 

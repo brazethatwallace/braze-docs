@@ -15,9 +15,9 @@ description: "Examina ejemplos de prompts para BrazeAI Operator, organizados seg
 {% sdktabs local %}
 {% sdktab Data analysis %}
 
-{% include copy_block.html content="Summarize the key trends for MAU, DAU, and New Users in this date range and what to do next." available="Home page" %}
+{% include copy_block.html content="Summarize the key trends for MAU, usuario activo diario, and New Users in this date range and what to do next." available="Home page" %}
 
-{% include copy_block.html content="Show the MAU, DAU, and New Users trends for the last 90 days—where are the biggest dips and spikes?" available="Home page" %}
+{% include copy_block.html content="Show the MAU, usuario activo diario, and New Users trends for the last 90 days—where are the biggest dips and spikes?" available="Home page" %}
 
 {% include copy_block.html content="Break down sessions by app (if available) and highlight which app is driving the most growth this month." available="Home page" %}
 

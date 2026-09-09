@@ -24,7 +24,7 @@ Wenn Sie eine Integration mit einer angepassten externen ID planen (entweder fü
 
 {% if include.section == "Liquid promotion codes with Currents" %}
 
-Sie können [`message_extras`]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/advanced_filters/message_extras) mit [Aktionscodes]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/promotion_codes) kombinieren, um Informationen zu Aktionscodes an Currents zu senden. Verwenden Sie den `capture`-Tag, um den Aktionscode in einer Variablen zu speichern, und referenzieren Sie diese Variable dann in `message_extras`:
+Sie können [`message_extras`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras) mit [Aktionscodes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes) kombinieren, um Informationen zu Aktionscodes an Currents zu senden. Verwenden Sie den `capture`-Tag, um den Aktionscode in einer Variablen zu speichern, und referenzieren Sie diese Variable dann in `message_extras`:
 
 {% raw %}
 ```liquid

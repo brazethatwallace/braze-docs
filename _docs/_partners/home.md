@@ -4,7 +4,7 @@ nav_title: Home
 article_title: Technology Partners
 alias: /partners/partners/
 search_tag: Partner
-description: "Browse Braze technology partners (Alloys) alphabetically. Find integration documentation for personalization, orchestration, data, eCommerce, Audience Sync, and more."
+description: "Browse Braze Alloys technology partners and integration docs for personalization, data, eCommerce, and Audience Sync."
 ---
 
 # Technology Partners
@@ -140,11 +140,13 @@ Braze Alloys is Braze's technology partner program. Partners extend the Braze pl
 
 ## G
 
+- [Globalization Partners International]({{site.baseurl}}/partners/message_personalization/localization/gpi)
 - [Google Audience Sync]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync)
 - [Google Cloud Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/google_cloud_storage_for_currents)
 - [Google Gemini]({{site.baseurl}}/partners/ai_model_providers/google_gemini)
 - [GRAVTY®]({{site.baseurl}}/partners/data_and_analytics/loyalty/lji)
 - [GrowthLoop]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/growthloop)
+- [GrowSurf]({{site.baseurl}}/partners/message_personalization/referrals/growsurf)
 
 </div>
 
@@ -178,7 +180,6 @@ Braze Alloys is Braze's technology partner program. Partners extend the Braze pl
 - [Jasper]({{site.baseurl}}/partners/message_orchestration/templates/jasper)
 - [Jebbit]({{site.baseurl}}/partners/additional_channels_and_extensions/extensions/surveys/jebbit)
 - [Judo]({{site.baseurl}}/partners/message_personalization/dynamic_content/visual_and_interactive_content/judo)
-- [JustAI]({{site.baseurl}}/partners/message_personalization/dynamic_content/content_optimization_testing/just_ai)
 - [Justuno]({{site.baseurl}}/partners/data_and_analytics/leads_capture/justuno)
 
 </div>

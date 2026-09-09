@@ -207,7 +207,7 @@ Defina a seleção no dashboard com filtros na sua coluna `category` e atributos
 
 ### Etapa 4: Prévia e teste {#step-4-preview-and-test}
 
-1. Use **Preview as User** com perfis de usuário que tenham diferentes valores de {% raw %}`${language}`{% endraw %}.
+1. Use **prévia as User** com perfis de usuário que tenham diferentes valores de {% raw %}`${language}`{% endraw %}.
 2. Confirme o conteúdo de fallback quando o idioma estiver ausente ou não for suportado, incluindo localidades parciais (por exemplo, um nome sem preço).
 3. Para o Método 3, confirme que cada idioma na lista de permissão possui um catálogo correspondente e que códigos de idioma não suportados mapeiam para o seu catálogo padrão sem interromper o envio.
 

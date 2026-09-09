@@ -1,6 +1,6 @@
 ---
 nav_title: Personnaliser les messages
-article_title: Personnaliser les messages in-app pour le SDK Braze
+article_title: "Personnaliser les messages in-app"
 page_order: 0.1
 description: "Découvrez comment configurer les messages in-app pour le SDK de Braze."
 platform:

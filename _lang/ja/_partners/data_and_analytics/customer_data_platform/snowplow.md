@@ -22,7 +22,7 @@ BrazeとSnowplowの統合により、SnowplowのEvent Forwardingソリューシ�
 - 転送を選択するまで、すべてのデータをプライベートクラウドに保持します。
 - 既存のSnowplowクラウドアカウント内にソリューションを自分でデプロイします。
 
-Snowplowの[Event Forwarding](https://docs.snowplow.io/docs/destinations/forwarding-events/)は、Snowplowの顧客が利用できる有料のアドオン機能です。このアドオンなしでBrazeにイベントを転送するには、Snowplowの[Google Tag Manager Server-Side](https://docs.snowplow.io/docs/destinations/forwarding-events/google-tag-manager-server-side/)統合を使用してください。
+Snowplowの[Event Forwarding](https://docs.snowplow.io/docs/destinations/forwarding-events/)は、Snowplowの顧客が利用できる有料のアドオン機能です。このアドオンなしでBrazeにイベントを転送するには、Snowplowの[Google Tag マネージャー Server-Side](https://docs.snowplow.io/docs/destinations/forwarding-events/google-tag-manager-server-side/)統合を使用してください。
 
 Snowplowの豊富な行動データを活用して、Brazeで強力な顧客中心のインタラクションを促進し、パーソナライズされたメッセージをリアルタイムで配信しましょう。
 

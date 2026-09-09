@@ -14,17 +14,17 @@ page_order: 4
 Die Tools auf dieser Seite führen doppelte Profile im Dashboard zusammen. Sie können Profile auch über die [User-Data-Endpunkte]({{site.baseurl}}/api/endpoints/user_data) von Braze kombinieren oder umleiten:
 
 - [POST: Nutzer:innen identifizieren]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) (`/users/identify`): Kombiniert ein Nur-Alias-, Nur-E-Mail- oder Nur-Telefonnummer-Profil mit einem Profil, das eine `external_id` hat.
-- [POST: Nutzer:innen zusammenführen]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) (`/users/merge`): Führt ein Nutzerprofil mit einem anderen zusammen, auch wenn beide Profile bereits eine `external_id` haben. Lesen Sie [Voraussetzungen]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#prerequisites) und [Zusammenführungsverhalten]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior), bevor Sie diesen Endpunkt aufrufen.
+- [POST: Nutzer:innen zusammenführen]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) (`/users/merge`): Führt ein Kundenprofil mit einem anderen zusammen, auch wenn beide Profile bereits eine `external_id` haben. Lesen Sie [Voraussetzungen]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#prerequisites) und [Zusammenführungsverhalten]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior), bevor Sie diesen Endpunkt aufrufen.
 
 Wenn ein anonymes Profil einem bestehenden identifizierten Profil zugeordnet wird (z. B. durch einen SDK-`changeUser()`-Aufruf oder `/users/identify`), verwaist Braze das anonyme Profil und kopiert nur bestimmte Felder auf das identifizierte Profil. Weitere Informationen finden Sie unter [Was passiert, wenn Sie anonyme Nutzer:innen identifizieren]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#what-happens-when-you-identify-anonymous-users).
 
-Zusammenführungen von Nutzer:innen sind schwer rückgängig zu machen. Wenn Sie eine komplexe Zusammenführung über mehrere `external_id`-Werte oder große Profilmigrationen planen, wenden Sie sich an Ihren Customer-Success-Manager, bevor Sie sich auf `/users/merge` verlassen.
+Zusammenführungen von Nutzer:innen sind schwer rückgängig zu machen. Wenn Sie eine komplexe Zusammenführung über mehrere `external_id`-Werte oder große Profilmigrationen planen, wenden Sie sich an Ihren CSM, bevor Sie sich auf `/users/merge` verlassen.
 
 Braze behandelt drei Nutzertypen beim Zusammenführen unterschiedlich: zum Löschen markierte Nutzer:innen, Testnutzer:innen und Nutzer:innen der Globalen Kontrollgruppe. Weitere Details finden Sie unter [Zusammenführungsverhalten von Nutzer:innen]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior).
 
 ## Einzelnes Zusammenführen {#individual-merging}
 
-Wenn eine Nutzersuche doppelte Profile zurückgibt, können Sie jedes Profil einzeln über das Nutzerprofil im Braze-Dashboard zusammenführen.
+Wenn eine Nutzersuche doppelte Profile zurückgibt, können Sie jedes Profil einzeln über das Kundenprofil im Braze-Dashboard zusammenführen.
 
 ### 1. Schritt: Nach einem doppelten Profil suchen {#step-1-search-for-a-duplicate-profile}
 
@@ -42,7 +42,7 @@ Um den Zusammenführungsprozess zu starten, wählen Sie **Merge duplicates**.
 
 ![Eines der doppelten Nutzerprofile.]({% image_buster /assets/img/audience_management/duplicate_users/individual_merging/select_merge_duplicates.png %}){: style="max-width:50%;"}
 
-Wählen Sie aus, welches Nutzerprofil beibehalten und welches zusammengeführt werden soll, und wählen Sie dann **Merge profiles**. Wiederholen Sie diesen Vorgang, bis Sie alle doppelten Profile zusammengeführt haben.
+Wählen Sie aus, welches Kundenprofil beibehalten und welches zusammengeführt werden soll, und wählen Sie dann **Merge profiles**. Wiederholen Sie diesen Vorgang, bis Sie alle doppelten Profile zusammengeführt haben.
 
 
 {% alert warning %}
@@ -102,7 +102,7 @@ Doppelte Nutzerprofile können nach dem Zusammenführen nicht wiederhergestellt 
 
 ## Regelbasiertes Zusammenführen {#rules-based-merging}
 
-Sie können Regeln verwenden, um zu steuern, wie doppelte Profile beim Zusammenführen aufgelöst werden, damit das relevanteste Nutzerprofil beibehalten wird. Wenn Regeln festgelegt sind, behält Braze Profile bei, die Ihren Kriterien entsprechen.
+Sie können Regeln verwenden, um zu steuern, wie doppelte Profile beim Zusammenführen aufgelöst werden, damit das relevanteste Kundenprofil beibehalten wird. Wenn Regeln festgelegt sind, behält Braze Profile bei, die Ihren Kriterien entsprechen.
 
 ### 1. Schritt: Ihre Regeln definieren {#step-1-define-your-rules}
 
@@ -144,7 +144,7 @@ Doppelte Nutzerprofile können nach dem Zusammenführen nicht wiederhergestellt 
 
 Braze speichert mehrere Nutzerprofile, die dieselbe E-Mail-Adresse teilen, wenn Profile über verschiedene Bezeichner, Importe oder anonyme Sitzungen vor der Identifizierung erstellt werden. Dies ist ein erwartetes Verhalten, wenn Nutzer:innen keine gemeinsame `external_id` haben.
 
-Bevor Sie Duplikate zusammenführen, verwenden Sie den [Endpunkt „Nutzerprofil nach Bezeichner exportieren“]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier), um zu bestätigen, welche Profile für eine E-Mail-Adresse existieren und welche Felder jedes Profil enthält. Sie können auch in **Audience** > **User Search** nach E-Mail suchen, um Duplikate im Dashboard zu überprüfen.
+Bevor Sie Duplikate zusammenführen, verwenden Sie den [Endpunkt „Kundenprofil nach Bezeichner exportieren“]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier), um zu bestätigen, welche Profile für eine E-Mail-Adresse existieren und welche Felder jedes Profil enthält. Sie können auch in **Audience** > **User Search** nach E-Mail suchen, um Duplikate im Dashboard zu überprüfen.
 
 ## Verwandte Artikel {#related-articles}
 

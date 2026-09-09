@@ -9,7 +9,7 @@ search_tag: Partner
 
 ---
 
-# [![Curso do Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/amplitude-integration-with-braze){: style="float:right;width:120px;border:0;" class="noimgborder"}Amplitude para Currents {#amplitude-for-currents}
+# [![Curso do Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/amplitude-integration-with-braze){: style="float:right;width:120px;border:0;" class="noimgborder"}Amplitude para Currents {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomamplitude-integration-with-braze-stylefloatrightwidth120pxborder0-classnoimgborderamplitude-for-currents}
 
 > A [Amplitude](https://amplitude.com/) é uma plataforma de análise de dados e business intelligence de produtos.
 
@@ -19,8 +19,8 @@ A integração bidirecional entre a Braze e a Amplitude permite [sincronizar sua
 
 | Requisito | Descrição |
 |---|---|
-| Conta Amplitude | Uma [conta Amplitude](https://amplitude.com/) é necessária para aproveitar esta parceria. |
-| Currents | Para exportar dados de volta para o Amplitude, você precisa ter o [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents#access-currents) configurado para sua conta. |
+| Conta na Amplitude | É necessária uma [conta na Amplitude](https://amplitude.com/) para aproveitar essa parceria. |
+| Currents | Para exportar dados de volta para a Amplitude, você precisa ter o [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents#access-currents) configurado na sua conta. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração de exportação de dados {#data-export-integration}
@@ -37,36 +37,36 @@ A Braze enviará dados de eventos apenas para usuários que tenham o `external_u
 amplitude.setDeviceId(Appboy.getInstance(context).getDeviceId();)
 ```
 
-Você pode exportar dois tipos de eventos para o Amplitude: [Eventos de engajamento com mensagem](#supported-currents-events), que consistem nos eventos da Braze diretamente relacionados ao envio de mensagens, e [Eventos de comportamento do cliente](#supported-currents-events), que incluem outras atividades no app ou website, como sessões, eventos personalizados e compras rastreadas pela plataforma. Todos os eventos regulares recebem o prefixo `[Appboy]`, e todos os eventos personalizados recebem o prefixo `[Appboy] [Custom Event]`. As propriedades de eventos personalizados e de compras recebem o prefixo `[Custom event property]` e `[Purchase property]`, respectivamente.
+Você pode exportar dois tipos de eventos para o Amplitude: [Eventos de engajamento com mensagem](#supported-currents-events), que consistem nos eventos da Braze diretamente relacionados ao envio de mensagens, e [Eventos de comportamento do cliente](#supported-currents-events), que incluem outras atividades no app ou website, como sessões, eventos personalizados e compras rastreadas pela plataforma. Todos os eventos regulares são prefixados com `[Appboy]`, e todos os eventos personalizados são prefixados com `[Appboy] [Custom Event]`. As propriedades de eventos personalizados e de compra são prefixadas com `[Custom event property]` e `[Purchase property]`, respectivamente.
 
 {% alert note %}
-O Braze Currents aplica o prefixo `[Appboy]` ao exportar eventos para o Amplitude. Esse rótulo faz referência ao nome legado do produto da Braze. Esse é o comportamento esperado e não indica um problema com o SDK ou a integração.
+O Braze Currents aplica o prefixo `[Appboy]` ao exportar eventos para o Amplitude. Esse rótulo faz referência ao nome legado do produto da Braze. Esse é o comportamento esperado e não indica um problema com o SDK ou com a integração.
 {% endalert %}
 
-Todas as coortes nomeadas e importadas para a Braze receberão o prefixo `[Amplitude]` e o sufixo com o respectivo `cohort_id`. Isso significa que uma coorte chamada "TEST_COHORT" com o `cohort_id` "abcd1234" será intitulada `[Amplitude] TEST_COHORT: abcd1234` nos filtros da Braze.
+Todas as coortes nomeadas e importadas para a Braze serão prefixadas com `[Amplitude]` e terão como sufixo o `cohort_id`. Isso significa que uma coorte chamada "TEST_COHORT" com o `cohort_id` "abcd1234" será intitulada `[Amplitude] TEST_COHORT: abcd1234` nos filtros da Braze.
 
-Entre em contato com o seu gerente de conta ou abra um [ticket de suporte]({{site.baseurl}}/braze_support) se precisar de acesso a direitos de eventos adicionais.
+Entre em contato com o gerente da sua conta ou abra um [ticket de suporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) se precisar de acesso a direitos adicionais de eventos.
 
 ### Etapa 1: Configurar a integração do Amplitude na Braze {#step-1-configure-amplitude-integration-in-braze}
 
-No Amplitude, localize a sua chave de API de exportação do Amplitude.
+No Amplitude, localize sua chave de API de exportação do Amplitude.
 
 {% alert warning %}
 Mantenha sua chave de API do Amplitude atualizada. Se as credenciais do seu conector expirarem, o conector deixará de enviar eventos. Se isso persistir por mais de **48 horas**, os eventos do conector serão descartados e os dados serão permanentemente perdidos.
 {% endalert %}
 
-### Etapa 2: Criar o Braze Current {#step-2-create-braze-current}
+### Etapa 2: Criar um Braze Current {#step-2-create-braze-current}
 
-Na Braze, navegue até **Currents > + Create Current > Create Amplitude Export**. Forneça um nome de integração, e-mail de contato, chave de API de exportação do Amplitude e região do Amplitude nos campos listados. Em seguida, selecione os eventos que deseja rastrear; uma lista de eventos disponíveis será fornecida. Por fim, clique em **Launch Current**
+Na Braze, navegue até **Currents > + Create Current > Create Amplitude Export**. Forneça um nome de integração, e-mail de contato, chave de API de exportação do Amplitude e região do Amplitude nos campos indicados. Em seguida, selecione os eventos que deseja rastrear; uma lista de eventos disponíveis será fornecida. Por último, clique em **Launch Current**.
 
 {% alert note %}
-Os eventos enviados do Braze Currents para o Amplitude serão contabilizados na sua cota de volume de eventos do Amplitude.
+Os eventos enviados do Braze Currents para o Amplitude contarão para a sua cota de volume de eventos do Amplitude.
 {% endalert %}
 
-![Página do Braze Amplitude Currents. Esta página inclui campos para nome de integração, e-mail de contato, chave de API e região dos EUA. A metade inferior da página do Currents lista os eventos do Currents disponíveis que você pode enviar.]({% image_buster /assets/img/amplitude4.png %})
+![A página do Braze Amplitude Currents. Esta página inclui campos para nome da integração, e-mail de contato, chave de API e região dos EUA. A metade inferior da página do Currents lista os eventos disponíveis do Currents que você pode enviar.]({% image_buster /assets/img/amplitude4.png %})
 
 {% alert tip %}
-Se você receber um erro "Invalid API key" ao colar a sua chave de API do Amplitude, tente digitar a chave manualmente. Alguns navegadores podem adicionar caracteres ocultos ao copiar e colar, o que pode causar erros de validação.
+Se você receber um erro "Invalid API key" ao colar sua chave de API do Amplitude, tente digitar a chave manualmente. Alguns navegadores podem adicionar caracteres ocultos ao copiar e colar, o que pode causar erros de validação.
 {% endalert %}
 
 {% tab note %}
@@ -75,9 +75,9 @@ Para saber mais, consulte a documentação do Amplitude sobre a [Integração Ap
 
 ## Limites de frequência {#rate-limits}
 
-O Currents se conecta à API HTTP da Amplitude, que tem um [limite de frequência](https://developers.amplitude.com/docs/http-api-v2#upload-limit) de 30 eventos/segundo por dispositivo e um limite não documentado de 500 mil eventos/dia por dispositivo. Se esses limites forem excedidos, a Amplitude aplicará throttling nos eventos registrados pelo Currents. Se um dispositivo na sua integração exceder esse limite de frequência, você poderá ter uma postergação no momento em que os eventos de todos os dispositivos aparecerão na Amplitude.
+O Currents se conecta à API HTTP da Amplitude, que possui um [limite de frequência](https://developers.amplitude.com/docs/http-api-v2#upload-limit) de 30 eventos/segundo por dispositivo e um limite não documentado de 500 mil eventos/dia por dispositivo. Se esses limites forem excedidos, a Amplitude fará o throttling dos eventos registrados pelo Currents. Se um dispositivo na sua integração exceder esse limite de frequência, você poderá perceber uma postergação no momento em que os eventos de todos os dispositivos aparecerão na Amplitude.
 
-Os dispositivos não devem registrar mais de 30 eventos/segundo ou 500 mil eventos/dia em circunstâncias normais, e esse padrão de eventos só deve ocorrer devido a uma integração mal configurada. Para evitar esse tipo de postergação, certifique-se de que sua integração SDK registre eventos em uma taxa normal, conforme especificado nas nossas instruções de integração SDK, e evite executar testes automatizados que gerem muitos eventos para um único dispositivo.
+Os dispositivos não devem reportar mais de 30 eventos/segundo ou 500 mil eventos/dia em circunstâncias normais, e esse padrão de eventos só deve ocorrer devido a uma integração mal configurada. Para evitar esse tipo de postergação, certifique-se de que sua integração SDK reporte eventos em uma taxa normal, conforme especificado em nossas instruções de integração SDK, e evite executar testes automatizados que gerem muitos eventos para um único dispositivo.
 
 ## Eventos do Currents compatíveis {#supported-currents-events}
 

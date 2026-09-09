@@ -34,7 +34,7 @@ In Braze tritt eine der häufigsten Race-Conditions bei Nachrichten auf, die auf
 1. Eine Nutzer:in wird erstellt;
 2. Dieselbe Nutzer:in wird sofort für eine Nachricht angesprochen, führt ein angepasstes Event aus oder protokolliert ein angepasstes Attribut.
 
-In einigen Fällen wird jedoch das zweite Ereignis zuerst ausgelöst. Das bedeutet, dass versucht wird, eine Nachricht an eine Nutzer:in zu senden, die noch nicht existiert. Infolgedessen erhält die Nutzer:in die Nachricht nie. Dies gilt auch für Events oder Attribute, bei denen versucht wird, das Event oder Attribut in einem Nutzerprofil zu protokollieren, das noch nicht erstellt wurde.
+In einigen Fällen wird jedoch das zweite Ereignis zuerst ausgelöst. Das bedeutet, dass versucht wird, eine Nachricht an eine Nutzer:in zu senden, die noch nicht existiert. Infolgedessen erhält die Nutzer:in die Nachricht nie. Dies gilt auch für Events oder Attribute, bei denen versucht wird, das Event oder Attribut in einem Kundenprofil zu protokollieren, das noch nicht erstellt wurde.
 
 Bei In-App-Nachrichten muss die In-App-Nachricht auf dem Gerät geladen werden, bevor sie getriggert werden kann. Wenn das Trigger-Event Teil des Onboarding-Prozesses ist oder die Nutzer:in das Segment für das angepasste Event als Teil ihrer ersten Sitzung verlässt, wird sie die In-App-Nachricht wahrscheinlich nicht sehen.
 
@@ -46,7 +46,7 @@ Bei In-App-Nachrichten kann die Situation differenzierter sein. Eine In-App-Nach
 
 #### Verzögerungen einführen {#introduce-delays}
 
-Nachdem eine neue Nutzer:in erstellt wurde, können Sie eine Verzögerung hinzufügen, bevor Sie gezielte Campaigns oder Canvases senden. Diese zeitliche Verzögerung ermöglicht es, das Nutzerprofil zu erstellen und alle relevanten Attribute zu aktualisieren, die die Berechtigung zum Empfang der Nachricht bestimmen können.
+Nachdem eine neue Nutzer:in erstellt wurde, können Sie eine Verzögerung hinzufügen, bevor Sie gezielte Campaigns oder Canvases senden. Diese zeitliche Verzögerung ermöglicht es, das Kundenprofil zu erstellen und alle relevanten Attribute zu aktualisieren, die die Berechtigung zum Empfang der Nachricht bestimmen können.
 
 Beispielsweise können Sie nach der Registrierung einer Nutzer:in für Ihre App ein Werbeangebot nach 24 Stunden senden. Oder wenn Sie eine Nutzer:in erstellen oder ein angepasstes Attribut protokollieren, können Sie eine einminütige Verzögerung hinzufügen, bevor Sie in Ihrem Prozess fortfahren, um diese Race-Condition zu vermeiden.
 
@@ -73,7 +73,7 @@ Wenn Nutzerattribute und Events in derselben Anfrage gesendet werden (entweder �
 
 #### Bei Verwendung mehrerer Endpunkte Anfragen nacheinander senden {#when-using-multiple-endpoints-send-your-requests-one-at-a-time}
 
-Wenn Sie mehrere Endpunkte verwenden, können Sie versuchen, Ihre Anfragen zu staffeln, sodass jede Anfrage abgeschlossen ist, bevor die nächste beginnt. Dies kann die Wahrscheinlichkeit einer Race-Condition verringern. Wenn Sie beispielsweise Nutzerattribute aktualisieren und eine Nachricht senden müssen, warten Sie zunächst, bis das Nutzerprofil vollständig aktualisiert ist, bevor Sie eine Nachricht über einen Endpunkt senden.
+Wenn Sie mehrere Endpunkte verwenden, können Sie versuchen, Ihre Anfragen zu staffeln, sodass jede Anfrage abgeschlossen ist, bevor die nächste beginnt. Dies kann die Wahrscheinlichkeit einer Race-Condition verringern. Wenn Sie beispielsweise Nutzerattribute aktualisieren und eine Nachricht senden müssen, warten Sie zunächst, bis das Kundenprofil vollständig aktualisiert ist, bevor Sie eine Nachricht über einen Endpunkt senden.
 
 Wenn Sie eine geplante Nachrichten-API-Anfrage senden, müssen diese Anfragen separat sein, und eine Nutzer:in muss erstellt werden, bevor die geplante API-Anfrage gesendet wird.
 
@@ -81,7 +81,7 @@ Wenn Sie eine geplante Nachrichten-API-Anfrage senden, müssen diese Anfragen se
 
 Anstatt mehrere Endpunkte zu verwenden, können Sie die [Nutzerattribute]({{site.baseurl}}/api/objects_filters/user_attributes_object#object-body) und [Trigger-Eigenschaften]({{site.baseurl}}/api/objects_filters/trigger_properties_object) in einem einzigen API-Aufruf über den [`campaign/trigger/send`-Endpunkt]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) einschließen.
 
-Wenn diese Objekte mit dem Trigger eingeschlossen werden, werden die Attribute zuerst verarbeitet, bevor die Nachricht getriggert wird, wodurch potenzielle Race-Conditions eliminiert werden. Beachten Sie, dass Trigger-Eigenschaften das Nutzerprofil nicht aktualisieren, sondern nur im Kontext der Nachricht verwendet werden.
+Wenn diese Objekte mit dem Trigger eingeschlossen werden, werden die Attribute zuerst verarbeitet, bevor die Nachricht getriggert wird, wodurch potenzielle Race-Conditions eliminiert werden. Beachten Sie, dass Trigger-Eigenschaften das Kundenprofil nicht aktualisieren, sondern nur im Kontext der Nachricht verwendet werden.
 
 #### Den POST: Track users (sync)-Endpunkt verwenden {#use-the-post-track-users-sync-endpoint}
 
@@ -109,13 +109,13 @@ Wenn beispielsweise Ihr Campaign-Trigger „Hat einen Kauf getätigt“ ist und 
 
 #### Zielgruppenfilter vermeiden, die davon ausgehen, dass das Trigger-Event aktualisiert wurde {#avoid-audience-filters-that-assume-the-trigger-event-has-been-updated}
 
-Diese Best Practice ähnelt der Vermeidung redundanter Filter mit dem Trigger-Event. Normalerweise schlägt ein Filter fehl, der davon ausgeht, dass das Trigger-Event im Nutzerprofil aktualisiert wurde.
+Diese Best Practice ähnelt der Vermeidung redundanter Filter mit dem Trigger-Event. Normalerweise schlägt ein Filter fehl, der davon ausgeht, dass das Trigger-Event im Kundenprofil aktualisiert wurde.
 
 #### Liquid-Abbrüche verwenden (nur Attribute) {#use-liquid-aborts-attributes-only}
 
 In Campaigns und Canvas-Schritten können Sie Liquid-Abbrüche verwenden, um die Verwendung von Zielgruppenfiltern zu vermeiden, die die Trigger-Attribute im Entry-Zeitplan enthalten. Nehmen wir beispielsweise an, Sie haben ein Array-Attribut „Lieblingsfarben“ und möchten jede Nutzer:in ansprechen, die das Attribut-Array mit einem beliebigen Wert aktualisiert und nach Abschluss des Updates auch die Farbe „Blau“ im Array hat. Wenn Sie in diesem Beispiel die Zielgruppenfilter verwenden, stoßen Sie auf eine Race-Condition und verpassen Nutzer:innen, die „Blau“ zum ersten Mal zum Array hinzufügen.
 
-In diesem Fall können Sie eine Trigger-Verzögerung in einer Campaign implementieren oder einen Verzögerungsschritt in Canvas verwenden, um dem Nutzerprofil Zeit zur Aktualisierung zu geben, und dann die folgende Liquid-Abbruchlogik verwenden:
+In diesem Fall können Sie eine Trigger-Verzögerung in einer Campaign implementieren oder einen Verzögerungsschritt in Canvas verwenden, um dem Kundenprofil Zeit zur Aktualisierung zu geben, und dann die folgende Liquid-Abbruchlogik verwenden:
 
 {% raw %}
 ```liquid
@@ -132,7 +132,7 @@ Wenn während der Canvas-Entry-Auswertung eine Race-Condition auftritt, können 
 
 Wenn eine Nutzer:in das Canvas-Entry-Event mehrmals innerhalb derselben Sekunde auslöst, erlaubt Braze nur einen Eintritt für diese Sekunde (auch wenn der erneute Eintritt aktiviert ist). Dies verhindert doppelte Eintritte, sodass die Gesamtzahl der Canvas-Eintritte niedriger sein kann als die Gesamtzahl der Trigger-Events.
 
-Wir empfehlen zu bestätigen, wie Nutzerdaten verwaltet und aktualisiert werden – insbesondere wann und wie bestimmte Attribute aktualisiert werden, z. B. per SDK, API, Batch-API und anderen Methoden. Dies kann helfen zu identifizieren und zu klären, warum eine Nutzer:in eine Campaign oder einen Canvas betreten hat, im Vergleich dazu, wann das Nutzerprofil aktualisiert wurde.
+Wir empfehlen zu bestätigen, wie Nutzerdaten verwaltet und aktualisiert werden – insbesondere wann und wie bestimmte Attribute aktualisiert werden, z. B. per SDK, API, Batch-API und anderen Methoden. Dies kann helfen zu identifizieren und zu klären, warum eine Nutzer:in eine Campaign oder einen Canvas betreten hat, im Vergleich dazu, wann das Kundenprofil aktualisiert wurde.
 
 ## Szenario 4: Den „Interact with Step“-Trigger verwenden {#scenario-4-using-the-interact-with-step-trigger}
 

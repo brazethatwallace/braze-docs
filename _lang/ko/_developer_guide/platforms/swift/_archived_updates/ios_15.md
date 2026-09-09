@@ -12,12 +12,11 @@ noindex: true
 
 > 이 가이드에서는 iOS 15(WWDC21)에 도입된 변경 사항과 Braze iOS SDK 통합에 필요한 업그레이드 단계를 간략하게 설명합니다. 새로운 iOS 15 업데이트의 전체 목록은 Apple의 [iOS 15 릴리스 정보](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-15-release-notes)를 참조하세요.
 
+## UI 네비게이션의 투명도 변경 사항 {#transparency-changes-to-ui-navigations}
 
-## UI 내비게이션의 투명성 변경 사항 {#transparency-changes-to-ui-navigations}
+매년 진행하는 iOS 베타 테스트의 일환으로, Apple이 적용한 변경 사항으로 인해 특정 UI 네비게이션 바가 불투명하지 않고 투명하게 표시되는 현상을 확인했습니다. 이 현상은 iOS 15에서 Braze 기본 UI를 Content Cards에 사용하거나, 웹 딥링크가 별도의 브라우저 앱이 아닌 앱 내부에서 열릴 때 나타납니다.
 
-매년 iOS 베타를 테스트하는 과정에서 특정 UI 내비게이션 바가 불투명하지 않고 투명하게 표시되는 Apple의 변경 사항을 확인했습니다. 이 현상은 Content Cards에 Braze 기본 UI를 사용하거나 웹 딥링크가 별도의 브라우저 앱이 아닌 앱 내에서 열릴 때 iOS 15에서 나타납니다.
-
-iOS 15에서 이러한 시각적 변경을 방지하려면 사용자가 새로운 iOS 15 운영체제로 업그레이드하기 전에 가능한 한 빨리 [Braze iOS SDK v4.3.2](https://github.com/Appboy/appboy-ios-sdk/releases/tag/4.3.2)로 업그레이드할 것을 적극 권장합니다.
+iOS 15에서 이러한 시각적 변경을 방지하려면, 사용자가 새로운 iOS 15 운영 체제로 휴대폰을 업그레이드하기 전에 가능한 한 빨리 [Braze iOS SDK v4.3.2](https://github.com/Appboy/appboy-ios-sdk/releases/tag/4.3.2)로 업그레이드하는 것을 강력히 권장합니다.
 
 ## 새로운 알림 설정 {#notification-settings}
 
@@ -38,17 +37,17 @@ iOS 15에서는 푸시 알림을 네 가지 방해 수준 중 하나로 보낼 �
 * **시간 긴급**(신규) - 소리, 진동, 화면 깨우기 허용, 허용된 경우 시스템 제어를 해제할 수 있음.
 * **중요** - 소리, 진동, 화면 깨우기 허용, 시스템 제어를 해제할 수 있으며 벨소리 스위치를 우회할 수 있음.
 
-iOS 푸시에서 이 옵션을 설정하는 방법에 대해 자세히 알아보려면 [iOS 알림 옵션]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options#interruption-level)을 참조하세요.
+iOS 푸시에서 이 옵션을 설정하는 방법에 대해 자세히 알아보려면 [iOS 알림 옵션]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#interruption-level)을 참조하세요.
 
 ### 알림 요약 {#notification-summary}
 
-![알림 요약 관련 스크린샷.]({% image_buster /assets/img/ios/ios15-notification-summary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0"}
+![알림 요약 관련 스크린샷]({% image_buster /assets/img/ios/ios15-notification-summary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0"}
 
 iOS 15에서는 사용자가 선택적으로 하루 중 특정 시간을 선택하여 알림 요약을 받을 수 있습니다. 즉각적인 주의가 필요하지 않은 알림(예: "수동"으로 전송되거나 사용자가 집중 모드에 있을 때 전송되는 알림)은 하루 종일 계속 방해받지 않도록 그룹화됩니다.
 
 보내는 각 알림에 대해 곧 "관련성 점수"를 지정하여 요약 상단에 표시할 알림을 제어할 수 있습니다.
 
-알림의 "관련성 점수"를 설정하는 방법에 대해 자세히 알아보려면 [iOS 알림 옵션]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options#relevance-score)을 참조하세요.
+알림의 "관련성 점수"를 설정하는 방법에 대해 자세히 알아보려면 [iOS 알림 옵션]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#relevance-score)을 참조하세요.
 
 ## 위치 버튼 {#location-buttons}
 
@@ -74,4 +73,4 @@ Apple에 따르면, 이미 백그라운드 위치 액세스를 공유한 사용�
 
 ## Safari IP 주소 위치 {#safari-ip-address-location}
 
-iOS 15에서는 사용자가 자신의 IP 주소에서 확인된 위치를 익명화하거나 일반화하도록 Safari를 구성할 수 있습니다. 위치 기반 타겟팅 또는 세분화를 사용할 때는 이 점을 염두에 두세요.
+iOS 15에서는 사용자가 Safari를 구성하여 IP 주소에서 확인되는 위치를 익명화하거나 일반화할 수 있습니다. 위치 기반 타겟팅이나 세분화를 사용할 때 이 점을 유의하세요.

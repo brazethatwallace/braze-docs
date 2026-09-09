@@ -18,7 +18,7 @@ Esta sección proporciona una vista más detallada y de extremo a extremo de có
 
 ## Qué se almacena y qué no {#what-is-and-isnt-stored}
 
-- **Cuerpo de respuesta de Contenido conectado:** No se almacena de forma permanente en Braze. Se puede mantener temporalmente en memoria y, cuando el almacenamiento en caché está habilitado, se almacena en caché con un tiempo de vida (TTL).
+- **Cuerpo de respuesta de Contenido conectado:** No se almacena de forma permanente en Braze. Se puede mantener temporalmente en memoria y, cuando el almacenamiento en caché está habilitado, se almacena en caché con un TTL (TTL).
 - **Metadatos de solicitud de Contenido conectado:** Los metadatos de solicitud, como la URL completamente representada, el código de estado HTTP y la duración de la respuesta, se registran para la solución de problemas y la supervisión. Estos registros se conservan durante un máximo de 30 días.
 - **Mensaje final representado:** Existe en memoria durante la representación. También puede almacenarse en otro lugar dependiendo de tu configuración y canal (por ejemplo, Archivado de mensajes o Content Cards).
 

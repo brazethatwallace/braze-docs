@@ -6,7 +6,6 @@ page_order: 1
 layout: api_page
 page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint Criar novo alias de usuário da Braze."
-
 ---
 {% api %}
 # Criar novo alias de usuário {#create-new-user-alias}
@@ -26,7 +25,7 @@ Você pode enviar Campaigns disparadas por API para usuários por `user_alias` u
 
 ## Quando `alias_label` e `alias_name` já existem {#when-alias_label-and-alias_name-already-exist}
 
-A combinação de `alias_label` e `alias_name` deve ser única em toda a sua base de usuários. Para saber mais, consulte [Aliases de usuário]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases).
+A combinação de `alias_label` e `alias_name` deve ser única em toda a sua base de usuários. Para saber mais, consulte [Aliases de usuário]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases).
 
 Se você enviar uma solicitação em que o par `alias_label` e `alias_name` já existe para qualquer usuário (seja no mesmo usuário ou em outro), o endpoint ainda retornará uma resposta de sucesso (por exemplo, `"aliases_processed": 1`, `"message": "success"`). Nesse caso, nenhum novo alias é adicionado ao usuário na solicitação. Como o par `alias_label` e `alias_name` já está em uso, a solicitação não faz nenhuma alteração, e pode parecer que o alias nunca foi adicionado ao usuário em questão.
 
@@ -34,7 +33,7 @@ Se você enviar uma solicitação em que o par `alias_label` e `alias_name` já 
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key) com a permissão `users.alias.new`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics) com a permissão `users.alias.new`.
 
 ## Limite de frequência {#rate-limit}
 
@@ -55,9 +54,9 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 ### Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-| `user_aliases` | Obrigatória | Vetor de objetos de novos aliases de usuário | Consulte o [objeto de alias de usuário]({{site.baseurl}}/api/objects_filters/user_alias_object).<br><br> Para saber mais sobre `alias_name` e `alias_label`, consulte nossa documentação sobre [aliases de usuário]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases).|
+| `user_aliases` | Obrigatório | Vetor de objetos de novos aliases de usuário | Consulte o [objeto de alias de usuário]({{site.baseurl}}/api/objects_filters/user_alias_object).<br><br> Para saber mais sobre `alias_name` e `alias_label`, consulte nossa documentação sobre [aliases de usuário]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases).|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ### Corpo da solicitação do endpoint com a especificação do novo objeto de alias de usuário {#endpoint-request-body-with-new-user-alias-object-specification}

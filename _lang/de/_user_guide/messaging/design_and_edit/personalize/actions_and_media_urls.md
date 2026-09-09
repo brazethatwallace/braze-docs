@@ -54,7 +54,7 @@ Bevor Sie diese Option verwenden, arbeiten Sie mit Ihren Entwickler:innen zusamm
 
 So legen Sie dieses Klickverhalten fest:
 
-1. Suchen Sie in Ihrem Campaign- oder Canvas-Composer nach **On-click behavior**:
+1. Suchen Sie in Ihrem Campaign- oder Canvas-Composer nach **On-Click behavior**:
    - Für Push-Benachrichtigungen und Content Cards gehen Sie zum Tab **Compose**.
    - Für In-App-Nachrichten gehen Sie zum Tab **Compose**. Wählen Sie im Drag-and-Drop-Editor einen Button- oder Bildblock aus und öffnen Sie dessen Eigenschaftenpanel.
 2. Wählen Sie **Deeplink into application** oder **Deep Link Into App**.
@@ -65,7 +65,7 @@ So legen Sie dieses Klickverhalten fest:
 
 #### Was ist ein UTM Tag? {#what-is-a-utm-tag}
 
-[UTM (Urchin Traffic Manager) Tags](https://support.google.com/analytics/answer/10917952?sjid=14344007686729081565-NC#zippy=%2Cin-this-article) ermöglichen es Ihnen, Campaign-Attribution-Details direkt in Links einzubetten. UTM Tags werden von Google Analytics verwendet, um Campaign-Attribution-Daten zu erfassen, und können zur Nachverfolgung der folgenden Eigenschaften verwendet werden:
+[UTM (Urchin Traffic Manager:in) Tags](https://support.google.com/analytics/answer/10917952?sjid=14344007686729081565-NC#zippy=%2Cin-this-article) ermöglichen es Ihnen, Campaign-Attribution-Details direkt in Links einzubetten. UTM Tags werden von Google Analytics verwendet, um Campaign-Attribution-Daten zu erfassen, und können zur Nachverfolgung der folgenden Eigenschaften verwendet werden:
 
 - `utm_source`: Der Bezeichner für die Quelle des Traffics (zum Beispiel `my_app`)
 - `utm_medium`: Das Campaign-Medium (zum Beispiel `newsfeed`)

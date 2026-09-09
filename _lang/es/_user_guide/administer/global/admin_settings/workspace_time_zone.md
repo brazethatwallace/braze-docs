@@ -86,7 +86,7 @@ Tras este cambio, un usuario que realiza el evento personalizado a las 10 pm PST
 
 ## Impacto en los datos de rendimiento {#impact-on-performance-data}
 
-Actualizar la zona horaria de tu espacio de trabajo afecta la forma en que los datos de rendimiento se agregan y se muestran en tu panel. Dado que los análisis de datos como los *usuarios activos diarios* (DAU) dependen de la zona horaria del espacio de trabajo para definir el inicio y el final de un día de 24 horas, un cambio en esta configuración desplaza esas ventanas de informes.
+Actualizar la zona horaria de tu espacio de trabajo afecta la forma en que los datos de rendimiento se agregan y se muestran en tu panel. Dado que los análisis de datos como los *usuarios activos diarios* (usuario activo diario) dependen de la zona horaria del espacio de trabajo para definir el inicio y el final de un día de 24 horas, un cambio en esta configuración desplaza esas ventanas de informes.
 
 Cuando cambias la zona horaria, es posible que notes fluctuaciones o "desplazamientos" en tus datos históricos. Esto ocurre porque la ventana de 12 am a 11:59 pm se ha movido en relación con UTC.
 

@@ -3,7 +3,7 @@ nav_title: Comentarios posteriores a la compra
 article_title: Comentarios posteriores a la compra
 page_order: 6
 page_type: reference
-description: "Este artículo describe cómo utilizar una plantilla de Braze Canvas para orquestar experiencias personalizadas que te permitan responder a los comentarios y construir una relación con tus usuarios."
+description: "Este artículo describe cómo utilizar una plantilla de BRAZE CANVAS para orquestar experiencias personalizadas que te permitan responder a los comentarios y construir una relación con tus usuarios."
 tool: Canvas
 ---
 
@@ -45,7 +45,7 @@ Ajustemos los detalles del Canvas para reflejar nuestro objetivo.
 
 ### Paso 2: Asignar eventos de conversión {#step-2-assign-conversion-events}
 
-A continuación, asignemos nuestros eventos de conversión. Actualiza el **Primary Conversion Event - A** a **Make a specific purchase** y selecciona **Proxy War**.
+A continuación, asignemos nuestros eventos de conversión. Actualiza el **conversión primaria Event - A** a **Make a specific purchase** y selecciona **Proxy War**.
 
 ![Sección "Assign Conversion Events" para el tipo de evento de conversión de compra del producto del juego Proxy War.]({% image_buster /assets/img/canvas_templates/post_purchase_feedback/select_conversion_event.png %}){: style="max-width:90%;"}
 

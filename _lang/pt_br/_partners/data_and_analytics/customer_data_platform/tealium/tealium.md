@@ -11,7 +11,7 @@ search_tag: Partner
 
 # Tealium
 
-> A [Tealium](https://tealium.com/) é um hub de dados universal e uma plataforma de dados do cliente composta por EventStream, AudienceStream e iQ Tag Management que permite conectar dados móveis, da web e de outros tipos de fontes de terceiros. A conexão da Tealium com a Braze permite um fluxo de dados de eventos personalizados, atributos de usuários e compras que capacita você a agir sobre seus dados em tempo real.
+> A [Tealium](https://tealium.com/) é um hub de dados universal e uma CDP composta por EventStream, AudienceStream e iQ Tag Management que permite conectar dados móveis, da web e de outros tipos de fontes de terceiros. A conexão da Tealium com a Braze permite um fluxo de dados de eventos personalizados, atributos de usuários e compras que capacita você a agir sobre seus dados em tempo real.
 
 ![Um gráfico de visão geral da Tealium que mostra como os diferentes produtos da Tealium e a plataforma da Braze se encaixam para ativar campanhas entre canais em tempo real.]({% image_buster /assets/img/tealium/tealium_overview.png %}){: style="border:0;"}
 
@@ -42,7 +42,7 @@ Para saber mais sobre os prós e os contras de cada método, consulte a seguinte
 {% endtabs %}
 
 {% alert important %}
-A Tealium oferece ações de conector em lote e sem lote. O conector sem lote deve ser usado quando as solicitações em tempo real forem importantes para o caso de uso e não houver preocupações quanto a atingir as especificações do limite de frequência da API da Braze. Entre em contato com o suporte da Braze ou com seu gerente de sucesso do cliente se tiver alguma dúvida.<br><br>
+A Tealium oferece ações de conector em lote e sem lote. O conector sem lote deve ser usado quando as solicitações em tempo real forem importantes para o caso de uso e não houver preocupações quanto a atingir as especificações do limite de frequência da API da Braze. Entre em contato com o suporte da Braze ou com seu CSM se tiver alguma dúvida.<br><br>
 
 Para conectores em lote, as solicitações são colocadas em fila até que um dos seguintes limites seja atingido:<br><br>
 - Número máximo de solicitações: 75

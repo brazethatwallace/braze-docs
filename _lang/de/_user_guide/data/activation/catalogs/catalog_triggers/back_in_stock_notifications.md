@@ -141,4 +141,4 @@ Verwenden Sie den Liquid-Tag {%raw%}``{% catalog_items <name_of_your_catalog> {{
 
 - Nutzer:innen sind nur 90 Tage lang abonniert. Wenn der Artikel nicht innerhalb von 90 Tagen wieder auf Lager ist, wird die Nutzerin bzw. der Nutzer abgemeldet.
 - Bei Verwendung der Benachrichtigungsregel **Alle abonnierten Nutzer:innen benachrichtigen** benachrichtigt Braze 100.000 Nutzer:innen innerhalb von 10 Minuten.
-- Braze unterstützt täglich bis zu 50.000 aktualisierte Artikel, die für das Auslösen von Wieder-auf-Lager-Benachrichtigungen infrage kommen. Sie können zu einem bestimmten Zeitpunkt bis zu 100 Millionen aktive Abos haben, wobei jedes Abo ein Nutzerprofil darstellt, das einen Katalogartikel beobachtet.
+- Braze unterstützt täglich bis zu 50.000 aktualisierte Artikel, die für das Auslösen von Wieder-auf-Lager-Benachrichtigungen infrage kommen. Sie können zu einem bestimmten Zeitpunkt bis zu 100 Millionen aktive Abos haben, wobei jedes Abo ein Kundenprofil darstellt, das einen Katalogartikel beobachtet.

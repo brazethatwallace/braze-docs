@@ -3,7 +3,7 @@ nav_title: Umsatzbericht
 article_title: Umsatzbericht
 page_order: 7
 page_type: reference
-description: "Diese Seite beschreibt, wie Sie die Seite „Umsatzbericht“ verwenden, um Daten zum Umsatz über bestimmte Zeiträume, zum Umsatz eines bestimmten Produkts und zum Gesamtumsatz Ihrer App anzuzeigen."
+description: "Diese Seite beschreibt, wo Sie den Umsatzbericht im Braze-Dashboard finden und wie Sie Daten zum Umsatz über bestimmte Zeiträume, zum Produktumsatz und zum Gesamtumsatz Ihrer App anzeigen können."
 tool: Reports
 ---
 
@@ -11,23 +11,23 @@ tool: Reports
 
 > Die Seite **Umsatzbericht** ermöglicht es Ihnen, Daten zum Umsatz über bestimmte Zeiträume, zum Umsatz eines bestimmten Produkts und zum Gesamtumsatz Ihrer App anzuzeigen.
 
-Um einen Bericht zu Ihrem Umsatz im Dashboard anzuzeigen, gehen Sie zu **Analytics** > **Revenue Report**.
+Um Ihren Umsatzbericht im Braze-Dashboard anzuzeigen, gehen Sie zu **Analytics** > **Reports** > **Revenue Report**.
 
-## Ihren Umsatzbericht anpassen {#customizing-your-revenue-report}
+## Anpassen Ihres Umsatzberichts {#customizing-your-revenue-report}
 
-Sie können Ihren Umsatzbericht anpassen, indem Sie einen Datumsbereich, die zu berücksichtigenden Apps und Parameter auswählen.
+Sie können Ihren Umsatzbericht anpassen, indem Sie einen Zeitraum, die zu berücksichtigenden Apps und Parameter auswählen.
 
-![Die Seite „Revenue Report“ mit dem Diagramm „Performance Over Time“, bei dem „Revenue“ als Parameter eingestellt ist.]({% image_buster /assets/img/revenue_report.png %})
+![Die Seite „Umsatzbericht“ mit dem Diagramm „Performance im Zeitverlauf“, wobei „Umsatz“ als Parameter festgelegt ist.]({% image_buster /assets/img/revenue_report.png %})
 
-### Nach Datum und Apps filtern {#filtering-by-date-and-apps}
+### Filtern nach Datum und Apps {#filtering-by-date-and-apps}
 
-Wählen Sie den Datumsbereich für Ihren Umsatzbericht und optional eine bestimmte App oder eine Auswahl von Apps aus.
+Wählen Sie den Zeitraum für Ihren Umsatzbericht und, falls gewünscht, eine bestimmte App oder eine Auswahl von Apps aus.
 
-### Nach Parametern filtern {#filtering-by-parameters}
+### Filtern nach Parametern {#filtering-by-parameters}
 
-Das Diagramm **Performance Over Time** zeigt die Daten für verschiedene Parameter an, die im Dropdown **Statistics for** ausgewählt werden können. Optional können Sie die Daten bestimmter Parameter im Dropdown **Breakdown** aufschlüsseln.
+Das Diagramm **Performance im Zeitverlauf** zeigt die Daten für verschiedene Parameter an, die im Dropdown **Statistiken für** ausgewählt werden können. Optional können Sie die Daten bestimmter Parameter im Dropdown **Aufschlüsselung** aufschlüsseln.
 
-Sie können die folgenden Daten im Diagramm **Performance Over Time** anzeigen:
+Die folgenden Daten können Sie im Diagramm **Performance im Zeitverlauf** einsehen:
 - KPI-Formeln
 - Käufe
     - (Optional) Käufe nach Produkt
@@ -41,7 +41,7 @@ Sie können die folgenden Daten im Diagramm **Performance Over Time** anzeigen:
 ## Umsatzberechnungen verstehen {#understanding-revenue-calculations}
 
 {% alert note %}
-Wenn Sie Umsatz für eine Währung ohne Wechselkurs erfassen, zeichnet Braze dies als Kauf von 0,00 US-Dollar auf.
+Wenn Sie Umsätze für eine Währung ohne Wechselkurs erfassen, speichert Braze diese als Kauf von 0,00 US-Dollar.
 {% endalert %}
 
 <style>
@@ -76,21 +76,21 @@ Wenn Sie Umsatz für eine Währung ohne Wechselkurs erfassen, zeichnet Braze die
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Daily Purchases' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#daily-revenue-per-user">Täglicher Umsatz pro Nutzer:in</a></td>
+            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#daily-revenue-per-user">Tagesumsatz pro Nutzer:in</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Daily Revenue Per User' %}</td>
         </tr>
     </tbody>
 </table>
 
-## Die Produktaufschlüsselung anzeigen {#viewing-the-product-breakdown}
+## Anzeigen der Produktaufschlüsselung {#viewing-the-product-breakdown}
 
-In der Tabelle **Product Breakdown** finden Sie eine Liste der Produkte, die im ausgewählten Datumsbereich gekauft wurden, die Anzahl der Käufe pro Produkt und den Umsatz, den jedes Produkt generiert hat.
+In der Tabelle **Product Breakdown** finden Sie eine Liste der Produkte, die im ausgewählten Zeitraum gekauft wurden, die jeweilige Anzahl der Käufe sowie den Umsatz, den jedes Produkt generiert hat.
 
 ![Die Tabelle „Product Breakdown“ mit den Spalten „Product Name“, „Purchased“ und „Revenue“.]({% image_buster /assets/img/revenue_report_product_breakdown.png %})
 
 ## Umsatzdaten exportieren {#exporting-revenue-data}
 
-Um Ihre Umsatzdaten zu exportieren, wählen Sie <i class="fas fa-bars" title="Chart-Kontextmenü"></i> **Chart-Kontextmenü** im Diagramm **Performance Over Time** und wählen Sie Ihre Exportoption aus.
+Um Ihre Umsatzdaten zu exportieren, wählen Sie <i class="fas fa-bars" title="Kontextmenü des Charts"></i> **Kontextmenü des Charts** im Diagramm **Performance Over Time** aus und wählen Sie Ihre Exportoption.
 
 {% alert tip %}
 Suchen Sie nach weiteren Möglichkeiten, Umsatzdaten zu erhalten? Versuchen Sie, Kaufverhalten (sowie den Kauf eines Produkts) zu Campaigns oder Canvases als [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) hinzuzufügen.

@@ -103,7 +103,9 @@ After both the sending and tracking domains show a **Ready for use** status, tes
 
 ## Next steps
 
-After your sender verification is complete, Braze recommends IP warming so that your messages reach their destination inboxes at a consistently high rate. After completing this setup, consult with the Braze Onboarding team to confirm whether your domains and [IP warming]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming) are working.
+After your sender verification is complete, Braze recommends [IP warming]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/) so that your messages reach their destination inboxes at a consistently high rate.
+
+After completing this setup, consult with the Braze Onboarding team to confirm whether your domains and IP warming are working.
 
 ## Troubleshooting
 

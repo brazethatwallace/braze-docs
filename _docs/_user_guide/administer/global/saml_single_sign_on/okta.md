@@ -11,6 +11,10 @@ description: "This article will walk you through how to configure Braze to use O
 
 > Okta connects any person with any application on any device. It's an enterprise-grade, identity management service, built for the cloud, but compatible with many on-premises applications. With Okta, your IT team can manage any employee's access to any application or device.
 
+{% alert note %}
+The pre-built Braze Okta marketplace app uses the shared Entity ID `braze_dashboard`. If you need a unique Entity ID for this dashboard—for example, to connect multiple Braze dashboards through Okta—set up a custom SAML app instead of the marketplace app, then follow [Using a custom Entity ID]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#using-a-custom-entity-id).
+{% endalert %}
+
 ## Requirements
 
 | Requirement | Details |
@@ -18,7 +22,7 @@ description: "This article will walk you through how to configure Braze to use O
 | Okta turned on for your account | Contact your Braze account manager to have this turned on for your account. |
 | Okta admin privileges | Make sure you have admin privileges before setting up Okta. |
 | Braze admin privileges | Make sure you have admin privileges before setting up Okta. |
-| RelayState API key | To enable IdP login, go to **Settings** > **API Keys** and create an API key with `sso.saml.login` permissions. |
+| RelayState API key | To enable IdP login, go to **Settings** > **Setup and Testing** > **APIs and Identifiers**, open the **API Keys** tab, and create an API key with `sso.saml.login` permissions. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
 
 ## Step 1: Configure Braze
@@ -44,6 +48,10 @@ From your Okta Admin dashboard, Okta provides you with a target URL (login URL) 
 
 Select **Save Changes** at the bottom of the page when completed.
 
+{% alert note %}
+If your identity provider requires a company-specific SAML Entity ID and your account supports it, enable **Custom Entity ID** in **Security Settings** and configure Okta with `braze_dashboard_<companyID>`. The default Entity ID is `braze_dashboard`. The **Custom Entity ID** setting isn't available for all companies. For more information, see [SAML SSO setup]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#requirements).
+{% endalert %}
+
 ## Step 2: Configure Okta
 
 In Okta, select the **Sign On** tab for the Braze SAML app, then click **Edit**. 
@@ -55,7 +63,7 @@ Next, enter the RelayState API key with `sso.saml.login` permission in the **Def
 Make sure to save these new settings.
 
 {% alert tip %}
-If you want your Braze account users to only sign in with SAML SSO, you can [restrict single sign-on authentication]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#restriction) from the **Company Settings** page.
+If you want your Braze account users to only sign in with SAML SSO, you can [restrict single sign-on authentication]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#restriction) from **Settings** > **Company Settings** > **Admin Settings** > **Security Settings**.
 {% endalert %}
 
 ## Step 3: Log in

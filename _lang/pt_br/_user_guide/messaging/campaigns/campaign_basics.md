@@ -40,7 +40,7 @@ A entrega agendada envolve ajustar suas campanhas para envio em um horário espe
 
 *Quem você está tentando alcançar?*
 
-Você pode usar [segmentos]({{site.baseurl}}/user_guide/audience/segments) predefinidos para direcionar usuários com base em suas características e ações demográficas, comportamentais ou técnicas. Adicione mais filtros ao criar sua campanha para refinar ainda mais seu segmento. Apenas os usuários que correspondem a esses critérios de público-alvo podem entrar na jornada. Confira esta tabela para um resumo rápido dos tipos de filtro disponíveis.
+Você pode usar [segmentos]({{site.baseurl}}/user_guide/audience/segments) predefinidos para direcionar usuários com base em suas características e ações demográficas, comportamentais ou técnicas. Adicione mais filtros ao criar sua campanha para refinar ainda mais seu Segment. Apenas os usuários que correspondem a esses critérios de público-alvo podem entrar na jornada. Confira esta tabela para um resumo rápido dos tipos de filtro disponíveis.
 
 | Filtro | Descrição |
 |---|---|

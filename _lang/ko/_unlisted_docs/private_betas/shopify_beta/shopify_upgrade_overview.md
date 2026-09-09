@@ -41,7 +41,7 @@ Shopify 통합 페이지에서 업그레이드 프로세스를 시작하기 전�
 - **SDK 커스터마이징 확인:** Braze와 Shopify 통합을 커스터마이징한 경우(예: 커스텀 이벤트 또는 속성 로깅), 업그레이드 후에도 이러한 커스터마이징이 올바르게 작동하는지 확인하세요. "상품 조회" 또는 "장바구니 업데이트"와 같은 동작에 대해 자체 브라우저 이벤트를 생성한 경우, 새 커넥터에서 제공하는 기능과 중복되므로 업그레이드 전에 개발자와 협력하여 해당 이벤트를 제거하세요.
 
 {% alert important %}
-Shopify 온라인 스토어를 사용 중이며 개발자가 Braze SDK를 Shopify 사이트에 직접 구현했거나, Google Tag Manager 또는 고객 데이터 플랫폼을 통해 구현한 경우, 새 Shopify 커넥터로 업그레이드하면서 기존 방식의 사용을 중단할 계획을 세워야 합니다.
+Shopify 온라인 스토어를 사용 중이며 개발자가 Braze SDK를 Shopify 사이트에 직접 구현했거나, Google Tag 매니저 또는 고객 데이터 플랫폼을 통해 구현한 경우, 새 Shopify 커넥터로 업그레이드하면서 기존 방식의 사용을 중단할 계획을 세워야 합니다.
 {% endalert %}
 
 - **ID 관리 검토:** Braze 외부 ID를 사용하고 있는 경우, 개발팀과 협력하여 새 통합과의 호환성을 확인하세요. Shopify 스토어 경험 내에서 외부 ID를 설정한 경우, [새로운 ID 관리 프로세스]({{site.baseurl}}/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_overview#user-and-data-syncing)와의 충돌을 방지하도록 개발자에게 조정을 요청하세요.

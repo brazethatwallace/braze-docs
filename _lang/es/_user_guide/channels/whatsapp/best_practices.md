@@ -21,7 +21,7 @@ La primera vez que envías un mensaje a un usuario en WhatsApp, estas opciones s
 ![Hilo de mensajes de WhatsApp con opciones para bloquear o reportar una empresa]({% image_buster /assets/img/whatsapp/whatsapp_block_report.png %}){: style="max-width:30%;"}
 
 {% alert note %}
-Para ver métricas sobre tus bloqueos e informes, asegúrate de que la [pestaña Insights](https://www.facebook.com/business/help/683499390267496) esté activada en tu WhatsApp Manager.
+Para ver métricas sobre tus bloqueos e informes, asegúrate de que la [pestaña Insights](https://www.facebook.com/business/help/683499390267496) esté activada en tu WhatsApp Administrador.
 {% endalert %}
 
 Para evitar altas tasas de bloqueos e informes, Braze sugiere las siguientes buenas prácticas para mantener una calificación de calidad del teléfono alta y límites de mensajería estables.

@@ -2,10 +2,6 @@
 
 > Learn about the Braze MCP server, a secure remote connection that lets AI tools like Claude and Cursor access non-PII Braze data to answer questions, analyze trends, provide insights, and create content.
 
-{% alert important %}
-The remote MCP server is in Early Access. Contact your account manager to request access.
-{% endalert %}
-
 ## What is Model Context Protocol (MCP)?
 
 ​​Model Context Protocol, or MCP, is a standard that lets AI agents connect to and work with data from another platform. It has two main parts:
@@ -82,7 +78,7 @@ Either endpoint can reach any Braze cluster.
 
 ### Can I use the Braze remote MCP server with tools other than the verified list?
 
-You can try, but authentication may be blocked. Braze currently maintains an allowlist of supported domains for security. If your tool is not on the list and you run into authentication issues, contact [mcp-product@braze.com](mailto:mcp-product@braze.com).
+You can try, but authentication may be blocked. Braze currently maintains an allowlist of supported domains for security. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="support for your MCP client" %}
 
 ### Does the remote server support multiple workspaces?
 
@@ -98,10 +94,10 @@ Agent access changes with the dashboard user. Permission changes apply on the ne
 
 ### Why do I not see the Braze connector in my client's directory?
 
-Directory listings roll out after Early Access begins. You can always connect manually using the Braze MCP URL.
+Directory listings may not be available in every MCP client yet. You can always connect manually using the Braze MCP URL.
 
 ### My company uses IP allowlisting. Can we use the remote MCP server?
 
-Not right now. Customers who use [IP Allowlisting](https://www.braze.com/docs/user_guide/administer/global/admin_settings/security_settings#dashboard-ip-allowlisting) cannot participate in the Early Access program.
+Not right now. If you use [IP Allowlisting](https://www.braze.com/docs/user_guide/administer/global/admin_settings/security_settings#dashboard-ip-allowlisting), you cannot use the remote MCP server.
 
 {% multi_lang_include mcp_server/legal_disclaimer.md %}

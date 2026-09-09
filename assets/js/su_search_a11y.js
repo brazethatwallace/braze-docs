@@ -224,6 +224,57 @@
     return true;
   }
 
+  /**
+   * @param {string} value
+   * @returns {boolean}
+   */
+  function needsApiNormalization(value) {
+    const trimmed = (value || "").trim();
+    return trimmed === "api" || trimmed === "Api";
+  }
+
+  /**
+   * SearchUnify title-cases crawled type values (for example, "api" -> "Api").
+   * Normalize API badges to the preferred all-caps label.
+   * @param {HTMLElement} el
+   */
+  function normalizeApiSourceLabel(el) {
+    if (el.dataset.suApiLabelNormalized === "true") return;
+
+    const title = (el.getAttribute("title") || "").trim();
+    const text = (el.textContent || "").trim();
+
+    if (!needsApiNormalization(title) && !needsApiNormalization(text)) {
+      if (title === "API" || text === "API") {
+        el.dataset.suApiLabelNormalized = "true";
+      }
+      return;
+    }
+
+    if (title !== "API") {
+      el.setAttribute("title", "API");
+    }
+    if (text !== "API") {
+      el.textContent = "API";
+    }
+    el.dataset.suApiLabelNormalized = "true";
+  }
+
+  /**
+   * Remove source/type label badges from the tab order and normalize labels.
+   * @param {Element} [root]
+   */
+  function patchSourceLabels(root) {
+    (root || document)
+      .querySelectorAll(".su__source-label, .su__ribbon-title")
+      .forEach((el) => {
+        normalizeApiSourceLabel(el);
+        if (el.getAttribute("tabindex") !== "-1") {
+          el.setAttribute("tabindex", "-1");
+        }
+      });
+  }
+
   global.SuSearchA11y = {
     searchI18n,
     applySearchInputLabel,
@@ -233,5 +284,6 @@
     syncSuggestionsOpenState,
     markSearchReady,
     watchSuggestionsOpenState,
+    patchSourceLabels,
   };
 })(typeof window !== "undefined" ? window : this);

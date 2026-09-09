@@ -89,7 +89,7 @@ Braze에서 **파트너 통합** > **기술 파트너**로 이동하여 **Branch
 ### 3단계: Data Feeds 설정 {#step-3-set-up-data-feeds}
 
 1. Branch에서 **Exports** 섹션 아래의 **Data Feeds**를 선택합니다.
-2. **Data Feeds Manager** 페이지에서 페이지 상단의 **Data Integrations** 탭을 선택합니다.
+2. **Data Feeds 매니저** 페이지에서 페이지 상단의 **Data Integrations** 탭을 선택합니다.
 3. 사용 가능한 데이터 파트너 목록에서 Braze를 선택합니다.
 4. Braze 내보내기 페이지에서 Braze 대시보드에서 확인한 데이터 가져오기 키와 REST 엔드포인트를 입력하고 **Enable**을 선택합니다.
 

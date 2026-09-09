@@ -17,7 +17,7 @@ alias: /scim/automated_user_provisioning/
 ## Acessando as configurações de provisionamento SCIM {#accessing-scim-provisioning-settings}
 
 {% alert important %}
-A disponibilidade do provisionamento SCIM depende da sua edição da plataforma. Se esse recurso não estiver no seu espaço de trabalho, entre em contato com o seu gerente de sucesso do cliente para mais informações.
+A disponibilidade do provisionamento SCIM depende da sua edição da plataforma. Se esse recurso não estiver no seu espaço de trabalho, entre em contato com o seu CSM para mais informações.
 {% endalert %}
 
 1. No dashboard da Braze, acesse **Configurações** > **Configurações da empresa** > **Configurações de administrador** > **Provisionamento SCIM** e selecione **Configurar integração SCIM**.
@@ -152,7 +152,7 @@ Faça login no centro de administração do Microsoft Entra.
 
 ### Etapa 1.4: Ativar o provisionamento para o app {#step-14-enable-provisioning-to-the-app}
 
-1. Acesse a seção **Manage** > **Attribute mapping (Preview)** do app SCIM.
+1. Acesse a seção **Manage** > **Attribute mapping (prévia)** do app SCIM.
 2. Selecione **Provision Microsoft Entra ID Users**.
 3. Revise e configure a seção **Attribute Mapping** para corresponder aos atributos que aparecem na tabela da página **Setup SCIM provisioning**.
 4. Feche a página **Attribute Mapping**.

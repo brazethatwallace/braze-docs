@@ -19,27 +19,27 @@ Dies ist in der Regel ein Problem mit der Netzwerk- oder Zertifikatsvertrauensko
 
 ## Häufige Ursachen {#common-causes}
 
-- Ein Unternehmens-Proxy, eine Firewall oder ein Tool zur Datenverkehrsinspektion fängt HTTPS-Datenverkehr mit einem Zertifikat ab, dem Ihre Laufzeitumgebung nicht vertraut.
-- Ein erforderliches Stamm- oder Zwischenzertifikat fehlt im Vertrauensspeicher des Geräts, Simulators, Browsers oder Servers.
+- Ein Unternehmens-Proxy, eine Firewall oder ein Tool zur Datenverkehrsüberwachung fängt HTTPS-Datenverkehr mit einem Zertifikat ab, dem Ihre Laufzeitumgebung nicht vertraut.
+- Ein erforderliches Root- oder Zwischenzertifikat fehlt im Vertrauensspeicher des Geräts, Simulators, Browsers oder Servers.
 - Lokale Sicherheitseinstellungen blockieren ausgehende HTTPS-Verbindungen zu Braze-Endpunkten.
 - Zertifikats- oder Transportsicherheitseinstellungen auf App-Ebene blockieren die Verbindung.
 
 ## Schritte zur Fehlerbehebung {#troubleshooting-steps}
 
-1. Bestätigen Sie Ihren SDK-Endpunkt und den Netzwerkzugang.
-   - Überprüfen Sie, ob Sie den korrekten [SDK-Endpunkt]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints) für Ihren Workspace verwenden.
+1. Bestätigen Sie Ihren SDK-Endpunkt und den Netzwerkzugriff.
+   - Überprüfen Sie, ob Sie den richtigen [SDK-Endpunkt]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) für Ihren Workspace verwenden.
    - Überprüfen Sie, ob Ihre Umgebung diesen Endpunkt über HTTPS erreichen kann.
-2. Vergleichen Sie das Verhalten über verschiedene Netzwerke hinweg.
-   - Testen Sie in einem anderen Netzwerk (zum Beispiel mobile Daten statt Unternehmens-WLAN).
-   - Wenn das Problem nur in einem Netzwerk auftritt, liegt die Ursache wahrscheinlich in der Proxy- oder Firewall-Konfiguration.
+2. Vergleichen Sie das Verhalten in verschiedenen Netzwerken.
+   - Testen Sie in einem anderen Netzwerk (zum Beispiel mobile Daten statt Firmen-WLAN).
+   - Wenn das Problem nur in einem bestimmten Netzwerk auftritt, liegt die Ursache wahrscheinlich in der Proxy- oder Firewall-Konfiguration.
 3. Validieren Sie Ihre Vertrauenskonfiguration.
    - Bestätigen Sie, dass die erforderlichen Stamm- und Zwischenzertifikate in der Laufzeitumgebung, in der das SDK ausgeführt wird, installiert und als vertrauenswürdig eingestuft sind.
-   - Wenn Ihre Umgebung angepasste Zertifizierungsstellen verwendet, bestätigen Sie, dass diese Zertifikate korrekt verteilt sind.
+   - Wenn Ihre Umgebung benutzerdefinierte Zertifizierungsstellen verwendet, stellen Sie sicher, dass diese Zertifikate korrekt verteilt werden.
 4. Überprüfen Sie die Sicherheitseinstellungen der Plattform.
    - Wenn Ihre App oder Umgebung explizite Transport- oder Zertifikatsregeln hat, bestätigen Sie, dass diese Einstellungen HTTPS-Anfragen an Braze-Endpunkte zulassen.
 5. Arbeiten Sie mit Ihrem Netzwerk- oder Sicherheitsteam zusammen.
    - Teilen Sie den vollständigen Fehler und den Zeitstempel mit, damit das Team Zertifikatsketten, TLS-Inspektionseinstellungen und Allowlist-Regeln überprüfen kann.
 
 {% alert note %}
-Da der Braze-SDK-Datenverkehr HTTPS verwendet, können Zertifikatsvertrauensfehler jedes Braze SDK betreffen (einschließlich Android, Swift, Web, React Native, Flutter, Unity und Cordova) – insbesondere in Umgebungen mit restriktiven Netzwerkrichtlinien.
+Da der Braze-SDK-Datenverkehr HTTPS verwendet, können Fehler beim Zertifikatsvertrauen jedes Braze SDK betreffen (einschließlich Android, SWIFT, Web, React Native, Flutter, Unity und Cordova) – insbesondere in Umgebungen mit restriktiven Netzwerkrichtlinien.
 {% endalert %}

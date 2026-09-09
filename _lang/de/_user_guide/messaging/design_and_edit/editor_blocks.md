@@ -30,7 +30,7 @@ Editor-Blöcke befinden sich im Bereich **Content** für E-Mail-Nachrichten. Zie
 Weitere Informationen zum Erstellen von E-Mails im **Drag-and-Drop-Editor** finden Sie unter [E-Mail per Drag-and-Drop erstellen]({{site.baseurl}}/user_guide/channels/email/drag_and_drop) und <a href="{{site.baseurl}}/user_guide/channels/email/drag_and_drop/#other-customizations">Weitere Anpassungen</a> in diesem Artikel.
 
 {% alert tip %}
-Sie können auch [angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes) zu jeder URL innerhalb der Editor-Blöcke `Image`, `Button` oder `Text` hinzufügen.
+Sie können auch [angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types) zu jeder URL innerhalb der Editor-Blöcke `Image`, `Button` oder `Text` hinzufügen.
 {% endalert %}
 
 ### Titel {#title}
@@ -49,7 +49,7 @@ Fügt Text für Überschriften innerhalb der E-Mail hinzu.
 | Line height | Ändert den Abstand zwischen Textzeilen. |
 | Letter spacing | Ändert den Abstand zwischen den einzelnen Zeichen. |
 | Text direction | Standard ist links nach rechts, kann aber auf [rechts nach links]({{site.baseurl}}/right_to_left_messages) geändert werden. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Title" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Titel" }
 
 ### Absatz {#paragraph}
 
@@ -67,7 +67,7 @@ Gibt Text in die Nachricht ein. Eine Symbolleiste hilft bei der Schrift- und Tex
 | Line height | Ändert den Abstand zwischen Textzeilen. |
 | Letter spacing | Ändert den Abstand zwischen den einzelnen Zeichen. |
 | Text direction | Standard ist links nach rechts, kann aber auf [rechts nach links]({{site.baseurl}}/right_to_left_messages) geändert werden. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Paragraph" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Absatz" }
 
 ### Liste {#list}
 
@@ -89,7 +89,7 @@ Fügt eine Aufzählungsliste hinzu.
 | Line height | Ändert den Abstand zwischen Textzeilen. |
 | Letter spacing | Ändert den Abstand zwischen den einzelnen Zeichen. |
 | Text direction | Standard ist links nach rechts, kann aber auf [rechts nach links]({{site.baseurl}}/right_to_left_messages) geändert werden. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="List" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Liste" }
 
 ### Button {#button}
 
@@ -110,7 +110,7 @@ Fügt einen Standard-Button hinzu. Über die Eigenschaften können Sie das Styli
 | Mail to, subject, and body | Für den Linktyp **Send email**: Legt die Empfänger-E-Mail-Adresse, den Betreff und den Inhalt fest, die in einem E-Mail-Entwurf vorausgefüllt werden, wenn Nutzer:innen den Button auswählen. |
 | Tel | Für die Linktypen **Make call** und **Send SMS**: Legt die Telefonnummer fest, die Nutzer:innen anrufen oder an die sie eine SMS senden, wenn sie den Button auswählen. |
 | Message | Für den Linktyp **Send SMS**: Legt den Inhalt fest, der in einem SMS-Entwurf vorausgefüllt wird, wenn Nutzer:innen den Button auswählen. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="On-click behavior" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Klickverhalten" }
 
 ### Trennlinie {#divider}
 
@@ -122,7 +122,7 @@ Fügt eine durchgezogene, gepunktete oder gestrichelte Linie ein, um beim Abstan
 | Line | Die verschiedenen Linienformate: gepunktet, gestrichelt oder durchgezogen. Sie können auch die Dicke und Farbe der Trennlinie ändern. |
 | Width | Passt die Ausdehnung der Trennlinie in 5er-Schritten an. |
 | Align | Verschiebt die Linie nach links, zentriert oder rechts. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Divider" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Trennlinie" }
 
 ### Abstandshalter {#spacer}
 
@@ -131,7 +131,7 @@ Fügt Abstand oder Padding zwischen anderen Blöcken hinzu.
 | Eigenschaft | Beschreibung |
 |---|---|
 | Height | Passt die Höhe des Abstandshalter-Blocks an. Der Standardwert beträgt 60 px. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Spacer" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Abstandshalter" }
 
 ### Bild {#image}
 
@@ -149,7 +149,7 @@ Fügt ein Bild aus der [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/
 | Image with rounded corners | Rendert das Bild mit abgerundeten Ecken. Standardmäßig werden Bilder mit eckigen Ecken gerendert. |
 | Action | Löst eine Aktion aus, wenn Nutzer:innen auf das Bild klicken. |
 | Block options | Legt das Padding um den Bildblock fest. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Image" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Bild" }
 
 {% alert tip %}
 Für **Auto width** wählt die automatische Bildgrößenanpassung die beste Größe für das Bild basierend auf einer Kombination aus Bildbreite und verfügbarem Platz im Layout:
@@ -244,7 +244,7 @@ Erstellt ein flexibles Menü für die Nachricht, die Sie gestalten.
 | Mobile menu | Enthält Optionen zum Ändern der Icon-Größe, Farbe und des Icon-Typs bei Anzeige auf einem Mobilgerät. |
 | Item padding | Ändert das Padding über den **+**- oder **-**-Button oder durch Eingabe einer bestimmten Zahl. |
 | All sides | Legt eine einheitliche Padding-Zahl fest, wenn das Elementpadding deaktiviert ist. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Menu" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Menü" }
 
 ### Produkt {#product}
 
@@ -260,13 +260,13 @@ Rendert Produktzeilen aus einem [Produktkatalog]({{site.baseurl}}/user_guide/mes
 | Product title | Zeigt oder blendet den Produkttitel für jede Kachel ein oder aus. |
 | Price | Zeigt oder blendet den Produktpreis ein oder aus. |
 | Button for product URL | Zeigt oder blendet einen Call-to-Action-Button ein oder aus, der zur Produkt-URL verlinkt. |
-| Quantity | *(Dynamic, nur Canvas, wenn der Einstiegstrigger kein Produktansichtsereignis ist)* Zeigt oder blendet die Produktmenge aus dem Triggerereignis ein oder aus. |
+| Quantity | *(Dynamic, nur Canvas, wenn der Einstiegstrigger kein Produktansichtsereignis ist)* Zeigt oder blendet die Produktmenge aus dem Trigger-Ereignis ein oder aus. |
 | Product orientation | Legt die Bildposition innerhalb jeder Kachel fest: **Image left**, **Image center** oder **Image right**. |
 | Alignment | Legt die horizontale Ausrichtung des Inhalts innerhalb jeder Kachel fest. |
 | Max products per row | Legt fest, wie viele Produkte pro Zeile angezeigt werden: **1**, **2** oder **3** (**3** ist nur verfügbar, wenn die Ausrichtung **Image center** ist). |
 | Product spacing | Legt den Abstand zwischen Produkten fest: **Auto** oder **Custom**. |
 | Custom spacing | *(Wenn **Custom** ausgewählt ist)* Legt den Abstand in Pixeln zwischen Produkten fest. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Product" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Produkt" }
 
 ## Personalisierung {#personalization}
 
@@ -302,11 +302,11 @@ Fügt einen Standard-Button mit konfigurierbarem Styling, Links und Analytics hi
 
 ### Optionsfeld {#radio-button}
 
-Fügt eine Liste von Optionen hinzu, aus denen Nutzer:innen eine auswählen können. Beim Absenden protokolliert das Nutzerprofil das zugehörige [angepasste Attribut]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), das ein String sein muss, um gespeichert zu werden. Angepasste Attribute mit anderen Datentypen werden nicht im Nutzerprofil gespeichert.
+Fügt eine Liste von Optionen hinzu, aus denen Nutzer:innen eine auswählen können. Beim Absenden protokolliert das Kundenprofil das zugehörige [angepasste Attribut]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), das ein String sein muss, um gespeichert zu werden. Angepasste Attribute mit anderen Datentypen werden nicht im Kundenprofil gespeichert.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/radio_button_properties.md %}
 
-### Bild {#image}
+### Bild
 
 Fügt ein Bild aus der [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) ein.
 
@@ -330,7 +330,7 @@ Fügt einen Hyperlink ein, auf den Nutzer:innen klicken können, um zu einer bes
 
 {% multi_lang_include drag_and_drop/editor_block_properties/link_actions.md %}
 
-### Abstandshalter {#spacer}
+### Abstandshalter
 
 Fügt Abstand oder Padding zwischen anderen Blöcken hinzu.
 
@@ -343,7 +343,7 @@ Fügt benutzerdefiniertes HTML, CSS oder JavaScript für erweiterte Anpassungen 
 | Eigenschaft | Beschreibung |
 | --- | --- |
 | Custom code | Ermöglicht das Hinzufügen, Bearbeiten oder Löschen von HTML, CSS und JavaScript für eine In-App-Nachricht. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom code" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Benutzerdefinierter Code" }
 
 ### Telefonnummernerfassung {#phone-capture}
 
@@ -353,7 +353,7 @@ Fügt ein Formularfeld für Telefonnummern ein. Beim Absenden wird die Nutzer:in
 
 ### E-Mail-Erfassung {#email-capture}
 
-Fügt ein Formularfeld für E-Mail-Adressen ein. Beim Absenden wird die E-Mail-Adresse dem Nutzerprofil in Braze hinzugefügt.
+Fügt ein Formularfeld für E-Mail-Adressen ein. Beim Absenden wird die E-Mail-Adresse dem Kundenprofil in Braze hinzugefügt.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/email_capture.md %}
 
@@ -383,14 +383,14 @@ Nutzer:innen können aus mehreren Optionen auswählen. Werte werden in einem def
 
 ### Langtext {#long-text}
 
-Mehrzeiliges Textfeld für umfrageähnliche Abläufe. Wenn Sie diesen Block nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-Customer-Success-Manager.
+Mehrzeiliges Textfeld für umfrageähnliche Abläufe. Wenn Sie diesen Block nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-CSM.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 <!-- Saved row is not yet released. Uncomment when available.
 ### Gespeicherte Zeile {#saved-row}
 
-Fügt eine wiederverwendbare Zeile ein, die Sie zuvor als Drag-and-Drop-Content Block gespeichert haben. Gespeicherte Zeilen sind **nicht verknüpft** mit dem ursprünglichen Content Block – wenn das Original aktualisiert wird, müssen Sie es erneut in den Editor ziehen, um die neueste Version zu erhalten. Weitere Informationen finden Sie unter [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Wenn Sie **Gespeicherte Zeile** unter **Rows** nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-Customer-Success-Manager.
+Fügt eine wiederverwendbare Zeile ein, die Sie zuvor als Drag-and-Drop-Content Block gespeichert haben. Gespeicherte Zeilen sind **nicht verknüpft** mit dem ursprünglichen Content Block — wenn das Original aktualisiert wird, müssen Sie es erneut in den Editor ziehen, um die neueste Version zu erhalten. Weitere Informationen finden Sie unter [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Wenn Sie **Saved row** unter **Rows** nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-CSM.
 -->
 
 ## Wissenswertes {#things-to-know}
@@ -428,7 +428,7 @@ Wenn Sie einen Button mit **Submit form when button is clicked** konfigurieren u
 
 ### Optionsfeld
 
-Fügt eine Liste von Optionen hinzu, aus denen Nutzer:innen eine auswählen können. Verwenden Sie das Eigenschaftenpanel, um die verfügbaren Optionen und das angepasste Attribut zu konfigurieren, das den ausgewählten Wert empfängt. Das Nutzerprofil protokolliert den ausgewählten Wert als [angepasstes String-Attribut]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), wenn das Formular abgesendet wird. Angepasste Attribute mit anderen Datentypen werden nicht im Nutzerprofil gespeichert.
+Fügt eine Liste von Optionen hinzu, aus denen Nutzer:innen eine auswählen können. Verwenden Sie das Eigenschaftenpanel, um die verfügbaren Optionen und das angepasste Attribut zu konfigurieren, das den ausgewählten Wert empfängt. Das Kundenprofil protokolliert den ausgewählten Wert als [angepasstes String-Attribut]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), wenn das Formular abgesendet wird. Angepasste Attribute mit anderen Datentypen werden nicht im Kundenprofil gespeichert.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/radio_button_properties.md %}
 
@@ -467,12 +467,12 @@ Fügt benutzerdefiniertes HTML, CSS oder JavaScript für erweiterte Anpassungen 
 | Eigenschaft | Beschreibung |
 | --- | --- |
 | Custom code | Ermöglicht das Hinzufügen, Bearbeiten oder Löschen von HTML, CSS und JavaScript. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom code" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Benutzerdefinierter Code" }
 
 <!-- Countdown timer is not yet released. Uncomment when available.
 ### Countdown-Timer {#countdown-timer}
 
-Zeigt einen Countdown bis zu einem von Ihnen festgelegten Datum und Uhrzeit an. Wenn Sie diesen Block nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-Customer-Success-Manager.
+Zeigt einen Countdown bis zu einem von Ihnen festgelegten Datum und Uhrzeit an. Wenn Sie diesen Block nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-CSM.
 
 Nachdem Sie einen **Countdown-Timer**-Block hinzugefügt haben, verwenden Sie das Eigenschaftenpanel, um das Zieldatum und die Uhrzeit, Beschriftungen und das Styling festzulegen.
 -->
@@ -515,7 +515,7 @@ Nutzer:innen wählen mehrere Optionen aus; Werte werden in einem definierten [Ar
 
 ### Abos verwalten {#manage-subscriptions}
 
-Fügt eine Checkliste von [E-Mail-Abo-Gruppen]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-groups) hinzu, damit Besucher:innen sich anmelden oder ihre Abos verwalten können, wenn sie das Formular absenden. Konfigurieren Sie den Block, nachdem Sie Abo-Gruppen hinzugefügt haben. Dieser Block unterstützt nur E-Mail-Abo-Gruppen; er unterstützt keine SMS-, RCS- oder WhatsApp-Abo-Gruppen.
+Fügt eine Checkliste von [E-Mail]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups)-, [SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#sms-subscription-states)- oder [WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-subscription-states)-Abo-Gruppen hinzu, damit Besucher:innen sich anmelden oder ihre Abos verwalten können, wenn sie das Formular absenden. Jeder Block ist für einen Kanal. Konfigurieren Sie ihn, nachdem Sie Abo-Gruppen zum Block hinzugefügt haben. Dieser Block listet keine RCS-Abo-Gruppen auf.
 
 Für identifizierte Nutzer:innen, die die Seite über den [Liquid-Tag]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) der Landing-Page öffnen, füllt der Block jedes Kontrollkästchen mit dem aktuellen Abo-Status der Nutzer:in vor, sodass er auch als Seite zur Präferenzverwaltung dienen kann.
 
@@ -537,14 +537,14 @@ Den vollständigen Einrichtungsablauf finden Sie unter [Block „Abos verwalten�
 
 ### Langtext
 
-Mehrzeiliges Textfeld für umfrageähnliche Abläufe. Wenn Sie diesen Block nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-Customer-Success-Manager. Dieser Block ist für Standard-Landing-Pages nicht verfügbar.
+Mehrzeiliges Textfeld für umfrageähnliche Abläufe. Wenn Sie diesen Block nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-CSM. Dieser Block ist für Standard-Landing-Pages nicht verfügbar.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 <!-- Saved row is not yet released. Uncomment when available.
 ### Gespeicherte Zeile
 
-Fügt eine wiederverwendbare Zeile ein, die Sie zuvor als Drag-and-Drop-Content Block gespeichert haben. Gespeicherte Zeilen sind **nicht verknüpft** mit dem ursprünglichen Content Block – wenn das Original aktualisiert wird, müssen Sie es erneut in den Editor ziehen, um die neueste Version zu erhalten. Weitere Informationen finden Sie unter [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Wenn Sie **Gespeicherte Zeile** unter **Rows** nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-Customer-Success-Manager.
+Fügt eine wiederverwendbare Zeile ein, die Sie zuvor als Drag-and-Drop-Content Block gespeichert haben. Gespeicherte Zeilen sind **nicht verknüpft** mit dem ursprünglichen Content Block — wenn das Original aktualisiert wird, müssen Sie es erneut in den Editor ziehen, um die neueste Version zu erhalten. Weitere Informationen finden Sie unter [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Wenn Sie **Saved row** unter **Rows** nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-CSM.
 -->
 
 ## Wissenswertes
@@ -610,12 +610,12 @@ Fügt vertikalen Abstand zwischen Blöcken hinzu.
 
 ### Benutzerdefinierter Code
 
-Fügt benutzerdefiniertes HTML für erweiterte Layouts oder eingebettete Inhalte ein (z. B. Video). Klicks innerhalb von benutzerdefiniertem HTML werden nicht getrackt, es sei denn, Sie rufen `brazeBridge.logClick()` auf – siehe [Benutzerdefinierter Code und JavaScript-Bridge für Banner]({{site.baseurl}}/user_guide/channels/banners/custom_code).
+Fügt benutzerdefiniertes HTML für erweiterte Layouts oder eingebettete Inhalte ein (z. B. Video). Klicks innerhalb von benutzerdefiniertem HTML werden nicht getrackt, es sei denn, Sie rufen `brazeBridge.logClick()` auf — siehe [Benutzerdefinierter Code und JavaScript-Bridge für Banner]({{site.baseurl}}/user_guide/channels/banners/custom_code).
 
 | Eigenschaft | Beschreibung |
 | --- | --- |
 | Custom code | Fügen Sie HTML (und zugehörige Assets) für das Banner hinzu oder bearbeiten Sie es. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom code" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Benutzerdefinierter Code" }
 
 ### Telefonnummernerfassung
 
@@ -631,14 +631,14 @@ Erfasst eine E-Mail-Adresse und fügt sie beim Absenden dem Braze-Profil der Nut
 
 ### Langtext
 
-Mehrzeiliges Textfeld für umfrageähnliche Abläufe. Wenn Sie diesen Block nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-Customer-Success-Manager.
+Mehrzeiliges Textfeld für umfrageähnliche Abläufe. Wenn Sie diesen Block nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-CSM.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 <!-- Saved row is not yet released. Uncomment when available.
 ### Gespeicherte Zeile
 
-Fügt eine wiederverwendbare Zeile ein, die Sie zuvor als Drag-and-Drop-Content Block gespeichert haben. Gespeicherte Zeilen sind **nicht verknüpft** mit dem ursprünglichen Content Block – wenn das Original aktualisiert wird, müssen Sie es erneut in den Editor ziehen, um die neueste Version zu erhalten. Weitere Informationen finden Sie unter [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Wenn Sie **Gespeicherte Zeile** unter **Rows** nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-Customer-Success-Manager.
+Fügt eine wiederverwendbare Zeile ein, die Sie zuvor als Drag-and-Drop-Content Block gespeichert haben. Gespeicherte Zeilen sind **nicht verknüpft** mit dem ursprünglichen Content Block — wenn das Original aktualisiert wird, müssen Sie es erneut in den Editor ziehen, um die neueste Version zu erhalten. Weitere Informationen finden Sie unter [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Wenn Sie **Saved row** unter **Rows** nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-CSM.
 -->
 
 ## Wissenswertes

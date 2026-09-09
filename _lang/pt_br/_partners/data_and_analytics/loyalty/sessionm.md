@@ -39,9 +39,9 @@ Os casos de uso a seguir mostram algumas maneiras de aproveitar a integração d
 
 ## Integração da SessionM com a Braze {#integrating-sessionm-with-braze}
 
-### Etapa 1: Criar um segmento na Braze {#step-1-create-a-segment-in-braze}
+### Etapa 1: Criar um Segment na Braze {#step-1-create-a-segment-in-braze}
 
-Na Braze, crie um segmento de usuários para direcionar com promoções e ofertas da SessionM.
+Na Braze, crie um Segment de usuários para direcionar com promoções e ofertas da SessionM.
 
 ![Criador de segmentos com o filtro "Atributos personalizados" selecionado.]({% image_buster /assets/img/sessionm/CreateSegment.png %})
 
@@ -70,7 +70,7 @@ Na guia **Configurações**, adicione os pares de chave-valor para cada campo de
 
 ![Configurações de webhook.]({% image_buster /assets/img/sessionm/SessionMWebhookSettings.png %}){: style="max-width:85%;"}
 
-Programe sua entrega, defina seu **Público-alvo** para direcionar ao segmento [que você criou anteriormente](#step-1-create-a-segment-in-braze) e, em seguida, lance sua campanha.
+Programe sua entrega, defina seu **Público-alvo** para direcionar ao Segment [que você criou anteriormente](#step-1-create-a-segment-in-braze) e, em seguida, lance sua campanha.
 
 {% alert important %}
 Esse processo também pode ser feito por meio de um cliente de API, como o Postman, fazendo uma solicitação diretamente ao [endpoint SessionM Tag](https://docs.sessionm.com/developer/APIs/Core/Customers/customers_tags.htm#create-or-increment-a-customer-tag), especificando o cliente, o nome da tag e um TTL para cada usuário na chamada (um único usuário por chamada).
@@ -95,7 +95,7 @@ curl --location -g --request POST '{{endpoint_core}}/priv/v1/apps/{{apikey_core}
 
 #### Opção 2: Importação de CSV {#option-2-csv-import}
 
-Exporte seu segmento da Braze usando o segmentador da Braze e forneça um arquivo CSV à SessionM que contenha os clientes a serem marcados, o nome da tag e um TTL para cada usuário no arquivo.
+Exporte seu Segment da Braze usando o segmentador da Braze e forneça um arquivo CSV à SessionM que contenha os clientes a serem marcados, o nome da tag e um TTL para cada usuário no arquivo.
 
 ## Recuperação da carteira de ofertas em tempo real com a Braze {#retrieving-real-time-offer-wallet-with-braze}
 
@@ -205,7 +205,7 @@ Os campos padrão presentes em todos os modelos da SessionM incluem:
 - `email address`
 
 {% alert note %}
-Ao definir o `broadcast flag` como `true`, a mensagem será enviada para todo o segmento que a Campaign ou o Canvas direciona na Braze.
+Ao definir o `broadcast flag` como `true`, a mensagem será enviada para todo o Segment que a Campaign ou o Canvas direciona na Braze.
 {% endalert %}
 
 Campos adicionais podem ser configurados com base em necessidades específicas:

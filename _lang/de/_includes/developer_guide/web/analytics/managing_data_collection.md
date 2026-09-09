@@ -54,7 +54,7 @@ logout(successCallback, errorCallback);
 
 #### Tracking und Push nach `logout` wieder aktivieren {#re-enable-tracking-and-push-after-logout}
 
-Rufen Sie nach einem erfolgreichen `logout` [`enableSDK()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#enablesdk) auf und registrieren Sie sich dann erneut für Benachrichtigungen bei Ihrem Betriebssystem oder Push-Anbieter, indem Sie der Anleitung unter [Web-Push-Einrichtung]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=web) folgen.
+Rufen Sie nach einem erfolgreichen `logout` [`enableSDK()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#enablesdk) auf und Registrieren Sie sich dann erneut für Benachrichtigungen bei Ihrem Betriebssystem oder Push-Anbieter, indem Sie der Anleitung unter [Web-Push-Einrichtung]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=web) folgen.
 
 #### Sofortige Aufrufe zur Aufhebung der Registrierung vermeiden {#avoid-immediate-unregister-calls}
 

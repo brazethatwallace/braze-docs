@@ -52,13 +52,13 @@ Liquid kann das Landing-Page-Erlebnis sowohl für identifizierte als auch für a
 
 ### Formularfelder vorausfüllen {#pre-fill-form-fields}
 
-Wenn ein Landing-Page-Formularfeld einem Nutzerprofil-Attribut zugeordnet ist, können Sie dieses Feld für wiederkehrende Nutzer:innen vorausfüllen. Dies reduziert die Hürden beim Ausfüllen und verbessert die Abschlussraten für bekannte Nutzer:innen.
+Wenn ein Landing-Page-Formularfeld einem Kundenprofil-Attribut zugeordnet ist, können Sie dieses Feld für wiederkehrende Nutzer:innen vorausfüllen. Dies reduziert die Hürden beim Ausfüllen und verbessert die Abschlussraten für bekannte Nutzer:innen.
 
 So verwenden Sie vorausgefüllte Formularfelder:
 
 1. Wählen Sie Ihr Formularfeld im Drag-and-Drop-Editor aus.
 2. Ordnen Sie im Einstellungs-Panel auf der rechten Seite das Feld dem entsprechenden Profil-Attribut zu.
-3. Wählen Sie **Aus Nutzerprofil vorausfüllen** aus.
+3. Wählen Sie **Aus Kundenprofil vorausfüllen** aus.
 
 ![Einstellungen für Landing-Page-Formularfelder mit der Option zum Vorausfüllen aus Nutzerprofildaten.]({% image_buster /assets/img/landing_pages/pre-fill-checkbox.png %}){: style="max-width:70%;"}
 

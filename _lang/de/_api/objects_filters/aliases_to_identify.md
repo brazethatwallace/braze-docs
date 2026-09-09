@@ -13,7 +13,7 @@ Eine API-Anfrage mit einem beliebigen Feld im Attribute-Objekt erstellt oder akt
 
 Verwenden Sie die Feldnamen des Braze-Nutzerprofils (wie nachfolgend aufgelistet oder alle im Abschnitt für [Braze-Nutzerprofilfelder]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields) aufgelisteten), um diese speziellen Werte im Nutzerprofil im Dashboard zu aktualisieren, oder fügen Sie Ihre eigenen angepassten Attributdaten für die Nutzer:innen hinzu.
 
-## Objektinhalt {#object-body}
+## Objektkörper {#object-body}
 
 ```json
 {
@@ -33,4 +33,4 @@ Verwenden Sie die Feldnamen des Braze-Nutzerprofils (wie nachfolgend aufgelistet
 ```
 
 - [Externe Nutzer-ID]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields)
-- [Nutzer-Aliase]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases)
+- [Nutzer-Aliasse]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases)

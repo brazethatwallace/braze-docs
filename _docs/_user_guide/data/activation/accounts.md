@@ -96,7 +96,13 @@ Add or update account records through the REST API or in-browser editing.
 
 ### Step 3: Create a calculated filter for account criteria
 
-Before segmenting on account data, create a calculated filter that defines your account criteria. For details, see [How calculated filters work]({{site.baseurl}}/user_guide/audience/segments/calculated_filters#how-it-works).
+Before segmenting on account data, create a calculated filter that defines your account criteria:
+
+1. Go to **Audience** > **Calculated Filters**.
+2. Select **Create filter**, then select **Data Object filters**.
+3. Define your account criteria.
+
+For details, see [Calculated filters]({{site.baseurl}}/user_guide/audience/segments/calculated_filters#create-a-calculated-filter).
 
 ### Step 4: Use the calculated filter in Segment Builder
 
@@ -147,9 +153,7 @@ To iterate over all matched accounts:
 
 You can use the REST API to manage account records during Early Access.
 
-{% alert note %}
-Endpoint details for Accounts are provided during Early Access onboarding. If you need access or onboarding details, contact your Braze account team.
-{% endalert %}
+For endpoint details, refer to [Data Objects endpoints]({{site.baseurl}}/api/endpoints/data_objects).
 
 For authentication and REST endpoint basics, refer to [Braze API overview]({{site.baseurl}}/api/basics).
 

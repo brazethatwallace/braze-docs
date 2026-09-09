@@ -8,7 +8,7 @@
 </thead>
 <tbody>
 <tr><td>SDK</td><td>SDK-Endpunkte</td></tr>
-<tr><td>Dashboard</td><td>Wenn der Abo-Status einer Nutzerin oder eines Nutzers über die Nutzerprofil-Seite im Dashboard aktualisiert wird</td></tr>
+<tr><td>Dashboard</td><td>Wenn der Abo-Status einer Nutzerin oder eines Nutzers über die Kundenprofil-Seite im Dashboard aktualisiert wird</td></tr>
 <tr><td>Abo-Seite</td><td>Wenn sich Nutzer:innen über einen E-Mail-Link abmelden, der nicht das Einstellungscenter ist</td></tr>
 <tr><td>REST API</td><td>REST-API-Endpunkte</td></tr>
 <tr><td>CSV-Import</td><td>CSV-Nutzerimport</td></tr>

@@ -41,7 +41,7 @@ As pontuações e as categorias correspondentes serão atualizadas de acordo com
 
 ## Precisão estimada {#estimated_results}
 
-Na metade direita do painel abaixo do gráfico, mostramos estimativas da precisão esperada do direcionamento deste segmento do público de previsão. Com base em dados sobre usuários no público de previsão no passado e na precisão aparente do modelo para discriminar entre usuários que fazem e não fazem churn nesses dados passados, essas barras de progresso estimam, para uma mensagem potencial futura usando o público destacado com o controle deslizante:
+Na metade direita do painel abaixo do gráfico, mostramos estimativas da precisão esperada do direcionamento deste Segment do público de previsão. Com base em dados sobre usuários no público de previsão no passado e na precisão aparente do modelo para discriminar entre usuários que fazem e não fazem churn nesses dados passados, essas barras de progresso estimam, para uma mensagem potencial futura usando o público destacado com o controle deslizante:
 
 ![Painel de precisão estimada mostrando churners e não-churners esperados para a faixa de público selecionada.]({% image_buster /assets/img/churn/churnEstimatedResults.png %}){: style="float:right;max-width:40%;margin-left:15px;"}
 

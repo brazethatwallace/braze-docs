@@ -16,7 +16,7 @@ En resumen, el SDK de Braze:
 * Potencia las notificaciones push, los mensajes dentro de la aplicación y los canales de mensajería de Content Cards
 
 ## ¿Qué es un SDK? {#what-is-an-sdk}
-Un kit de desarrollo de software (SDK) es un conjunto de herramientas prefabricadas&mdash;pequeños bloques de código&mdash;que pueden añadirse a las aplicaciones digitales para dar soporte a nuevas capacidades. El SDK de Braze se utiliza para enviar y obtener información desde y hacia tu aplicación o sitio web. Está diseñado para ofrecer funciones esenciales desde el principio: creación de perfiles de usuario, registro de eventos personalizados, activación de notificaciones push, etc.
+Un SDK (SDK) es un conjunto de herramientas prefabricadas&mdash;pequeños bloques de código&mdash;que pueden añadirse a las aplicaciones digitales para dar soporte a nuevas capacidades. El SDK de Braze se utiliza para enviar y obtener información desde y hacia tu aplicación o sitio web. Está diseñado para ofrecer funciones esenciales desde el principio: creación de perfiles de usuario, registro de eventos personalizados, activación de notificaciones push, etc.
 
 Como esta funcionalidad viene por defecto de Braze, tus desarrolladores quedan libres para centrarse en tu negocio principal. Sin un SDK, cada cliente de Braze tendría que crear toda la infraestructura y herramientas para el procesamiento de datos, lógica de segmentación, opciones de entrega, gestión de usuarios anónimos, análisis de campañas y mucho más completamente desde cero. Eso llevaría mucho más tiempo y sería mucho más molesto que la hora aproximada que se tarda en incorporar nuestro SDK.
 

@@ -12,7 +12,7 @@ description: "Este artículo de referencia trata sobre el archivado de mensajes,
 
 > El archivado de mensajes te permite guardar una copia de los mensajes enviados a los usuarios con fines de archivo o cumplimiento normativo en tu contenedor de AWS S3, contenedor de Azure Blob Storage o contenedor de Google Cloud Storage. <br><br> Este artículo trata sobre cómo configurar el archivado de mensajes, las referencias de carga útil JSON y las preguntas frecuentes.
 
-El archivado de mensajes está disponible como característica adicional. Para empezar a archivar mensajes, ponte en contacto con tu administrador de éxito de cliente de Braze.
+El archivado de mensajes está disponible como característica adicional. Para empezar a archivar mensajes, ponte en contacto con tu CSM de Braze.
 
 ## Cómo funciona {#how-it-works}
 
@@ -177,7 +177,7 @@ El archivado de mensajes captura la carga útil del mensaje en sí, pero no incl
 
 - Tokens de dispositivo
 - Configuración de prioridades
-- Tiempo de vida (TTL)
+- TTL (TTL)
 - ID de colapso
 - Encabezados de APNs
 - Marcas de tiempo de caducidad

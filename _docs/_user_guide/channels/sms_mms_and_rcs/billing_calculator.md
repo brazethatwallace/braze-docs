@@ -142,7 +142,7 @@ Rich messages are text-only messages with or without buttons. They are billed pe
 {% endtab %}
 {% tab Rich media messages %}
 
-Rich media messages include a media file (image, video) or a Rich Card and are billed as a single message.
+Rich media messages include standalone **Media** messages and **Card** messages, and are billed as a single message. For Card layouts and provider-specific limits, see [RCS message types]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create#rcs-message-types).
 
 {% endtab %}
 {% endtabs %}
@@ -151,4 +151,4 @@ Rich media messages include a media file (image, video) or a Rich Card and are b
 
 As you create your message, the message composer will display the billing type in real-time through a label (Basic RCS, Single RCS, Rich, or Rich Media), helping you track costs before you send.
 
-Your [Credits Usage dashboard]({{site.baseurl}}/credits_usage_dashboard) will reflect these billing types and will provide the number of segments used for US messages, providing a transparent view of your message credit consumption.
+Your [Credits Usage dashboard]({{site.baseurl}}/credits_usage_dashboard) reflects these billing types and provides the number of segments used for US messages, giving you a transparent view of your message credit consumption.

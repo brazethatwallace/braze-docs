@@ -17,33 +17,34 @@ _Diese Integration wird von VideoSmart entwickelt und gepflegt._
 
 ## Über diese Integration {#about-this-integration}
 
-VideoSmart integriert sich mit Braze, um zum Sendezeitpunkt dynamisch personalisierte Video-Assets zu generieren, die dann direkt in Ihre Braze-Campaign- und Canvas-E-Mail-Inhalte eingebettet werden.
+VideoSmart wird mit Braze integriert, um beim Versand dynamisch personalisierte Video-Assets zu generieren, die dann direkt in Ihre E-Mail-Inhalte in Braze-Campaigns und Canvas eingebettet werden.
 
-In Braze wählen Sie die entsprechende VideoSmart-Campaign aus und übergeben beim Senden Kundenattribute (über Liquid-Templating) an VideoSmart. Diese Attribute werden verwendet, um für jede Empfängerin und jeden Empfänger ein einzigartiges, personalisiertes Videoerlebnis zu rendern. Anschließend können Sie Braze Connected-Content verwenden, um Video-URLs oder -Assets in Echtzeit von der VideoSmart-API anzufordern, was skalierbare Personalisierung ermöglicht.
+In Braze wählen Sie die entsprechende VideoSmart-Campaign aus und übergeben beim Versand Kundenattribute (über Liquid-Templating) an VideoSmart. Diese Attribute werden verwendet, um für jede Empfängerin und jeden Empfänger ein einzigartiges, personalisiertes Videoerlebnis zu rendern. Anschließend können Sie Braze Connected-Content nutzen, um Video-URLs oder -Assets in Echtzeit über die API von VideoSmart anzufordern und so skalierbare Personalisierung zu ermöglichen.
 
-Diese Integration ist für Braze-E-Mail-Nachrichten konzipiert, die Liquid-Templating und Connected-Content unterstützen, und kann so konfiguriert werden, dass sie mit Standard-Braze-Nutzerprofil-Attributen oder angepassten Datenfeldern funktioniert.
+Diese Integration ist für Braze-E-Mail-Nachrichten konzipiert, die Liquid-Templating und Connected-Content unterstützen, und kann so konfiguriert werden, dass sie mit standardmäßigen Braze-Nutzerprofilattributen oder angepassten Datenfeldern funktioniert.
 
 ## Anwendungsfälle {#use-cases}
 
-Häufige Anwendungsfälle umfassen:
 
-- Kunden-Onboarding und Willkommens-Journeys
-- Finanzielle Aufklärung (z. B. Renten und Versicherungspolicen)
+Gängige Anwendungsfälle umfassen:
+
+- Onboarding- und Willkommens-Journeys für Kund:innen
+- Finanzielle Bildung (z. B. Renten und Versicherungspolicen)
 - Jahresabrechnungen und regulatorische Mitteilungen
-- Produktbekanntheit und Cross-Selling-Campaigns
-- Kundenbindungs- und Campaigns zur erneuten Interaktion
-- Warenkorb-Abbruch-Erinnerungen: Wenn Kund:innen Produkte in ihren Warenkorb legen, aber nicht kaufen, senden Sie eine E-Mail mit einem personalisierten Video, das die zurückgelassenen Artikel hervorhebt
+- Produktbekanntheit und Cross-Sell-Campaigns
+- Kundenbindung und erneute Interaktion
+- Erinnerungen bei Warenkorb-Abbruch: Wenn Kund:innen Produkte in ihren Warenkorb legen, aber nicht kaufen, senden Sie eine E-Mail mit einem personalisierten Video, das die zurückgelassenen Artikel hervorhebt
 - Nachkauf-Follow-ups: Senden Sie nach einem Kauf ein personalisiertes Dankesvideo und empfehlen Sie verwandte Produkte
 
 ## Voraussetzungen {#prerequisites}
 
-Bevor Sie beginnen, stellen Sie sicher, dass Sie über Folgendes verfügen:
+Bevor Sie beginnen, stellen Sie sicher, dass Folgendes vorhanden ist:
 
-| Anforderung | Beschreibung |
+| Voraussetzung                        | Beschreibung                                                                                                                 |
 | ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| Braze Connected-Content-Zugangsdaten | Connected-Content-Basic-Authentication-Zugangsdaten mit dem Namen **basic_credentials**, konfiguriert mit von VideoSmart bereitgestellten Werten |
-| **VideoSmart Content-Block**-Template | Das **VideoSmart Content-Block**-Template, das Ihrem Braze-Dashboard hinzugefügt wurde (bereitgestellt von VideoSmart) |
-| Eine Braze-E-Mail-Nachricht | Eine Braze-Campaign-E-Mail oder ein Canvas-E-Mail-Schritt, in den Sie den **VideoSmart Content-Block** einfügen |
+| Connected-Content-Zugangsdaten von Braze | Connected-Content-Zugangsdaten für Basisauthentifizierung mit dem Namen **basic_credentials**, konfiguriert mit den von VideoSmart bereitgestellten Werten |
+| **VideoSmart Content-Block**-Template   | Das **VideoSmart Content-Block**-Template, das Ihrem Braze-Dashboard hinzugefügt wurde (bereitgestellt von VideoSmart)                                |
+| Eine Braze-E-Mail-Nachricht               | Eine Braze-Campaign-E-Mail oder ein Canvas-E-Mail-Schritt, in den Sie den **VideoSmart Content-Block** einfügen werden                              |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
@@ -125,37 +126,37 @@ Häufige Variablen umfassen:
 
 ## Rate-Limits
 
-Die VideoSmart-API hat ein Rate-Limit von 10.000 Anfragen pro Minute. Wenn Sie dieses Limit überschreiten, können Fehler auftreten oder Verzögerungen bei der Videogenerierung entstehen.
+Die VideoSmart-API hat ein Rate-Limit von 10.000 Anfragen pro Minute. Wenn Sie dieses Limit überschreiten, können Fehler auftreten oder es kann zu Verzögerungen bei der Videogenerierung kommen.
 
-Um dieses Risiko zu reduzieren, konfigurieren Sie das Braze-Campaign-Rate-Limiting so, dass die Nachrichtenversandrate unter der VideoSmart-API-Kapazität bleibt.
+Um dieses Risiko zu verringern, konfigurieren Sie das Rate-Limiting für Braze-Campaigns so, dass die Nachrichtenversandrate unter der Kapazität der VideoSmart-API bleibt.
 
-Informationen zur Zustellgeschwindigkeit und zum Rate-Limiting in Braze finden Sie unter [Zustellgeschwindigkeit und Rate-Limiting]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting#delivery-speed-rate-limiting).
+Informationen zu Zustellungsgeschwindigkeit und Rate-Limiting in Braze finden Sie unter [Zustellungsgeschwindigkeit und Rate-Limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting).
 
 ## Hinweise {#considerations}
 
-- Connected-Content wird ausgeführt, wenn die Nachricht gerendert wird, sodass sich die Werte zwischen Vorschau und Versand unterscheiden können, wenn Ihre Standardwerte oder Attribute abweichen.
-- Stellen Sie sicher, dass Ihre E-Mail den Content-Block enthält, bevor Sie Variablen wie `video_url` referenzieren.
-- Wenn Sie angepasste Felder in `vs_record_data` verwenden, bestätigen Sie die erwarteten Feldnamen mit VideoSmart.
+- Connected-Content wird beim Rendern der Nachricht ausgeführt, sodass sich Werte zwischen Vorschau und Versand unterscheiden können, wenn Ihre Standardwerte oder Attribute abweichen.
+- Vergewissern Sie sich, dass Ihre E-Mail den Content-Block enthält, bevor Sie auf Variablen wie `video_url` verweisen.
+- Wenn Sie benutzerdefinierte Felder in `vs_record_data` verwenden, bestätigen Sie die erwarteten Feldnamen mit VideoSmart.
 
 ## Fehlerbehebung {#troubleshooting}
 
 ### Vorschau funktioniert nicht {#preview-not-working}
 
-Wenn die Braze-Vorschau fehlschlägt (z. B. wiederholte Wiederholungsversuche oder Authentifizierungsfehler), überprüfen Sie Folgendes:
+Wenn die Braze-Vorschau fehlschlägt (zum Beispiel durch wiederholte Versuche oder Authentifizierungsfehler), überprüfen Sie Folgendes:
 
-- Die Connected-Content-Zugangsdaten „basic_credentials“ existieren und sind korrekt konfiguriert.
+- Die Connected-Content-Zugangsdaten „basic_credentials“ sind vorhanden und korrekt konfiguriert.
 - Das **VideoSmart Content-Block**-Template ist in Ihrem Braze-Konto vorhanden.
-- Alle erforderlichen Variablen (z. B. `vs_campaign_id` oder erforderliche Felder in `vs_record_data`) haben Standardwerte für die Vorschau.
+- Für alle erforderlichen Variablen (zum Beispiel `vs_campaign_id` oder Pflichtfelder in `vs_record_data`) sind Standardwerte für die Vorschau festgelegt.
 
-### Variablen des VideoSmart Content-Block-Templates generieren nicht die erwartete Ausgabe {#videosmarts-content-block-template-variables-not-generating-expected-output}
+### Template-Variablen des VideoSmart Content-Blocks erzeugen nicht die erwartete Ausgabe {#videosmarts-content-block-template-variables-not-generating-expected-output}
 
-Wenn die vom VideoSmart Content-Block-Template generierten Variablen nicht die erwartete Ausgabe liefern, überprüfen Sie Folgendes:
+Wenn die vom VideoSmart Content-Block-Template generierten Variablen nicht die erwartete Ausgabe erzeugen, überprüfen Sie Folgendes:
 
 - Das **VideoSmart Content-Block**-Template ist in Braze korrekt eingerichtet.
 - Die Connected-Content-Authentifizierung ist mit den entsprechenden Zugangsdaten korrekt eingerichtet.
 - Geben Sie Variablen in Ihrer E-Mail aus, um zu bestätigen, dass sie gesetzt werden. Zum Beispiel: `{% raw %}{{ video_url }}{% endraw %}`
 
-Wenn Sie eine angepasste Campaign verwenden, überprüfen Sie außerdem:
+Wenn Sie eine angepasste Campaign verwenden, überprüfen Sie zusätzlich:
 
 - `vs_campaign_id` ist auf einen gültigen Campaign-Bezeichner gesetzt.
 - `vs_record_data` ist gültiges JSON und enthält die erwarteten Felder.

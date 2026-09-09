@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "この記事では、利用可能なメールテンプレートの一覧を取得する Braze エンドポイントの詳細について説明します。"
-
 ---
 {% api %}
 # 利用可能なメールテンプレートの一覧 {#list-available-email-templates}
@@ -19,7 +18,7 @@ description: "この記事では、利用可能なメールテンプレートの
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#eec24bf4-a3f4-47cb-b4d8-bb8f03964cca {% endapiref %}
 
 ## 前提条件 {#prerequisites}
-このエンドポイントを使用するには、`templates.email.list` 権限を持つ [API キー]({{site.baseurl}}/api/api_key)が必要です。
+このエンドポイントを使用するには、`templates.email.list` 権限を持つ [APIキー]({{site.baseurl}}/api/basics)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -31,7 +30,7 @@ description: "この記事では、利用可能なメールテンプレートの
 |---|---|---|---|
 | `modified_after` | オプション | [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 形式の文字列 | 指定された時刻以降に更新されたテンプレートのみを取得します。 |
 | `modified_before` | オプション | [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 形式の文字列 | 指定された時刻以前に更新されたテンプレートのみを取得します。 |
-| `limit` | オプション | 正の数値 | 取得するテンプレートの最大数。指定されない場合、デフォルトは 100 です。最大許容値は 1000 です。 |
+| `limit` | オプション | 正の数値 | 取得するテンプレートの最大数。指定されない場合、デフォルトは100で、最大許容値は1000です。 |
 | `offset` | オプション | 正の数値 | 検索条件に合う残りのテンプレートを返す前にスキップするテンプレートの数。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
@@ -41,10 +40,10 @@ curl --location --request GET 'https://rest.iad-01.braze.com/templates/email/lis
 --header 'Authorization: Bearer YOUR_REST_API_KEY'
 ```
 
-## 応答 {#response}
+## レスポンス {#response}
 
 {% alert important %}
-メール用のドラッグ＆ドロップエディターを使用して作成されたテンプレートは、この応答には含まれません。
+メール用のドラッグ＆ドロップエディターを使用して作成されたテンプレートは、このレスポンスには含まれません。
 {% endalert %}
 
 ```json

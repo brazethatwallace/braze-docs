@@ -43,7 +43,7 @@ En tant que plateforme d'engagement client, Braze peut générer de nouveaux pro
 
 ### Étape 1 : Récupérez vos `client_id` et `client_secret` {#step-1-collect-your-client_id-and-client_secret}
 
-1. Dans Salesforce, accédez à **Platform Tools** > **Apps** > **App Manager**.
+1. Dans Salesforce, accédez à **Platform Tools** > **Apps** > **App gestionnaire**.
 2. Recherchez votre application Braze nouvellement créée et sélectionnez **View**.
 3. Sous **Consumer Key and Secret**, sélectionnez **Manage Consumer Details**.
 4. Sur la page qui s'affiche, notez votre **Consumer Key** et votre **Consumer Secret**. La **Consumer Key** correspond à votre `client_id`, et le **Consumer Secret** correspond à votre `client_secret`.
@@ -100,7 +100,7 @@ Cet exemple montre spécifiquement comment mettre à jour le stade d'un prospect
 
 ### Étape 1 : Récupérez vos `client_id` et `client_secret`
 
-1. Dans Salesforce, accédez à **Platform Tools** > **Apps** > **App Manager**.
+1. Dans Salesforce, accédez à **Platform Tools** > **Apps** > **App gestionnaire**.
 2. Recherchez votre application Braze nouvellement créée et sélectionnez **View**.
 3. Sous **Consumer Key and Secret**, sélectionnez **Manage Consumer Details**.
 4. Sur la page qui s'affiche, notez votre **Consumer Key** et votre **Consumer Secret**.

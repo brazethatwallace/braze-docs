@@ -8,28 +8,28 @@ description: "GitHub에서 미러링된 Braze Web SDK README 참조입니다."
 <!-- BEGIN GENERATED README CONTENT -->
 # Web SDK 리포지토리 가이드 {#web-sdk-repository-guide}
 
-## Braze 웹 SDK 소개 {#about-the-braze-web-sdk}
+## Braze Web SDK 소개 {#about-the-braze-web-sdk}
 
-Braze 웹 SDK를 사용하면 Braze의 고객 인게이지먼트 플랫폼을 웹 애플리케이션에 직접 통합할 수 있습니다. TypeScript로 구축되고 최신 웹 개발을 위해 설계된 이 SDK는 사용자 관리, 메시징, 분석, 기능 플래그 등을 위한 포괄적인 도구를 제공합니다.
+Braze Web SDK를 사용하면 Braze의 고객 인게이지먼트 플랫폼을 웹 애플리케이션에 직접 통합할 수 있습니다. TypeScript로 구축되었으며 최신 웹 개발에 맞게 설계된 이 SDK는 사용자 관리, 메시징, 분석, 기능 플래그 등을 위한 포괄적인 도구를 제공합니다.
 
 ### 주요 기능 {#what-you-can-do}
 
-- **사용자 관리**: 웹 애플리케이션 전반에서 사용자 ID, 속성, 행동을 추적하고 관리합니다.
-- **인앱 메시지**: 사용자가 사이트를 활발히 이용하는 동안 타겟팅된 메시지와 알림을 표시합니다.
-- **Content Cards**: 실시간으로 업데이트되는 개인화된 콘텐츠 피드와 프로모션 카드를 표시합니다.
-- **배너**: 사이트 내 특정 위치에 배너 메시지를 표시합니다.
-- **푸시 알림**: 사용자가 사이트에 접속하지 않을 때에도 웹 푸시 알림을 전송하여 참여를 유도합니다.
-- **기능 플래그**: 서버 측 기능 플래그 관리를 통해 기능 출시 및 A/B 테스트를 제어합니다.
-- **분석**: 커스텀 이벤트, 사용자 상호작용, 전환 측정기준을 추적합니다.
-- **세션 관리**: 사용자 세션과 인게이지먼트 패턴을 모니터링합니다.
+- **사용자 관리**: 웹 애플리케이션 전반에서 사용자 ID, 속성 및 행동을 추적하고 관리합니다
+- **인앱 메시지**: 사용자가 사이트를 활발히 이용하는 동안 타겟팅된 메시지와 알림을 표시합니다
+- **Content Cards**: 실시간으로 업데이트되는 개인화된 콘텐츠 피드와 프로모션 카드를 표시합니다
+- **배너**: 사이트 내 특정 위치에 배너 메시지를 표시합니다
+- **푸시 알림**: 사용자가 사이트에 접속하지 않은 경우에도 웹 푸시 알림을 전송하여 참여를 유도합니다
+- **기능 플래그**: 서버 측 기능 플래그 관리를 통해 기능 출시 및 A/B 테스트를 제어합니다
+- **분석**: 커스텀 이벤트, 사용자 인터랙션, 전환 측정기준을 추적합니다
+- **세션 관리**: 사용자 세션과 인게이지먼트 패턴을 모니터링합니다
 
-싱글 페이지 애플리케이션, 이커머스 사이트 또는 콘텐츠 플랫폼을 구축하고 있든, Braze 웹 SDK는 성장과 유지를 촉진하는 개인화되고 매력적인 사용자 경험을 만드는 데 필요한 도구를 제공합니다.
+단일 페이지 애플리케이션, 이커머스 사이트 또는 콘텐츠 플랫폼 중 무엇을 구축하든 Braze Web SDK는 성장과 유지를 이끄는 개인화되고 매력적인 사용자 경험을 만드는 데 필요한 도구를 제공합니다.
 
 ## 필수 조건 {#prerequisites}
 
 Braze Web SDK를 통합하기 전에 다음이 필요합니다:
 
-- **Braze 계정**: API 액세스 권한이 있는 Braze 계정
+- **Braze 계정**: API 액세스가 가능한 Braze 계정
 - **API 키**: Braze 대시보드에서 확인할 수 있는 앱의 API 키
 - **SDK 엔드포인트**: Braze SDK 엔드포인트 URL(예: `sdk.iad-01.braze.com`)
 
@@ -66,34 +66,34 @@ braze.changeUser('Jane Doe');
 
 ### 초기화 옵션 {#initialization-options}
 
-`initialize` 함수는 다음 속성을 포함하는 옵션 객체를 받습니다:
+`initialize` 함수는 다음 속성을 가진 옵션 객체를 허용합니다:
 
 | 옵션 | 유형 | 기본값 | 설명 |
 |--------|------|---------|-------------|
-| `baseUrl` | `string` | **필수** | 이 옵션은 통합에 적합한 엔드포인트를 사용하도록 Braze Web SDK를 구성하는 데 필요합니다. 예를 들어: `braze.initialize('YOUR-API-KEY-HERE', { baseUrl: 'sdk.iad-03.braze.com' })` |
-| `enableLogging` | `boolean` | `false` | 기본적으로 로깅을 활성화하려면 true로 설정합니다. 이렇게 하면 Braze가 모든 사용자에게 표시되는 JavaScript 콘솔에 로그를 기록합니다. 페이지를 프로덕션에 릴리스하기 전에 이 옵션을 제거하거나 setLogger를 사용하여 대체 로거를 제공해야 합니다. |
-| `allowUserSuppliedJavascript` | `boolean` | `false` | 기본적으로 Braze Web SDK는 사용자 제공 JavaScript 클릭 동작을 허용하지 않으며, HTML 인앱 메시지 및 Banners도 활성화하지 않습니다. 이러한 기능은 Braze 대시보드 사용자가 사이트에서 JavaScript를 실행할 수 있게 하기 때문입니다. Braze 대시보드 사용자가 악성이 아닌 JavaScript 클릭 동작을 작성한다고 신뢰할 수 있는 경우, 이 속성을 true로 설정합니다. |
-| `doNotLoadFontAwesome` | `boolean` | `false` | Braze는 인앱 메시지 아이콘에 Font Awesome을 사용합니다. 기본적으로 Braze는 FontAwesome CDN에서 FontAwesome 4.7.0을 자동으로 로드합니다. 이 동작을 비활성화하려면(예: 사이트에서 커스텀 버전의 FontAwesome을 사용하는 경우) 이 옵션을 `true`로 설정합니다. 이 경우 사이트에서 FontAwesome이 로드되도록 직접 관리해야 합니다. 그렇지 않으면 인앱 메시지가 올바르게 렌더링되지 않을 수 있습니다. |
-| `inAppMessageZIndex` | `number` | `999999` | 기본적으로 Braze SDK는 z-index 999999로 In-App Messages를 표시합니다. 이 기본값을 재정의하려면 이 옵션에 값을 제공합니다. |
-| `sessionTimeoutInSeconds` | `number` | `30` | 기본적으로 세션은 30초 동안 비활성 상태이면 타임아웃됩니다. 이 기본값을 재정의하려면 이 옵션에 값을 제공합니다. |
-| `deviceId` | `string` | 자동 생성 | 기본적으로 Braze는 기기 ID로 랜덤 GUID를 할당합니다. 이 기본값을 사용자 정의 값으로 재정의하려면 이 구성 옵션에 값을 제공합니다. |
-| `appVersion` | `string` | `undefined` | 이 옵션에 값을 제공하면 Braze로 전송되는 사용자 이벤트가 해당 버전과 연결되며, 이를 사용자 세분화에 활용할 수 있습니다. |
-| `appVersionNumber` | `string` | `undefined` | 사용자 세분화에 사용할 수 있는 숫자형 앱 버전 값입니다. 이 값은 "1.2.3.4"와 같이 네 개의 필드로 전송해야 하며, 그렇지 않으면 무시됩니다. 참고: `appVersion`도 동일한 값이나 이 버전의 고유한 이름으로 함께 설정해야 합니다. |
-| `contentSecurityNonce` | `string` | `undefined` | 이 옵션에 값을 제공하면 Braze SDK가 SDK에서 생성하는 모든 `<script>` 및 `<style>` 요소에 해당 nonce를 추가합니다. 이를 통해 웹사이트의 콘텐츠 보안 정책과 함께 Braze SDK를 사용할 수 있습니다. 이 nonce를 설정하는 것 외에도 FontAwesome 로드를 허용해야 할 수 있으며, 콘텐츠 보안 정책 허용 목록에 `use.fontawesome.com`을 추가하거나 `doNotLoadFontAwesome` 옵션을 사용하고 수동으로 로드하는 방법으로 처리할 수 있습니다. |
-| `noCookies` | `boolean` | `false` | 기본적으로 Braze Web SDK는 쿠키를 사용합니다. 쿠키 사용을 비활성화하려면 이 옵션을 true로 설정합니다. 쿠키를 비활성화하면 세션 간에 사용자의 ID를 기억하는 SDK 기능에 영향을 줄 수 있습니다. |
-| `allowCrawlerActivity` | `boolean` | `false` | 기본적으로 Braze Web SDK는 사용자 에이전트 문자열을 기반으로 Google과 같은 알려진 스파이더 또는 웹 크롤러의 활동을 무시합니다. 이를 통해 데이터 포인트를 절약하고 분석을 더 정확하게 하며 페이지 순위를 개선할 수 있습니다. 그러나 이러한 크롤러의 활동을 Braze에 기록하려면 이 옵션을 true로 설정할 수 있습니다. |
-| `disablePushTokenMaintenance` | `boolean` | `false` | 기본적으로 이미 웹 푸시 권한을 부여한 사용자(예: requestPushPermission을 통해 또는 이전 푸시 공급자를 통해)는 전달 가능성을 보장하기 위해 새 세션에서 자동으로 Braze 백엔드와 푸시 토큰을 동기화합니다. 이 동작을 비활성화하려면 이 옵션을 true로 설정합니다. |
+| `baseUrl` | `string` | **필수** | 이 옵션은 통합에 적합한 엔드포인트를 사용하도록 Braze Web SDK를 구성하는 데 필요합니다. 예: `braze.initialize('YOUR-API-KEY-HERE', { baseUrl: 'sdk.iad-03.braze.com' })` |
+| `enableLogging` | `boolean` | `false` | 기본적으로 로깅을 활성화하려면 true로 설정합니다. 이 옵션을 설정하면 Braze가 모든 사용자에게 표시되는 JavaScript 콘솔에 로그를 기록합니다. 프로덕션에 페이지를 배포하기 전에 이 옵션을 제거하거나 setLogger를 사용하여 대체 로거를 제공해야 합니다. |
+| `allowUserSuppliedJavascript` | `boolean` | `false` | 기본적으로 Braze Web SDK는 사용자 제공 Javascript 클릭 동작을 허용하지 않으며, HTML 인앱 메시지 및 Banners도 활성화하지 않습니다. 이는 Braze 대시보드 사용자가 사이트에서 Javascript를 실행할 수 있기 때문입니다. Braze 대시보드 사용자가 악의적이지 않은 Javascript 클릭 동작을 작성한다고 신뢰하는 경우 이 속성을 true로 설정하세요. |
+| `doNotLoadFontAwesome` | `boolean` | `false` | Braze는 인앱 메시지 아이콘에 Font Awesome를 사용합니다. 기본적으로 Braze는 FontAwesome CDN에서 FontAwesome 4.7.0을 자동으로 로드합니다. 이 동작을 비활성화하려면(예: 사이트에서 커스텀 버전의 FontAwesome을 사용하는 경우) 이 옵션을 `true`로 설정하세요. 이 경우 사이트에서 FontAwesome이 로드되도록 직접 보장해야 합니다. 그렇지 않으면 인앱 메시지가 올바르게 렌더링되지 않을 수 있습니다. |
+| `inAppMessageZIndex` | `number` | `999999` | 기본적으로 Braze SDK는 z-index 값 999999로 In-App Messages를 표시합니다. 이 기본값을 재정의하려면 이 옵션에 값을 제공하세요. |
+| `sessionTimeoutInSeconds` | `number` | `30` | 기본적으로 세션은 비활성 상태로 30초가 지나면 만료됩니다. 이 기본값을 재정의하려면 이 옵션에 값을 제공하세요. |
+| `deviceId` | `string` | 자동 생성 | 기본적으로 Braze는 기기 ID로 랜덤 guid를 할당합니다. 이 구성 옵션에 값을 제공하여 기본값을 자체 값으로 재정의할 수 있습니다. |
+| `appVersion` | `string` | `undefined` | 이 옵션에 값을 제공하면 Braze로 전송되는 사용자 이벤트가 지정된 버전과 연결되며, 이를 사용자 세분화에 활용할 수 있습니다. |
+| `appVersionNumber` | `string` | `undefined` | 사용자 세분화에 사용할 수 있는 숫자형 앱 버전 값입니다. 이 값은 "1.2.3.4"와 같이 네 개의 필드로 전송해야 하며, 그렇지 않으면 무시됩니다. 참고: `appVersion`도 동일한 값 또는 이 버전의 고유한 이름으로 설정해야 합니다. |
+| `contentSecurityNonce` | `string` | `undefined` | 이 옵션에 값을 제공하면 Braze SDK는 SDK가 생성하는 모든 `<script>` 및 `<style>` 요소에 nonce를 추가합니다. 이를 통해 웹사이트의 콘텐츠 보안 정책과 함께 Braze SDK를 사용할 수 있습니다. 이 nonce를 설정하는 것 외에도 FontAwesome 로드를 허용해야 할 수 있으며, 이는 콘텐츠 보안 정책 허용 목록에 `use.fontawesome.com`을 추가하거나 `doNotLoadFontAwesome` 옵션을 사용하고 수동으로 로드하여 수행할 수 있습니다. |
+| `noCookies` | `boolean` | `false` | 기본적으로 Braze Web SDK는 쿠키를 사용합니다. 쿠키 사용을 비활성화하려면 이 옵션을 true로 설정하세요. 쿠키를 비활성화하면 세션 간 사용자 ID를 기억하는 SDK 기능에 영향을 줄 수 있습니다. |
+| `allowCrawlerActivity` | `boolean` | `false` | 기본적으로 Braze Web SDK는 사용자 에이전트 문자열을 기반으로 Google과 같은 알려진 스파이더 또는 웹 크롤러의 활동을 무시합니다. 이를 통해 데이터 포인트를 절약하고, 분석의 정확성을 높이며, 페이지 순위를 개선할 수 있습니다. 그러나 이러한 크롤러의 활동도 Braze에 기록하려면 이 옵션을 true로 설정하세요. |
+| `disablePushTokenMaintenance` | `boolean` | `false` | 기본적으로 이미 웹 푸시 권한을 부여한 사용자(예: requestPushPermission을 통해 또는 이전 푸시 공급자로부터)는 전달 가능성을 보장하기 위해 새 세션에서 자동으로 푸시 토큰을 Braze 백엔드와 동기화합니다. 이 동작을 비활성화하려면 이 옵션을 true로 설정하세요. |
 | `enableSdkAuthentication` | `boolean` | `false` | SDK 인증 기능을 활성화하려면 true로 설정합니다. SDK 인증에 대한 자세한 내용은 제품 설명서를 참조하세요. |
-| `manageServiceWorkerExternally` | `boolean` | `false` | 기본적으로 Braze Web SDK는 푸시 알림을 위한 자체 서비스 워커를 관리합니다. 애플리케이션에서 이미 서비스 워커를 관리하고 있으며 Braze 서비스 워커 기능을 통합하려는 경우, 이 옵션을 true로 설정하고 서비스 워커 파일에 Braze 서비스 워커 코드를 포함합니다. |
-| `minimumIntervalBetweenTriggerActionsInSeconds` | `number` | `30` | 기본적으로 트리거 동작(예: 인앱 메시지 표시)은 사용자당 최소 30초에 한 번만 실행할 수 있습니다. 이 기본값을 재정의하려면 이 옵션에 값을 제공합니다. |
-| `serviceWorkerLocation` | `string` | `undefined` | 기본적으로 Braze Web SDK는 도메인의 루트에서 서비스 워커 파일을 찾습니다. 이 기본값을 재정의하고 서비스 워커 파일의 커스텀 위치를 지정하려면 이 옵션에 값을 제공합니다. |
-| `safariWebsitePushId` | `string` | `undefined` | Safari 푸시 알림에 필수입니다. 이 값은 Apple Developer 계정에서 확인할 수 있습니다. Safari 푸시 알림 설정에 대한 자세한 내용은 제품 설명서를 참조하세요. |
-| `localization` | `string` | `undefined` | 이 옵션에 값을 제공하면 Braze SDK는 해당 로캘로 인앱 메시지와 콘텐츠 카드를 표시하려고 시도합니다. |
-| `openInAppMessagesInNewTab` | `boolean` | `false` | 기본적으로 인앱 메시지의 링크는 동일한 탭에서 열립니다. 새 탭에서 열리도록 하려면 이 옵션을 true로 설정합니다. |
-| `openCardsInNewTab` | `boolean` | `false` | 기본적으로 콘텐츠 카드의 링크는 동일한 탭에서 열립니다. 새 탭에서 열리도록 하려면 이 옵션을 true로 설정합니다. |
-| `requireExplicitInAppMessageDismissal` | `boolean` | `false` | 기본적으로 인앱 메시지는 메시지 바깥을 클릭하거나 Esc 키를 눌러 닫을 수 있습니다. 사용자가 닫기 버튼이나 실행 버튼을 명시적으로 클릭하여 메시지를 닫도록 하려면 이 옵션을 true로 설정합니다. |
-| `devicePropertyAllowlist` | `string[]` | `undefined` | 기본적으로 Braze SDK는 DeviceProperties의 모든 기기 속성을 자동으로 감지하고 수집합니다. 이 동작을 재정의하려면 DeviceProperties 배열을 제공합니다. 모든 속성이 Braze 서버로 전송되지 않도록 하려면 빈 배열을 제공합니다. 일부 속성이 없으면 모든 기능이 올바르게 작동하지 않을 수 있습니다. 예를 들어 시간대가 없으면 로컬 시간대 전달이 작동하지 않습니다. |
-| `serviceWorkerScope` | `string` | `undefined` | 기본적으로 Braze Web SDK는 기본 범위(서비스 워커의 디렉토리)로 서비스 워커를 등록합니다. 이 기본값을 재정의하고 서비스 워커의 커스텀 범위를 지정하려면 이 옵션에 값을 제공합니다. |
+| `manageServiceWorkerExternally` | `boolean` | `false` | 기본적으로 Braze Web SDK는 푸시 알림을 위해 자체 서비스 워커를 관리합니다. 애플리케이션에서 이미 서비스 워커를 관리하고 있으며 Braze 서비스 워커 기능을 이에 통합하려는 경우 이 옵션을 true로 설정하고 서비스 워커 파일에 Braze 서비스 워커 코드를 포함하세요. |
+| `minimumIntervalBetweenTriggerActionsInSeconds` | `number` | `30` | 기본적으로 트리거 동작(예: 인앱 메시지 표시)은 사용자당 30초에 한 번만 실행할 수 있습니다. 이 기본값을 재정의하려면 이 옵션에 값을 제공하세요. |
+| `serviceWorkerLocation` | `string` | `undefined` | 기본적으로 Braze Web SDK는 도메인 루트에서 서비스 워커 파일을 찾습니다. 이 기본값을 재정의하고 서비스 워커 파일의 커스텀 위치를 지정하려면 이 옵션에 값을 제공하세요. |
+| `safariWebsitePushId` | `string` | `undefined` | Safari 푸시 알림에 필요합니다. 이 값은 Apple 개발자 계정에서 확인할 수 있습니다. Safari 푸시 알림 설정에 대한 자세한 내용은 제품 설명서를 참조하세요. |
+| `localization` | `string` | `undefined` | 이 옵션에 값을 제공하면 Braze SDK는 해당 로케일로 인앱 메시지와 콘텐츠 카드를 표시하려고 시도합니다. |
+| `openInAppMessagesInNewTab` | `boolean` | `false` | 기본적으로 인앱 메시지의 링크는 동일한 탭에서 열립니다. 새 탭에서 열리도록 하려면 이 옵션을 true로 설정하세요. |
+| `openCardsInNewTab` | `boolean` | `false` | 기본적으로 콘텐츠 카드의 링크는 동일한 탭에서 열립니다. 새 탭에서 열리도록 하려면 이 옵션을 true로 설정하세요. |
+| `requireExplicitInAppMessageDismissal` | `boolean` | `false` | 기본적으로 인앱 메시지는 외부를 클릭하거나 Escape 키를 눌러 닫을 수 있습니다. 사용자가 명시적으로 닫기 버튼 또는 실행 버튼을 클릭해야만 메시지를 닫을 수 있도록 하려면 이 옵션을 true로 설정하세요. |
+| `devicePropertyAllowlist` | `string[]` | `undefined` | 기본적으로 Braze SDK는 DeviceProperties의 모든 기기 속성을 자동으로 감지하고 수집합니다. 이 동작을 재정의하려면 DeviceProperties 배열을 제공하세요. Braze 서버로 전송되는 모든 속성을 비활성화하려면 빈 배열을 제공하세요. 일부 속성이 없으면 모든 기능이 제대로 작동하지 않을 수 있습니다. 예를 들어, 시간대가 없으면 로컬 시간대 기반 전송이 작동하지 않습니다. |
+| `serviceWorkerScope` | `string` | `undefined` | 기본적으로 Braze Web SDK는 기본 범위(서비스 워커의 디렉토리)로 서비스 워커를 등록합니다. 이 기본값을 재정의하고 서비스 워커의 커스텀 범위를 지정하려면 이 옵션에 값을 제공하세요. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="초기화 옵션" }
 
 ---
@@ -204,7 +204,7 @@ import { wipeData } from "@braze/web-sdk";
 wipeData();
 ```
 
-### In-App Messages {#in-app-messages}
+### 인앱 메시지 {#in-app-messages}
 
 #### 자동 표시 {#automatic-display}
 
@@ -240,7 +240,7 @@ subscribeToInAppMessage((inAppMessage) => {
 });
 ```
 
-#### 인앱 메시지 상호작용 기록 {#log-in-app-message-interactions}
+#### 인앱 메시지 상호 작용 로깅 {#log-in-app-message-interactions}
 
 ``` typescript
 import {
@@ -320,7 +320,7 @@ subscribeToContentCardsUpdates((cards) => {
 });
 ```
 
-#### Content Cards 상호작용 기록 {#log-content-card-interactions}
+#### Content Cards 상호 작용 로깅 {#log-content-card-interactions}
 
 ``` typescript
 import {
@@ -483,7 +483,7 @@ subscribeToFeatureFlagsUpdates((featureFlags) => {
 });
 ```
 
-#### 기능 플래그 노출 횟수 기록 {#log-feature-flag-impressions}
+#### 기능 플래그 노출 로깅 {#log-feature-flag-impressions}
 
 ``` typescript
 import { logFeatureFlagImpression } from "@braze/web-sdk";
@@ -569,7 +569,7 @@ subscribeToBannersUpdates((banners) => {
 });
 ```
 
-`dismissBanner(banner)`를 호출하면 SDK가 배너 닫기 상태를 처리하고, 활성 배너 업데이트에서 해당 배너를 제거하고, 배너의 닫기 이벤트 구독자에게 알리고, Braze에 닫기 상태를 동기화합니다. 커스텀 UI에서는 `dismissBanner`를 단순히 로컬 UI 변경이나 분석 기록 메서드로만 취급하지 말고, `subscribeToBannersUpdates`를 사용하여 닫힌 배너가 제거되는 것에 반응해야 합니다.
+`dismissBanner(banner)`를 호출하면, SDK가 배너 닫기 상태를 처리하고, 활성 배너 업데이트에서 해당 배너를 제거하며, 배너의 닫기 이벤트 구독자에게 알리고, Braze에 닫기 상태를 동기화합니다. 커스텀 UI에서는 `dismissBanner`를 단순한 로컬 UI 변경이나 분석 로깅 메서드로만 취급하지 말고, `subscribeToBannersUpdates`를 사용하여 닫힌 배너가 제거되는 것에 반응해야 합니다.
 
 #### 배너 새로고침 요청 {#request-banner-refresh}
 
@@ -585,7 +585,7 @@ requestBannersRefresh(
 
 ### 분석 및 이벤트 {#analytics-events}
 
-#### 커스텀 이벤트 기록 {#log-custom-events}
+#### 커스텀 이벤트 로깅 {#log-custom-events}
 
 ``` typescript
 import { logCustomEvent } from "@braze/web-sdk";
@@ -601,7 +601,7 @@ logCustomEvent('purchase', {
 });
 ```
 
-#### 구매 기록 {#log-purchases}
+#### 구매 로깅 {#log-purchases}
 
 ``` typescript
 import { logPurchase } from "@braze/web-sdk";
@@ -669,7 +669,7 @@ import { wipeData } from "@braze/web-sdk";
 wipeData();
 ```
 
-#### SDK 제거 {#destroy-sdk}
+#### SDK 삭제 {#destroy-sdk}
 
 ``` typescript
 import { destroy } from "@braze/web-sdk";
@@ -714,9 +714,9 @@ subscribeToSdkAuthenticationFailures((error) => {
 
 ### SSR 프레임워크 {#ssr-frameworks}
 
-Next.js와 같은 서버 사이드 렌더링(SSR) 프레임워크를 사용하는 경우, SDK가 브라우저 환경에서 실행되도록 설계되어 있기 때문에 오류가 발생할 수 있습니다. SDK를 동적으로 가져오면 이러한 문제를 해결할 수 있습니다.
+Next.js와 같은 서버 사이드 렌더링(SSR) 프레임워크를 사용하는 경우, SDK가 브라우저 환경에서 실행되도록 설계되었기 때문에 오류가 발생할 수 있습니다. SDK를 동적으로 임포트하면 이러한 문제를 해결할 수 있습니다.
 
-별도의 파일에서 필요한 SDK 부분을 내보낸 다음, 해당 파일을 컴포넌트에 동적으로 가져오면 트리 셰이킹의 이점을 유지할 수 있습니다.
+필요한 SDK 부분을 별도의 파일로 내보낸 다음 해당 파일을 컴포넌트에 동적으로 임포트하면 트리 셰이킹의 이점을 유지할 수 있습니다.
 
 ``` javascript
 // MyComponent/braze-exports.js
@@ -736,7 +736,7 @@ useEffect(() => {
 }, []);
 ```
 
-또는 webpack을 사용하여 앱을 번들링하는 경우, 매직 코멘트를 활용하여 필요한 SDK 부분만 동적으로 가져올 수 있습니다.
+또는 webpack을 사용하여 앱을 번들링하는 경우, 매직 코멘트를 활용하여 필요한 SDK 부분만 동적으로 임포트할 수 있습니다.
 
 ``` javascript
 // MyComponent.js
@@ -756,7 +756,7 @@ useEffect(() => {
 
 ### Vite
 
-Vite를 사용할 때 순환 종속성 관련 경고나 `Uncaught TypeError: Class extends value undefined is not a constructor or null` 오류가 발생하는 경우, Braze SDK를 종속성 탐색에서 제외해야 할 수 있습니다:
+Vite를 사용할 때 순환 종속성 관련 경고나 `Uncaught TypeError: Class extends value undefined is not a constructor or null` 오류가 표시되는 경우, Braze SDK를 종속성 검색에서 제외해야 할 수 있습니다:
 
 ``` javascript
 export default {
@@ -768,7 +768,7 @@ export default {
 
 ### Jest 프레임워크 {#jest-framework}
 
-Jest를 사용할 때 `SyntaxError: Unexpected token 'export'`와 유사한 오류가 표시될 수 있습니다. 이 문제를 해결하려면 `package.json`에서 Braze SDK를 무시하도록 설정을 조정하세요:
+Jest를 사용할 때 `SyntaxError: Unexpected token 'export'`와 유사한 오류가 표시될 수 있습니다. 이 문제를 해결하려면 `package.json`에서 Braze SDK를 무시하도록 설정을 조정합니다:
 
 ``` json
 {
@@ -784,7 +784,7 @@ Jest를 사용할 때 `SyntaxError: Unexpected token 'export'`와 유사한 오�
 
 #### AMD 지원 비활성화 {#disable-amd-support}
 
-사이트에서 RequireJS 또는 다른 AMD 모듈 로더를 사용하지만 CDN을 통해 Braze 웹 SDK를 로드하려는 경우, AMD 지원이 포함되지 않은 버전의 라이브러리를 로드할 수 있습니다. 이 버전의 라이브러리는 다음 CDN 위치에서 로드할 수 있습니다: `https://js.appboycdn.com/web-sdk/6.3/braze.no-amd.min.js`
+사이트에서 RequireJS 또는 다른 AMD 모듈 로더를 사용하지만 CDN을 통해 Braze 웹 SDK를 로드하려는 경우, AMD 지원이 포함되지 않은 버전의 라이브러리를 로드할 수 있습니다. 이 버전의 라이브러리는 CDN 위치 `https://js.appboycdn.com/web-sdk/6.3/braze.no-amd.min.js`에서 로드할 수 있습니다.
 
 #### 모듈 로더 {#module-loader}
 
@@ -800,41 +800,41 @@ require(['path/to/braze.min.js'], function(braze) {
 
 ### 가속 모바일 페이지(AMP) {#accelerated-mobile-pages-amp}
 
-AMP 통합을 위해 다음 단계가 필요합니다:
+AMP 통합을 위해 다음 단계를 수행해야 합니다:
 
-1. **AMP 웹 푸시 스크립트 포함**: head에 비동기 스크립트 태그를 추가합니다
-2. **구독 위젯 추가**: 사용자가 구독/구독 취소할 수 있는 위젯을 추가합니다
-3. **헬퍼 파일 추가**: `helper-iframe.html` 및 `permission-dialog.html`을 포함합니다
-4. **서비스 워커 생성**: Braze 서비스 워커 파일을 추가합니다
-5. **AMP 웹 푸시 요소 구성**: API 키와 기본 URL을 쿼리 파라미터로 포함하여 `amp-web-push` 요소를 추가합니다
+1. **AMP 웹 푸시 스크립트 포함**: head에 async 스크립트 태그를 추가합니다.
+2. **구독 위젯 추가**: 사용자가 구독/구독 취소할 수 있는 위젯을 추가합니다.
+3. **헬퍼 파일 추가**: `helper-iframe.html` 및 `permission-dialog.html`을 포함합니다.
+4. **서비스 워커 생성**: Braze 서비스 워커 파일을 추가합니다.
+5. **AMP 웹 푸시 요소 구성**: API 키와 기본 URL을 쿼리 파라미터로 포함하여 `amp-web-push` 요소를 추가합니다.
 
 자세한 AMP 통합 지침은 [Braze 개발자 가이드](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=web#amp)를 참조하세요.
 
 ### Electron
 
-Electron은 공식적으로 웹 푸시 알림을 지원하지 않습니다(참조: 이 [GitHub 이슈](https://github.com/electron/electron/issues/6697)). Braze에서 테스트하지는 않았지만 시도해 볼 수 있는 다른 [오픈 소스 해결 방법](https://github.com/MatthieuLemoine/electron-push-receiver)이 있습니다.
+Electron은 웹 푸시 알림을 공식적으로 지원하지 않습니다(이 [GitHub 이슈](https://github.com/electron/electron/issues/6697) 참조). Braze에서 테스트하지 않은 다른 [오픈 소스 해결 방법](https://github.com/MatthieuLemoine/electron-push-receiver)을 시도해 볼 수 있습니다.
 
 ### CDN 통합 {#cdn-integration}
 
-- **스크립트 로딩**: 스크립트 태그 뒤에 초기화 코드를 배치하거나, 스크립트 태그의 `onload` 이벤트 핸들러를 사용하여 스크립트 태그가 로드된 후 초기화합니다
-- **전역 접근**: CDN을 통해 로드할 때 SDK는 `window.braze`로 사용할 수 있습니다
+- **스크립트 로딩**: 스크립트 태그 뒤에 초기화 코드를 배치하거나 스크립트 태그의 `onload` 이벤트 핸들러를 사용하여 스크립트 태그가 로드된 후 초기화합니다.
+- **전역 접근**: CDN을 통해 로드하면 SDK는 `window.braze`로 사용할 수 있습니다.
 
 ### 서비스 워커(푸시 알림) {#service-worker-push-notifications}
 
-- **필수**: 푸시 알림이 작동하려면 Braze 서비스 워커를 포함해야 합니다
-- **기본 등록**: 기본적으로 Braze 웹 SDK는 `requestPushPermission()`이 호출될 때, 그리고 이미 푸시 권한을 부여한 사용자의 각 새 세션 시작 시 자동으로 서비스 워커를 등록하고 관리합니다. Braze 서비스 워커 코드를 포함하는 서비스 워커 파일을 예상 위치에 호스팅해야 합니다.
-- **직접 서비스 워커 관리**: 애플리케이션에서 이미 서비스 워커를 관리하고 있는 경우, `manageServiceWorkerExternally` 초기화 옵션을 `true`로 설정하고, 서비스 워커 파일에 Braze 서비스 워커 코드를 추가한 다음, `navigator.serviceWorker.register()`를 사용하여 직접 등록하세요
-- **푸시 권한**: 사용자 상호작용(예: 버튼 클릭)에 대한 응답으로 `braze.requestPushPermission()`을 호출하세요. 브라우저 권한을 요청하기 전에 소프트 푸시 프롬프트(커스텀 UI)를 사용하세요
+- **필수**: 푸시 알림이 작동하려면 Braze 서비스 워커를 포함해야 합니다.
+- **기본 등록**: 기본적으로 Braze 웹 SDK는 `requestPushPermission()`이 호출될 때, 그리고 이미 푸시 권한을 부여한 사용자의 경우 새 세션이 시작될 때마다 서비스 워커를 자동으로 등록하고 관리합니다. Braze 서비스 워커 코드가 포함된 서비스 워커 파일을 예상 위치에 호스팅해야 합니다.
+- **자체 서비스 워커 관리**: 애플리케이션에서 이미 서비스 워커를 관리하고 있는 경우, `manageServiceWorkerExternally` 초기화 옵션을 `true`로 설정하고, Braze 서비스 워커 코드를 서비스 워커 파일에 추가한 다음 `navigator.serviceWorker.register()`를 사용하여 직접 등록합니다.
+- **푸시 권한**: 사용자 상호작용(예: 버튼 클릭)에 대한 응답으로 `braze.requestPushPermission()`을 호출합니다. 브라우저 권한을 요청하기 전에 소프트 푸시 프롬프트(커스텀 UI)를 사용합니다.
 
 ### 태그 매니저 {#tag-managers}
 
 #### Tealium iQ
 
-Tealium iQ는 기본적인 턴키 Braze 통합을 제공합니다. 통합을 구성하려면 Tealium 태그 관리 인터페이스에서 Braze를 검색하고 대시보드에서 웹 SDK API 키를 입력하세요. 자세한 내용이나 심층적인 Tealium 구성 지원은 [통합 설명서](https://www.braze.com/docs/partners/data_and_infrastructure_agility/customer_data_platform/tealium/#about-tealium)를 확인하거나 Tealium 계정 매니저에게 문의하세요.
+Tealium iQ는 기본적인 턴키 Braze 통합을 제공합니다. 통합을 구성하려면 Tealium 태그 관리 인터페이스에서 Braze를 검색하고 대시보드에서 웹 SDK API 키를 제공합니다. 자세한 내용이나 심층 Tealium 구성 지원은 [통합 설명서](https://www.braze.com/docs/partners/data_and_infrastructure_agility/customer_data_platform/tealium/#about-tealium)를 확인하거나 Tealium 계정 매니저에게 문의하세요.
 
 #### Google Tag Manager
 
-웹 SDK는 Google Tag Manager 컨테이너의 커스텀 HTML 태그에서 초기화하고 호출할 수 있습니다. GTM을 통해 Braze에 이벤트를 전송하는 예시는 [Google Tag Manager 샘플 앱](https://github.com/braze-inc/braze-web-sdk/blob/master/sample-builds/google-tag-manager)을 참조하거나, 자세한 내용은 [통합 설명서](https://www.braze.com/docs/developer_guide/sdk_integration/google_tag_manager)를 확인하세요.
+웹 SDK는 Google Tag Manager 컨테이너의 커스텀 HTML 태그에서 초기화하고 호출할 수 있습니다. GTM을 통해 Braze로 이벤트를 전송하는 예시는 [Google Tag Manager 샘플 앱](https://github.com/braze-inc/braze-web-sdk/blob/master/sample-builds/google-tag-manager)을 참조하거나, 자세한 내용은 [통합 설명서](https://www.braze.com/docs/developer_guide/sdk_integration/google_tag_manager)를 확인하세요.
 
 #### 기타 태그 매니저 {#other-tag-managers}
 
@@ -848,9 +848,9 @@ Braze는 커스텀 HTML 태그 내에서 통합 지침을 따르면 다른 태�
 
 | 이름 | 설명 | npm | CDN URL
 | ---- | ----------- | --- | -------
-| Full | UI를 포함한 전체 SDK입니다. npm 버전을 사용할 경우, JavaScript 번들러가 UI 코드를 포함한 사용하지 않는 코드를 제거합니다. | `@braze/web-sdk` | https://js.appboycdn.com/web-sdk/6.11/braze.min.js
-| Core | UI가 포함되지 않은 SDK입니다. 이 버전의 SDK를 사용할 때는 In-App Messages 및 Content Cards에 대한 자체 UI를 구현해야 합니다. CSS를 통해 커스터마이즈 가능한 UI 요소를 제공하므로 대부분의 통합에는 전체 라이브러리를 사용하세요. | N/A | https://js.appboycdn.com/web-sdk/6.11/braze.core.min.js
-| No-AMD | AMD 지원이 포함되지 않은 전체 SDK입니다. 사이트에서 RequireJS 또는 다른 AMD 모듈 로더를 사용하지만 CDN을 통해 SDK를 로드하려는 경우에 유용합니다. | N/A | https://js.appboycdn.com/web-sdk/6.11/braze.no-amd.min.js
+| Full | UI가 포함된 전체 SDK입니다. npm 버전을 사용할 때 JavaScript 번들러가 UI 코드를 포함한 사용하지 않는 코드를 제거합니다. | `@braze/web-sdk` | https://js.appboycdn.com/web-sdk/6.12/braze.min.js
+| Core | UI가 포함되지 않은 SDK입니다. 이 버전의 SDK를 사용할 때 In-App Messages 및 Content Cards에 대해 자체 UI를 구현하세요. 대부분의 통합에는 CSS를 통해 커스터마이징 가능한 UI 요소를 제공하는 전체 라이브러리를 사용하세요. | N/A | https://js.appboycdn.com/web-sdk/6.12/braze.core.min.js
+| No-AMD | AMD 지원이 없는 전체 SDK입니다. 사이트에서 RequireJS 또는 다른 AMD 모듈 로더를 사용하지만 CDN을 통해 SDK를 로드하려는 경우에 유용합니다. | N/A | https://js.appboycdn.com/web-sdk/6.12/braze.no-amd.min.js
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="라이브러리" }
 
 ## 지원되는 브라우저 {#supported-browsers}
@@ -861,7 +861,7 @@ Braze는 커스텀 HTML 태그 내에서 통합 지침을 따르면 다른 태�
 
 ## 디버깅 및 문제 해결 {#debugging-troubleshooting}
 
-초기화 함수에 `enableLogging: true` 옵션을 전달하면(`braze.initialize('YOUR-API-KEY-HERE', { baseUrl: 'YOUR-SDK-ENDPOINT', enableLogging: true });`) Braze가 JavaScript 콘솔에 로그를 출력하도록 할 수 있습니다. 이는 개발 중에 유용하지만 모든 사용자에게 표시되므로, 프로덕션에 페이지를 배포하기 전에 이 옵션을 제거하거나 [대체 로거를 제공](https://js.appboycdn.com/web-sdk/6.11/doc/modules/braze.html#setlogger)하세요.
+초기화 함수에 `enableLogging: true` 옵션을 전달하면(`braze.initialize('YOUR-API-KEY-HERE', { baseUrl: 'YOUR-SDK-ENDPOINT', enableLogging: true });`) Braze가 JavaScript 콘솔에 로그를 출력합니다. 이 옵션은 개발 중에 유용하지만 모든 사용자에게 표시되므로, 프로덕션에 페이지를 배포하기 전에 이 옵션을 제거하거나 [대체 로거를 제공](https://js.appboycdn.com/web-sdk/6.12/doc/modules/braze.html#setlogger)하세요.
 
 ## Font Awesome
 
@@ -875,7 +875,7 @@ Braze는 인앱 메시지 아이콘에 [Font Awesome](http://fortawesome.github.
 
 ## 문의 {#contact}
 
-질문이 있으시면 Braze 기술 지원팀에 문의하여 도움을 받으세요.
+문의 사항이 있으시면 Braze 기술 지원팀에 도움을 요청하세요.
 <!-- END GENERATED README CONTENT -->
 
 리포지토리 세부 정보 및 샘플 프로젝트는 [https://github.com/braze-inc/braze-web-sdk](https://github.com/braze-inc/braze-web-sdk)를 참조하세요.

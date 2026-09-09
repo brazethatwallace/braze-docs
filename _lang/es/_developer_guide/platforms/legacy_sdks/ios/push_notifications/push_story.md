@@ -63,9 +63,9 @@ Si no añades tu aplicación a un grupo de aplicaciones, es posible que tu aplic
 ## Paso 4: Añadir el framework de Push Stories a tu aplicación {#step-4-adding-the-push-story-framework-to-your-app}
 
 {% tabs local %}
-{% tab Swift Package Manager %}
+{% tab Swift Package Administrador %}
 
-Después de seguir la [guía de integración de Swift Package Manager]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/swift_package_manager), añade `AppboyPushStory` a tu `Notification Content Extension`:
+Después de seguir la [guía de integración de Swift Package Administrador]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/swift_package_manager), añade `AppboyPushStory` a tu `Notification Content Extension`:
 
 ![En Xcode, en frameworks y bibliotecas, selecciona el icono "+" para añadir un framework.]({% image_buster /assets/img/ios/push_story/spm1.png %})
 

@@ -12,9 +12,9 @@ Diese Abbruchtypen können auf jedem Messaging-Kanal auftreten.
 
 | `abort_type`-Wert | Beschreibung |
 | --- | --- |
-| `liquid_abort_message` | Der Liquid-Tag [abort_message]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/aborting_messages) wurde aufgerufen, daher wurde der Versand abgebrochen. |
+| `liquid_abort_message` | Der Liquid-Tag [abort_message]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) wurde aufgerufen, daher wurde der Versand abgebrochen. |
 | `template_parse_error` | Das Nachrichten-Template konnte aufgrund eines Syntax- oder Rendering-Fehlers nicht geparst werden, daher wurde der Versand abgebrochen. |
-| `rate_limit` | Die Nachricht wurde abgebrochen, weil die konfigurierten [Rate-Limits]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting) überschritten wurden. |
+| `rate_limit` | Die Nachricht wurde abgebrochen, weil die konfigurierten [Rate-Limits]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping) überschritten wurden. |
 | `campaign_disabled` | Die Campaign wurde deaktiviert, bevor die Nachricht gesendet werden konnte. |
 | `campaign_does_not_exist` | Die mit dieser Nachricht verknüpfte Campaign existiert nicht mehr. |
 | `campaign_action_does_not_exist` | Die mit dieser Nachricht verknüpfte Campaign-Aktion existiert nicht mehr. |
@@ -34,7 +34,7 @@ Diese Abbruchtypen können auf jedem Messaging-Kanal auftreten.
 | `abort_type`-Wert | Beschreibung |
 | --- | --- |
 | `exhausted_cc_retries` | Connected-Content ist nach der maximalen Anzahl von Wiederholungsversuchen fehlgeschlagen, daher wurde die Nachricht abgebrochen. |
-| `connected_content_not_supported` | [Connected-Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content) wird in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
+| `connected_content_not_supported` | [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) wird in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
 | `promo_codes_not_supported` | Aktionscodes werden in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
 | `catalog_items_rerender_not_supported` | Das erneute Rendern von Katalogartikeln wird in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
 | `blacklisted_media_url` | Die Medien-URL ist auf der Sperrliste und kann nicht in Nachrichten verwendet werden. |
@@ -51,7 +51,7 @@ Diese Abbruchtypen können auf jedem Messaging-Kanal auftreten.
 | `abort_type`-Wert | Beschreibung |
 | --- | --- |
 | `exhausted_cc_retries` | Connected-Content ist nach der maximalen Anzahl von Wiederholungsversuchen fehlgeschlagen, daher wurde die Nachricht abgebrochen. |
-| `connected_content_not_supported` | [Connected-Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content) wird in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
+| `connected_content_not_supported` | [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) wird in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
 | `promo_codes_not_supported` | Aktionscodes werden in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
 | `catalog_items_rerender_not_supported` | Das erneute Rendern von Katalogartikeln wird in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Inhalt und Rendering" }
@@ -64,7 +64,7 @@ Diese Abbruchtypen können auf jedem Messaging-Kanal auftreten.
 | `abort_type`-Wert | Beschreibung |
 | --- | --- |
 | `exhausted_cc_retries` | Connected-Content ist nach der maximalen Anzahl von Wiederholungsversuchen fehlgeschlagen, daher wurde die Nachricht abgebrochen. |
-| `connected_content_not_supported` | [Connected-Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content) wird in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
+| `connected_content_not_supported` | [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) wird in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
 | `promo_codes_not_supported` | Aktionscodes werden in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
 | `catalog_items_rerender_not_supported` | Das erneute Rendern von Katalogartikeln wird in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
 | `blacklisted_media_url` | Die Medien-URL ist auf der Sperrliste und kann nicht in Nachrichten verwendet werden. |
@@ -81,7 +81,7 @@ Diese Abbruchtypen können auf jedem Messaging-Kanal auftreten.
 | `abort_type`-Wert | Beschreibung |
 | --- | --- |
 | `exhausted_cc_retries` | Connected-Content ist nach der maximalen Anzahl von Wiederholungsversuchen fehlgeschlagen, daher wurde die Nachricht abgebrochen. |
-| `connected_content_not_supported` | [Connected-Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content) wird in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
+| `connected_content_not_supported` | [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) wird in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
 | `promo_codes_not_supported` | Aktionscodes werden in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
 | `catalog_items_rerender_not_supported` | Das erneute Rendern von Katalogartikeln wird in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
 | `ssl_error` | Bei einer Anfrage ist ein SSL-Fehler aufgetreten. |

@@ -1,56 +1,59 @@
-> クエリビルダーの使用方法について説明します。SnowflakeのBrazeデータを使用してレポートを生成できます。クエリビルダーには、すぐに使えるSQL [クエリテンプレート]({{site.baseurl}}/user_guide/analytics/query_builder/query_templates/)が付属しているので、すぐに始めることができます。また、独自のカスタムSQLクエリを作成して、より多くのインサイトを得ることもできます。
+> クエリビルダーの使用方法について説明します。Snowflakeの Brazeデータを使用してレポートを生成できます。クエリビルダーには、すぐに使えるSQL [クエリテンプレート]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates)が付属しているので、すぐに始めることができます。また、独自のカスタムSQLクエリを作成して、さらに多くのインサイトを得ることもできます。
 
 ## 前提条件 {#prerequisites}
 
-クエリビルダーを使用するには、[「View PII」権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)が必要です。これにより、一部の顧客データに直接アクセスできるようになります。
+クエリビルダーを使用するには、以下の[権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)が必要です。
+
+- **PIIを表示:** クエリビルダーでは、一部の顧客データに直接アクセスできます。
+- **ダッシュボードレポートを表示:** この権限は、管理者以外のユーザーがダッシュボードでクエリビルダーを表示するために必要です。
 
 ## クエリビルダーの使用 {#using-the-query-builder}
 
-### ステップ 1: SQLクエリの作成 {#step-1-create-an-sql-query}
+### ステップ1:SQLクエリを作成する {#step-1-create-an-sql-query}
 
-新しいクエリを作成するには、**Analytics** > **クエリビルダー**に移動し、**Create SQL Query** を選択します。
+新しいクエリを作成するには、**分析** > **クエリビルダー**に移動し、**SQLクエリを作成**を選択します。
 
-![「Create SQL Query」ドロップダウン内にある「Query Template」および「SQL Editor」オプション。]({% image_buster /assets/img_archive/create_sql_query_button.png %}){: style="max-width:60%;"}
+![「SQLクエリを作成」ドロップダウン内にある「クエリテンプレート」と「SQLエディター」のオプション。]({% image_buster /assets/img_archive/create_sql_query_button.png %}){: style="max-width:60%;"}
 
-インスピレーションが必要な場合やクエリの作成にヘルプが必要な場合は、**Query Template** を選択し、[事前作成テンプレート]({{site.baseurl}}/user_guide/analytics/query_builder/query_templates/)を選択します。空のクエリで開始するには、**SQL Editor** を選択します。
+クエリの作成にインスピレーションやヘルプが必要な場合は、**クエリテンプレート**を選択し、[既成のテンプレート]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates)を選択してください。空白のクエリから始めるには、**SQLエディター**を選択します。
 
-レポートには、現在の日時からなる名前が自動的に付けられます。名前の上にカーソルを合わせ、<i class="fas fa-pencil" alt="編集"></i>を選択して、SQLクエリにわかりやすい名前を付けます。
+レポートには現在の日時が自動的に名前として付与されます。名前にカーソルを合わせて<i class="fas fa-pencil" alt="編集"></i>を選択し、SQLクエリにわかりやすい名前を付けてください。
 
 ![レポート名の例「Channel engagement for May 2025」。]({% image_buster /assets/img_archive/report_name_example.png %}){: style="max-width:80%;"}
 
-### ステップ 2: クエリを作成する {#step-2-build-your-query}
+### ステップ2:クエリを作成する {#step-2-build-your-query}
 
-クエリを作成する際に、AIのサポートを受けるか、自分で作成するかを選択できます。
+クエリを作成する際に、AIの支援を受けるか、自分で作成するかを選択できます。
 
 {% tabs local %}
-{% tab Using BrazeAI %}
-AIクエリビルダーはOpenAIを搭載した[GPT](https://openai.com/gpt-4)を活用して、クエリのSQLを提案します。AIクエリビルダーでSQLを生成するには、次の手順に従います。
+{% tab BrazeAIを使用 %}
+AIクエリビルダーは、OpenAIが提供する[GPT](https://openai.com/gpt-4)を活用して、クエリ用のSQLを推奨します。AIクエリビルダーでSQLを生成するには:
 
-1. クエリビルダーでレポートを作成したら、**AI Query Builder** タブを選択します。
-2. プロンプトを入力するか、サンプルプロンプトを選択し、**Generate** を選択してプロンプトをSQLに変換します。
-3. 生成されたSQLが正しいかどうかを確認し、**Insert into Editor** を選択します。
+1. クエリビルダーでレポートを作成した後、**AIクエリビルダー**タブを選択します。
+2. プロンプトを入力するか、サンプルプロンプトを選択し、**生成**を選択してプロンプトをSQLに変換します。
+3. 生成されたSQLが正しいかどうか確認し、**エディターに挿入**を選択します。
 
 ![SQL AIクエリビルダー。]({% image_buster /assets/img_archive/query_builder_ai_tab.png %}){: style="max-width:60%;" }
 
 #### ヒント {#tips}
 
-- 利用可能な[Snowflakeデータテーブル]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/sql_segments_tables/)をよく理解してください。これらのテーブルに存在しないデータを要求すると、ChatGPTが架空のテーブルを作成する可能性があります。
-- この機能の[SQL記述ルール]({{site.baseurl}}/user_guide/data_and_analytics/query_builder/#custom-sql)をよく理解してください。このルールに従わないと、エラーが発生します。
+- 利用可能な[Snowflakeデータテーブル]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables)を把握しておいてください。これらのテーブルに存在しないデータを要求すると、ChatGPTが架空のテーブルを作成する可能性があります。
+- この機能の[SQL記述ルール]({{site.baseurl}}/user_guide/data_and_analytics/query_builder#custom-sql)を把握しておいてください。これらのルールに従わないと、エラーが発生します。
 - AIクエリビルダーでは、1分あたり最大20個のプロンプトを送信できます。
 
 ##{% multi_lang_include brazeai/generative_ai/policy.md %}
 {% endtab %}
 
-{% tab On My Own %}
-[Snowflake構文](https://docs.snowflake.com/en/sql-reference)を使用してSQLクエリを記述します。クエリ可能なテーブルとカラムの全リストについては、[テーブルリファレンス]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/sql_segments_tables/)を参照してください。
+{% tab 自分で作成 %}
+[Snowflake構文](https://docs.snowflake.com/en/sql-reference)を使用してSQLクエリを記述します。クエリ可能なテーブルとカラムの完全なリストについては、[テーブルリファレンス]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables)を参照してください。
 
-クエリビルダー内でテーブルの詳細を表示するには、次の手順に従います。
+クエリビルダー内でテーブルの詳細を表示するには:
 
-1. **クエリビルダー**ページから**参照**パネルを開き、**Available Data Tables** を選択すると、利用できるデータテーブルとその名前が表示されます。
-3. <i class="fas fa-chevron-down" alt=""></i> **See Details** を選択して、テーブルの説明やデータタイプなどのテーブル列に関する情報を表示します。
-4. テーブル名をSQLに挿入するには、<i class="fas fa-copy" title="テーブル名をSQLエディターにコピー"></i>を選択します。
+1. **クエリビルダー**ページから、**リファレンス**パネルを開き、**利用可能なデータテーブル**を選択して、利用可能なデータテーブルとその名前を確認します。
+3. <i class="fas fa-chevron-down" alt=""></i> **詳細を表示**を選択して、テーブルの説明やデータ型などのテーブルカラムに関する情報を表示します。
+4. SQLにテーブル名を挿入するには、<i class="fas fa-copy" title="テーブル名をSQLエディターにコピー"></i>を選択します。
 
-クエリを特定期間に限定すると、結果をより迅速に生成できます。以下に、過去1時間の購入数と収益を取得するクエリの例を示します。
+クエリを特定の期間に制限すると、結果をより迅速に生成できます。以下は、過去1時間の購入数と発生した収益を取得するクエリの例です。
 
 ```sql
 SELECT COUNT(*) as Purchases, SUM(price) as Revenue
@@ -58,26 +61,26 @@ FROM USERS_BEHAVIORS_PURCHASE_SHARED
 WHERE to_date(to_timestamp_ntz(time)) >= DATEADD('hour', -1, date_trunc('day',CURRENT_DATE()));
 ```
 
-次のクエリは、先月のメール送信数を取得します。
+このクエリは、過去1か月間のメール送信数を取得します:
 
-`````````sql
+```sql
 SELECT COUNT(*) as Sends
 FROM USERS_MESSAGES_EMAIL_SEND_SHARED
 WHERE to_date(to_timestamp_ntz(time)) >= DATEADD('month', -1, date_trunc('day',CURRENT_DATE()));
 ```
 
-`CANVAS_ID`、`CANVAS_VARIATION_API_ID`、`CAMPAIGN_ID`に対するクエリを実行すると、それらに関連付けられている名前列が自動的に結果テーブルに含まれます。`SELECT`クエリ自体にこれらを含める必要はありません。
+`CANVAS_ID`、`CANVAS_VARIATION_API_ID`、または`CAMPAIGN_ID`をクエリすると、関連する名前カラムが結果テーブルに自動的に含まれます。`SELECT`クエリ自体にそれらを含める必要はありません。
 
-| ID名 | 関連する名前列 |
+| ID名 | 関連する名前カラム |
 | --- | --- |
 | `CANVAS_ID` | キャンバス名 |
 | `CANVAS_VARIATION_API_ID` | キャンバスバリアント名 |
 | `CAMPAIGN_ID` | キャンペーン名 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Tips" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ヒント" }
 
-このクエリは、3つのすべてのIDと、それらに関連付けられている名前の列を取得します。行数の上限は100行です。
+このクエリは、3つすべてのIDとそれらに関連する名前カラムを最大100行で取得します:
 
-`````````sql
+```sql
 SELECT CANVAS_ID, CANVAS_VARIATION_API_ID, CAMPAIGN_ID
 FROM USERS_MESSAGES_EMAIL_SEND_SHARED
 LIMIT 100
@@ -85,40 +88,40 @@ LIMIT 100
 
 #### トラブルシューティング {#troubleshooting}
 
-クエリは次のいずれかの理由で失敗する可能性があります。
+クエリは以下のいずれかの理由で失敗する可能性があります:
 
 - SQLクエリの構文エラー
 - 処理タイムアウト（6分後）
-    - レポートの実行が6分を超えると、タイムアウトします。
-    - レポートがタイムアウトした場合は、クエリするデータの時間範囲を限定するか、より具体的なデータセットをクエリしてみてください。
+    - 実行に6分以上かかるレポートはタイムアウトします。
+    - レポートがタイムアウトした場合は、データをクエリする期間を制限するか、より具体的なデータセットをクエリしてみてください。
 {% endtab %}
 {% endtabs %}
 
-### ステップ 3: レポートの生成 {#step-3-generate-your-report}
+### ステップ3:レポートを生成する {#step-3-generate-your-report}
 
-クエリの構築が完了したら、**Run Query** を選択します。エラーや[レポートタイムアウト](#report-timeouts)がない場合、クエリからCSVファイルが生成されます。
+クエリの作成が完了したら、**クエリを実行**を選択します。エラーや[レポートタイムアウト](#report-timeouts)がなければ、クエリからCSVファイルが生成されます。
 
-CSVレポートをダウンロードするには、**Export** を選択します。
+CSVレポートをダウンロードするには、**エクスポート**を選択します。
 
-![テンプレートクエリ「Channel engagement and revenue for the last 30 days」の結果を表示するクエリビルダー。]({% image_buster /assets/img_archive/query_builder.png %})
+![テンプレートクエリ「過去30日間のチャネルエンゲージメントと収益」の結果を表示するクエリビルダー。]({% image_buster /assets/img_archive/query_builder.png %})
 
 {% alert important %}
-それぞれのレポートは、1日に1回のみ結果を生成できます。1日に同じレポートを複数回実行すると、それぞれのレポートに同じ結果が表示されます。
+各レポートは1日に1回のみ結果を生成できます。同じレポートを1日のうちに複数回実行しても、各レポートで同じ結果が表示されます。
 {% endalert %}
 
 ## レポートのタイムアウト {#report-timeouts}
 
-実行に6分以上かかるレポートはタイムアウトになります。これがしばらくぶりに実行する最初のクエリである場合、処理に時間がかかるため、タイムアウトする可能性が高くなります。タイムアウトした場合は、レポートをもう一度実行してみてください。
+レポートの実行に6分以上かかると、タイムアウトが発生します。しばらくぶりにクエリを実行する場合は、処理に時間がかかることがあり、タイムアウトが発生する可能性が高くなります。タイムアウトが発生した場合は、レポートを再度実行してみてください。
 
-複数回試行してもレポートのタイムアウトが続く場合は、[サポートにお問い合わせ]({{site.baseurl}}/help/support/#braze-support)ください。
+複数回試行してもレポートがタイムアウトし続ける場合は、[サポートに連絡]({{site.baseurl}}/help/support#braze-support)してください。
 
 ## 中止理由のクエリ {#querying-abort-reasons}
 
-任意の `USERS_MESSAGES_*_ABORT_SHARED` テーブルの `ABORT_TYPE` 列をクエリして、メッセージが送信されなかった理由を分析できます。`ABORT_TYPE` フィールドには中止の具体的な理由を示す文字列値が含まれ、関連する `ABORT_LOG` フィールドには追加の詳細（トリガーされたフリークエンシーキャップルールなど）が含まれます。
+任意の`USERS_MESSAGES_*_ABORT_SHARED`テーブルの`ABORT_TYPE`カラムをクエリすることで、メッセージが送信されなかった理由を分析できます。`ABORT_TYPE`フィールドには中止の具体的な理由を示す文字列値が含まれ、`ABORT_LOG`フィールドには追加の詳細情報（トリガーされたフリークエンシーキャップルールなど）が含まれます。
 
-たとえば、過去30日間のメール中止をタイプ別にカウントするには、次のようにします。
+たとえば、過去30日間のメール中止をタイプ別にカウントするには、次のクエリを使用します。
 
-`````````sql
+```sql
 SELECT ABORT_TYPE, COUNT(*) as abort_count
 FROM USERS_MESSAGES_EMAIL_ABORT_SHARED
 WHERE to_date(to_timestamp_ntz(time)) >= DATEADD('day', -30, CURRENT_DATE())
@@ -126,24 +129,24 @@ GROUP BY ABORT_TYPE
 ORDER BY abort_count DESC
 ```
 
-`ABORT_TYPE` の値とその説明の全リストについては、[中止タイプ]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/sql_segments_tables/#abort-types)を参照してください。
+`ABORT_TYPE`の値とその説明の完全なリストについては、[中止タイプ]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/sql_segments_tables#abort-types)を参照してください。
 
 ## データと結果 {#data-and-results}
 
-すべてのクエリは過去60日間のデータを表示します。結果をエクスポートすると、最大1,000行のみが含まれます。大量のデータを必要とするレポートの場合は、[Currents]({{site.baseurl}}/user_guide/data/braze_currents/)や[エクスポートAPIエンドポイント]({{site.baseurl}}/api/endpoints/export/)などのツールを使用できます。
+すべてのクエリは過去60日間のデータを表示します。結果をエクスポートする場合、最大1,000行までしか含まれません。より大量のデータが必要なレポートについては、[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)や[エクスポートAPIエンドポイント]({{site.baseurl}}/api/endpoints/export)などのツールを使用できます。
 
 ## Snowflakeクレジット {#snowflake-credits}
 
-各会社は、すべてのワークスペースで共有される月5つのSnowflakeクレジットを使用できます。Snowflakeクレジットのごく一部が、クエリを実行したりテーブルをプレビューしたりするたびに使用されます。
+各企業には月あたり5 Snowflakeクレジットが利用可能で、すべてのワークスペースで共有されます。クエリを実行したり、テーブルをプレビューしたりするたびに、Snowflakeクレジットのごく一部が消費されます。
 
 {% alert note %}
-Snowflakeクレジットは機能間で共有されません。たとえば、SQLセグメントエクステンションとクエリビルダーのクレジットは互いに独立しています。
+Snowflakeクレジットは機能間で共有されません。たとえば、セグメントエクステンション（SQL）とクエリビルダーのクレジットはそれぞれ独立しています。
 {% endalert %}
 
-クレジット使用量はSQLクエリの実行時間と相関しています。実行時間が長いほど、クエリで消費されるSnowflakeクレジットの量が多くなります。実行時間は、時間の経過に伴うクエリの複雑さとサイズによって異なります。実行するクエリが複雑で頻繁になるほど、リソースの割り当てが大きくなり、実行時間が短縮されます。
+クレジットの使用量は、SQLクエリの実行時間に相関します。実行時間が長いほど、クエリが消費するSnowflakeクレジットの割合が高くなります。実行時間は、クエリの複雑さやサイズによって異なる場合があります。複雑なクエリを頻繁に実行するほど、リソース割り当てが増加し、実行時間が短縮されます。
 
-BrazeのSQLエディターでレポートの作成、編集、保存を行う場合、クレジットは使用されません。クレジットは、毎月1日午前12時（UTC）にリセットされ5に戻ります。クエリビルダーページの上部で、月次クレジット使用量を監視できます。
+Braze SQLエディターでレポートの作成、編集、保存を行う際にはクレジットは消費されません。クレジットは毎月1日の午前0時（UTC）に5にリセットされます。月間のクレジット使用量は、クエリビルダーページの上部で確認できます。
 
-![今月のクレジット使用量を表示するクエリビルダー。]({% image_buster /assets/img_archive/query_builder_credits.png %}){: style="max-width:60%;"}
+![当月に使用されたクレジット量を表示するクエリビルダー。]({% image_buster /assets/img_archive/query_builder_credits.png %}){: style="max-width:60%;"}
 
-クレジット上限に達すると、クエリの実行はできませんが、SQLレポートの作成、編集、および保存はできます。クエリビルダーのクレジットをさらに購入する場合は、アカウントマネージャーにお問い合わせください。
+クレジットのキャップに達すると、クエリを実行できなくなりますが、SQLレポートの作成、編集、保存は引き続き可能です。クエリビルダーのクレジットを追加購入したい場合は、アカウントマネージャーにお問い合わせください。

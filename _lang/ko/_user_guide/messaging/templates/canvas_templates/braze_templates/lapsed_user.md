@@ -3,7 +3,7 @@ nav_title: 이탈 사용자
 article_title: 이탈 사용자
 page_order: 4
 page_type: reference
-description: "이 문서에서는 Braze Canvas 템플릿을 사용하여 과거 참여 내역을 기반으로 인센티브를 제공하여 사용자를 앱으로 다시 불러오는 방법을 설명합니다."
+description: "이 문서에서는 BRAZE 캔버스 템플릿을 사용하여 과거 참여 내역을 기반으로 인센티브를 제공하여 사용자를 앱으로 다시 불러오는 방법을 설명합니다."
 tool: Canvas
 ---
 
@@ -38,7 +38,7 @@ Canvas 세부 정보를 목표에 맞게 조정합니다.
 
 ### 2단계: 전환 이벤트 할당 {#step-2-assign-your-conversion-events}
 
-**Primary Conversion Event - A**를 앱(MovieCanon)의 사용자를 타겟팅하도록 업데이트하고, **Primary Conversion Event - B**는 구매 완료 기본값으로 유지합니다.
+**주요 전환 Event - A**를 앱(MovieCanon)의 사용자를 타겟팅하도록 업데이트하고, **주요 전환 Event - B**는 구매 완료 기본값으로 유지합니다.
 
 ### 3단계: 진입 스케줄 조정 {#step-3-tailor-the-entry-schedule}
 

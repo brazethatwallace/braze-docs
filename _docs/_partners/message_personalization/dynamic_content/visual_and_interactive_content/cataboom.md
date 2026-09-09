@@ -25,7 +25,7 @@ Before you start, you need the following:
 | --- | --- |
 | Catapult account | A Catapult account is required to use this integration. |
 | Braze REST API key (optional) | If you use Catapult webhooks, you need a Braze REST API key with the user data permissions your use case requires. Create the key in Braze under **Settings** > **APIs and Identifiers** > **API Keys**. |
-| Braze REST endpoint (optional) | If you use Catapult webhooks, use the REST endpoint URL that matches the Braze URL for [your Braze instance]({{site.baseurl}}/api/basics/#endpoints). |
+| Braze REST endpoint (optional) | If you use Catapult webhooks, use the REST endpoint URL that matches the Braze URL for [your Braze instance]({{site.baseurl}}/api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Step 1: Create your game experience
@@ -90,7 +90,7 @@ This example shows how to create a **Content Card** that uses the Request Unique
 
 1. Add Connected Content for the play URL.
 
-In your Content Card, add copy and dynamic content as needed. Wrap your CataBoom Request Unique URL in a [Connected Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/) tag. Add an `AccountID` query parameter that uses a Braze personalization tag matching the identifier you use in Catapult. The example uses {% raw %}`{{${user_id}}}`{% endraw %}.
+In your Content Card, add copy and dynamic content as needed. Wrap your CataBoom Request Unique URL in a [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) tag. Add an `AccountID` query parameter that uses a Braze personalization tag matching the identifier you use in Catapult. The example uses {% raw %}`{{${user_id}}}`{% endraw %}.
 
 Replace the base URL and the `username` and `password` query parameters with the values from the **Link Configuration** page for your campaign in Catapult.
 
@@ -100,7 +100,7 @@ Replace the base URL and the `username` and `password` query parameters with the
 ```
 {% endraw %}
 
-Use the saved `result` in your card (for example, as the link URL or in the message body). Follow the response format from CataBoom’s API for your campaign. For more information about query parameters and Liquid in URLs, see [Making an API call]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call/).
+Use the saved `result` in your card (for example, as the link URL or in the message body). Follow the response format from CataBoom's API for your campaign. For more information about query parameters and Liquid in URLs, see [Making an API call]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call).
 
 ![Braze Content Card composer showing Connected Content in the message field and a mobile preview of the card.]({% image_buster /assets/img/cataboom/braze_content_card.png %})
 

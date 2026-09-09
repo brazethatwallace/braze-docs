@@ -43,7 +43,7 @@ SalesforceサポートからSalesforce Sales Cloudで接続アプリを作成す
 
 ### ステップ1:`client_id`と`client_secret`を収集する {#step-1-collect-your-client_id-and-client_secret}
 
-1. Salesforceで、**Platform Tools** > **Apps** > **App Manager**に移動します。
+1. Salesforceで、**Platform Tools** > **Apps** > **App マネージャー**に移動します。
 2. 新しく作成したBrazeアプリを見つけ、**View**を選択します。
 3. **Consumer Key and Secret**で、**Manage Consumer Details**を選択します。
 4. 表示されたページで、**Consumer Key**と**Consumer Secret**をメモします。**Consumer Key**が`client_id`、**Consumer Secret**が`client_secret`です。
@@ -100,7 +100,7 @@ Salesforceでリードを更新するBraze Salesforce Sales Cloud Webhookを設�
 
 ### ステップ1:`client_id`と`client_secret`を収集する
 
-1. Salesforceで、**Platform Tools** > **Apps** > **App Manager**に移動します。
+1. Salesforceで、**Platform Tools** > **Apps** > **App マネージャー**に移動します。
 2. 新しく作成したBrazeアプリを見つけ、**View**を選択します。
 3. **Consumer Key and Secret**で、**Manage Consumer Details**を選択します。
 4. 表示されたページで、**Consumer Key**と**Consumer Secret**をメモします。

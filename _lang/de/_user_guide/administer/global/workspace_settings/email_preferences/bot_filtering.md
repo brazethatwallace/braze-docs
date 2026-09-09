@@ -18,9 +18,9 @@ Ab dem 9. Juli 2025 wird für alle neu erstellten Workspaces die Bot-Filter-Eins
 
 ## Über Bot-Klicks {#about-bot-clicks}
 
-Braze verfügt über ein Erkennungssystem, das mehrere Eingaben nutzt, um verdächtige Bot-Klicks zu identifizieren, die auch als nicht-menschliche Interaktionen (NHI) bezeichnet werden. Bot-Klicks können Ihre E-Mail-Engagement-Metriken verzerren, indem sie Klickraten künstlich aufblähen. Dieser Ansatz ermöglicht es uns, zwischen echten menschlichen Interaktionen und verdächtiger Bot-Aktivität zu unterscheiden, um die Integrität der Klick-Engagement-Metriken und Insights zu wahren.
+Braze verfügt über ein Erkennungssystem, das mehrere Eingaben verwendet, um verdächtige Bot-Klicks zu identifizieren, die auch als nicht-menschliche Interaktionen (NHI) bezeichnet werden. Bot-Klicks können Ihre E-Mail-Engagement-Metriken verzerren, indem sie Klickraten künstlich aufblähen. Dieser Ansatz ermöglicht es uns, zwischen echten menschlichen Interaktionen und verdächtigen Bot-Aktivitäten zu unterscheiden, um die Integrität der Klick-Engagement-Metriken und Insights zu wahren.
 
-## Metriken, die von Bot-Klicks betroffen sind {#metrics-affected-by-bot-clicks}
+## Von Bot-Klicks betroffene Metriken {#metrics-affected-by-bot-clicks}
 
 {% alert note %}
 Die Bot-Filterung blockiert aktiv verdächtige automatisierte Klicks, um die Genauigkeit Ihrer Engagement-Metriken zu verbessern. Da sich Scanner und Bots jedoch ständig weiterentwickeln, kann Braze nicht garantieren, dass alle nicht-menschlichen Interaktionen entfernt werden.
@@ -35,18 +35,15 @@ Die folgenden Braze-Metriken können von Bot-Klicks betroffen sein:
 - Heatmap
 - Bestimmte Segment-Filter
 
-Wenn die Bot-Filterung aktiviert ist, werden verdächtige Bot-Klicks aus den Klickdaten ausgeschlossen. Die folgenden [BrazeAI Intelligence-Features]({{site.baseurl}}/user_guide/brazeai/intelligence_suite) können dadurch niedrigere klickbezogene Werte aufweisen:
+Wenn die Bot-Filterung aktiviert ist, werden verdächtige Bot-Klicks aus den Klickdaten ausgeschlossen. Die folgenden [Braze-Intelligence-Features]({{site.baseurl}}/user_guide/brazeai/intelligence_suite) können infolgedessen geringere klickbezogene Volumen aufweisen:
 
-- Intelligente Auswahl
 - Intelligenter Kanal
 - Intelligentes Timing
 - Experiment-Schritt
     - Winning Path
-    - Personalized Path
-- Campaign
-    - Gewinnervariante
-    - Personalisierte Variante
 - Geschätzte reale Öffnungsrate
+
+[Mit BrazeAI<sup>TM</sup> optimieren]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection) kann ebenfalls geringere klickbezogene Volumen aufweisen, wenn Sie für ein klickbasiertes Ziel optimieren.
 
 Abmeldungen durch verdächtige Bot-Klicks sind davon nicht betroffen. Braze verarbeitet weiterhin alle Abmeldeanfragen wie gewohnt. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="blocking unsubscribes from suspected bot clicks" %}
 
@@ -57,8 +54,8 @@ Die folgenden [Segmentierungsfilter]({{site.baseurl}}/user_guide/audience/segmen
 - [Clicked/Opened Campaign or Canvas With Tag]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#clicked-opened-campaign-or-canvas-with-tag)
 - [Clicked/Opened Step]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#clicked-opened-step)
 - [Clicked Alias in Campaign]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#clicked-alias-in-campaign)
-- [Clicked Alias in Canvas Step]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#clicked-alias-in-canvas-step)
-- [Clicked Alias in Any Campaign or Canvas Step]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#clicked-alias-in-any-campaign-or-canvas-step)
+- [Clicked Alias in Canvas-Schritt]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#clicked-alias-in-canvas-step)
+- [Clicked Alias in Any Campaign or Canvas-Schritt]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#clicked-alias-in-any-campaign-or-canvas-step)
 - [Last Engaged with Message]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#last-engaged-with-message)
 - [Intelligent Channel]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#intelligent-channel)
 
@@ -66,7 +63,7 @@ Die folgenden [Segmentierungsfilter]({{site.baseurl}}/user_guide/audience/segmen
 
 Gehen Sie zu **Einstellungen** > **E-Mail-Einstellungen**. Wählen Sie dann **Bot-Klicks entfernen** aus. Diese Einstellung wird auf Workspace-Ebene angewendet.
 
-Verdächtige Bot-Klicks werden erst entfernt, nachdem die Einstellung aktiviert wurde, und sie gilt nicht rückwirkend für Metriken in Ihrem Workspace.
+Verdächtige Bot-Klicks werden erst entfernt, nachdem die Einstellung aktiviert wurde, und gelten nicht rückwirkend für Metriken in Ihrem Workspace.
 
 ![Bot-Filterung-E-Mail-Einstellung in den E-Mail-Einstellungen aktiviert.]({% image_buster /assets/img/bot_tracking_email.png %})
 
@@ -87,9 +84,9 @@ Braze sendet die Felder `is_suspected_bot_click` und `suspected_bot_click_reason
 
 ### Wie wirkt sich die Bot-Filterung auf die Performance meiner Campaign aus? {#how-will-bot-filtering-impact-my-campaigns-performance}
 
-Dies hat keine Auswirkungen auf die Metriken bereits gesendeter Campaigns. Wenn die Bot-Filterung in Ihrem Workspace aktiviert ist, beginnt Braze damit, verdächtige Bot-Klicks aus allen Klicks herauszufiltern. Möglicherweise bemerken Sie einen Rückgang der Klickraten, aber die Klickrate ist dann eine genauere Darstellung des Engagements Ihrer Nutzer:innen mit ihren E-Mail-Nachrichten.
+Dies hat keine Auswirkungen auf die Metriken bereits gesendeter Campaigns. Wenn die Bot-Filterung in Ihrem Workspace aktiviert ist, beginnt Braze, vermutete Bot-Klicks aus allen Klicks herauszufiltern. Möglicherweise bemerken Sie einen Rückgang der Klickraten, aber die Klickrate ist dann eine genauere Darstellung des Engagements Ihrer Nutzer:innen mit ihren E-Mail-Nachrichten.
 
-### Verhindert die Bot-Filterung, dass Bots, die auf den Braze-Abmeldelink klicken, Abmeldungen auslösen? {#will-bot-filtering-prevent-bots-clicking-on-the-braze-unsubscribe-link-from-unsubscribing}
+### Verhindert die Bot-Filterung, dass Bots, die auf den Braze-Abmeldelink klicken, sich abmelden? {#will-bot-filtering-prevent-bots-clicking-on-the-braze-unsubscribe-link-from-unsubscribing}
 
 Nein. Alle Abmeldeanfragen werden weiterhin verarbeitet.
 

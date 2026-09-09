@@ -11,7 +11,7 @@ description: "Este artigo contém notas de versão de janeiro de 2018."
 
 Agora você pode ativar ou desativar [o CSS inlining]({{site.baseurl}}/user_guide/message_building_by_channel/email/css_inline/#css-inlining) para mensagens de e-mail individuais acessando **as Configurações de e-mail**.
 
-## Novos filtros de segmento
+## Novos filtros de Segment
 
 Agora você pode criar segmentos usando os seguintes filtros:
 - Recebeu uma etapa do canva

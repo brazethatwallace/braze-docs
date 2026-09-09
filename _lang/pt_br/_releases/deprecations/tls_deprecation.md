@@ -38,7 +38,7 @@ A Braze removerá a capacidade de usar as seguintes cifras do dashboard web e da
 - `TLS_RSA_WITH_AES_128_GCM_SHA256`
 - `TLS_RSA_WITH_3DES_EDE_CBC_SHA`
 
-Essa mudança não deve impactar os clientes que acessam o dashboard da Braze, pois todos os navegadores web modernos suportam cifras mais seguras. No entanto, se você encontrar um erro de criptografia SSL ao acessar o dashboard web após 1º de outubro, poderá resolver o problema simplesmente atualizando para a versão mais recente do seu navegador web.
+Essa mudança não deve impactar os clientes que acessam o dashboard da Braze, pois todos os navegadores web modernos suportam cifras mais seguras. No entanto, se você encontrar um erro de criptografia SSL ao acessar o dashboard web após 1º de outubro, poderá resolver o problema simplesmente atualizando para a versão mais recente do seu navegador de internet.
 
 Sua equipe de engenharia deve garantir que não esteja usando nenhuma dessas cifras para comunicação de servidor para servidor com as REST APIs da Braze. Se estiverem, precisarão atualizar o código para usar cifras de criptografia mais seguras antes de 1º de outubro para continuar utilizando as APIs da Braze. No entanto, para manter o suporte a dispositivos móveis antigos e desatualizados que podem estar usando cifras fracas, a Braze continuará a suportar essas cifras nas APIs que recebem dados dos nossos SDKs.
 

@@ -3,7 +3,7 @@ nav_title: 収益レポート
 article_title: 収益レポート
 page_order: 7
 page_type: reference
-description: "このページでは、収益レポートページを使用して、特定の期間の収益データ、特定の製品の収益、およびアプリの総収益を表示する方法について説明します。"
+description: "このページでは、Brazeダッシュボードで収益レポートを確認する方法と、特定期間の収益データ、製品別の収益、アプリの総収益を表示する方法について説明します。"
 tool: Reports
 ---
 
@@ -11,13 +11,13 @@ tool: Reports
 
 > **収益レポート**ページでは、特定の期間の収益データ、特定の製品の収益、およびアプリの総収益を表示できます。
 
-ダッシュボードから収益レポートを表示するには、**Analytics** > **収益レポート**に移動します。
+Brazeダッシュボードで収益レポートを表示するには、**Analytics** > **Reports** > **Revenue Report** に移動します。
 
 ## 収益レポートのカスタマイズ {#customizing-your-revenue-report}
 
 日付範囲、レポート対象のアプリ、およびパラメーターを選択して、収益レポートをカスタマイズできます。
 
-![パラメーターに「収益」が設定された「経時パフォーマンス」グラフを表示する「収益レポート」ページ。]({% image_buster /assets/img/revenue_report.png %})
+![パラメーターに「Revenue」が設定された「Performance Over Time」グラフを表示する「Revenue Report」ページ。]({% image_buster /assets/img/revenue_report.png %})
 
 ### 日付とアプリによるフィルタリング {#filtering-by-date-and-apps}
 
@@ -25,23 +25,23 @@ tool: Reports
 
 ### パラメーターによるフィルタリング {#filtering-by-parameters}
 
-**Performance Over Time**グラフには、さまざまなパラメーターのデータが表示されます。パラメーターは**Statistics for**ドロップダウンで選択できます。オプションで、**Breakdown**ドロップダウンで特定のパラメーターのデータを分類できます。
+**Performance Over Time** グラフにはさまざまなパラメーターのデータが表示され、**Statistics for** ドロップダウンで選択できます。オプションとして、**Breakdown** ドロップダウンで特定のパラメーターのデータを内訳表示できます。
 
-**Performance Over Time**グラフでは、以下のデータを表示できます。
-- KPI計算式
+**Performance Over Time Graph** では、以下のデータを表示できます。
+- KPI数式
 - 購入
-    - （オプション）製品別購入
+    - （オプション）商品別購入
 - 収益
     - （オプション）セグメント別収益
-    - （オプション）製品別収益
+    - （オプション）商品別収益
 - 時間あたりの収益
     - （オプション）セグメント別の時間あたりの収益
 - ユーザーあたりの収益
 
-## 収益計算の理解 {#understanding-revenue-calculations}
+## 収益計算について {#understanding-revenue-calculations}
 
 {% alert note %}
-為替レートのない通貨で収益を記録した場合、Brazeはそれを0.00米ドルの購入として記録します。
+為替レートが設定されていない通貨で収益を記録すると、Brazeはそれを0.00米ドルの購入として記録します。
 {% endalert %}
 
 <style>
@@ -50,8 +50,8 @@ tool: Reports
     }
 </style>
 
-<table aria-label="収益計算の理解">
-  <caption>収益計算の理解</caption>
+<table aria-label="収益計算について">
+  <caption>収益計算について</caption>
     <thead>
         <tr>
             <th>指標</th>
@@ -60,11 +60,11 @@ tool: Reports
     </thead>
     <tbody>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#lifetime-revenue">ライフタイム収益</a></td>
+            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#lifetime-revenue">生涯収益</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Lifetime Revenue' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#lifetime-value-per-user">ユーザーあたりのライフタイムバリュー</a></td>
+            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#lifetime-value-per-user">ユーザーあたりの生涯価値</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Lifetime Value Per User' %}</td>
         </tr>
         <tr>
@@ -84,20 +84,20 @@ tool: Reports
 
 ## 製品内訳の表示 {#viewing-the-product-breakdown}
 
-**Product Breakdown**テーブルを参照すると、選択した日付範囲内に購入された製品の一覧、各製品の購入数、および各製品が生み出した収益を確認できます。
+選択した日付範囲中に購入された製品の一覧、各製品の購入数、および各製品が生み出した収益については、**製品内訳**テーブルを参照してください。
 
-![「Product Name」、「Purchased」、「Revenue」の列を表示する「Product Breakdown」テーブル。]({% image_buster /assets/img/revenue_report_product_breakdown.png %})
+![「製品名」、「購入数」、「収益」の列が表示された「製品内訳」テーブル。]({% image_buster /assets/img/revenue_report_product_breakdown.png %})
 
 ## 収益データのエクスポート {#exporting-revenue-data}
 
-収益データをエクスポートするには、**Performance Over Time**グラフの<i class="fas fa-bars" title="チャートコンテキストメニュー"></i> **チャートコンテキストメニュー**を選択し、エクスポートオプションを選択します。
+収益データをエクスポートするには、**Performance Over Time** グラフの <i class="fas fa-bars" title="チャートコンテキストメニュー"></i> **チャートコンテキストメニュー**を選択し、エクスポートオプションを選択します。
 
 {% alert tip %}
-収益データを取得する他の方法をお探しですか？購入行動（および製品の購入）を[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)としてキャンペーンやキャンバスに追加してみてください。
+収益データを取得するその他の方法をお探しですか？購入行動（および製品の購入）を[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)としてキャンペーンやキャンバスに追加してみてください。
 {% endalert %}
 
 また、[キャンペーン分析]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics)ページや[キャンバス分析]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics)ページで、ケースバイケースで収益統計を確認することもできます。
 
 {% alert tip %}
-収益レポートはAPIを通じてエクスポートできません。CSVエクスポートについては、[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)を参照してください。
+収益レポートはAPIでエクスポートできません。CSVエクスポートについては、[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)を参照してください。
 {% endalert %}

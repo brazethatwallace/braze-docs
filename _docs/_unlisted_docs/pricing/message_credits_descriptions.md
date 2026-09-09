@@ -38,7 +38,7 @@ Note that the "Credit Ratio" referenced in this page is defined as the exact num
 Email credit ratios are denominated in increments of one thousand emails sent (CPM) from the Braze platform.
 
 {% alert note %}
-Refer to our [email documentation]({{site.baseurl}}/user_guide/message_building_by_channel/email) to learn more about our email channel.
+Refer to our [email documentation]({{site.baseurl}}/user_guide/channels/email) to learn more about our email channel.
 {% endalert %}
 
 ## SMS, MMS, and RCS channel details
@@ -64,7 +64,7 @@ RCS is the next generation of SMS and MMS. It offers the benefits of a direct, h
 {% multi_lang_include pricing/rcs_billing_message_types.md %}
 
 {% alert note %}
-Refer to our [SMS and MMS documentation]({{site.baseurl}}/user_guide/message_building_by_channel/sms) to learn more about our SMS family offerings.
+Refer to our [SMS and MMS documentation]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs) to learn more about our SMS family offerings.
 {% endalert %}
 
 ## WhatsApp channel details
@@ -102,7 +102,7 @@ Bahrain, Iraq, Jordan, Kuwait, Lebanon, Oman, Yemen
 Austria, Belgium, Denmark, Finland, Ireland, Norway, Portugal, Sweden, Switzerland
 
 {% alert note %}
-Refer to our [WhatsApp documentation]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp) to learn more about our WhatsApp offerings.
+Refer to our [WhatsApp documentation]({{site.baseurl}}/user_guide/channels/whatsapp) to learn more about our WhatsApp offerings.
 {% endalert %}
 
 ## Agent Console details
@@ -120,7 +120,7 @@ Refer to our [Braze Agents documentation]({{site.baseurl}}/user_guide/brazeai/ag
 LINE credit ratios are denominated in increments of LINE messages sent from the Braze platform.
 
 {% alert note %}
-Refer to our [LINE documentation]({{site.baseurl}}/user_guide/message_building_by_channel/line) to learn more about using LINE with Braze.
+Refer to our [LINE documentation]({{site.baseurl}}/user_guide/channels/line) to learn more about using LINE with Braze.
 {% endalert %}
 
 ### KakaoTalk
@@ -141,7 +141,7 @@ Braze reserves the right to charge credits for Content Cards based on the number
     - Sends-to-daily-unique-impressions ratio greater than one hundred (100)
     
 {% alert note %}
-Refer to our [Content Cards documentation]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards) to learn more about Braze Content Cards.
+Refer to our [Content Cards documentation]({{site.baseurl}}/user_guide/channels/content_cards) to learn more about Braze Content Cards.
 {% endalert %}
 
 ### Banners
@@ -149,7 +149,7 @@ Refer to our [Content Cards documentation]({{site.baseurl}}/user_guide/message_b
 Banners credit ratios are denominated in increments of one thousand daily unique impressions.
 
 {% alert note %}
-Refer to our [Banner documentation]({{site.baseurl}}/developer_guide/banner_cards) to learn more about Braze Banners.
+Refer to our [Banner documentation]({{site.baseurl}}/developer_guide/banners) to learn more about Braze Banners.
 {% endalert %}
 
 ### Audience Sync
@@ -157,15 +157,19 @@ Refer to our [Banner documentation]({{site.baseurl}}/developer_guide/banner_card
 Audience Sync credit ratios are denominated in increments of one thousand total user syncs. By default, your contract includes five million user syncs per each Period of your Subscription Term. Additional user syncs will be charged as per your Order Form.
 
 {% alert note %}
-Refer to our [Canvas documentation]({{site.baseurl}}/partners/canvas_steps) to learn more about Canvas Audience Sync and available partners.
+Refer to our [Canvas documentation]({{site.baseurl}}/partners/canvas_audience_sync) to learn more about Canvas Audience Sync and available partners.
 {% endalert %}
 
 ### Message Archiving
 
-Message Archiving credit ratios are denominated in increments of one thousand archived messages across Push, Email, and SMS/MMS channels. 
+Message Archiving credit ratios are denominated in increments of one thousand successfully archived messages across Push, Email, SMS/MMS, and In-App-Message channels. 
 
 {% alert note %}
-Refer to our [message archiving documentation]({{site.baseurl}}/user_guide/data/export_braze_data/message_archiving#message-archiving) to learn more about Message Archiving.
+Beginning September 2, 2026, failed archiving attempts are excluded from usage billing; only successful archives use Action Credits. This change doesn't affect usage billed before September 2, 2026.
+{% endalert %}
+
+{% alert note %}
+Refer to our [message archiving documentation]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/message_archiving) to learn more about Message Archiving.
 {% endalert %}
 
 ### Webhooks
@@ -175,5 +179,5 @@ Webhooks credit ratios are denominated in increments of one thousand webhooks su
 {% multi_lang_include pricing/webhook_failed_requests_billing.md credit_name='Action Credits' %}
 
 {% alert note %}
-Refer to our [webhooks documentation]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks) to learn more about Braze Webhooks.
+Refer to our [webhooks documentation]({{site.baseurl}}/user_guide/channels/webhooks) to learn more about Braze Webhooks.
 {% endalert %}

@@ -22,7 +22,7 @@ Stellen Sie sich angepasste Attribute als die persistenten Merkmale oder Eigensc
 
 - **Anwendungsfall:** Sie könnten ein `loyalty_tier`-Attribut verwenden, um zwischen Ihren „Silver“- und „Gold“-Mitgliedern zu unterscheiden.
 - **Personalisierung:** Attribute eignen sich hervorragend für die Personalisierung. Sie können die `favorite_category` einer Nutzerin oder eines Nutzers in eine E-Mail-Betreffzeile einfügen, um Aufmerksamkeit zu erzeugen.
-- **Speicherung:** Diese Daten bleiben dauerhaft im Nutzerprofil gespeichert, solange das Profil aktiv ist.
+- **Speicherung:** Diese Daten bleiben dauerhaft im Kundenprofil gespeichert, solange das Profil aktiv ist.
 
 Weitere Informationen finden Sie unter [Angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes).
 
@@ -41,7 +41,7 @@ Weitere Informationen finden Sie unter [Angepasste Events]({{site.baseurl}}/user
 
 Während sich Attribute und Events auf Ihre Nutzer:innen konzentrieren, ermöglichen Ihnen Kataloge, nicht-nutzerbezogene Daten wie Produktbestände, Kursdetails oder Eventlisten einzubringen.
 
-Indem Sie diese Metadaten per CSV oder API importieren, können Sie Ihre Nachrichten mit Informationen anreichern, die nicht im Nutzerprofil gespeichert sind. Sie können beispielsweise einen Katalog verwenden, um Kund:innen automatisch zu benachrichtigen, wenn ein zuvor angesehener Artikel wieder auf Lager ist oder im Preis gesunken ist.
+Indem Sie diese Metadaten per CSV oder API importieren, können Sie Ihre Nachrichten mit Informationen anreichern, die nicht im Kundenprofil gespeichert sind. Sie können beispielsweise einen Katalog verwenden, um Kund:innen automatisch zu benachrichtigen, wenn ein zuvor angesehener Artikel wieder auf Lager ist oder im Preis gesunken ist.
 
 Weitere Informationen finden Sie unter [Kataloge]({{site.baseurl}}/user_guide/data/activation/catalogs).
 

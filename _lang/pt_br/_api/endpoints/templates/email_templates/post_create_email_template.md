@@ -15,7 +15,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Criar m
 
 > Use esse endpoint para criar modelos de e-mail no dashboard da Braze.
 
-Esses modelos estarão disponíveis na página **Modelos e mídia**. A resposta desse endpoint inclui um campo para `email_template_id`, que pode ser usado para atualizar o modelo em chamadas subsequentes à API.
+Esses modelos estarão disponíveis na página **Modelos e mídias**. A resposta desse endpoint inclui um campo para `email_template_id`, que pode ser usado para atualizar o modelo em chamadas subsequentes à API.
 
 {% alert tip %}
 Você também pode chamar esse endpoint por meio do [servidor MCP da Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server) usando a função [`create_email_template`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#templates). Isso permite que ferramentas de IA como Claude e Cursor criem modelos de e-mail por meio de prompts em linguagem natural.
@@ -24,7 +24,7 @@ Você também pode chamar esse endpoint por meio do [servidor MCP da Braze]({{si
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5eb1fe0d-2795-474d-aaf2-c4e2977dc94b {% endapiref %}
 
 ## Pré-requisitos {#prerequisites}
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key) com a permissão `templates.email.create`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics) com a permissão `templates.email.create`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -57,9 +57,9 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `subject` | Obrigatória | String | Linha de assunto do modelo de e-mail. |
 | `body` | Obrigatória | String | Corpo do modelo de e-mail que pode incluir HTML. Até 400&nbsp;KB. |
 | `plaintext_body` | Opcional | String | Uma versão em texto simples do corpo do modelo de e-mail. |
-| `preheader` | Opcional | String | Pré-cabeçalho de e-mail usado para gerar pré-visualizações em alguns clientes. |
+| `preheader` | Opcional | String | Pré-cabeçalho de e-mail usado para gerar prévias em alguns clientes. |
 | `tags` | Opcional | String | As [tags]({{site.baseurl}}/user_guide/messaging/governance/tags) já devem existir. |
-| `should_inline_css` | Opcional | booleano | Ativa ou desativa o recurso `inline_css` por modelo. Se não for fornecido, a Braze usará a configuração padrão para o grupo de app. Espera-se `true` ou `false`. |
+| `should_inline_css` | Opcional | Booleano | Ativa ou desativa o recurso `inline_css` por modelo. Se não for fornecido, a Braze usará a configuração padrão para o grupo de apps. Espera-se `true` ou `false`. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}

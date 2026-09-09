@@ -53,7 +53,7 @@ Das Swift Braze SDK verwendet Push-Benachrichtigungen im Hintergrund, um Analyti
 
 ### Schritt 3: Senden Sie einen Push zu Testzwecken (optional) {#step-3-send-a-test-push-optional}
 
-Senden Sie sich als Nächstes eine Test-Push-Benachrichtigung vom Braze-Dashboard aus (keine Sorge&#8212;Ihr Nutzerprofil wird dadurch nicht aktualisiert).
+Senden Sie sich als Nächstes eine Test-Push-Benachrichtigung vom Braze-Dashboard aus (keine Sorge&#8212;Ihr Kundenprofil wird dadurch nicht aktualisiert).
 
 1. Gehen Sie zu **Messaging** > **Campaigns** und erstellen Sie eine Push-Benachrichtigungs-Campaign über die entsprechende Plattform.
 2. Gehen Sie zu **Einstellungen** > **App-Einstellungen** und fügen Sie den Schlüssel `appboy_uninstall_tracking` mit dem entsprechenden Wert `true` hinzu, und markieren Sie dann **Add Content-Available Flag**.

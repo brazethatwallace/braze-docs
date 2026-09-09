@@ -60,7 +60,7 @@ Cada una de estas decisiones tiene implicaciones en cuánto incremento adicional
 
 | Capacidad | Detalles |
 |-----------|----------|
-| **Cualquier métrica de éxito** | Optimiza para ingresos, conversiones, ARPU, LTV o cualquier KPI de negocio |
+| **Cualquier métrica de éxito** | Optimiza para ingresos, conversiones, ARPU, LTV o cualquier indicador clave de rendimiento de negocio |
 | **Dimensiones ilimitadas** | Personaliza a través de oferta, canal, momento, frecuencia, creatividad y más |
 | **Cualquier CEP** | Integraciones nativas con Braze, Salesforce Marketing Cloud o integraciones personalizadas para cualquier plataforma |
 | **AI Decisioning Services** | Soporte dedicado del equipo de ciencia de datos de Braze |

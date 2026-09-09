@@ -21,7 +21,7 @@ Wenn Sie einem/einer Nutzer:in zum ersten Mal in WhatsApp eine Nachricht senden,
 ![WhatsApp-Nachrichtenverlauf mit Optionen zum Blockieren oder Melden eines Unternehmens]({% image_buster /assets/img/whatsapp/whatsapp_block_report.png %}){: style="max-width:30%;"}
 
 {% alert note %}
-Für Metriken zu Ihren Blockierungen und Meldungen stellen Sie sicher, dass der [Insights-Tab](https://www.facebook.com/business/help/683499390267496) in Ihrem WhatsApp Manager aktiviert ist.
+Für Metriken zu Ihren Blockierungen und Meldungen stellen Sie sicher, dass der [Insights-Tab](https://www.facebook.com/business/help/683499390267496) in Ihrem WhatsApp Manager:in aktiviert ist.
 {% endalert %}
 
 Um eine hohe Anzahl von Blockierungen und Meldungen zu vermeiden, empfiehlt Braze die folgenden Best Practices, um eine hohe Telefonqualitätsbewertung und stabile Nachrichtenlimits aufrechtzuerhalten.

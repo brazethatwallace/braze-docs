@@ -92,29 +92,33 @@ class MainActivity : ComponentActivity() {
 !!step
 lines-MainApplication.kt=12
 
-### 1. デバッグを有効にする（オプション） {#1-enable-debugging-optional}
+### 1. デバッグを有効にする（オプション） {#1-enable-debugging-optional} {#1-enable-debugging-optional}
 
 開発中のトラブルシューティングを容易にするために、デバッグを有効にすることを検討してください。
 
 !!step
 lines-MainApplication.kt=21-28
 
-### 2. バナーの更新情報を購読する {#2-subscribe-to-banner-updates}
+### 2. バナーの更新をサブスクライブする {#2-subscribe-to-banner-updates} {#2-subscribe-to-banner-updates}
 
-`subscribeToBannersUpdates()` を使用して、バナーが更新されるたびに実行されるハンドラを登録します。
+`subscribeToBannersUpdates()`を使用して、バナーが更新されるたびに実行されるハンドラーを登録します。
 
 !!step
 lines-MainActivity.kt=10-14
 
-### 3. プレースメントを更新する {#3-refresh-your-placements}
+### 3. プレースメントを更新する {#3-refresh-your-placements} {#3-refresh-your-placements}
 
-Braze SDKを初期化した後、`requestBannersRefresh(["PLACEMENT_ID"])` を呼び出して、そのプレースメントの最新バナーコンテンツを取得します。
+Braze SDKを初期化した後、`requestBannersRefresh(["PLACEMENT_ID"])`を呼び出して、そのプレースメントの最新バナーコンテンツを取得します。
+
+この呼び出しは既存のバナーキャッシュにマージされます。リクエストしたプレースメントIDのみが追加、更新、または削除されます。他のプレースメントのキャッシュ済みバナーはキャッシュに残り、元の有効期限で期限切れになります。サーバーがリクエストされたプレースメントに対してバナーを返さなかった場合、そのプレースメントはキャッシュから削除されます。
 
 !!step
 lines-banners.xml=15-19
 
-### 4. `banners.xml`で`BannerView`を定義する {#4-define-bannerview-in-your-bannersxml}
+### 4. `banners.xml`で`BannerView`を定義する {#4-define-bannerview-in-your-bannersxml} {#4-define-bannerview-in-your-bannersxml}
 
-`banners.xml`で、`app:placementId="PLACEMENT_ID"` を指定した `<com.braze.ui.banners.BannerView>` 要素を宣言します。Brazeはこの要素を使用して、UIにバナーを挿入します。
+`banners.xml`で、`app:placementId="PLACEMENT_ID"`を持つ`<com.braze.ui.banners.BannerView>`要素を宣言します。Brazeはこの要素を使用して、バナーをUIに挿入します。
+
+更新後、SDKはそのプレースメントのコンテンツが変更された場合にのみ`BannerView`を更新します。変更されていない表示中のバナーはそのまま維持されます。
 
 {% endscrolly %}

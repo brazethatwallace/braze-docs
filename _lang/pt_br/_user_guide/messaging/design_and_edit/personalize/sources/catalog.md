@@ -30,7 +30,7 @@ Os catálogos suportam até 1.000 campos por item e podem armazenar milhões de 
 | Listagens de restaurantes ou lojas | Personalize mensagens com detalhes específicos de cada local |
 | Recomendações de conteúdo | Faça referência a artigos, vídeos ou outros itens de mídia |
 | Informações de eventos | Insira datas de eventos, locais e descrições nas mensagens |
-| Ofertas por nível | Associe promoções ao nível de associação ou segmento de um usuário |
+| Ofertas por nível | Associe promoções ao nível de associação ou Segment de um usuário |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Casos de uso comuns" }
 
 ## Gatilhos de catálogo {#catalog-triggers}

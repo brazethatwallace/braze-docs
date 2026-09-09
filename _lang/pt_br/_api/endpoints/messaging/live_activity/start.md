@@ -15,11 +15,11 @@ description: "Este artigo descreve detalhes sobre o endpoint \"Iniciar atividade
 /messages/live_activity/start
 {% endapimethod %}
 
-> Use esse endpoint para iniciar remotamente [as Live Activities]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?sdktab=swift) exibidas no seu app para iOS. Esse endpoint requer configuração adicional.
+> Use esse endpoint para iniciar remotamente [as Live Activities]({{site.baseurl}}/developer_guide/live_notifications?sdktab=swift) exibidas no seu app para iOS. Esse endpoint requer configuração adicional.
 
-Depois de criar uma Live Activity, você pode fazer uma solicitação POST para iniciar remotamente sua atividade para um segmento, um público conectado ou IDs de usuário externo específicos. Para saber mais sobre as Live Activities da Apple, consulte [Como iniciar e atualizar Live Activities com notificações por push do ActivityKit](https://developer.apple.com/documentation/activitykit/starting-and-updating-live-activities-with-activitykit-push-notifications).
+Depois de criar uma Live Activity, faça uma solicitação POST para direcionar um segmento, um público conectado ou usuários específicos. Identifique usuários específicos por ID de usuário externo, alias de usuário ou ambos. Para saber mais sobre as Live Activities da Apple, consulte [Como iniciar e atualizar Live Activities com notificações por push do ActivityKit](https://developer.apple.com/documentation/activitykit/starting-and-updating-live-activities-with-activitykit-push-notifications).
 
-Se `content-available` não estiver definido, a prioridade padrão do serviço de Notificações por Push da Apple (APN) é 10. Se `content-available` estiver definido, essa prioridade é 5. Consulte [objeto de push da Apple]({{site.baseurl}}/api/objects_filters/messaging/apple_object) para mais detalhes.
+Se `content-available` não estiver definido, a prioridade padrão do serviço de Notificações por Push da Apple (APN) é 10. Se `content-available` estiver definido, essa prioridade é 5. Para saber mais, consulte [objeto de push da Apple]({{site.baseurl}}/api/objects_filters/messaging/apple_object).
 
 {% alert tip %}
 Para encerrar uma Live Activity, use o endpoint [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update) com `end_activity` definido como `true`.
@@ -33,18 +33,22 @@ Para configurar o encerramento automático após o início de uma Live Activity,
 2. Armazene esse `activity_id` e o horário de encerramento desejado no agendador do seu backend.
 3. No horário de encerramento desejado, envie uma solicitação `/messages/live_activity/update` com `end_activity` definido como `true`.
 4. Configure o comportamento de encerramento na mesma solicitação de atualização. Para mais detalhes, consulte o endpoint [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update).
-5. Verifique os eventos de envio e resultado no [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab).
+5. Verifique os eventos de envio e resultado no [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#2300226e-f26a-4154-9bcc-5883f1f294cd {% endapiref %}
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisará concluir o seguinte:
+Para usar este endpoint, complete os seguintes pré-requisitos:
 
-- Gerar uma chave de API com a permissão `messages.live_activity.start`.
-- [Criar uma Live Activity]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?tab=local&sdktab=swift#swift_create-an-activity) usando o SDK Swift da Braze.
+- Gere uma chave de API com a permissão `messages.live_activity.start`.
+- [Crie uma Live Activity]({{site.baseurl}}/developer_guide/live_notifications/live_activities?tab=local&sdktab=swift#create-an-activity) usando o SDK Swift da Braze.
 
 {% multi_lang_include api/payload_size_alert.md %}
+
+{% alert important %}
+Quando você direciona usuários específicos, a Braze inicia uma Live Activity apenas para `external_user_ids` e `user_aliases` que correspondam a usuários existentes.
+{% endalert %}
 
 ## Limite de frequência {#rate-limit}
 
@@ -55,14 +59,18 @@ Para usar este endpoint, você precisará concluir o seguinte:
 ```json
 {
   "app_id": "(required, string) App API identifier retrieved from the Developer Console.",
-  "activity_id": "(required, string) Define a custom string as your `activity_id`. You will use this ID when you wish to send update or end events to your Live Activity.",
-  "activity_attributes_type": "(required, string) The activity attributes type you define within `liveActivities.registerPushToStart` in your app",
+  "activity_id": "(required, string) Define a custom string as your `activity_id`. Use this ID to send update or end events to your Live Activity.",
+  "activity_attributes_type": "(required, string) The activity attributes type you define within `liveActivities.registerPushToStart` in your app.",
   "activity_attributes": "(required, object) The static attribute values for the activity type (such as the sports team names, which don't change)",
   "content_state": "(required, object) You define the ContentState parameters when you create your Live Activity. Pass the updated values for your ContentState using this object. The format of this request must match the shape you initially defined.",
   "stale_date": "(optional, datetime in ISO-8601 format) The time the Live Activity content is marked as outdated in the user’s UI.",
-  "notification": "(required, object) Include an `apple_push` object to define a push notification that creates an alert for the user, displayed on paired watchOS devices. Should include `notification.alert.title` and `notification.alert.body`",
-  // One of the following:
-  "external_user_ids": "(optional, array of strings) see external user identifier, maximum 50",
+  "notification": "(required, object) Include an `apple_push` object to define a push notification that creates an alert for the user, displayed on paired watchOS devices. Include `notification.alert.title` and `notification.alert.body`.",
+  // Include one targeting method:
+  // 1. "external_user_ids", "user_aliases", or both (combined maximum 50)
+  // 2. "custom_audience"
+  // 3. "segment_id"
+  "external_user_ids": "(optional, array of strings) see external user identifier",
+  "user_aliases": "(optional, array of user alias objects) see user alias object",
   "custom_audience": "(optional, connected audience object) see connected audience",
   "segment_id": "(optional, string) see segment identifier"
 }
@@ -73,48 +81,54 @@ Para usar este endpoint, você precisará concluir o seguinte:
 | Parâmetro | Obrigatório | Tipo de dados | Descrição  |
 |-----------|----------|----------|--------------|
 | `app_id` | Obrigatório | String | [Identificador de API]({{site.baseurl}}/api/identifier_types#app-identifier) do app recuperado da página [Chaves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers).  |
-| `activity_id` | Obrigatório | String  | Defina uma string personalizada como seu `activity_id`. Você usará esse ID quando desejar enviar eventos de atualização ou encerramento para sua Live Activity.  |
+| `activity_id` | Obrigatório | String  | Defina uma string personalizada como seu `activity_id`. Use esse ID para enviar eventos de atualização ou encerramento para sua Live Activity.  |
 | `activity_attributes_type`  | Obrigatório | String | O tipo de atributo de atividade que você define em `liveActivities.registerPushToStart` no seu app.  |
 | `activity_attributes` | Obrigatório | Objeto  | Os valores de atributo estáticos para o tipo de atividade (como os nomes das equipes esportivas, que não mudam). |
 | `content_state` | Obrigatório | Objeto  | Você define os parâmetros de `ContentState` quando cria sua Live Activity. Passe os valores atualizados para o seu `ContentState` usando este objeto.<br><br>O formato desta solicitação deve corresponder à estrutura que você definiu inicialmente. |
 | `stale_date` | Opcional | Datetime <br>(string [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Este parâmetro informa ao sistema quando o conteúdo da Live Activity será marcado como desatualizado na interface do usuário. |
 | `notification` | Obrigatório | Objeto | Inclua um objeto [`apple_push`]({{site.baseurl}}/api/objects_filters/messaging/apple_object) para definir uma notificação por push. O comportamento desta notificação por push depende de o usuário estar ativo ou de estar usando um dispositivo proxy. {::nomarkdown}<ul><li>Se um <code>notification</code> está incluído e o usuário está ativo no iPhone quando a atualização é entregue, a interface da Live Activity atualizada deslizará para baixo e será exibida como uma notificação por push.</li><li>Se um <code>notification</code> está incluído e o usuário não está ativo no iPhone, a tela acenderá para exibir a interface da Live Activity atualizada na tela de bloqueio.</li><li>O <code>notification alert</code> não será exibido como uma notificação por push padrão. Além disso, se o usuário tiver um dispositivo proxy, como um Apple Watch, o <code>alert</code> será exibido nele.</li></ul>{:/} |
-| `external_user_ids` | Opcional se `segment_id` ou `custom_audience` for fornecido | Matriz de strings | Consulte [ID de usuário externo]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields). Máximo de 50 IDs de usuário externos.  |
-| `segment_id`  | Opcional se `external_user_ids` ou `custom_audience` for fornecido | String    | Consulte [identificador de segmento]({{site.baseurl}}/api/identifier_types). |
-| `custom_audience` | Opcional se `external_user_ids` ou `segment_id` for fornecido | Objeto de público conectado  | Consulte [público conectado]({{site.baseurl}}/api/objects_filters/connected_audience). |
+| `external_user_ids` | Opcional se `user_aliases`, `segment_id` ou `custom_audience` for fornecido | Matriz de strings | Consulte [ID de usuário externo]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields). |
+| `user_aliases` | Opcional se `external_user_ids`, `segment_id` ou `custom_audience` for fornecido | Matriz de objetos de alias de usuário | Consulte [objeto de alias de usuário]({{site.baseurl}}/api/objects_filters/user_alias_object). |
+| `segment_id`  | Opcional se `external_user_ids`, `user_aliases` ou `custom_audience` for fornecido | String    | Consulte [identificador de segmento]({{site.baseurl}}/api/identifier_types). |
+| `custom_audience` | Opcional se `external_user_ids`, `user_aliases` ou `segment_id` for fornecido | Objeto de público conectado  | Consulte [público conectado]({{site.baseurl}}/api/objects_filters/connected_audience). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
-Neste endpoint, passe os filtros de público conectado em `custom_audience`.
+Você pode incluir `external_user_ids` e `user_aliases` na mesma solicitação. O comprimento combinado das matrizes não pode exceder 50. A Braze direciona os usuários que correspondam a qualquer um dos parâmetros e envia apenas uma vez quando múltiplos identificadores se resolvem para o mesmo usuário.
+
+Não combine `external_user_ids` ou `user_aliases` com `segment_id` ou `custom_audience`. Neste endpoint, use `custom_audience` para passar filtros de público conectado.
 
 ## Exemplo de solicitação {#example-request}
 
 ```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/messages/live_activity/start' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Bearer {YOUR-REST-API-KEY}' \
+--header 'Authorization: Bearer {YOUR_REST_API_KEY}' \
 --data-raw '{
-    "app_id": "{YOUR-APP-API-IDENTIFIER}",
-    "activity_id": "football-chiefs-bills-2024-01-21",
-    "content_state": {
-        "teamOneScore": 0,
-        "teamTwoScore": 0
-    },
-    "activity_attributes_type": "FootballActivity",
-    "activity_attributes": {
-        "team1Name": "Chiefs",
-        "team2Name": "Bills"
-    },
-    "stale_date": "2024-01-22T16:55:49+0000",
-    "notification": {
-        "alert": {
-            "body": "The game is starting! Tune in soon!",
-            "title": "Chiefs v. Bills"
-        }
-    },
-    // One of the following required:
-    "segment_id": "{YOUR-SEGMENT-API-IDENTIFIER}", // Optional
-    "custom_audience": {...}, // Optional
-    "external_user_ids": ["user-id1", "user-id2"], // Optional
+  "app_id": "{YOUR_APP_API_IDENTIFIER}",
+  "activity_id": "football-chiefs-bills-2024-01-21",
+  "content_state": {
+    "teamOneScore": 0,
+    "teamTwoScore": 0
+  },
+  "activity_attributes_type": "FootballActivity",
+  "activity_attributes": {
+    "team1Name": "Chiefs",
+    "team2Name": "Bills"
+  },
+  "stale_date": "2024-01-22T16:55:49+0000",
+  "notification": {
+    "alert": {
+      "body": "The game is starting! Tune in soon!",
+      "title": "Chiefs v. Bills"
+    }
+  },
+  "external_user_ids": ["user-id1", "user-id2"],
+  "user_aliases": [
+    {
+      "alias_name": "user-name",
+      "alias_label": "user-label"
+    }
+  ]
 }'
 ```
 
@@ -124,7 +138,7 @@ Existem dois códigos de status para este endpoint: `201` e `4XX`.
 
 ### Exemplo de resposta bem-sucedida {#example-success-response}
 
-Um código de status `201` é retornado se a solicitação foi formatada corretamente e a recebemos. O código de status `201` pode retornar o seguinte corpo de resposta.
+Um código de status `201` é retornado se a solicitação foi formatada corretamente e a Braze a recebeu. O código de status `201` pode retornar o seguinte corpo de resposta.
 
 ```json
 {

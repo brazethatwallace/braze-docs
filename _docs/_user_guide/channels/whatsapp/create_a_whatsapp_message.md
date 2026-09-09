@@ -200,8 +200,18 @@ The following call-to-action types are supported for WhatsApp messages you send 
 
 After composing your WhatsApp message, continue building and validating your send:
 
-- [Schedule your campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign) or continue configuring [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)
-- [Target users]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) and set [conversion events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)
-- [Send test messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=whatsapp)
-- Review [WhatsApp reporting]({{site.baseurl}}/user_guide/channels/whatsapp/reporting)
+{% article_tiles %}
+- name: Create a Canvas
+  link: /docs/user_guide/messaging/canvas/create_a_canvas
+- name: Schedule your campaign
+  link: /docs/user_guide/messaging/campaigns/schedule_your_campaign
+- name: Target users
+  link: /docs/user_guide/messaging/messaging_fundamentals/target_users
+- name: Conversion events
+  link: /docs/user_guide/messaging/messaging_fundamentals/conversion_events
+- name: Send test messages
+  link: /docs/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=whatsapp
+- name: WhatsApp reporting
+  link: /docs/user_guide/channels/whatsapp/reporting
+{% endarticle_tiles %}
 

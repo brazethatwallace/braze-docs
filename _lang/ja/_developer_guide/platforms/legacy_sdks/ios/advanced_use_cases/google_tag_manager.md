@@ -1,26 +1,26 @@
 ---
-nav_title: Google Tag Manager
-article_title: Google Tag Manager for iOS
+nav_title: Google Tag マネージャー
+article_title: Google Tag マネージャー for iOS
 platform: iOS
 page_order: 7
-description: "この記事では、Google Tag Managerの初期化、設定、およびiOSアプリへの実装方法について説明します。"
+description: "この記事では、Google Tag マネージャーの初期化、設定、およびiOSアプリへの実装方法について説明します。"
 
 noindex: true
 ---
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Google Tag Manager for iOS {#google-tag-manager-for-ios}
+# Google Tag マネージャー for iOS {#google-tag-manager-for-ios}
 
 ## SDKの初期化 {#initializing-ios-google-tag-provider}
 
-Braze iOS SDKは、[Google Tag Manager](https://tagmanager.google.com/)で設定されたタグによって初期化および制御することができます。
+Braze iOS SDKは、[Google Tag マネージャー](https://tagmanager.google.com/)で設定されたタグによって初期化および制御することができます。
 
-Google Tag Managerを使用する前に、まず[SDKの初期設定]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview)を行ってください。
+Google Tag マネージャーを使用する前に、まず[SDKの初期設定]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview)を行ってください。
 
-## Google Tag Managerの設定 {#configuring-ios-google-tag-manager}
+## Google Tag マネージャーの設定 {#configuring-ios-google-tag-manager}
 
-この例では、ユーザーが曲を聴いている間に別のイベントをロギングする必要がある音楽ストリーミングアプリを想定しています。Google Tag Manager for iOSを使用して、どのサードパーティベンダーがこのイベントを受信するかをコントロールし、Braze固有のタグを作成できます。
+この例では、ユーザーが曲を聴いている間に別のイベントをロギングする必要がある音楽ストリーミングアプリを想定しています。Google Tag マネージャー for iOSを使用して、どのサードパーティベンダーがこのイベントを受信するかをコントロールし、Braze固有のタグを作成できます。
 
 ### カスタムイベント {#custom-events}
 
@@ -39,18 +39,18 @@ Google Tag Managerを使用する前に、まず[SDKの初期設定]({{site.base
 {% alert important %}
 カスタムイベントの送信時に、`actionType` を `logEvent` に設定し、次の例のように `eventName` の値を設定します。
 
-この例のカスタムタグプロバイダーは、これらのキーを使用して、Google Tag Managerからデータを受信した際に実行するアクションとBrazeに送信するイベント名を決定します。
+この例のカスタムタグプロバイダーは、これらのキーを使用して、Google Tag マネージャーからデータを受信した際に実行するアクションとBrazeに送信するイベント名を決定します。
 {% endalert %}
 
 ![classpathフィールドと、キーと値のペアフィールドを含むGoogle Tag Managerのタグ。このタグは、以前に作成された「再生された曲」トリガーでトリガーされるように設定されています。]({% image_buster /assets/img/android_google_tag_manager/gtm_android_function_call_tag.png %})
 
-また、追加のキーと値のペア引数をタグに含めることもできます。この引数は、カスタムイベントプロパティとしてBrazeに送信されます。`eventName` および `actionType` は、カスタムイベントプロパティでは無視されません。次のサンプルタグでは、`genre` を渡します。これは、Google Tag Managerでタグ変数を使用して定義されており、アプリでロギングしたカスタムイベントから取得されます。
+また、追加のキーと値のペア引数をタグに含めることもできます。この引数は、カスタムイベントプロパティとしてBrazeに送信されます。`eventName` および `actionType` は、カスタムイベントプロパティでは無視されません。次のサンプルタグでは、`genre` を渡します。これは、Google Tag マネージャーでタグ変数を使用して定義されており、アプリでロギングしたカスタムイベントから取得されます。
 
-`genre` イベントプロパティは、「Firebase - Event Parameter」変数としてGoogle Tag Managerに送信されます。Google Tag Manager for iOSでは、Firebaseがデータレイヤーとして使用されるためです。
+`genre` イベントプロパティは、「Firebase - Event Parameter」変数としてGoogle Tag マネージャーに送信されます。Google Tag マネージャー for iOSでは、Firebaseがデータレイヤーとして使用されるためです。
 
 ![「genre」が「Braze - Played Song Event」タグのイベントパラメーターとして追加されるGoogle Tag Managerの変数。]({% image_buster /assets/img/android_google_tag_manager/gtm_android_eventname_variable.png %})
 
-最後に、ユーザーがアプリで曲を再生すると、タグのトリガー名 `played song` と一致するFirebase分析イベント名を使用し、FirebaseとGoogle Tag Managerを介してイベントがロギングされます。
+最後に、ユーザーがアプリで曲を再生すると、タグのトリガー名 `played song` と一致するFirebase分析イベント名を使用し、FirebaseとGoogle Tag マネージャーを介してイベントがロギングされます。
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -97,15 +97,15 @@ NSDictionary *parameters = @{@"externalUserId" : userId};
 
 ## Braze SDKカスタムタグプロバイダー {#adding-ios-google-tag-provider}
 
-タグとトリガーが設定されたら、iOSアプリにGoogle Tag Managerを実装する必要もあります。これについては、Googleの[ドキュメント](https://developers.google.com/tag-manager/ios/v5/)に記載されています。
+タグとトリガーが設定されたら、iOSアプリにGoogle Tag マネージャーを実装する必要もあります。これについては、Googleの[ドキュメント](https://developers.google.com/tag-manager/ios/v5/)に記載されています。
 
-Google Tag Managerがアプリにインストールされたら、カスタムタグプロバイダーを追加し、Google Tag Manager内で設定したタグに基づいてBraze SDKメソッドを呼び出します。
+Google Tag マネージャーがアプリにインストールされたら、カスタムタグプロバイダーを追加し、Google Tag マネージャー内で設定したタグに基づいてBraze SDKメソッドを呼び出します。
 
-ファイルへの「Class Path」を必ず書き留めておいてください。[Google Tag Manager](https://tagmanager.google.com/)コンソールでタグを設定するときに入力する内容です。
+ファイルへの「Class Path」を必ず書き留めておいてください。[Google Tag マネージャー](https://tagmanager.google.com/)コンソールでタグを設定するときに入力する内容です。
 
 この例は、カスタムタグプロバイダーを構築する多くの方法の1つを示しています。ここでは、GTMタグから送信されたキーと値のペア `actionType` に基づいて、呼び出すBraze SDKメソッドを決定します。
 
-この例でサポートされている `actionType` は `logEvent`、`customAttribute`、`changeUser` ですが、タグプロバイダーによるGoogle Tag Managerからのデータの処理方法を変更することもできます。
+この例でサポートされている `actionType` は `logEvent`、`customAttribute`、`changeUser` ですが、タグプロバイダーによるGoogle Tag マネージャーからのデータの処理方法を変更することもできます。
 
 以下のコードを `BrazeGTMTagManager.h` ファイルに追加します。
 

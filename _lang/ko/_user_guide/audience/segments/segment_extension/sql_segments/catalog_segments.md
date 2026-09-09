@@ -100,13 +100,13 @@ LIMIT 10
 {: .reset-td-br-1 .reset-td-br-2 aria-label="건강 앱" }
 
 {% endtab %}
-{% tab SaaS %}
+{% tab SaaS(software-as-a-service) %}
 
-### SaaS 플랫폼 {#saas-platform}
+### SaaS(software-as-a-service) 플랫폼 {#saas-platform}
 
-B2B SaaS 플랫폼이 있고 기존 고객의 직원인 사용자를 세그먼트하려고 한다고 가정합니다. 또한 다음이 있습니다:
+B2B SaaS(software-as-a-service) 플랫폼이 있고 기존 고객의 직원인 사용자를 세그먼트하려고 한다고 가정합니다. 또한 다음이 있습니다:
 
-- 현재 SaaS 플랫폼을 사용 중인 다양한 계정이 포함된 카탈로그 `Accounts`(각각 `account ID`가 할당됨)
+- 현재 SaaS(software-as-a-service) 플랫폼을 사용 중인 다양한 계정이 포함된 카탈로그 `Accounts`(각각 `account ID`가 할당됨)
 - 카탈로그의 "account ID" 필드와 동일한 값을 공유하는 "account ID" 속성정보가 있는 커스텀 이벤트 `Event Attendance`
 - `enterprise` 값이 포함된 카탈로그 내의 `Classification` 필드
 
@@ -120,7 +120,7 @@ B2B SaaS 플랫폼이 있고 기존 고객의 직원인 사용자를 세그먼�
 | `Custom event property` | account ID |
 | `(Under Filter SQL Results) Catalog field` | Classification |
 | `(Under Filter SQL Results) Value` | Enterprise |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="SaaS 플랫폼" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SaaS(software-as-a-service) 플랫폼" }
 
 {% endtab %}
 {% endtabs %}

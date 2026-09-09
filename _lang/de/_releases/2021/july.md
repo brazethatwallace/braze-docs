@@ -18,7 +18,7 @@ Sie fragen sich, wie Sie diese eine Sache mit Liquid erledigen können? Suchen S
 
 ## E-Mail-Tracking {#email-tracking}
 
-Das Open-Pixel-Tracking und das Klick-Tracking kann jetzt pro Nutzerprofil deaktiviert werden. Diese Flexibilität hilft Kund:innen, regionale Datenschutzgesetze einzuhalten, bei denen ein individuelles Nutzerprofil angeben kann, dass es nicht mehr getrackt werden möchte. Lesen Sie unseren Artikel über [Open-Pixel- und Klick-Tracking]({{site.baseurl}}/user_guide/channels/email/email_setup/open_pixel_and_click_tracking), um mehr zu erfahren.
+Das Open-Pixel-Tracking und das Klick-Tracking kann jetzt pro Kundenprofil deaktiviert werden. Diese Flexibilität hilft Kund:innen, regionale Datenschutzgesetze einzuhalten, bei denen ein individuelles Kundenprofil angeben kann, dass es nicht mehr getrackt werden möchte. Lesen Sie unseren Artikel über [Open-Pixel- und Klick-Tracking]({{site.baseurl}}/user_guide/channels/email/email_setup/open_pixel_and_click_tracking), um mehr zu erfahren.
 
 ## SDK-Optionen für die Datenerfassung {#sdk-data-collection-options}
 
@@ -28,9 +28,9 @@ Erfahren Sie mehr darüber, wie das Braze SDK integriert werden kann, um eine fl
 
 Erfahren Sie mehr über SSL bei Braze, warum SSL wichtig ist und wie Sie ein SSL-Zertifikat erwerben können, in unserem neuen Artikel [SSL-Übersicht]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl).
 
-## Amplitude-Nutzerprofil-API-Endpunkte {#amplitude-user-profile-api-endpoints}
+## Amplitude-Kundenprofil-API-Endpunkte {#amplitude-user-profile-api-endpoints}
 
-Die User Profile API von Amplitude stellt Amplitude-Nutzer:innen-Profile bereit. Dazu gehören Nutzereigenschaften, berechnete Nutzereigenschaften, eine Liste der Kohorten-IDs von Kohorten, die die Nutzer:innen enthalten, und Empfehlungen. Weitere Informationen finden Sie unter [Amplitude-Nutzerprofil-API-Endpunkte]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_user_profile_api).
+Die Kundenprofil API von Amplitude stellt Amplitude-Nutzer:innen-Profile bereit. Dazu gehören Nutzereigenschaften, berechnete Nutzereigenschaften, eine Liste der Kohorten-IDs von Kohorten, die die Nutzer:innen enthalten, und Empfehlungen. Weitere Informationen finden Sie unter [Amplitude-Kundenprofil-API-Endpunkte]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_user_profile_api).
 
 ## Endpunkt für Campaign-Details {#campaign-details-endpoint}
 

@@ -1,9 +1,9 @@
-{% if include.metric == "AMP Clicks" %}
-<i>Clics AMP</i> es el número total de clics en tu correo electrónico AMP HTML, acumulado de las versiones HTML, texto sin formato y AMP HTML del correo electrónico.
+{% if include.metric == "páginas móviles aceleradas Clicks" %}
+<i>Clics páginas móviles aceleradas</i> es el número total de clics en tu correo electrónico páginas móviles aceleradas HTML, acumulado de las versiones HTML, texto sin formato y páginas móviles aceleradas HTML del correo electrónico.
 {% endif %}
 
-{% if include.metric == "AMP Opens" %}
-<i>Aperturas AMP</i> es el recuento total de aperturas en tu correo electrónico AMP HTML y en las versiones AMP HTML del correo electrónico.
+{% if include.metric == "páginas móviles aceleradas Opens" %}
+<i>Aperturas páginas móviles aceleradas</i> es el recuento total de aperturas en tu correo electrónico páginas móviles aceleradas HTML y en las versiones páginas móviles aceleradas HTML del correo electrónico.
 {% endif %}
 
 {% if include.metric == "Audience" %}
@@ -127,7 +127,7 @@ La <i>tasa de entregas fallidas</i> es el porcentaje de envíos que fallaron por
 {% endif %}
 
 {% if include.metric == "Failures" %}
-Los <i>fallos</i> se producen cuando el mensaje de WhatsApp no se ha podido enviar porque el proveedor de servicios de Internet ha devuelto un rebote duro. Un rebote duro significa un fallo permanente en la capacidad de entrega.
+Los <i>fallos</i> se producen cuando el mensaje de WhatsApp no se ha podido enviar porque el ISP ha devuelto un rebote duro. Un rebote duro significa un fallo permanente en la capacidad de entrega.
 {% endif %}
 
 {% if include.metric == "Influenced Opens" %}
@@ -138,8 +138,8 @@ Los <i>fallos</i> se producen cuando el mensaje de WhatsApp no se ha podido envi
 Los <i>ingresos de toda la vida</i> son el valor total del precio de <code>PurchaseEvents</code> (en USD) recibido desde el inicio.
 {% endif %}
 
-{% if include.metric == "Lifetime Value Per User" %}
-El <i>valor de duración del ciclo de vida por usuario</i> son los <i>ingresos de toda la vida</i> divididos por el total de tus <i>usuarios</i> (ubicados en tu página de inicio).
+{% if include.metric == "LTV Per User" %}
+El <i>LTV por usuario</i> son los <i>ingresos de toda la vida</i> divididos por el total de tus <i>usuarios</i> (ubicados en tu página de inicio).
 {% endif %}
 
 {% if include.metric == "Average Daily Revenue" %}
@@ -155,7 +155,7 @@ Los <i>ingresos diarios por usuario</i> son los ingresos medios diarios por usua
 {% endif %}
 
 {% if include.metric == "Machine Opens" %}
-<i>Aperturas de máquina</i> incluye tanto las aperturas no humanas como las humanas que indican una apertura por parte de un usuario con la protección de la privacidad en los correos electrónicos (MPP) de Apple habilitada. Esto significa que un usuario puede registrar múltiples <i>aperturas de máquina</i>. Las <i>aperturas de máquina</i> no se generan automáticamente si el dispositivo no está conectado a Wi-Fi, por lo que un usuario puede abrir un correo electrónico en la aplicación Apple Mail antes de que Apple precargue las imágenes, lo que aún resulta en una <i>apertura de máquina</i>.
+<i>Aperturas de máquina</i> incluye tanto las aperturas no humanas como las humanas que indican una apertura por parte de un usuario con la MPP (MPP) de Apple habilitada. Esto significa que un usuario puede registrar múltiples <i>aperturas de máquina</i>. Las <i>aperturas de máquina</i> no se generan automáticamente si el dispositivo no está conectado a Wi-Fi, por lo que un usuario puede abrir un correo electrónico en la aplicación Apple Mail antes de que Apple precargue las imágenes, lo que aún resulta en una <i>apertura de máquina</i>.
 <br><br>
 Para usuarios con MPP habilitado:
 <ul>
@@ -192,7 +192,7 @@ La <i>exclusión voluntaria</i> se produce cuando un usuario respondió a tu men
 El <i>reintento pendiente</i> es el número de solicitudes que fueron rechazadas temporalmente por el servidor receptor, pero que el proveedor de servicios de correo electrónico (ESP) intentó volver a entregar. El ESP reintentará la entrega hasta que se alcance un tiempo de espera (normalmente después de 72 horas).
 {% endif %}
 
-{% if include.metric == "Primary Conversions (A) or Primary Conversion Event" %}
+{% if include.metric == "Primary Conversions (A) or conversión primaria Event" %}
 <i>Conversiones primarias (A)</i> o <i>evento de conversión primaria</i> es el número de veces que se ha producido un evento definido tras interactuar con o ver un mensaje recibido de una Campaign de Braze. Este evento definido lo determinas tú al crear la Campaign.
 {% endif %}
 

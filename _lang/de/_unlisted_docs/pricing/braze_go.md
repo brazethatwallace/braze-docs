@@ -11,7 +11,7 @@ hide_toc: true
 > Braze Go bietet einen optimierten Zugang zur Braze Customer-Engagement-Plattform, damit Ihre Marketing-Teams überall starten und überallhin gelangen können. Braze Go wurde für Einfachheit und Effizienz entwickelt und ist auf ausgewählte aufstrebende Märkte zugeschnitten.
 
 {% alert important %}
-Braze Go ist nicht in allen Märkten verfügbar. Wenn Sie mehr über Braze Go erfahren möchten, kontaktieren Sie Ihren Account Manager.
+Braze Go ist nicht in allen Märkten verfügbar. Wenn Sie mehr über Braze Go erfahren möchten, kontaktieren Sie Ihren Account Manager:in.
 {% endalert %}
 
 Braze Go bietet die gleiche Funktionalität wie Braze, mit gezielten Änderungen an den folgenden Features:
@@ -32,6 +32,6 @@ Interaktionsdaten für Campaigns und Canvases unterscheiden sich von Snowflake-D
     - Clicked or Opened Campaign or Canvas with Tag
     - Last Received Message from Campaign or Canvas with Tag
     - Received Campaign or Canvas with Tag
-- Braze kann außerdem eine Datenaufbewahrungsrichtlinie für Nutzerprofil-Ereignisse und Kaufdaten implementieren, die Ereignisse, Käufe oder beides entfernt, die älter als 1 Jahr sind und innerhalb von 1 Jahr nicht erneut durchgeführt wurden. Diese Daten wären jedoch weiterhin für 2 Jahre in SQL-Segmenterweiterungen verfügbar.
+- Braze kann außerdem eine Datenaufbewahrungsrichtlinie für Kundenprofil-Ereignisse und Kaufdaten implementieren, die Ereignisse, Käufe oder beides entfernt, die älter als 1 Jahr sind und innerhalb von 1 Jahr nicht erneut durchgeführt wurden. Diese Daten wären jedoch weiterhin für 2 Jahre in SQL-Segmenterweiterungen verfügbar.
 
 Wenn eine in diesem Artikel beschriebene Funktionalität aktualisiert wird, wird dies in diesem Artikel berücksichtigt und in unseren [Release Notes]({{site.baseurl}}/help/release_notes#most-recent-braze-release-notes) vermerkt.

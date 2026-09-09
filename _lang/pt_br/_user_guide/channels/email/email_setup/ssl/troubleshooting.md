@@ -17,7 +17,7 @@ channel: email
 | --- | --- |
 | As taxas de abertura de e-mail caíram repentinamente | [Taxas de abertura de e-mail baixas](#low-email-open-rates) |
 | Links rastreados retornam HTTP 403 | [HTTP 403 em links de redirecionamento](#http-403-on-redirect-links) |
-| DNS ou CNAME aponta para o provedor de serviços de e-mail em vez da rede de distribuição de conteúdo (CDN) | [Problemas com registro de domínio](#domain-registry-issues) |
+| DNS ou CNAME aponta para o provedor de serviços de e-mail em vez da rede de distribuição de conteúdo (CDN) | [Problemas no registro de domínio](#domain-registry-issues) |
 | "A conexão não é privada" ou links quebram durante a configuração | [Problemas com CDN](#cdn-issues) |
 | Configuração de SSL concluída, mas os links ainda mostram HTTP | [Status de ativação do SSL](#ssl-enablement-status) |
 | URL rastreada falha, mas URL não rastreada funciona | [Problemas com rastreamento de cliques](#click-tracking-issues) |
@@ -26,19 +26,19 @@ channel: email
 
 ## Caminho de investigação padrão {#standard-investigation-path}
 
-1. Confirme se o subdomínio de rastreamento de cliques aponta para a sua [rede de distribuição de conteúdo (CDN)]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#what-is-a-cdn-and-why-do-i-need-it), e não diretamente para o seu provedor de serviços de e-mail (SendGrid, SparkPost ou Amazon SES). Peça à sua equipe de TI ou web para verificar se as configurações do domínio estão de acordo com a configuração da Braze. Para os requisitos da Braze, consulte [Obter um certificado SSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate).
-2. Confirme se o certificado SSL está ativo para o domínio de rastreamento. Peça à sua equipe de TI ou web para confirmar que o certificado está atualizado e cobre o subdomínio de rastreamento de cliques. Para etapas de configuração e guias específicos de CDN, consulte [Obter um certificado SSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate) e [Recursos adicionais]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#additional-resources).
+1. Confirme se o subdomínio de rastreamento de cliques aponta para a sua [rede de distribuição de conteúdo (CDN)]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#what-is-a-cdn-and-why-do-i-need-it) — e não diretamente para o seu provedor de serviços de e-mail (SendGrid, SparkPost ou Amazon SES). Peça à sua equipe de TI ou web para verificar se as configurações do domínio correspondem à configuração da Braze. Para os requisitos da Braze, consulte [Adquirir um certificado SSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate).
+2. Confirme se o certificado SSL está ativo para o domínio de rastreamento. Peça à sua equipe de TI ou web para confirmar se o certificado está atualizado e cobre o subdomínio de rastreamento de cliques. Para etapas de configuração e guias específicos de CDN, consulte [Adquirir um certificado SSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate) e [Recursos adicionais]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#additional-resources).
 3. Envie um e-mail de teste usando o [modelo de solução de problemas de rastreamento de cliques](#click-tracking-issues). Compare as URLs rastreadas com as não rastreadas.
 4. Se os links rastreados falharem com erro 403, revise as regras de CDN e WAF (user agents, query strings, padrões de redirecionamento).
-5. Se a configuração estiver concluída, mas os links permanecerem em HTTP, entre em contato com o seu gerente de sucesso do cliente da Braze para confirmar se a Braze ativou o SSL.
-6. Para problemas persistentes, coordene com a sua CDN ou equipe de TI e entre em contato com o [suporte da Braze]({{site.baseurl}}/braze_support) informando os códigos de erro e quaisquer detalhes do seu provedor de CDN ou domínio.
+5. Se a configuração estiver completa, mas os links continuarem em HTTP, entre em contato com o seu CSM da Braze para confirmar se a Braze ativou o SSL.
+6. Para problemas persistentes, coordene com a sua equipe de CDN ou TI e entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) informando códigos de erro e quaisquer detalhes do seu CDN ou provedor de domínio.
 
 ## Conceitos-chave {#key-concepts}
 
 - **Domínio de rastreamento de cliques (CTD):** O subdomínio personalizado que a Braze usa para encapsular links para rastreamento de cliques (por exemplo, `clicks.mail.yourbrand.com`).
-- **URL rastreada:** Encapsula o link HTTPS original no seu domínio de rastreamento. Quando um usuário clica nela, o domínio de rastreamento resolve a solicitação e redireciona para o destino final. Uma CDN permite rastrear URLs seguras (HTTPS). Sem ela, os usuários podem encontrar um erro de privacidade informando que "a conexão não é segura".
+- **URL rastreada:** Encapsula o link HTTPS original no seu domínio de rastreamento. Quando um usuário clica nela, o domínio de rastreamento resolve a solicitação e redireciona para o destino final. Uma CDN permite rastrear URLs seguras (HTTPS). Sem ela, os usuários podem encontrar um erro de privacidade informando que a "conexão não é segura".
 - **URL não rastreada:** Mantém a URL original intacta, ignorando a CDN para servir como um ambiente de controle.
-- **Roteamento Fase 1 e Fase 2:** A Fase 1 aponta o CNAME do seu domínio de rastreamento de cliques diretamente para o seu provedor de serviços de e-mail (ESP) para a verificação HTTP inicial. A Fase 2 aponta o CNAME para a sua CDN ou firewall de aplicação web (WAF), que encerra o SSL e encaminha as solicitações por proxy para o ESP com os cabeçalhos necessários. Para destinos CNAME específicos de cada ESP, consulte [Roteamento de Fase 1 e Fase 2 do ESP](#esp-phase-1-and-phase-2-routing).
+- **Roteamento Fase 1 e Fase 2:** A Fase 1 aponta o CNAME do seu domínio de rastreamento de cliques diretamente para o seu provedor de serviços de e-mail (ESP) para verificação HTTP inicial. A Fase 2 aponta o CNAME para a sua CDN ou firewall de aplicação web (WAF), que encerra o SSL e encaminha as solicitações por proxy para o ESP com os cabeçalhos necessários. Para destinos CNAME específicos de cada ESP, consulte [Roteamento de Fase 1 e Fase 2 do ESP](#esp-phase-1-and-phase-2-routing).
 
 ## Domínios de rastreamento de cliques e fases de DNS {#click-tracking-domains-and-dns-phases}
 
@@ -144,7 +144,7 @@ Se você vir uma mensagem de erro informando que sua conexão não é privada, i
 
 **Sintoma:** A configuração do SSL está concluída, mas os links rastreados ainda aparecem como HTTP.
 
-Se você concluiu a configuração do SSL e os links ainda aparecem como HTTP, entre em contato com o seu gerente de sucesso do cliente da Braze para confirmar que a Braze ativou o SSL. A Braze ativa o SSL somente após todas as etapas de configuração estarem concluídas.
+Se você concluiu a configuração do SSL e os links ainda aparecem como HTTP, entre em contato com o seu CSM da Braze para confirmar que a Braze ativou o SSL. A Braze ativa o SSL somente após todas as etapas de configuração estarem concluídas.
 
 ### Amazon SES {#amazon-ses}
 

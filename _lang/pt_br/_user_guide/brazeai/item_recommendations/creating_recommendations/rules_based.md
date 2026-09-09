@@ -102,7 +102,7 @@ Digamos que você tenha um app de alimentos saudáveis e queira criar uma Campai
 | **image_url** | A imagem que corresponde à receita. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Exemplo" }
 
-Depois que o catálogo for enviado para a Braze, confirme se as informações foram importadas com precisão selecionando seu catálogo na página de Catálogos e abrindo a guia **Preview**. Um número selecionado de itens aparece na prévia e pode ser randomizado, mas isso não afeta o resultado do mecanismo de recomendação.
+Depois que o catálogo for enviado para a Braze, confirme se as informações foram importadas com precisão selecionando seu catálogo na página de Catálogos e abrindo a guia **prévia**. Um número selecionado de itens aparece na prévia e pode ser randomizado, mas isso não afeta o resultado do mecanismo de recomendação.
 
 Com o catálogo pronto, [crie uma Campaign de cartão de conteúdo]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card). No criador, insira a lógica Liquid para determinar quais usuários devem receber a Campaign e qual receita e imagem devem ser exibidas. Nesse caso de uso, a Braze extrairá o `start_date` do usuário (ou data de inscrição) e o comparará com a data atual. A diferença em dias determinará qual cartão de conteúdo será enviado.
 
@@ -172,7 +172,7 @@ Por exemplo:
 
 ![Um exemplo de bloco de comportamento ao clicar no criador.]({% image_buster /assets/img/recs/on_click_behavior.png %}){: style="max-width:60%;"}<br><br>
 
-Acesse a guia **Test** e selecione **Custom user** em **Preview message as user**. Insira uma data no campo **Custom attribute** para pré-visualizar o cartão de conteúdo que seria enviado a um usuário que se inscreveu nessa data. <br><br>
+Acesse a guia **Test** e selecione **Custom user** em **prévia message as user**. Insira uma data no campo **Custom attribute** para pré-visualizar o cartão de conteúdo que seria enviado a um usuário que se inscreveu nessa data. <br><br>
 
 ![Um exemplo de atributo personalizado chamado "start_date".]({% image_buster /assets/img/recs/custom_attributes_test.png %})
 {% endtab %}

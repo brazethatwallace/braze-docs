@@ -1,36 +1,29 @@
 ---
-nav_title: Google Tag Manager
-article_title: Google Tag Manager con el SDK de Braze
+nav_title: Google tag Administrador
+article_title: Google Tag Administrador with the Braze SDK
 platform:
   - Android
   - FireOS
   - Swift
 page_order: 1.1
-description: "Aprende a inicializar el SDK de Braze utilizando métodos como la inicialización en tiempo de ejecución, la inicialización diferida o Google Tag Manager."
+description: "Learn how to initialize the Braze SDK using methods like runtime initialization, delayed initialization, or Google Tag Administrador."
 
 ---
+## Acerca de Google Tag Administrador para Web {#google-tag-manager}
 
-# Google Tag Manager con el SDK de Braze {#google-tag-manager-with-the-braze-sdk}
-
-> Aprende a usar [Google Tag Manager (GTM)](https://developers.google.com/tag-platform/tag-manager) con el SDK de Braze, para que puedas controlar de forma remota el seguimiento de eventos de Braze y las actualizaciones de atributos de usuario sin necesidad de cambios en el código ni nuevas versiones de la aplicación.
-
-{% sdktabs %}
-{% sdktab web %}
-## Acerca de Google Tag Manager para Web {#google-tag-manager}
-
-Google Tag Manager (GTM) te permite añadir, eliminar y editar etiquetas de forma remota en tu sitio web sin necesidad de liberar código de producción ni recursos de ingeniería. Braze ofrece las siguientes plantillas para el SDK Web:
+Google Tag Administrador (GTM) te permite añadir, eliminar y editar etiquetas de forma remota en tu sitio web sin necesidad de liberar código de producción ni recursos de ingeniería. Braze ofrece las siguientes plantillas para el SDK Web:
 
 | Tipo de etiqueta | Caso de uso |
 |--------|--------|
 | Etiqueta de inicialización | Esta etiqueta te permite [integrar el SDK Web de Braze]({{site.baseurl}}/developer_guide/sdk_integration/?tab=google%20tag%20manager&sdktab=web) sin necesidad de modificar el código de tu sitio. |
 | Etiqueta de acción | Esta etiqueta te permite [crear Content Cards]({{site.baseurl}}/developer_guide/content_cards/?sdktab=web#web_using-google-tag-manager), [establecer atributos de usuario]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?tab=google%20tag%20manager&sdktab=web) y [administrar la recopilación de datos]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?tab=google%20tag%20manager&sdktab=web). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Acerca de Google Tag Manager para Web" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Acerca de Google Tag Administrador para Web" }
 
 ## Secuenciación de etiquetas para las etiquetas de acción de Braze {#tag-sequencing-for-braze-action-tags}
 
 La etiqueta de inicialización de Braze debe activarse antes que cualquier etiqueta que llame a métodos del SDK de Braze (como `braze.getUser()`, `braze.logCustomEvent()` o `braze.logPurchase()`). Si estos métodos se activan antes de que el SDK esté inicializado, puedes encontrar errores como `Uncaught TypeError: Cannot read properties of undefined (reading 'getUser')`.
 
-Para configurar la secuenciación de etiquetas en Google Tag Manager:
+Para configurar la secuenciación de etiquetas en Google Tag Administrador:
 
 1. Abre la etiqueta que llama a métodos del SDK de Braze (como una etiqueta HTML personalizada o una etiqueta de acción de Braze).
 2. Ve a **Advanced Settings** > **Tag Sequencing**.
@@ -41,86 +34,18 @@ Esto garantiza que el SDK esté completamente cargado antes de que cualquier otr
 
 Para más detalles, consulta [Verificar la secuenciación de etiquetas para eventos personalizados]({{site.baseurl}}/developer_guide/content_cards/?sdktab=web#web_tag-sequencing).
 
-## Registrar compras con GTM {#log-purchases-with-gtm}
+## Solución de problemas
 
-En las etiquetas de acción de Braze y las etiquetas HTML personalizadas, llama a `braze.logPurchase()` para registrar ingresos. El espacio de nombres heredado `appboy.logPurchase()` no es compatible con las integraciones actuales del SDK Web.
+### Sesiones del SDK Web atribuidas al usuario incorrecto
 
-## Registrar eventos personalizados con GTM {#logging-custom-events-with-gtm}
+Si GTM activa las etiquetas de inicialización o de eventos de Braze antes de que tu aplicación identifique al usuario que ha iniciado sesión, las sesiones y eventos pueden asociarse al perfil incorrecto. Inicializa el SDK Web, llama a `changeUser()` con el `external_id` del usuario que ha iniciado sesión, y luego llama a `openSession()` antes de cualquier etiqueta que registre eventos o establezca atributos. Utiliza la secuenciación de etiquetas de GTM o los desencadenantes de consentimiento para que las etiquetas de Braze solo se ejecuten después de que tu flujo de autenticación se complete.
 
-Puedes registrar eventos personalizados utilizando una etiqueta **Custom HTML** en GTM. Este enfoque utiliza la [capa de datos](https://developers.google.com/tag-platform/tag-manager/datalayer) de GTM para pasar datos de eventos desde tu sitio a una etiqueta de GTM que llama al SDK Web de Braze.
+### Registro en consola del SDK Web con Shopify o instalaciones mediante etiqueta de script
 
-### Paso 1: Enviar el evento a la capa de datos {#step-1-push-the-event-to-the-data-layer}
+La integración de la aplicación de Shopify carga el SDK Web con el registro en consola desactivado. Configura el registro en tu etiqueta de inicialización de GTM o en las opciones de `initialize()`. El panel de Braze no incluye un control de registro para estos cargadores.
 
-En el código de tu sitio, envía un evento a la capa de datos donde quieras desencadenar el evento personalizado. Por ejemplo, para registrar un evento personalizado cuando se hace clic en un botón:
+Si los registros de Braze aparecen en la consola del navegador, elimina `enableLogging: true` de la etiqueta de inicialización de GTM o del HTML personalizado antes de publicar en producción. Después de la inicialización, utiliza `toggleLogging()` o el parámetro de URL `?brazeLogging=true`. Para ver todas las opciones del SDK Web, consulta [Registro detallado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging).
 
-```html
-<button onclick="dataLayer.push({'event': 'my_custom_event'});">Track Event</button>
-```
+Si Braze no se inicializa o los eventos no aparecen como se espera, confirma que tu contenedor de GTM está publicado, que los desencadenantes y el orden de activación de las etiquetas están alineados con tu [ciclo de vida y estrategia de inicialización]({{site.baseurl}}/developer_guide/sdk_integration) del SDK, y que los dispositivos de prueba no están bloqueando los endpoints de Braze.
 
-### Paso 2: Crear un desencadenante en GTM {#step-2-create-a-trigger-in-gtm}
-
-1. En tu contenedor de GTM, ve a **Triggers** y crea un nuevo desencadenante.
-2. Establece el **Trigger Type** en **Custom Event**.
-3. Establece el **Event Name** con el mismo valor que enviaste a la capa de datos (por ejemplo, `my_custom_event`).
-4. Elige cuándo debe activarse el desencadenante (por ejemplo, **All Custom Events**).
-
-### Paso 3: Crear una etiqueta HTML personalizada {#step-3-create-a-custom-html-tag}
-
-1. En GTM, ve a **Tags** y crea una nueva etiqueta.
-2. Establece el **Tag Type** en **Custom HTML**.
-3. En el campo HTML, añade lo siguiente:
-
-    ```html
-    <script>
-    window.braze.logCustomEvent("my_custom_event");
-    </script>
-    ```
-
-4. En **Triggering**, selecciona el desencadenante que creaste en el paso 2.
-5. Guarda y publica tu contenedor.
-
-Para incluir propiedades del evento, pásalas como segundo argumento:
-
-```html
-<script>
-window.braze.logCustomEvent("my_custom_event", {"property_key": "property_value"});
-</script>
-```
-
-## Política de consentimiento de usuarios de la UE de Google {#googles-eu-user-consent-policy}
-
-{% alert important %}
-Google está actualizando su [Política de consentimiento de usuarios de la UE](https://www.google.com/about/company/user-consent-policy/) en respuesta a los cambios en la [Ley de Mercados Digitales (DMA)](https://ads-developers.googleblog.com/2023/10/updates-to-customer-match-conversion.html), que está en vigor desde el 6 de marzo de 2024. Este nuevo cambio requiere que los anunciantes divulguen cierta información a sus usuarios finales del EEE y del Reino Unido, así como que obtengan los consentimientos necesarios de ellos. Consulta la siguiente documentación para obtener más información.
-{% endalert %}
-
-Como parte de la Política de consentimiento de usuarios de la UE de Google, los siguientes atributos personalizados booleanos deben registrarse en los perfiles de usuario:
-
-- `$google_ad_user_data`
-- `$google_ad_personalization`
-
-Si configuras estos atributos a través de la integración de GTM, los atributos personalizados requieren crear una etiqueta HTML personalizada. El siguiente es un ejemplo de cómo registrar estos valores como tipos de datos booleanos (no como cadenas):
-
-```js
-<script>
-window.braze.getUser().setCustomUserAttribute("$google_ad_personalization", true);
-</script>
-```
-
-Para más información, consulta [Audience Sync con Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync).
-
-{% endsdktab %}
-
-{% sdktab android %}
-{% multi_lang_include developer_guide/android/google_tag_manager.md %}
-{% endsdktab %}
-
-{% sdktab swift %}
-{% multi_lang_include developer_guide/swift/google_tag_manager.md %}
-{% endsdktab %}
-{% endsdktabs %}
-
-## Solución de problemas {#troubleshooting}
-
-Si Braze no se inicializa o los eventos no aparecen como se esperaba, confirma que tu contenedor de GTM está publicado, que los desencadenantes y el orden de activación de las etiquetas están alineados con tu [ciclo de vida y estrategia de inicialización]({{site.baseurl}}/developer_guide/sdk_integration) del SDK, y que los dispositivos de prueba no están bloqueando los endpoints de Braze.
-
-Para fallos de inicialización, verifica que la etiqueta de Braze o el proveedor de etiquetas personalizado reciba el `actionType` y los parámetros esperados (consulta las pestañas de Android, Swift y Web en esta página). Para habilitar el registro detallado mientras validas los eventos activados por GTM, habilita el registro de depuración del SDK de tu plataforma como se describe en las guías de integración de plataforma enlazadas desde esas pestañas.
+Para fallos de inicialización, verifica que la etiqueta de Braze o el proveedor de etiquetas personalizado reciba el `actionType` y los parámetros esperados (consulta las pestañas de Android, Swift y Web en esta página). Para el registro detallado mientras validas eventos activados por GTM, habilita el registro de depuración del SDK de tu plataforma como se describe en las guías de integración de plataforma enlazadas desde esas pestañas.

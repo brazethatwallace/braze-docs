@@ -15,7 +15,7 @@ noindex: true
 # Invite d'évaluation personnalisée sur l'App Store {#custom-app-store-review-prompt}
 
 {% alert note %}
-Une fois que vous avez mis en œuvre cette invite, Braze cesse de suivre automatiquement les impressions, et vous devez enregistrer vos propres [analyses]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/customization/handing_in_app_display#logging-impressions-and-clicks).
+Une fois que vous avez mis en œuvre cette invite, Braze cesse de suivre automatiquement les impressions, et vous devez enregistrer vos propres [analyses]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/customization/handling_in_app_display#logging-impressions-and-clicks).
 {% endalert %}
 
 Créer une campagne pour demander aux utilisateurs un avis sur l'App Store est une utilisation courante des messages in-app.
@@ -53,7 +53,7 @@ func before(inAppMessageDisplayed inAppMessage: ABKInAppMessage) -> ABKInAppMess
 {% endtab %}
 {% endtabs %}
 
-Dans votre code de traitement des liens profonds, ajoutez le code suivant pour traiter le lien profond `{YOUR-APP-SCHEME}:appstore-review`. Notez que vous devrez importer `StoreKit` pour utiliser `SKStoreReviewController` :
+Dans votre code de gestion des deep links, ajoutez le code suivant pour traiter le deep link `{YOUR-APP-SCHEME}:appstore-review`. Notez que vous devrez importer `StoreKit` pour utiliser `SKStoreReviewController` :
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -91,7 +91,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 Créez ensuite une campagne de messages in-app avec les éléments suivants :
 
 - La paire clé-valeur `"Appstore Review" : "true"`
-- Le comportement au clic défini sur « Deep Link Into App », en utilisant le lien profond `{YOUR-APP-SCHEME}:appstore-review`.
+- Le comportement au clic défini sur « Deep Link Into App », en utilisant le deep link `{YOUR-APP-SCHEME}:appstore-review`.
 
 {% endraw %}
 

@@ -6,7 +6,6 @@ layout: api_page
 page_order: 4.5
 page_type: reference
 description: "Este artigo detalha o endpoint síncrono de rastreamento de usuários da Braze."
-
 ---
 {% api %}
 # Criar e atualizar usuários (síncrono) {#create-and-update-users-synchronous}
@@ -32,7 +31,7 @@ Por exemplo, se você estiver enviando solicitações consecutivas para o mesmo 
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key) com a permissão `users.track.sync`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics) com a permissão `users.track.sync`.
 
 Os clientes que usam a API para chamadas de servidor para servidor podem precisar adicionar `rest.iad-01.braze.com` à lista de permissões se estiverem protegidos por um firewall.
 

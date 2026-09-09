@@ -10,7 +10,7 @@ channel: email
 
 # Bonnes pratiques pour les e-mails {#email-guidelines}
 
-> Lorsque vous créez votre campagne e-mail, il est important de garder à l'esprit la manière dont vos messages sont reçus par vos différents utilisateurs et fournisseurs de services d'e-mailing (ESP).
+> Lorsque vous créez votre campagne e-mail, il est important de garder à l'esprit la manière dont vos messages sont reçus par vos différents utilisateurs et fournisseurs de services d'e-mail marketing (fournisseur de services d'e-mailing).
 
 ## Généralités {#general}
 
@@ -21,7 +21,7 @@ Voici quelques conseils rapides à garder à l'esprit lors de la création de vo
 - Les images doivent faire moins de 5&nbsp;Mo. Nous recommandons d'utiliser les formats PNG, JPEG ou GIF pour une compatibilité maximale. Évitez les formats SVG et WebP, car de nombreux clients de messagerie majeurs ne les prennent pas encore en charge.
 - Ne définissez pas de hauteur ni de largeur pour les images, car cela peut entraîner des espaces blancs inutiles dans un e-mail dégradé.
 - Les balises `div` ne doivent pas être utilisées, car la plupart des clients de messagerie ne prennent pas en charge leur utilisation. Utilisez plutôt des tableaux imbriqués.
-- Évitez d'utiliser JavaScript, car il ne fonctionne avec aucun fournisseur de services d'e-mailing.
+- Évitez d'utiliser JavaScript, car il ne fonctionne avec aucun fournisseur de services d'e-mail marketing.
 - Évitez les propriétés CSS `position: absolute` et `position: relative` dans les modèles d'e-mail. La plupart des clients de messagerie ne prennent pas en charge le positionnement CSS, ce qui entraîne des écarts de mise en page entre l'aperçu Braze et les e-mails livrés. Utilisez des mises en page basées sur des tableaux pour obtenir des effets de superposition ou de chevauchement.
 - Braze améliore les temps de chargement en utilisant un CDN global pour héberger toutes les images d'e-mail.
 - Sur mobile, les colonnes d'images sont étroites (~100 px chacune), de sorte que les rangées multi-images s'affichent correctement (par exemple, quatre images ≈ quatre colonnes utilisables).

@@ -6,7 +6,6 @@ page_order: 6
 layout: api_page
 page_type: reference
 description: "이 문서에서는 글로벌 컨트롤 그룹의 사용자 내보내기 Braze 엔드포인트에 대해 자세히 설명합니다."
-
 ---
 {% api %}
 # 글로벌 컨트롤 그룹별로 사용자 프로필 내보내기 {#export-user-profile-by-global-control-group}
@@ -136,7 +135,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/globa
 | `last_name` | 문자열 | 사용자의 성입니다. |
 | `phone` | 문자열 | E.164 형식의 사용자 전화번호입니다. |
 | `purchase`s | 배열 | 이 사용자가 지난 90일 동안 한 구매입니다. |
-| `random_bucket` | 정수 | 무작위 사용자 세그먼트를 균일하게 분산시키는 데 사용되는 사용자의 [무작위 버킷 번호]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events#random-bucket-number-event)입니다. |
+| `random_bucket` | 정수 | 무작위 사용자 세그먼트를 균일하게 분산시키는 데 사용되는 사용자의 [무작위 버킷 번호]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events#random-bucket-number-update-events)입니다. |
 | `time_zone` | 문자열 | IANA 시간대 데이터베이스와 동일한 형식의 사용자 시간대입니다. |
 | `total_revenue` | 플로트 | 이 사용자에게 귀속된 총 매출입니다. 총 매출은 사용자가 수신한 Campaigns 및 Canvases의 전환 기간 동안 구매한 금액을 기준으로 계산됩니다. |
 | `uninstalled_at` | 타임스탬프 | 사용자가 앱을 삭제한 날짜와 시간입니다. 앱이 삭제되지 않은 경우 생략됩니다. |

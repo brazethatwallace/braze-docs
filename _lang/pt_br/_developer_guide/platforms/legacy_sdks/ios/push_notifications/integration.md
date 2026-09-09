@@ -30,36 +30,36 @@ noindex: true
 
 # Integração push {#push-integration}
 
-## Etapa 1: Fazer upload do seu token APNs {#step-1-upload-your-apns-token}
+## Etapa 1: Faça upload do seu token de APNs {#step-1-upload-your-apns-token}
 
 {% multi_lang_include developer_guide/swift/apns_token.md %}
 
-## Etapa 2: Ativar os recursos de push {#step-2-enable-push-capabilities}
+## Etapa 2: Ative as capacidades de push {#step-2-enable-push-capabilities}
 
-Nas configurações do projeto, certifique-se de que, na guia **Capabilities**, o recurso de **Push Notifications** esteja ativado.
+Nas configurações do seu projeto, certifique-se de que, na guia **Capabilities**, a capacidade **Push Notifications** esteja ativada.
 
-![Nas configurações do projeto, certifique-se de que, na guia Capabilities, o recurso de Push Notifications esteja ativado.]({% image_buster /assets/img_archive/Enable_push_capabilities.png %})
+![Nas configurações do seu projeto, certifique-se de que, na guia Capabilities, a capacidade Push Notifications esteja ativada.]({% image_buster /assets/img_archive/Enable_push_capabilities.png %})
 
-Se tiver certificados push de desenvolvimento e produção separados, desmarque a caixa **Automatically manage signing** na guia **General**. Isso permitirá que você escolha diferentes perfis de provisionamento para cada configuração de compilação, pois o recurso de assinatura automática de código do Xcode só faz a assinatura de desenvolvimento.
+Se você tiver certificados de push separados para desenvolvimento e produção, desmarque a caixa **Automatically manage signing** na guia **General**. Isso permitirá que você escolha perfis de provisionamento diferentes para cada configuração de compilação, já que o recurso de assinatura automática de código do Xcode faz apenas a assinatura de desenvolvimento.
 
-![Configurações do projeto do Xcode mostrando a guia "General". Nessa guia, a opção "Automatically manage signing" está desmarcada.]({% image_buster /assets/img_archive/xcode8_auto_signing.png %})
+![Configurações do projeto no Xcode mostrando a guia "general". Nessa guia, a opção "Automatically manage signing" está desmarcada.]({% image_buster /assets/img_archive/xcode8_auto_signing.png %})
 
-## Etapa 3: Registre-se para receber notificações por push {#step-3-register-for-push-notifications}
+## Etapa 3: Registrar-se para notificações por push {#step-3-register-for-push-notifications}
 
-O exemplo de código apropriado deve ser incluído no método delegado `application:didFinishLaunchingWithOptions:` do seu app para que o dispositivo dos seus usuários se registre com APNs. Chame todo o código de integração push na thread principal do app.
+O trecho de código apropriado deve ser incluído no método delegado `application:didFinishLaunchingWithOptions:` do seu app para que os dispositivos dos seus usuários se registrem no APNs. Certifique-se de chamar todo o código de integração de push na thread principal do seu aplicativo.
 
-A Braze também fornece categorias de push padrão para suporte ao botão de ação por push, que devem ser adicionadas manualmente ao seu código de registro de push. Consulte os [botões de ação por push]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/action_buttons) para obter etapas adicionais de integração.
+A Braze também fornece categorias de push padrão para suporte a botões de ação por push, que devem ser adicionadas manualmente ao seu código de registro de push. Consulte [botões de ação por push]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/action_buttons) para etapas adicionais de integração.
 
 {% alert warning %}
-Se você implementou um prompt de push personalizado, conforme descrito em nossas [práticas recomendadas de push]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/troubleshooting), certifique-se de chamar o seguinte código **toda vez que o aplicativo for executado** após a concessão de permissões de push ao seu aplicativo. **Os apps precisam se registrar novamente no APNs, pois [os tokens de dispositivos podem mudar arbitrariamente](https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/BackgroundExecution/BackgroundExecution.html).**
+Se você implementou um prompt de push personalizado conforme descrito em nossas [melhores práticas de push]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/troubleshooting), certifique-se de que está chamando o código a seguir **toda vez que o app for executado** após o usuário conceder permissões de push ao seu app. **Os apps precisam se registrar novamente no APNs, pois os [tokens de dispositivo podem mudar arbitrariamente](https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/BackgroundExecution/BackgroundExecution.html).**
 {% endalert %}
 
 ### Usando o framework UserNotification (iOS 10+) {#using-usernotification-framework-ios-10}
 
-Se estiver usando o framework `UserNotifications` (recomendado) lançado no iOS 10, adicione o seguinte código ao método `application:didFinishLaunchingWithOptions:` do delegado do seu app.
+Se você está usando o framework `UserNotifications` (recomendado), introduzido no iOS 10, adicione o código a seguir ao método `application:didFinishLaunchingWithOptions:` do delegado do seu app.
 
 {% alert important %}
-O seguinte exemplo de código inclui integração para autenticação push provisória (linhas 5 e 6). Se você não planeja usar autorização provisória no seu app, pode remover as linhas de código que adicionam `UNAuthorizationOptionProvisional` às opções de `requestAuthorization`.<br>Visite [opções de notificação do iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options) para saber mais sobre a autenticação provisória push.
+O trecho de código a seguir inclui integração para autenticação de push provisória (linhas 5 e 6). Se você não planeja usar autorização provisória no seu app, pode remover as linhas de código que adicionam `UNAuthorizationOptionProvisional` às opções de `requestAuthorization`.<br>Visite [Opções de notificação do iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options) para saber mais sobre autenticação de push provisória.
 {% endalert %}
 
 {% tabs %}
@@ -113,12 +113,12 @@ if #available(iOS 10, *) {
 
 
 {% alert warning %}
-Você deve atribuir seu objeto delegado usando `center.delegate = self` de forma síncrona antes que seu app termine de iniciar, de preferência em `application:didFinishLaunchingWithOptions:`. Se não fizer isso, seu app pode perder notificações por push recebidas. Consulte a documentação da Apple [`UNUserNotificationCenterDelegate`](https://developer.apple.com/documentation/usernotifications/unusernotificationcenterdelegate) para saber mais.
+Você deve atribuir o objeto delegado usando `center.delegate = self` de forma síncrona antes que o app termine de ser inicializado, preferencialmente em `application:didFinishLaunchingWithOptions:`. Caso contrário, seu app pode perder notificações por push recebidas. Visite a documentação da Apple sobre [`UNUserNotificationCenterDelegate`](https://developer.apple.com/documentation/usernotifications/unusernotificationcenterdelegate) para saber mais.
 {% endalert %}
 
 ### Sem o framework UserNotifications {#without-usernotifications-framework}
 
-Se não estiver usando o framework `UserNotifications`, adicione o seguinte código ao método `application:didFinishLaunchingWithOptions:` do delegado do seu app:
+Se você não está usando o framework `UserNotifications`, adicione o código a seguir ao método `application:didFinishLaunchingWithOptions:` do delegado do seu app:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -142,15 +142,14 @@ UIApplication.shared.registerForRemoteNotifications()
 {% endtab %}
 {% endtabs %}
 
+## Etapa 4: Registre tokens por push na Braze {#step-4-register-push-tokens-with-braze}
 
-## Etapa 4: Registrar tokens por push na Braze {#step-4-register-push-tokens-with-braze}
-
-Quando o registro de APNs estiver concluído, o método a seguir deverá ser alterado para passar o `deviceToken` resultante para a Braze, de modo que o usuário fique habilitado para notificações por push:
+Após a conclusão do registro no APNs, o método a seguir deve ser alterado para passar o `deviceToken` resultante para a Braze, de modo que o usuário fique habilitado para notificações por push:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-Adicione o seguinte código ao seu método `application:didRegisterForRemoteNotificationsWithDeviceToken:`:
+Adicione o código a seguir ao seu método `application:didRegisterForRemoteNotificationsWithDeviceToken:`:
 
 ```objc
 [[Appboy sharedInstance] registerDeviceToken:deviceToken];
@@ -159,7 +158,7 @@ Adicione o seguinte código ao seu método `application:didRegisterForRemoteNoti
 {% endtab %}
 {% tab swift %}
 
-Adicione o seguinte código ao método `application(_:didRegisterForRemoteNotificationsWithDeviceToken:)` do seu app:
+Adicione o código a seguir ao método `application(_:didRegisterForRemoteNotificationsWithDeviceToken:)` do seu app:
 
 ```swift
 Appboy.sharedInstance()?.registerDeviceToken(deviceToken)
@@ -169,16 +168,16 @@ Appboy.sharedInstance()?.registerDeviceToken(deviceToken)
 {% endtabs %}
 
 {% alert important %}
-O método delegado `application:didRegisterForRemoteNotificationsWithDeviceToken:` é chamado toda vez depois que `[[UIApplication sharedApplication] registerForRemoteNotifications]` é chamado. Se você estiver migrando para a Braze de outro serviço de push e o dispositivo do seu usuário já estiver registrado no APNs, este método coletará tokens de registros existentes na próxima vez que for chamado, e os usuários não precisarão aceitar novamente o push.
+O método delegado `application:didRegisterForRemoteNotificationsWithDeviceToken:` é chamado toda vez após `[[UIApplication sharedApplication] registerForRemoteNotifications]` ser chamado. Se você estiver migrando para a Braze a partir de outro serviço de push e o dispositivo do seu usuário já estiver registrado no APNs, esse método coletará tokens de registros existentes na próxima vez que for chamado, e os usuários não precisarão aceitar novamente as notificações por push.
 {% endalert %}
 
 ## Etapa 5: Ativar o tratamento de push {#step-5-enable-push-handling}
 
-O código a seguir passa as notificações por push recebidas para a Braze e é necessário para o registro da análise de dados por push e o tratamento de links. Certifique-se de chamar todo o código de integração push na thread principal do seu aplicativo.
+O código a seguir encaminha as notificações por push recebidas para a Braze e é necessário para registrar análises de push e tratamento de links. Certifique-se de chamar todo o código de integração de push na thread principal do seu aplicativo.
 
 ### iOS 10+
 
-Ao desenvolver para iOS 10 ou posteriores, recomendamos integrar o framework `UserNotifications` e fazer o seguinte:
+Ao compilar para iOS 10+, recomendamos que você integre o framework `UserNotifications` e faça o seguinte:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -201,7 +200,7 @@ Em seguida, adicione o seguinte código ao método `(void)userNotificationCenter
 
 **Tratamento de push em primeiro plano**
 
-Para exibir uma notificação por push enquanto o app estiver em primeiro plano, implemente `userNotificationCenter:willPresentNotification:withCompletionHandler:`:
+Para exibir uma notificação por push enquanto o app está em primeiro plano, implemente `userNotificationCenter:willPresentNotification:withCompletionHandler:`:
 
 ```objc
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center
@@ -215,7 +214,7 @@ Para exibir uma notificação por push enquanto o app estiver em primeiro plano,
 }
 ```
 
-Se a notificação em primeiro plano for clicada, o delegado de push do iOS 10 `userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:` será chamado, e a Braze registrará um evento de clique de push.
+Se a notificação em primeiro plano for clicada, o delegate de push do iOS 10 `userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:` será chamado, e a Braze registrará um evento de clique de push.
 
 {% endtab %}
 {% tab swift %}
@@ -238,7 +237,7 @@ Appboy.sharedInstance()?.userNotificationCenter(center,
 
 **Tratamento de push em primeiro plano**
 
-Para exibir uma notificação por push enquanto o app estiver em primeiro plano, implemente `userNotificationCenter(_:willPresent:withCompletionHandler:)`:
+Para exibir uma notificação por push enquanto o app está em primeiro plano, implemente `userNotificationCenter(_:willPresent:withCompletionHandler:)`:
 
 ```swift
 func userNotificationCenter(_ center: UNUserNotificationCenter,
@@ -252,21 +251,21 @@ func userNotificationCenter(_ center: UNUserNotificationCenter,
 }
 ```
 
-Se a notificação em primeiro plano for clicada, o delegado de push do iOS 10 `userNotificationCenter(_:didReceive:withCompletionHandler:)` será chamado, e a Braze registrará um evento de clique de push.
+Se a notificação em primeiro plano for clicada, o delegate de push do iOS 10 `userNotificationCenter(_:didReceive:withCompletionHandler:)` será chamado, e a Braze registrará um evento de clique de push.
 
 {% endtab %}
 {% endtabs %}
 
-### Pré-iOS 10 {#pre-ios-10}
+### Anterior ao iOS 10 {#pre-ios-10}
 
-O iOS 10 atualizou o comportamento de modo que não chama mais `application:didReceiveRemoteNotification:fetchCompletionHandler:` quando um push é clicado. Por isso, se você não atualizar o desenvolvimento para o iOS 10 e posteriores e usar o framework `UserNotifications`, terá que chamar a Braze a partir de ambos os delegados de estilo antigo, o que é uma ruptura com a nossa integração anterior.
+O iOS 10 alterou o comportamento de modo que `application:didReceiveRemoteNotification:fetchCompletionHandler:` não é mais chamado quando um push é clicado. Por esse motivo, se você não atualizar para compilar com iOS 10+ e usar o framework `UserNotifications`, será necessário chamar a Braze a partir de ambos os delegates antigos, o que é uma mudança em relação à nossa integração anterior.
 
-Para apps que utilizam SDKs < iOS 10, use as seguintes instruções:
+Para apps compilados com SDKs anteriores ao iOS 10, use as seguintes instruções:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-Para ativar o rastreamento de abertura nas notificações por push, adicione o seguinte código ao método `application:didReceiveRemoteNotification:fetchCompletionHandler:` do seu app:
+Para ativar o rastreamento de abertura em notificações por push, adicione o seguinte código ao método `application:didReceiveRemoteNotification:fetchCompletionHandler:` do seu app:
 
 ```objc
 [[Appboy sharedInstance] registerApplication:application
@@ -274,7 +273,7 @@ Para ativar o rastreamento de abertura nas notificações por push, adicione o s
                       fetchCompletionHandler:completionHandler];
 ```
 
-Para dar suporte à análise de dados por push no iOS 10, você também deve adicionar o seguinte código ao método delegado `application:didReceiveRemoteNotification:` do seu app:
+Para dar suporte à análise de push no iOS 10, você também deve adicionar o seguinte código ao método delegate `application:didReceiveRemoteNotification:` do seu app:
 
 ```objc
 [[Appboy sharedInstance] registerApplication:application
@@ -284,7 +283,7 @@ Para dar suporte à análise de dados por push no iOS 10, você também deve adi
 {% endtab %}
 {% tab swift %}
 
-Para ativar o rastreamento de abertura nas notificações por push, adicione o seguinte código ao método `application(_:didReceiveRemoteNotification:fetchCompletionHandler:)` do seu app:
+Para ativar o rastreamento de abertura em notificações por push, adicione o seguinte código ao método `application(_:didReceiveRemoteNotification:fetchCompletionHandler:)` do seu app:
 
 ```swift
 Appboy.sharedInstance()?.register(application,
@@ -292,7 +291,7 @@ Appboy.sharedInstance()?.register(application,
   fetchCompletionHandler: completionHandler)
 ```
 
-Para dar suporte à análise de dados por push no iOS 10, você também deve adicionar o seguinte código ao método delegado `application(_:didReceiveRemoteNotification:)` do seu app:
+Para dar suporte à análise de push no iOS 10, você também deve adicionar o seguinte código ao método delegate `application(_:didReceiveRemoteNotification:)` do seu app:
 
 ```swift
 Appboy.sharedInstance()?.register(application,
@@ -304,8 +303,8 @@ Appboy.sharedInstance()?.register(application,
 
 ## Etapa 6: Deep linking {#step-6-deep-linking}
 
-O deep linking de um push para o app é tratado automaticamente por meio da nossa documentação padrão de integração de push. Se quiser saber mais sobre como adicionar deep links a locais específicos em seu app, consulte nossos [casos de uso avançados]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/advanced_use_cases/linking#linking-implementation).
+O deep linking de uma notificação por push para o app é tratado automaticamente por meio de nossa documentação padrão de integração de push. Se você quiser saber mais sobre como adicionar deep links a locais específicos do seu app, consulte nossos [casos de uso avançados]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/advanced_use_cases/linking#linking-handling-customization).
 
-## Etapa 7: Testes de unidade (opcional) {#step-7-unit-tests-optional}
+## Etapa 7: Testes unitários (opcional) {#step-7-unit-tests-optional}
 
-Para adicionar cobertura de teste para as etapas de integração que você acabou de seguir, implemente [testes unitários de push]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/unit_tests).
+Para adicionar cobertura de testes às etapas de integração que você acabou de seguir, implemente [testes unitários de push]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/unit_tests).

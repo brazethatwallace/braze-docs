@@ -3,7 +3,7 @@ nav_title: Segment para Currents
 article_title: Segment para Currents
 page_order: 2
 alias: /partners/segment_for_currents/
-description: "Este artigo de referência descreve a parceria entre o Braze Currents e a Segment, uma plataforma de dados do cliente que coleta e encaminha informações entre fontes em sua pilha de marketing."
+description: "Este artigo de referência descreve a parceria entre o Braze Currents e a Segment, uma CDP que coleta e encaminha informações entre fontes em sua pilha de marketing."
 page_type: partner
 tool: Currents
 search_tag: Partner
@@ -12,7 +12,7 @@ search_tag: Partner
 
 # Segment para Currents {#segment-for-currents}
 
-> A [Segment](https://segment.com) é uma plataforma de dados do cliente que ajuda você a coletar, limpar e ativar os dados de seus clientes. Este artigo de referência fornecerá uma visão geral da conexão entre o Braze Currents e a Segment e descreverá os requisitos e processos para a implementação e o uso adequados.
+> A [Segment](https://segment.com) é uma CDP que ajuda você a coletar, limpar e ativar os dados de seus clientes. Este artigo de referência fornecerá uma visão geral da conexão entre o Braze Currents e a Segment e descreverá os requisitos e processos para a implementação e o uso adequados.
 
 A integração da Braze com a Segment permite que você utilize o Braze Currents para exportar seus eventos da Braze para a Segment, a fim de gerar análises de dados mais detalhadas sobre conversões, retenção e uso do produto.
 

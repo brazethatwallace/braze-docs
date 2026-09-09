@@ -31,29 +31,29 @@ Adicione detalhes internos e públicos que ajudam a organizar, personalizar a ma
 
 #### Detalhes gerais {#general-details}
 
-Insira um nome e uma descrição para a landing page. Esses detalhes são usados para pesquisar a página no seu espaço de trabalho interno. Eles não serão visíveis para seus clientes.
+Insira um nome e uma descrição para a landing page. Esses detalhes são usados para buscar a página no seu espaço de trabalho interno. Eles não serão visíveis para seus clientes.
 
 #### Detalhes do site {#site-details}
 
-Configure metatags para personalizar como sua página aparece na guia do navegador e otimizar para resultados de mecanismos de busca. Esses detalhes serão visíveis para seus clientes.
+Configure metatags para personalizar como sua página aparece na guia do navegador e otimizar para resultados de mecanismos de busca. Esses detalhes são visíveis para seus clientes.
 
 Recomendamos seguir estas práticas recomendadas:
 
 | Campo | Descrição | Recomendações |
 | --- | --- | --- |
 | Título do site | O título exibido na guia do navegador. | Use até 60 caracteres. |
-| Meta descrição | Um snippet de texto exibido nos resultados de busca. | Use entre 140 e 160 caracteres. |
+| Meta descrição | Um trecho de texto exibido nos resultados de busca. | Use entre 140 e 160 caracteres. |
 | Favicon | O ícone que aparece ao lado do título do site na guia do navegador. | Use uma proporção de 1:1 e um tipo de arquivo compatível: PNG, JPEG ou ICO. |
-| URL da página | Este é o caminho da URL para sua landing page. Esse valor também é referenciado ao usar [Liquid tags de landing page]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) que você pode incorporar em uma mensagem para identificar automaticamente quando os usuários enviam seu formulário. | Esse valor deve ser único em todo o seu espaço de trabalho. |
+| URL da página | Este é o caminho da URL para sua landing page. Esse valor também é referenciado ao usar [Liquid tags de landing page]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) que você pode incorporar em uma mensagem para identificar automaticamente quando os usuários enviam o formulário. | Esse valor deve ser único em todo o seu espaço de trabalho. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Detalhes do site" }
 
 ### Etapa 3: Personalizar a página {#step-3-customize-the-page}
 
-Se ainda não fez isso, selecione **Save as draft**. Para começar a personalizar sua página, selecione **Edit landing page**. O editor de arrastar e soltar será pré-carregado com um modelo padrão que você pode personalizar para se adequar ao seu caso de uso.
+Se você ainda não fez isso, selecione **Save as draft**. Para começar a personalizar sua página, selecione **Edit landing page**. O editor de arrastar e soltar pré-carrega um modelo padrão que você pode personalizar de acordo com seu caso de uso.
 
-![Um exemplo de landing page sendo criada no editor de arrastar e soltar.]({% image_buster /assets/img/landing_pages/template.png %})
+![Exemplo de uma landing page sendo criada no editor de arrastar e soltar.]({% image_buster /assets/img/landing_pages/template.png %})
 
-O editor usa dois tipos de componentes para a composição de landing pages: blocos básicos e blocos de formulário. Todos os blocos devem ser colocados em uma linha. Para uma referência dedicada de cada bloco e suas propriedades, consulte [Blocos do editor (landing pages)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=landing%20pages).
+O editor usa dois tipos de componentes para composição de landing pages: blocos básicos e blocos de formulário. Todos os blocos devem ser colocados em uma linha. Para uma referência completa de cada bloco e suas propriedades, consulte [Blocos do editor (landing pages)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=landing%20pages).
 
 ![A seção "Build" contendo "Rows" e "Form Blocks".]({% image_buster /assets/img/landing_pages/dnd.png %}){: style="max-width:35%;"}
 
@@ -64,10 +64,10 @@ Você pode usar esses blocos para adicionar conteúdo e personalizar o layout da
 
 | Tipo de bloco | Descrição |
 |-------------|-------------|
-| Título | Um bloco de texto para adicionar um cabeçalho ou título ao seu conteúdo. Útil para estruturar seções e melhorar a legibilidade. |
-| Parágrafo | Um bloco de texto para descrições mais longas ou contexto adicional. Suporta formatação de rich text. |
+| Título | Um bloco de texto para adicionar um título ou cabeçalho ao seu conteúdo. Útil para estruturar seções e melhorar a legibilidade. |
+| Parágrafo | Um bloco de texto para descrições mais longas ou contexto adicional. Suporta formatação de texto rico. |
 | Botão | Um elemento clicável que direciona os usuários para uma ação específica, como abrir um link ou enviar um formulário. |
-| Botão de opção | Adiciona uma lista de opções das quais os usuários devem selecionar uma. Quando enviado, o perfil do usuário registra o atributo personalizado associado. |
+| Botão de rádio | Adiciona uma lista de opções da qual os usuários devem selecionar uma. Quando enviado, o perfil do usuário registra o atributo personalizado associado. |
 | Imagem | Um bloco para exibir imagens. Você pode fazer upload de uma imagem ou fornecer uma URL para referenciar uma fonte externa. |
 | Link | Um hiperlink que os usuários podem clicar para navegar até uma URL especificada. Pode ser incorporado dentro do texto ou ser independente. |
 | Espaçador | Um bloco invisível que adiciona espaçamento vertical entre elementos para melhorar o layout e a legibilidade. |
@@ -76,9 +76,9 @@ Você pode usar esses blocos para adicionar conteúdo e personalizar o layout da
 
 #### Texto com span {#span-text}
 
-Para aplicar estilos específicos a blocos de texto sem código personalizado, destaque o texto que deseja estilizar e selecione **Wrap with span for style**.
+Para aplicar estilos específicos a blocos de texto sem código personalizado, destaque o texto que você deseja estilizar e selecione **Wrap with span for style**.
 
-![Caixa de texto com diferentes seções de texto estilizadas, como diferentes tamanhos e cores de fonte, e uma seção destacada que exibe uma barra de ferramentas com a opção "Wrap with span for style".]({% image_buster /assets/img/landing_pages/wrap_with_span.png %}){: style="max-width:50%;"}
+![Caixa de texto com diferentes seções de texto estilizadas, como tamanhos e cores de fonte diferentes, e uma seção destacada que exibe uma barra de ferramentas com a opção "Wrap with span for style".]({% image_buster /assets/img/landing_pages/wrap_with_span.png %}){: style="max-width:50%;"}
 
 Ajuste as propriedades do span para atualizar o estilo do texto, incluindo:
 
@@ -94,7 +94,7 @@ Ajuste as propriedades do span para atualizar o estilo do texto, incluindo:
 {% endtab %}
 {% tab Blocos de formulário %}
 
-Você pode usar esses blocos para criar um formulário que vincula os dados enviados pelo usuário ao perfil dele na Braze. Lembre-se de que, se você usar blocos de formulário, também precisará criar uma landing page adicional para o estado de confirmação.
+Você pode usar esses blocos para criar um formulário que vincula os dados enviados pelos usuários aos perfis deles na Braze. Lembre-se de que, se usar blocos de formulário, você também precisará criar uma landing page adicional para o estado de confirmação.
 
 ![Um bloco de formulário que registra um novo cliente e envia um código de desconto para o e-mail dele.]({% image_buster /assets/img/landing_pages/form.png %}){: style="max-width:70%;"}
 
@@ -104,46 +104,50 @@ Você pode dividir um formulário longo em várias etapas, cada uma com seus pr�
 
 | Tipo de bloco | Descrição |
 |---------------|-------------|
-| Captura de e-mail | Um campo de formulário para endereços de e-mail. Quando enviado, o endereço de e-mail é adicionado ao perfil desse usuário na Braze. |
+| Captura de e-mail | Um campo de formulário para endereços de e-mail. Quando enviado, o endereço de e-mail é adicionado ao perfil do usuário na Braze. |
 | Captura de telefone | Um campo de formulário para números de telefone. Quando enviado, o usuário é inscrito no seu grupo de inscrições de SMS ou WhatsApp. |
 | Campo de entrada | Um campo de formulário que suporta atributos padrão (como nome e sobrenome) ou uma string de atributo personalizado de sua escolha. |
-| Menu suspenso | Os usuários podem selecionar um item de uma lista predefinida. Você pode adicionar qualquer string de atributo personalizado à lista. |
-| Caixa de seleção | Se um usuário marcar a caixa, o atributo do bloco é definido como `true`. Se não for marcada, o atributo é definido como `false`. |
-| Grupo de caixas de seleção | Os usuários podem selecionar entre várias opções apresentadas. Os valores são definidos ou adicionados a um atributo personalizado de array definido. |
-| Gerenciar inscrições | Uma lista de verificação de grupos de inscrições para e-mail. Os usuários selecionam a quais grupos desejam se juntar ao enviar o formulário. Para saber mais, consulte [Bloco Gerenciar inscrições]({{site.baseurl}}/user_guide/messaging/landing_pages/manage_subscriptions). |
+| Dropdown | Os usuários podem selecionar um item de uma lista predefinida. Você pode adicionar qualquer string de atributo personalizado à lista. |
+| Caixa de seleção | Se o usuário marcar a caixa, o atributo do bloco é definido como `true`. Se deixada desmarcada, o atributo é definido como `false`. |
+| Grupo de caixas de seleção | Os usuários podem selecionar entre múltiplas opções apresentadas. Os valores são definidos ou adicionados a um atributo personalizado de tipo array definido. |
+| Gerenciar inscrições | Uma lista de verificação de grupos de inscrições de e-mail, SMS ou WhatsApp. Os usuários selecionam em quais grupos desejam participar ao enviar o formulário. Cada bloco é para um canal. Para saber mais, consulte [Bloco de gerenciamento de inscrições]({{site.baseurl}}/user_guide/messaging/landing_pages/manage_subscriptions). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Texto com span" }
 
 {% alert important %}
-Após criar uma landing page com um formulário, certifique-se de incorporar a [Liquid tag de landing page]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) na sua mensagem. Com essa tag, a Braze pode identificar e atualizar automaticamente os perfis de usuário existentes quando eles enviam o formulário.
+Após criar uma landing page com formulário, certifique-se de incorporar a [Liquid tag de landing page]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) na sua mensagem. Com essa tag, a Braze pode identificar e atualizar automaticamente os perfis de usuários existentes quando eles enviam o formulário.
 {% endalert %}
 
 {% endtab %}
 {% endtabs %}
 
-#### Estilos do contêiner da página {#page-container-styles}
+#### Estilos do contêiner de página {#page-container-styles}
 
-Você pode definir estilos a serem aplicados em todos os blocos de componentes relevantes na sua landing page a partir da guia **Page container**. Esses estilos se aplicam em toda a página, exceto onde você os substituir com um bloco específico.
+Você pode definir estilos a serem aplicados em todos os blocos de componentes relevantes da sua landing page na guia **Page container**. Esses estilos se aplicam em toda a página, exceto onde você os substituir com um bloco específico.
 
-Recomendamos configurar os estilos no nível do contêiner da página antes de personalizar os estilos no nível do bloco. Você também pode adicionar uma imagem de fundo para a página inteira.
+Recomendamos configurar os estilos no nível do contêiner de página antes de personalizar os estilos no nível do bloco. Você também pode adicionar uma imagem de fundo para a página inteira.
 
 ![A seção "Page container" com opções para personalizar imagens de fundo, cores, detalhes de borda e estilo de conteúdo.]({% image_buster /assets/img/landing_pages/page_container.png %}){: style="max-width:40%;"}
 
-#### Responsivo aos dispositivos dos usuários {#responsive-to-user-devices}
+#### Responsiva a dispositivos dos usuários {#responsive-to-user-devices}
 
-Você pode tornar sua landing page responsiva ao tamanho do dispositivo do usuário empilhando colunas verticalmente em telas menores. Para ativar isso, adicione uma coluna na linha que deseja tornar responsiva e ative **Vertically stack on smaller screens** na seção **Customize columns**.
+Você pode tornar sua landing page responsiva ao tamanho do dispositivo do usuário, empilhando colunas verticalmente em telas menores. Para ativar isso, adicione uma coluna na linha que deseja tornar responsiva e ative **Vertically stack on smaller screens** na seção **Customize columns**.
 
-Quando ativado, você também pode inverter a ordem de empilhamento das colunas para controlar a ordem vertical do conteúdo de várias colunas em telas menores. Isso faz com que as páginas tenham uma aparência e experiência melhores em dispositivos móveis sem código personalizado.
+Quando ativado, você também pode inverter a ordem de empilhamento das colunas para controlar a ordem vertical do conteúdo de múltiplas colunas em telas menores. Isso faz com que as páginas fiquem melhores em dispositivos móveis sem código personalizado.
 
 ![O botão "Vertically stack on smaller screens" na seção "Customize columns".]({% image_buster /assets/img/landing_pages/device_responsive_toggle.png %}){: style="max-width:50%;"}
 
-{% multi_lang_include drag_and_drop/hide_rows_and_blocks_by_device.md channel='landing_page' %}
+#### Ocultar linhas e blocos por dispositivo {#hide-rows-and-blocks-by-device}
+
+Você pode ocultar uma linha ou bloco em desktop ou em tablets e dispositivos móveis. Selecione a linha ou bloco no canvas. No painel de propriedades, selecione **Hide on** e depois selecione **Desktop** ou **Tablet and smaller devices**.
+
+Uma linha ou bloco oculto não aparece para esse tipo de dispositivo na prévia do editor de arrastar e soltar nem na landing page ativa.
 
 #### Campos opcionais e obrigatórios {#optional-and-required-fields}
 
 Você pode escolher se determinados campos de formulário são obrigatórios ou opcionais. Os campos obrigatórios devem ser preenchidos antes que o formulário possa ser enviado. Os campos opcionais podem ser deixados em branco ou desmarcados pelo usuário.
 
 {% alert note %}
-Os botões de opção são sempre obrigatórios e não podem ser definidos como opcionais. Se você precisar de um campo de escolha única opcional, considere usar um menu suspenso.
+Os botões de rádio são sempre obrigatórios e não podem ser definidos como opcionais. Se você precisar de um campo de escolha única opcional, considere usar um dropdown.
 {% endalert %}
 
 Por exemplo, para exigir a captura de consentimento antes do envio do formulário, você pode ativar **Required field input** para definir uma caixa de seleção como obrigatória com o texto de aviso apropriado.
@@ -152,17 +156,18 @@ Por exemplo, para exigir a captura de consentimento antes do envio do formulári
 
 ### Etapa 4: Criar uma página de confirmação (opcional) {#step-4-create-a-confirmation-page-optional}
 
-Se sua landing page não inclui um formulário, continue para a próxima etapa.
+Se sua landing page não inclui um formulário, prossiga para a próxima etapa.
 
 {% alert note %}
 Se o seu formulário usa um [formulário de várias etapas]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/multi_step_forms), pule esta etapa. Formulários de várias etapas incluem uma etapa de confirmação integrada e bloqueada, então você não precisa de uma página de confirmação separada.
 {% endalert %}
 
-Se sua landing page inclui um [formulário](#form-blocks), crie uma segunda landing page para servir como a experiência de confirmação. Essa página deve agradecer aos usuários ou fornecer um próximo passo após o envio do formulário.
+Se sua landing page inclui um [formulário](#form-blocks), você pode opcionalmente criar uma segunda landing page para servir como experiência de confirmação. Esta página deve agradecer aos usuários ou fornecer um próximo passo após o envio do formulário.
 
-Para vincular a página de confirmação:
-- Selecione o botão **Submit** no seu formulário
-- Use a ação **Open web URL** para vincular à sua página de confirmação
+1. Selecione o botão **Submit** no seu formulário
+2. Escolha se deseja incluir uma página de confirmação quando os usuários enviarem o formulário
+    - Use o comportamento ao clicar **Open web URL** para enviar os usuários a uma página de confirmação
+    - Use o comportamento ao clicar **None** para que os usuários permaneçam na landing page
 
 Se você não incluir uma página de confirmação, os usuários podem não saber que o formulário foi enviado com sucesso. Sempre inclua uma experiência de confirmação para completar a jornada.
 
@@ -180,8 +185,8 @@ Você pode visualizar sua landing page na guia **Preview** do editor. Após salv
 
 No editor, você também pode selecionar **Copy preview link** para compartilhar a página com revisores que não têm acesso ao dashboard.
 
-- Se sua landing page não usa Liquid, esse link é o mesmo que a URL direta de **Copy URL**, aberta no modo de prévia.
-- Se sua landing page usa Liquid e você tem o direito Landing Pages Pro, o link renderiza a página ativa sob demanda e reflete suas alterações atuais em vez de um snapshot de quando você gerou o link. O conteúdo é personalizado por usuário. A prévia exibe o favicon da Braze e não pode ser alterada.
+- Se sua landing page não usa Liquid, esse link é o mesmo que a URL direta de **Copy URL**, aberta em modo de prévia.
+- Se sua landing page usa Liquid e você tem o direito Landing Pages Pro, o link renderiza a página ativa sob demanda e reflete suas alterações atuais em vez de uma captura de quando você gerou o link. O conteúdo é personalizado por usuário. A prévia exibe o favicon da Braze e não pode ser alterada.
 
 Para links de prévia em outros canais, consulte [prévia compartilhável]({{site.baseurl}}/user_guide/messaging/governance/shareable_preview).
 
@@ -190,18 +195,18 @@ Para links de prévia em outros canais, consulte [prévia compartilhável]({{sit
 Antes de publicar, certifique-se de que:
 
 - Você não excedeu o limite de landing pages publicadas do seu plano
-- Cada página baseada em formulário está vinculada a uma [página de confirmação](#step-4-create-a-confirmation-page-optional) usando a ação **Open web URL**, ou usa um [formulário de várias etapas]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/multi_step_forms) com sua etapa de confirmação integrada
+- Cada página baseada em formulário vincula a uma [página de confirmação](#step-4-create-a-confirmation-page-optional) usando a ação **Open web URL**, ou usa um [formulário de várias etapas]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/multi_step_forms) com sua etapa de confirmação integrada
 - Todos os campos obrigatórios da página (como caminho da URL e título) estão completos
 
 Quando estiver pronto, selecione **Publish Landing Page**.
 
 {% alert note %}
-Bloqueadores de pop-up agressivos e bloqueadores de anúncios no iOS e no Safari (incluindo os controles integrados do Safari e extensões de terceiros) podem impactar negativamente o comportamento das landing pages quando um botão **Submit** do formulário também abre outra URL, seja na mesma guia ou em uma nova guia.
+Bloqueadores de pop-up agressivos e bloqueadores de anúncios no iOS e no Safari (incluindo os controles integrados do Safari e extensões de terceiros) podem impactar negativamente o comportamento das landing pages quando o botão **Submit** de um formulário também abre outra URL, seja na mesma guia ou em uma nova guia.
 {% endalert %}
 
 ## Usar modelos {#use-templates}
 
-Os modelos de landing page são pontos de partida de design reutilizáveis que ajudam você a criar landing pages mais rapidamente. Um modelo não tem URL pública e não pode ser acessado por clientes. Para criar uma landing page ativa a partir de um modelo, selecione o modelo ao criar uma nova landing page, personalize conforme necessário e publique.
+Os modelos de landing page são pontos de partida de design reutilizáveis que ajudam você a criar landing pages mais rapidamente. Um modelo não tem URL público e não pode ser visitado por clientes. Para criar uma landing page ativa a partir de um modelo, selecione o modelo ao criar uma nova landing page, personalize-o conforme necessário e publique.
 
 Os modelos podem ser acessados e gerenciados tanto no editor de landing pages quanto na página **Landing Page Templates** (**Content** > **Landing Page**). Os modelos de landing page exigem um nome e uma descrição opcional.
 
@@ -209,11 +214,11 @@ Os modelos podem ser acessados e gerenciados tanto no editor de landing pages qu
 
 Você pode visualizar, arquivar ou editar modelos de landing page. É possível duplicar seus próprios modelos de landing page (localizados em **Seus Modelos**), mas não os modelos da Braze. Ao editar uma landing page, você pode salvar sua landing page como modelo, fazer alterações no modelo ou excluir o conteúdo da landing page.
 
-![Um menu suspenso com opções para salvar, alterar e excluir uma landing page.]({% image_buster /assets/img/landing_pages/manage-lp-template.png %}){: style="max-width:60%;"}
+![Menu suspenso com opções para salvar, alterar e excluir uma landing page.]({% image_buster /assets/img/landing_pages/manage-lp-template.png %}){: style="max-width:60%;"}
 
-## Visualizar análise de dados {#view-analytics}
+## Visualizar dados de análise {#view-analytics}
 
-Para analisar a eficácia da sua landing page, acesse **Messaging** > **Landing Pages** e selecione uma landing page que você publicou. Aqui, você pode acompanhar o número de visualizações de página, cliques na página, envios de formulário e as taxas de envio da sua landing page.
+Para analisar a eficácia da sua landing page, acesse **Messaging** > **Landing Pages** e selecione uma landing page que você já publicou. Aqui, você pode acompanhar o número de visualizações de página, cliques na página, envios de formulário e as taxas de envio da sua landing page.
 
 ![A seção de análise de dados de uma landing page.]({% image_buster /assets/img/landing_pages/analytics.png %})
 

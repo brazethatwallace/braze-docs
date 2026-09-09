@@ -58,7 +58,7 @@ A tabela a seguir lista os possíveis erros retornados e as etapas de solução 
 | Erro | Solução de problemas |
 | --- | --- |
 | `401: Unauthorized` | A chave de API não tem as permissões necessárias. Verifique se sua chave de API tem permissões de `apps.get`. |
-| `403: Forbidden` | O feature flipper não está ativado para esta empresa. Entre em contato com seu gerente de sucesso do cliente para obter assistência. |
+| `403: Forbidden` | O feature flipper não está ativado para esta empresa. Entre em contato com seu CSM para obter assistência. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% endapi %}

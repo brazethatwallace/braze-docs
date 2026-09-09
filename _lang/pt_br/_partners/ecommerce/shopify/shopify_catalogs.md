@@ -12,7 +12,7 @@ description: "Este artigo de referência aborda como importar seus produtos da S
 
 Os catálogos da Shopify serão atualizados quase em tempo real à medida que você fizer edições e alterações nos produtos da sua loja Shopify. É possível enriquecer seu carrinho abandonado, a confirmação do pedido e muito mais com os detalhes e as informações mais atualizadas do produto.
 
-Além de oferecer suporte aos [dados principais de produtos da Shopify](#supported-shopify-catalog-data), você pode sincronizar coleções da Shopify, tags de produtos e metacampos de produtos com o seu catálogo da Braze. Esses campos adicionais possibilitam uma personalização mais rica, seleções de catálogo mais precisas e uma segmentação mais poderosa por meio de [extensões de segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension).
+Além de oferecer suporte aos [dados principais de produtos da Shopify](#supported-shopify-catalog-data), você pode sincronizar coleções da Shopify, tags de produtos e metacampos de produtos com o seu catálogo da Braze. Esses campos adicionais possibilitam uma personalização mais rica, seleções de catálogo mais precisas e uma segmentação mais poderosa por meio de [extensões de Segment]({{site.baseurl}}/user_guide/audience/segments/segment_extension).
 
 ## Configure sua sincronização de produtos da Shopify {#set-up}
 
@@ -71,7 +71,7 @@ Adicione tags de produtos, coleções da Shopify e metacampos na Shopify primeir
 ![Seção de sincronização de dados de produtos com a Braze, com opções para selecionar entre múltiplas configurações, incluindo coleções.]({% image_buster /assets/img/shopify/select_collections.png %})
 
 {: start="3"}
-3. Selecione até 20 metacampos pesquisáveis para sincronizar. Cada um se torna uma coluna separada no seu catálogo para uso em recursos como seleções de catálogo ou extensões de segmento.
+3. Selecione até 20 metacampos pesquisáveis para sincronizar. Cada um se torna uma coluna separada no seu catálogo para uso em recursos como seleções de catálogo ou extensões de Segment.
 - Ao nomear metacampos, observe que espaços se tornam "_" e todos os caracteres especiais são removidos para atender às restrições de nomenclatura de campos do catálogo da Braze.
 
 ![Modal para selecionar metacampos de produtos.]({% image_buster /assets/img/shopify/select_metafields.png %}){: style="max-width:80%;"}
@@ -124,7 +124,7 @@ A Braze não oferece suporte a objetos de metacampos, incluindo alguns respectiv
   - Coleções selecionadas anteriormente que não estão mais entre as 5.000 principais ainda aparecerão na sua seleção.
 
 {% alert note %}
-A Braze usa o ID de coleção da Shopify para identificar coleções sincronizadas, que são então usadas ao criar seleções de catálogo e filtros de segmento.
+A Braze usa o ID de coleção da Shopify para identificar coleções sincronizadas, que são então usadas ao criar seleções de catálogo e filtros de Segment.
 {% endalert %}
 
 ![Modal para selecionar coleções em um menu suspenso.]({% image_buster /assets/img/shopify/selected_collections.png %}){: style="max-width:80%;"}
@@ -149,7 +149,7 @@ Você também pode visualizar tags de produtos, metacampos e coleções sincroni
 ![Catálogo da Shopify com dados sincronizados.]({% image_buster /assets/img/shopify/synced_catalog.png %})
 
 {% alert important %}
-Se a sincronização exceder o limite de armazenamento do seu catálogo, a Braze interromperá a sincronização e as novas atualizações de produtos não serão mais refletidas. Entre em contato com seu gerente de sucesso do cliente para fazer upgrade do seu nível, se necessário.
+Se a sincronização exceder o limite de armazenamento do seu catálogo, a Braze interromperá a sincronização e as novas atualizações de produtos não serão mais refletidas. Entre em contato com seu CSM para fazer upgrade do seu nível, se necessário.
 {% endalert %}
 
 ### Etapa 5: Gerencie sua configuração {#step-5-manage-your-configuration}
@@ -164,77 +164,77 @@ Você pode modificar a sincronização de produtos da Shopify, incluindo o geren
 Alterar suas seleções sincronizadas pode afetar Campaigns, Canvas ou seleções de catálogo ativas que fazem referência a elas. Atualize o conteúdo ativo para que funcione corretamente ao aplicar as alterações.
 {% endalert %}
 
-## Dados de catálogo compatíveis com a Shopify {#supported-shopify-catalog-data}
+## Dados compatíveis do catálogo do Shopify {#supported-shopify-catalog-data}
 
-| Campo | Tipo de dado | Exemplos |
+| Campo                | Tipo de dados   | Exemplos                                                                   |
 |----------------------|----------------|-----------------------------------------------------------------------------------|
-| `id` | String | `45264808411274` quando o identificador de produto do catálogo é **Shopify Variant ID**<br><br>`12345` quando o identificador de produto do catálogo é **SKU** (corresponde ao valor que você selecionou na [Etapa 2](#step-2-select-your-product-identifier)) |
-| `store_name` | String | "your-store" (subdomínio da loja Shopify, sem `.myshopify.com`) |
-| `shopify_product_id` | Número | `7939032613002` (armazenado como número no seu catálogo da Braze; as APIs da Shopify podem retornar esse ID como string) |
-| `shopify_variant_id` | Número | `45264808411274` (armazenado como número no seu catálogo da Braze; as APIs da Shopify podem retornar esse ID como string) |
-| `product_title` | String | "Classic leather jacket" |
-| `variant_title` | String | "Large / Red", "Medium" ou "Default Title" para produtos com variante única |
-| `status` | String | "active", "draft", "archived" |
-| `product_image_url` | String | "https://cdn.shopify.com/s/files/1/0641/0970/7402/files/t_shir.jpg?v=1736538760" |
-| `variant_image_url` | String | Mesma URL no estilo CDN da imagem do produto quando não existe imagem de variante; caso contrário, uma URL de imagem específica da variante |
-| `vendor` | String | "Flash and Thread", "PantsLabyrinth" |
-| `product_type` | String | "Outerwear", "T-Shirts" (do campo **Product type** do produto na Shopify) |
-| `product_url` | String | "https://your-store.myshopify.com/products/classic-leather-jacket" |
-| `product_handle` | String | "classic-leather-jacket" |
-| `published_scope` | String | "web", "global" |
-| `price` | Número | `10.00`, `24.99`<br><br>A Shopify frequentemente retorna preços como strings (por exemplo, `"199.00"` na REST Admin API). A Braze os converte em números para este campo do catálogo. |
-| `compare_at_price` | Número | `15.00` quando **Compare at price** está definido na Shopify<br><br>`0` quando a Shopify não possui um preço de comparação. As APIs da Shopify normalmente retornam `null` para um preço de comparação não definido; a Braze armazena `0` no catálogo para que o campo seja sempre numérico (esse é um padrão da Braze, não um valor que a Shopify envia como `0`). |
-| `inventory_quantity` | Número | `20`, `0` ou um valor negativo quando a sobrevenda é permitida (por exemplo, `-18`) |
-| `options` | String | "Size,Color"<br><br>A Shopify permite até três tipos de opção por produto (por exemplo, Size, Color, Material). O valor de `options` é uma lista separada por vírgulas desses nomes. |
-| `option_values` | String | "Medium,Red", "Large,Red"<br><br>Cada valor corresponde à mesma ordem de `options` (até três valores). |
-| `sku` | String | "12345", "SKU-001-RED-L" |
-| `product_tags` | Array | `["Summer", "Sale", "New"]`<br><br>Requer a sincronização de tags de produtos. |
-| `collection_ids` | Array | `[123456789012, 987654321098]` (IDs de coleção da Shopify)<br><br>Requer a sincronização de coleções da Shopify. |
-| `Metafield columns` | Varia por tipo | Cada metacampo sincronizado aparece como uma coluna separada nomeada pela sua chave. Consulte [Metacampos compatíveis](#step-3) na guia "Metacampos de produtos" da etapa 3 para mais informações. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Dados de catálogo compatíveis com a Shopify" }
+| `id`                 | string         | `45264808411274` quando o identificador de produto do catálogo é **Shopify Variant ID**<br><br>`12345` quando o identificador de produto do catálogo é **SKU** (corresponde ao valor que você selecionou na [Etapa 2](#step-2-select-your-product-identifier)) |
+| `store_name`         | string         | "your-store" (subdomínio da loja Shopify, sem `.myshopify.com`)                |
+| `shopify_product_id` | number         | `7939032613002` (armazenado como número no seu catálogo da Braze; as APIs do Shopify podem retornar esse ID como string) |
+| `shopify_variant_id` | number         | `45264808411274` (armazenado como número no seu catálogo da Braze; as APIs do Shopify podem retornar esse ID como string) |
+| `product_title`      | string         | "Classic leather jacket"                                                      |
+| `variant_title`      | string         | "Large / Red", "Medium" ou "Default Title" para produtos com uma única variante     |
+| `status`             | string         | "active", "draft", "archived"                                                     |
+| `product_image_url`  | string         | "https://cdn.shopify.com/s/files/1/0641/0970/7402/files/t_shir.jpg?v=1736538760" |
+| `variant_image_url`  | string         | Mesma URL no estilo CDN da imagem do produto quando não existe imagem de variante; caso contrário, uma URL de imagem específica da variante |
+| `vendor`             | string         | "Flash and Thread", "PantsLabyrinth"                                            |
+| `product_type`       | string         | "Outerwear", "T-Shirts" (do campo **Product type** do produto no Shopify)      |
+| `product_url`        | string         | "https://your-store.myshopify.com/products/classic-leather-jacket"            |
+| `product_handle`     | string         | "classic-leather-jacket"                                                          |
+| `published_scope`    | string         | "web", "global"                                                                   |
+| `price`              | number         | `10.00`, `24.99`<br><br>O Shopify frequentemente retorna preços como strings (por exemplo, `"199.00"` na REST Admin API). A Braze os converte para números nesse campo do catálogo. |
+| `compare_at_price`   | number         | `15.00` quando **Compare at price** está definido no Shopify<br><br>`0` quando o Shopify não tem um preço de comparação. As APIs do Shopify normalmente retornam `null` para um preço de comparação não definido; a Braze armazena `0` no catálogo para que o campo seja sempre numérico (esse é um padrão da Braze, não um valor que o Shopify envia como `0`). |
+| `inventory_quantity` | number         | `20`, `0` ou um valor negativo quando a sobrevenda é permitida (por exemplo, `-18`)   |
+| `options`            | string         | "Size,Color"<br><br>O Shopify permite até três tipos de opção por produto (por exemplo, Size, Color, Material). O valor de `options` é uma lista separada por vírgulas desses nomes. |
+| `option_values`      | string         | "Medium,Red", "Large,Red"<br><br>Cada valor corresponde à mesma ordem de `options` (até três valores). |
+| `sku`                | string         | "12345", "SKU-001-RED-L"                                                    |
+| `product_tags`       | array          | `["Summer", "Sale", "New"]`<br><br>Requer a sincronização de tags de produto.                 |
+| `collection_ids`     | array          | `[123456789012, 987654321098]` (IDs de coleção do Shopify)<br><br>Requer a sincronização de coleções do Shopify. |
+| `Metafield columns`  | Varia por tipo | Cada metafield sincronizado aparece como uma coluna separada nomeada pela sua chave. Consulte [Metafields compatíveis](#step-3) na guia "Product metafields" da etapa 3 para mais informações. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Dados compatíveis do catálogo do Shopify" }
 
 {% alert warning %}
-Seu catálogo da Shopify é gerenciado pela Shopify. Para atualizar seu catálogo, faça alterações diretamente na sua loja Shopify e elas serão sincronizadas automaticamente com a Braze. Para excluir seu catálogo da Shopify, acesse a página de parceiros da Shopify na Braze e [desative a sincronização](#deactivate).
+Seu catálogo do Shopify é gerenciado pelo Shopify. Para atualizar seu catálogo, faça as alterações diretamente na sua loja do Shopify, e elas serão sincronizadas automaticamente com a Braze. Para excluir seu catálogo do Shopify, acesse a página de parceiro do Shopify na Braze e [desative a sincronização](#deactivate).
 {% endalert %}
 
-## Casos de uso de catálogos da Shopify {#shopify-catalog-use-cases}
+## Casos de uso do catálogo Shopify {#shopify-catalog-use-cases}
 
-Esses casos de uso mostram como você pode usar os dados sincronizados do catálogo da Shopify para personalizar mensagens.
+Esses casos de uso mostram como você pode usar os dados sincronizados do seu catálogo Shopify para personalizar mensagens.
 
 {% alert warning %}
-A Braze sincroniza até 250 variantes de cada produto da Shopify no seu catálogo. Variantes além desse limite não são sincronizadas. Se você precisar de mais de 250 variantes por produto, entre em contato com seu gerente de sucesso do cliente da Braze.
+A Braze sincroniza até 250 variantes de cada produto do Shopify no seu catálogo. Variantes que excedam esse limite não são sincronizadas. Se você precisar de mais de 250 variantes por produto, entre em contato com o seu CSM da Braze.
 {% endalert %}
 
 {% tabs %}
-{% tab Tags de produtos %}
+{% tab Tags de produto %}
 
-Use tags de produtos para personalizar mensagens com base em como seus produtos estão categorizados na Shopify. Por exemplo, você pode enviar uma promoção apresentando todos os produtos com a tag "Summer Sale" por meio de uma [seleção de catálogo]({{site.baseurl}}/catalog_selections), ou criar um segmento de usuários que compraram produtos com a tag "Premium".
+Use tags de produto para personalizar mensagens com base em como seus produtos são categorizados no Shopify. Por exemplo, você pode enviar uma promoção com todos os produtos marcados com "Summer Sale" por meio de uma [seleção de catálogo]({{site.baseurl}}/catalog_selections), ou criar um Segment de usuários que compraram produtos marcados como "Premium."
 
-As tags de produtos são armazenadas como um campo de array em cada item do catálogo. Para configurar a sincronização de tags de produtos, consulte [Tags de produtos da Shopify](#shopify-product-tags).
+As tags de produto são armazenadas como um campo de array em cada item do catálogo. Para configurar a sincronização de tags de produto, consulte [Tags de produto do Shopify](#shopify-product-tags).
 
 ### Seleção de catálogo {#catalog-selection}
 
-1. Na Shopify, atribua a tag de produto "Women's" aos produtos relevantes.
+1. No Shopify, atribua aos produtos relevantes a tag de produto "Women's".
 
 ![Um tipo de produto "Women's - Sweaters" com as tags "Women's", "Sweaters" e "Men".]({% image_buster /assets/img/shopify/product_tag_womens.png %}){: style="max-width:40%;"}
 
 {: start="2"}
 2. Na Braze, ative a sincronização de tags e selecione a tag de produto "Women's".
 
-![Modal para selecionar tags de produtos da Shopify, com 15 tags relacionadas a roupas selecionadas, incluindo "Women's".]({% image_buster /assets/img/shopify/select_product_tags_womens.png %}){: style="max-width:80%;"}
+![Modal para selecionar tags de produto do Shopify, com 15 tags relacionadas a roupas selecionadas, incluindo "Women's".]({% image_buster /assets/img/shopify/select_product_tags_womens.png %}){: style="max-width:80%;"}
 
 ### Personalização {#personalization}
 
 {% alert note %}
-Ao referenciar tags de produtos ou coleções em seleções de catálogo, use apenas o valor em si, sem os colchetes `[]` ou aspas `""` que aparecem nos dados do catálogo. Por exemplo, se uma tag de produto aparece como `["Women's"]` no seu catálogo, escreva `Women's` no filtro da sua seleção.
+Ao referenciar tags de produto ou coleções em seleções de catálogo, use apenas o valor em si, sem os colchetes de array `[]` ou aspas `""` que aparecem nos dados do catálogo. Por exemplo, se uma tag de produto é exibida como `["Women's"]` no seu catálogo, escreva `Women's` no filtro da seleção.
 {% endalert %}
 
-1. Crie uma seleção de catálogo que filtre produtos que possuam a respectiva tag de produto, como "Women's". Você só pode usar um campo de array único em uma única seleção de catálogo, e até 50 produtos na sua seleção de catálogo.
+1. Crie uma seleção de catálogo que filtre produtos que tenham a respectiva tag de produto, como "Women's". Você pode usar apenas um campo de array único em uma seleção de catálogo, e até 50 produtos na sua seleção.
 
-![Uma seleção de catálogo que filtra tags de produtos que possuem o atributo "Women's".]({% image_buster /assets/img/shopify/edit_product_tags_selection.png %})
+![Uma seleção de catálogo que filtra por tags de produto que possuem o atributo "Women's".]({% image_buster /assets/img/shopify/edit_product_tags_selection.png %})
 
 {: start="2"}
-2. No criador de mensagens, adicione a seleção onde você deseja inserir os produtos da seleção de catálogo com a tag "Women's". Por exemplo, você pode usar um bloco de produto HTML como este:
+2. No criador de mensagem, adicione a seleção onde você deseja inserir os produtos da seleção de catálogo marcados com "Women's". Por exemplo, você pode usar um bloco de produto HTML como este:
 
 {% raw %}
 ```liquid
@@ -281,7 +281,7 @@ Ao referenciar tags de produtos ou coleções em seleções de catálogo, use ap
 ```
 {% endraw %}
 
-Ou, se você quiser mencionar produtos específicos com a tag "Women's" em uma notificação por push, pode usar a ferramenta **Add Personalization** e especificar os itens do seu catálogo.
+Ou, se você quiser mencionar produtos específicos marcados com "Women's" em uma notificação por push, pode usar a ferramenta **Adicionar personalização** e especificar os itens do seu catálogo.
 
 {% raw %}
 ```liquid
@@ -293,11 +293,11 @@ Checkout the latest women's clothing:
 ```
 {% endraw %}
 
-![Criador de notificações por push com uma seleção de catálogo trazendo três itens com uma tag de produto.]({% image_buster /assets/img/shopify/add_personalization_product_tags.png %})
+![Criador de notificação por push com uma seleção de catálogo puxando três itens com uma tag de produto.]({% image_buster /assets/img/shopify/add_personalization_product_tags.png %})
 
-### Segmentação por catálogo (SQL) {#catalog-segmentation-sql}
+### Segmentação de catálogo (SQL) {#catalog-segmentation-sql}
 
-Use [extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension) para criar segmentos com base em usuários que interagiram com uma tag de produto. Por exemplo, para encontrar usuários que se engajaram com itens do catálogo que contêm uma tag de produto específica, use esta consulta:
+Use [extensões de Segment]({{site.baseurl}}/user_guide/audience/segments/segment_extension) para criar segmentos com base em usuários que interagiram com uma tag de produto. Por exemplo, para encontrar usuários que se engajaram com itens do catálogo que contêm uma tag de produto específica, use esta consulta:
 
 {% raw %}
 ```liquid
@@ -328,31 +328,31 @@ WHERE
 {% endraw %}
 
 {% endtab %}
-{% tab Metacampos de produtos %}
+{% tab Metafields de produto %}
 
-Use metacampos de produtos para personalizar mensagens com detalhes personalizados de produtos além dos campos padrão da Shopify. Por exemplo, inclua instruções de cuidado em uma confirmação de pedido, exiba o país de origem em um e-mail de recomendação ou segmente usuários que compraram um material específico.
+Use metafields de produto para personalizar mensagens com detalhes personalizados de produto além dos campos padrão do Shopify. Por exemplo, inclua instruções de cuidado em uma confirmação de pedido, exiba o país de origem em um e-mail de recomendação ou segmente usuários que compraram um material específico.
 
-Cada metacampo sincronizado se torna uma coluna separada no seu catálogo, com o tipo de dado determinado pelo tipo de metacampo. Para configurar a sincronização de metacampos, consulte [Metacampos de produtos da Shopify](#shopify-product-metafields).
+Cada metafield sincronizado se torna uma coluna separada no seu catálogo, com o tipo de dados determinado pelo tipo do metafield. Para configurar a sincronização de metafields, consulte [Metafields de produto do Shopify](#shopify-product-metafields).
 
 ### Seleção de catálogo
 
-1. Na Shopify, defina o metacampo de produto `seasonal` nos produtos relevantes como `summer` (esse é um valor de metacampo, não uma tag de produto).
+1. No Shopify, defina o metafield de produto `seasonal` nos produtos relevantes como `summer` (este é um valor de metafield, não uma tag de produto).
 
-![Modal para adicionar metacampos de produtos, incluindo o metacampo seasonal com o valor summer.]({% image_buster /assets/img/shopify/summer_product_metafield.png %}){: style="max-width:80%;"}
+![Modal para adicionar metafields de produto, incluindo o metafield seasonal com valor summer.]({% image_buster /assets/img/shopify/summer_product_metafield.png %}){: style="max-width:80%;"}
 
 {: start="2"}
-2. Na Braze, ative a sincronização de metacampos e selecione `custom.seasonal` (ou o namespace e a chave que correspondem ao seu metacampo da Shopify).
+2. Na Braze, ative a sincronização de metafields e selecione `custom.seasonal` (ou o namespace e a chave que correspondem ao seu metafield do Shopify).
 
-![Modal para selecionar metacampos de produtos, com um menu suspenso expandido que tem quatro itens selecionados, incluindo custom.seasonal.]({% image_buster /assets/img/shopify/select_metafields.png %}){: style="max-width:80%;"}
+![Modal para selecionar metafields de produto, com um dropdown expandido que tem quatro itens selecionados, incluindo custom.seasonal.]({% image_buster /assets/img/shopify/select_metafields.png %}){: style="max-width:80%;"}
 
 ### Personalização
 
-1. Crie uma [seleção de catálogo]({{site.baseurl}}/catalog_selections) que filtre metacampos que incluam o respectivo valor.
+1. Crie uma [seleção de catálogo]({{site.baseurl}}/catalog_selections) que filtre por metafields que incluam o respectivo valor.
 
-![Uma seleção de catálogo que filtra metacampos que possuem o atributo summer.]({% image_buster /assets/img/shopify/metafields_selection.png %})
+![Uma seleção de catálogo que filtra por metafields que possuem o atributo summer.]({% image_buster /assets/img/shopify/metafields_selection.png %})
 
 {: start="2"}
-2. No criador de mensagens, adicione a seleção onde você deseja inserir metacampos de produtos. Por exemplo, você pode usar um bloco de produto HTML como este:
+2. No criador de mensagem, adicione a seleção onde você deseja inserir os metafields de produto. Por exemplo, você pode usar um bloco de produto HTML como este:
 
 {% raw %}
 ```liquid
@@ -399,7 +399,7 @@ Cada metacampo sincronizado se torna uma coluna separada no seu catálogo, com o
 ```
 {% endraw %}
 
-Ou, se você quiser mencionar produtos específicos com um valor de metacampo específico em uma notificação por push, pode usar a ferramenta **Add Personalization** e especificar os itens do seu catálogo.
+Ou, se você quiser mencionar produtos específicos com um valor de metafield específico em uma notificação por push, pode usar a ferramenta **Adicionar personalização** e especificar os itens do seu catálogo.
 
 {% raw %}
 ```liquid
@@ -411,11 +411,11 @@ Check out the latest summer products:
 ```
 {% endraw %}
 
-![Criador de notificações por push com uma seleção de catálogo trazendo três itens usando uma seleção baseada em metacampos.]({% image_buster /assets/img/shopify/add_personalization_metafields.png %})
+![Criador de notificação por push com uma seleção de catálogo puxando três itens usando uma seleção baseada em metafield.]({% image_buster /assets/img/shopify/add_personalization_metafields.png %})
 
-### Segmentação por catálogo (SQL)
+### Segmentação de catálogo (SQL)
 
-Use [extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension) para criar segmentos com base em usuários que interagiram com um metacampo de produto. Por exemplo, para encontrar usuários que dispararam um evento de e-commerce com um produto cujo array de metacampos contém um valor específico, use esta consulta:
+Use [extensões de Segment]({{site.baseurl}}/user_guide/audience/segments/segment_extension) para criar segmentos com base em usuários que interagiram com um metafield de produto. Por exemplo, para encontrar usuários que dispararam um evento de e-commerce com um produto cujo array de metafield contém um valor específico, use esta consulta:
 
 {% raw %}
 ```sql
@@ -454,7 +454,7 @@ WHERE
 ```
 {% endraw %}
 
-Se você quiser segmentar clientes que fizeram um pedido com metacampos de produto específicos, use um dos seguintes modelos SQL de extensão de segmento (todo o período, período específico, primeiro ou último disparo de um evento).
+Se você quiser segmentar clientes que fizeram um pedido com metafields de produto específicos, use um dos seguintes modelos de extensão de Segment SQL (todo o período, período específico, primeiro ou último disparo de evento).
 
 {% raw %}
 ```sql
@@ -585,33 +585,33 @@ WHERE
 {% endtab %}
 {% tab Coleções %}
 
-Use coleções da Shopify para trazer agrupamentos de produtos curados para suas mensagens, que também são usados no seu site e experiências de app da Shopify. Por exemplo, destaque "Novidades" em um e-mail promocional, faça venda cruzada de "Mais Vendidos" em um Canvas de carrinho abandonado ou segmente usuários que navegaram por uma coleção sazonal.
+Use coleções do Shopify para trazer agrupamentos curados de produtos para suas mensagens, que também são usados no seu site e experiências de aplicativo do Shopify. Por exemplo, destaque "Novidades" em um e-mail promocional, faça vendas cruzadas de "Mais vendidos" em um Canvas de carrinho abandonado, ou segmente usuários que navegaram por uma coleção sazonal.
 
 ### Seleção de catálogo
 
-1. Na Shopify, crie uma coleção "New Women's Products - In Stock" com seus produtos de melhor desempenho.
+1. No Shopify, crie uma coleção "New Women's Products - In Stock" com seus produtos de melhor desempenho.
 
-![Lista de coleções da Shopify, incluindo "New Women's Products - In Stock".]({% image_buster /assets/img/shopify/shopify_collections.png %})
+![Lista de coleções do Shopify, incluindo "New Women's Products - In Stock".]({% image_buster /assets/img/shopify/shopify_collections.png %})
 
 {: start="2"}
 2. Na Braze, ative a sincronização de coleções e selecione "Women's Products - In Stock".
 
-![Modal para selecionar coleções, com um menu suspenso expandido que seleciona quatro coleções.]({% image_buster /assets/img/shopify/select_collections_id.png %})
+![Modal para selecionar coleções, com um dropdown expandido que seleciona quatro coleções.]({% image_buster /assets/img/shopify/select_collections_id.png %})
 
 {% alert note %}
-Para coleções da Shopify, você deve usar o **Collection ID**, que é encontrado na URL ao visualizar a coleção. Por exemplo, uma URL `https://admin.shopify.com/store/se-team-ecommerce/collections/470645342446` tem o Collection ID `470645342446`.
+Para coleções do Shopify, você deve usar o **ID da coleção**, que é encontrado na URL ao visualizar a coleção. Por exemplo, uma URL como `https://admin.shopify.com/store/se-team-ecommerce/collections/470645342446` tem o ID de coleção `470645342446`.
 {% endalert %}
 
 ### Personalização
 
 {% alert note %}
-Ao referenciar IDs de coleção em seleções de catálogo, use apenas o valor numérico do ID, sem os colchetes `[]` que aparecem nos dados do catálogo. Por exemplo, se os IDs de coleção aparecem como `[123456789012, 987654321098]` no seu catálogo, escreva apenas o ID numérico (como `470645342446`) no filtro da sua seleção.
+Ao referenciar IDs de coleção em seleções de catálogo, use apenas o valor numérico do ID, sem os colchetes de array `[]` que aparecem nos dados do catálogo. Por exemplo, se os IDs de coleção são exibidos como `[123456789012, 987654321098]` no seu catálogo, escreva apenas o ID numérico (como `470645342446`) no filtro da seleção.
 {% endalert %}
 
-1. Crie uma seleção de catálogo chamada "New Women's Products - In Stock" que filtre produtos que possuam o ID dessa coleção. Você só pode usar um campo de array único em uma única seleção de catálogo, e até 50 produtos na sua coleção.
+1. Crie uma seleção de catálogo chamada "New Women's Products - In Stock" que filtre produtos com o ID dessa coleção. Você pode usar apenas um campo de array único em uma seleção de catálogo, e até 50 produtos na sua coleção.
  - Você também pode criar suas próprias seleções personalizadas filtrando pelo campo **Collections**.
 
-![Uma seleção de catálogo que filtra coleções que possuem o atributo Collection ID "470645342446".]({% image_buster /assets/img/shopify/collections_selection.png %})
+![Uma seleção de catálogo que filtra por coleções que possuem o atributo de ID de coleção "470645342446".]({% image_buster /assets/img/shopify/collections_selection.png %})
 
 {: start="2"}
 2. Na sua mensagem, insira sua coleção usando a seleção criada ou referenciando diretamente a coleção. Por exemplo, você pode usar um bloco de produto HTML como este:
@@ -661,7 +661,7 @@ Ao referenciar IDs de coleção em seleções de catálogo, use apenas o valor n
 ```
 {% endraw %}
 
-Ou, se você quiser mencionar novos produtos específicos em uma notificação por push, pode usar a ferramenta **Add Personalization** e especificar os itens do seu catálogo.
+Ou, se você quiser mencionar novos produtos específicos em uma notificação por push, pode usar a ferramenta **Adicionar personalização** e especificar os itens do seu catálogo.
 
 {% raw %}
 ```liquid
@@ -673,11 +673,11 @@ Checkout the latest women's clothing:
 ```
 {% endraw %}
 
-![Criador de notificações por push com uma seleção de catálogo trazendo três itens com uma tag de produto.]({% image_buster /assets/img/shopify/add_personalization_collections.png %})
+![Criador de notificação por push com uma seleção de catálogo puxando três itens com uma tag de produto.]({% image_buster /assets/img/shopify/add_personalization_collections.png %})
 
-### Segmentação por catálogo (SQL)
+### Segmentação de catálogo (SQL)
 
-Crie um segmento de usuários que interagiram com uma coleção. Use [extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension) para criar segmentos com base na associação a coleções. Por exemplo, para encontrar usuários que compraram produtos de uma coleção específica no último ano, use esta consulta:
+Crie um Segment de usuários que interagiram com uma coleção. Use [extensões de Segment]({{site.baseurl}}/user_guide/audience/segments/segment_extension) para criar segmentos com base na associação a coleções. Por exemplo, para encontrar usuários que compraram produtos de uma coleção específica no último ano, use esta consulta:
 
 {% raw %}
 ```json
@@ -711,7 +711,7 @@ WHERE
 {% endtabs %}
 
 {% alert tip %}
-Você também pode configurar [notificações de queda de preço]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications) e [notificações de reposição de estoque]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications)!<br><br> Note que, para cada caso de uso, você deve criar um evento personalizado que capture o status de inscrição de um usuário no seu catálogo. O evento personalizado requer uma propriedade de evento que mapeie o <a href="/docs/partners/ecommerce/shopify/shopify_catalogs#step-2-select-your-product-identifier">SKU ou Shopify variant ID</a> que você selecionou como parte da sincronização de produtos da Shopify.
+Você também pode configurar [notificações de queda de preço]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications) e [notificações de produto de volta ao estoque]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications)!<br><br> Observe que, para cada caso de uso, você deve criar um evento personalizado que capture o status de inscrição de um usuário no seu catálogo. O evento personalizado requer uma propriedade de evento que mapeie para o <a href="/docs/partners/ecommerce/shopify/shopify_catalogs#step-2-select-your-product-identifier">SKU ou ID de variante do Shopify</a> que você selecionou como parte da sincronização de produtos do Shopify.
 {% endalert %}
 
 ## Desativar a sincronização de produtos {#deactivate}
@@ -720,13 +720,13 @@ A desativação do recurso de sincronização de produtos da Shopify excluirá o
 
 ## Solução de problemas {#troubleshooting}
 
-Se a sincronização de produtos da Shopify apresentar um erro, ele pode ser resultado dos seguintes problemas. Siga as instruções sobre como corrigir o problema e resolver a sincronização:
+Se a sincronização de produtos do Shopify apresentar um erro, isso pode ser resultado dos seguintes problemas. Siga as instruções sobre como corrigir o problema e resolver a sincronização:
 
 | Erro | Motivo | Solução |
 | --- | --- | --- |
-| Erro do servidor | Isso ocorre se houver um erro de servidor no lado da Shopify quando tentamos sincronizar seus produtos. | [Desative a sincronização](#deactivate) e sincronize novamente todo o seu inventário de produtos. |
-| SKU duplicado | Isso ocorre se você usar SKU como ID do item do catálogo e múltiplas variantes compartilharem o mesmo SKU. Cada `item_id` do catálogo deve ser exclusivo, então os itens afetados podem falhar na sincronização, acumular registros de erro ou ter informações de produto substituídas involuntariamente. | Faça uma auditoria na sua lista completa de produtos e variantes na Shopify para garantir que não haja SKUs duplicados. Se houver SKUs duplicados, atualize-os para que sejam SKUs exclusivos somente na sua conta da loja Shopify. Depois que isso for corrigido, [desative a sincronização](#deactivate) e sincronize novamente todo o seu inventário de produtos. |
-| Limite de catálogo excedido | Isso ocorre se você exceder o limite do catálogo. A Braze não poderá concluir a sincronização ou manter a sincronização ativa devido à falta de espaço de armazenamento disponível. | Há duas soluções para esse problema:<br><br>1. Entre em contato com o gerente da sua conta para fazer upgrade do seu nível e aumentar o limite do seu catálogo.<br><br>2. Libere espaço de armazenamento excluindo qualquer um dos seguintes itens:<br>- Itens de catálogo de outros catálogos<br>- Outros catálogos<br>- Seleções criadas<br><br> Depois de usar qualquer uma das soluções, a sincronização deve ser desativada e reativada em seguida. |
+| Erro de servidor | Isso ocorre quando há um erro de servidor no lado do Shopify quando tentamos sincronizar seus produtos. | [Desative a sincronização](#deactivate) e sincronize novamente todo o seu inventário de produtos. |
+| SKU duplicado | Isso ocorre quando você usa o SKU como ID do item do catálogo e múltiplas variantes compartilham o mesmo SKU. Cada `item_id` do catálogo deve ser único, então os itens afetados podem falhar na sincronização, acumular registros de erro ou ter as informações do produto sobrescritas de forma não intencional. | Audite sua lista completa de produtos e variantes no Shopify para garantir que não existam SKUs duplicados. Se houver SKUs duplicados, atualize-os para que sejam SKUs únicos apenas na sua conta da loja Shopify. Depois de corrigir isso, [desative a sincronização](#deactivate) e sincronize novamente todo o seu inventário de produtos. |
+| Limite do catálogo excedido | Isso ocorre quando você excede o limite do seu catálogo. A Braze não conseguirá concluir a sincronização ou manter a sincronização ativa devido à falta de espaço de armazenamento disponível. | Existem duas soluções para esse problema:<br><br>1. Entre em contato com seu gerente de conta para fazer upgrade do seu plano e aumentar o limite do catálogo. <br><br>2. Libere espaço de armazenamento excluindo qualquer um dos seguintes itens:<br>- Itens de catálogo de outros catálogos<br>- Outros catálogos<br>- Seleções criadas<br><br> Após utilizar qualquer uma das soluções, a sincronização deve ser desativada e então refeita. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Solução de problemas" }
 
-Para detalhes sobre a validação de itens de catálogo, consulte [Solução de problemas]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/post_create_catalog_items_bulk#troubleshooting) na documentação da API de catálogos.
+Para mais detalhes sobre a validação de itens do catálogo, consulte [Solução de problemas]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/post_create_catalog_items_bulk#troubleshooting) na documentação da API de catálogos.

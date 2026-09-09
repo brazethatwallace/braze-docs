@@ -31,8 +31,8 @@ Vous devez vous assurer que les éléments suivants sont créés, complétés et
 
 | Exigence | Origine | Description |
 | --- | --- | --- |
-| Snapchat Business Manager | Snapchat | Un outil centralisé pour gérer les ressources Snapchat de votre marque (telles que les comptes publicitaires, les pages, les applications). |
-| Compte publicitaire Snapchat | Snapchat | Un compte publicitaire Snapchat actif lié au Snapchat Business Manager de votre marque.<br><br>Assurez-vous que l'administrateur de votre Snapchat Business Manager vous a accordé les autorisations d'administrateur pour les comptes publicitaires Snapchat que vous prévoyez d'utiliser avec Braze. |
+| Snapchat Business gestionnaire | Snapchat | Un outil centralisé pour gérer les ressources Snapchat de votre marque (telles que les comptes publicitaires, les pages, les applications). |
+| Compte publicitaire Snapchat | Snapchat | Un compte publicitaire Snapchat actif lié au Snapchat Business gestionnaire de votre marque.<br><br>Assurez-vous que l'administrateur de votre Snapchat Business gestionnaire vous a accordé les autorisations d'administrateur pour les comptes publicitaires Snapchat que vous prévoyez d'utiliser avec Braze. |
 | Conditions et politiques Snapchat | [Snapchat](https://www.snap.com/en-US/policies) | Acceptez de vous conformer à l'ensemble des conditions, politiques, directives et documentations requises par Snapchat en lien avec votre utilisation de la synchronisation d'audience Snapchat, y compris les conditions, politiques, directives et documentations incorporées par référence, qui peuvent inclure : les Conditions d'utilisation, les Conditions d'utilisation commerciales, les Conditions pour les développeurs, l'Audience Match, les Politiques publicitaires, la Politique de contenu commercial, les Règles de la communauté et la Responsabilité des fournisseurs. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prérequis" }
 
@@ -58,7 +58,7 @@ Une fois la connexion établie, vous serez renvoyé à la page partenaire, où v
 
 ![Version mise à jour de la page des partenaires technologiques Snapchat montrant les comptes publicitaires connectés avec succès.]({% image_buster /assets/img/snapchat/snapchat3.png %}){: style="max-width:80%;"}
 
-Votre connexion Snapchat sera appliquée au niveau de l'espace de travail Braze. Si votre administrateur Snapchat vous retire de votre Snapchat Business Manager ou de l'accès aux comptes publicitaires Snapchat connectés, Braze détectera un jeton invalide. Par conséquent, vos Canvas actifs utilisant Snapchat afficheront des erreurs, et Braze ne sera pas en mesure de synchroniser les utilisateurs.
+Votre connexion Snapchat sera appliquée au niveau de l'espace de travail Braze. Si votre administrateur Snapchat vous retire de votre Snapchat Business gestionnaire ou de l'accès aux comptes publicitaires Snapchat connectés, Braze détectera un jeton invalide. Par conséquent, vos Canvas actifs utilisant Snapchat afficheront des erreurs, et Braze ne sera pas en mesure de synchroniser les utilisateurs.
 
 ### Étape 2 : Ajouter une étape Audience Sync avec Snapchat {#step-2-add-an-audience-sync-step-with-snapchat}
 
@@ -147,7 +147,7 @@ Snapchat ne fournit pas cette information en raison de ses politiques de confide
 
 ### Que dois-je faire si je reçois une erreur de jeton invalide ? {#what-should-i-do-next-if-i-receive-an-invalid-token-error}
 
-Vous pouvez déconnecter et reconnecter votre compte Snapchat sur la page partenaire Snapchat. Confirmez auprès de l'administrateur de votre Snapchat Business Manager que vous disposez des autorisations appropriées pour le compte publicitaire avec lequel vous souhaitez synchroniser.
+Vous pouvez déconnecter et reconnecter votre compte Snapchat sur la page partenaire Snapchat. Confirmez auprès de l'administrateur de votre Snapchat Business gestionnaire que vous disposez des autorisations appropriées pour le compte publicitaire avec lequel vous souhaitez synchroniser.
 
 ### Pourquoi mon Canvas ne peut-il pas être lancé ? {#why-is-my-canvas-not-allowed-to-launch}
 

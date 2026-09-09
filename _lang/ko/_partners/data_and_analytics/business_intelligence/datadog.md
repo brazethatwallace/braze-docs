@@ -1,7 +1,7 @@
 ---
 nav_title: Datadog
 article_title: Datadog
-description: "이 참조 문서에서는 SaaS 기반 데이터 분석 플랫폼을 통해 서버, 데이터베이스, 도구 및 서비스의 모니터링을 제공하는 클라우드 규모 애플리케이션용 관찰 가능성 서비스인 Braze와 Datadog의 파트너십에 대해 설명합니다."
+description: "이 참조 문서에서는 SaaS(software-as-a-service) 기반 데이터 분석 플랫폼을 통해 서버, 데이터베이스, 도구 및 서비스의 모니터링을 제공하는 클라우드 규모 애플리케이션용 관찰 가능성 서비스인 Braze와 Datadog의 파트너십에 대해 설명합니다."
 alias: /partners/datadog/
 page_type: partner
 search_tag: Partner
@@ -11,7 +11,7 @@ search_tag: Partner
 
 # Datadog
 
-> [Datadog](https://www.datadoghq.com/)은 SaaS 기반 데이터 분석 플랫폼을 통해 서버, 데이터베이스, 도구 및 서비스의 모니터링을 제공하는 클라우드 규모 애플리케이션용 관찰 가능성 서비스입니다.
+> [Datadog](https://www.datadoghq.com/)은 SaaS(software-as-a-service) 기반 데이터 분석 플랫폼을 통해 서버, 데이터베이스, 도구 및 서비스의 모니터링을 제공하는 클라우드 규모 애플리케이션용 관찰 가능성 서비스입니다.
 
 Braze와 Datadog 통합을 통해 고객은 Datadog에서 Braze 데이터를 수집하고 전송되는 데이터에 대한 알림을 생성할 수 있습니다. 예를 들어, 주간 뉴스레터 Campaign(캠페인)이 비정상적으로 적은 양의 메시지를 발송하거나, 평소 하루에 몇 건의 메시지만 발송하던 캔버스 단계가 수천 건을 발송하기 시작하는 경우 모니터와 알림을 설정할 수 있습니다.
 

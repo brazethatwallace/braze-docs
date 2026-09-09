@@ -1,5 +1,5 @@
 ---
-nav_title: Medir o tamanho do segmento
+nav_title: Medir o tamanho do Segment
 article_title: Medir o tamanho do Segment
 page_order: 5
 page_type: reference
@@ -34,11 +34,11 @@ Um único usuário pode pertencer a diferentes grupos de usuários contatáveis.
 O **total de usuários contatáveis** inclui todos que correspondem aos filtros do seu Segment, mesmo que não estejam mais inscritos em um canal. As linhas de canal, como **iOS**, contam os usuários que são contatáveis apenas naquele canal de acordo com as regras em [Usuários contatáveis por canal](#reachable-users-by-channel). Para alinhar os totais do Segment com os usuários inscritos, adicione filtros como **Push ativado para iOS** é verdadeiro (ou o equivalente para o seu canal).
 {% endalert %}
 
-## Estatísticas para tamanho do segmento {#statistics-for-segment-size}
+## Estatísticas para tamanho do Segment {#statistics-for-segment-size}
 
-As estatísticas estimadas são aproximadas por meio da amostragem de apenas uma parte do seu segmento, então você deve esperar que os tamanhos estimados sejam maiores ou menores do que o valor real, com espaços de trabalho maiores apresentando margens de erro potencialmente maiores. Para obter uma contagem precisa de usuários no seu segmento, selecione **Calcular estatísticas exatas**. A associação exata ao segmento sempre será calculada antes que um segmento seja afetado por uma mensagem enviada em uma Campaign ou Canvas.
+As estatísticas estimadas são aproximadas por meio da amostragem de apenas uma parte do seu Segment, então você deve esperar que os tamanhos estimados sejam maiores ou menores do que o valor real, com espaços de trabalho maiores apresentando margens de erro potencialmente maiores. Para obter uma contagem precisa de usuários no seu Segment, selecione **Calcular estatísticas exatas**. A associação exata ao Segment sempre será calculada antes que um Segment seja afetado por uma mensagem enviada em uma Campaign ou Canvas.
 
-A Braze fornece as seguintes estatísticas sobre o tamanho do segmento.
+A Braze fornece as seguintes estatísticas sobre o tamanho do Segment.
 
 ### Estatísticas de filtro {#filter-statistics}
 

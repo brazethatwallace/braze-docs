@@ -41,7 +41,7 @@ Las mejores prácticas de capacidad de entrega a menudo superan los requisitos l
 
 {% if include.section == "email validation" %}
 
-Si el usuario introduce una dirección de correo electrónico que incluye caracteres especiales no aceptados, verá un indicador de error genérico y no podrá enviar el formulario. Este mensaje de error no es personalizable. Puedes ver el comportamiento del error en la pestaña **Vista previa y prueba** y en tu dispositivo de prueba. Obtén más información sobre cómo Braze da formato a las direcciones de correo electrónico en [Validación de correo electrónico]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/email_validation).
+Si el usuario introduce una dirección de correo electrónico que incluye caracteres especiales no aceptados, verá un indicador de error genérico y no podrá enviar el formulario. Este mensaje de error no es personalizable. Puedes ver el comportamiento del error en la pestaña **Vista previa y prueba** y en tu dispositivo de prueba. Obtén más información sobre cómo Braze da formato a las direcciones de correo electrónico en [Validación de correo electrónico]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation).
 
 {% endif %}
 
@@ -63,6 +63,6 @@ Una de las formas de configurarlo es a través de Canvas:
 
 {% if include.section == "reporting" %}
 
-Una vez lanzada tu campaña, puedes analizar los resultados en tiempo real para ver cuántos usuarios han interactuado con ella. Para ver cuántos usuarios se han adherido al grupo de suscripción, puedes [crear un segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment) de usuarios suscritos al grupo de suscripción filtrando por usuarios que hayan recibido el mensaje dentro de la aplicación y enviado el formulario.
+Una vez lanzada tu campaña, puedes analizar los resultados en tiempo real para ver cuántos usuarios han interactuado con ella. Para ver cuántos usuarios se han adherido al grupo de suscripción, puedes [crear un segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) de usuarios suscritos al grupo de suscripción filtrando por usuarios que hayan recibido el mensaje dentro de la aplicación y enviado el formulario.
 
 {% endif %}

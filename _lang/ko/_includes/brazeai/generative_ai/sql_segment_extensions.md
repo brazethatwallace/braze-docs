@@ -4,49 +4,49 @@
 >
 > 표준 세그먼트 확장과 마찬가지로 SQL 세그먼트 확장에서 최대 2년(730일)까지의 이벤트를 쿼리할 수 있습니다. 표준 세그먼트 확장과 달리 SQL 세그먼트 확장은 [크레딧을 소모합니다](#credits).
 
-## 필수 조건 {#prerequisites}
+## 전제 조건 {#prerequisites}
 
-이 기능을 통해 PII 데이터에 접근할 수 있으므로, SQL 세그먼트 쿼리를 실행하려면 PII 권한이 반드시 필요합니다.
+이 기능을 통해 PII 데이터에 접근할 수 있으므로, SQL 세그먼트 쿼리를 실행하려면 PII 권한이 있어야 합니다.
 
-## 세그먼트 확장 생성하기 {#creating-a-segment-extension}
+## 세그먼트 확장 만들기 {#creating-a-segment-extension}
 
-### 1단계: 편집기 선택 {#step-1-choose-an-editor}
+### 1단계: 에디터 선택 {#step-1-choose-an-editor}
 
-SQL 세그먼트 확장을 만들 때 선택할 수 있는 SQL 편집기에는 SQL 편집기와 증분 SQL 편집기의 두 가지 유형이 있습니다.
+SQL 세그먼트 확장을 생성할 때 두 가지 유형의 SQL 에디터 중에서 선택할 수 있습니다: SQL 에디터와 증분 SQL 에디터입니다.
 
-- **전체 새로고침:** 세그먼트가 새로고침될 때마다 Braze는 사용 가능한 모든 데이터를 쿼리하여 세그먼트를 업데이트하며, 이때 증분 새로고침보다 더 많은 크레딧이 사용됩니다. 전체 새로고침 확장은 멤버십을 매일 자동으로 재생성할 수 있지만 증분 새로고침으로는 재생성할 수 없습니다.
-- **증분 새로고침:** 증분 새로고침은 쿼리를 설정하는 데 더 비용 효율적인 방법이지만, 설정에 몇 가지 추가 [단계가](#step-2-write-your-sql) 필요합니다. 세그먼트를 구성할 때 이러한 추가 단계를 완료할 수 있다면, 쿼리가 더 적은 크레딧으로 실행되므로 이 옵션을 선택하는 것이 좋습니다.
-- **AI SQL 생성기:** AI SQL 생성기는 일반 언어로 프롬프트를 작성하면 해당 세그먼트에 대한 SQL 쿼리로 변환해 줍니다. SQL을 직접 작성하지 않고도 빠르게 시작할 수 있는 방법입니다.
+- **전체 새로고침:** Segment가 새로고침될 때마다 Braze가 사용 가능한 모든 데이터를 쿼리하여 Segment를 업데이트하므로 증분 새로고침보다 더 많은 크레딧을 사용합니다. 전체 새로고침 확장은 매일 자동으로 멤버십을 재생성할 수 있지만, 증분 새로고침을 사용하여 새로고침할 수는 없습니다.
+- **증분 새로고침:** 증분 새로고침은 쿼리를 설정하는 더 비용 효율적인 방법이지만, 설정에 몇 가지 추가 [단계](#step-2-write-your-sql)가 필요합니다. Segment를 구성할 때 이러한 추가 단계를 완료할 수 있다면, 쿼리가 더 적은 크레딧으로 실행되므로 이 옵션을 선택하는 것이 좋습니다.
+- **AI SQL 생성기:** AI SQL 생성기를 사용하면 일반 언어로 프롬프트를 작성하여 Segment용 SQL 쿼리로 변환할 수 있습니다. SQL을 직접 작성할 필요 없이 빠르게 시작할 수 있는 방법입니다.
 
 {% alert tip %}
-두 SQL 편집기에서 생성된 모든 SQL Segments에 대해 수동으로 전체 새로고침을 수행할 수 있습니다.
+어떤 SQL 에디터에서 생성된 모든 SQL Segments에 대해 수동 전체 새로고침을 수행할 수 있습니다.
 {% endalert %}
 
 {% tabs local %}
 {% tab 전체 새로고침 %}
 
-전체 새로고침 SQL 세그먼트 확장을 만들려면 다음과 같이 하세요:
+전체 새로고침 SQL 세그먼트 확장을 생성하려면:
 
 1. **오디언스** > **세그먼트 확장**으로 이동합니다.
-2. **새 확장 만들기**를 선택한 후 **전체 새로고침**을 선택합니다.<br><br>
+2. **새 확장 만들기**를 선택한 다음 **전체 새로고침**을 선택합니다.<br><br>
    ![전체 새로고침 및 증분 새로고침 옵션이 있는 새 확장 만들기 모달.]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:50%" }<br><br>
-3. 세그먼트 확장의 이름을 추가하고 SQL을 입력합니다. 요구 사항 및 리소스에 대해서는 [2단계](#step-2-write-your-sql)를 참조하세요.<br><br>
-   ![SQL 세그먼트 확장 예시를 보여주는 SQL 편집기.]({% image_buster /assets/img_archive/sql_segments_editor.png %}){: style="max-width:60%" }<br><br>
+3. 세그먼트 확장의 이름을 추가하고 SQL을 입력합니다. 요구 사항 및 리소스는 [2단계](#step-2-write-your-sql)를 참조하세요.<br><br>
+   ![SQL 세그먼트 확장 예시를 보여주는 SQL 에디터.]({% image_buster /assets/img_archive/sql_segments_editor.png %}){: style="max-width:60%" }<br><br>
 4. 세그먼트 확장을 저장합니다.
 
 {% endtab %}
 {% tab 증분 새로고침 %}
 
-증분 새로고침 SQL 세그먼트 확장을 만들려면 다음과 같이 하세요:
+증분 새로고침 SQL 세그먼트 확장을 생성하려면:
 
 1. **오디언스** > **세그먼트 확장**으로 이동합니다.
-2. **새 확장 만들기**를 선택하고 **증분 새로고침**을 선택합니다.<br><br>
+2. **새 확장 만들기**를 선택한 다음 **증분 새로고침**을 선택합니다.<br><br>
    ![전체 새로고침 및 증분 새로고침 옵션이 있는 새 확장 만들기 모달.]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:50%" }<br><br>
-3. 세그먼트 확장의 이름을 추가하고 SQL을 입력합니다. 요구 사항 및 리소스는 [SQL 작성하기](#writing-sql) 섹션을 참조하세요.<br><br>
-   ![증분 SQL 세그먼트 확장의 예시를 보여주는 SQL 편집기.]({% image_buster /assets/img_archive/sql_segments_editor_incremental.png %}){: style="max-width:60%" }<br><br>
+3. 세그먼트 확장의 이름을 추가하고 SQL을 입력합니다. 요구 사항 및 리소스는 [SQL 작성](#writing-sql) 섹션을 참조하세요.<br><br>
+   ![증분 SQL 세그먼트 확장 예시를 보여주는 SQL 에디터.]({% image_buster /assets/img_archive/sql_segments_editor_incremental.png %}){: style="max-width:60%" }<br><br>
 4. 원하는 경우 **매일 확장 재생성**을 선택합니다.<br><br>
-   ![확장을 매일 재생성하는 체크박스.]({% image_buster /assets/img_archive/sql_segments_regenerate.png %}){: style="max-width:60%" }<br><br>
-   이 옵션을 선택하면 Braze가 매일 자동으로 세그먼트 멤버십을 업데이트합니다. 즉, 매일 자정(최대 1시간 지연 가능)에 회사 시간대 기준으로 Braze가 세그먼트에 새로운 사용자가 있는지 확인하고 자동으로 추가합니다. 7일 동안 세그먼트 확장을 사용하지 않은 경우, Braze는 자동으로 일일 재생성을 일시 중지합니다. 사용하지 않은 세그먼트 확장은 Campaign 또는 Canvas에 포함되지 않은 확장을 말합니다(Campaign 또는 Canvas가 활성 상태가 아니어도 확장은 "사용 중"으로 간주됩니다).<br><br>
+   ![매일 확장을 재생성하는 체크박스.]({% image_buster /assets/img_archive/sql_segments_regenerate.png %}){: style="max-width:60%" }<br><br>
+   선택하면 Braze가 매일 자동으로 Segment 멤버십을 업데이트합니다. 즉, 매일 회사 시간대의 자정(최대 1시간의 지연 가능)에 Braze가 Segment의 새로운 사용자를 확인하고 자동으로 Segment에 추가합니다. 세그먼트 확장이 7일 동안 사용되지 않으면 Braze가 자동으로 매일 재생성을 일시 중지합니다. 사용되지 않는 세그먼트 확장이란 Campaign이나 Canvas의 일부가 아닌 것을 의미합니다(확장이 "사용됨"으로 간주되려면 Campaign이나 Canvas가 활성 상태일 필요는 없습니다).<br><br>
 5. 세그먼트 확장을 저장합니다.
 
 {% endtab %}
@@ -54,29 +54,29 @@ SQL 세그먼트 확장을 만들 때 선택할 수 있는 SQL 편집기에는 S
 {% tab AI SQL 생성기 %}
 
 {% alert note %}
-AI SQL 생성기는 현재 베타 기능으로 제공되고 있습니다. 이 베타 체험에 참여하려면 고객 성공 매니저에게 문의하세요.
+AI SQL 생성기는 현재 베타 기능으로 제공됩니다. 이 베타 체험에 참여하고 싶으시면 고객 성공 매니저에게 문의하세요.
 {% endalert %}
 
-AI SQL 생성기는 OpenAI가 제공하는 [GPT](https://openai.com/gpt-4)를 활용하여 SQL 세그먼트에 맞는 SQL을 추천합니다.
+AI SQL 생성기는 OpenAI가 지원하는 [GPT](https://openai.com/gpt-4)를 활용하여 SQL Segment에 대한 SQL을 추천합니다.
 
-!["지난 달 알림을 받은 사용자" 프롬프트가 입력된 AI SQL 생성기]({% image_buster /assets/img/ai_sql_generator.png %}){: style="max-width:70%;"}
+![프롬프트에 "Users that received a notification last month"가 입력된 AI SQL 생성기]({% image_buster /assets/img/ai_sql_generator.png %}){: style="max-width:70%;"}
 
-AI SQL 생성기를 사용하려면 다음과 같이 하세요:
+AI SQL 생성기를 사용하려면 다음을 수행합니다:
 
-1. 전체 또는 증분 새로고침을 사용하여 [SQL 세그먼트]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments)를 생성한 후 **AI SQL 생성기 시작**을 선택합니다.
+1. 전체 또는 증분 새로고침을 사용하여 [SQL Segment]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments)를 생성한 후 **AI SQL 생성기 실행**을 선택합니다.
 2. 프롬프트를 입력하고 **생성**을 선택하여 프롬프트를 SQL로 변환합니다.
-3. 생성된 SQL을 검토하여 올바른지 확인한 다음 세그먼트를 저장합니다.
+3. 생성된 SQL이 올바른지 검토한 다음 Segment를 저장합니다.
 
-#### 프롬프트 예시 {#example-prompts}
+#### 예시 프롬프트 {#example-prompts}
 
-- 지난 달에 이메일을 받은 사용자
+- 지난 달에 이메일을 수신한 사용자
 - 지난 1년간 구매 횟수가 5회 미만인 사용자
 
 #### 팁 {#tips}
 
-- 사용 가능한 [Snowflake 데이터 테이블]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/sql_segments_tables)을 숙지하세요. 이러한 테이블에 존재하지 않는 데이터를 요청하면 ChatGPT가 가짜 테이블을 만들어낼 수 있습니다.
-- 이 기능에 대한 [SQL 작성 규칙]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments?tab=sql%20editor#writing-sql)을 숙지하세요. 이러한 규칙을 따르지 않으면 오류가 발생합니다. 예를 들어 SQL 코드에서 `user_id` 열을 선택해야 합니다. "users who"로 프롬프트를 시작하면 도움이 될 수 있습니다.
-- AI SQL 생성기를 사용하면 분당 최대 20개의 프롬프트를 보낼 수 있습니다.
+- 사용 가능한 [Snowflake 데이터 테이블]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables)에 익숙해지세요. 이 테이블에 존재하지 않는 데이터를 요청하면 ChatGPT가 가짜 테이블을 만들어낼 수 있습니다.
+- 이 기능의 [SQL 작성 규칙]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments?tab=sql%20editor#writing-sql)에 익숙해지세요. 이 규칙을 따르지 않으면 오류가 발생합니다. 예를 들어, SQL 코드는 `user_id` 열을 선택해야 합니다. 프롬프트를 "users who"로 시작하면 도움이 됩니다.
+- AI SQL 생성기를 사용하여 분당 최대 20개의 프롬프트를 전송할 수 있습니다.
 
 ##{% multi_lang_include brazeai/generative_ai/policy.md %}
 
@@ -84,77 +84,89 @@ AI SQL 생성기를 사용하려면 다음과 같이 하세요:
 {% endtabs %}
 
 {% alert note %}
-실행하는 데 20분 이상 걸리는 SQL 쿼리는 시간 초과됩니다.
+실행 시간이 20분을 초과하는 SQL 쿼리는 타임아웃됩니다.
 {% endalert %}
 
-확장 처리가 완료되면 세그먼트 확장을 사용하여 [세그먼트를 생성]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension#step-5-use-your-extension-in-a-segment)하고, Campaign 및 Canvases를 통해 이 새 세그먼트를 타겟팅할 수 있습니다.
+확장 처리가 완료되면, 세그먼트 확장을 사용하여 [Segment를 생성]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension#step-5-use-your-extension-in-a-segment)하고 이 새로운 Segment를 Campaigns 및 Canvases로 타겟팅할 수 있습니다.
 
-### 2단계: SQL 작성하기 {#step-2-write-your-sql}
+### 2단계: SQL 작성 {#step-2-write-your-sql}
 
-SQL 쿼리는 [Snowflake 구문](https://docs.snowflake.com/en/sql-reference.html)을 사용하여 작성해야 합니다. 쿼리할 수 있는 테이블과 열의 전체 목록은 [테이블 참조]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/sql_segments_tables)를 확인하세요.
+SQL 쿼리는 [Snowflake 구문](https://docs.snowflake.com/en/sql-reference.html)을 사용하여 작성해야 합니다. 쿼리할 수 있는 테이블 및 열의 전체 목록은 [테이블 참조]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables)를 참조하세요.
 
 {% alert important %}
-쿼리할 수 있는 테이블에는 이벤트 데이터만 포함되어 있다는 점에 유의하세요. 사용자 속성을 쿼리하려면 SQL 세그먼트와 [기존 세그멘터]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment)의 커스텀 속성 필터를 결합해야 합니다.
+쿼리할 수 있는 테이블에는 이벤트 데이터만 포함되어 있습니다. 사용자 속성을 쿼리하려면 SQL Segment를 [클래식 세분화]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)의 커스텀 속성 필터와 결합해야 합니다.
 {% endalert %}
 
 {% tabs %}
-{% tab SQL 편집기 %}
+{% tab SQL 에디터 %}
 
 SQL은 다음 규칙을 추가로 준수해야 합니다:
 
-- 하나의 SQL 문을 작성합니다. 세미콜론을 포함하지 마세요.
-- SQL은 하나의 열, 즉 `user_id` 열만 선택해야 합니다. 즉, SQL에 다음이 포함되어야 합니다:
+- 단일 SQL 문을 작성하세요. 세미콜론을 포함하지 마세요.
+- SQL은 하나의 열만 선택해야 합니다: `user_id` 열. 즉, SQL에 다음이 포함되어야 합니다:
 
 ```sql
 SELECT DISTINCT user_id FROM "INSERT TABLE NAME"
 ```
 
-- 이벤트가 0건인 사용자에 대해서는 쿼리할 수 없으므로, 이벤트를 X회 미만 수행한 사용자에 대한 쿼리는 다음 해결 방법을 따라야 합니다:
-   1. 이벤트가 X회 이상인 사용자를 선택하는 쿼리를 작성합니다.
-   2. 세그먼트에서 세그먼트 확장을 참조할 때 `doesn't include`를 선택하여 결과를 반전시킵니다.
+- 이벤트가 0회인 사용자를 쿼리하는 것은 불가능하므로, 이벤트를 X회 미만 수행한 사용자에 대한 쿼리는 다음 해결 방법을 따라야 합니다:
+   1. 이벤트를 X회 이상 수행한 사용자를 선택하는 쿼리를 작성합니다.
+   2. Segment에서 세그먼트 확장을 참조할 때 `doesn't include`를 선택하여 결과를 반전합니다.
 
 #### 추가 규칙 {#additional-rules}
 
-또한 표준 SQL 쿼리는 다음 규칙을 준수해야 합니다:
+또한, 표준 SQL 쿼리는 다음 규칙을 준수해야 합니다:
 
 - `DECLARE` 문을 사용할 수 없습니다.
 {% endtab %}
-{% tab 증분 SQL 편집기 %}
+{% tab 증분 SQL 에디터 %}
 
 모든 증분 새로고침 쿼리는 쿼리와 스키마 세부 정보의 두 부분으로 구성됩니다.
 
-1. 편집기에서 원하는 테이블에서 `user_id`를 선택하는 쿼리를 작성합니다.
-2. 편집기 위의 필드에서 **Operator**, **Number of times**, **Time period**를 선택하여 스키마 세부 정보를 추가합니다. 쿼리는 집계 열의 합계가 {% raw %}`{{operator}}` 및 `{{number of times}}`{% endraw %} 플레이스홀더로 지정된 특정 조건을 충족하는지 확인합니다. 이는 기존 세그먼트 확장을 만드는 워크플로와 유사하게 작동합니다.<br><br>
-   - **Operator:** 이벤트가 발생 횟수보다 많거나, 적거나, 같은 횟수로 발생했는지 표시합니다.<br>
-   !["More than"이 선택된 Operator 필드.]({% image_buster /assets/img_archive/sql_segments_operator.png %})<br><br>
-   - **Number of times:** Operator와 관련하여 이벤트를 몇 번 평가할지 입력합니다.<br>
-   !["5"가 입력된 Number of times 필드.]({% image_buster /assets/img_archive/sql_segments_times.png %})<br><br>
-   - **Time period:** 이벤트 인스턴스를 확인하려는 1~730일 사이의 일 수입니다. 이 기간은 현재 날짜를 기준으로 과거 일수를 나타냅니다. 다음 예는 지난 365일 동안 이벤트를 5회 이상 수행한 사용자에 대한 쿼리를 보여줍니다.<br>
-   !["365"가 입력된 Time period 필드.]({% image_buster /assets/img_archive/sql_segments_period.png %})
+1. 에디터에서 원하는 테이블에서 `user_id`를 선택하는 쿼리를 작성합니다.
+2. 에디터 상단의 필드에서 **연산자**, **횟수**, **기간**을 선택하여 스키마 세부 정보를 추가합니다. 쿼리는 집계 열의 합계가 해당 필드로 설정한 조건을 충족하는지 확인합니다. 이는 클래식 세그먼트 확장을 생성하는 워크플로와 유사하게 작동합니다.<br><br>
+   - **연산자:** 이벤트가 특정 발생 횟수보다 많은지, 적은지, 또는 같은지를 나타냅니다.<br>
+   !["More than"이 선택된 연산자 필드.]({% image_buster /assets/img_archive/sql_segments_operator.png %})<br><br>
+   - **횟수:** 연산자와 관련하여 이벤트를 평가할 횟수입니다.<br>
+   !["5"가 입력된 횟수 필드.]({% image_buster /assets/img_archive/sql_segments_times.png %})<br><br>
+   - **기간:** 이벤트의 인스턴스를 확인할 1~730일 범위의 일수입니다. 이 기간은 현재 날짜를 기준으로 과거 일수를 의미합니다. 다음 예시는 지난 365일 동안 이벤트를 5회 이상 수행한 사용자를 쿼리하는 것을 보여줍니다.<br>
+   !["365"가 입력된 기간 필드.]({% image_buster /assets/img_archive/sql_segments_period.png %})
 
-다음 예제에서 결과 세그먼트에는 지정된 날짜 이후 지난 30일 동안 `favorited` 이벤트를 3회 이상 수행한 사용자가 포함됩니다.
+다음 예시에서 결과 Segment에는 지정된 날짜 이후 지난 30일 동안 `favorited` 이벤트를 3회 이상 수행한 사용자가 포함됩니다.
 
-![증분 SQL 세그먼트 확장의 예시를 보여주는 SQL 편집기.]({% image_buster /assets/img_archive/sql_segments_editor_incremental.png %}){: style="max-width:65%" }
+![증분 SQL 세그먼트 확장 예시를 보여주는 SQL 에디터.]({% image_buster /assets/img_archive/sql_segments_editor_incremental.png %}){: style="max-width:65%" }
 
 ![증분 SQL 세그먼트 확장의 SQL 미리보기.]({% image_buster /assets/img_archive/sql_segments_incremental_preview.png %}){: style="max-width:85%" }
 
 {% alert tip %}
-증분 새로고침 세그먼트는 2일 이상 전에 발생한 이벤트인 지연 이벤트(예: 캡처 시점에 전송되지 않은 SDK 이벤트)를 고려합니다.
+증분 새로고침은 지연 이벤트, 즉 매일 새로고침 윈도우 이후에 도착하는 이벤트(캡처 시점에 전송되지 않은 SDK 이벤트 등)를 처리합니다. Segment가 새로고침될 때, Braze는 해당 지연 이벤트가 속하는 날짜를 재처리합니다.
 {% endalert %}
+
+#### 증분 새로고침이 시간 경과에 따라 사용자를 추적하는 방법 {#how-incremental-refresh-tracks-users-over-time}
+
+증분 새로고침을 사용하면 Braze가 내부 카운트 테이블에 각 사용자의 일일 카운트를 저장하여 매일 모든 이력 데이터를 다시 쿼리하지 않고도 전체 기간에 걸쳐 Segment를 평가할 수 있습니다.
+
+**저장되는 내용:** Braze는 `(date, user_id, count)` 형식으로 일일 사용자 자격 카운트를 누적하는 카운트 테이블(세그먼트 코호트 테이블과 유사)을 유지합니다. 이 테이블은 2일 롤링 새로고침 윈도우 외부의 이력 데이터를 유지합니다.
+
+**각 새로고침 시 일어나는 일:** 증분 새로고침이 실행되면, Braze는 카운트 테이블에서 2일 롤링 새로고침 윈도우의 레코드만 지웁니다. 그런 다음 업데이트된 시간 파라미터(`$start_date` 사용)로 SQL 쿼리를 다시 실행하여 해당 날짜의 새 행을 삽입합니다. 2일 롤링 새로고침 윈도우 외부의 이력 행은 카운트 테이블에 그대로 유지됩니다.
+
+**Braze가 Segment 포함 여부를 결정하는 방법:** Braze는 가장 최근의 2일 롤링 새로고침 페이로드만이 아닌 전체 누적 카운트 테이블에 대해 Segment 멤버십 기준을 평가합니다. 이는 2일 이전에 자격을 갖춘 사용자가 집계된 카운트가 더 이상 기준을 충족하지 않는 경우에만 Segment에서 제외됨을 의미합니다.
+
+**안정적으로 새로고침되는 SQL 작성:** 증분 새로고침용 SQL을 작성할 때, 부분 새로고침 중에 일관성 없는 결과를 생성할 수 있는 쿼리 패턴을 피하세요. 예를 들어, `$start_date` 경계를 넘는 데이터에 의존하는 `MAX(time)` 같은 윈도우 집계는 날짜의 하위 집합만 다시 계산될 때 행 상태를 예기치 않게 변경할 수 있습니다. 각 날짜의 출력이 해당 날짜의 이벤트에만 의존하도록 쿼리를 구성하면, 쿼리가 2일 또는 730일의 데이터를 처리하든 일관된 결과를 유지합니다.
 
 #### 추가 규칙
 
-또한 증분 새로고침 쿼리는 다음 규칙을 준수해야 합니다:
+또한, 증분 새로고침 쿼리는 다음 규칙을 준수해야 합니다:
 
-- 하나의 SQL 문을 작성합니다. 세미콜론을 포함하지 마세요.
-- 증분 SQL 세그먼트는 하나의 단일 이벤트만 참조할 수 있습니다. 날짜 및 개수에 대한 드롭다운은 선택한 이벤트를 기준으로 합니다.
-- SQL에는 `user_id`, `$start_date` 열과 집계 함수(예: `COUNT`)가 있어야 합니다. 이 세 필드 없이 저장된 SQL은 오류가 발생합니다.
+- 단일 SQL 문을 작성하세요. 세미콜론을 포함하지 마세요.
+- 증분 SQL Segment는 하나의 이벤트만 참조할 수 있습니다. 날짜 및 카운트에 대한 드롭다운은 해당 이벤트에 적용됩니다.
+- SQL에는 `$date()` 별칭(예: `$date(time)`)이 포함되어야 하고, `user_id` 및 `COUNT()` 집계를 선택하고, 날짜와 `user_id`로 그룹화하며, 시간 열에 `$start_date`를 사용하여 필터링(예: `time > $start_date`)해야 합니다. `$date()` 또는 이러한 필드 없이 SQL을 저장하면 오류가 반환됩니다.
 - `DECLARE` 문을 사용할 수 없습니다.
 {% endtab %}
 {% endtabs %}
 
 {% alert note %}
-`CATALOGS_ITEMS_SHARED` 테이블을 사용하는 SQL 세그먼트를 생성하는 경우 카탈로그 ID를 지정해야 합니다. 예를 들어:
+`CATALOGS_ITEMS_SHARED` 테이블을 사용하는 SQL Segment를 생성하는 경우, 카탈로그 ID를 지정해야 합니다. 예:
 
 ```sql
 SELECT * FROM CATALOGS_ITEMS_SHARED
@@ -165,41 +177,41 @@ LIMIT 10
 
 ### 3단계: 쿼리 미리보기 {#step-3-preview-the-query}
 
-저장하기 전에 쿼리 미리보기를 실행할 수 있습니다. 쿼리 미리보기는 자동으로 100개 행으로 제한되며 60초 후에 시간 초과됩니다. 미리보기를 실행할 때는 `user_id` 열 요구 사항이 적용되지 않습니다.
+저장하기 전에 쿼리의 미리보기를 실행할 수 있습니다. 쿼리 미리보기는 자동으로 100행으로 제한되며 60초 후에 타임아웃됩니다. `user_id` 열 요구 사항은 미리보기 실행 시 적용되지 않습니다.
 
-증분 SQL 세그먼트 확장의 경우 미리보기에는 Operator, Number of times 및 Time period 필드의 추가 기준이 포함되지 않습니다.
+증분 SQL 세그먼트 확장의 경우, 미리보기에는 연산자, 횟수, 기간 필드의 추가 기준이 포함되지 않습니다.
 
-### 4단계: SQL 반전 필요 여부 판단 {#step-4-determine-if-you-need-to-invert-sql}
+### 4단계: SQL 반전 필요 여부 결정 {#step-4-determine-if-you-need-to-invert-sql}
 
-다음으로, SQL을 반전시켜야 하는지 판단합니다. 이벤트가 0건인 사용자를 직접 쿼리할 수는 없지만, **SQL 반전**을 사용하여 해당 사용자를 타겟팅할 수 있습니다.
+다음으로 SQL을 반전해야 하는지 결정합니다. 이벤트가 0회인 사용자를 직접 쿼리하는 것은 불가능하지만, **SQL 반전**을 사용하여 이러한 사용자를 타겟팅할 수 있습니다.
 
 {% alert note %}
-기본적으로 **SQL 반전**은 토글되어 있지 않습니다. 그러나 부정이 필요한 SQL 문을 생성하기 위해 AI SQL 생성기를 사용할 경우, ChatGPT가 이 기능을 자동으로 토글하는 출력을 반환할 수 있습니다.
+기본적으로 **SQL 반전**은 토글되어 있지 않습니다. 그러나 AI SQL 생성기를 사용하여 부정해야 하는 SQL 문을 생성하면, ChatGPT가 이 기능을 자동으로 토글하는 출력을 반환할 수 있습니다.
 {% endalert %}
 
-예를 들어, 구매 횟수가 3회 미만인 사용자를 타겟팅하려면, 먼저 구매 횟수가 3회 이상인 사용자를 선택하는 쿼리를 작성합니다. 그런 다음 **SQL 반전**을 선택하여 구매 횟수가 3회 미만인 사용자(구매 횟수가 0인 사용자 포함)를 타겟팅합니다.
+예를 들어, 구매 횟수가 3회 미만인 사용자를 타겟팅하려면, 먼저 구매 횟수가 3회 이상인 사용자를 선택하는 쿼리를 작성합니다. 그런 다음 **SQL 반전**을 선택하여 구매 횟수가 3회 미만인 사용자(구매 0회인 사용자 포함)를 타겟팅합니다.
 
 {% alert important %}
-이벤트가 전혀 없는 사용자를 특별히 타겟팅하려는 경우가 아니라면 SQL을 반전시킬 필요가 없습니다. **SQL 반전**이 선택된 경우, 해당 기능이 필요한지 확인하고 세그먼트가 원하는 오디언스와 일치하는지 확인하세요. 예를 들어, 쿼리가 최소 한 건의 이벤트가 있는 사용자를 타겟팅하는 경우, 이를 반전하면 이벤트가 전혀 없는 사용자만 타겟팅합니다.
+이벤트가 0회인 사용자를 특별히 타겟팅하려는 경우가 아니라면 SQL을 반전할 필요가 없습니다. **SQL 반전**이 선택된 경우, 해당 기능이 필요한지, 그리고 Segment가 원하는 오디언스와 일치하는지 확인하세요. 예를 들어, 쿼리가 이벤트가 1회 이상인 사용자를 타겟팅하는 경우, 반전 시 이벤트가 0회인 사용자만 타겟팅하게 됩니다.
 {% endalert %}
 
-!["지난 30일 동안 1~4개의 이메일을 클릭함"이라는 세그먼트 확장에 SQL 반전 옵션이 선택된 상태.]({% image_buster /assets/img_archive/sql_segment_invert_sql.png %}){: style="max-width:90%;"}
+![SQL 반전 옵션이 선택된 "지난 30일간 이메일 1~4회 클릭" 세그먼트 확장.]({% image_buster /assets/img_archive/sql_segment_invert_sql.png %}){: style="max-width:90%;"}
 
 ## 세그먼트 멤버십 새로고침 {#refreshing-segment-membership}
 
-SQL을 사용하여 생성한 세그먼트 확장의 세그먼트 멤버십을 새로고침하려면 세그먼트 확장을 열고 **새로고침**을 선택합니다.
+SQL을 사용하여 생성한 세그먼트 확장의 세그먼트 멤버십을 새로고침하려면, 해당 세그먼트 확장을 열고 **새로고침**을 선택합니다.
 
 {% alert tip %}
-사용자가 정기적으로 들어오고 나갈 것으로 예상되는 세그먼트를 만든 경우, Campaign이나 Canvas에서 해당 세그먼트를 타겟팅하기 전에 사용하는 세그먼트 확장을 수동으로 새로고침하세요.
+사용자가 정기적으로 진입하고 이탈할 것으로 예상되는 Segment를 생성한 경우, Campaign 또는 Canvas에서 해당 Segment를 타겟팅하기 전에 사용하는 세그먼트 확장을 수동으로 새로고침하세요.
 {% endalert %}
 
 ## 세그먼트 확장 관리 {#managing-your-segment-extensions}
 
-**세그먼트 확장** 페이지에서 SQL을 사용하여 생성된 세그먼트는 이름 옆에 <i class="fas fa-code" alt="SQL 세그먼트 확장"></i>로 표시됩니다.
+**세그먼트 확장** 페이지에서 SQL을 사용하여 생성된 Segments는 이름 옆에 <i class="fas fa-code" alt="SQL 세그먼트 확장"></i>으로 표시됩니다.
 
-SQL 세그먼트 확장을 선택하여 확장이 사용 중인 위치를 확인하거나, 확장을 아카이브하거나, [세그먼트 멤버십을 수동으로 새로고침](#refreshing-segment-membership)할 수 있습니다.
+SQL 세그먼트 확장을 선택하면 해당 확장이 사용되고 있는 위치를 확인하거나, 확장을 보관하거나, 수동으로 [Segment 멤버십을 새로고침](#refreshing-segment-membership)할 수 있습니다.
 
-![SQL 편집기의 메시징 사용 섹션에서 SQL 세그먼트가 사용되는 위치를 표시합니다.]({% image_buster /assets/img_archive/sql_segments_usage.png %}){: style="max-width:70%;"}
+![SQL 편집기의 메시징 사용 섹션으로, SQL Segment가 사용되고 있는 위치를 보여줍니다.]({% image_buster /assets/img_archive/sql_segments_usage.png %}){: style="max-width:70%;"}
 
 ### 새로고침 설정 지정 {#designating-refresh-settings}
 

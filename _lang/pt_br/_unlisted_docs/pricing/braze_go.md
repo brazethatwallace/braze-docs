@@ -32,6 +32,6 @@ Os dados de interação para campanhas e Canvas são diferentes dos dados do Sno
     - Clicou ou abriu campanha ou Canvas com tag
     - Última mensagem recebida de campanha ou Canvas com tag
     - Recebeu campanha ou Canvas com tag
-- A Braze também pode implementar uma política de retenção de dados para eventos de perfil de usuário e dados de compra que remove eventos, compras ou ambos com mais de 1 ano que não tenham sido realizados novamente em 1 ano. No entanto, esses dados ainda estariam disponíveis em extensões de segmento SQL por 2 anos.
+- A Braze também pode implementar uma política de retenção de dados para eventos de perfil de usuário e dados de compra que remove eventos, compras ou ambos com mais de 1 ano que não tenham sido realizados novamente em 1 ano. No entanto, esses dados ainda estariam disponíveis em extensões de Segment SQL por 2 anos.
 
 Se alguma funcionalidade descrita neste artigo for atualizada, isso será refletido neste artigo e registrado em nossas [notas de versão]({{site.baseurl}}/help/release_notes#most-recent-braze-release-notes).

@@ -6,7 +6,6 @@ page_order: 6
 layout: api_page
 page_type: reference
 description: "Este artigo traz informações sobre o endpoint da Braze \"Exportar usuários em Grupos de Controle Global\"."
-
 ---
 {% api %}
 # Exportar perfil de usuário por grupo de controle global {#export-user-profile-by-global-control-group}
@@ -43,7 +42,7 @@ Geralmente, criamos um arquivo para cada 5.000 usuários para otimizar o process
 **Exemplo de ZIP:**
 `braze.docs.bucket/segment-export/abc56c0c-rd4a-pb0a-870pdf4db07q/2019-04-25/d9696570-dfb7-45ae-baa2-25e302r2da27-1556044807/114f0226319130e1a4770f2602b5639a.zip`
 
-| Propriedade | Informações | Mostrado no exemplo como |
+| Propriedade | Detalhes | Mostrado no exemplo como |
 | ------------------------------- | ------------------------------------------------------------------------------------ | -------------------------------------- |
 | `bucket-name` | Fixo com base no nome do seu bucket. | `braze.docs.bucket` |
 | `segment-export` | Fixo. | `segment-export` |
@@ -136,7 +135,7 @@ A seguir, uma lista de `fields_to_export` válidos. Usar `fields_to_export` para
 | `last_name` | String | Sobrenome do usuário. |
 | `phone` | String | Número de telefone do usuário no formato E.164. |
 | `purchase`s | Vetor | Compras que esse usuário fez nos últimos 90 dias. |
-| `random_bucket` | Inteiro | [Número de bucket aleatório]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events#random-bucket-number-event) do usuário, usado para criar segmentos uniformemente distribuídos de usuários aleatórios. |
+| `random_bucket` | Inteiro | [Número de bucket aleatório]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events#random-bucket-number-update-events) do usuário, usado para criar segmentos uniformemente distribuídos de usuários aleatórios. |
 | `time_zone` | String | Fuso horário do usuário no mesmo formato do banco de dados de fuso horário da IANA. |
 | `total_revenue` | Float | Receita total atribuída a esse usuário. A receita total é calculada com base nas compras que o usuário fez durante as janelas de conversão das Campaigns e Canvas que recebeu. |
 | `uninstalled_at` | Data e hora | Data e hora em que o usuário desinstala o app. Omitido se o app não tiver sido desinstalado. |

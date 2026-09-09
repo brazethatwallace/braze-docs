@@ -16,25 +16,25 @@ noindex: true
 
 ## トリガーの種類 {#trigger-types}
 
-アプリ内メッセージ製品を使用すると、`Any Purchase`、`Specific Purchase`、`Session Start`、`Custom Event`、`Push Click` など、さまざまなイベントタイプの結果としてアプリ内メッセージの表示をトリガーできます。さらに、`Specific Purchase`と`Custom Event`トリガーには堅牢なプロパティフィルターが含まれています。
+アプリ内メッセージ製品では、`Any Purchase`、`Specific Purchase`、`Session Start`、`Custom Event`、`Push Click` など、いくつかの異なるイベントタイプの結果としてアプリ内メッセージの表示をトリガーできます。さらに、`Specific Purchase` と `Custom Event` のトリガーには、堅牢なプロパティフィルターが含まれています。
 
 {% alert note %}
-トリガーされたアプリ内メッセージは、Braze SDKを通じて記録されたカスタムイベントでのみ機能します。アプリ内メッセージは、APIまたはAPIイベント（購入イベントなど）によってトリガーすることはできません。iOSを使用している場合は、[カスタムイベントの追跡]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=swift)に関する記事を参照して詳細を確認してください。
+トリガーされたアプリ内メッセージは、Braze SDKを通じて記録されたカスタムイベントでのみ機能します。アプリ内メッセージは、APIやAPIイベント（購入イベントなど）によってトリガーすることはできません。iOSを使用している場合は、[カスタムイベントのトラッキング]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=swift)の記事で詳細をご覧ください。
 {% endalert %}
 
 ## 配信セマンティクス {#delivery-semantics}
 
-ユーザーが対象になるすべてのアプリ内メッセージは、セッション開始時にユーザーのデバイスに配信されます。1つのイベントによって2つのアプリ内メッセージがトリガーされた場合、優先度の高いアプリ内メッセージが表示されます。SDKのセッション開始セマンティクスの詳細については、[セッションライフサイクル]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/analytics/tracking_sessions#session-lifecycle)に関する記事をお読みください。配信時に、SDKはアセットをプリフェッチしてトリガー時にすぐに利用できるようにし、表示遅延を最小限に抑えます。
+ユーザーが受信対象となるすべてのアプリ内メッセージは、セッション開始時にユーザーのデバイスに配信されます。1つのイベントによって2つのアプリ内メッセージがトリガーされた場合、優先度の高いアプリ内メッセージが表示されます。SDKのセッション開始セマンティクスの詳細については、[セッションライフサイクル]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/analytics/tracking_sessions#session-lifecycle)をお読みください。配信時に、SDKはアセットをプリフェッチして、トリガー時にすぐに利用できるようにし、表示の遅延を最小限に抑えます。
 
-トリガーイベントに複数の適格なアプリ内メッセージが関連付けられている場合、最も優先度の高いアプリ内メッセージのみが配信されます。
+トリガーイベントに複数の対象となるアプリ内メッセージが関連付けられている場合、最も優先度の高いアプリ内メッセージのみが配信されます。
 
-アセットがプリフェッチされていないため、配信時（セッション開始、プッシュクリック）にすぐに表示されるアプリ内メッセージには多少の遅延が発生する可能性があります。
+配信時にすぐ表示されるアプリ内メッセージ（セッション開始、プッシュクリック）では、アセットがプリフェッチされていないため、多少の遅延が発生する場合があります。
 
 ## トリガー間の最小時間間隔 {#minimum-time-interval-between-triggers}
 
-デフォルトでは、高品質のユーザーエクスペリエンスを促進するため、アプリ内メッセージのレートは30秒に1回に制限されています。
+デフォルトでは、質の高いユーザーエクスペリエンスを促進するために、アプリ内メッセージのレート制限は30秒に1回に設定されています。
 
-この値は、`startWithApiKey:inApplication:withLaunchOptions:withAppboyOptions:` に渡される `appboyOptions` パラメーター内の `ABKMinimumTriggerTimeIntervalKey` を使用してオーバーライドできます。`ABKMinimumTriggerTimeIntervalKey` を、アプリ内メッセージ間の最小時間（秒）として使用する整数値に設定します。
+この値は、`startWithApiKey:inApplication:withLaunchOptions:withAppboyOptions:` に渡される `appboyOptions` パラメーター内の `ABKMinimumTriggerTimeIntervalKey` を使用してオーバーライドできます。`ABKMinimumTriggerTimeIntervalKey` を、アプリ内メッセージ間の最小時間（秒単位）として設定したい整数値に設定してください。
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -57,9 +57,9 @@ Appboy.start(withApiKey: "YOUR-API-KEY", in:application, withLaunchOptions:launc
 {% endtab %}
 {% endtabs %}
 
-## 一致するトリガーが見つからない {#failing-to-find-a-matching-trigger}
+## 一致するトリガーが見つからない場合 {#failing-to-find-a-matching-trigger}
 
-Brazeが特定のイベントに一致するトリガーを検出できない場合、[`ABKInAppMessageControllerDelegate`](https://appboy.github.io/appboy-ios-sdk/docs/protocol_a_b_k_in_app_message_controller_delegate-p.html)の[noMatchingTriggerForEvent:name:](https://appboy.github.io/appboy-ios-sdk/docs/protocol_a_b_k_in_app_message_controller_delegate-p.html#ab4d57b13c51545d487227945a37d4ab8) メソッドを呼び出します。このシナリオを処理するには、デリゲートプロトコルを採用するクラスにこのメソッドを実装してください。
+Brazeが特定のイベントに対して一致するトリガーを見つけられなかった場合、[`ABKInAppMessageControllerDelegate`](https://appboy.github.io/appboy-ios-sdk/docs/protocol_a_b_k_in_app_message_controller_delegate-p.html)の[noMatchingTriggerForEvent:name:](https://appboy.github.io/appboy-ios-sdk/docs/protocol_a_b_k_in_app_message_controller_delegate-p.html#ab4d57b13c51545d487227945a37d4ab8)メソッドが呼び出されます。このシナリオを処理するには、デリゲートプロトコルを採用しているクラスにこのメソッドを実装してください。
 
 ## ローカルのアプリ内メッセージ配信 {#local-in-app-message-delivery}
 
@@ -67,45 +67,45 @@ Brazeが特定のイベントに一致するトリガーを検出できない場
 
 #### アプリ内メッセージの表示 {#showing-in-app-messages}
 
-ユーザーがアプリ内メッセージを受信する資格がある場合、`ABKInAppMessageController` にはアプリ内メッセージスタックから最新のアプリ内メッセージが提供されます。スタックはメモリに保存されたアプリ内メッセージのみを保持し、一時停止モードからのアプリ起動間にクリアされます。
+ユーザーがアプリ内メッセージを受信する資格がある場合、`ABKInAppMessageController`はアプリ内メッセージスタックから最新のアプリ内メッセージを取得します。スタックはメモリ内に保存されたアプリ内メッセージのみを保持し、アプリが中断モードから起動されるたびにクリアされます。
 
 {% alert important %}
-キーボードが画面に表示されているときは、レンダリングが未定義のため、アプリ内メッセージを表示しないでください。
+キーボードが画面に表示されているときにアプリ内メッセージを表示しないでください。この状況ではレンダリングが未定義となります。
 {% endalert %}
 
 #### アプリ内メッセージをスタックに追加する {#adding-in-app-messages-to-the-stack}
 
-ユーザーは、次の状況でアプリ内メッセージを受信できます。
+ユーザーは以下の状況でアプリ内メッセージを受信する資格があります。
 
-- アプリ内メッセージトリガーイベントが発生した
+- アプリ内メッセージのトリガーイベントが発火した場合
 - セッション開始イベント
-- プッシュ通知からアプリを開いた
+- プッシュ通知からアプリが開かれた場合
 
-トリガーされたアプリ内メッセージは、トリガーイベントが発生するとスタックに配置されます。複数のアプリ内メッセージがスタック内にあり、表示を待機している場合、Brazeは最後に受信したアプリ内メッセージを最初に表示します（後入れ先出し）。
+トリガーされたアプリ内メッセージは、トリガーイベントが発火したときにスタックに配置されます。複数のアプリ内メッセージがスタックにあり表示待ちの場合、Brazeは最も最近受信したアプリ内メッセージを最初に表示します（後入れ先出し）。
 
-#### アプリ内メッセージをスタックに返す {#returning-in-app-messages-to-the-stack}
+#### アプリ内メッセージをスタックに戻す {#returning-in-app-messages-to-the-stack}
 
-トリガーされたアプリ内メッセージは、次の状況でスタックに返されることがあります。
+トリガーされたアプリ内メッセージは、以下の状況でスタックに戻すことができます。
 
-- アプリがバックグラウンドにあるときにアプリ内メッセージがトリガーされた。
-- 別のアプリ内メッセージが現在表示されている。
-- 非推奨の `beforeInAppMessageDisplayed:withKeyboardIsUp:` [UIデリゲートメソッド]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/customization/setting_delegates#in-app-message-delegate)が実装されておらず、キーボードが現在表示されている。
-- `beforeInAppMessageDisplayed:` [デリゲートメソッド]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/customization/setting_delegates#core-in-app-message-delegate)または非推奨の `beforeInAppMessageDisplayed:withKeyboardIsUp:` [UIデリゲートメソッド]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/customization/setting_delegates#in-app-message-delegate)が `ABKDisplayInAppMessageLater` を返した。
+- アプリがバックグラウンドにあるときにアプリ内メッセージがトリガーされた場合。
+- 別のアプリ内メッセージが現在表示されている場合。
+- 非推奨の`beforeInAppMessageDisplayed:withKeyboardIsUp:`[UIデリゲートメソッド]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/customization/setting_delegates#in-app-message-delegate)が実装されておらず、キーボードが現在表示されている場合。
+- `beforeInAppMessageDisplayed:`[デリゲートメソッド]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/customization/setting_delegates#core-in-app-message-delegate)または非推奨の`beforeInAppMessageDisplayed:withKeyboardIsUp:`[UIデリゲートメソッド]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/customization/setting_delegates#in-app-message-delegate)が`ABKDisplayInAppMessageLater`を返した場合。
 
 #### アプリ内メッセージの破棄 {#discarding-in-app-messages}
 
-トリガーされたアプリ内メッセージは、次の状況では破棄されます。
+トリガーされたアプリ内メッセージは、以下の状況で破棄されます。
 
-- `beforeInAppMessageDisplayed:` [デリゲートメソッド]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/customization/setting_delegates#core-in-app-message-delegate)または非推奨の `beforeInAppMessageDisplayed:withKeyboardIsUp:` [UIデリゲートメソッド]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/customization/setting_delegates#in-app-message-delegate)が `ABKDiscardInAppMessage` を返した。
-- アプリ内メッセージのアセット（画像またはZIPファイル）のダウンロードに失敗した。
-- アプリ内メッセージを表示する準備ができているが、タイムアウト時間が経過した。
-- デバイスの向きが、トリガーされたアプリ内メッセージの向きと一致しない。
-- アプリ内メッセージはフルアプリ内メッセージだが、画像がない。
-- アプリ内メッセージは画像のみのモーダルアプリ内メッセージだが、画像がない。
+- `beforeInAppMessageDisplayed:`[デリゲートメソッド]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/customization/setting_delegates#core-in-app-message-delegate)または非推奨の`beforeInAppMessageDisplayed:withKeyboardIsUp:`[UIデリゲートメソッド]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/customization/setting_delegates#in-app-message-delegate)が`ABKDiscardInAppMessage`を返した場合。
+- アプリ内メッセージのアセット（画像またはZIPファイル）のダウンロードに失敗した場合。
+- アプリ内メッセージが表示準備完了であるが、タイムアウト時間を超過した場合。
+- デバイスの向きがトリガーされたアプリ内メッセージの向きと一致しない場合。
+- アプリ内メッセージがフルアプリ内メッセージであるが、画像がない場合。
+- アプリ内メッセージが画像のみのモーダルアプリ内メッセージであるが、画像がない場合。
 
 #### アプリ内メッセージ表示を手動でキューに入れる {#manually-queue-in-app-message-display}
 
-アプリ内で別のタイミングでアプリ内メッセージを表示したい場合は、次のメソッドを呼び出してスタックの最上位のアプリ内メッセージを手動で表示できます。
+アプリ内の他のタイミングでアプリ内メッセージを表示したい場合は、以下のメソッドを呼び出してスタックの最上位のアプリ内メッセージを手動で表示できます。
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -124,9 +124,9 @@ Appboy.sharedInstance()!.inAppMessageController.displayNextInAppMessage()
 {% endtab %}
 {% endtabs %}
 
-### リアルタイムのアプリ内メッセージの作成と表示 {#real-time-in-app-message-creation-and-display}
+### リアルタイムのアプリ内メッセージ作成と表示 {#real-time-in-app-message-creation-and-display}
 
-アプリ内メッセージはアプリ内でローカルに作成し、Braze経由で表示することもできます。これは、アプリ内でリアルタイムにトリガーしたいメッセージを表示する場合に特に便利です。Brazeは、ローカルで作成されたアプリ内メッセージの分析をサポートしていません。
+アプリ内メッセージはアプリ内でローカルに作成し、Brazeを通じて表示することもできます。これは、アプリ内でリアルタイムにトリガーしたいメッセージを表示する場合に特に便利です。Brazeはローカルで作成されたアプリ内メッセージの分析をサポートしていません。
 
 {% tabs %}
 {% tab OBJECTIVE-C %}

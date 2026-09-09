@@ -32,6 +32,9 @@ Options:
 [`.github/workflows/sync-glossaries-from-phrase.yml`](../../.github/workflows/sync-glossaries-from-phrase.yml)
 runs weekly (and on demand), opens a PR when Phrase entries change, and
 propagates added or updated terms into matching `_lang/` markdown files.
+Newly added terms also update mirrored locale pages that still use a shorter
+stale form of the approved translation (when the English mirror contains the
+term but the locale file does not yet use the full glossary value).
 Requires the
 `PHRASE_TMS_TOKEN` repository secret (Phrase Platform API token).
 
@@ -41,6 +44,15 @@ Requires the
 lists English glossary keys that are too generic for blind `_lang/` substring
 replacement during sync (for example `monitoring`, which would corrupt
 `{#monitoring-...}` heading anchor IDs).
+
+Propagation uses only the **first** Phrase synonym when a glossary value contains
+` or ` (for example `SDK or Software-Development-Kit` → `SDK`). Files under
+`_lang/*/_api/` are skipped entirely so API reference pages keep English acronyms
+and endpoint literals intact.
+
+If a sync PR still contains known corruption patterns (for example `Taxi for Email`
+in rideshare examples or `On-Klick, der` from the `click` glossary key), run
+`python scripts/repair_glossary_propagation_corruption.py` before merging.
 
 ### Sync exclusions
 

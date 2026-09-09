@@ -42,7 +42,7 @@ Es gibt zwei Methoden zur Erstellung und Verwaltung Ihrer Geschäftsobjekte in B
 
 | Methode | Beschreibung |
 | --- | --- |
-| [Kataloge]({{site.baseurl}}/user_guide/data/activation/catalogs) | Dies sind unabhängige Datenobjekte (ergänzende Datenobjekte) zum primären Nutzerprofil in Braze. In einem B2B-Kontext würden Sie wahrscheinlich Kataloge für Ihre Konten und Opportunities haben. |
+| [Kataloge]({{site.baseurl}}/user_guide/data/activation/catalogs) | Dies sind unabhängige Datenobjekte (ergänzende Datenobjekte) zum primären Kundenprofil in Braze. In einem B2B-Kontext würden Sie wahrscheinlich Kataloge für Ihre Konten und Opportunities haben. |
 | [Verbundene Quellen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources) | Diese erlauben es Braze, Ihr Data Warehouse direkt abzufragen. Wahrscheinlich synchronisieren Sie Ihre Lead-, Kontakt-, Opportunity- und Kontoobjekte bereits regelmäßig mit Ihrem Data Warehouse, sodass Sie die Segmentierung von Braze direkt auf dieses Warehouse verweisen und es in einer Zero-Copy-Umgebung aktivieren können. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 1: Erstellen Sie Ihre Geschäftsobjekte in Braze" }
 
@@ -186,7 +186,7 @@ Nachdem Sie Ihre IDs synchronisiert haben, müssen Sie Ihre Braze-Nutzerprofile 
 
 Da Ihre Opportunity- und Kontodaten nun als Braze-Kataloge erfasst sind, müssen Sie eine Beziehung zwischen diesen Katalogen und den Nutzerprofilen herstellen, an die Sie Nachrichten senden möchten. Derzeit sind dafür zwei Schritte erforderlich:
 
-1. Nehmen Sie das Konto (z. B. `account_id (string)`), die Opportunity-ID (z. B. `opportunity_ids (array)`) oder beide als Attribute in das Nutzerprofil auf.
+1. Nehmen Sie das Konto (z. B. `account_id (string)`), die Opportunity-ID (z. B. `opportunity_ids (array)`) oder beide als Attribute in das Kundenprofil auf.
 2. Protokollieren Sie ein Ereignis (z. B. `account_linked`), das die Konto-ID als Eigenschaft des Ereignisses enthält.
 
 ```json

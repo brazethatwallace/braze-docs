@@ -8,7 +8,7 @@ description: "Dieser Referenzartikel listet die Standardnutzerattribute (reservi
 
 # Standardattribute {#standard-attributes}
 
-> Standardattribute sind vordefinierte Felder, die Braze in jedem Nutzerprofil erkennt. Verwenden Sie diese Seite als Kurzreferenz für den Feldnamen, den Datentyp und das erwartete Format jedes Standardattributs.
+> Standardattribute sind vordefinierte Felder, die Braze in jedem Kundenprofil erkennt. Verwenden Sie diese Seite als Kurzreferenz für den Feldnamen, den Datentyp und das erwartete Format jedes Standardattributs.
 
 Standardattribute (manchmal auch *Standardattribute* oder *reservierte Schlüssel* genannt) unterscheiden sich von [angepassten Attributen]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), die speziell für Ihr Unternehmen gelten. Wenn Sie Daten mit einem der auf dieser Seite aufgeführten Feldnamen an Braze senden, speichert Braze diese im vordefinierten Profilfeld, anstatt ein neues angepasstes Attribut zu erstellen.
 
@@ -25,7 +25,7 @@ Standardattributnamen sind case-sensitiv. Verwenden Sie immer Kleinbuchstaben (z
 
 ## Bezeichner {#identifiers}
 
-Bezeichner teilen Braze mit, welches Nutzerprofil aktualisiert oder erstellt werden soll. Jede API-Anfrage und jede CSV-Zeile muss mindestens einen Bezeichner enthalten. Weitere Informationen zur Auswahl des richtigen Bezeichners finden Sie unter [Bezeichner-Auflösung]({{site.baseurl}}/api/objects_filters/user_attributes_object#identifier-resolution).
+Bezeichner teilen Braze mit, welches Kundenprofil aktualisiert oder erstellt werden soll. Jede API-Anfrage und jede CSV-Zeile muss mindestens einen Bezeichner enthalten. Weitere Informationen zur Auswahl des richtigen Bezeichners finden Sie unter [Bezeichner-Auflösung]({{site.baseurl}}/api/objects_filters/user_attributes_object#identifier-resolution).
 
 | Feld | Datentyp | Format und Hinweise |
 |---|---|---|

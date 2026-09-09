@@ -16,7 +16,7 @@ description: "Dieser Artikel beschreibt Details zum Endpunkt „Nutzer:innen tra
 > Verwenden Sie diesen Endpunkt, um angepasste Events und Käufe aufzuzeichnen und Nutzerprofilattribute in großen Mengen zu aktualisieren.
 
 {% alert important %}
-Dieser Endpunkt befindet sich derzeit in der Beta-Phase. Kontaktieren Sie Ihren Braze Account Manager, wenn Sie an der Beta teilnehmen möchten.
+Dieser Endpunkt befindet sich derzeit in der Beta-Phase. Kontaktieren Sie Ihren Braze Account Manager:in, wenn Sie an der Beta teilnehmen möchten.
 {% endalert %}
 
 ## Wann Sie diesen Endpunkt verwenden sollten {#when-to-use-this-endpoint}
@@ -44,10 +44,10 @@ Wir wenden ein Basis-Geschwindigkeitslimit von 5 Anfragen pro Sekunde auf diesen
 
 Jede `/users/sync/bulk`-Anfrage hat ein Payload-Limit von 4&nbsp;MB und kann bis zu 10.000 Event-, Attribut- oder Kauf-Objekte enthalten.
 
-Jedes Objekt (Event-, Attribut- und Kauf-Arrays) kann jeweils eine:n Nutzer:in aktualisieren, d. h. bis zu 10.000 verschiedene Nutzer:innen können in einer einzigen Anfrage aktualisiert werden. Ein einzelnes Nutzerprofil kann mit bis zu 100 Objekten in einer einzigen Anfrage aktualisiert werden.
+Jedes Objekt (Event-, Attribut- und Kauf-Arrays) kann jeweils eine:n Nutzer:in aktualisieren, d. h. bis zu 10.000 verschiedene Nutzer:innen können in einer einzigen Anfrage aktualisiert werden. Ein einzelnes Kundenprofil kann mit bis zu 100 Objekten in einer einzigen Anfrage aktualisiert werden.
 
 {% alert note %}
-Wenn Sie eine Erhöhung Ihres Rate-Limits benötigen, wenden Sie sich an Ihren Customer-Success-Manager.
+Wenn Sie eine Erhöhung Ihres Rate-Limits benötigen, wenden Sie sich an Ihren CSM.
 {% endalert %}
 
 
@@ -250,7 +250,7 @@ Wenn Sie den Fehler `provided external_id is blacklisted and disallowed` erhalte
 
 Wir empfehlen, beide zu verwenden.
 
-- Für große Nutzerprofil-Backfills und Synchronisierungen verwenden Sie den Endpunkt `/users/track/bulk`.
+- Für große Kundenprofil-Backfills und Synchronisierungen verwenden Sie den Endpunkt `/users/track/bulk`.
 - Für Realtime-Anwendungsfälle verwenden Sie den Endpunkt `/users/track`.
 
 ### Welche Bezeichner kann ich in /users/track/bulk verwenden? {#what-identifiers-can-i-use-in-userstrackbulk}

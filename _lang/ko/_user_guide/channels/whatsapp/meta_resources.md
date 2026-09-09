@@ -46,7 +46,7 @@ Meta는 WhatsApp용 비즈니스 사용자 이름을 도입하고 있습니다. 
 
 사용자 이름 기능이 광범위하게 제공되기 전에, Meta가 비즈니스를 위해 사용자 이름을 사전 예약했을 수 있습니다. 일반적으로 기존 Facebook 페이지 또는 Instagram 사용자 이름과 일치합니다. [WhatsApp Manage](https://business.facebook.com/wa/manage/)를 통해 이 예약된 사용자 이름을 신청하거나 다른 이름을 선택할 수 있습니다. 신청된 사용자 이름은 Meta가 기능을 제공할 때까지 활성화되지 않습니다.
 
-예약된 사용자 이름이 Facebook 페이지 또는 Instagram 계정에 이미 연결된 사용자 이름과 일치하는 경우, 먼저 비즈니스 전화번호를 해당 페이지 또는 계정에 연결해야 합니다. WhatsApp Manager 또는 Meta Business Suite에서 사용자 이름을 신청하는 동안 이 작업을 수행하거나, 해당 페이지 또는 계정에서 직접 전화번호를 추가할 수 있습니다. 연결하려면 페이지 또는 계정에 대한 전체 제어 권한이 필요하거나, `manage_phone` 권한이 있는 기본적인 부분 접근 권한이 필요합니다.
+예약된 사용자 이름이 Facebook 페이지 또는 Instagram 계정에 이미 연결된 사용자 이름과 일치하는 경우, 먼저 비즈니스 전화번호를 해당 페이지 또는 계정에 연결해야 합니다. WhatsApp 매니저 또는 Meta Business Suite에서 사용자 이름을 신청하는 동안 이 작업을 수행하거나, 해당 페이지 또는 계정에서 직접 전화번호를 추가할 수 있습니다. 연결하려면 페이지 또는 계정에 대한 전체 제어 권한이 필요하거나, `manage_phone` 권한이 있는 기본적인 부분 접근 권한이 필요합니다.
 
 #### 채팅 창에서의 표시 우선순위 {#display-priority-in-chat-windows}
 
@@ -67,7 +67,7 @@ Meta는 WhatsApp용 비즈니스 사용자 이름을 도입하고 있습니다. 
 - 템플릿 활동에는 템플릿 생성, 편집, 전송, 이의 제기 또는 보관 해제가 포함됩니다.
 - 보관된 템플릿은 전송할 수 없으며 28일 후 영구 삭제가 예약됩니다.
 - 28일 이내에 템플릿 보관을 해제하여 복원하고 예약된 삭제를 취소할 수 있습니다.
-- `message_template_status_update` 웹훅, 이메일 및 일회성 WhatsApp Manager 배너를 통해 알림이 전송됩니다.
+- `message_template_status_update` 웹훅, 이메일 및 일회성 WhatsApp 매니저 배너를 통해 알림이 전송됩니다.
 
 자세한 내용은 Meta의 [템플릿 보관](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/template-archival) 설명서를 참조하세요.
 
@@ -88,7 +88,7 @@ Meta는 WhatsApp용 비즈니스 사용자 이름을 도입하고 있습니다. 
 ### 2025년 10월: 공식 비즈니스 계정(OBA) 승인 프로세스 변경 {#october-2025-official-business-account-oba-approval-process-changed}
 *최종 업데이트: 2026년 3월*
 
-- 이전에는 WhatsApp Manager를 통해 모든 고객에게 개방
+- 이전에는 WhatsApp 매니저를 통해 모든 고객에게 개방
 - 현재 정부/대형 Meta 광고주, 직접 광고주 또는 Braze와 같은 BSP를 통해서만 가능(주당 최대 5개)
 - 새로운 전제 조건: 비즈니스 인증, 2단계 인증, 승인된 표시 이름, 주목도
 - 도움이 필요하면 고객 성공 매니저에게 문의하세요
@@ -190,13 +190,13 @@ WhatsApp은 플랫폼에서 스팸성 행동을 줄이는 등 비즈니스가 �
 
 #### 경고 및 제재에 대한 최신 정보 확인 방법 {#how-to-stay-updated-on-these-warnings-and-enforcements}
 
-기존 플랫폼 제재와 마찬가지로, 비즈니스는 WhatsApp Business Manager의 계정 품질 페이지를 통해 이러한 조치에 대한 알림을 받고 확인할 수 있습니다. 제재 알림 이메일이 해당 정보를 기반으로 전송되므로, WhatsApp Business Manager에 모든 필요한 관리자의 올바른 연락처 정보가 등록되어 있는지 확인하세요.
+기존 플랫폼 제재와 마찬가지로, 비즈니스는 WhatsApp Business 매니저의 계정 품질 페이지를 통해 이러한 조치에 대한 알림을 받고 확인할 수 있습니다. 제재 알림 이메일이 해당 정보를 기반으로 전송되므로, WhatsApp Business 매니저에 모든 필요한 관리자의 올바른 연락처 정보가 등록되어 있는지 확인하세요.
 
 심각한 스팸 위반에 대한 알림은 다음과 같이 전달됩니다:
 
-- WhatsApp Business Manager 알림 센터에 표시
-- WhatsApp Manager에 배너로 표시
-- WhatsApp Business Manager에 설정된 모든 관리자에게 이메일 전송
+- WhatsApp Business 매니저 알림 센터에 표시
+- WhatsApp 매니저에 배너로 표시
+- WhatsApp Business 매니저에 설정된 모든 관리자에게 이메일 전송
 
 ### 2024년 5월: Cloud API 튀르키예에서 서비스 개시 {#may-2024-cloud-api-going-live-in-trkiye}
 *최종 업데이트: 2024년 5월*

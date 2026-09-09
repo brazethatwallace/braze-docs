@@ -11,7 +11,7 @@ page_order: 3.5
 > Wissensquellen helfen Ihren KI-Agenten, Katalogdaten zu interpretieren und die richtigen Informationen abzurufen, um Ihre Ziele zu erreichen. Eine Einführung in Braze Agents finden Sie unter [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents). Informationen zum Hinzufügen von Wissen zu einem Agenten finden Sie unter [Angepasste Agenten erstellen]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources).
 
 {% alert important %}
-Wissensquellen für die Agentenkonsole befinden sich derzeit im Early Access. Kontaktieren Sie Ihren Braze Account Manager, wenn Sie an diesem Early Access teilnehmen möchten.
+Wissensquellen für die Agentenkonsole befinden sich derzeit im Early Access. Kontaktieren Sie Ihren Braze Account Manager:in, wenn Sie an diesem Early Access teilnehmen möchten.
 {% endalert %}
 
 ## So funktioniert es {#how-it-works}

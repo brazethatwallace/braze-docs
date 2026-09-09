@@ -14,13 +14,13 @@ description: "Cet article de référence couvre un cas d'usage soumis par la com
 Il s'agit d'une intégration proposée par la communauté et qui n'est pas directement prise en charge par Braze. Le Bulk Discount Code Bot est directement pris en charge par Shopify. Seuls les codes de promotion Braze sont pris en charge par Braze.
 {% endalert %}
 
-## Prérequis {#requirements}
+## Conditions requises {#requirements}
 
-| Prérequis | Description |
+| Condition | Description |
 | --- | --- |
 | Configurer une boutique Shopify | Confirmez que vous avez déjà [configuré une boutique Shopify avec Braze]({{site.baseurl}}/shopify_overview). |
 | Installer l'application Bulk Discount Code Bot | Téléchargez l'application [Bulk Discount Code Bot](https://apps.shopify.com/bulk-discount-generator) dans la boutique d'applications Shopify. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prérequis" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions requises" }
 
 ## Générer des codes de réduction uniques {#generating-unique-discount-codes}
 
@@ -28,33 +28,33 @@ Il s'agit d'une intégration proposée par la communauté et qui n'est pas direc
 
 Utilisez le Bulk Discount Code Bot pour configurer vos codes de réduction en fonction du nombre de codes à générer, de la longueur du code, de la valeur de la réduction, et plus encore.
 
-![Les options de configuration pour un ensemble de réductions.][1]
+![Les options de configuration pour un ensemble de réductions.][1]{: width="1203" height="677" style="max-width:100%;"}
 
 ### Étape 2 : Exporter vos codes {#step-2-export-your-codes}
 
-Trouvez votre ensemble de réductions dans la barre de recherche du Bulk Discount Code Bot, puis sélectionnez **Export Codes** > **Download Codes** pour télécharger un fichier CSV dans votre dossier Téléchargements.
+Recherchez votre ensemble de réductions dans la barre de recherche du Bulk Discount Code Bot, puis sélectionnez **Export Codes** > **Download Codes** pour télécharger un fichier CSV dans votre dossier Téléchargements.
 
-![Barre de recherche avec un menu déroulant affichant l'ensemble de réductions et une rangée de boutons à sélectionner.][2]{: style="max-width:70%;"}
+![Barre de recherche avec un menu déroulant affichant l'ensemble de réductions et une rangée de boutons à sélectionner.][2]{: width="1163" height="858" style="max-width:70%;"}
 
-Dans le fichier CSV, supprimez la ligne 1 pour retirer l'en-tête de colonne « Promo ». Cela empêchera « Promo » de devenir un code de réduction dans Braze.
+Dans le fichier CSV, supprimez la ligne 1 pour retirer l'en-tête de colonne « Promo ». Cela empêche « Promo » de devenir un code de réduction dans Braze.
 
-![Un organigramme montrant la suppression de l'en-tête de ligne « Promo » dans un fichier CSV.][3]{: style="max-width:60%;"}
+![Un diagramme montrant la suppression de l'en-tête de ligne « Promo » dans un fichier CSV.][3]{: width="448" height="222" style="max-width:60%;"}
 
 ### Étape 3 : Ajouter vos codes de réduction à Braze {#step-3-add-your-discount-codes-to-braze}
 
 Dans Braze, accédez à **Data Settings** > **Promotion Codes** > **Create Promotion Code List** et [configurez votre liste de codes de réduction]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create#create). Assurez-vous de faire correspondre la date d'expiration configurée par le Bulk Discounts Code Bot.
 
-Ensuite, téléversez votre fichier CSV et sélectionnez **Save List**.
+Ensuite, téléchargez votre fichier CSV et sélectionnez **Save List**.
 
 ### Étape 4 : Ajouter vos codes de réduction à une campagne Braze ou une étape Canvas {#step-4-add-your-discount-codes-to-a-braze-campaign-or-canvas-step}
 
 Si vous souhaitez utiliser vos codes de réduction uniques dans une Campaign à envoi unique, ou si cela ne vous dérange pas que les utilisateurs reçoivent plusieurs codes uniques à travers différentes Campaigns ou étapes Canvas, copiez l'extrait de code Liquid depuis la liste de codes de promotion que vous avez enregistrée.
 
-![Un extrait de code Liquid avec un bouton pour le copier.][4]{: style="max-width:60%;"}
+![Un extrait de code Liquid avec un bouton pour le copier.][4]{: width="958" height="295" style="max-width:60%;"}
 
 Collez l'extrait de code Liquid dans une Campaign ou une étape Canvas.
 
-<video autoplay muted loop playsinline loading="lazy" style="max-width:100%;" aria-label="Une vidéo montrant l'ajout de l'extrait de code Liquid à une étape Canvas.">
+<video autoplay muted loop playsinline loading="lazy" width="800" height="540" style="max-width:100%;height:auto;aspect-ratio:800/540;" aria-label="Une vidéo montrant l'ajout de l'extrait de code Liquid à une étape Canvas.">
   <source src="{% image_buster /assets/img/shopify/liquid_promo_code.mp4 %}" type="video/mp4">
 </video>
 
@@ -69,13 +69,13 @@ Dans l'étape User Update, procédez comme suit pour chaque champ :
 - **Action :** Sélectionnez **Update**.
 - **Key Value :** Collez l'extrait de code Liquid.
 
-![Une étape User Update qui met à jour un attribut « Promo Code » avec l'extrait de code Liquid.][6]
+![Une étape User Update qui met à jour un attribut « Promo Code » avec l'extrait de code Liquid.][6]{: width="2464" height="1322" style="max-width:100%;"}
 
-Vous pouvez maintenant ajouter l'attribut personnalisé {% raw %}`{{custom_attribute.${Promo Code}}}`{% endraw %} à n'importe quel message, et le code de réduction sera automatiquement inséré.
+Vous pouvez maintenant ajouter l'attribut personnalisé {% raw %}`{{custom_attribute.${Promo Code}}}`{% endraw %} à n'importe quel message, et le code de réduction sera automatiquement intégré.
 
 ## Comportement des codes de réduction {#discount-code-behavior}
 
-{% details Campaign ou étape Canvas multicanal %}
+{% details Campaign multicanal ou étape Canvas %}
 
 Lorsqu'un extrait de code de réduction est utilisé dans une Campaign multicanal ou une étape Canvas, les utilisateurs reçoivent toujours un code unique. Si un utilisateur est éligible pour recevoir un code via plusieurs canaux, il recevra le même code sur chaque canal. Autrement dit, un utilisateur éligible ne recevra qu'un seul code pour l'ensemble des messages envoyés par cette Campaign ou cette étape Canvas.
 
@@ -83,7 +83,7 @@ Lorsqu'un extrait de code de réduction est utilisé dans une Campaign multicana
 
 {% details Différentes étapes Canvas ou Campaigns distinctes %}
 
-Lorsqu'un code de réduction est référencé par plusieurs étapes dans le même Canvas ou par des Campaigns distinctes, un utilisateur éligible recevra plusieurs codes de promotion uniques (un code par étape Canvas ou Campaign).
+Lorsqu'un code de réduction est référencé par plusieurs étapes dans le même Canvas ou par des Campaigns distinctes, un utilisateur éligible recevra plusieurs codes de promotion uniques (un code pour chaque étape Canvas ou Campaign).
 
 {% enddetails %}
 

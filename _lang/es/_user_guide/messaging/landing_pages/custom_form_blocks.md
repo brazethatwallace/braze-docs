@@ -8,7 +8,7 @@ description: "Aprende a crear entradas de formulario interactivas personalizadas
 
 # Crear bloques de formulario personalizados en páginas de destino {#create-custom-form-blocks-on-landing-pages}
 
-> Los [bloques de formulario]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages) de las páginas de destino de Braze capturan entradas estándar, como campos de texto, casillas de verificación y menús desplegables. Los bloques de formulario personalizados amplían las posibilidades al permitirte crear tus propios elementos interactivos, como una calificación con estrellas, un selector de sentimiento con emojis o una tarjeta de rasca y gana.
+> Los [bloques de formulario]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages) de las páginas de destino de Braze capturan entradas estándar, como campos de texto, casillas de verificación y menús desplegables. Los bloques de formulario personalizados amplían las posibilidades al permitirte crear tus propios elementos interactivos, como una calificación con estrellas, un SELECTOR de sentimiento con emojis o una tarjeta de rasca y gana.
 
 Cuando un visitante envía el formulario personalizado, el valor que seleccionó se valida y guarda junto con tus campos estándar, y luego se envía a Braze como un atributo de usuario personalizado. Esto te permite recopilar datos más ricos y atractivos sin salir del editor de páginas de destino.
 
@@ -22,7 +22,7 @@ Los cuestionarios y los mensajes dentro de la aplicación tienen sus propios blo
 
 Una entrada de formulario personalizada es cualquier elemento en tu página de destino cuyo valor deseas capturar y enviar con el formulario. Conectas ese elemento al sistema de formularios de Braze registrándolo. El registro le indica a Braze qué elemento observar, cómo leer su valor actual y qué hacer con ese valor cuando se envía el formulario.
 
-1. Crea tu interfaz personalizada dentro de un bloque de **Custom Code** en la página de destino y asígnale un selector CSS estable, como un `id`.
+1. Crea tu interfaz personalizada dentro de un bloque de **Custom Code** en la página de destino y asígnale un SELECTOR CSS estable, como un `id`.
 2. Registra el elemento llamando a `window.brazeHelpers.forms.registerFormInput` con un objeto de configuración.
 3. Braze llama a tu función `getValue` para leer el valor actual cuando lo necesita.
 4. Si el campo es obligatorio, o proporcionas una función `onValidate`, Braze bloquea el envío hasta que el valor pase la validación, y marca un elemento no válido con una clase CSS que puedes estilizar. Consulta [Validación y campos obligatorios](#validation-and-required-fields).
@@ -69,7 +69,7 @@ Como mínimo, debes proporcionar una forma de localizar el elemento (`selector` 
 
 | Propiedad | Tipo | Obligatorio | Descripción |
 | --- | --- | --- | --- |
-| `selector` | `string` | Sí (o `element`) | Un selector CSS que coincida con tu elemento personalizado, por ejemplo `"#scratch-card"`. Braze lo resuelve de forma diferida con `querySelector` en el momento de la validación y el envío, por lo que puede coincidir con un elemento añadido al DOM después de que se ejecute `registerFormInput`. |
+| `selector` | `string` | Sí (o `element`) | Un SELECTOR CSS que coincida con tu elemento personalizado, por ejemplo `"#scratch-card"`. Braze lo resuelve de forma diferida con `querySelector` en el momento de la validación y el envío, por lo que puede coincidir con un elemento añadido al DOM después de que se ejecute `registerFormInput`. |
 | `element` | `HTMLElement` | Sí (o `selector`) | Una referencia directa al elemento, utilizada en lugar de `selector`. Solo se usa mientras el elemento permanece adjunto a la página, y tiene prioridad sobre `selector` cuando se proporcionan ambos. |
 | `isRequired` | `boolean \| Promise<boolean>` | No | Cuando es `true`, el formulario no se puede enviar hasta que la entrada tenga un valor no vacío: `null`, `undefined`, cadenas vacías (incluidas las que solo contienen espacios en blanco) y arrays vacíos cuentan como vacíos. También puede ser una promesa que se resuelve a un booleano, que Braze reevalúa cada vez que se valida la entrada, para que puedas decidir el estado de obligatoriedad en tiempo de ejecución. El valor predeterminado es `false`. Consulta [Validación y campos obligatorios](#validation-and-required-fields) para el orden completo de validación. |
 | `getValue` | `function` | Sí | Devuelve el valor actual de la entrada. Braze pasa el elemento coincidente como argumento, para que puedas leer el valor del DOM, por ejemplo `element.dataset.sentiment`, o de una variable en tu propio código. Devuelve `null` cuando aún no hay un valor. |
@@ -106,7 +106,7 @@ Estos ejemplos se ejecutan completamente en el navegador del visitante. Para el 
 <div class="scrollable-code-examples" markdown="1">
 
 {% tabs local %}
-{% tab Selector de sentimiento %}
+{% tab SELECTOR de sentimiento %}
 
 **Objetivo:** El visitante selecciona una cara feliz o triste, y su elección se escribe en un atributo personalizado de tipo cadena llamado `feedback_sentiment`.
 
@@ -348,7 +348,7 @@ Estilizar el estado de error es opcional pero recomendado, para que los visitant
 
 ## Mejores prácticas {#best-practices}
 
-- Usa un selector estable y único. Un `id` es la opción más segura. Evita selectores que puedan coincidir con más de un elemento.
+- Usa un SELECTOR estable y único. Un `id` es la opción más segura. Evita selectores que puedan coincidir con más de un elemento.
 - Devuelve `null`, no una cadena vacía o `undefined`, cuando no hay valor, para que las comprobaciones de obligatoriedad se comporten de forma predecible. Las cadenas vacías y los arrays vacíos también se tratan como vacíos, pero `null` es la señal más clara de "sin valor".
 - Mantén `getValue` ligero y síncrono. Braze puede llamarlo más de una vez, por lo que debería leer y devolver el valor actual en lugar de realizar trabajo pesado.
 - Estiliza el estado `bz-validation-error` para que los visitantes puedan ver qué entrada personalizada está bloqueando el envío.
@@ -364,7 +364,7 @@ Asegúrate de que `isRequired` esté establecido en `true`. Braze trata `null`, 
 Confirma que `onSubmit` llama a `window.brazeBridge.getUser().setCustomUserAttribute` con el nombre de atributo correcto, y que el bloque de **Custom Code** está en la misma página de destino que el formulario.
 
 ### El registro parece no hacer nada {#registration-seems-to-do-nothing}
-Verifica que el selector coincida con un elemento que exista en el DOM cuando se ejecuta `registerFormInput`, y que el script se ejecute después de que ese elemento se haya renderizado. Luego abre la consola para desarrolladores de tu navegador: `registerFormInput` valida su configuración y, cuando algo está mal (por ejemplo, falta `getValue`, un selector que no es un selector CSS válido o una propiedad del tipo incorrecto), ignora el registro y muestra una advertencia con el prefijo `[brazeHelpers.forms.registerFormInput]` describiendo qué era inválido.
+Verifica que el SELECTOR coincida con un elemento que exista en el DOM cuando se ejecuta `registerFormInput`, y que el script se ejecute después de que ese elemento se haya renderizado. Luego abre la consola para desarrolladores de tu navegador: `registerFormInput` valida su configuración y, cuando algo está mal (por ejemplo, falta `getValue`, un SELECTOR que no es un SELECTOR CSS válido o una propiedad del tipo incorrecto), ignora el registro y muestra una advertencia con el prefijo `[brazeHelpers.forms.registerFormInput]` describiendo qué era inválido.
 
 ## Contenido relacionado {#related-content}
 

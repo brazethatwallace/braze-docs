@@ -28,7 +28,7 @@ APIを経由したユーザーの一括削除では解決できないユース�
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`users.delete` 権限を持つ[APIキー]({{site.baseurl}}/api/api_key)が必要です。
+このエンドポイントを使用するには、`users.delete`権限を持つ[APIキー]({{site.baseurl}}/api/basics)が必要です。
 
 ## レート制限 {#rate-limit}
 

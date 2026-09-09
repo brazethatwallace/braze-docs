@@ -7,9 +7,9 @@ description: "この記事には2020年5月のリリースノートが含まれ�
 ---
 # 2020年5月 {#may-2020}
 
-## Google Tag Manager
+## Google Tag マネージャー
 
-[Google Tag Manager]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android)を使用したBrazeのAndroid SDKのデプロイと管理方法に関するドキュメントと例を追加しました。
+[Google Tag マネージャー]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android)を使用したBrazeのAndroid SDKのデプロイと管理方法に関するドキュメントと例を追加しました。
 
 ## 新しいブラックリストメールAPIエンドポイント {#new-blacklist-email-api-endpoint}
 

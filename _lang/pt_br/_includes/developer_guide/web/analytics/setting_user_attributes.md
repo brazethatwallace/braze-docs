@@ -4,7 +4,7 @@
 
 ### Métodos predefinidos {#predefined-methods}
 
-A Braze fornece métodos predefinidos para definir os seguintes atributos de usuário na [classe `User`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html):
+A Braze fornece métodos predefinidos para definir os seguintes atributos de usuário na classe [`User`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html):
 
 - Nome
 - Sobrenome
@@ -19,21 +19,21 @@ A Braze fornece métodos predefinidos para definir os seguintes atributos de usu
 ### Definindo atributos padrão {#setting-default-attributes}
 
 {% tabs %}
-{% tab using methods %}
-Para definir um atributo padrão para um usuário, chame o método `getUser()` na sua instância da Braze para obter uma referência ao usuário atual do seu app. Então você pode chamar métodos para definir um atributo do usuário.
+{% tab usando métodos %}
+Para definir um atributo padrão para um usuário, chame o método `getUser()` na sua instância do Braze para obter uma referência ao usuário atual do seu app. Em seguida, você pode chamar métodos para definir um atributo de usuário.
 
 {% subtabs local %}
-{% subtab First name %}
+{% subtab Nome %}
 ```javascript
 braze.getUser().setFirstName("SomeFirstName");
 ```
 {% endsubtab %}
-{% subtab Gender %}
+{% subtab Gênero %}
 ```javascript
 braze.getUser().setGender(braze.User.Genders.FEMALE);
 ```
 {% endsubtab %}
-{% subtab Date of birth %}
+{% subtab Data de nascimento %}
 ```javascript
 braze.getUser().setDateOfBirth(2000, 12, 25);
 ```
@@ -41,8 +41,8 @@ braze.getUser().setDateOfBirth(2000, 12, 25);
 {% endsubtabs %}
 {% endtab %}
 
-{% tab google tag manager %}
-Usando o Google Tag Manager, atributos padrão do usuário (como o nome de um usuário) devem ser registrados da mesma forma que atributos personalizados do usuário. Certifique-se de que os valores que está passando para os atributos padrão correspondam ao formato esperado especificado na documentação da [classe User](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html).
+{% tab Google Tag Manager %}
+Ao usar o Google Tag Manager, os atributos padrão do usuário (como o nome do usuário) devem ser registrados da mesma forma que os atributos personalizados de usuário. Certifique-se de que os valores que você está passando para atributos padrão correspondam ao formato esperado especificado na documentação da classe [`User`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html).
 
 Por exemplo, o atributo de gênero pode aceitar qualquer um dos seguintes valores: `"m" | "f" | "o" | "u" | "n" | "p"`. Portanto, para definir o gênero de um usuário como feminino, crie uma tag HTML personalizada com o seguinte conteúdo:
 
@@ -56,22 +56,22 @@ window.braze.getUser().setGender("f")
 
 ### Removendo atributos padrão {#unsetting-default-attributes}
 
-Você pode remover ou redefinir um atributo de usuário por meio do código do seu app, de uma solicitação à REST API ou de uma etapa do Canvas de [Atualização de usuário]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/). Para atributos de array e booleanos, use `null`. Para outros tipos de dados, use uma string vazia (`""`).
+Você pode remover ou desfazer um atributo de usuário pelo código do seu app, por uma solicitação da REST API ou por uma etapa [User Update]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) do Canvas. Para atributos de array e booleanos, use `null`. Para outros tipos de dados, use uma string vazia (`""`).
 
-Para remover um atributo padrão do usuário com o Web SDK, passe `null` para o método relacionado. Por exemplo:
+Para remover um atributo padrão de usuário com o Web SDK, passe `null` para o método correspondente. Por exemplo:
 
 {% tabs local %}
-{% tab First name %}
+{% tab Nome %}
 ```javascript
 braze.getUser().setFirstName(null);
 ```
 {% endtab %}
-{% tab Gender %}
+{% tab Gênero %}
 ```javascript
 braze.getUser().setGender(null);
 ```
 {% endtab %}
-{% tab Date of birth %}
+{% tab Data de nascimento %}
 ```javascript
 braze.getUser().setDateOfBirth(null, null, null);
 ```
@@ -84,11 +84,11 @@ braze.getUser().setDateOfBirth(null, null, null);
 
 {% tabs %}
 {% tab using methods %}
-Além dos métodos de atributos padrão do usuário, você também pode definir [atributos personalizados]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#custom-attribute-data-types) para seus usuários. Para especificações completas dos métodos, consulte [nossos JSDocs](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html).
+Além dos métodos de atributos padrão do usuário, você também pode definir [atributos personalizados]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes#custom-attribute-data-types) para seus usuários. Para especificações completas dos métodos, consulte [nosso JSDocs](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html).
 
 {% subtabs local %}
 {% subtab String %}
-Para definir um atributo personalizado com um valor `string`:
+Para definir um atributo personalizado com um valor de `string`:
 
 ```javascript
 braze.getUser().setCustomUserAttribute(
@@ -99,7 +99,7 @@ braze.getUser().setCustomUserAttribute(
 
 {% endsubtab %}
 {% subtab Integer %}
-Para definir um atributo personalizado com um valor `integer`:
+Para definir um atributo personalizado com um valor de `integer`:
 
 ```javascript
 braze.getUser().setCustomUserAttribute(
@@ -116,7 +116,7 @@ braze.getUser().incrementCustomUserAttribute(
 
 {% endsubtab %}
 {% subtab Date %}
-Para definir um atributo personalizado com um valor `date`:
+Para definir um atributo personalizado com um valor de `date`:
 
 ```javascript
 braze.getUser().setCustomUserAttribute(
@@ -140,10 +140,10 @@ braze.getUser().setCustomUserAttribute(
 {% endsubtab %}
 {% subtab Array %}
 
-O número padrão e máximo de elementos em um array é 500. Você pode atualizar o número máximo de elementos no dashboard da Braze, em **Configurações de dados** > **Atributos personalizados**. Arrays que excederem o número máximo de elementos serão truncados para conter o número máximo de elementos.
+O número padrão e máximo de elementos em uma matriz é 500. Você pode atualizar o número máximo de elementos no dashboard da Braze, em **Data Settings** > **Custom Attributes**. Matrizes que excedam o número máximo de elementos serão truncadas para conter o número máximo de elementos.
 
 
-Para definir um atributo personalizado com um valor `array`:
+Para definir um atributo personalizado com um valor de `array`:
 
 ```javascript
 braze.getUser().setCustomUserAttribute(YOUR_ATTRIBUTE_KEY_STRING, YOUR_ARRAY_OF_STRINGS);
@@ -156,18 +156,18 @@ braze.getUser().removeFromCustomAttributeArray(YOUR_ATTRIBUTE_KEY_STRING, "value
 ```
 
 {% alert important %}
-As datas passadas para a Braze com esse método devem ser objetos JavaScript Date.
+As datas passadas para a Braze com este método devem ser objetos JavaScript Date.
 {% endalert %}
 {% endsubtab %}
 {% endsubtabs %}
 
 {% alert important %}
-As chaves e valores dos atributos personalizados podem ter no máximo 255 caracteres. Para saber mais sobre valores válidos de atributos personalizados, consulte a [documentação de referência](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html).
+As chaves e os valores de atributos personalizados podem ter no máximo 255 caracteres. Para saber mais sobre valores válidos de atributos personalizados, consulte a [documentação de referência](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html).
 {% endalert %}
 {% endtab %}
 
 {% tab google tag manager %}
-Os atributos personalizados do usuário não estão disponíveis devido a uma limitação na linguagem de script do Google Tag Manager. Para registrar atributos personalizados, crie uma tag HTML personalizada com o seguinte conteúdo:
+Atributos personalizados do usuário não estão disponíveis devido a uma limitação na linguagem de script do Google Tag Manager. Para registrar atributos personalizados, crie uma tag HTML personalizada com o seguinte conteúdo:
 
 ```html
 <script>
@@ -178,14 +178,14 @@ window.braze.getUser().setCustomUserAttribute("attribute name", "attribute value
 ```
 
 {% alert important %}
-O modelo GTM não oferece suporte a propriedades aninhadas em eventos ou compras. Você pode usar o HTML anterior para registrar quaisquer eventos ou compras que exijam propriedades aninhadas.
+O modelo GTM não oferece suporte para propriedades aninhadas em eventos ou compras. Você pode usar o HTML anterior para registrar quaisquer eventos ou compras que exijam propriedades aninhadas.
 {% endalert %}
 {% endtab %}
 {% endtabs %}
 
 ### Removendo atributos personalizados {#unsetting-custom-attributes}
 
-Para remover um atributo personalizado, passe `null` para o método relacionado.
+Para remover um atributo personalizado, passe `null` para o método correspondente.
 
 ```javascript
 braze.getUser().setCustomUserAttribute(YOUR_ATTRIBUTE_KEY_STRING, null);
@@ -193,7 +193,7 @@ braze.getUser().setCustomUserAttribute(YOUR_ATTRIBUTE_KEY_STRING, null);
 
 ### Aninhando atributos personalizados {#nesting-custom-attributes}
 
-Você também pode aninhar propriedades dentro de atributos personalizados. No exemplo a seguir, um objeto `favorite_book` com propriedades aninhadas é definido como um atributo personalizado no perfil do usuário. Para mais detalhes, consulte [Atributos personalizados aninhados]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/).
+Você também pode aninhar propriedades dentro de atributos personalizados. No exemplo a seguir, um objeto `favorite_book` com propriedades aninhadas é definido como um atributo personalizado no perfil de usuário. Para saber mais, consulte [Atributos personalizados aninhados]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
 
 ```javascript
 import * as braze from "@braze/web-sdk";
@@ -209,22 +209,22 @@ braze.getUser().setCustomUserAttribute("favorite_book", favoriteBook);
 
 ### Usando a REST API {#using-the-rest-api}
 
-Você também pode usar nossa REST API para definir ou remover atributos de usuários. Para saber mais, consulte [Endpoints de dados de usuários]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data).
+Você também pode usar nossa REST API para definir ou remover atributos do usuário. Para saber mais, consulte [Endpoints de dados de usuários]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data).
 
-## Definindo inscrições de usuários {#setting-user-subscriptions}
+## Definindo inscrições do usuário {#setting-user-subscriptions}
 
-Para configurar uma inscrição para seus usuários (e-mail ou push), chame as funções `setEmailNotificationSubscriptionType()` ou `setPushNotificationSubscriptionType()`, respectivamente. Ambas as funções aceitam o tipo `enum` `braze.User.NotificationSubscriptionTypes` como argumentos. Esse tipo tem três estados diferentes:
+Para configurar uma inscrição para seus usuários (e-mail ou push), chame as funções `setEmailNotificationSubscriptionType()` ou `setPushNotificationSubscriptionType()`, respectivamente. Ambas as funções recebem o tipo `enum` `braze.User.NotificationSubscriptionTypes` como argumento. Esse tipo possui três estados diferentes:
 
 | Status da inscrição | Definição |
 | ------------------- | ---------- |
 | `braze.User.NotificationSubscriptionTypes.OPTED_IN` | Inscrito e com aceitação explícita |
 | `braze.User.NotificationSubscriptionTypes.SUBSCRIBED` | Inscrito, mas sem aceitação explícita |
 | `braze.User.NotificationSubscriptionTypes.UNSUBSCRIBED` | Inscrição cancelada e/ou recusa explícita |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Definindo inscrições de usuários" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Definindo inscrições do usuário" }
 
-Quando um usuário é registrado para receber notificações por push, o navegador o obriga a optar por permitir ou bloquear notificações e, se ele optar por permitir o push, será definido como `OPTED_IN` por padrão.
+Quando um usuário é registrado para push, o navegador exige que ele escolha permitir ou bloquear as notificações. Se ele optar por permitir push, será definido como `OPTED_IN` por padrão.
 
-Visite [Gerenciar inscrições de usuários]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#managing-user-subscriptions) para saber mais sobre a implementação de inscrições e aceitação explícita.
+Acesse [Gerenciando inscrições de usuários]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions#managing-user-subscriptions) para saber mais sobre a implementação de inscrições e aceitações explícitas.
 
 ### Cancelando a inscrição de um usuário de e-mail {#unsubscribing-a-user-from-email}
 

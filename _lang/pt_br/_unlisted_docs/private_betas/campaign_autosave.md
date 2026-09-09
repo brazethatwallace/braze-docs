@@ -12,7 +12,7 @@ page_type: reference
 > Ao criar suas Campaigns na Braze, suas alterações agora são salvas automaticamente. Dessa forma, você pode se concentrar em ajustar os detalhes da sua Campaign com confiança, sabendo que seu progresso está preservado.
 
 {% alert important %}
-O salvamento automático está atualmente em beta e disponível apenas para Campaigns. Entre em contato com seu gerente de sucesso do cliente se tiver interesse em participar deste beta.
+O salvamento automático está atualmente em beta e disponível apenas para Campaigns. Entre em contato com seu CSM se tiver interesse em participar deste beta.
 {% endalert %}
 
 {% alert warning %}

@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Actualizar plantilla de correo electrónico de Braze."
+description: "En este artículo se describen los detalles del endpoint Actualizar plantilla de correo electrónico de Braze."
 
 ---
 {% api %}
@@ -14,21 +14,21 @@ description: "En este artículo se describen los detalles del punto de conexión
 /templates/email/update
 {% endapimethod %}
 
-> Utiliza este punto de conexión para actualizar plantillas de correo electrónico en el dashboard de Braze.
+> Usa este endpoint para actualizar plantillas de correo electrónico en el panel de Braze.
 
-Puedes acceder al `email_template_id` de una plantilla de correo electrónico navegando hasta ella en la página **Plantillas y medios**. El [punto de conexión Crear plantilla de correo electrónico]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template) también devolverá una referencia `email_template_id`.
+Puedes acceder al `email_template_id` de una plantilla de correo electrónico navegando hasta ella en la página **Plantillas y medios**. El [endpoint Crear plantilla de correo electrónico]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template) también devolverá una referencia `email_template_id`.
 
 Todos los campos que no sean `email_template_id` son opcionales, pero debes especificar al menos un campo para actualizarlo.
 
 {% alert tip %}
-También puedes llamar a este punto de conexión a través del [servidor MCP de Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server) utilizando la función [`update_email_template`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#templates). Esto permite que herramientas de IA como Claude y Cursor actualicen plantillas de correo electrónico mediante indicaciones en lenguaje natural.
+También puedes llamar a este endpoint a través del [servidor MCP de Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server) utilizando la función [`update_email_template`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#templates). Esto permite que herramientas de IA como Claude y Cursor actualicen plantillas de correo electrónico mediante indicaciones en lenguaje natural.
 {% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#afb25494-3350-458d-932d-5bf4220049fa {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/api_key) con el permiso `templates.email.update`.
+Para usar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics) con el permiso `templates.email.update`.
 
 ## Límite de velocidad {#rate-limit}
 

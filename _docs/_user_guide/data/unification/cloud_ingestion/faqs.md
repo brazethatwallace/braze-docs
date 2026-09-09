@@ -145,6 +145,18 @@ If you receive this error, see [Databricks: Forbidden error while accessing S3 d
 
 Each integration has its own notification preference. Go to the CDI page and select the integration name you want to update. In the **Notification preferences** section you can update how you receive alerts regarding the selected integration.
 
+## Why am I seeing an "Incorrect Integration Object" error?
+
+This error occurs when you try to update notification preferences for a CDI integration, and two or more workspaces have integrations pointing to the same cloud storage bucket or folder. Each cloud storage location can only be used by one integration at a time.
+
+To resolve this:
+
+1. Identify which other workspace has a CDI integration using the same storage location.
+2. Remove or reconfigure the conflicting integration in the other workspace.
+3. After removing the conflict, you can update notification preferences.
+
+The error should no longer appear, and you should be able to update your notification preferences successfully. If you're still experiencing issues, [open a support ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support).
+
 ## What happens if a future UPDATED_AT gets synced with an integration?
 
 CDI uses `UPDATED_AT` to decide what data is new. After a future `UPDATED_AT` is synced, any data prior to that future date and time will not be processed. To fix this:

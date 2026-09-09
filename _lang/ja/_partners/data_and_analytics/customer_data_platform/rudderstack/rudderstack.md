@@ -93,7 +93,7 @@ RudderStackのサーバーサイドSDK（Java、Python、Node.js、Go、Ruby）�
 初期設定が完了したら、Brazeでデータを正しく受信するために以下の設定を行います。
 
 - **Enable subscription groups in group call**:この設定を有効にすると、グループイベントで購読グループのステータスを送信できます。詳細については、[Group](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#group)を参照してください。
-- **Use Custom Attributes Operation**:Brazeの[階層化カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects)機能を使用して、カスタム属性オブジェクトによるセグメントの作成やメッセージのパーソナライズを行いたい場合は、この設定を有効にします。詳細については、[Send user traits as nested custom attributes](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#send-user-traits-as-nested-custom-attributes)を参照してください。
+- **Use カスタム属性 Operation**:Brazeの[階層化カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects)機能を使用して、カスタム属性オブジェクトによるセグメントの作成やメッセージのパーソナライズを行いたい場合は、この設定を有効にします。詳細については、[Send user traits as nested カスタム属性](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#send-user-traits-as-nested-custom-attributes)を参照してください。
 - **Track events for anonymous users**:この設定を有効にすると、匿名ユーザーのアクティビティをトラッキングし、その情報をBrazeに送信できます。
 
 ### デバイスモード設定 {#device-mode-settings}
@@ -156,7 +156,7 @@ RudderStackの[`alias`メソッド](https://www.rudderstack.com/docs/destination
 
 ## ユーザー特性を階層化カスタム属性として送信する {#send-user-traits-as-nested-custom-attributes}
 
-ユーザー特性を階層化カスタム属性としてBrazeに送信し、追加、更新、削除の操作を実行できます。これを行うには、Brazeの送信先を設定する際に、RudderStackで「Use Custom Attributes Operation dashboard」設定を有効にします。この機能はクラウドモードでのみ利用可能です。
+ユーザー特性を階層化カスタム属性としてBrazeに送信し、追加、更新、削除の操作を実行できます。これを行うには、Brazeの送信先を設定する際に、RudderStackで「Use カスタム属性 Operation dashboard」設定を有効にします。この機能はクラウドモードでのみ利用可能です。
 
 ユーザー特性を階層化カスタム属性として`identify`イベントで以下の形式で送信できます。
 ```javascript

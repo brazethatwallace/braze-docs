@@ -4,12 +4,22 @@ nav_title: 홈
 article_title: 기술 파트너
 alias: /partners/partners/
 search_tag: Partner
-description: "개인화, 오케스트레이션, 데이터, 이커머스, Audience Sync 등 카테고리별로 Braze 기술 파트너(Alloys)를 알파벳순으로 살펴보세요. 통합 설명서를 확인할 수 있습니다."
+description: "개인화, 데이터, 이커머스, Audience Sync를 위한 Braze Alloys 기술 파트너 및 통합 설명서를 찾아보세요."
 ---
 
 # 기술 파트너 {#technology-partners}
 
-Braze Alloys 기술 파트너 설명서에 오신 것을 환영합니다. 파트너를 알파벳순으로 살펴보세요.
+> Braze Alloys 기술 파트너는 개인화, 데이터 인프라, 기여도, 이커머스, Audience Sync, 워크플로 도구를 통해 Braze를 확장합니다. 이 설명서 허브에서는 파트너를 알파벳순으로 나열하고 각 연동에 대한 통합 가이드를 제공합니다. 워크스페이스에서 파트너를 활성화하기 전에 이 문서를 통해 사전 요구 사항, 설정 단계 및 지원되는 Braze 기능을 확인하세요. 알파벳순 파트너 목록에서 검색하거나 특정 글자로 바로 이동하여 원하는 통합을 찾은 다음, 해당 파트너의 문서를 열어 구성 세부 사항을 확인하세요. 파트너 카테고리 및 사용 사례는 아래 섹션을 참조하세요.
+
+## 자주 묻는 질문 {#frequently-asked-questions}
+
+### Braze 기술 파트너 통합은 어떻게 찾나요? {#how-do-i-find-a-braze-technology-partner-integration}
+
+이 페이지의 알파벳순 목록을 탐색하거나 글자 제목으로 이동하여 이름으로 파트너를 찾을 수 있습니다. 각 항목은 해당 파트너의 Braze 통합 문서로 연결됩니다.
+
+### Braze Alloys란 무엇인가요? {#what-is-braze-alloys}
+
+Braze Alloys는 Braze의 기술 파트너 프로그램입니다. 파트너는 이 허브에 문서화된 보완적인 데이터, 콘텐츠, 기여도 및 오케스트레이션 기능을 통해 Braze 플랫폼을 확장합니다.
 
 <div class="partners-az-list" markdown="1">
 
@@ -135,6 +145,7 @@ Braze Alloys 기술 파트너 설명서에 오신 것을 환영합니다. 파트
 - [Google Gemini]({{site.baseurl}}/partners/ai_model_providers/google_gemini)
 - [GRAVTY®]({{site.baseurl}}/partners/data_and_analytics/loyalty/lji)
 - [GrowthLoop]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/growthloop)
+- [GrowSurf]({{site.baseurl}}/partners/message_personalization/referrals/growsurf)
 
 </div>
 
@@ -168,7 +179,6 @@ Braze Alloys 기술 파트너 설명서에 오신 것을 환영합니다. 파트
 - [Jasper]({{site.baseurl}}/partners/message_orchestration/templates/jasper)
 - [Jebbit]({{site.baseurl}}/partners/additional_channels_and_extensions/extensions/surveys/jebbit)
 - [Judo]({{site.baseurl}}/partners/message_personalization/dynamic_content/visual_and_interactive_content/judo)
-- [JustAI]({{site.baseurl}}/partners/message_personalization/dynamic_content/content_optimization_testing/just_ai)
 - [Justuno]({{site.baseurl}}/partners/data_and_analytics/leads_capture/justuno)
 
 </div>
@@ -404,9 +414,9 @@ Braze Alloys 기술 파트너 설명서에 오신 것을 환영합니다. 파트
 통합에 Braze 측 설정이 필요한 경우, Braze 대시보드에 로그인하여 **파트너 통합** > **기술 파트너**로 이동하세요.
 
 {% alert note %}
-파트너가 전적으로 소유하는 통합은 여기에 표시되지 않을 수 있습니다. 통합 소유권 및 구성 단계를 확인하려면 해당 파트너의 설명서를 참조하세요.
+파트너가 전적으로 소유한 통합은 여기에 나열되지 않을 수 있습니다. 통합 소유권 및 구성 단계를 확인하려면 해당 파트너의 설명서를 참조하세요.
 {% endalert %}
 
-Braze에서 파트너에 대해 **Invalid credentials**가 표시되지만 해당 파트너의 대시보드에서는 통합이 정상으로 보이는 경우, 기술 파트너 페이지에서 통합을 연결 해제한 후 다시 연결하고, 파트너 측에서 API 키, OAuth 토큰 및 권한을 확인하세요.
+Braze에서 파트너에 대해 **Invalid credentials**가 표시되지만 해당 파트너의 대시보드에서는 통합이 올바르게 보이는 경우, 기술 파트너 페이지에서 통합을 연결 해제한 후 다시 연결하고, 파트너 측에서 API 키, OAuth 토큰 및 권한을 확인하세요.
 
 일부 외부 대시보드(예: 전달 가능성 또는 받은편지함 모니터링 도구)는 Braze 기술 파트너 페이지와 다른 연결 또는 인증 상태를 표시할 수 있습니다. 동기화 및 전송에 Braze가 의존하는 연결 상태를 확인하려면 Braze의 파트너 타일을 사용하세요.

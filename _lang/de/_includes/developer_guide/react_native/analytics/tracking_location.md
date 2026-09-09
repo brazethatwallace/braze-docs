@@ -15,7 +15,7 @@ Für plattformübergreifende Kompatibilität stellen Sie bitte `horizontalAccura
 
 ## Festlegen eines angepassten Standort-Attributs
 
-Um ein angepasstes Attribut für den Standort in einem Nutzerprofil festzulegen, verwenden Sie bitte die`setLocationCustomAttribute`Methode.
+Um ein angepasstes Attribut für den Standort in einem Kundenprofil festzulegen, verwenden Sie bitte die`setLocationCustomAttribute`Methode.
 
 ```javascript
 Braze.setLocationCustomAttribute("favorite_restaurant", 40.7128, -74.0060, optionalCallback);

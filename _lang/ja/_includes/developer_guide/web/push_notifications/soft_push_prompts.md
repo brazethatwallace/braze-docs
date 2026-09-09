@@ -4,34 +4,34 @@ mParticleの組み込みキットを使用してWebでBrazeを統合している
 
 ## ソフトプッシュプロンプトについて {#about-soft-push-prompts}
 
-多くの場合、サイトでは「ソフト」プッシュプロンプトを実装することをお勧めします。このプロンプトでは、プッシュ許可を要求する前にユーザーを「プライム」し、プッシュ通知を送る理由を説明します。これは、ユーザーに直接プロンプトを表示する頻度がブラウザーによって制限され、ユーザーが許可を拒否した場合は二度と求めることができないため便利です。
+サイトでは、プッシュ許可をリクエストする前に、ユーザーに「事前説明」を行い、プッシュ通知を送信する理由を伝える「ソフト」プッシュプロンプトを実装することが推奨されます。これが有用な理由は、ブラウザーがユーザーに直接プロンプトを表示できる頻度を制限しているためです。また、ユーザーが許可を拒否した場合、再度リクエストすることはできません。
 
-あるいは、特別なカスタム処理を含めたい場合は、標準の[Webプッシュ統合]({{site.baseurl}}/developer_guide/platform_integration_guides/web/push_notifications/integration/#step-2-browser-registration)で説明されているように`requestPushPermission()`を直接呼び出す代わりに、[トリガーされたアプリ内メッセージ]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages/?tab=web)を使用してください。
+また、標準の[Webプッシュ統合]({{site.baseurl}}/developer_guide/platform_integration_guides/web/push_notifications/integration#step-2-browser-registration)で説明されているように`requestPushPermission()`を直接呼び出す代わりに、特別なカスタム処理を含めたい場合は、[トリガーされたアプリ内メッセージ]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages/?tab=web)を使用してください。
 
 {% alert tip %}
-これは、新しい[ノーコードプッシュプライマー]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages/)を使用して、SDKのカスタマイズなしで行うことができます。
+これは、新しい[ノーコードプッシュプライマー]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages)を使用することで、SDKのカスタマイズなしで実現できます。
 {% endalert %}
 
 ## ソフトプッシュプロンプトの設定 {#setting-up-soft-push-prompts}
 
 {% multi_lang_include archive/web-v4-rename.md %}
 
-### ステップ 1:プッシュプライマーキャンペーンを作成する {#step-1-create-a-push-primer-campaign}
+### ステップ1:プッシュプライマーキャンペーンを作成する {#step-1-create-a-push-primer-campaign}
 
 まず、Brazeダッシュボードで「Prime for Push」アプリ内メッセージングキャンペーンを作成する必要があります。
 
-1. 希望するテキストとスタイリングで**モーダル**アプリ内メッセージを作成します。
+1. 希望するテキストとスタイルで**モーダル**アプリ内メッセージを作成します。
 2. 次に、クリック時の動作を**メッセージを閉じる**に設定します。この動作は後でカスタマイズします。
 3. メッセージにキーと値のペアを追加します。キーは`msg-id`、値は`push-primer`です。
-4. カスタムイベントトリガーアクション（「prime-for-push」など）をメッセージに割り当てます。必要に応じて、ダッシュボードから手動でカスタムイベントを作成することもできます。
+4. メッセージにカスタムイベントトリガーアクション（「prime-for-push」など）を割り当てます。必要に応じて、ダッシュボードからカスタムイベントを手動で作成できます。
 
-### ステップ 2:呼び出しを削除する {#step-2-remove-calls}
+### ステップ2:呼び出しを削除する {#step-2-remove-calls}
 
-Braze SDKの統合で、読み込みスニペット内から`automaticallyShowInAppMessages()`の呼び出しを見つけて削除します。
+Braze SDKの統合で、読み込みスニペット内の`automaticallyShowInAppMessages()`への呼び出しをすべて見つけて削除します。
 
-### ステップ 3:統合を更新する {#step-3-update-integration}
+### ステップ3:統合を更新する {#step-3-update-integration}
 
-最後に、削除した呼び出しを次のスニペットで置き換えます。`openSession()`を呼び出す前に`subscribeToInAppMessage()`を呼び出してください。これにより、アプリ内メッセージリスナーがプッシュプライマーメッセージを受信するタイミングに間に合うように登録されます。
+最後に、削除した呼び出しを以下のスニペットに置き換えます。`openSession()`を呼び出す前に`subscribeToInAppMessage()`を呼び出してください。これにより、アプリ内メッセージリスナーがプッシュプライマーメッセージを受信するために適切なタイミングで登録されます。
 
 ```javascript
 import * as braze from "@braze/web-sdk";
@@ -77,4 +77,4 @@ braze.subscribeToInAppMessage(function(inAppMessage) {
 });
 ```
 
-ユーザーにソフトプッシュプロンプトを表示したい場合は、このアプリ内メッセージをトリガーする任意のイベント名で`braze.logCustomEvent`を呼び出してください。
+ユーザーにソフトプッシュプロンプトを表示したい場合は、`braze.logCustomEvent`を呼び出します。このアプリ内メッセージをトリガーするイベント名を指定してください。

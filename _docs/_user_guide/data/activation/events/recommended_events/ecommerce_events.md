@@ -58,6 +58,8 @@ Braze provides three ways to segment users based on eCommerce data:
 - **Custom event filters:** Because eCommerce events behave like custom events, all existing custom event filters work immediately. For example, you can filter by "Has performed custom event `ecommerce.order_placed` more than X times" or "First performed custom event `ecommerce.order_placed`".
 - **Segment Extensions:** For segmenting off nested event properties including the nested products array or the metadata objects properties, use [Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension) with nested event property filtering. This lets you build audiences like "users who purchased product SKU-123 in the last 90 days" or combine criteria across different properties of the same order.
 
+If you need to filter on custom properties that aren't part of the documented event schema, nest them under `metadata` when you log the event (for example, `metadata.color` instead of `color`). Custom top-level properties you send through the API or SDK aren't valid for extension property filters—even if those properties appear in your event data. Using a non-allowlisted top-level property prevents the extension from saving or unarchiving.
+
 {% alert important %}
 Segment Extensions for eCommerce recommended events are a paid feature and in early access. If you're interested in participating in the early access, contact your customer success manager. Confirm your plan includes access before recommending nested property segmentation to your team.
 {% endalert %}
@@ -111,7 +113,7 @@ Use this template when you want to remind users about items in their cart and dr
 {: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
 
 {% alert tip %}
-The `ecommerce.cart_updated` event supports full cart replacement (each event can describe the entire cart) or incremental updates using the `add` and `remove` values for the optional `action` property. Pick one approach per cart and avoid mixing replacement and incremental cart updates for the same `cart_id`. Use the {% raw %}`{% shopping_cart %}`{% endraw %} Liquid tag in your message to dynamically display the current cart contents at send time.
+The `ecommerce.cart_updated` event supports full cart replacement (each event can describe the entire cart) or incremental updates using the `add` and `remove` values for the optional `action` property. Pick one approach per cart and avoid mixing replacement and incremental cart updates for the same `cart_id`. The stored cart keeps the `currency` from the most recent cart event; a cart update in a different currency replaces the stored cart instead of mixing values from two currencies. Use the {% raw %}`{% shopping_cart %}`{% endraw %} Liquid tag in your message to dynamically display the current cart contents at send time.
 {% endalert %}
 
 {% endtab %}

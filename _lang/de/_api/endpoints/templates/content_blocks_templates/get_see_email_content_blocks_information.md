@@ -19,7 +19,7 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Conte
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#589adda3-0def-4369-9ddc-eae71923c0ee {% endapiref %}
 
 ## Voraussetzungen {#prerequisites}
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key) mit der Berechtigung `content_blocks.info`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics) mit der Berechtigung `content_blocks.info`.
 
 ## Rate-Limit
 
@@ -30,7 +30,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
 | `content_block_id`  | Erforderlich | String | Der Content-Block-Bezeichner. <br><br>Sie finden diesen, indem Sie entweder die Content-Block-Informationen über einen API-Aufruf auflisten oder die Seite [API-Schlüssel]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) aufrufen, dann nach unten scrollen und nach Ihrem Content-Block-API-Bezeichner suchen.|
-| `include_inclusion_data`  | Optional | Boolescher Wert | Wenn auf `true` gesetzt, gibt die API den API-Bezeichner der Nachrichtenvariante von Campaigns und Canvases zurück, in denen dieser Content-Block enthalten ist, um ihn in nachfolgenden Aufrufen zu verwenden.  Die Ergebnisse schließen archivierte oder gelöschte Campaigns oder Canvases aus. |
+| `include_inclusion_data`  | Optional | Boolescher Wert | Wenn auf `true` gesetzt, gibt die API den API-Bezeichner der Nachrichtenvariante von Campaigns und Canvases zurück, in denen dieser Content-Block enthalten ist, um ihn in nachfolgenden Aufrufen zu verwenden. Die Ergebnisse schließen archivierte oder gelöschte Campaigns oder Canvases aus. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ## Beispielanfrage {#example-request}

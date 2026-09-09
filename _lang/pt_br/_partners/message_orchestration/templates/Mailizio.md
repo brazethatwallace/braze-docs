@@ -37,7 +37,7 @@ A integração entre a Mailizio e a Braze permite que você crie modelos dinâmi
 
 ## Integração {#integration}
 
-Forneça sua chave da API REST da Braze e a instância do cluster para o gerente de sucesso do cliente da Mailizio. A equipe da Mailizio configura a integração inicial para você.
+Forneça sua chave da API REST da Braze e a instância do cluster para o CSM da Mailizio. A equipe da Mailizio configura a integração inicial para você.
 
 {% alert important %}
 Essa é uma configuração única, e todas as exportações futuras utilizarão automaticamente essa chave de API.

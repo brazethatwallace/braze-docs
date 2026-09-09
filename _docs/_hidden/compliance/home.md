@@ -102,7 +102,7 @@ The following additional terms apply in relation to Customer’s use of the What
 
 ### Applicable Third-Party Provider Terms
 
-Customer shall comply with any prerequisites, terms, and policies applicable to the WhatsApp Channel, including any terms required by WhatsApp, LLC and its group affiliates, as described in the Braze [WhatsApp setup]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/overview/) page.
+Customer shall comply with any prerequisites, terms, and policies applicable to the WhatsApp Channel, including any terms required by WhatsApp, LLC and its group affiliates, as described in the Braze [WhatsApp setup]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/) page.
 
 ### Webhook Use Exception Terms
 

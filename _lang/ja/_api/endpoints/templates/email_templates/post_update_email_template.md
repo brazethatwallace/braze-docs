@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "この記事では、「メールテンプレートの更新」Brazeエンドポイントの詳細について説明します。"
-
 ---
 {% api %}
 # 既存のメールテンプレートを更新する {#update-existing-email-templates}
@@ -27,7 +26,7 @@ description: "この記事では、「メールテンプレートの更新」Bra
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#afb25494-3350-458d-932d-5bf4220049fa {% endapiref %}
 
 ## 前提条件 {#prerequisites}
-このエンドポイントを使用するには、`templates.email.update`権限を持つ[APIキー]({{site.baseurl}}/api/api_key)が必要です。
+このエンドポイントを使用するには、`templates.email.update`権限を持つ[APIキー]({{site.baseurl}}/api/basics)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -85,7 +84,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/templates/email/up
 
 ## トラブルシューティング {#troubleshooting}
 
-以下の表は、返される可能性のあるエラーと、該当する場合の関連するトラブルシューティング手順を示しています。
+以下の表は、返される可能性のあるエラーと、該当する場合の関連するトラブルシューティングステップを示しています。
 
 | エラー | トラブルシューティング |
 | --- | --- |

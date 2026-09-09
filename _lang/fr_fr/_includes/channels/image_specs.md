@@ -181,7 +181,7 @@ table td {
 | Bannière    | N'importe quel rapport hauteur/largeur | Largeur minimale de 600&nbsp;px |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tableau" }
 
-Pour plus d'informations, reportez-vous aux [détails créatifs des Content Cards]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details).
+Pour plus d'informations, reportez-vous aux [détails créatifs des Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/creative_details).
 
 {% endif %}
 

@@ -1,14 +1,13 @@
 ---
-nav_title: "サブスクリプション"
-article_title: "サブスクリプション"
+nav_title: "購読"
+article_title: "メール購読"
 page_order: 5
 description: "このリファレンス記事では、さまざまなユーザーの購読状態、メール購読の管理方法、および購読に基づいてユーザーをセグメント化する方法について説明します。"
 channel:
   - email
-
 ---
 
-# メールのサブスクリプション {#email-subscriptions}
+# メール購読 {#email-subscriptions}
 
 > グローバルなメール購読状態、フッターと購読解除ページ、ユーザー設定センター、およびキャンペーンのターゲティングについて説明します。すべてのチャネルにわたる購読グループについては、[購読グループ]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups)を参照してください。
 
@@ -68,7 +67,9 @@ Braze SDKを使用して、ユーザーの購読状態を更新します。
 
 ユーザーがメールアドレスを更新すると、購読状態は購読中に設定されます。更新されたメールアドレスがBrazeワークスペース内の別の場所にすでに存在する場合、ユーザーはその既存ユーザーの購読状態を引き継ぎます。ただし、**送信設定**で**ユーザーがメール設定を更新したときに再購読する**が有効になっている場合は除きます。
 
-購読状態の変更をトラブルシューティングするには、ユーザープロファイルログの**メール購読状態の変更**で履歴とソースを確認してください。以下のソースがメール購読状態の変更をトリガーする可能性があります。
+購読状態の変更をトラブルシューティングするには、Currentsの[グローバル購読状態の変更]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#global-subscription-state-change-events)イベント（`users.behaviors.subscription.GlobalStateChange`）を確認してください。このイベントには、購読状態の変更の履歴とソースが含まれています。
+
+以下のソースがメール購読状態の変更をトリガーする可能性があります。
 
 | ソース | 説明 |
 | ------ | ----------- |
@@ -79,22 +80,22 @@ Braze SDKを使用して、ユーザーの購読状態を更新します。
 | ユーザー設定センター | Brazeがホストするユーザー設定センターからユーザーが設定を更新 |
 | 購読ページ | ユーザーがメール内の配信停止リンクを選択し、Brazeの購読ページに遷移 |
 | List-Unsubscribe | ユーザーがメールクライアントのネイティブList-Unsubscribeヘッダーを通じて配信停止 |
-| キャンバスのユーザー更新ステップ | キャンバスの[ユーザー更新ステップ]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update)によって更新された購読状態 |
+| キャンバスのユーザー更新ステップ | キャンバスの[ユーザー更新ステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)によって更新された購読状態 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="メール購読状態の更新ソース" }
 
 ユーザーのグローバルメール購読状態が変更されると、Brazeはその状態を同じメールアドレスを共有する他のプロファイルに伝播します（変更ごとに最大100プロファイル）。同じメールアドレスを共有するプロファイルが100を超える場合、Brazeは伝播を保証しません。同じメールアドレスを共有するユーザーが異なる購読状態を示す場合は、Brazeサポートにお問い合わせください。
 
 ## 購読グループ {#subscription-groups}
 
-メール購読グループを使用すると、ユーザーはグローバルなメール購読ステータスを変更することなく、特定のメールカテゴリ（ニュースレターやプロモーションなど）のオプトインまたはオプトアウトができます。作成したグループは[ユーザー設定センター]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center)に追加できます。
+メール購読グループを使用すると、ユーザーはグローバルなメール購読ステータスを変更することなく、特定のメールカテゴリ（ニュースレターやプロモーションなど）のオプトインまたはオプトアウトを行うことができます。作成したグループは、[ユーザー設定センター]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center)に追加できます。
 
-グループの作成、セグメンテーション、アーカイブ、チャネル固有の動作について詳しくは、[購読グループ]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups)を参照してください。
+グループの作成、セグメント化、アーカイブ、チャネル固有の動作の詳細については、[購読グループ]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups)を参照してください。
 
 ## メール設定センター {#email-preference-center}
 
-メール設定センターを使用すると、どのユーザーが購読グループのニュースレターを受信するかを管理できます。ダッシュボードの **Subscription Groups** から確認できます。作成した各購読グループは、設定センターのリストに追加されます。
+メール設定センターでは、どのユーザーが購読グループのニュースレターを受信するかを管理できます。ダッシュボードの**購読グループ**から確認できます。作成した各購読グループは、設定センターのリストに追加されます。
 
-設定センターの追加またはカスタマイズの詳細については、[ユーザー設定センター]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center)を参照してください。
+設定センターの追加やカスタマイズについて詳しくは、[ユーザー設定センター]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center)を参照してください。
 
 ## メールサブスクリプションの変更 {#changing-email-subscriptions}
 
@@ -155,16 +156,16 @@ HTMLコンテンツブロックのみではなくダッシュボードフッタ�
 
 ## サブスクリプションとキャンペーンターゲティング {#subscriptions-and-campaign-targeting}
 
-デフォルトでは、Brazeはプッシュまたはメールメッセージを含むキャンペーンを、購読中またはオプトインのユーザーにターゲティングします。**ターゲットオーディエンス**で**これらのユーザーに送信:**の横にあるドロップダウンを選択して変更します。
+デフォルトでは、Brazeはプッシュまたはメールメッセージを含むキャンペーンを、購読中またはオプトインのユーザーにターゲティングします。**ターゲットオーディエンス**で**Send to these users:**の横にあるドロップダウンを選択して変更します。
 
 Brazeは3つのターゲティング状態をサポートしています。
 
 - 購読中またはオプトインのユーザー（デフォルト）。
 - オプトインのユーザーのみ。
-- 配信停止したユーザーを含むすべてのユーザー。
+- 購読解除したユーザーを含むすべてのユーザー。
 
 {% alert important %}
-これらのターゲティング設定を使用する際は、適用される[スパム法]({{site.baseurl}}/help/best_practices/spam_regulations#spam-regulations)を遵守する責任があります。
+これらのターゲティング設定を使用する際は、適用される[スパム法]({{site.baseurl}}/user_guide/administer/global/privacy/spam_regulations)を遵守する責任があります。
 {% endalert %}
 
 ## ユーザーサブスクリプションによるセグメント化 {#segmenting-by-user-subscriptions}

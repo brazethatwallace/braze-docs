@@ -20,29 +20,29 @@ search_rank: 1
 
 Avant de commencer, assurez-vous de disposer des éléments suivants :
 
-| Exigence | Description |
+| Condition | Description |
 | --- | --- |
 | Campaign ou Canvas | Configurez une [Campaign]({{site.baseurl}}/user_guide/messaging/campaigns) ou un [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) avant de rédiger votre message WhatsApp. |
-| Configuration du canal WhatsApp | Complétez le [flux de configuration WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup) : acceptez les politiques, configurez votre connexion et mettez en place l'infrastructure d'envoi. |
-| Modèles approuvés | Pour les envois initiés par l'entreprise, créez et faites approuver les modèles dans Meta. Pour plus de détails, consultez l'[étape 3 de la configuration WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup#step-3-create-whatsapp-templates). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prérequis des messages WhatsApp" }
+| Configuration du canal WhatsApp | Effectuez le [flux de configuration WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup) : acceptez les politiques, configurez votre connexion et paramétrez l'infrastructure d'envoi. |
+| Modèles approuvés | Pour les envois initiés par l'entreprise, créez et faites approuver des modèles dans Meta. Pour plus de détails, consultez l'[étape 3 de la configuration WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup#step-3-create-whatsapp-templates). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prérequis pour les messages WhatsApp" }
 
 ## Type de message {#message-type}
 
 WhatsApp prend en charge deux types de messages dans Braze :
 
-- **Message modèle :** À utiliser pour les conversations initiées par l'entreprise. Les modèles doivent être approuvés par Meta avant l'envoi.
-- **Message de réponse :** À utiliser pour répondre aux messages entrants des utilisateurs pendant une fenêtre de conversation active de 24 heures.
+- **Message modèle :** Utilisé pour les conversations initiées par l'entreprise. Les modèles doivent être approuvés par Meta avant l'envoi.
+- **Message de réponse :** Utilisé pour répondre aux messages entrants des utilisateurs pendant une fenêtre de conversation active de 24 heures.
 
 ## Groupe d'abonnement {#subscription-group}
 
 Sélectionnez un groupe d'abonnement WhatsApp pour chaque variante de message ou étape de message Canvas. Le groupe d'abonnement détermine quelle configuration d'expéditeur est utilisée et quels utilisateurs sont éligibles pour recevoir le message.
 
-## Langues des messages modèles {#languages-for-template-messages}
+## Langues pour les messages modèles {#languages-for-template-messages}
 
 Chaque modèle approuvé est associé à une langue spécifique. Configurez des variantes ou des étapes Canvas distinctes lorsque vous devez prendre en charge plusieurs langues de modèles.
 
-Si vous ajoutez du texte dans une langue s'écrivant de droite à gauche, consultez [Créer des messages de droite à gauche]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
+Si vous ajoutez du texte dans une langue s'écrivant de droite à gauche, consultez la section [Créer des messages de droite à gauche]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 
 ## Composition {#step-2-compose-your-whatsapp-message}
 
@@ -145,7 +145,7 @@ Si une étape affiche un échec, le panneau présente l'erreur et les prochaines
 - Le numéro de téléphone du destinataire est soumis à une limitation de débit
 - Les variables Liquid du message n'ont pas été renseignées pour l'utilisateur test sélectionné
 
-En cas de problèmes persistants, vérifiez le statut de votre modèle dans Meta Business Manager ou assurez-vous que votre destinataire test dispose des attributs utilisateur requis renseignés dans Braze.
+En cas de problèmes persistants, vérifiez le statut de votre modèle dans Meta Business gestionnaire ou assurez-vous que votre destinataire test dispose des attributs utilisateur requis renseignés dans Braze.
 
 ## Ce qu'il faut savoir {#supported-whatsapp-features}
 
@@ -196,11 +196,21 @@ Les types d'appels à l'action suivants sont pris en charge pour les messages Wh
 | [Messages de réponse sous forme de liste]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#list-messages) | Créez un message de réponse incluant une liste de 10 options maximum parmi lesquelles les utilisateurs peuvent choisir. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Types d'appels à l'action" }
 
-## Prochaines étapes {#next-steps}
+## Étapes suivantes {#next-steps}
 
-Après avoir composé votre message WhatsApp, continuez à créer et valider votre envoi :
+Après avoir composé votre message WhatsApp, poursuivez la création et la validation de votre envoi :
 
-- [Planifier votre Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign) ou continuer à configurer [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)
-- [Cibler les utilisateurs]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) et définir les [événements de conversion]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)
-- [Envoyer des messages test]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=whatsapp)
-- Consulter les [rapports WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/reporting)
+{% article_tiles %}
+- name: Créer un Canvas
+  link: /docs/user_guide/messaging/canvas/create_a_canvas
+- name: Planifier votre campagne
+  link: /docs/user_guide/messaging/campaigns/schedule_your_campaign
+- name: Cibler les utilisateurs
+  link: /docs/user_guide/messaging/messaging_fundamentals/target_users
+- name: Événements de conversion
+  link: /docs/user_guide/messaging/messaging_fundamentals/conversion_events
+- name: Envoyer des messages test
+  link: /docs/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=whatsapp
+- name: Reporting WhatsApp
+  link: /docs/user_guide/channels/whatsapp/reporting
+{% endarticle_tiles %}

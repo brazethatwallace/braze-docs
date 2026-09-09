@@ -1,7 +1,7 @@
 ---
 nav_title: ActionIQ
 article_title: ActionIQ
-description: "Este artigo de referência aborda a integração entre a Braze e a ActionIQ. A ActionIQ é uma plataforma de dados do cliente corporativa para profissionais de marketing, analistas e tecnólogos. Esta integração permite que as marcas sincronizem e mapeiem seus dados ActionIQ diretamente na Braze."
+description: "Este artigo de referência aborda a integração entre a Braze e a ActionIQ. A ActionIQ é uma CDP corporativa para profissionais de marketing, analistas e tecnólogos. Esta integração permite que as marcas sincronizem e mapeiem seus dados ActionIQ diretamente na Braze."
 alias: /partners/actioniq/
 page_type: partner
 search_tag: ActionIQ
@@ -9,7 +9,7 @@ search_tag: ActionIQ
 
 # ActionIQ
 
-> A [ActionIQ](https://www.actioniq.com/) é uma plataforma de dados do cliente para marcas corporativas que oferece aos profissionais de marketing maneiras fáceis e seguras de ativar dados em qualquer lugar da experiência do cliente. A arquitetura composável exclusiva da ActionIQ significa que os dados podem permanecer em segurança onde estão, e as equipes de marketing usam apenas as ferramentas de que precisam.
+> A [ActionIQ](https://www.actioniq.com/) é uma CDP para marcas corporativas que oferece aos profissionais de marketing maneiras fáceis e seguras de ativar dados em qualquer lugar da experiência do cliente. A arquitetura composável exclusiva da ActionIQ significa que os dados podem permanecer em segurança onde estão, e as equipes de marketing usam apenas as ferramentas de que precisam.
 
 _Essa integração é mantida pela ActionIQ._
 
@@ -34,16 +34,16 @@ A integração entre a Braze e a ActionIQ permite que as marcas sincronizem e ma
 
 ### Associação de público {#audience-membership}
 
-Esta integração é usada para sincronizar a associação de público da ActionIQ com a Braze, criando atributos personalizados que indicam se um perfil da Braze faz parte de um segmento. Cada público da ActionIQ corresponde a um atributo personalizado booleano único.
+Esta integração é usada para sincronizar a associação de público da ActionIQ com a Braze, criando atributos personalizados que indicam se um perfil da Braze faz parte de um Segment. Cada público da ActionIQ corresponde a um atributo personalizado booleano único.
 
 A convenção de nomenclatura padrão para o atributo personalizado criado é: `AIQ_<Audience ID>_<Split ID>`.
 
-Para criar um segmento desses usuários, faça o seguinte:
+Para criar um Segment desses usuários, faça o seguinte:
 1. Na Braze, navegue até **Segments**.
-2. Crie um novo segmento.
+2. Crie um novo Segment.
 3. Selecione **Custom Attributes** como seu filtro.
 4. A partir daqui, escolha o atributo personalizado da ActionIQ.
-5. Depois que o segmento for criado, você pode selecioná-lo como um filtro de público ao criar uma campanha ou Canvas.
+5. Depois que o Segment for criado, você pode selecioná-lo como um filtro de público ao criar uma campanha ou Canvas.
 
 Além disso, essa integração atualizará qualquer atributo personalizado ou padrão em um perfil de usuário da Braze com os valores de atributo da ActionIQ.
 
@@ -73,7 +73,7 @@ A integração de eventos envia as seguintes informações para a Braze:
 
 ### Campanhas disparadas {#triggered-campaigns}
 
-Essa integração disparará uma campanha na Braze para todos os usuários em um segmento da ActionIQ. Depois de configurar o texto, os testes multivariantes e as regras de reelegibilidade da sua campanha, você poderá dispará-la a partir de qualquer ponto de contato da jornada da ActionIQ adicionando o ID da campanha da Braze à sua configuração de exportação.
+Essa integração disparará uma campanha na Braze para todos os usuários em um Segment da ActionIQ. Depois de configurar o texto, os testes multivariantes e as regras de reelegibilidade da sua campanha, você poderá dispará-la a partir de qualquer ponto de contato da jornada da ActionIQ adicionando o ID da campanha da Braze à sua configuração de exportação.
 
 Opcionalmente, você pode incluir quaisquer outros atributos da ActionIQ em sua exportação para preencher o texto da sua campanha. Eles são enviados com o objeto `trigger_properties`.
 

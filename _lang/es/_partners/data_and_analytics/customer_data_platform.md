@@ -1,12 +1,12 @@
 ---
-nav_title: "Plataforma de datos de los clientes"
-article_title: "Plataforma de datos de los clientes"
+nav_title: "CDP"
+article_title: "CDP"
 page_type: landing
 description: "Explora las integraciones de partners tecnológicos para plataformas de datos de los clientes."
 layout: dev_guide
 search_tag: Partner
 
-guide_top_header: "Plataforma de datos de los clientes"
+guide_top_header: "CDP"
 guide_top_text: "Explora las integraciones de partners tecnológicos para plataformas de datos de los clientes. Para obtener una lista completa de todos los partners tecnológicos de Braze con opciones de búsqueda y filtrado, visita el <a href='https://marketplace.braze.com/t/type/technology-partner'>Braze Marketplace</a>."
 
 guide_featured_title: "Partners"
@@ -36,7 +36,7 @@ guide_featured_list:
     link: /docs/partners/data_and_analytics/customer_data_platform/growthloop
     image: /assets/img/braze_icons/puzzle-piece-01.svg
   - name: "Hightouch"
-    link: /docs/partners/data_and_analytics/customer_data_platform/hightouch
+    link: /docs/partners/data_and_analytics/reverse_etl/hightouch
     image: /assets/img/braze_icons/shopping-cart-03.svg
   - name: "Lemnisk"
     link: /docs/partners/data_and_analytics/customer_data_platform/lemnisk

@@ -18,7 +18,7 @@ Verwenden Sie Braze-Currents, um Engagement-Ereignisse (z. B. E-Mail gesendet, P
 
 ### Schritt 1: Heap-Zugangsdaten abrufen {#step-1-get-heap-credentials}
 
-Um diese Integration zu konfigurieren, benötigen Sie eine Webhook-Endpunkt-URL, die Sie von Ihrem Heap Account Manager erhalten.
+Um diese Integration zu konfigurieren, benötigen Sie eine Webhook-Endpunkt-URL, die Sie von Ihrem Heap Account Manager:in erhalten.
 
 ### Schritt 2: Braze-Currents konfigurieren {#step-2-configure-braze-currents}
 

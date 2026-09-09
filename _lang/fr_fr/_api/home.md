@@ -4,10 +4,10 @@ nav_title: Accueil
 article_title: Guide de l'API Braze
 layout: api_glossary
 glossary_top_header: "Guide de l'API Braze"
-glossary_top_text: "Braze fournit une REST API haute performance qui vous permet de suivre vos utilisateurs, d'envoyer des messages, d'exporter des données et bien plus encore. Cette page répertorie les endpoints disponibles dans l'API Braze ainsi que leurs utilisations."
+glossary_top_text: "Braze fournit une REST API haute performance pour suivre les utilisateurs, envoyer des messages, exporter des données et gérer les Campaigns, Canvas, catalogues et bien plus encore. Utilisez ce glossaire pour parcourir les endpoints par type, consulter les articles de référence pour les détails des requêtes et réponses, et trouver des liens vers la documentation sur l'authentification, les limites de débit et les objets."
+description: "Parcourez les endpoints de la REST API Braze par type, avec des liens vers la documentation sur l'authentification, les limites de débit et les objets de référence."
 page_type: glossary
-description: "Cette page d'accueil répertorie les endpoints disponibles dans l'API Braze ainsi que leurs utilisations."
-glossary_tag_name: Endpoint Type
+glossary_tag_name: Type d'endpoint
 
 glossary_filter_text: "Sélectionnez le type d'endpoint pour affiner le glossaire :"
 
@@ -40,11 +40,13 @@ glossary_tags:
   - name: Catalogs
   - name: Content Blocks
   - name: Custom Events
+  - name: Data Objects
   - name: Email List
   - name: Email Templates
+  - name: Webhook Templates
   - name: KPI
   - name: Media Library
-  - name: Messaging API
+  - name: Device Messaging API
   - name: Purchases
   - name: Preference Center
   - name: Schedule Messages
@@ -100,13 +102,53 @@ glossaries:
     tags:
       - User Data
   - name: <a href='/docs/api/endpoints/user_data/post_user_track'>/users/track</a>
-    description: "Enregistrer des événements personnalisés, des achats et mettre à jour les attributs de profil utilisateur."
+    description: Enregistrer des événements personnalisés, des achats et mettre à jour les attributs de profil utilisateur.
     tags:
       - User Data
   - name: <a href='/docs/api/endpoints/user_data/post_users_merge'>/users/merge</a>
     description: Fusionner un profil utilisateur avec un autre.
     tags:
       - User Data
+  - name: <a href='/docs/api/endpoints/data_objects'>/data_objects/*</a>
+    description: Consulter la référence complète des endpoints d'objets de données, y compris les types d'objets, les objets et les endpoints de relations.
+    tags:
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/types/get_list_data_object_types'>/data_objects/types</a>
+    description: Lister les types d'objets de données dans l'espace de travail.
+    tags:
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/types/get_data_object_type'>/data_objects/types/{type_name}</a>
+    description: Obtenir un type d'objet de données et sa définition de schéma.
+    tags:
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/types/get_list_user_relationship_types'>/data_objects/types/{type_name}/user_relationship_types</a>
+    description: Lister les types de relations utilisateur pour un type d'objet de données.
+    tags:
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/types/get_list_object_relationship_types'>/data_objects/types/{type_name}/object_relationship_types</a>
+    description: Lister les types de relations d'objet pour un type d'objet de données.
+    tags:
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/objects/get_list_data_objects'>/data_objects/objects/{type_name}</a>
+    description: Lister les objets de données pour un type.
+    tags:
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/objects/get_data_object'>/data_objects/objects/{type_name}/{external_id}</a>
+    description: "Obtenir un objet de données, ou le remplacer, le mettre à jour et le supprimer."
+    tags:
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/object_relationships/get_list_object_relationships'>/data_objects/objects/{type_name}/{external_id}/object_relationships</a>
+    description: "Lister, créer, remplacer, mettre à jour et supprimer des relations objet-objet."
+    tags:
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/user_relationships/get_list_user_relationships'>/data_objects/objects/{type_name}/{external_id}/user_relationships</a>
+    description: Lister les relations utilisateur pour un objet de données.
+    tags:
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/user_relationships/post_create_user_relationship'>/data_objects/objects/{type_name}/{external_id}/users</a>
+    description: "Créer, remplacer, mettre à jour et supprimer des relations utilisateur-objet."
+    tags:
+      - Data Objects
   - name: <a href='/docs/api/endpoints/messaging/send_messages/post_send_triggered_campaigns'>/campaigns/trigger/send</a>
     description: Envoyer des messages immédiats et ponctuels à des utilisateurs désignés via la distribution déclenchée par l'API.
     tags:
@@ -127,14 +169,14 @@ glossaries:
     description: Envoyer des messages transactionnels immédiats et ponctuels à un utilisateur désigné.
     tags:
       - Send Messages
-  - name: <a href='/docs/api/messaging_api/endpoints/banners/post_sync_banners'>/v1/device-messaging/banners/sync</a>
+  - name: <a href='/docs/api/device_messaging_api/endpoints/banners/post_sync_banners'>/v1/device-messaging/banners/sync</a>
     description: Récupérer les bannières éligibles pour un utilisateur et un ensemble de placements.
     tags:
-      - Messaging API
-  - name: <a href='/docs/api/messaging_api/endpoints/banners/post_track_banner_events'>/v1/device-messaging/banners/track</a>
+      - Device Messaging API
+  - name: <a href='/docs/api/device_messaging_api/endpoints/banners/post_track_banner_events'>/v1/device-messaging/banners/track</a>
     description: Enregistrer les événements d'impression et de clic pour les bannières.
     tags:
-      - Messaging API
+      - Device Messaging API
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns'>/campaigns/trigger/schedule/create</a>
     description: Envoyer des messages de Campaign créés dans le tableau de bord via la distribution déclenchée par l'API.
     tags:
@@ -172,7 +214,7 @@ glossaries:
     tags:
       - Schedule Messages
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/get_messages_scheduled'>/messages/scheduled_broadcasts</a>
-    description: Renvoyer une liste JSON d'informations sur les Campaigns planifiées et les entrées Canvas entre maintenant et une date <code>end_time</code> désignée spécifiée dans la requête.
+    description: Renvoyer une liste JSON d'informations sur les Campaigns planifiées et les Canvas d'entrée entre maintenant et une date <code>end_time</code> désignée spécifiée dans la requête.
     tags:
       - Schedule Messages
   - name: <a href='/docs/api/endpoints/messaging/live_activity/update'>/messages/live_activity/update</a>
@@ -235,6 +277,18 @@ glossaries:
     description: Obtenir une liste des modèles d'e-mail disponibles dans votre compte Braze.
     tags:
       - Email Templates
+  - name: <a href='/docs/api/endpoints/translations/webhook_templates/get_view_source_webhook_template'>/templates/webhook/translations/source</a>
+    description: Consulter les traductions source par défaut pour un modèle de webhook.
+    tags:
+      - Webhook Templates
+  - name: <a href='/docs/api/endpoints/translations/webhook_templates/get_view_translations_webhook_template'>/templates/webhook/translations</a>
+    description: Consulter les traductions pour un modèle de webhook.
+    tags:
+      - Webhook Templates
+  - name: <a href='/docs/api/endpoints/translations/webhook_templates/put_update_webhook_template'>/templates/webhook/translations</a>
+    description: Mettre à jour les traductions pour un modèle de webhook.
+    tags:
+      - Webhook Templates
   - name: <a href='/docs/api/endpoints/export/campaigns/get_campaign_analytics'>/campaigns/data_series</a>
     description: Récupérer une série quotidienne de diverses statistiques pour une Campaign au fil du temps.
     tags:
@@ -336,7 +390,7 @@ glossaries:
     tags:
       - KPI
   - name: <a href='/docs/api/endpoints/sms/post_remove_invalid_numbers'>/sms/invalid_phone_numbers/remove</a>
-    description: "Supprimer les numéros de téléphone « non valides » de la liste des numéros non valides dans Braze. Utilisez cette fonctionnalité pour revalider les numéros de téléphone après que Braze les a marqués comme non valides."
+    description: "Supprimer les numéros de téléphone « non valides » de la liste des numéros non valides dans Braze. Utilisez cet endpoint pour revalider les numéros de téléphone après que Braze les a marqués comme non valides."
     tags:
       - SMS
   - name: <a href='/docs/api/endpoints/sms/get_query_invalid_numbers'>/sms/invalid_phone_numbers</a>

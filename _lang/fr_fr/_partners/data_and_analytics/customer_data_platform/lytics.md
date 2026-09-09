@@ -118,7 +118,7 @@ Accédez au menu du compte Lytics en sélectionnant votre nom de compte, puis s�
 
 ![Écran Access Tokens de Lytics avec Create API Token sélectionné depuis le menu du compte.]({% image_buster /assets/img/lytics/create_token.png %}){: style="max-width:80%;"}
 
-Saisissez un nom, une description facultative et une période d'expiration du jeton. Ensuite, activez le périmètre **Data Manager** pour les autorisations API et sélectionnez **Generate Token**. Copiez le jeton et conservez-le en lieu sûr.
+Saisissez un nom, une description facultative et une période d'expiration du jeton. Ensuite, activez le périmètre **Data gestionnaire** pour les autorisations API et sélectionnez **Generate Token**. Copiez le jeton et conservez-le en lieu sûr.
 
 ![Autorisations du jeton API Lytics avec le périmètre Data Manager activé avant la génération du jeton.]({% image_buster /assets/img/lytics/data_manager.png %}){: style="max-width:80%;"}
 

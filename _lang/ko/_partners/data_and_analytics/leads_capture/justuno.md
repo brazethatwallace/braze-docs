@@ -28,7 +28,7 @@ Justuno와 Braze를 통합하면 두 가지 장점을 모두 누릴 수 있습�
 
 ### 1단계: Braze에서 커스텀 속성 생성하기 {#step-1-create-custom-attributes-in-braze}
 
-Justuno에서 Braze로 사용자 속성을 동기화하려면, 아직 생성하지 않은 경우 Braze에서 해당 속성을 먼저 생성해야 합니다. **Data Settings** > **Custom Attributes**로 이동한 후 커스텀 속성을 생성하면 됩니다. 전체 안내는 [Braze에서 커스텀 속성 관리하기]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)를 참조하세요.
+Justuno에서 Braze로 사용자 속성을 동기화하려면, 아직 생성하지 않은 경우 Braze에서 해당 속성을 먼저 생성해야 합니다. **Data Settings** > **커스텀 속성**로 이동한 후 커스텀 속성을 생성하면 됩니다. 전체 안내는 [Braze에서 커스텀 속성 관리하기]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)를 참조하세요.
 
 ### 2단계: Justuno에 Braze 앱 추가하기 {#step-2-add-the-braze-app-to-justuno}
 

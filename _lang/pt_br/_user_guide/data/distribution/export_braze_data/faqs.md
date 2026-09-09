@@ -29,9 +29,9 @@ Não. O Currents usa seu próprio conector e configurações de armazenamento. E
 
 ## Por que recebi vários arquivos ao exportar perfis de usuários para o S3? {#why-did-i-receive-multiple-files-when-exporting-user-profiles-to-s3}
 
-Esse é o comportamento esperado para espaços de trabalho com muitos usuários. A Braze divide sua exportação em vários arquivos com base no número de usuários no seu espaço de trabalho. Geralmente, há um arquivo de saída para cada 5.000 usuários. Observe que, se você estiver exportando um segmento pequeno dentro de um espaço de trabalho grande, ainda poderá receber vários arquivos.
+Esse é o comportamento esperado para espaços de trabalho com muitos usuários. A Braze divide sua exportação em vários arquivos com base no número de usuários no seu espaço de trabalho. Geralmente, há um arquivo de saída para cada 5.000 usuários. Observe que, se você estiver exportando um Segment pequeno dentro de um espaço de trabalho grande, ainda poderá receber vários arquivos.
 
-## Por que vejo duplicatas quando exporto usuários por segmento por meio da REST API? {#why-do-i-see-duplicates-when-i-export-users-by-segment-through-rest-api}
+## Por que vejo duplicatas quando exporto usuários por Segment por meio da REST API? {#why-do-i-see-duplicates-when-i-export-users-by-segment-through-rest-api}
 
 Essa é uma ocorrência muito rara causada pela arquitetura subjacente do provedor de banco de dados. As duplicatas são removidas toda semana; no entanto, na maioria das semanas, nenhuma duplicata é encontrada.
 

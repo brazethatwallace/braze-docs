@@ -3,7 +3,7 @@ nav_title: De vuelta en stock
 article_title: De vuelta en stock
 page_order: 2
 page_type: reference
-description: "Este artículo describe cómo utilizar una plantilla de Braze Canvas para impulsar las compras notificando a tus usuarios cuando un artículo vuelve a estar en stock con mensajería personalizada."
+description: "Este artículo describe cómo utilizar una plantilla de BRAZE CANVAS para impulsar las compras notificando a tus usuarios cuando un artículo vuelve a estar en stock con mensajería personalizada."
 tool: Canvas
 ---
 

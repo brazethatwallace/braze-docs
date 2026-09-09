@@ -9,7 +9,7 @@ tool: Reports
 ---
 # Eine Formel erstellen {#create-a-formula}
 
-> Bei der Anzeige von Analytics in Braze können Sie mehrere Datenpunkte kombinieren, um wertvolle Insights zu Ihren Nutzerdaten zu erhalten. Diese werden als Formeln bezeichnet. Verwenden Sie Formeln, um Ihre Zeitreihendaten auf der Grundlage der Gesamtzahl der monatlich aktiven Nutzer:innen (MAU) und der täglich aktiven Nutzer:innen (DAU) zu normalisieren.
+> Bei der Anzeige von Analytics in Braze können Sie mehrere Datenpunkte kombinieren, um wertvolle Insights zu Ihren Nutzerdaten zu erhalten. Diese werden als Formeln bezeichnet. Verwenden Sie Formeln, um Ihre Zeitreihendaten auf der Grundlage der Gesamtzahl der monatlich aktiven Nutzer:innen (MAU) und der täglich aktiven Nutzer:innen (täglich aktive:r Nutzer:in; täglich aktiv) zu normalisieren.
 
 Formeln helfen Ihnen, komplexe Beziehungen in Ihren Daten zu verstehen. Sie können zum Beispiel vergleichen, wie viele angepasste Events von täglich aktiven Nutzer:innen, die sich für ein bestimmtes Segment qualifizieren, im Vergleich zur Allgemeinbevölkerung (oder zu einem anderen Segment) abgeschlossen wurden.
 
@@ -65,8 +65,8 @@ table td {
 
 | Zähler | Nenner |
 | --- | --- |
-| DAU | MAU |
-| Sitzungen | DAU |
+| täglich aktive:r Nutzer:in; täglich aktiv | MAU |
+| Sitzungen | täglich aktive:r Nutzer:in; täglich aktiv |
 | | Segmentgröße |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Übersicht-Dashboard" }
 
@@ -74,7 +74,7 @@ table td {
 
 | Zähler | Nenner |
 | --- | --- |
-| Käufe (alle) | DAU |
+| Käufe (alle) | täglich aktive:r Nutzer:in; täglich aktiv |
 | Ausgewählte Käufe (z. B. eine Geschenkkarte oder Produkt-ID) | MAU |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Umsatz-Dashboard" }
 
@@ -83,6 +83,6 @@ table td {
 | Zähler | Nenner |
 | --- | --- |
 | Anzahl angepasster Events | MAU |
-|  | DAU |
+|  | täglich aktive:r Nutzer:in; täglich aktiv |
 |  | Segmentgröße (es können nur Segmente verwendet werden, bei denen [Analytics-Tracking]({{site.baseurl}}/viewing_and_understanding_segment_data) aktiviert ist) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Dashboard für angepasste Events" }

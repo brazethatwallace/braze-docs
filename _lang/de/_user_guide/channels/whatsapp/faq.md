@@ -35,7 +35,7 @@ Ja, Sie müssen dennoch ein WhatsApp-Business-Konto erstellen. Wir empfehlen Ihn
 Nach Abschluss des eingebetteten Registrierungsflows können Sie auf Ihr Konto unter business.facebook.com zugreifen, indem Sie zum [WhatsApp-Bereich](https://business.facebook.com/wa/manage/home) navigieren.
 
 #### Kann ich mehrere WABAs mit Braze verbinden? {#can-i-connect-multiple-wabas-to-braze}
-Ja, Sie können bis zu 10 WhatsApp-Business-Konten pro Workspace hinzufügen, und jedes Business-Konto kann unter einem anderen Meta Business Manager verschachtelt sein.
+Ja, Sie können bis zu 10 WhatsApp-Business-Konten pro Workspace hinzufügen, und jedes Business-Konto kann unter einem anderen Meta Business Manager:in verschachtelt sein.
 
 ![Diagramm des Braze- und WhatsApp-Ökosystems, das zeigt, wie Workspaces und WhatsApp-Business-Konten miteinander verbunden sind: Sie können eine Abo-Gruppe mit einer Telefonnummer, mehrere WhatsApp-Business-Konten mit einem Workspace und einen Workspace mit mehreren Meta-Business-Portfolios verbinden.]({% image_buster /assets/img/whatsapp/whatsapp_braze_ecosystem.png %})
 
@@ -43,7 +43,7 @@ Ja, Sie können bis zu 10 WhatsApp-Business-Konten pro Workspace hinzufügen, un
 Nein. Meta steuert die Währung für Ihr WhatsApp-Business-Konto, und Braze kann diese nicht ändern oder konvertieren. Um eine andere Währung zu verwenden, [erstellen Sie ein separates WhatsApp-Business-Konto]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup) mit dieser Währung, oder kontaktieren Sie den Meta-Support, um zu fragen, ob die Währung Ihres bestehenden Kontos aktualisiert werden kann.
 
 #### Was ist die Geschäftsverifizierung? {#what-is-business-verification}
-Die Geschäftsverifizierung ist ein WhatsApp-Konzept, das sicherstellt, dass die Marke ein legitimiertes Unternehmen ist. Sie kann im WhatsApp Manager abgeschlossen werden. Die Geschäftsverifizierung ist auch erforderlich, um das Messaging zu skalieren. Ohne Geschäftsverifizierung können Kund:innen nur bis zu 250 eindeutigen Endnutzer:innen in einem rollierenden 24-Stunden-Zeitraum Nachrichten senden.
+Die Geschäftsverifizierung ist ein WhatsApp-Konzept, das sicherstellt, dass die Marke ein legitimiertes Unternehmen ist. Sie kann im WhatsApp Manager:in abgeschlossen werden. Die Geschäftsverifizierung ist auch erforderlich, um das Messaging zu skalieren. Ohne Geschäftsverifizierung können Kund:innen nur bis zu 250 eindeutigen Endnutzer:innen in einem rollierenden 24-Stunden-Zeitraum Nachrichten senden.
 
 #### Was ist ein offizielles Business-Konto? {#what-is-an-official-business-account}
 Ein OBA verleiht Ihnen das grüne Häkchen neben Ihrem Anzeigenamen und ist optional. Sie können ein offizielles Business-Konto beantragen, nachdem Sie die Geschäftsverifizierung abgeschlossen haben. Beachten Sie, dass die Geschäftsverifizierung und ein offizielles Business-Konto unterschiedliche WhatsApp-Konzepte sind.
@@ -124,13 +124,13 @@ Um also von 100.000 auf unbegrenzt zu wechseln, müssen Sie mindestens 50.000 ge
 Wenn alle oben genannten Bedingungen erfüllt sind, können Sie Ihr Messaging-Limit in 4 Tagen von 1.000 auf unbegrenzt erhöhen.
 
 #### Wo kann ich mein aktuelles Messaging-Limit einsehen? {#where-can-i-see-my-current-messaging-limit}
-Sie können Ihr aktuelles Messaging-Limit im Tab **WhatsApp Manager > Overview Dashboard > Insights** einsehen.
+Sie können Ihr aktuelles Messaging-Limit im Tab **WhatsApp Manager:in > Overview Dashboard > Insights** einsehen.
 
 #### Was passiert, wenn ich versuche, Nachrichten zu senden, obwohl ich mein Messaging-Limit bereits erreicht habe? {#what-happens-if-i-attempt-to-send-messages-when-i-have-already-reached-my-messaging-limit}
 Wenn Sie versuchen, eine Campaign oder ein Canvas an mehr eindeutige Nutzer:innen zu senden, als Ihr aktuelles Limit zulässt, werden die Nachrichten nicht zugestellt. Braze versucht weiterhin, die Nachrichten erneut zu senden, wenn/falls Ihr Messaging-Limit innerhalb von bis zu einem Tag erhöht wird.
 
 #### Kann mein Messaging-Limit sinken? {#can-my-messaging-limit-decrease}
-Ja, wenn Ihre Qualitätsbewertung der Telefonnummer zu stark sinkt, riskieren Sie, dass WhatsApp Ihr Messaging-Limit verringert. Braze empfiehlt, qualitätsbezogene Updates von WhatsApp zu abonnieren und sich benachrichtigen zu lassen, einschließlich Aktualisierungen Ihres Telefonnummern-Status und Ihres Messaging-Limit-Levels. Sie können Benachrichtigungen direkt im WhatsApp Manager-Dashboard abonnieren.
+Ja, wenn Ihre Qualitätsbewertung der Telefonnummer zu stark sinkt, riskieren Sie, dass WhatsApp Ihr Messaging-Limit verringert. Braze empfiehlt, qualitätsbezogene Updates von WhatsApp zu abonnieren und sich benachrichtigen zu lassen, einschließlich Aktualisierungen Ihres Telefonnummern-Status und Ihres Messaging-Limit-Levels. Sie können Benachrichtigungen direkt im WhatsApp Manager:in-Dashboard abonnieren.
 
 #### Welche Faktoren beeinflussen die Qualitätsbewertung der Telefonnummer und was passiert, wenn meine Qualitätsbewertung zu niedrig wird? {#what-factors-affect-phone-number-quality-rating-and-what-happens-when-my-quality-rating-drops-too-low}
 Faktoren, die die Qualitätsbewertung der Telefonnummer beeinflussen, umfassen das Blockieren eines Unternehmens durch Endnutzer:innen (und die Gründe, die sie beim Blockieren angeben) sowie das Melden eines Unternehmens durch Endnutzer:innen.
@@ -146,19 +146,19 @@ Meta hat ein eigenes Durchsatzlimit, das vom WABA-Messaging-Limit getrennt ist. 
 WhatsApp verlangt, dass alle geschäftsinitiierten Nachrichten mit einem genehmigten Template beginnen. Das Template enthält den Nachrichtentext sowie optionale Rich-Media-Elemente wie Bilder, Calls-to-Action und Schnellantwort-Buttons. Nachdem WhatsApp Templates genehmigt hat, können sie zum Erstellen einer WhatsApp-Nachricht in Braze verwendet werden.
 
 #### Wo erstelle, bearbeite und verwalte ich meine WhatsApp-Templates? {#where-do-i-create-edit-and-manage-my-whatsapp-templates}
-Sie können Templates in Braze mit dem [WhatsApp Template Builder]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder) erstellen und einreichen, oder im WhatsApp Manager von Meta. Templates, die an einem der beiden Orte erstellt wurden, erscheinen im Braze-Dashboard mit einer Statusanzeige. Nach der Einreichung erfordern gesperrte Felder eine erneute Genehmigung durch Meta – weitere Details finden Sie unter den [Bearbeitungsbeschränkungen in den Template-Builder-FAQ]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder#can-i-edit-a-template-after-its-been-approved).
+Sie können Templates in Braze mit dem [WhatsApp Template Builder]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder) erstellen und einreichen, oder im WhatsApp Manager:in von Meta. Templates, die an einem der beiden Orte erstellt wurden, erscheinen im Braze-Dashboard mit einer Statusanzeige. Nach der Einreichung erfordern gesperrte Felder eine erneute Genehmigung durch Meta – weitere Details finden Sie unter den [Bearbeitungsbeschränkungen in den Template-Builder-FAQ]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder#can-i-edit-a-template-after-its-been-approved).
 
 #### Wie lange dauert es, bis WhatsApp eine Template-Einreichung überprüft? {#how-long-does-it-take-whatsapp-to-review-a-template-submission}
 Der Genehmigungsprozess kann bis zu 24 Stunden dauern, aber oft werden Templates innerhalb von Stunden oder Minuten bearbeitet.
 
 #### Wie viele Templates kann ich gleichzeitig haben? {#how-many-templates-can-i-have-at-a-given-time}
-Ihr Nachrichtentemplate-Limit hängt von Ihrem Geschäftsverifizierungsstatus ab. Sie können Ihr Limit auf der Seite **WhatsApp Manager > Message Templates** überprüfen.
+Ihr Nachrichtentemplate-Limit hängt von Ihrem Geschäftsverifizierungsstatus ab. Sie können Ihr Limit auf der Seite **WhatsApp Manager:in > Message Templates** überprüfen.
 
 #### Wie personalisiere ich Template-Text und Rich-Media in Braze? {#how-do-i-personalize-template-copy-and-rich-media-in-braze}
 WhatsApp erlaubt das Einfügen variabler Parameter in Nachrichtentemplates. Nachrichten können nicht mit einem variablen Parameter beginnen oder enden. Variable Parameter können mit Liquid-Logik in der Braze-Plattform befüllt werden. Weitere Informationen zu variablen Parametern finden Sie unter [WhatsApp-Nachricht in Braze verfassen]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#step-2-compose-your-whatsapp-message).
 
 #### Mein Template wurde abgelehnt. Kann Braze mir helfen, es genehmigen zu lassen? {#my-template-got-rejected-can-braze-help-me-get-it-approved}
-Das Braze-Team hat keinen Einblick in Template-Ablehnungen. Sie sollten direkt mit Ihrem WhatsApp Business Manager zusammenarbeiten, um das Template zu bearbeiten und erneut einzureichen. Stellen Sie sicher, dass Sie bei Bedarf ein Muster-Template bereitstellen. Überprüfen Sie, ob Ihr Template den [Business-](https://www.whatsapp.com/legal/business-policy/?fbclid=IwAR2qWg6yFKdyjDMxJkbNSM38FLGsxXxffC1qStY2gaHOyp-gl_8g72rZNIw) oder [Commerce-Richtlinien](https://www.whatsapp.com/legal/commerce-policy/?fbclid=IwAR3bzN3LTZ-7kO-wnO7X3smtPKGy0asxaFod-U1Ub8B9JUpnrfy1_y7LpAQ) von Meta entspricht.
+Das Braze-Team hat keinen Einblick in Template-Ablehnungen. Sie sollten direkt mit Ihrem WhatsApp Business Manager:in zusammenarbeiten, um das Template zu bearbeiten und erneut einzureichen. Stellen Sie sicher, dass Sie bei Bedarf ein Muster-Template bereitstellen. Überprüfen Sie, ob Ihr Template den [Business-](https://www.whatsapp.com/legal/business-policy/?fbclid=IwAR2qWg6yFKdyjDMxJkbNSM38FLGsxXxffC1qStY2gaHOyp-gl_8g72rZNIw) oder [Commerce-Richtlinien](https://www.whatsapp.com/legal/commerce-policy/?fbclid=IwAR3bzN3LTZ-7kO-wnO7X3smtPKGy0asxaFod-U1Ub8B9JUpnrfy1_y7LpAQ) von Meta entspricht.
 
 #### Können Rich-Media in Braze zielgerichtet oder personalisiert werden? {#can-rich-media-be-targeted-or-personalized-in-braze}
 Ja. Sie können statische Bilder aus der Medienbibliothek hochladen oder Bilder per URL hinzufügen und diese mit [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) oder [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) personalisieren. Bild-URLs unterstützen die vollständige Liquid-Logik an jeder Stelle der URL. Dies gilt für Template-Nachrichten und Antwortnachrichten (Mediennachrichten und Schnellantwort-Layouts). Weitere Details finden Sie unter [Dynamische Bilder]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#dynamic-images).
@@ -172,13 +172,13 @@ Wenn Sie glauben, dass Meta Ihr Template fälschlicherweise gekennzeichnet hat, 
 #### Warum zeigt mein importiertes WhatsApp-Template „Message Incomplete“ im Composer an? {#why-does-my-imported-whatsapp-template-show-message-incomplete-in-the-composer}
 Die Warnung „Message Incomplete“ erscheint, wenn erforderliche Template-Variablenplätze im Composer nicht mit gültigen Werten befüllt sind.
 
-Wenn Sie Templates mit dem [WhatsApp Template Builder]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder) erstellen, nummeriert Braze die Variablen in sequenzielle Platzhalter um ({% raw %}`{{1}}`, `{{2}}`, `{{3}}`{% endraw %} usw.). Templates, die extern im WhatsApp Manager von Meta erstellt wurden, können noch Muster enthalten, die die Variablenzuordnung fehleranfällig machen, wie zum Beispiel:
+Wenn Sie Templates mit dem [WhatsApp Template Builder]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder) erstellen, nummeriert Braze die Variablen in sequenzielle Platzhalter um ({% raw %}`{{1}}`, `{{2}}`, `{{3}}`{% endraw %} usw.). Templates, die extern im WhatsApp Manager:in von Meta erstellt wurden, können noch Muster enthalten, die die Variablenzuordnung fehleranfällig machen, wie zum Beispiel:
 
 - Nicht-sequenzielle Nummerierung (z. B. {% raw %}`{{1}}`, `{{3}}`, `{{5}}`{% endraw %})
 - Fehlende Variablen in der Sequenz (z. B. Überspringen von {% raw %}`{{2}}`{% endraw %})
 - Variablen, die mit einer anderen Nummer als 1 beginnen
 
-Um dies zu lösen, bearbeiten Sie Ihr Template im WhatsApp Manager von Meta, um sequenzielle Platzhalterformatierung zu verwenden, und importieren Sie es dann erneut in Braze. Bestätigen Sie in Braze, dass jedes erforderliche Variablenfeld mit einem gültigen Liquid-Wert befüllt ist.
+Um dies zu lösen, bearbeiten Sie Ihr Template im WhatsApp Manager:in von Meta, um sequenzielle Platzhalterformatierung zu verwenden, und importieren Sie es dann erneut in Braze. Bestätigen Sie in Braze, dass jedes erforderliche Variablenfeld mit einem gültigen Liquid-Wert befüllt ist.
 
 #### Warum wird meine WhatsApp-Campaign nicht gesendet, obwohl die Template-Vorschau funktioniert? {#why-is-my-whatsapp-campaign-not-sending-despite-template-previewing}
 Wenn Ihr Template korrekt in der Vorschau angezeigt wird, aber das Verarbeitungsprotokoll **Abort** mit dem Detail „Param text cannot have new-line/tab characters or more than 4 consecutive spaces“ anzeigt, überprüfen Sie die per Liquid befüllten Parameterwerte in Ihrer Nachricht. WhatsApp verlangt, dass Parametertextwerte Folgendes nicht enthalten:

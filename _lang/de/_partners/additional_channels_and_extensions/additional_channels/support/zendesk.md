@@ -14,7 +14,7 @@ search_tag: Partner
 
 Die Server-zu-Server-Integration von Braze und Zendesk ermöglicht Ihnen die Nutzung von:
 - Braze-Webhooks zur Automatisierung der Erstellung von Support-Tickets in Zendesk aufgrund von Nachrichten-Engagement in Nutzer-Journeys in Braze. Nachdem Sie beispielsweise eine Integration erfolgreich implementiert und getestet haben, kann Braze ein Support-Ticket erstellen, wenn Nutzer:innen eine In-App-Nachricht mit der Frage „Gefällt Ihnen unsere App?“ negativ beantworten, sodass Ihr Support-Team mit den Kund:innen nachfassen kann.
-- Zendesk-Webhooks zur Unterstützung bidirektionaler Anwendungsfälle wie dem Update des Nutzerprofils in Braze aufgrund einer Aktivität in Zendesk. Wenn zum Beispiel ein Ticket gelöst wurde, protokollieren Sie ein Ereignis im Nutzerprofil in Braze.
+- Zendesk-Webhooks zur Unterstützung bidirektionaler Anwendungsfälle wie dem Update des Nutzerprofils in Braze aufgrund einer Aktivität in Zendesk. Wenn zum Beispiel ein Ticket gelöst wurde, protokollieren Sie ein Ereignis im Kundenprofil in Braze.
 
 ## Voraussetzungen {#prerequisites}
 

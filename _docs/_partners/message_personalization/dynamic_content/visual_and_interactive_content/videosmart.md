@@ -130,7 +130,7 @@ VideoSmart's API has a rate limit of 10,000 requests per minute. If you exceed t
 
 To reduce this risk, configure Braze campaign rate limiting so the message send rate stays under VideoSmart API capacity.
 
-For Braze guidance on delivery speed and rate limiting, see [Delivery speed and rate limiting]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/#delivery-speed-rate-limiting).
+For Braze guidance on delivery speed and rate limiting, see [Delivery speed and rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting).
 
 ## Considerations
 

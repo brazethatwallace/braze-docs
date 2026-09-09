@@ -138,6 +138,11 @@
       > .active {
       display: block;
       }
+      // Show the first pane before documents.js adds .active (prevents CLS).
+      // Use direct-child :has() so nested tab nav li.active does not suppress this fallback.
+      &:not(:has(> .ab-tab-pane.active)) > .ab-tab-pane:first-child {
+        display: block;
+      }
     }
     .ab-sub_tab-content {
       > .ab-sub_tab-pane {
@@ -145,6 +150,9 @@
       }
       > .sub_active {
       display: block;
+      }
+      &:not(:has(> .ab-sub_tab-pane.sub_active)) > .ab-sub_tab-pane:first-child {
+        display: block;
       }
     }
     // Sdk tabs css
@@ -291,6 +299,9 @@
       > .active {
         display: block;
       }
+      &:not(:has(> .sdk-ab-tab-pane.active)) > .sdk-ab-tab-pane:first-child {
+        display: block;
+      }
     }
 
     .sdk-ab-sub_tab-content {
@@ -298,6 +309,9 @@
         display: none;
       }
       > .sub_active {
+        display: block;
+      }
+      &:not(:has(> .sdk-ab-sub_tab-pane.sub_active)) > .sdk-ab-sub_tab-pane:first-child {
         display: block;
       }
     }

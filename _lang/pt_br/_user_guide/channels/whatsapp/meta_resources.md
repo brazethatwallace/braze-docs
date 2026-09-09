@@ -91,7 +91,7 @@ Para saber mais, consulte a documentação da Meta sobre [arquivamento de modelo
 - Anteriormente aberto a todos os clientes pelo WhatsApp Manager
 - Agora restrito a: governo/grandes anunciantes da Meta, anunciantes diretos ou por meio de um BSP como a Braze (até 5 por semana)
 - Novos pré-requisitos: verificação empresarial, verificação em duas etapas, nome de exibição aprovado, notoriedade
-- Entre em contato com seu gerente de sucesso do cliente para assistência
+- Entre em contato com seu CSM para assistência
 
 ### Outubro de 2025: Reduções de tarifas regionais {#october-2025-regional-pricing-rate-cuts}
 *Última atualização em março de 2026*

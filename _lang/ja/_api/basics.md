@@ -13,86 +13,86 @@ alias: /api/api_key/
 
 ## Braze REST APIコレクション {#braze-rest-api-collection}
 
-| コレクション                                                                 | 目的                                                                               |
+| コレクション                                                               | 目的                                                                                   |
 |----------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
-| [カタログ]({{site.baseurl}}/api/endpoints/catalogs)                       | Brazeキャンペーンで参照するカタログおよびカタログアイテムを作成・管理します。    |
-| [Cloud Data Ingestion]({{site.baseurl}}/api/endpoints/cdi)                | データウェアハウスの連携と同期を管理します。                                    |
-| [メールリストとアドレス]({{site.baseurl}}/api/endpoints/email)         | Brazeとメールシステム間の双方向同期を設定・管理します。           |
-| [エクスポート]({{site.baseurl}}/api/endpoints/export)                           | キャンペーン、キャンバス、KPIsなどのさまざまな詳細にアクセスしエクスポートします。        |
+| [カタログ]({{site.baseurl}}/api/endpoints/catalogs)                       | Brazeキャンペーンで参照するカタログとカタログアイテムを作成および管理します。    |
+| [クラウドデータ取り込み]({{site.baseurl}}/api/endpoints/cdi)                | データウェアハウスの統合と同期を管理します。                                    |
+| [メールリストとアドレス]({{site.baseurl}}/api/endpoints/email)         | Brazeとメールシステム間の双方向同期を設定および管理します。           |
+| [エクスポート]({{site.baseurl}}/api/endpoints/export)                           | キャンペーン、キャンバス、KPIsなどのさまざまな詳細にアクセスしてエクスポートします。        |
 | [メディアライブラリ]({{site.baseurl}}/api/endpoints/media_library)             | Braze内のアセットを管理します。                                                           |
-| [メッセージ]({{site.baseurl}}/api/endpoints/messaging)                      | キャンペーンやキャンバスのスケジュール、送信、管理を行います。                               |
+| [メッセージ]({{site.baseurl}}/api/endpoints/messaging)                      | キャンペーンとキャンバスのスケジュール、送信、管理を行います。                               |
 | [ユーザー設定センター]({{site.baseurl}}/api/endpoints/preference_center)     | ユーザー設定センターを構築し、スタイルを更新します。                            |
 | [SCIM]({{site.baseurl}}/api/endpoints/scim)                               | クラウドベースのアプリケーションやサービスでユーザーIDを管理します。                      |
 | [SMS]({{site.baseurl}}/api/endpoints/sms)                                 | 購読グループ内のユーザーの電話番号を管理します。                         |
 | [購読グループ]({{site.baseurl}}/api/endpoints/subscription_groups) | Brazeダッシュボードに保存されているSMSおよびメール購読グループの一覧表示と更新を行います。 |
-| [テンプレート]({{site.baseurl}}/api/endpoints/templates)                     | メールメッセージングおよびContent Blocksのテンプレートを作成・更新します。                   |
-| [ユーザーデータ]({{site.baseurl}}/api/endpoints/user_data)                     | ユーザーの識別、トラッキング、管理を行います。                                               |
+| [テンプレート]({{site.baseurl}}/api/endpoints/templates)                     | メールメッセージングとContent Blocksのテンプレートを作成および更新します。                   |
+| [ユーザーデータ]({{site.baseurl}}/api/endpoints/user_data)                     | ユーザーの識別、追跡、管理を行います。                                               |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Braze REST APIコレクション" }
 
-## API定義 {#api-definitions}
+## API 定義 {#api-definitions}
 
-以下は、Braze REST APIドキュメントで使用される用語の概要です。
+以下は、Braze REST API ドキュメントで目にする用語の概要です。
 
 ### エンドポイント {#endpoints}
 
-Brazeでは、ダッシュボードとRESTエンドポイント用に複数の異なるインスタンスを管理しています。アカウントがプロビジョニングされると、以下のURLのいずれかにログインします。プロビジョニングされたインスタンスに基づいて、正しいRESTエンドポイントを使用してください。不明な場合は、[サポートチケット]({{site.baseurl}}/braze_support)を開くか、以下の表を使用して、使用しているダッシュボードのURLを正しいRESTエンドポイントと照合してください。
+Brazeはダッシュボードと REST エンドポイント用に複数の異なるインスタンスを管理しています。アカウントがプロビジョニングされると、以下の URL のいずれかにログインします。プロビジョニングされたインスタンスに基づいて、正しい REST エンドポイントを使用してください。不明な場合は、[サポートチケット]({{site.baseurl}}/user_guide/administer/personal/braze_support)を開くか、以下の表を使用して、利用中のダッシュボードの URL と正しい REST エンドポイントを照合してください。
 
-BrazeでRESTエンドポイントを確認するには:
+Brazeで REST エンドポイントを確認するには：
 
-1. Brazeにログインし、**設定** > **APIと識別子** > **APIキー**に移動します。
-2. 既存のAPIキーを選択するか、**APIキーを作成**を選択して新しいキーを作成します。
-3. このタブに表示されるRESTエンドポイントをコピーし、APIリクエストに使用します。
+1. Brazeにログインし、**設定** > **API と識別子** > **API キー**に移動します。
+2. 既存のAPIキーを選択するか、**API キーを作成**を選択して新しいキーを作成します。
+3. このタブに表示される REST エンドポイントをコピーし、そのエンドポイントを API リクエストに使用します。
 
 {% alert important %}
-API呼び出しにエンドポイントを使用する場合は、RESTエンドポイントを使用してください。
+API 呼び出しにエンドポイントを使用する場合は、REST エンドポイントを使用してください。
 
-SDKの統合には、RESTエンドポイントではなく、[SDKエンドポイント]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints)を使用してください。
+SDKの統合には、REST エンドポイントではなく、[SDKエンドポイント]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints)を使用してください。
 {% endalert %}
 
 {% multi_lang_include administer/data_centers.md datacenters='instances' %}
 
-### APIの制限 {#api-limits}
+### API 制限 {#api-limits}
 
-ほとんどのAPIについて、Brazeでは1時間あたり250,000リクエストのデフォルトレート制限が設定されています。ただし、特定のリクエストタイプには、顧客ベース全体で大量のデータをより適切に処理するための独自のレート制限が適用されます。詳細については、[APIレート制限]({{site.baseurl}}/api/api_limits)を参照してください。
+ほとんどの API について、Brazeではデフォルトで1時間あたり250,000リクエストのレート制限が設定されています。ただし、特定のリクエストタイプには、顧客ベース全体の大量データをより適切に処理するために、独自のレート制限が適用されます。詳細については、[API レート制限]({{site.baseurl}}/api/api_limits)を参照してください。
 
 ### ユーザー ID {#user-ids}
 
-- **external ID**: `external_id`は、データを送信する対象のユーザーを一意に識別するための識別子です。この識別子は、同じユーザーに対して複数のプロファイルが作成されないようにするため、Braze SDKで設定したものと同じである必要があります。
-- **Braze ユーザー ID**: `braze_id`は、Brazeが設定する一意のユーザー識別子です。この識別子を使用して、external_idに加えてREST APIを通じてユーザーを削除できます。
+- **external ID**: `external_id`は、データを送信する対象ユーザーの一意の識別子として機能します。この識別子は、同一ユーザーに対して複数のプロファイルが作成されるのを防ぐため、Braze SDKで設定したものと同じである必要があります。
+- **Braze ユーザー ID**: `braze_id`は、Brazeが設定する一意のユーザー識別子として機能します。この識別子を使用して、external_id に加えて REST API 経由でユーザーを削除できます。
 
-詳細については、プラットフォームに応じて以下の記事を参照してください: [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=swift)、[Android]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=android)、および[Web]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=web)。
+詳細については、プラットフォームに応じて以下の記事を参照してください：[iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=swift)、[Android]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=android)、および [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=web)。
 
 ## REST APIキーについて {#about-rest-api-keys}
 
-REST Application Programming Interface キー（REST APIキー）は、APIに渡してAPI呼び出しを認証し、呼び出し元のアプリケーションまたはユーザーを識別する固有のコードです。APIへのアクセスは、会社のREST APIエンドポイントへのHTTPS Webリクエストを使用して行います。REST APIキーはアプリ識別子キーと連携して、データのトラッキング、アクセス、送信、エクスポート、分析を行い、すべてがスムーズに稼働していることを確認します。
+REST API（REST Application Programming Interface）キーは、APIに渡してAPI呼び出しを認証し、呼び出し元のアプリケーションやユーザーを識別するための一意のコードです。HTTPS Webリクエストを使用して、会社のREST APIエンドポイントにアクセスします。REST APIキーは、アプリ識別子キーと連携して、データのトラッキング、アクセス、送信、エクスポート、分析を行い、すべてがスムーズに動作していることを確認します。
 
-ワークスペースとAPIキーは、Brazeにおいて密接に関連しています。ワークスペースは、複数のプラットフォームにまたがる同一アプリケーションのバージョンを格納するように設計されています。多くのお客様は、同一プラットフォーム上の無料版とプレミアム版のアプリケーションを格納するためにワークスペースを使用しています。お気づきかもしれませんが、これらのワークスペースもREST APIを利用しており、独自のREST APIキーを持っています。これらのキーは、API上の特定のエンドポイントへのアクセスを含むように個別にスコープを設定できます。APIへの各呼び出しには、アクセスするエンドポイントへの権限を持つキーを含める必要があります。
+ワークスペースとAPIキーは、Brazeにおいて密接に関連しています。ワークスペースは、複数のプラットフォームにわたる同一アプリケーションのバージョンを格納するために設計されています。多くのお客様は、同じプラットフォーム上のアプリケーションの無料版とプレミアム版を格納するためにもワークスペースを使用しています。お気づきのように、これらのワークスペースもREST APIを利用しており、それぞれ固有のREST APIキーを持っています。これらのキーは、API上の特定のエンドポイントへのアクセスを含むように個別にスコープ設定できます。APIへの各呼び出しには、アクセスするエンドポイントへの権限を持つキーを含める必要があります。
 
 REST APIキーとワークスペースAPIキーの両方を `api_key` と呼びます。`api_key` は各リクエストにリクエストヘッダーとして含まれ、REST APIを使用するための認証キーとして機能します。これらのREST APIは、ユーザーのトラッキング、メッセージの送信、ユーザーデータのエクスポートなどに使用されます。新しいREST APIキーを作成する際には、特定のエンドポイントへのアクセス権を付与する必要があります。APIキーに特定の権限を割り当てることで、そのAPIキーが認証できる呼び出しを正確に制限できます。
 
 ![APIキータブのREST APIキーパネル。]({% image_buster /assets/img_archive/rest-api-key.png %})
 
 {% alert tip %}
-REST APIキーに加えて、アプリ、テンプレート、キャンバス、キャンペーン、Content Cards、セグメントなどの特定のものをAPIから参照するために使用できる識別子キーと呼ばれるタイプのキーも存在します。詳細については、[API識別子の種類]({{site.baseurl}}/api/identifier_types)を参照してください。
+REST APIキーに加えて、識別子キーと呼ばれるキータイプも存在します。これは、アプリ、テンプレート、キャンバス、キャンペーン、Content Cards、セグメントなどの特定のリソースをAPIから参照するために使用できます。詳細については、[API識別子タイプ]({{site.baseurl}}/api/identifier_types)を参照してください。
 {% endalert %}
 
 ### REST APIキーの作成 {#creating-rest-api-keys}
 
-新しいREST APIキーを作成するには：
+新しいREST APIキーを作成するには:
 
 1. **設定** > **APIと識別子** に移動します。
 2. **APIキーを作成** を選択します。
-3. 一目で識別できるように新しいキーに名前を付けます。
-4. 新しいキーの[許可リストに登録するIPアドレス](#api-ip-allowlisting)とサブネットを指定します。
+3. 新しいキーにひと目で識別できる名前を付けます。
+4. 新しいキーの[許可リストに追加するIPアドレス](#api-ip-allowlisting)とサブネットを指定します。
 5. 新しいキーに関連付ける[権限](#rest-api-key-permissions)を選択します。
 
 {% alert important %}
-新しいAPIキーを作成した後は、権限のスコープや許可リストに登録されたIPを編集できないことにご注意ください。この制限はセキュリティ上の理由から設けられています。キーのスコープを変更する必要がある場合は、更新された権限で新しいキーを作成し、古いキーの代わりにそのキーを実装してください。実装が完了したら、古いキーを削除できます。
+新しいAPIキーを作成した後は、権限のスコープや許可リストのIPを編集できないことに注意してください。この制限はセキュリティ上の理由から設けられています。キーのスコープを変更する必要がある場合は、更新された権限を持つ新しいキーを作成し、古いキーの代わりにそのキーを実装してください。実装が完了したら、古いキーを削除できます。
 {% endalert %}
 
 ### REST APIキーの権限 {#rest-api-key-permissions}
 
-APIキーの権限は、特定のAPI呼び出しへのアクセスを制限するためにユーザーまたはグループに割り当てることができる権限です。APIキーの権限一覧を表示するには、**設定** > **APIと識別子** に移動し、APIキーを選択します。
+APIキーの権限は、ユーザーまたはグループに割り当てて、特定のAPI呼び出しへのアクセスを制限できる権限です。APIキーの権限一覧を表示するには、**設定** > **APIと識別子** に移動し、APIキーを選択します。
 
 {% tabs %}
 {% tab ユーザーデータ %}
@@ -104,7 +104,7 @@ APIキーの権限は、特定のAPI呼び出しへのアクセスを制限す�
 | `users.alias.new` | [`/users/alias/new`]({{site.baseurl}}/api/endpoints/user_data/post_user_alias) | 既存のユーザーに新しいエイリアスを作成します。 |
 | `users.identify` | [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) | エイリアスのみのユーザーをexternal IDで識別します。 |
 | `users.export.ids` | [`/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) | ユーザーIDでユーザープロファイル情報を照会します。 |
-| `users.export.segment` | [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) | セグメントでユーザープロファイル情報を照会します。 |
+| `users.export.segment` | [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) | セグメントごとにユーザープロファイル情報を照会します。 |
 | `users.merge` | [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) | 2人の既存ユーザーを統合します。 |
 | `users.external_ids.rename` | [`/users/external_ids/rename`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_rename) | 既存ユーザーのexternal IDを変更します。 |
 | `users.external_ids.remove` | [`/users/external_ids/remove`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_remove) | 既存ユーザーのexternal IDを削除します。 |
@@ -131,11 +131,11 @@ APIキーの権限は、特定のAPI呼び出しへのアクセスを制限す�
 | 権限 | エンドポイント | 説明 |
 |---|---|---|
 | `messages.send` | [`/messages/send `]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) | 特定のユーザーに即時メッセージを送信します。 |
-| `messages.schedule.create` | [`/messages/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages) | 特定の時刻に送信するメッセージをスケジュールします。 |
+| `messages.schedule.create` | [`/messages/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages) | 特定の時間に送信するメッセージをスケジュールします。 |
 | `messages.schedule.update` | [`/messages/schedule/update`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_update_scheduled_messages) | スケジュールされたメッセージを更新します。 |
 | `messages.schedule.delete` | [`/messages/schedule/delete`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_delete_scheduled_messages) | スケジュールされたメッセージを削除します。 |
 | `messages.schedule_broadcasts` | [`/messages/scheduled_broadcasts`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/get_messages_scheduled) | スケジュールされたすべてのブロードキャストメッセージを照会します。 |
-| `messages.live_activity.update` | [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update) | iOSのLive Activityを更新します。 |
+| `messages.live_activity.update` | [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update) | iOSライブアクティビティを更新します。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST APIキーの権限" }
 
 {% endtab %}
@@ -144,16 +144,16 @@ APIキーの権限は、特定のAPI呼び出しへのアクセスを制限す�
 | 権限 | エンドポイント | 説明 |
 |---|---|---|
 | `campaigns.trigger.send` | [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) | 既存のキャンペーンの送信をトリガーします。 |
-| `campaigns.trigger.schedule.create` | [`/campaigns/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns) | APIトリガー配信によるキャンペーンの送信をスケジュールします。 |
+| `campaigns.trigger.schedule.create` | [`/campaigns/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns) | APIトリガー配信でキャンペーンの送信をスケジュールします。 |
 | `campaigns.trigger.schedule.update` | [`/campaigns/trigger/schedule/update`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_update_scheduled_triggered_campaigns) | APIトリガー配信でスケジュールされたキャンペーンを更新します。 |
 | `campaigns.trigger.schedule.delete` | [`/campaigns/trigger/schedule/delete`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_delete_scheduled_triggered_messages) | APIトリガー配信でスケジュールされたキャンペーンを削除します。 |
 | `campaigns.list` | [`/campaigns/list`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns) | キャンペーンの一覧を照会します。 |
-| `campaigns.data_series` | [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) | 期間を指定してキャンペーン分析を照会します。 |
+| `campaigns.data_series` | [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) | 期間指定でキャンペーン分析を照会します。 |
 | `campaigns.details` | [`/campaigns/details`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details) | 特定のキャンペーンの詳細を照会します。 |
-| `sends.data_series` | [`/sends/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics) | 期間を指定してメッセージ送信の分析を照会します。 |
+| `sends.data_series` | [`/sends/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics) | 期間指定でメッセージ送信分析を照会します。 |
 | `sends.id.create` | [`/sends/id/create`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_create_send_ids) | メッセージ一斉送信のトラッキング用に送信IDを作成します。 |
-| `campaigns.url_info.details` | [`/campaigns/url_info/details`]({{site.baseurl}}) | キャンペーン内の特定のメッセージバリエーションのURL詳細を照会します。 |
-| `transactional.send` | [`/transactional/v1/campaigns/{campaign_id}/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_transactional_message) | トランザクショナルメッセージングエンドポイントを使用してトランザクショナルメッセージを送信できます。 |
+| `campaigns.url_info.details` | [`/campaigns/url_info/details`]({{site.baseurl}}) | キャンペーン内の特定のメッセージバリエーションのURL詳細を照会します。この権限は、[リンクエイリアス]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing)が有効なワークスペースでのみ利用できます。この権限がワークスペースで利用できない場合は、Brazeアカウントマネージャーにお問い合わせください。 |
+| `transactional.send` | [`/transactional/v1/campaigns/{campaign_id}/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_transactional_message) | トランザクションメッセージングエンドポイントを使用してトランザクションメッセージを送信できます。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST APIキーの権限" }
 
 {% endtab %}
@@ -162,14 +162,14 @@ APIキーの権限は、特定のAPI呼び出しへのアクセスを制限す�
 | 権限 | エンドポイント | 説明 |
 |---|---|---|
 | `canvas.trigger.send` | [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases) | 既存のキャンバスの送信をトリガーします。 |
-| `canvas.trigger.schedule.create` | [`/canvas/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases) | APIトリガー配信によるキャンバスの送信をスケジュールします。 |
+| `canvas.trigger.schedule.create` | [`/canvas/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases) | APIトリガー配信でキャンバスの送信をスケジュールします。 |
 | `canvas.trigger.schedule.update` | [`/canvas/trigger/schedule/update`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_update_scheduled_triggered_canvases) | APIトリガー配信でスケジュールされたキャンバスを更新します。 |
 | `canvas.trigger.schedule.delete` | [`/canvas/trigger/schedule/delete`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_delete_scheduled_triggered_canvases) | APIトリガー配信でスケジュールされたキャンバスを削除します。 |
 | `canvas.list` | [`/canvas/list`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases) | キャンバスの一覧を照会します。 |
-| `canvas.data_series` | [`/canvas/data_series`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics) | 期間を指定してキャンバスの分析を照会します。 |
+| `canvas.data_series` | [`/canvas/data_series`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics) | 期間指定でキャンバス分析を照会します。 |
 | `canvas.details` | [`/canvas/details`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details) | 特定のキャンバスの詳細を照会します。 |
-| `canvas.data_summary` | [`/canvas/data_summary`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics_summary) | 期間を指定してキャンバス分析のロールアップを照会します。 |
-| `canvas.url_info.details` | [`/canvas/url_info/details`]({{site.baseurl}}/get_canvas_link_alias) | キャンバスステップ内の特定のメッセージバリエーションのURL詳細を照会します。 |
+| `canvas.data_summary` | [`/canvas/data_summary`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics_summary) | 期間指定でキャンバス分析のロールアップを照会します。 |
+| `canvas.url_info.details` | [`/canvas/url_info/details`]({{site.baseurl}}/get_canvas_link_alias) | キャンバスステップ内の特定のメッセージバリエーションのURL詳細を照会します。この権限は、[リンクエイリアス]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing)が有効なワークスペースでのみ利用できます。この権限がワークスペースで利用できない場合は、Brazeアカウントマネージャーにお問い合わせください。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST APIキーの権限" }
 
 {% endtab %}
@@ -178,7 +178,7 @@ APIキーの権限は、特定のAPI呼び出しへのアクセスを制限す�
 | 権限 | エンドポイント | 説明 |
 |---|---|---|
 | `segments.list` | [`/segments/list`]({{site.baseurl}}/api/endpoints/export/segments/get_segment) | セグメントの一覧を照会します。 |
-| `segments.data_series` | [`/segments/data_series`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_analytics) | 期間を指定してセグメント分析を照会します。 |
+| `segments.data_series` | [`/segments/data_series`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_analytics) | 期間指定でセグメント分析を照会します。 |
 | `segments.details` | [`/segments/details`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_details) | 特定のセグメントの詳細を照会します。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST APIキーの権限" }
 
@@ -188,8 +188,8 @@ APIキーの権限は、特定のAPI呼び出しへのアクセスを制限す�
 | 権限 | エンドポイント | 説明 |
 |---|---|---|
 | `purchases.product_list` | [`/purchases/product_list`]({{site.baseurl}}/api/endpoints/export/purchases/get_list_product_id) | アプリで購入された商品の一覧を照会します。 |
-| `purchases.revenue_series` | [`/purchases/revenue_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_revenue_series) | 期間を指定してアプリでの1日あたりの合計支出額を照会します。 |
-| `purchases.quantity_series` | [`/purchases/quantity_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_number_of_purchases) | 期間を指定してアプリでの1日あたりの合計購入数を照会します。 |
+| `purchases.revenue_series` | [`/purchases/revenue_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_revenue_series) | 期間指定でアプリの1日あたりの総支出額を照会します。 |
+| `purchases.quantity_series` | [`/purchases/quantity_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_number_of_purchases) | 期間指定でアプリの1日あたりの購入総数を照会します。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST APIキーの権限" }
 
 {% endtab %}
@@ -198,7 +198,7 @@ APIキーの権限は、特定のAPI呼び出しへのアクセスを制限す�
 | 権限 | エンドポイント | 説明 |
 |---|---|---|
 | `events.list` | [`/events/list`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events) | カスタムイベントの一覧を照会します。 |
-| `events.data_series` | [`/events/data_series`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_analytics) | 期間を指定してカスタムイベントの発生回数を照会します。 |
+| `events.data_series` | [`/events/data_series`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_analytics) | 期間指定でカスタムイベントの発生回数を照会します。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST APIキーの権限" }
 
 {% endtab %}
@@ -206,7 +206,7 @@ APIキーの権限は、特定のAPI呼び出しへのアクセスを制限す�
 
 | 権限 | エンドポイント | 説明 |
 |---|---|---|
-| `sessions.data_series` | [`/sessions/data_series`]({{site.baseurl}}/api/endpoints/export/sessions/get_sessions_analytics) | 期間を指定して1日あたりのセッション数を照会します。 |
+| `sessions.data_series` | [`/sessions/data_series`]({{site.baseurl}}/api/endpoints/export/sessions/get_sessions_analytics) | 期間指定で1日あたりのセッション数を照会します。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST APIキーの権限" }
 
 {% endtab %}
@@ -214,10 +214,10 @@ APIキーの権限は、特定のAPI呼び出しへのアクセスを制限す�
 
 | 権限 | エンドポイント | 説明 |
 |---|---|---|
-| `kpi.dau.data_series` | [`/kpi/dau/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_dau_date) | 期間を指定して1日あたりのユニークアクティブユーザー数を照会します。 |
-| `kpi.mau.data_series` | [`/kpi/mau/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_mau_30_days) | 期間を指定して30日間のローリングウィンドウにおける合計ユニークアクティブユーザー数を照会します。 |
-| `kpi.new_users.data_series` | [`/kpi/new_users/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_daily_new_users_date) | 期間を指定して1日あたりの新規ユーザー数を照会します。 |
-| `kpi.uninstalls.data_series` | [`/kpi/uninstalls/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_uninstalls_date) | 期間を指定して1日あたりのアプリアンインストール数を照会します。 |
+| `kpi.dau.data_series` | [`/kpi/dau/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_dau_date) | 期間指定で1日あたりのユニークアクティブユーザー数を照会します。 |
+| `kpi.mau.data_series` | [`/kpi/mau/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_mau_30_days) | 期間指定で30日間のローリングウィンドウにおけるユニークアクティブユーザーの合計数を照会します。 |
+| `kpi.new_users.data_series` | [`/kpi/new_users/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_daily_new_users_date) | 期間指定で1日あたりの新規ユーザー数を照会します。 |
+| `kpi.uninstalls.data_series` | [`/kpi/uninstalls/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_uninstalls_date) | 期間指定で1日あたりのアプリアンインストール数を照会します。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST APIキーの権限" }
 
 {% endtab %}
@@ -236,7 +236,7 @@ APIキーの権限は、特定のAPI呼び出しへのアクセスを制限す�
 
 | 権限 | 説明 |
 | --- | --- |
-| `sso.saml.login` | IDプロバイダー起点のログインを設定します。詳細については、[サービスプロバイダー（SP）起点のログイン]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup)を参照してください。 |
+| `sso.saml.login` | IDプロバイダー主導のログインを設定します。詳細については、[サービスプロバイダー（SP）主導のログイン]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup)を参照してください。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="REST APIキーの権限" }
 
 {% endtab %}
@@ -247,7 +247,7 @@ APIキーの権限は、特定のAPI呼び出しへのアクセスを制限す�
 | `content_blocks.info` | [`/content_blocks/info`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_see_email_content_blocks_information) | 特定のテンプレートの情報を照会します。 |
 | `content_blocks.list` | [`/content_blocks/list`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_list_email_content_blocks) | Content Blocksの一覧を照会します。 |
 | `content_blocks.create` | [`/content_blocks/create`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block) | ダッシュボードに新しいContent Blockを作成します。 |
-| `content_blocks.update` | [`/content_blocks_update`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block) | ダッシュボード上の既存のContent Blockを更新します。 |
+| `content_blocks.update` | [`/content_blocks_update`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block) | ダッシュボードの既存のContent Blockを更新します。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST APIキーの権限" }
 
 {% endtab %}
@@ -256,7 +256,7 @@ APIキーの権限は、特定のAPI呼び出しへのアクセスを制限す�
 | 権限 | エンドポイント | 説明 |
 |---|---|---|
 | `preference_center.get` | [`/preference_center/v1/{preferenceCenterExternalId}`]({{site.baseurl}}/api/endpoints/preference_center/get_view_details_preference_center) | ユーザー設定センターを取得します。 |
-| `preference_center.list` | [`/preference_center/v1/list`]({{site.baseurl}}/api/endpoints/preference_center/get_list_preference_center) | ユーザー設定センターを一覧表示します。 |
+| `preference_center.list` | [`/preference_center/v1/list`]({{site.baseurl}}/api/endpoints/preference_center/get_list_preference_center) | ユーザー設定センターの一覧を表示します。 |
 | `preference_center.update` | [`/preference_center/v1`]({{site.baseurl}}/api/endpoints/preference_center/post_create_preference_center)<br><br>[`/preference_center/v1/{preferenceCenterExternalID}`]({{site.baseurl}}/api/endpoints/preference_center/put_update_preference_center) | ユーザー設定センターを作成または更新します。 |
 | `preference_center.user.get` | [`/preference_center/v1/{preferenceCenterExternalId}/url/{userId}`]({{site.baseurl}}/api/endpoints/preference_center/get_create_url_preference_center) | ユーザーのユーザー設定センターリンクを取得します。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST APIキーの権限" }
@@ -286,18 +286,18 @@ APIキーの権限は、特定のAPI呼び出しへのアクセスを制限す�
 | 権限 | エンドポイント | 説明 |
 |---|---|---|
 | `catalogs.add_items` | [`/catalogs/{catalog_name}/items`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/post_create_catalog_items_bulk) | 既存のカタログに複数のアイテムを追加します。 |
-| `catalogs.update_items` | [`/catalogs/{catalog_name}/items`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/patch_catalog_items_bulk) | 既存のカタログ内の複数のアイテムを更新します。 |
+| `catalogs.update_items` | [`/catalogs/{catalog_name}/items`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/patch_catalog_items_bulk) | 既存のカタログの複数のアイテムを更新します。 |
 | `catalogs.delete_items` | [`/catalogs/{catalog_name}/items`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/delete_catalog_items_bulk) | 既存のカタログから複数のアイテムを削除します。 |
 | `catalogs.get_item` | [`/catalogs/{catalog_name}/items/{item_id}`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/get_catalog_item_details) | 既存のカタログから1つのアイテムを取得します。 |
-| `catalogs.update_item` | [`/catalogs/{catalog_name}/items/{item_id}`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/put_update_catalog_item) | 既存のカタログ内の1つのアイテムを更新します。 |
+| `catalogs.update_item` | [`/catalogs/{catalog_name}/items/{item_id}`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/put_update_catalog_item) | 既存のカタログの1つのアイテムを更新します。 |
 | `catalogs.create_item` | [`/catalogs/{catalog_name}/items/{item_id}`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/post_create_catalog_item) | 既存のカタログに1つのアイテムを作成します。 |
 | `catalogs.delete_item` | [`/catalogs/{catalog_name}/items/{item_id}`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/delete_catalog_item) | 既存のカタログから1つのアイテムを削除します。 |
-| `catalogs.replace_item` | [` /catalogs/{catalog_name}/items/{item_id}`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/put_update_catalog_item) | 既存のカタログから1つのアイテムを置き換えます。 |
+| `catalogs.replace_item` | [` /catalogs/{catalog_name}/items/{item_id}`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/put_update_catalog_item) | 既存のカタログの1つのアイテムを置換します。 |
 | `catalogs.create` | [`/catalogs`]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/post_create_catalog) | カタログを作成します。 |
 | `catalogs.get` | [`/catalogs`]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs) | カタログの一覧を取得します。 |
 | `catalogs.delete` | [`/catalogs/{catalog_name}`]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/delete_catalog) | カタログを削除します。 |
 | `catalogs.get_items` | [`/catalogs/{catalog_name}/items`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/get_catalog_items_details_bulk) | 既存のカタログからアイテムのプレビューを取得します。 |
-| `catalogs.replace_items` | [`/catalogs/{catalog_name}/items`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/put_update_catalog_items) | 既存のカタログ内のアイテムを置き換えます。 |
+| `catalogs.replace_items` | [`/catalogs/{catalog_name}/items`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/put_update_catalog_items) | 既存のカタログのアイテムを置換します。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST APIキーの権限" }
 
 {% endtab %}
@@ -316,40 +316,40 @@ APIキーの権限は、特定のAPI呼び出しへのアクセスを制限す�
 
 ### REST APIキーの管理 {#managing-rest-api-keys}
 
-既存のREST APIキーの詳細を表示したり、削除するには、**設定** > **APIと識別子** > **APIキー** タブに移動します。REST APIキーは作成後に編集できないことにご注意ください。
+既存のREST APIキーの詳細を表示したり削除したりするには、**設定** > **APIと識別子** > **APIキー** タブに移動します。REST APIキーは作成後に編集できないことに注意してください。
 
-**APIキー** タブには、各キーについて以下の情報が含まれています：
+**APIキー** タブには、各キーについて以下の情報が表示されます。
 
 | フィールド | 説明 |
 | ------------ | :------------------------------------------------------------------------------------------------------------------ |
-| APIキー名 | 作成時にキーに付けられた名前です。 |
-| 識別子 | APIキーです。 |
-| 作成者 | キーを作成したユーザーのメールアドレスです。2023年6月以前に作成されたキーの場合、このフィールドは「N/A」と表示されます。 |
-| 作成日 | このキーが作成された日付です。 |
-| 最終使用日 | このキーが最後に使用された日付です。一度も使用されたことがないキーの場合、このフィールドは「N/A」と表示されます。 |
+| APIキー名 | 作成時にキーに付けられた名前。 |
+| 識別子 | APIキー。 |
+| 作成者 | キーを作成したユーザーのメールアドレス。2023年6月以前に作成されたキーの場合、このフィールドは「N/A」と表示されます。 |
+| 作成日 | このキーが作成された日付。 |
+| 最終使用日 | このキーが最後に使用された日付。使用されたことがないキーの場合、このフィールドは「N/A」と表示されます。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="REST APIキーの管理" }
 
-APIキーの詳細を表示するには、キーにカーソルを合わせて <i class="fa-solid fa-eye" alt="表示"></i> **表示** を選択します。このキーが持つすべての権限、ホワイトリストに登録されたIP（ある場合）、およびこのキーがBraze IPホワイトリストにオプトインしているかどうかが含まれます。
+APIキーの詳細を表示するには、キーにカーソルを合わせて <i class="fa-solid fa-eye" alt="表示"></i> **表示** を選択します。これには、このキーが持つすべての権限、ホワイトリストに追加されたIP（ある場合）、およびこのキーがBraze IPホワイトリストにオプトインしているかどうかが含まれます。
 
 ![BrazeダッシュボードのAPIキー権限一覧。]({% image_buster /assets/img_archive/view-api-key.png %})
 
-[ユーザーの削除]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users)を行う場合、Brazeはそのユーザーが作成した関連するAPIキーを削除しないことにご注意ください。キーを削除するには、キーにカーソルを合わせて <i class="fa-solid fa-trash-can" alt="削除"></i> **削除** を選択します。
+[ユーザーを削除]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users)しても、そのユーザーが作成した関連するAPIキーはBrazeでは削除されないことに注意してください。キーを削除するには、キーにカーソルを合わせて <i class="fa-solid fa-trash-can" alt="削除"></i> **削除** を選択します。
 
-![ゴミ箱アイコンがハイライトされた「Last Seen」という名前のAPIキー。「削除」と表示されています。]({% image_buster /assets/img_archive/api-key-options.png %}){: style="max-width:30%;"}
+![ゴミ箱アイコンがハイライトされ「削除」と表示されている「Last Seen」という名前のAPIキー。]({% image_buster /assets/img_archive/api-key-options.png %}){: style="max-width:30%;"}
 
 ### REST APIキーのセキュリティ {#rest-api-key-security}
 
 APIキーはAPI呼び出しの認証に使用されます。新しいREST APIキーを作成する際には、特定のエンドポイントへのアクセス権を付与する必要があります。APIキーに特定の権限を割り当てることで、そのAPIキーが認証できる呼び出しを正確に制限できます。
 
-REST APIキーは機密性の高いREST APIエンドポイントへのアクセスを許可する可能性があるため、これらのキーを安全に保管し、信頼できるパートナーとのみ共有してください。公開されることがあってはなりません。たとえば、WebサイトからのAJAX呼び出しにこのキーを使用したり、その他の公開方法でキーを公開したりしないでください。
+REST APIキーは機密性の高いREST APIエンドポイントへのアクセスを許可する可能性があるため、これらのキーを安全に保管し、信頼できるパートナーとのみ共有してください。これらのキーは絶対に公開してはなりません。たとえば、このキーをWebサイトからのAJAX呼び出しに使用したり、その他の公開的な方法で公開したりしないでください。
 
-良いセキュリティの実践方法は、ユーザーに業務遂行に必要な最小限のアクセスのみを割り当てることです。この原則は、各キーに権限を割り当てることでAPIキーにも適用できます。これらの権限により、アカウントのさまざまな領域に対するセキュリティとコントロールが向上します。
+優れたセキュリティプラクティスは、ユーザーに業務遂行に必要最小限のアクセス権のみを割り当てることです。この原則は、各キーに権限を割り当てることでAPIキーにも適用できます。これらの権限により、アカウントのさまざまな領域に対するセキュリティとコントロールが向上します。
 
 {% alert warning %}
-REST APIキーは機密性の高いREST APIエンドポイントへのアクセスを許可する可能性があるため、安全に保存・使用されるようにしてください。たとえば、WebサイトからのAJAX呼び出しにこのキーを使用したり、その他の公開方法でキーを公開したりしないでください。
+REST APIキーは機密性の高いREST APIエンドポイントへのアクセスを許可する可能性があるため、安全に保管および使用してください。たとえば、このキーをWebサイトからのAJAX呼び出しに使用したり、その他の公開的な方法で公開したりしないでください。
 {% endalert %}
 
-誤ってキーを公開してしまった場合は、Developer Consoleからキーを削除できます。このプロセスについてサポートが必要な場合は、[サポートチケット]({{site.baseurl}}/braze_support)を開いてください。
+キーを誤って公開してしまった場合は、開発者コンソールから削除できます。このプロセスに関するサポートが必要な場合は、[サポートチケット]({{site.baseurl}}/user_guide/administer/personal/braze_support)を開いてください。
 
 ### REST APIキーとSDK APIキーのセキュリティ {#security-of-rest-api-keys-and-sdk-api-keys}
 
@@ -357,21 +357,21 @@ REST APIキーとSDK APIキーには異なるセキュリティプロファイ�
 
 | | REST APIキー | SDK APIキー |
 |---|---|---|
-| 用途 | REST APIのサーバーサイド認証（メッセージの送信、データのエクスポート、ユーザー管理） | Braze SDKのクライアントサイド識別（データの取り込み、アプリ内メッセージ、Content Cards） |
-| 公開性 | **非公開にする必要があります**。クライアントサイドのコード、パブリックリポジトリ、またはユーザーアプリケーションに公開しないでください。 | 公開されることを前提としています。アプリバイナリにバンドルされたり、WebブラウザのJavaScriptで表示されたりします。Google AnalyticsのトラッキングIDと同様です。 |
-| 公開された場合の対処 | 直ちにキーを取り消し、**設定** > **APIと識別子** > **APIキー** で代替キーを作成してください。公開されたREST APIキーは、メッセージの送信、ユーザーデータのエクスポート、またはアカウント設定の変更に使用される可能性があります。 | 対処は不要です。SDK APIキーはデータの取り込みとクライアントサイドのメッセージング（アプリ内メッセージやContent Cardsなど）の取得のみが可能です。ユーザーデータのエクスポート、代理でのメッセージ送信、またはキャンペーンの変更はできません。 |
+| 目的 | REST APIのサーバーサイド認証（メッセージの送信、データのエクスポート、ユーザーの管理） | Braze SDKのクライアントサイド識別（データの取り込み、アプリ内メッセージ、Content Cards） |
+| 可視性 | **非公開でなければなりません**。クライアントサイドのコード、公開リポジトリ、またはユーザーアプリケーションに公開しないでください。 | 公開を前提として設計されています。アプリバイナリにバンドルされるか、WebブラウザのJavaScriptで参照可能です。Google Analyticsのトラッキングに類似しています。 |
+| 公開された場合の対応 | ただちにキーを無効化し、**設定** > **APIと識別子** > **APIキー** で代替キーを作成してください。公開されたREST APIキーは、メッセージの送信、ユーザーデータのエクスポート、またはアカウント設定の変更に使用される可能性があります。 | 対応は不要です。SDK APIキーはデータの取り込みとクライアントサイドのメッセージング（アプリ内メッセージやContent Cardsなど）の取得のみが可能です。ユーザーデータのエクスポート、代理でのメッセージ送信、またはキャンペーンの変更はできません。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST APIキーとSDK APIキーのセキュリティ" }
 
 ### API IP許可リスト {#api-ip-allowlisting}
 
-セキュリティを強化するために、特定のREST APIキーに対してREST APIリクエストを行うことが許可されるIPアドレスとサブネットのリストを指定できます。これは許可リスト（ホワイトリスト）と呼ばれます。特定のIPアドレスまたはサブネットを許可するには、新しいREST APIキーを作成する際に **ホワイトリストIP** セクションに追加します：
+セキュリティをさらに強化するために、特定のREST APIキーに対してREST APIリクエストの送信を許可するIPアドレスとサブネットのリストを指定できます。これは許可リスト（ホワイトリスト）と呼ばれます。特定のIPアドレスまたはサブネットを許可するには、新しいREST APIキーの作成時に **ホワイトリストIP** セクションに追加します。
 
-![APIキー作成時にIPを許可リストに登録するオプション。]({% image_buster /assets/img_archive/api-key-ip-whitelisting.png %})
+![APIキー作成時にIPを許可リストに追加するオプション。]({% image_buster /assets/img_archive/api-key-ip-whitelisting.png %})
 
-何も指定しない場合、任意のIPアドレスからリクエストを送信できます。
+何も指定しない場合、すべてのIPアドレスからリクエストを送信できます。
 
 {% alert tip %}
-Braze間Webhookを作成する際に許可リストを使用している場合は、[ホワイトリストに登録するIP]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook#ip-whitelisting)の一覧を参照してください。
+Braze間のWebhookを作成していて許可リストを使用している場合は、[ホワイトリストに追加するIPの一覧]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook)を参照してください。
 {% endalert %}
 
 ## API認証とセキュリティ {#api-authentication-and-security}
@@ -384,42 +384,42 @@ Brazeは、`Authorization`リクエストヘッダーにBearerトークンとし
 Authorization: Bearer YOUR_REST_API_KEY
 ```
 
-各リクエストに対して、Brazeはサーバー側で以下のバリデーションチェックを実行します。
+各リクエストに対して、Brazeは以下のサーバーサイドの検証チェックを実行します。
 
-1. **トークンの有効性:** REST APIキーがBrazeに存在し、アクティブであること（例えば、取り消しや無効化がされていないこと）を確認します。
+1. **トークンの有効性:** REST APIキーがBrazeに存在し、アクティブであることを確認します（たとえば、取り消しや無効化されていないこと）。
 2. **トークンの認可:** APIキーがリクエストされたエンドポイントに必要な権限を持っていることを確認します。
 
-認証に失敗した場合、APIはHTTPステータスコード付きのエラーレスポンスを返します。例えば、`401 Unauthorized`は無効または欠落しているキーを示し、`403 Forbidden`はキーがリクエストされたエンドポイントに対する権限を持っていないことを示します。詳細については、[APIエラー]({{site.baseurl}}/api/errors)を参照してください。
+認証に失敗した場合、APIはHTTPステータスコードを含むエラーレスポンスを返します。たとえば、`401 Unauthorized`は無効または欠落しているキーを示し、`403 Forbidden`はキーがリクエストされたエンドポイントへの権限を持っていないことを示します。詳細については、[APIエラー]({{site.baseurl}}/api/errors)を参照してください。
 
 ### リクエストヘッダーの大文字・小文字 {#header-casing}
 
-HTTPヘッダー名は大文字・小文字を区別しないため、`Authorization`と`authorization`は同等です。`Content-Type`などの他の標準リクエストヘッダーについても同様です。お使いのHTTPクライアントが生成する大文字・小文字のいずれでも送信できます。
+HTTPヘッダー名は大文字と小文字を区別しないため、`Authorization`と`authorization`は同等です。`Content-Type`などの他の標準リクエストヘッダーにも同じことが当てはまります。お使いのHTTPクライアントが生成する大文字・小文字の形式をそのまま送信してください。
 
-Brazeは`Bearer`スキームのいずれの大文字・小文字表記（`Bearer`、`bearer`、`BEARER`）も受け付けます。REST APIキー自体は、発行されたとおりに正確に送信してください。
+Brazeは`Bearer`スキームの任意の大文字・小文字（`Bearer`、`bearer`、`BEARER`）も受け付けます。REST APIキー自体は、発行された通りに正確に送信してください。
 
 ### ネットワークレベルのセキュリティ {#network-level-security}
 
-BrazeへのREST APIリクエストは、リクエストパス全体にわたってTransport Layer Security（TLS）暗号化によって保護されます。以下の表は、サーバーからBrazeへのAPIリクエストのネットワークフローを示しています。
+BrazeへのREST APIリクエストは、リクエストパス全体にわたってTransport Layer Security（TLS）暗号化で保護されます。以下の表は、お使いのサーバーからBrazeへのAPIリクエストのネットワークフローを示しています。
 
 | ステップ | コンポーネント | 説明 |
 | --- | --- | --- |
-| 1 | お客様のサーバー | TLS暗号化を使用してHTTPSリクエストを開始します。 |
+| 1 | お使いのサーバー | TLS暗号化を使用したHTTPSリクエストを開始します。 |
 | 2 | Cloudflare | クライアントのTLS接続を終端し、ネットワークレベルの保護を適用します。 |
-| 3 | ネットワークロードバランサー（NLB） | パケットをアプリケーションインフラに転送します。NLBはレイヤー4で動作するため、レイヤー7のプロキシ処理は行われません。パケットはHTTPレベルの検査や変更なしに転送されます。 |
+| 3 | Network Load Balancer（NLB） | パケットをアプリケーションインフラに転送します。NLBはレイヤー4で動作するため、レイヤー7のプロキシは行いません。パケットはHTTPレベルの検査や変更なしに転送されます。 |
 | 4 | NGINXイングレス | 内部TLS接続を終端し、リクエストをルーティングします。 |
-| 5 | Unicorn（アプリケーションサーバー） | 認証済みリクエストを処理します。 |
+| 5 | Unicorn（アプリケーションサーバー） | 認証済みのリクエストを処理します。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ネットワークレベルのセキュリティ" }
 
-TLS暗号化はチェーン内のすべてのリンクをカバーします。お客様のサーバーはTLS経由でCloudflareに接続し、CloudflareはNLBを介してNGINXイングレスへの別のTLS接続を確立するため、APIキーとリクエストデータは転送中も暗号化された状態を維持します。
+TLS暗号化はチェーン内のすべてのリンクをカバーします。お使いのサーバーはTLS経由でCloudflareに接続し、CloudflareはNLBを経由してNGINXイングレスへの別のTLS接続を確立するため、APIキーとリクエストデータは転送中も暗号化された状態を維持します。
 
 ## その他のリソース {#additional-resources}
 
 ### Ruby クライアントライブラリ {#ruby-client-library}
 
-Ruby を使用して Braze を実装している場合、[Ruby クライアントライブラリ](https://github.com/braze-inc/braze-api-client-ruby)を使用してデータインポート時間を短縮できます。クライアントライブラリとは、特定のプログラミング言語（この場合は Ruby）に固有のコードの集合であり、API の使用を容易にするものです。
+Ruby を使用して Braze を実装している場合は、[Ruby クライアントライブラリ](https://github.com/braze-inc/braze-api-client-ruby)を使用してデータインポート時間を短縮できます。クライアントライブラリは、特定のプログラミング言語（この場合は Ruby）に固有のコードのコレクションであり、API の使用を容易にします。
 
-Ruby クライアントライブラリは[ユーザーエンドポイント]({{site.baseurl}}/api/endpoints/user_data)をサポートしています。
+Ruby クライアントライブラリは、[ユーザーエンドポイント]({{site.baseurl}}/api/endpoints/user_data)をサポートしています。
 
 {% alert important %}
-このクライアントライブラリはベータ版です。このライブラリの改善にご協力いただける場合は、[smb-product@braze.com](mailto:smb-product@braze.com) までフィードバックをお送りください。
+このクライアントライブラリはベータ版です。このライブラリの改善にご協力いただける方は、[smb-product@braze.com](mailto:smb-product@braze.com) までフィードバックをお送りください。
 {% endalert %}

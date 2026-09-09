@@ -20,19 +20,19 @@ iOS 15では新しい通知機能が導入され、ユーザーが1日を通し�
 
 ## 連絡先カード {#contact-cards}
 
-連絡先カードは、アドレス帳や連絡先一覧に簡単にインポートできるビジネス情報や連絡先情報を送信するための標準化されたファイル形式です。SMSやMMSメッセージ用の連絡先カードをアップロードして作成できるようになりました。組み込みの連絡先カードジェネレーターで連絡先カードを作成する方法の詳細については、[ドキュメント]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/contact_card)を参照してください。
+連絡先カードは、アドレス帳や連絡先帳に簡単にインポートできる、ビジネス情報や連絡先情報を送信するための標準化されたファイル形式です。SMSおよびMMSメッセージ用の連絡先カードをアップロードして作成できるようになりました。組み込みの連絡先カードジェネレーターでの連絡先カードの作成方法について詳しくは、[ドキュメント]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/contact_card)をご覧ください。
 
-## デフォルトContent Cardsのカスタマイズ {#default-content-cards-customization}
+## デフォルトのContent Cardsカスタマイズ {#default-content-cards-customization}
 
 `ABKContentCardsTableViewController`を拡張してすべてのUI要素とContent Cardsの動作をカスタマイズすることで、独自のContent Cardsインターフェイスを作成できます。Content Cardsフィードのカスタマイズ方法の詳細については、[ドキュメント]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/style)をご覧ください。
 
 ## APIレート制限 {#api-rate-limits}
 
-[レート制限]({{site.baseurl}}/api/basics#api-limits)は、2021年9月16日以降にオンボーディングされたすべてのお客様に適用されます。
+[レート制限]({{site.baseurl}}/api/api_limits)は、2021年9月16日以降にオンボーディングされたすべての顧客に適用されます。
 
 ## AndroidおよびFireOS開発者ガイドの更新 {#updates-to-android-and-fireos-developer-guides}
 
-AndroidとFireOSの開発者ガイドが1つの場所に統合されました。専用のFireOS記事は、この[新しいAndroidセクション]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android)でご利用いただけます。
+AndroidとFireOSの開発者ガイドが1つの場所に統合されました。専用のFireOS記事は、この[新しいAndroidセクション]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android)で利用できます。
 
 ## ファネルレポートとリテンションレポートの更新 {#updates-to-funnel-and-retention-reports}
 

@@ -63,15 +63,9 @@ To use a specific property from an object output variable, use dot notation to a
 
 ![Agent step for Body HTML Writer with an object data type output for the variable "agent_output".]({% image_buster /assets/img/ai_agent/test_agent_step.png %}){: style="max-width:80%;"}
 
-### Step 4: Add any additional context (optional)
+### Step 4: Add optional step instructions
 
-You can decide to include additional context values for the agent step to reference when it runs. You can enter any Liquid templated values that you would normally use in a Canvas.
-
-{% alert note %}
-Note that the agent is already automatically receiving the context configured in the **Instructions** section. Liquid variables that were already configured there do not need to be re-entered here.
-{% endalert %}
-
-![The option to add additional context to an Agent step using Liquid.]({% image_buster /assets/img/ai_agent/agent_step_context.png %}){: style="max-width:80%;"}
+You can include optional step instructions for anything your agent needs to know that is specific to this step and not already covered in the agent's main instructions. You can enter any Liquid templated values that you would normally use in a Canvas.
 
 ### Step 5: Test the agent {#step-5-test-the-agent}
 
@@ -141,7 +135,7 @@ Let’s say you’re sending a personalized message to recommend a new ice cream
 
 ### How do Agent steps use input data?
 
-An Agent step analyzes the context data that the agent is configured to use, as well as any additional context that is [provided to the agent](#step-4-add-any-additional-context-optional).
+An Agent step analyzes the context data that the agent is configured to use, as well as any [optional step instructions](#step-4-add-optional-step-instructions) you add to the step.
 
 ## Related articles  
 

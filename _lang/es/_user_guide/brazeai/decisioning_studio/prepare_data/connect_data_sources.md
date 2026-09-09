@@ -21,7 +21,7 @@ Decisioning Studio admite múltiples patrones de integración para conectar dato
 |---------------------|----------|------------------|
 | **Braze Data Platform** | Clientes que ya usan Braze | Baja |
 | **Braze Cloud Data Ingestion (CDI)** | Conectar almacenes de datos externos | Media |
-| **Almacenamiento en el cloud (Google Cloud Storage, AWS, Azure)** | Exportaciones directas de datos desde otras plataformas | Media |
+| **Almacenamiento en el cloud (GCS, AWS, Azure)** | Exportaciones directas de datos desde otras plataformas | Media |
 | **Integraciones CEP** | Extensiones de datos de SFMC y Klaviyo | Media |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Patrones de integración compatibles" }
 
@@ -31,7 +31,7 @@ Los siguientes activos de datos de clientes ayudan a los agentes a personalizar 
 
 | Tipo de dato | Descripción | Ejemplos |
 |-----------|-------------|----------|
-| **Perfil de cliente** | Atributos estáticos y de cambio lento | Años como cliente, geografía, canal de adquisición, nivel de satisfacción, estimación del valor de duración del ciclo de vida |
+| **Perfil de usuario** | Atributos estáticos y que cambian lentamente | Años como cliente, ubicación geográfica, canal de adquisición, nivel de satisfacción, estimación del valor de duración del ciclo de vida |
 | **Comportamiento del cliente** | Patrones de actividad y participación | Inicios de sesión en la cuenta, tipo de dispositivo, interacciones con atención al cliente, uso del producto |
 | **Historial de transacciones** | Datos de compras y conversiones | Productos comprados, importes de transacciones, métodos de pago, canales de compra |
 | **Participación en marketing** | Respuestas a las comunicaciones | Aperturas/clics de correo electrónico, participación en SMS, actividad web y móvil, respuestas a cuestionarios |
@@ -53,18 +53,18 @@ BrazeAI Decisioning Studio puede utilizar todos los datos que ya estás enviando
 Para los datos de clientes que no están en el perfil de usuario o en atributos personalizados, tienes dos formas de incorporarlos con la [ingesta de datos en el cloud de Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion):
 
 - Ingestar en la plataforma de datos de Braze. Sincroniza datos del almacén de datos en perfiles de usuario de Braze, atributos personalizados o eventos. Elige esta opción cuando también quieras que los datos estén disponibles en Braze para segmentación y mensajería. Compatible con Snowflake, Redshift, BigQuery, Databricks, Microsoft Fabric, AWS S3 y Google Cloud Storage.
-- Enviar directamente a Decisioning Studio (acceso anticipado). Sincroniza datos del almacén de datos directamente con Decisioning Studio, sin añadirlos al perfil de usuario de Braze ni a los atributos personalizados. Elige esta opción para datos que quieras que Decisioning Studio utilice pero que no necesites en otras partes de Braze. Esta opción está en acceso anticipado; consulta [Ingesta de datos en el cloud: sincronizar datos de Decisioning Studio]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/decisioning_studio) para configurarla.
+- Enviar directamente a Decisioning Studio (acceso anticipado). Sincroniza datos del almacén de datos directamente a Decisioning Studio, sin añadirlos al perfil de usuario de Braze ni a atributos personalizados. Elige esta opción para datos que quieras que Decisioning Studio utilice pero que no necesites en otras partes de Braze. Esta opción está en acceso anticipado; consulta [Ingesta de datos en el cloud: sincronizar datos de Decisioning Studio]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/decisioning_studio) para configurarla.
 
-Una vez que estés satisfecho con los datos que envías a la plataforma de datos de Braze, contacta con tu equipo de servicios de AI Decisioning para analizar qué campos del perfil de usuario o atributos personalizados deben utilizarse para AI Decisioning.
+Una vez que estés conforme con los datos que estás enviando a la plataforma de datos de Braze, ponte en contacto con tu equipo de servicios de AI Decisioning para discutir qué campos del perfil de usuario o atributos personalizados deben usarse para AI Decisioning.
 
-Para agilizar este proceso, crea una lista de atributos del perfil de usuario de Braze que consideres que mejor representan los comportamientos de tus clientes y que deberían utilizarse en Decisioning Studio (consulta la [lista de campos disponibles]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment#fields-to-export)). Tu equipo de servicios también puede ayudarte a realizar sesiones de descubrimiento para decidir qué campos son más apropiados para AI Decisioning.
+Para agilizar este proceso, crea una lista de atributos del perfil de usuario de Braze que consideres que mejor representan los comportamientos de tus clientes y que deberían usarse en Decisioning Studio (consulta la [lista de campos disponibles]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment#fields-to-export)). Tu equipo de servicios también puede ayudarte a realizar sesiones de descubrimiento para decidir qué campos son los más adecuados para AI Decisioning.
 
 Otras opciones para enviar datos incluyen:
 
 - Enviar eventos personalizados de Braze a través del SDK
-- Enviar eventos usando el endpoint REST ([`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track))
+- Enviar eventos mediante el endpoint REST ([`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track))
 
-Estos patrones requieren más esfuerzo de ingeniería, pero a veces son preferibles dependiendo de tu configuración actual de Braze. Contacta con el equipo de servicios de AI Decisioning para obtener más información.
+Estos patrones requieren más esfuerzo de ingeniería, pero a veces son preferibles dependiendo de tu configuración actual de Braze. Ponte en contacto con el equipo de servicios de AI Decisioning para obtener más información.
 
 {% endtab %}
 {% tab SFMC %}
@@ -75,9 +75,9 @@ Para integraciones con Salesforce Marketing Cloud:
 
 1. Configura las extensiones de datos (Data Extensions) de SFMC para tus datos de clientes
 2. Configura un paquete instalado (Installed Package) de SFMC para la integración de API con los permisos apropiados requeridos por Decisioning Studio
-3. Asegúrate de que las extensiones de datos se actualicen diariamente, ya que Decisioning Studio extraerá los últimos datos incrementales disponibles
+3. Asegúrate de que las extensiones de datos se actualicen diariamente, ya que Decisioning Studio extraerá los datos incrementales más recientes disponibles
 
-Proporciona el ID de la extensión y la clave de API a tu equipo de servicios de AI Decisioning. Te asistirán con los siguientes pasos para la ingesta de datos de clientes.
+Proporciona el ID de la extensión y la clave de API a tu equipo de servicios de AI Decisioning. Ellos te ayudarán con los siguientes pasos para la ingesta de datos de clientes.
 
 {% endtab %}
 {% tab Klaviyo %}
@@ -86,7 +86,7 @@ Proporciona el ID de la extensión y la clave de API a tu equipo de servicios de
 
 Para integraciones con Klaviyo:
 
-1. Confirma que los datos del perfil de cliente estén disponibles en los perfiles de Klaviyo
+1. Confirma que los datos del perfil de usuario están disponibles en los perfiles de Klaviyo
 2. Genera una clave de API privada con acceso completo a perfiles
 3. Proporciona la clave de API a tu equipo de servicios de AI Decisioning
 
@@ -97,9 +97,9 @@ Consulta la [documentación de Klaviyo](https://help.klaviyo.com/hc/en-us/articl
 
 ### Otras soluciones en el cloud (Google Cloud Storage, Azure, AWS) {#other-cloud-solutions-google-cloud-storage-azure-aws}
 
-Si los datos de clientes no están almacenados actualmente en Braze, SFMC o Klaviyo, el siguiente mejor paso es configurar una exportación automatizada directamente a un contenedor de Google Cloud Storage controlado por Braze. También podemos admitir la exportación a AWS o Azure (aunque GCS es preferible). Para estas plataformas, exporta a su almacenamiento en el cloud interno en esas plataformas y Braze podrá extraer esos datos.
+Si los datos de clientes no están almacenados actualmente en Braze, SFMC o Klaviyo, el siguiente mejor paso es configurar una exportación automatizada directamente a un contenedor de Google Cloud Storage controlado por Braze. También podemos admitir la exportación a AWS o Azure (aunque se prefiere GCS). Para estas plataformas, exporta a su almacenamiento en el cloud interno en esas plataformas y Braze podrá extraer esos datos.
 
-Para determinar si esto es viable, consulta la documentación de tu plataforma MarTech. Por ejemplo:
+Para determinar si esto es factible, consulta la documentación de tu plataforma de MarTech. Por ejemplo:
 
 - mParticle ofrece una [integración nativa con Google Cloud Storage](https://www.mparticle.com/integration/google-cloud-storage/)
 - [Twilio Segment](https://www.twilio.com/docs/segment/connections/storage/catalog/google-cloud-storage)
@@ -107,15 +107,15 @@ Para determinar si esto es viable, consulta la documentación de tu plataforma M
 - [ActionIQ](https://info.actioniq.com/hubfs/ActionIQ%20Industry%20Brief%20Solutions/ActionIQ_Integrations_Brief.pdf)
 - [Adobe Experience Platform](https://experienceleague.adobe.com/en/docs/experience-platform/destinations/catalog/cloud-storage/google-cloud-storage)
 
-Si esto es viable, podemos proporcionar un contenedor de GCS para exportar datos de clientes que esté aislado para Decisioning Studio.
+Si esto es factible, podemos proporcionar un contenedor de GCS para exportar los datos de clientes, aislado para Decisioning Studio.
 
 {% endtab %}
 {% endtabs %}
 
 ## Prácticas recomendadas {#best-practices}
 
-- **Nombres de columna descriptivos:** Los datos de clientes deben tener nombres de columna claros y descriptivos. Idealmente, se debe proporcionar un diccionario de datos.
-- **Actualizaciones incrementales:** Los archivos incrementales son preferibles frente a instantáneas de todo el historial del cliente cada día.
+- **Nombres de columna descriptivos:** Los datos de clientes deben tener nombres de columna claros y descriptivos. Lo ideal es proporcionar un diccionario de datos.
+- **Actualizaciones incrementales:** Los archivos incrementales son preferibles a las instantáneas del historial completo del cliente todos los días.
 - **Identificadores consistentes:** Cada registro debe contener un identificador de cliente único que sea consistente en todos los activos de datos.
 - **Incluir marcas de tiempo:** Los registros deben tener marcas de tiempo asociadas para una atribución precisa y el entrenamiento del agente.
 
@@ -129,6 +129,9 @@ Esta guía explica los patrones de integración más comunes. El equipo de segur
 
 ## Próximos pasos {#next-steps}
 
-Después de conectar tus orígenes de datos, procede a configurar la orquestación:
+Después de conectar tus orígenes de datos, continúa con la configuración de la orquestación:
 
-- [Configurar la orquestación]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/orchestration_setup)
+{% article_tiles %}
+- name: Set up orchestration
+  link: /docs/user_guide/brazeai/decisioning_studio/orchestration_setup
+{% endarticle_tiles %}

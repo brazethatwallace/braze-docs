@@ -1,7 +1,7 @@
 {% if include.alert == "Landing pages manage subscriptions" %}
 
 {% alert tip %}
-También puedes gestionar suscripciones en una página de destino de Braze. Añade un bloque **Gestionar suscripciones** para que los consumidores puedan revisar y actualizar sus suscripciones existentes o suscribirse a nuevas, mientras tú capturas sus datos de participación en la misma página. Para más información, consulta [Bloque Gestionar suscripciones]({{site.baseurl}}/user_guide/messaging/landing_pages/manage_subscriptions).
+También puedes gestionar suscripciones en una página de destino de Braze. Añade un bloque **Gestionar suscripciones** para que los consumidores puedan revisar y actualizar sus suscripciones existentes o suscribirse a nuevas, mientras capturas sus datos de participación en la misma página. Para más información, consulta [Bloque Gestionar suscripciones]({{site.baseurl}}/user_guide/messaging/landing_pages/manage_subscriptions).
 {% endalert %}
 
 {% endif %}
@@ -9,7 +9,7 @@ También puedes gestionar suscripciones en una página de destino de Braze. Aña
 {% if include.alert == "Liquid email display name and reply-to address" %}
 
 {% alert tip %}
-Puedes utilizar [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid) en los campos **From Display Name + Address** y **Reply-To Address** para crear plantillas dinámicas basadas en atributos personalizados. Esto te permite enviar desde diferentes marcas, regiones o departamentos utilizando una sola Campaign de correo electrónico o un solo paso en Canvas.
+Puedes utilizar [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) en los campos **From Display Name + Address** y **Reply-To Address** para crear plantillas dinámicas basadas en atributos personalizados. Esto te permite enviar desde diferentes marcas, regiones o departamentos utilizando una sola Campaign de correo electrónico o un solo paso en Canvas.
 {% endalert %}
 
 {% endif %}
@@ -17,7 +17,7 @@ Puedes utilizar [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic
 {% if include.alert == "Reference properties from triggering event" %}
 
 {% alert tip %}
-No necesitas un paso de contexto para hacer referencia a las propiedades del evento desencadenante en los pasos de [ruta de audiencia]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/audience_paths) o [división de decisiones]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/decision_split). Puedes hacer referencia a las propiedades directamente en los grupos de filtros con el filtro **Context Variable**. Asegúrate de seleccionar el tipo de datos correcto.
+No necesitas un paso de contexto para hacer referencia a las propiedades del evento desencadenante en los pasos de [ruta de audiencia]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) o [división de decisiones]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split). Puedes hacer referencia a las propiedades directamente en los grupos de filtros con el filtro **Context Variable**. Asegúrate de seleccionar el tipo de datos correcto.
 {% endalert %}
 
 {% endif %}
@@ -33,7 +33,7 @@ Para importar imágenes para los elementos desencadenantes del catálogo, este d
 {% if include.alert == 'Export troubleshooting' %}
 
 {% alert tip %}
-Para obtener ayuda con las exportaciones CSV y API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting).
+Para obtener ayuda con las exportaciones CSV y API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endif %}
@@ -398,7 +398,7 @@ function countLength(type, s) {
 function escapeHtml(text) {
   return text.replace(/[&<>"'\/]/g, function (c) {
     switch (c) {
-      case '&': return '&amp;';
+      case '&': return '&páginas móviles aceleradas;';
       case '<': return '&lt;';
       case '>': return '&gt;';
       case '"': return '&quot;';

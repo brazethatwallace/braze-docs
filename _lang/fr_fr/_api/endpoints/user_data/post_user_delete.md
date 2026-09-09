@@ -6,7 +6,6 @@ page_order: 5
 layout: api_page
 page_type: reference
 description: "Cet article décrit les détails de l'endpoint Braze pour supprimer des utilisateurs."
-
 ---
 {% api %}
 # Supprimer les utilisateurs {#delete-users}
@@ -18,7 +17,7 @@ description: "Cet article décrit les détails de l'endpoint Braze pour supprime
 
 Jusqu'à 50 `external_ids`, `user_aliases`, `braze_ids`, `email_addresses` ou `phone_numbers` peuvent être inclus dans une seule requête. Un seul type parmi `external_ids`, `user_aliases`, `braze_ids`, `email_addresses` ou `phone_numbers` peut être inclus dans une seule requête.
 
-Si vous avez un cas d'utilisation qui ne peut pas être résolu par la suppression en bloc d'utilisateurs via l'API, contactez l'[équipe d'assistance Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) pour obtenir de l'aide.
+Si vous avez un cas d'usage qui ne peut pas être résolu par la suppression en bloc d'utilisateurs via l'API, contactez l'[équipe d'assistance Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) pour obtenir de l'aide.
 
 {% alert warning %}
 La suppression de profils utilisateur est irréversible. Cette action supprime définitivement les utilisateurs, ce qui peut entraîner des écarts dans vos données. Pour en savoir plus, consultez la section [Effets de la suppression de profils utilisateur](#effects-of-deleting-user-profiles).
@@ -28,7 +27,7 @@ La suppression de profils utilisateur est irréversible. Cette action supprime d
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/api_key) avec l'autorisation `users.delete`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics) avec l'autorisation `users.delete`.
 
 ## Limite de débit {#rate-limit}
 

@@ -30,7 +30,7 @@ Wenn Nutzer:innen über Katalognachrichten Artikel zu ihrem Warenkorb hinzufüge
 | Voraussetzung | Beschreibung |
 | --- | --- |
 | WhatsApp Business-Konto | Um WhatsApp-Produktnachrichten zu verwenden, müssen Sie ein WhatsApp Business-Konto haben, das mit Braze verbunden ist. |
-| Meta-Katalog | Sie müssen einen Meta-Katalog in Ihrem Commerce Manager einrichten. |
+| Meta-Katalog | Sie müssen einen Meta-Katalog in Ihrem Commerce Manager:in einrichten. |
 | Einhaltung der Nutzungsbedingungen | Halten Sie die [Meta Commerce-Nutzungsbedingungen und -Richtlinien](https://www.facebook.com/policies_center/commerce) ein. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
@@ -75,12 +75,12 @@ Sie können die Produkte entweder manuell mit IDs auswählen oder, wenn Sie wäh
 
 ## Produktnachrichten einrichten {#setting-up-product-messages}
 
-1. Folgen Sie im [Meta Commerce Manager](https://business.facebook.com/business/loginpage/?next=https%3A%2F%2Fbusiness.facebook.com%2Fcommerce_manager%2F#) den [Anweisungen von Meta](https://www.facebook.com/business/help/1275400645914358?id=725943027795860&ref=search_new_1), um Ihren Meta-Katalog zu erstellen. Stellen Sie sicher, dass Sie sich im selben Meta Business Portfolio befinden, in dem auch Ihr mit Braze verbundenes WhatsApp Business-Konto liegt.
-2. Folgen Sie den Anweisungen von Meta, um [Ihren Meta-Katalog](https://www.facebook.com/business/help/1953352334878186?id=2042840805783715) mit Ihrem mit Braze verbundenen WhatsApp Business-Konto zu verbinden, indem Sie die Berechtigung „Manage Catalog“ im Meta Business Manager zuweisen.
+1. Folgen Sie im [Meta Commerce Manager:in](https://business.facebook.com/business/loginpage/?next=https%3A%2F%2Fbusiness.facebook.com%2Fcommerce_manager%2F#) den [Anweisungen von Meta](https://www.facebook.com/business/help/1275400645914358?id=725943027795860&ref=search_new_1), um Ihren Meta-Katalog zu erstellen. Stellen Sie sicher, dass Sie sich im selben Meta Business Portfolio befinden, in dem auch Ihr mit Braze verbundenes WhatsApp Business-Konto liegt.
+2. Folgen Sie den Anweisungen von Meta, um [Ihren Meta-Katalog](https://www.facebook.com/business/help/1953352334878186?id=2042840805783715) mit Ihrem mit Braze verbundenen WhatsApp Business-Konto zu verbinden, indem Sie die Berechtigung „Manage Catalog“ im Meta Business Manager:in zuweisen.
 
 ![Meta-Seite „Catalogs“ mit einem Pfeil, der auf den Button „Assign partner“ für den Katalog „sweeney_catalog“ zeigt.]({% image_buster /assets/img/whatsapp/meta_catalog.png %}){: style="max-width:90%;"}
 
-Stellen Sie sicher, dass Sie die Braze Business Manager ID `332231937299182` als Partner-Business-ID verwenden.
+Stellen Sie sicher, dass Sie die Braze Business Manager:in ID `332231937299182` als Partner-Business-ID verwenden.
 
 ![Fenster zum Teilen eines Katalogs mit einem Partner, das Felder zur Eingabe einer Partner-Business-ID und zur Zuweisung der Berechtigung „Manage catalog“ enthält.]({% image_buster /assets/img/whatsapp/share_meta_catalog.png %}){: style="max-width:70%;"}
 
@@ -95,7 +95,7 @@ Stellen Sie sicher, dass Sie die Braze Business Manager ID `332231937299182` als
 ![Fenster mit fünf ausgewählten Katalogen zur Erteilung von Berechtigungen.]({% image_buster /assets/img/whatsapp/select_catalogs.png %}){: style="max-width:50%;"}
 
 {% alert tip %}
-Best Practices für die Erstellung von Meta-Katalogen finden Sie unter [Tipps zum Erstellen eines hochwertigen Katalogs im Commerce Manager](https://www.facebook.com/business/help/2086567618225367?id=725943027795860).
+Best Practices für die Erstellung von Meta-Katalogen finden Sie unter [Tipps zum Erstellen eines hochwertigen Katalogs im Commerce Manager:in](https://www.facebook.com/business/help/2086567618225367?id=725943027795860).
 {% endalert %}
 
 ## Eine Produktnachricht erstellen {#building-a-product-message}
@@ -105,13 +105,13 @@ Sie können eine Produktnachricht entweder mit einem WhatsApp-Template oder eine
 {% tabs local %}
 {% tab WhatsApp-Nachrichtentemplate %}
 
-1. Gehen Sie in Ihrem Meta Business Manager zu **Message Templates**.
+1. Gehen Sie in Ihrem Meta Business Manager:in zu **Message Templates**.
 2. Wählen Sie **Catalog** als Format und entscheiden Sie sich dann zwischen **Catalog message** (zeigt den vollständigen Katalog an) und **Multi-product catalog message** (hebt bestimmte Artikel hervor).
 3. Erstellen Sie in Braze eine WhatsApp-Campaign oder einen Canvas-Nachrichtenschritt.
 4. Wählen Sie die Abo-Gruppe aus, die zu dem Ort passt, an dem Sie das Template eingereicht haben.
 5. Wählen Sie **WhatsApp Template Message**.
 6. Wählen Sie das Template aus, das Sie verwenden möchten.
-    - Wenn Sie ein Multi-Produkt-Template auswählen, geben Sie den Abschnittstitel und die Content-IDs für die hervorzuhebenden Produkte an. Sie können die Content-ID entweder direkt aus Ihrem Meta Commerce Manager kopieren oder, wenn Sie die Berechtigungen für den integrierten Produktselektor aktiviert haben, die Artikel auswählen.
+    - Wenn Sie ein Multi-Produkt-Template auswählen, geben Sie den Abschnittstitel und die Content-IDs für die hervorzuhebenden Produkte an. Sie können die Content-ID entweder direkt aus Ihrem Meta Commerce Manager:in kopieren oder, wenn Sie die Berechtigungen für den integrierten Produktselektor aktiviert haben, die Artikel auswählen.
 
 ![Artikelliste mit Feldern zur Eingabe Ihrer Abschnittstitel und Content-ID.]({% image_buster /assets/img/whatsapp/multi_product_template.png %}){: style="max-width:60%;"}
 
@@ -145,9 +145,9 @@ Sie können eine Produktnachricht entweder mit einem WhatsApp-Template oder eine
 
 ## Produkte verwalten {#managing-products}
 
-### Zugriff auf den Commerce Manager {#accessing-commerce-manager}
+### Zugriff auf den Commerce Manager:in {#accessing-commerce-manager}
 
-Gehen Sie in Ihrem Meta Business Manager zu **Commerce Manager** und wählen Sie Ihre Organisation aus. Hier können Sie Ihre Katalog-Assets verwalten, wie zum Beispiel:
+Gehen Sie in Ihrem Meta Business Manager:in zu **Commerce Manager:in** und wählen Sie Ihre Organisation aus. Hier können Sie Ihre Katalog-Assets verwalten, wie zum Beispiel:
 - Neue Kataloge erstellen
 - Produkte zu bestehenden Katalogen hinzufügen
 - Produktinformationen aktualisieren

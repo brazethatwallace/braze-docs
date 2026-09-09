@@ -16,7 +16,7 @@ _Diese Integration wird von Lemnisk gepflegt._
 
 ## Über die Integration {#about-the-integration}
 
-Die Integration von Lemnisk und Braze erlaubt es Marken und Unternehmen, das volle Potenzial von Braze auszuschöpfen, indem sie als CDP-geführte Intelligenzschicht fungiert, die Nutzerdaten plattformübergreifend in Realtime zusammenführt und die gesammelten Informationen und Verhaltensdaten der Nutzer:innen in Echtzeit an Braze sendet. Lemnisk liefert angereicherte Kundenprofile direkt in Braze, indem es Verhaltenssignale und persönliche Attribute zusammenführt, mit denen Sie Ihr Messaging mit tieferem Kontext personalisieren können.
+Die Integration von Lemnisk und Braze erlaubt es Marken und Unternehmen, das volle Potenzial von Braze auszuschöpfen, indem sie als Customer Data Platform (CDP)-geführte Intelligenzschicht fungiert, die Nutzerdaten plattformübergreifend in Realtime zusammenführt und die gesammelten Informationen und Verhaltensdaten der Nutzer:innen in Echtzeit an Braze sendet. Lemnisk liefert angereicherte Kundenprofile direkt in Braze, indem es Verhaltenssignale und persönliche Attribute zusammenführt, mit denen Sie Ihr Messaging mit tieferem Kontext personalisieren können.
 
 ## Voraussetzungen {#prerequisites}
 

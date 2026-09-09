@@ -18,28 +18,28 @@ channel:
 
 Trouvez le comportement que vous observez dans le tableau, puis suivez les étapes de la section correspondante. Si vous ne savez pas quelle section s'applique, utilisez le [parcours d'investigation standard](#standard-investigation-path).
 
-| Symptôme | Aller à |
+| Symptôme | Accéder à |
 | --- | --- |
-| Un deep link de type schéma personnalisé ouvre l'application mais affiche le mauvais écran | [Le deep link de schéma personnalisé n'ouvre pas la bonne vue](#custom-scheme-deep-link-does-not-open-the-correct-view) |
-| Un lien universel ouvre Safari au lieu de l'application | [Le lien universel s'ouvre dans Safari au lieu de l'application](#universal-link-opens-in-safari-instead-of-the-app) |
-| Un lien dans un e-mail n'ouvre pas l'application | [Le deep link depuis un e-mail n'ouvre pas l'application](#deep-link-from-email-does-not-open-the-app) |
-| Tous les liens des e-mails ouvrent l'application | [Tous les liens des e-mails ouvrent l'application](#every-email-link-opens-the-app) |
+| Le lien de schéma personnalisé ouvre l'application mais affiche le mauvais écran | [Le deep link de schéma personnalisé n'ouvre pas la bonne vue](#custom-scheme-deep-link-does-not-open-the-correct-view) |
+| Le lien universel ouvre Safari au lieu de l'application | [Le lien universel s'ouvre dans Safari au lieu de l'application](#universal-link-opens-in-safari-instead-of-the-app) |
+| Le lien dans l'e-mail n'ouvre pas l'application | [Le deep link depuis un e-mail n'ouvre pas l'application](#deep-link-from-email-does-not-open-the-app) |
+| Chaque lien d'e-mail ouvre l'application | [Chaque lien d'e-mail ouvre l'application](#every-email-link-opens-the-app) |
 | Fonctionne depuis une notification push mais pas depuis un message in-app (ou inversement) | [Le deep link fonctionne depuis une notification push mais pas depuis un message in-app](#deep-link-works-from-push-but-not-from-in-app-message) |
-| « Open Web URL Inside App » affiche une WebView vide | [« Open Web URL Inside App » affiche une page vide ou cassée](#open-web-url-inside-app-shows-a-blank-or-broken-page) |
-| Un lien Branch n'ouvre pas l'application ou ne redirige pas correctement | [Résolution des problèmes de Branch avec Braze](#branch) |
+| « Open Web URL Inside App » affiche une WebView vide | [« Open Web URL Inside App » affiche une page vide ou défectueuse](#open-web-url-inside-app-shows-a-blank-or-broken-page) |
+| Le lien Branch n'ouvre pas l'application ou ne redirige pas correctement | [Résolution des problèmes Branch avec Braze](#branch) |
 | Le deep link échoue sans cause apparente | [Conseils généraux de débogage](#general-debugging-tips) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Symptôme de création de liens profonds" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Symptôme de deep linking" }
 
 ## Parcours d'investigation standard {#standard-investigation-path}
 
 Utilisez ce workflow pour chaque incident de deep linking. Commencez à l'étape 1.
 
-1. Testez le lien en dehors de Braze. Pour les schémas personnalisés, exécutez `xcrun simctl openurl booted "<URL>"` dans le Terminal (par exemple, `xcrun simctl openurl booted "myapp://products/123"`). Pour les liens universels, collez l'URL dans l'application Notes sur un appareil physique et appuyez dessus.
+1. Testez le lien en dehors de Braze. Pour les schémas personnalisés, exécutez `xcrun simctl openurl booted "<URL>"` dans Terminal (par exemple, `xcrun simctl openurl booted "myapp://products/123"`). Pour les liens universels, collez l'URL dans l'application Notes sur un appareil physique et appuyez dessus.
 2. [Activez la journalisation détaillée]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging) et reproduisez le problème. Recherchez les entrées `Opening '<URL>':` avec `channel`, `useWebView` et `isUniversalLink`.
 3. Pour les liens universels, validez votre fichier AASA et l'entitlement Associated Domains.
-4. Pour les liens e-mail, vérifiez que le domaine de suivi des clics héberge un fichier AASA valide.
+4. Pour les liens e-mail, confirmez que le domaine de suivi des clics héberge un fichier AASA valide.
 5. Si vous implémentez `BrazeDelegate.braze(_:shouldOpenURL:)`, vérifiez qu'il gère les liens de manière cohérente sur tous les canaux.
-6. Si le problème persiste, contactez le [support Braze]({{site.baseurl}}/braze_support) en fournissant les logs détaillés et l'URL du lien.
+6. Si le problème persiste, contactez le [support Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) avec les logs détaillés et l'URL du lien.
 
 ## Le deep link avec schéma personnalisé n'ouvre pas la bonne vue {#custom-scheme-deep-link-does-not-open-the-correct-view}
 
@@ -149,7 +149,7 @@ Votre fichier AASA sur le domaine de suivi des clics utilise des `paths` qui cor
 
 Limitez les `paths` aux URL qui doivent ouvrir l'application. Pour Sendgrid, faites correspondre `/uni/` et ajoutez `universal="true"` uniquement sur ces liens.
 
-Pour la configuration spécifique à votre ESP, y compris les valeurs `pathPrefix` pour Android, consultez [Liens universels et App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#universal-links-app-links-and-click-tracking).
+Pour la configuration spécifique à votre fournisseur de services d'e-mailing, y compris les valeurs `pathPrefix` pour Android, consultez [Liens universels et App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#universal-links-app-links-and-click-tracking).
 
 ## Le deep link fonctionne depuis une notification push mais pas depuis un message in-app (ou inversement) {#deep-link-works-from-push-but-not-from-in-app-message}
 
@@ -255,9 +255,9 @@ Testez le lien Branch en dehors de Braze pour isoler le problème :
 
 Pour plus de détails sur la lecture de ces journaux, consultez [Lire les journaux détaillés]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging).
 
-### Tester les liens isolément {#test-links-in-isolation}
+### Tester les liens de manière isolée {#test-links-in-isolation}
 
-Avant de tester via Braze, vérifiez que votre deep link ou lien universel fonctionne de manière autonome :
+Avant de tester via Braze, vérifiez que votre deep link ou lien universel fonctionne par lui-même :
 
 - **Schéma personnalisé** : exécutez `xcrun simctl openurl booted "myapp://path"` dans le Terminal.
 - **Lien universel** : collez l'URL dans l'application Notes sur un appareil physique et appuyez dessus. Ne testez pas depuis la barre d'adresse de Safari, car iOS traite les URL saisies différemment des liens sur lesquels on appuie.
@@ -265,4 +265,4 @@ Avant de tester via Braze, vérifiez que votre deep link ou lien universel fonct
 
 ### Tester sur un appareil physique {#test-on-a-physical-device}
 
-Les liens universels ont un support limité dans le simulateur iOS. Testez toujours sur un appareil physique pour obtenir des résultats précis. Si vous devez tester dans un simulateur, ajoutez le fichier `.entitlements` à la phase de build **Copy Bundle Resources**.
+Les liens universels ne sont que partiellement pris en charge dans le simulateur iOS. Testez toujours sur un appareil physique pour obtenir des résultats fiables. Si vous devez tester dans un simulateur, ajoutez le fichier `.entitlements` à la phase de build **Copy Bundle Resources**.

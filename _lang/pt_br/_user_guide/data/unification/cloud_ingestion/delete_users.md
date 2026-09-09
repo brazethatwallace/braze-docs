@@ -115,7 +115,7 @@ GO
 
 ### Como funciona {#how-it-works}
 
-Com a Ingestão de dados na nuvem da Braze, você configura uma integração entre sua instância de data warehouse e o espaço de trabalho da Braze para sincronizar dados de forma recorrente. Essa sincronização é executada em uma programação definida por você, e cada integração pode ter uma programação diferente. As sincronizações podem ser executadas com frequência a cada 15 minutos ou com pouca frequência, como uma vez por mês. Para os clientes que precisam que as sincronizações ocorram com mais frequência do que a cada 15 minutos, fale com seu gerente de sucesso do cliente ou considere o uso de chamadas de REST API para ingestão de dados em tempo real.
+Com a Ingestão de dados na nuvem da Braze, você configura uma integração entre sua instância de data warehouse e o espaço de trabalho da Braze para sincronizar dados de forma recorrente. Essa sincronização é executada em uma programação definida por você, e cada integração pode ter uma programação diferente. As sincronizações podem ser executadas com frequência a cada 15 minutos ou com pouca frequência, como uma vez por mês. Para os clientes que precisam que as sincronizações ocorram com mais frequência do que a cada 15 minutos, fale com seu CSM ou considere o uso de chamadas de REST API para ingestão de dados em tempo real.
 
 Quando uma sincronização é executada, a Braze se conecta diretamente à sua instância de data warehouse, recupera todos os novos dados da tabela especificada e exclui os perfis de usuários correspondentes no seu dashboard da Braze.
 

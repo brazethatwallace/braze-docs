@@ -1,3 +1,5 @@
+Looking at the error, the build fails because of an invalid `{% multi_lang_include %}` path. The file references `{% multi_lang_include accessibility/フィードバック.md %}` but the include path must use the English filename, not a translated one.
+
 ---
 nav_title: アクセシビリティ
 article_title: Brazeでアクセシブルなメッセージを作成する
@@ -54,7 +56,7 @@ description: "このリファレンス記事では、マーケティングコン
 コンテンツを理解するために、これらのユーザーは以下に依存しています：
 
 - 音声コンテンツの文字起こしとキャプション
-- キャプションを表示し、テキストサイズやキャプションの色を調整するオプションを提供するメディアプレーヤー
+- キャプションを表示し、テキストサイズとキャプションの色を調整するオプションを提供するメディアプレーヤー
 - 音声コンテンツの停止、一時停止、音量調整のオプション（システム音量とは独立）
 - バックグラウンドノイズから明確に区別できる高品質なフォアグラウンドオーディオ
 

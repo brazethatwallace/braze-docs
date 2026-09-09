@@ -93,7 +93,7 @@ Um [Ereignisse über den Hybrid-Modus zu senden](https://www.rudderstack.com/doc
 Konfigurieren Sie nach Abschluss der Ersteinrichtung die folgenden Einstellungen, um Ihre Daten korrekt in Braze zu empfangen:
 
 - **Enable subscription groups in group call**: Aktivieren Sie diese Einstellung, um den Abo-Gruppenstatus in Ihren Gruppenereignissen zu senden. Weitere Informationen finden Sie unter [Group](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#group).
-- **Use Custom Attributes Operation**: Aktivieren Sie diese Einstellung, wenn Sie die Funktionalität der [verschachtelten angepassten Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects) in Braze nutzen möchten, um Segmente zu erstellen und Ihre Nachrichten mithilfe eines angepassten Attribut-Objekts zu personalisieren. Weitere Informationen finden Sie unter [Send user traits as nested custom attributes](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#send-user-traits-as-nested-custom-attributes).
+- **Use angepasste Attribute Operation**: Aktivieren Sie diese Einstellung, wenn Sie die Funktionalität der [verschachtelten angepassten Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects) in Braze nutzen möchten, um Segmente zu erstellen und Ihre Nachrichten mithilfe eines angepassten Attribut-Objekts zu personalisieren. Weitere Informationen finden Sie unter [Send user traits as nested angepasste Attribute](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#send-user-traits-as-nested-custom-attributes).
 - **Track events for anonymous users**: Aktivieren Sie diese Einstellung, um die Aktivitäten anonymer Nutzer:innen zu verfolgen und diese Informationen an Braze zu senden.
 
 ### Einstellungen für den Gerätemodus {#device-mode-settings}
@@ -156,7 +156,7 @@ Die RudderStack-[`alias`-Methode](https://www.rudderstack.com/docs/destinations/
 
 ## Nutzer-Traits als verschachtelte angepasste Attribute senden {#send-user-traits-as-nested-custom-attributes}
 
-Sie können die Nutzer-Traits als verschachtelte angepasste Attribute an Braze senden und Hinzufüge-, Aktualisierungs- und Entfernungsoperationen darauf ausführen. Aktivieren Sie dazu die Einstellung „Use Custom Attributes Operation dashboard“ in RudderStack, während Sie das Braze-Ziel konfigurieren. Dieses Feature ist nur im Cloud-Modus verfügbar.
+Sie können die Nutzer-Traits als verschachtelte angepasste Attribute an Braze senden und Hinzufüge-, Aktualisierungs- und Entfernungsoperationen darauf ausführen. Aktivieren Sie dazu die Einstellung „Use angepasste Attribute Operation dashboard“ in RudderStack, während Sie das Braze-Ziel konfigurieren. Dieses Feature ist nur im Cloud-Modus verfügbar.
 
 Sie können die Nutzer-Traits als verschachtelte angepasste Attribute in Ihren `identify`-Ereignissen im folgenden Format senden:
 ```javascript
@@ -260,6 +260,6 @@ Für die Aktualisierungs- und Entfernungsoperationen ist `identifier` ein erford
 
 Diese Meldung stammt von RudderStack, wenn **Deduplicate Traits** aktiviert ist und RudderStack unveränderte Nutzer:innen-Traits verwirft, bevor sie an Braze weitergeleitet werden. Es handelt sich nicht um einen Braze-Fehler.
 
-RudderStack vergleicht eingehende `identify`- und `track`-Traits mit dem Nutzerprofil und überspringt Attribute ohne Änderung, um die Braze-Datenpunkt-Nutzung zu reduzieren. Weitere Informationen finden Sie in der RudderStack-Dokumentation [User Trait Deduplication in Braze](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/trait-deduplication/).
+RudderStack vergleicht eingehende `identify`- und `track`-Traits mit dem Kundenprofil und überspringt Attribute ohne Änderung, um die Braze-Datenpunkt-Nutzung zu reduzieren. Weitere Informationen finden Sie in der RudderStack-Dokumentation [User Trait Deduplication in Braze](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/trait-deduplication/).
 
 Wenn Sie möchten, dass bei jedem Aufruf alle Traits gesendet werden, deaktivieren Sie **Deduplicate Traits** in den Einstellungen Ihres RudderStack-Braze-Ziels. Beachten Sie, dass dies den Verbrauch von Braze-Datenpunkten erhöhen kann.

@@ -27,7 +27,7 @@ Se você precisar de tratamento avançado de links na camada nativa (como implem
 3. Defina a chave como `FlutterDeepLinkingEnabled`.
 4. Defina o tipo como `Boolean`.
 5. Defina o valor como `YES`.
-    ![Exemplo do arquivo Info.plist de um projeto com o par chave-valor adicionado.]({% image_buster /assets/img/flutter/flutter-ios-deep-link-info-plist.png %} "Xcode Project Info.plist File")
+    ![Exemplo do arquivo Info.plist de um projeto com o par chave-valor adicionado.]({% image_buster /assets/img/flutter/flutter-ios-deep-link-info-plist.png %} "Xcode Project Info.plist File"){: width="501" height="118"}
 {% endtab %}
 
 {% tab Android %}
@@ -42,7 +42,7 @@ Se você precisar de tratamento avançado de links na camada nativa (como implem
 
 ### Etapa 2: Encaminhar dados para a camada Dart (opcional) {#step-2-forward-data-to-the-dart-layer-optional}
 
-Você pode usar o tratamento de links nativo, próprio ou de terceiros para casos de uso complexos, como enviar um usuário para um local específico no seu app ou chamar uma função específica.
+Você pode usar tratamento de links nativo, próprio ou de terceiros para casos de uso complexos, como enviar um usuário para um local específico no seu app ou chamar uma função específica.
 
 #### Exemplo: Deep linking para uma caixa de diálogo de alerta {#example-deep-linking-to-an-alert-dialog}
 

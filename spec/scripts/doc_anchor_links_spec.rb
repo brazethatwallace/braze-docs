@@ -14,12 +14,21 @@ RSpec.describe DocAnchorLinks do
       expect(links.first.kind).to eq(:md)
     end
 
+    it "records the link's URL alongside the guessed path" do
+      content = "See [prioritization]({{site.baseurl}}/message_prioritization/#retry-windows)."
+      links = described_class.extract("_docs/_api/x.md", content)
+
+      expect(links.first.target_url).to eq("/message_prioritization/")
+      expect(links.first.target_path).to eq("_docs/message_prioritization.md")
+    end
+
     it "extracts a same-page markdown anchor link" do
       content = "See [the section above](#about-rate-limiting) for details."
       links = described_class.extract("_docs/_api/basics.md", content)
 
       expect(links.length).to eq(1)
       expect(links.first.target_path).to eq("_docs/_api/basics.md")
+      expect(links.first.target_url).to be_nil
       expect(links.first.anchor).to eq("about-rate-limiting")
     end
 

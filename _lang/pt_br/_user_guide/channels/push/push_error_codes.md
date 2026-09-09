@@ -20,7 +20,7 @@ platform:
 `MismatchSenderId` indica uma falha de autenticação. O Firebase Cloud Messaging (FCM) autentica com alguns dados essenciais: senderID e chave de API do FCM. Ambos devem ser validados quanto à precisão. Para saber mais, consulte a [documentação do Android](https://firebase.google.com/docs/cloud-messaging/http-server-ref#error-codes) sobre esse problema.
 
 Falhas comuns podem incluir:
-- [senderID]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration#step-1-enable-firebase) incorreto
+- [senderID]({{site.baseurl}}/developer_guide/push_notifications?sdktab=android) incorreto
 - Registro múltiplo, caso o registro seja feito com outro serviço de push usando um senderID diferente
 
 ### Push com bounce: InvalidRegistration {#push-bounced-invalidregistration}

@@ -3,13 +3,13 @@ nav_title: Relatório de eventos personalizados
 article_title: Relatório de eventos personalizados
 page_order: 6
 page_type: reference
-description: "Esta página descreve como usar o relatório de eventos personalizados para visualizar ocorrências de eventos personalizados ao longo do tempo, segmentadas por segmento."
+description: "Esta página descreve como usar o relatório de eventos personalizados para visualizar ocorrências de eventos personalizados ao longo do tempo, segmentadas por Segment."
 tool: Reports
 ---
 
 # Relatório de eventos personalizados {#custom-events-report}
 
-> O relatório de eventos personalizados permite visualizar as ocorrências de um ou mais eventos personalizados ao longo do tempo. Você pode segmentar os resultados por segmento, aplicar fórmulas de KPI e exportar os dados para análises adicionais.
+> O relatório de eventos personalizados permite visualizar as ocorrências de um ou mais eventos personalizados ao longo do tempo. Você pode segmentar os resultados por Segment, aplicar fórmulas de KPI e exportar os dados para análises adicionais.
 
 ## Visualizar um relatório {#view-a-report}
 

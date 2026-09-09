@@ -7,7 +7,7 @@
 웹 SDK에서 데이터 추적 활동을 비활성화하려면 [`disableSDK()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#disablesdk) 메서드를 사용하세요. 이 메서드는 `disableSDK()`가 호출되기 전에 기록된 모든 데이터를 동기화하며, 이후 이 페이지 및 향후 페이지 로드에서 Braze 웹 SDK에 대한 모든 후속 호출이 무시됩니다.
 {% endtab %}
 
-{% tab Google Tag Manager %}
+{% tab Google Tag 매니저 %}
 웹 추적을 비활성화하거나 다시 활성화하려면 **추적 비활성화** 또는 **추적 재개** 태그 유형을 사용하세요. 이 두 옵션은 각각 [`disableSDK`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#disablesdk)와 [`enableSDK`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#enablesdk)를 호출합니다.
 {% endtab %}
 {% endtabs %}

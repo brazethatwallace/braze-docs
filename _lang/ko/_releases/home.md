@@ -1,11 +1,10 @@
 ---
 nav_title: 홈
 article_title: Braze의 새로운 기능
-description: "Braze 릴리스 노트는 매월 게시되어 주요 제품 릴리스, 지속적인 제품 개선, Braze 파트너십, SDK 주요 변경 사항 및 기능 지원 중단에 대한 최신 정보를 확인할 수 있습니다."
+description: "Braze 릴리스 노트는 매월 게시되어 주요 제품 릴리스, 지속적인 제품 개선, Braze 파트너십에 대한 최신 정보를 확인할 수 있습니다."
 page_order: 0
 search_rank: 1
 page_type: reference
-
 ---
 
 # Braze의 새로운 기능 {#whats-new-in-braze}
@@ -76,18 +75,18 @@ page_type: reference
 
 지원되는 단계 및 제한 사항은 [Operator로 할 수 있는 것]({{site.baseurl}}/user_guide/brazeai/operator/capabilities)을 참조하세요.
 
-#### 콘텐츠 최적화 프로그램 단계 업데이트 {#content-optimizer-step-updates}
+#### Content Optimizer 단계 업데이트 {#content-optimizer-step-updates}
 
 {% multi_lang_include release_type.md release="Beta" %}
 
-[콘텐츠 최적화 프로그램]({{site.baseurl}}/user_guide/brazeai/content_optimizer) 단계에 다음 업데이트가 포함됩니다:
+[Content Optimizer]({{site.baseurl}}/user_guide/brazeai/content_optimizer) 단계에 다음 업데이트가 포함됩니다:
 
-- **단계 상태:** 콘텐츠 최적화 프로그램 단계는 **학습 중**, **최적화 중** 또는 **조치 권장** 상태를 표시하여 각 단계의 현재 위치를 확인할 수 있습니다.
-- **출시 전 설정 검사:** 콘텐츠 최적화 프로그램은 초안 작성 중에 주요 구성 오류를 확인하여 출시 전에 문제를 발견할 수 있습니다.
+- **단계 상태:** Content Optimizer 단계는 **학습 중**, **최적화 중** 또는 **조치 권장** 상태를 표시하여 각 단계의 현재 위치를 확인할 수 있습니다.
+- **출시 전 설정 검사:** Content Optimizer는 초안 작성 중에 주요 구성 오류를 확인하여 출시 전에 문제를 발견할 수 있습니다.
 - **각 사용자가 받은 조합 추적:** 새로운 Liquid 태그와 고객 프로필 가시성을 통해 각 사용자가 받은 배리언트 조합을 처음부터 끝까지 추적할 수 있습니다.
-- **새로운 Currents 데이터:** 세 가지 새로운 이벤트 유형을 통해 콘텐츠 최적화 프로그램 데이터를 웨어하우스로 가져올 수 있습니다: `users.canvas.costep.Send`, `users.canvas.costep.Conversion`, `contentoptimizer.ComponentStore`.
+- **새로운 Currents 데이터:** 세 가지 새로운 이벤트 유형을 통해 Content Optimizer 데이터를 웨어하우스로 가져올 수 있습니다: `users.canvas.costep.Send`, `users.canvas.costep.Conversion`, `contentoptimizer.ComponentStore`.
 
-설정 세부 사항은 [콘텐츠 최적화 프로그램 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step)를 참조하세요.
+설정 세부 사항은 [Content Optimizer 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step)를 참조하세요.
 
 ### 오케스트레이션 {#orchestration}
 
@@ -163,11 +162,11 @@ Braze 설문조사는 [인앱 메시지]({{site.baseurl}}/user_guide/channels/in
 
 ### 파트너십 {#partnerships}
 
-#### 오디언스 동기화: Google Data Manager API {#audience-sync-google-data-manager-api}
+#### 오디언스 동기화: Google Data 매니저 API {#audience-sync-google-data-manager-api}
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-[Google로의 오디언스 동기화]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync)가 얼리 액세스로 Google Data Manager API를 지원합니다.
+[Google로의 오디언스 동기화]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync)가 얼리 액세스로 Google Data 매니저 API를 지원합니다.
 
 #### Amazon Bedrock - AI 모델 제공업체 {#amazon-bedrock-ai-model-provider}
 
@@ -334,7 +333,7 @@ Campaign이나 메시지에서 링크를 생성하여 Braze 대시보드 액세�
 
 #### Refiner - 설문조사 {#refiner-surveys}
 
-[Refiner](https://refiner.io)는 SaaS 및 모바일 앱을 위한 인앱 설문조사 플랫폼입니다. 제품 및 고객의 소리 팀이 타겟팅된 인앱 설문조사를 출시하고 NPS, CSAT, CES, 제품 피드백, 제로파티 사용자 데이터를 지속적으로 수집할 수 있습니다.
+[Refiner](https://refiner.io)는 SaaS(software-as-a-service) 및 모바일 앱을 위한 인앱 설문조사 플랫폼입니다. 제품 및 고객의 소리 팀이 타겟팅된 인앱 설문조사를 출시하고 NPS, CSAT, CES, 제품 피드백, 제로파티 사용자 데이터를 지속적으로 수집할 수 있습니다.
 
 #### Stayfilm - 시각적 및 인터랙티브 콘텐츠 {#stayfilm-visual-and-interactive-content}
 
@@ -443,11 +442,11 @@ Amazon SES를 통해 이메일을 전송하는 워크스페이스의 경우, [�
 
 {% multi_lang_include releases/brazeai_agent_console_enhancements.md %}
 
-#### 출시된 콘텐츠 최적화 프로그램 단계 편집 {#edit-a-launched-content-optimizer-step}
+#### 출시된 Content Optimizer 단계 편집 {#edit-a-launched-content-optimizer-step}
 
 {% multi_lang_include release_type.md release="Beta" %}
 
-Canvas가 출시된 후 이제 [콘텐츠 최적화 프로그램 단계를 업데이트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step#edit-a-launched-step)하여 다음을 수행할 수 있습니다:
+Canvas가 출시된 후 이제 [Content Optimizer 단계를 업데이트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step#edit-a-launched-step)하여 다음을 수행할 수 있습니다:
 
 {% multi_lang_include messaging/canvas/content_optimizer_launched_step_actions.md %}
 
@@ -477,11 +476,11 @@ Canvas가 출시된 후 이제 [콘텐츠 최적화 프로그램 단계를 업�
 
 Quick Push A/B 테스트는 이제 배리언트 그룹을 통해 멀티 플랫폼 푸시 Campaign 및 캔버스 단계를 지원하므로 하나의 워크플로우에서 정렬된 iOS 및 Android 메시지 배리언트를 테스트할 수 있습니다. 자세한 내용은 [멀티 플랫폼 푸시 메시지]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push#use-cases)를 참조하세요.
 
-#### BrazeAI<sup>TM</sup> 배리언트 선택 {#brazeai-variant-selection}
+#### BrazeAI<sup>TM</sup>로 최적화 {#optimize-with-brazeai}
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-BrazeAI<sup>TM</sup> 배리언트 선택은 여러 푸시 배리언트를 추가할 때 자동으로 활성화되며, 추천 실험 기본값을 적용하고, 인게이지먼트를 개선하기 위해 가장 성과가 좋은 배리언트로 최적화합니다. 즉시 전송해야 하는 경우 끌 수 있습니다. 자세한 내용은 [BrazeAI<sup>TM</sup> 배리언트 선택]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection)을 참조하세요.
+**BrazeAI<sup>TM</sup>로 최적화**는 여러 푸시 배리언트를 추가할 때 자동으로 활성화되며, 추천 실험 기본값을 적용하고, 가장 성과가 좋은 배리언트로 최적화합니다. 즉시 전송해야 하는 경우 끌 수 있습니다. 자세한 내용은 [BrazeAI로 A/B 테스트 최적화]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection)를 참조하세요.
 
 #### WhatsApp 테스트 전송 결과 {#whatsapp-test-send-results}
 
@@ -491,7 +490,7 @@ BrazeAI<sup>TM</sup> 배리언트 선택은 여러 푸시 배리언트를 추가
 
 #### Convercus - 데이터 및 분석 - 로열티 {#convercus-data-and-analytics-loyalty}
 
-[Convercus]({{site.baseurl}}/partners/data_and_analytics/loyalty/convercus)는 브랜드와 소매업체가 옴니채널 로열티 프로그램과 개인화된 쿠폰 캠페인을 통해 고객 빈도, 장바구니 가치 및 재구매율을 높일 수 있도록 돕는 SaaS 로열티 및 쿠폰 플랫폼입니다.
+[Convercus]({{site.baseurl}}/partners/data_and_analytics/loyalty/convercus)는 브랜드와 소매업체가 옴니채널 로열티 프로그램과 개인화된 쿠폰 캠페인을 통해 고객 빈도, 장바구니 가치 및 재구매율을 높일 수 있도록 돕는 SaaS(software-as-a-service) 로열티 및 쿠폰 플랫폼입니다.
 
 #### Copy Pastd - 메시지 오케스트레이션 - 템플릿 {#copy-pastd-message-orchestration-templates}
 
@@ -499,11 +498,11 @@ BrazeAI<sup>TM</sup> 배리언트 선택은 여러 푸시 배리언트를 추가
 
 #### Databricks Mosaic - AI 모델 제공업체 {#databricks-mosaic-ai-model-providers}
 
-[Databricks Mosaic]({{site.baseurl}}/partners/databricks_mosaic)은 Databricks Data Intelligence Platform에서 AI 및 머신 러닝 모델을 대규모로 구축, 배포 및 관리하기 위한 Databricks의 통합 플랫폼입니다.
+[Databricks Mosaic]({{site.baseurl}}/partners/ai_model_providers/databricks_mosaic)은 Databricks Data Intelligence Platform에서 AI 및 머신 러닝 모델을 대규모로 구축, 배포 및 관리하기 위한 Databricks의 통합 플랫폼입니다.
 
 #### DinMo - 데이터 및 분석 - 리버스 ETL {#dinmo-data-and-analytics-reverse-etl}
 
-[DinMo]({{site.baseurl}}/partners/dinmo)는 리버스 ETL을 통해 클라우드 데이터 웨어하우스를 Braze에 연결하는 구성 가능한 고객 데이터 플랫폼(CDP)입니다. 마케팅 팀은 웨어하우스 데이터에서 오디언스 세그먼트를 구축하고, 사용자 속성 및 이벤트를 Braze에 동기화하며, CSV 업로드나 엔지니어링 지원 없이 구독 상태를 최신으로 유지할 수 있습니다.
+[DinMo]({{site.baseurl}}/partners/dinmo)는 리버스 ETL을 통해 클라우드 데이터 웨어하우스를 Braze에 연결하는 구성 가능한 고객 데이터 플랫폼(고객 데이터 플랫폼)입니다. 마케팅 팀은 웨어하우스 데이터에서 오디언스 세그먼트를 구축하고, 사용자 속성 및 이벤트를 Braze에 동기화하며, CSV 업로드나 엔지니어링 지원 없이 구독 상태를 최신으로 유지할 수 있습니다.
 
 #### EmailShepherd - 메시지 오케스트레이션 - 템플릿 {#emailshepherd-message-orchestration-templates}
 
@@ -549,11 +548,11 @@ BrazeAI<sup>TM</sup> 배리언트 선택은 여러 푸시 배리언트를 추가
 
 ### BrazeAI<sup>TM</sup>
 
-#### SMS, MMS 및 RCS 메시지를 위한 콘텐츠 최적화 프로그램 {#content-optimizer-for-sms-mms-and-rcs-messages}
+#### SMS, MMS 및 RCS 메시지를 위한 Content Optimizer {#content-optimizer-for-sms-mms-and-rcs-messages}
 
 {% multi_lang_include release_type.md release="Beta" %}
 
-[콘텐츠 최적화 프로그램]({{site.baseurl}}/user_guide/brazeai/content_optimizer)을 사용하여 SMS, MMS 및 RCS 메시지의 훅, 본문 및 CTA를 최적화할 수 있습니다. 콘텐츠 최적화 프로그램은 AI를 사용하여 대량의 콘텐츠 배리언트를 자동으로 생성하고 평가하여 메시지 콘텐츠를 대규모로 테스트하고 최적화하는 데 도움이 됩니다.
+[Content Optimizer]({{site.baseurl}}/user_guide/brazeai/content_optimizer)를 사용하여 SMS, MMS 및 RCS 메시지의 훅, 본문 및 CTA를 최적화할 수 있습니다. Content Optimizer는 AI를 사용하여 대량의 콘텐츠 배리언트를 자동으로 생성하고 평가하여 메시지 콘텐츠를 대규모로 테스트하고 최적화하는 데 도움이 됩니다.
 
 ### 오케스트레이션
 
@@ -660,7 +659,7 @@ Currents 및 데이터 공유에 새로운 `Banner.Dismiss` 이벤트와 기존 
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-계정에 액세스하고 특정 작업을 수행할 수 있는 사람을 관리하는 것은 보안과 운영 효율성 모두에 중요합니다. 더 많은 제어를 제공하기 위해 Braze는 계정 전반에서 사용자 액세스를 관리하는 더 유연하고 정밀한 방법인 [세분화된 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/granular_permissions_migration)을 도입합니다.
+계정에 액세스하고 특정 작업을 수행할 수 있는 사람을 관리하는 것은 보안과 운영 효율성 모두에 중요합니다. 더 많은 제어를 제공하기 위해 Braze는 계정 전반에서 사용자 액세스를 관리하는 더 유연하고 정밀한 방법인 [세분화된 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)을 도입합니다.
 
 #### 대상으로 보내기 Canvas 구성요소 {#send-to-destination-canvas-component}
 
@@ -711,7 +710,7 @@ Canvas에서 이제 컨텍스트 변수를 참조하여 다음을 설정할 수 
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-[GRAVTY®](https://www.lji.io/)는 Loyalty Juggernaut Inc.(LJI)의 엔터프라이즈급 로열티 플랫폼으로, 소매, 여행, 레스토랑(퀵서비스 레스토랑 포함) 및 금융 서비스 전반의 브랜드가 차세대 프로그램을 설계, 관리 및 확장할 수 있도록 지원하여 개인화된 데이터 중심 경험을 통해 인게이지먼트, 유지 및 고객 생애주기 가치에서 측정 가능한 성장을 이끌어냅니다.
+[GRAVTY®](https://www.lji.io/)는 Loyalty Juggernaut Inc.(LJI)의 엔터프라이즈급 로열티 플랫폼으로, 소매, 여행, 레스토랑(퀵서비스 레스토랑 포함) 및 금융 서비스 전반의 브랜드가 차세대 프로그램을 설계, 관리 및 확장할 수 있도록 지원하여 개인화된 데이터 중심 경험을 통해 인게이지먼트, 유지 및 고객 LTV에서 측정 가능한 성장을 이끌어냅니다.
 
 <!-- Use this section to list any new SDKs or SDK updates that are already released. -->
 ### SDK
@@ -761,7 +760,7 @@ Currents Mixpanel 통합은 이제 Mixpanel의 EU 및 인도 데이터 센터를
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-워크스페이스에 로캘을 추가한 후 [다국어 번역]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/localization/locales)을 사용하여 단일 푸시, 이메일, 배너, 인앱 메시지 또는 Content Block 내에서 다양한 언어의 사용자를 타겟팅할 수 있습니다.
+워크스페이스에 로캘을 추가한 후 [다국어 번역]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages)을 사용하여 단일 푸시, 이메일, 배너, 인앱 메시지 또는 Content Block 내에서 다양한 언어의 사용자를 타겟팅할 수 있습니다.
 
 ![로캘 미리보기]({% image_buster /assets/img/multi-language_support/multi_language_user_preview.png %}){: style="max-width:70%;"}
 
@@ -771,10 +770,10 @@ Currents Mixpanel 통합은 이제 Mixpanel의 EU 및 인도 데이터 센터를
 
 Canvas에서 이제 컨텍스트 변수를 참조하여 다음을 설정할 수 있습니다:
 
-- 메시지 단계에서 배너 및 인앱 메시지의 [만료]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/context_variables#set-an-expiration)
-- 행동 경로 단계의 [개인화된 지연]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/context_variables#action-path-delays)
+- 메시지 단계에서 배너 및 인앱 메시지의 [만료]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables)
+- 행동 경로 단계의 [개인화된 지연]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables)
 
-컨텍스트 변수 이름 필드에서 컨텍스트 변수 이름을 직접 입력하거나 단계 편집기의 드롭다운에서 선택할 수도 있습니다. 자세한 내용은 [컨텍스트]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/context) 및 [컨텍스트 변수]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/context_variables)를 참조하세요.
+컨텍스트 변수 이름 필드에서 컨텍스트 변수 이름을 직접 입력하거나 단계 편집기의 드롭다운에서 선택할 수도 있습니다. 자세한 내용은 [컨텍스트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) 및 [컨텍스트 변수]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables)를 참조하세요.
 
 ### 채널 및 터치포인트
 
@@ -790,7 +789,7 @@ Canvas에서 이제 컨텍스트 변수를 참조하여 다음을 설정할 수 
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Canvas [메시지 단계]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/message_step)에서 [배너]({{site.baseurl}}/user_guide/message_building_by_channel/banners)를 메시징 채널로 사용할 수 있습니다. 배너를 사용하면 앱 또는 웹사이트 콘텐츠를 동적으로 개인화하여 실시간 사용자 자격 및 행동을 반영할 수 있습니다.
+Canvas [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)에서 [배너]({{site.baseurl}}/user_guide/channels/banners)를 메시징 채널로 사용할 수 있습니다. 배너를 사용하면 앱 또는 웹사이트 콘텐츠를 동적으로 개인화하여 실시간 사용자 자격 및 행동을 반영할 수 있습니다.
 
 ### 파트너십
 
@@ -896,7 +895,7 @@ Braze가 새로운 [데이터 센터]({{site.baseurl}}/user_guide/data/infrastru
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-Braze는 사용자 액세스를 관리하는 더 유연한 방법인 [세분화된 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)을 도입합니다. 레거시 권한이 세분화된 권한에 어떻게 매핑되는지를 포함한 마이그레이션 프로세스에 대해 알아보려면 [세분화된 권한으로 마이그레이션]({{site.baseurl}}/granular_permissions_migration)을 참조하세요.
+Braze는 사용자 액세스를 관리하는 더 유연한 방법인 [세분화된 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)을 도입합니다. 레거시 권한이 세분화된 권한에 어떻게 매핑되는지를 포함한 마이그레이션 프로세스에 대해 알아보려면 [세분화된 권한으로 마이그레이션]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)을 참조하세요.
 
 #### 채널 기반 사용량 제한 {#channel-based-rate-limiting}
 
@@ -992,13 +991,13 @@ Radius Networks의 [Flybuy]({{site.baseurl}}/partners/message_personalization/lo
 
 ### BrazeAI<sup>TM</sup>
 
-#### 콘텐츠 최적화 프로그램 {#content-optimizer}
+#### Content Optimizer
 
 {% multi_lang_include release_type.md release="Beta" %}
 
-[콘텐츠 최적화 프로그램]({{site.baseurl}}/user_guide/brazeai/content_optimizer)은 자동화된 인게이지먼트 최적화를 제공하는 지속적인 고배리언트 콘텐츠 테스트 캔버스 단계입니다. 메시지 단계와 유사한 드래그 앤 드롭 인터페이스를 사용하여 테스트할 구성요소를 정의하고, AI를 사용하여 배리언트를 생성하거나 수동으로 입력한 다음, Liquid 태그를 사용하여 이러한 구성요소를 메시지 콘텐츠에 매핑할 수 있습니다.
+[Content Optimizer]({{site.baseurl}}/user_guide/brazeai/content_optimizer)는 자동화된 인게이지먼트 최적화를 제공하는 지속적인 고배리언트 콘텐츠 테스트 캔버스 단계입니다. 메시지 단계와 유사한 드래그 앤 드롭 인터페이스를 사용하여 테스트할 구성요소를 정의하고, AI를 사용하여 배리언트를 생성하거나 수동으로 입력한 다음, Liquid 태그를 사용하여 이러한 구성요소를 메시지 콘텐츠에 매핑할 수 있습니다.
 
-비상황별 멀티암드 밴딧 옵티마이저를 기반으로 구축된 콘텐츠 최적화 프로그램은 사용자당 단일 메시지를 전송하며, 예측 추천을 기반으로 전달할 구성요소 배리언트 조합을 결정합니다. 단계가 시간이 지남에 따라 데이터를 수집하면서 성과가 우수한 배리언트는 자연스럽게 전송 할당이 증가하고 성과가 낮은 배리언트는 감소합니다. 콘텐츠 최적화 프로그램은 지속적인 최적화를 위해 일일 사용자 수가 일정한(하루 최소 수천 명) 반복 전송 Canvases에서 가장 잘 작동합니다.
+비상황별 멀티암드 밴딧 옵티마이저를 기반으로 구축된 Content Optimizer는 사용자당 단일 메시지를 전송하며, 예측 추천을 기반으로 전달할 구성요소 배리언트 조합을 결정합니다. 단계가 시간이 지남에 따라 데이터를 수집하면서 성과가 우수한 배리언트는 자연스럽게 전송 할당이 증가하고 성과가 낮은 배리언트는 감소합니다. Content Optimizer는 지속적인 최적화를 위해 일일 사용자 수가 일정한(하루 최소 수천 명) 반복 전송 Canvases에서 가장 잘 작동합니다.
 
 ### 데이터 및 보고
 
@@ -1032,7 +1031,7 @@ Radius Networks의 [Flybuy]({{site.baseurl}}/partners/message_personalization/lo
 
 #### LinkedIn – Canvas 오디언스 동기화 {#linkedin-canvas-audience-sync}
 
-[Braze 오디언스 동기화를 LinkedIn]({{site.baseurl}}/partners/canvas_audience_sync/linkedin_audience_sync)에 사용하면 Braze 통합의 사용자 데이터를 LinkedIn 고객 목록에 추가하여 행동 트리거, 세분화 등을 기반으로 광고를 게재할 수 있습니다. 일반적으로 사용자 데이터를 기반으로 Braze Canvas에서 메시지(푸시, 이메일, SMS, 웹훅 등)를 트리거하는 데 사용했던 모든 기준을 이제 LinkedIn 고객 목록에서 해당 사용자에게 광고를 트리거할 수 있습니다.
+[Braze 오디언스 동기화를 LinkedIn]({{site.baseurl}}/partners/canvas_audience_sync/linkedin_audience_sync)에 사용하면 Braze 통합의 사용자 데이터를 LinkedIn 고객 목록에 추가하여 행동 트리거, 세분화 등을 기반으로 광고를 게재할 수 있습니다. 일반적으로 사용자 데이터를 기반으로 BRAZE 캔버스에서 메시지(푸시, 이메일, SMS, 웹훅 등)를 트리거하는 데 사용했던 모든 기준을 이제 LinkedIn 고객 목록에서 해당 사용자에게 광고를 트리거할 수 있습니다.
 
 #### Oracle CrowdTwist - 데이터 및 분석 {#oracle-crowdtwist-data-analytics}
 
@@ -1074,7 +1073,7 @@ Radius Networks의 [Flybuy]({{site.baseurl}}/partners/message_personalization/lo
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-이제 이메일, LINE, 푸시 알림, SMS, 웹훅, WhatsApp 채널에 새로운 [재시도 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)를 사용할 수 있습니다. 이러한 이벤트는 최대 게재빈도 설정으로 인해 예약된 메시지가 중단되지 않고 지연되는 경우에 대한 가시성을 제공합니다. 메시지의 우선순위가 낮아지거나 게재빈도가 제한되는 경우 이제 구성된 재시도 기간 내에 재시도할 수 있어 메시지 전달 패턴과 최대 게재빈도 제한의 영향에 대해 더 나은 인사이트를 얻을 수 있습니다. 자세한 내용은 [Currents 체인지로그]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-in-version-5-release-date-2026-02-04)를 참조하세요.
+이제 이메일, LINE, 푸시 알림, SMS, 웹훅, WhatsApp 채널에 새로운 [재시도 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)를 사용할 수 있습니다. 이러한 이벤트는 최대 게재빈도 설정으로 인해 예약된 메시지가 중단되지 않고 지연되는 경우에 대한 가시성을 제공합니다. 메시지의 우선순위가 낮아지거나 게재빈도가 제한되는 경우 이제 구성된 재시도 기간 내에 재시도할 수 있어 메시지 전달 패턴과 최대 게재빈도 설정의 영향에 대해 더 나은 인사이트를 얻을 수 있습니다. 자세한 내용은 [Currents 체인지로그]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-in-version-5-release-date-2026-02-04)를 참조하세요.
 
 #### TokenStateChange 이벤트에 새로운 'time_ms' 필드 추가 {#add-new-time_ms-field-to-tokenstatechange-event}
 
@@ -1086,17 +1085,17 @@ Radius Networks의 [Flybuy]({{site.baseurl}}/partners/message_personalization/lo
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-이제 외부 사용자 ID가 정의되지 않은 이벤트도 [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_for_currents?redirected=1) 대상으로 스트리밍할 수 있습니다. Currents 통합에서 "익명 사용자의 이벤트 포함" 확인란을 선택하면 외부 사용자 ID가 없는 이벤트가 억제되지 않고 대상에게 전송됩니다. 이 기능은 비식별 및 익명 사용자와 관련된 다운스트림 분석 및 사용 사례에 매우 중요합니다.
+이제 외부 사용자 ID가 정의되지 않은 이벤트도 [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_for_currents?redirected=1) 대상으로 스트리밍할 수 있습니다. Currents 통합에서 "익명 사용자의 이벤트 포함" 확인란을 선택하면 외부 사용자 ID가 없는 이벤트가 억제되지 않고 대상으로 전송됩니다. 이 기능은 비식별 및 익명 사용자와 관련된 다운스트림 분석 및 사용 사례에 매우 중요합니다.
 
 ##### CustomHTTP 대상으로 익명 사용자 보내기 {#send-anonymous-user-to-customhttp-destinations}
 
 {% multi_lang_include release_type.md release="Beta" %}
 
-이제 외부 사용자 ID가 정의되지 않은 이벤트도 CustomHTTP 대상으로 스트리밍할 수 있습니다. Currents 통합에서 "익명 사용자의 이벤트 포함" 확인란을 선택하면 외부 사용자 ID가 없는 이벤트가 억제되지 않고 대상에게 전송됩니다. 이 기능은 비식별 및 익명 사용자와 관련된 다운스트림 분석 및 사용 사례에 매우 중요합니다.
+이제 외부 사용자 ID가 정의되지 않은 이벤트도 CustomHTTP 대상으로 스트리밍할 수 있습니다. Currents 통합에서 "익명 사용자의 이벤트 포함" 확인란을 선택하면 외부 사용자 ID가 없는 이벤트가 억제되지 않고 대상으로 전송됩니다. 이 기능은 비식별 및 익명 사용자와 관련된 다운스트림 분석 및 사용 사례에 매우 중요합니다.
 
 #### 이메일 열기 이벤트 — "machine_open" 필드 {#email-open-event-machine_open-field}
 
-[이메일 열기 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#email-open-events)는 이제 "machine_open" 필드 값을 생성하여 [_머신 열기_]({{site.baseurl}}/user_guide/analytics/reporting/report_metrics#machine-opens) 측정기준을 보고할 수 있습니다.
+[이메일 열기 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#email-open-events)는 이제 "machine_open" 필드 값을 생성하여 [_머신 열기_]({{site.baseurl}}/user_guide/analytics/metrics_glossary) 측정기준을 보고할 수 있습니다.
 
 ### SDK
 

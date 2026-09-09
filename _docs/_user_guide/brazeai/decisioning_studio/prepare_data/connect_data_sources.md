@@ -131,4 +131,7 @@ This guide explains the most common integration patterns. Information Security w
 
 After connecting your data sources, proceed to set up orchestration:
 
-- [Set up orchestration]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/orchestration_setup)
+{% article_tiles %}
+- name: Set up orchestration
+  link: /docs/user_guide/brazeai/decisioning_studio/orchestration_setup
+{% endarticle_tiles %}

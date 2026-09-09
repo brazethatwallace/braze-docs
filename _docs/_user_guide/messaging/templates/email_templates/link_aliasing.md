@@ -358,7 +358,7 @@ Without the `lid` value, Braze doesn't treat the URL as link-aliased for trackin
 
 Alternatively, you can turn off link aliasing in the dashboard while you plan a backend change. Go to **Settings** > **Email Preferences** > **Link Aliasing Settings**. 
 
-If you can't change your destination systems, contact [Braze Support]({{site.baseurl}}/braze_support) to disable link aliasing for your workspace. Note the following considerations if link aliasing is turned off for your workspace:
+If you can't change your destination systems, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) to disable link aliasing for your workspace. Note the following considerations if link aliasing is turned off for your workspace:
 
 - New email messages and Content Blocks typically won't receive new link-alias markup (such as the `lid` query parameter).
 - Existing messages that were created while link aliasing was on can still contain link-alias markup in the HTML. You may need to manually remove leftover `lid` parameters where you no longer want them.

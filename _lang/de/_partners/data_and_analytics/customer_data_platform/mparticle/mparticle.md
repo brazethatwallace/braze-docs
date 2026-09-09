@@ -35,7 +35,7 @@ Die Integration von Braze und mParticle erlaubt es Ihnen, den Informationsfluss 
 
 Nutzen Sie die Partnerschaft von Braze und mParticle, um Ihre Integration zu konfigurieren und mParticle-Zielgruppen direkt in Braze für Retargeting zu importieren – so entsteht ein vollständiger Datenkreislauf zwischen den beiden Systemen.
 
-Jede Integration, die Sie einrichten, wird Datenpunkte protokollieren. Bei Fragen zu den Details der Braze-Datenpunkte kann Ihr Braze Account Manager diese beantworten.
+Jede Integration, die Sie einrichten, wird Datenpunkte protokollieren. Bei Fragen zu den Details der Braze-Datenpunkte kann Ihr Braze Account Manager:in diese beantworten.
 
 #### Weiterleitung von Zielgruppen {#forwarding-audiences}
 
@@ -58,7 +58,7 @@ Wenn beispielsweise eine mParticle-Zielgruppe „Ibiza dreamers“ die Zielgrupp
 Obwohl dies die Standardoption in mParticle ist, entscheiden sich die meisten Unternehmensnutzer:innen für [einzelne Array-Attribute](#array), da diese beim Erstellen von Segmenten in Braze ein besseres Filtererlebnis bieten.
 
 {% alert important %}
-Diese Lösung wird nicht empfohlen, wenn Sie mehr als einige wenige Zielgruppen haben, da angepasste Attribute bis zu 255 Zeichen lang sein können. Sie können mit dieser Methode also nicht Dutzende oder Hunderte von Zielgruppen in einem Nutzerprofil speichern. Wenn Sie eine große Anzahl von Kohorten pro Nutzer:in haben, empfehlen wir dringend die Konfiguration „Ein Attribut pro Segment“.
+Diese Lösung wird nicht empfohlen, wenn Sie mehr als einige wenige Zielgruppen haben, da angepasste Attribute bis zu 255 Zeichen lang sein können. Sie können mit dieser Methode also nicht Dutzende oder Hunderte von Zielgruppen in einem Kundenprofil speichern. Wenn Sie eine große Anzahl von Kohorten pro Nutzer:in haben, empfehlen wir dringend die Konfiguration „Ein Attribut pro Segment“.
 {% endalert %}
 
 ![mParticle-Segmentmitgliedschaft]({% image_buster /assets/img_archive/mparticle1.png %})
@@ -70,7 +70,7 @@ mParticle erstellt in Braze für jede:n Nutzer:in ein einzelnes angepasstes Arra
 Wenn ein:e Nutzer:in beispielsweise Mitglied von drei mParticle-Zielgruppen mit den Zielgruppen-IDs „13053“, „13052“ und „13051“ ist, können Sie Nutzer:innen, die einer dieser Zielgruppen angehören, mit dem Filter `SegmentMembershipArray` — `includes value` — `13051` segmentieren.
 
 {% alert note %}
-Braze-Array-Attribute haben eine standardmäßige Maximallänge von 500. Wenn Nutzer:innen Mitglied von mehr als 500 Zielgruppen sind, kürzt Braze deren Mitgliedschaftsinformationen. Wenden Sie sich für eine Lösung an Ihren Braze Account Manager, um den Schwellenwert für die maximale Array-Länge zu erhöhen.
+Braze-Array-Attribute haben eine standardmäßige Maximallänge von 500. Wenn Nutzer:innen Mitglied von mehr als 500 Zielgruppen sind, kürzt Braze deren Mitgliedschaftsinformationen. Wenden Sie sich für eine Lösung an Ihren Braze Account Manager:in, um den Schwellenwert für die maximale Array-Länge zu erhöhen.
 {% endalert %}
 
 ##### Ein Attribut pro Segment {#per-segment}

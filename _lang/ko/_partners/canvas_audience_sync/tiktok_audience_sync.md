@@ -11,7 +11,7 @@ page_order: 8
 
 # TikTok에 Audience Sync {#audience-sync-to-tiktok}
 
-Braze Audience Sync to TikTok을 사용하면 브랜드는 자체 Braze 통합에서 사용자 데이터를 TikTok 오디언스에 추가하여 행동 트리거, 세분화 등을 기반으로 광고를 전달할 수 있습니다. Braze Canvas에서 메시지(푸시, 이메일, SMS, 웹훅 등)를 트리거하는 데 일반적으로 사용하는 모든 기준을 활용할 수 있습니다.
+Braze Audience Sync to TikTok을 사용하면 브랜드는 자체 Braze 통합에서 사용자 데이터를 TikTok 오디언스에 추가하여 행동 트리거, 세분화 등을 기반으로 광고를 전달할 수 있습니다. BRAZE 캔버스에서 메시지(푸시, 이메일, SMS, 웹훅 등)를 트리거하는 데 일반적으로 사용하는 모든 기준을 활용할 수 있습니다.
 
 **Audience Sync의 일반적인 사용 사례는 다음과 같습니다**:
 

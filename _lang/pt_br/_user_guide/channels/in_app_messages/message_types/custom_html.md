@@ -93,7 +93,7 @@ Para deep linking, a Braze abrirá sua URL independentemente do valor de `abExte
 
 Para que a Braze trate seu link HTTP ou HTTPS como um deep link, defina `?abDeepLink=true`.
 
-Quando esse parâmetro de string de consulta está ausente ou definido como `false`, a Braze tentará abrir o link web em um navegador web interno dentro do app host.
+Quando esse parâmetro de string de consulta está ausente ou definido como `false`, a Braze tentará abrir o link web em um navegador de internet interno dentro do app host.
 
 ### Fechar mensagem no app {#close-in-app-message}
 

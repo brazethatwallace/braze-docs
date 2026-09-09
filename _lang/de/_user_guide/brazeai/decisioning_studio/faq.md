@@ -16,7 +16,7 @@ Ein Decisioning-Agent ist eine angepasste Konfiguration für BrazeAI Decisioning
 
 ### Welche Metriken kann ich optimieren? {#what-metrics-can-i-optimize-for}
 
-Sie können jede Geschäftsmetrik optimieren, die mit Ihren Zielen übereinstimmt, wie beispielsweise Umsatz, Conversions, durchschnittlicher Umsatz pro Nutzer:in (ARPU), Lifetime-Value (CLV), Gewinn, Vertragsverlängerungen oder andere geschäftliche KPIs.
+Sie können jede Geschäftsmetrik optimieren, die mit Ihren Zielen übereinstimmt, wie beispielsweise Umsatz, Conversions, durchschnittlicher Umsatz pro Nutzer:in (ARPU), LTV (CLV), Gewinn, Vertragsverlängerungen oder andere geschäftliche KPIs.
 
 ### Was sind Dimensionen in Decisioning Studio? {#what-are-dimensions-in-decisioning-studio}
 

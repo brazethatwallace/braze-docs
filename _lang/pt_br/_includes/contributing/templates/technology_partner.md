@@ -1,4 +1,4 @@
-Você pode usar esse modelo para criar a documentação do parceiro de tecnologia. Para ver um exemplo, consulte [Scuba Analytics]({{site.baseurl}}/partners/data_and_analytics/business_intelligence/scuba/).
+Você pode usar esse modelo para criar a documentação da parceira de tecnologia. Para ver um exemplo, consulte [Scuba Analytics]({{site.baseurl}}/partners/data_and_analytics).
 
 {% details Mostrar modelo %}
 {% raw %}
@@ -43,7 +43,7 @@ Before you start, you need the following:
 |-----------------------|-----------------|
 | A PARTNER_NAME account   | A PARTNER_NAME account is required to take advantage of this partnership.  |
 | A Braze REST API key  | A Braze REST API key with `users.track` permissions. <br><br> Create this key in the Braze dashboard from **Settings** > **API Keys**. |
-| A Braze REST endpoint | [Your REST endpoint URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Your endpoint depends on the Braze URL for your instance.  |
+| A Braze REST endpoint | [Your REST endpoint URL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Your endpoint depends on the Braze URL for your instance.  |
 {: .reset-td-br-1 .reset-td-br-2 aria-label=”Prerequisites” }
 
 ## Integrating TOOL_NAME
@@ -75,7 +75,7 @@ Substitua o seguinte:
 
 | Placeholder     | Descrição      |
 |---------------------|---------------------|
-| `BRAZE_API_ENDPOINT`    | A URL do endpoint REST da Braze da sua instância atual da Braze. Para saber mais, consulte [Chaves da API REST]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/#rest-api-keys). |
+| `BRAZE_API_ENDPOINT`    | A URL do endpoint REST da Braze da sua instância atual da Braze. Para saber mais, consulte [Chaves da API REST]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab#rest-api-keys). |
 | `BRAZE_API_KEY`         | Sua chave da API REST da Braze com a permissão `users.track`. |                                                                                                                                    | `HOSTNAME`                  | O hostname da sua instância atual de PARTNER_NAME.  |
 | `PARTNER_NAME_API_TOKEN`       | Seu token de API PARTNER_NAME.  |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 2: Fazer uma solicitação POST" }
@@ -84,7 +84,7 @@ Substitua o seguinte:
 
 CONTENT.
 
-#### Limite de taxa
+#### Limite de frequência
 
 CONTENT.
 

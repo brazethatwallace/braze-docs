@@ -61,7 +61,8 @@ Try out different configurations of drilldown options to explore the [many ways 
 ![The "Customize Metrics" section with options to select multiple metrics.]({% image_buster /assets/img/report_builder_2/customize_metrics.png %}){: style="width:90%;"}
 
 {: start="6"}
-6. Browse metrics by category and select the corresponding checkbox to add a metric to your report. 
+6. Browse metrics by category and select the corresponding checkbox to add a metric to your report.
+    - Under **General**, select **Tags** to include the tags applied to each campaign or Canvas in your report rows.
     - Reorder the metrics and columns by dragging the dotted icon up or down. 
 7. In **Report content**, configure the date range for which you’d like to include data in your report.
 8. Then, depending on your selections in step 3, choose to manually or automatically add campaigns, Canvases, or both to your report.
@@ -90,6 +91,7 @@ If you want to report on Canvas variants or steps, select **Canvases** for rows 
 | Conversion metrics | Available for Campaigns, Canvases, Campaigns and Canvases. |
 | Entries | Available for Campaigns, Canvases, Campaigns and Canvases, Tags. |
 | Last Sent Date | Available for Campaigns, Canvases, Campaigns and Canvases. Only displays for scheduled campaigns—does not populate for action-based or API-triggered campaigns. |
+| Tags | Available for Campaigns, Canvases, Campaigns and Canvases. Lists the tags applied to each campaign or Canvas. When a message has multiple tags, they appear as a semicolon-separated list. |
 | Sends | Available for each relevant channel. |
 | Messages Sent | Available for Campaigns, Canvases, Campaigns and Canvases, Tags. |
 | Subject line | Available for email Campaigns with **Variant** drilldown, Canvases, and Canvases with **Variant** drilldown. |
@@ -171,4 +173,4 @@ For example, suppose **Last sent** is January 1, 2025–April 14, 2025, so a cam
 
 Report download links expire after one hour. If your link has expired, generate a new report and download it within the hour. There is no way to extend the expiry time.
 
-If you have an [Amazon S3 bucket]({{site.baseurl}}/partners/data_and_infrastructure_agility/cloud_storage/amazon_s3) connected in **Partner Integrations**, you may be able to retrieve data from older reports by browsing your S3 bucket directly.
+If you have an [Amazon S3 bucket]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3) connected in **Partner Integrations**, you may be able to retrieve data from older reports by browsing your S3 bucket directly.

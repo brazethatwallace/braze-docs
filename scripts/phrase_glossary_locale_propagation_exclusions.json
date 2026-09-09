@@ -5,11 +5,30 @@
     "settings",
     "data",
     "operator",
-    "team"
+    "team",
+    "REST",
+    "SMS",
+    "update",
+    "trigger",
+    "canvas",
+    "canvases",
+    "Canvases",
+    "Canvas",
+    "click",
+    "sign-up",
+    "Taxi",
+    "Taxi for email",
+    "token",
+    "manager",
+    "selector",
+    "CDP",
+    "LTV",
+    "AI"
   ],
   "de": [
     "customer",
-    "gear"
+    "gear",
+    "customer profile"
   ],
   "es": [
     "data"

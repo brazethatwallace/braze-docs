@@ -83,7 +83,7 @@ Para saber mais sobre como monitorar a associação e o tamanho do seu Segment, 
 
 ### Prévia de usuários {#user-preview}
 
-Para visualizar informações detalhadas e específicas de usuários sobre seus Segments, clique em **User Data** e selecione **User Preview**.
+Para visualizar informações detalhadas e específicas de usuários sobre seus Segments, clique em **User Data** e selecione **User prévia**.
 
 Nessa página, você pode visualizar diversos atributos específicos de usuários, como gênero, idade, número de sessões e se fizeram opt-in para push e e-mail.
 

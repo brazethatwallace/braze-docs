@@ -7,7 +7,7 @@ description: "Diagnostiquez les erreurs de webhooks et de contenu connecté à l
 
 # Résolution des problèmes de requêtes webhook et de contenu connecté {#troubleshoot-webhook-and-connected-content-requests}
 
-> Utilisez cette page pour résoudre les codes d'erreur courants liés aux webhooks et au contenu connecté. Pour la configuration, consultez [Créer un webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) et [Effectuer un appel API]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call).
+> Utilisez cette page pour résoudre les codes d'erreur courants liés aux webhooks et au contenu connecté. Pour la configuration, consultez [Créer un webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) et [Effectuer un appel API]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call). Pour inspecter une requête de contenu connecté en aperçu, consultez [Débogueur de contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/debugger).
 
 ## Commencez ici : identifiez votre symptôme {#start-here-match-your-symptom}
 
@@ -19,8 +19,9 @@ Identifiez votre symptôme dans le tableau pour accéder à la section correspon
 | Erreur serveur `5XX` ou délai d'attente dépassé | [Erreurs 5XX](#5xx-errors) |
 | `598 Host Unhealthy` ou requêtes brièvement interrompues | [Détection d'hôte non sain](#unhealthy-host-detection) |
 | Le contenu connecté s'affiche vide dans l'aperçu ou l'envoi | [Le contenu connecté ne renvoie aucun corps de réponse](#connected-content-returns-no-response-body) |
+| Besoin d'inspecter une requête de contenu connecté dans l'aperçu | [Débogueur de contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/debugger) |
 | E-mail d'erreur automatisé de Braze | [E-mails automatisés et entrées du journal d'activité des messages](#automated-emails-and-message-activity-log-entries) |
-| Besoin d'événements d'échec de webhook dans Currents | [Informations supplémentaires sur les échecs dans Braze Currents](#additional-failure-insights-in-braze-currents) |
+| Besoin des événements d'échec de webhook dans Currents | [Informations supplémentaires sur les échecs dans Braze Currents](#additional-failure-insights-in-braze-currents) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Symptômes liés aux webhooks et au contenu connecté" }
 
 ## Parcours d'investigation standard {#standard-investigation-path}
@@ -30,14 +31,14 @@ Utilisez ce workflow lorsqu'un webhook ou une requête de contenu connecté éch
 1. Ouvrez le [journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) et notez le code d'erreur, l'horodatage et l'URL de l'endpoint.
 2. Pour les erreurs `4XX`, vérifiez la syntaxe de la requête, les en-têtes d'authentification, le chemin de l'URL et la méthode HTTP par rapport à la documentation de l'endpoint.
 3. Pour les erreurs `5XX`, vérifiez l'état de l'endpoint, les limites de débit et si Braze a signalé l'hôte comme non sain.
-4. Pour le contenu connecté, prévisualisez le message pour un utilisateur test et confirmez que le Liquid ne résout pas vers des valeurs vides ou incompatibles avec le JSON.
+4. Pour le contenu connecté, prévisualisez le message pour un utilisateur test. Utilisez le [débogueur de contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/debugger) pour inspecter la requête et la réponse, et confirmez que le Liquid ne renvoie pas de valeurs vides ou susceptibles de casser le JSON.
 5. Si la détection d'hôte non sain peut être en cause, consultez la section [Détection d'hôte non sain](#unhealthy-host-detection) avant de contacter le [support Braze]({{site.baseurl}}/support_contact).
 
 ## Erreurs 4XX {#4xx-errors}
 
 Les erreurs `4XX` indiquent un problème avec la requête envoyée à l'endpoint. Ces erreurs sont généralement causées par des requêtes erronées, notamment des paramètres mal formés, des en-têtes d'authentification manquants ou des URL incorrectes. Notez que ces erreurs s'appliquent également au [générateur de rapports]({{site.baseurl}}/user_guide/analytics/reports/report_builder).
 
-Consultez le tableau suivant pour obtenir les détails des codes d'erreur et les étapes de résolution :
+Consultez le tableau suivant pour obtenir des détails sur les codes d'erreur et les étapes de résolution :
 
 <style>
 table td {
@@ -62,7 +63,7 @@ table td {
           <li>Vérifiez le payload de la requête pour détecter d'éventuelles erreurs de syntaxe.</li>
           <li>Confirmez que tous les champs obligatoires sont inclus et correctement formatés.</li>
           <li>Si vous envoyez un payload JSON, validez la structure JSON.</li>
-          <li>Si vous utilisez Liquid pour intégrer des tags de personnalisation dans la requête webhook, vérifiez que le Liquid ne produit pas une valeur vide ou des caractères qui cassent le JSON (comme des guillemets non échappés). Prévisualisez le message pour un utilisateur test afin de confirmer que le rendu est valide.</li>
+          <li>Si vous utilisez Liquid pour intégrer des balises de personnalisation dans la requête webhook, vérifiez que le Liquid ne produit pas une valeur vide ou des caractères incompatibles avec le JSON (comme des guillemets non échappés). Prévisualisez le message pour un utilisateur test afin de confirmer que le rendu est valide.</li>
         </ul>
       </td>
     </tr>
@@ -71,7 +72,7 @@ table td {
       <td>La requête nécessite une authentification de l'utilisateur.</td>
       <td>
         <ul>
-          <li>Vérifiez que les identifiants d'authentification corrects (tels que les clés API ou les jetons) sont inclus dans les en-têtes de la requête.</li>
+          <li>Vérifiez que les informations d'authentification correctes (telles que les clés API ou les jetons) sont incluses dans les en-têtes de la requête.</li>
           <li>Confirmez que vous disposez des permissions utilisateur nécessaires pour accéder à l'endpoint.</li>
         </ul>
       </td>
@@ -83,7 +84,7 @@ table td {
         <ul>
           <li>Vérifiez si la clé API ou le jeton dispose des permissions requises.</li>
           <li>Confirmez que vous disposez des permissions utilisateur nécessaires pour accéder à l'endpoint.</li>
-          <li>Si les requêtes renvoient systématiquement <code>403</code> et que l'authentification semble correcte, votre serveur, passerelle API ou WAF bloque peut-être les adresses IP sortantes de Braze. Ajoutez les IP de votre cluster Braze à la liste d'autorisation. Pour les webhooks, consultez <a href="{{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-allowlisting">Liste d'autorisation des IP</a>. Pour le contenu connecté, consultez <a href="{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting">Liste d'autorisation des IP pour le contenu connecté</a>.</li>
+          <li>Si les requêtes renvoient systématiquement <code>403</code> et que l'authentification semble correcte, votre serveur, passerelle API ou WAF bloque peut-être les adresses IP sortantes de Braze. Ajoutez les IP de votre cluster Braze à la liste d'autorisation. Pour les webhooks, consultez <a href="{{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-allowlisting">Liste d'autorisation d'IP</a>. Pour le contenu connecté, consultez <a href="{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting">Liste d'autorisation d'IP pour le contenu connecté</a>.</li>
         </ul>
       </td>
     </tr>
@@ -92,14 +93,14 @@ table td {
       <td>L'endpoint ne trouve pas la ressource demandée.</td>
       <td>
         <ul>
-          <li>Vérifiez l'URL de l'endpoint pour détecter d'éventuelles fautes de frappe ou chemins incorrects.</li>
+          <li>Vérifiez l'URL de l'endpoint pour détecter d'éventuelles fautes de frappe ou des chemins incorrects.</li>
           <li>Confirmez que la ressource à laquelle vous essayez d'accéder existe.</li>
         </ul>
       </td>
     </tr>
     <tr>
       <td><b>405 Method Not Allowed</b></td>
-      <td>La méthode de requête est connue par l'endpoint mais n'est pas prise en charge par la ressource cible.</td>
+      <td>La méthode de requête est connue de l'endpoint mais n'est pas prise en charge par la ressource cible.</td>
       <td>
         <ul>
           <li>Vérifiez la méthode HTTP (DELETE, GET, POST, PUT) utilisée dans la requête.</li>
@@ -132,7 +133,7 @@ table td {
       <td>Trop de requêtes ont été envoyées dans un laps de temps donné.</td>
       <td>
         <ul>
-          <li>Réduisez la limite de débit de votre Campaign ou de votre étape Canvas.</li>
+          <li>Diminuez la limite de débit de votre Campaign ou de votre étape du Canvas.</li>
         </ul>
       </td>
     </tr>
@@ -148,17 +149,17 @@ Les erreurs `5XX` indiquent un problème au niveau de l'endpoint. Ces erreurs so
 | **500 Internal Server Error** | L'endpoint a rencontré une condition inattendue qui l'a empêché de traiter la requête.                                                               |
 | **502 Bad Gateway**           | L'endpoint a reçu une réponse invalide du serveur en amont.                                                                                          |
 | **503 Service Unavailable**   | L'endpoint est actuellement incapable de traiter la requête en raison d'une surcharge temporaire ou d'une maintenance.                                |
-| **504 Gateway Timeout**       | L'endpoint n'a pas reçu de réponse dans les délais impartis de la part du serveur en amont.                                                          |
+| **504 Gateway Timeout**       | L'endpoint n'a pas reçu de réponse dans les délais de la part du serveur en amont.                                                                   |
 | **529 Host Overloaded**       | L'hôte de l'endpoint est surchargé et n'a pas pu répondre. |
 | **598 Host Unhealthy**        | Braze a simulé la réponse car l'hôte de l'endpoint est temporairement marqué comme non sain. Pour plus d'informations, consultez [Détection d'hôte non sain](#unhealthy-host-detection). |
-| **599 Connection Error**      | Braze a rencontré une erreur de délai de connexion réseau en essayant d'établir une connexion avec l'endpoint, ce qui signifie que l'endpoint peut être instable ou indisponible. |
+| **599 Connection Error**      | Braze a rencontré une erreur de délai de connexion réseau en tentant d'établir une connexion avec l'endpoint, ce qui signifie que l'endpoint peut être instable ou indisponible. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Erreurs 5XX" }
 
 ### Résoudre les erreurs 5XX {#resolving-5xx-errors}
 
 Voici des conseils pour résoudre les erreurs `5XX` courantes :
 
-- Consultez le message d'erreur pour obtenir des détails spécifiques disponibles dans le **Journal d'activité des messages**. Pour les webhooks, accédez à la section **Performance Over Time** sur la page d'accueil de Braze et sélectionnez les statistiques pour les webhooks. Vous pourrez y trouver l'horodatage indiquant le moment où les erreurs se sont produites.
+- Consultez le message d'erreur pour obtenir des détails spécifiques disponibles dans le **Journal d'activité des messages**. Pour les webhooks, accédez à la section **Performance Over Time** sur la page d'accueil de Braze et sélectionnez les statistiques relatives aux webhooks. Vous pourrez y trouver l'horodatage indiquant le moment où les erreurs se sont produites.
 - Assurez-vous de ne pas envoyer trop de requêtes qui surchargent l'endpoint. Vous pouvez envoyer par lots ou ajuster la limite de débit pour vérifier si cela réduit les erreurs.
 
 ## Détection d'hôte non sain {#unhealthy-host-detection}
@@ -183,7 +184,7 @@ Si vous pensez que la détection d'hôte non sain cause des problèmes, contacte
 
 **Symptôme :** un appel de contenu connecté s'affiche vide dans la prévisualisation ou l'envoi de votre message.
 
-Si un appel de contenu connecté s'affiche vide dans la prévisualisation ou l'envoi de votre message, vérifiez les points suivants :
+Si un appel de contenu connecté s'affiche vide dans la prévisualisation ou l'envoi de votre message, utilisez le [débogueur de contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/debugger) pour inspecter la requête et la réponse, puis vérifiez les points suivants :
 
 - **Espaces insécables dans l'URL :** Braze supprime les espaces insécables (`&nbsp;` ou Unicode `U+00A0`) des URL de contenu connecté avant d'effectuer la requête. Si votre URL a été copiée depuis un document ou un champ du tableau de bord qui a inséré des espaces insécables entre les caractères, la requête peut échouer ou ne renvoyer aucun corps exploitable. Retapez l'URL en texte brut ou supprimez les espaces masqués, puis prévisualisez à nouveau.
 - **Réponses de redirection (`3xx`) :** le contenu connecté ne suit pas les redirections. Seules les réponses `2xx` sont considérées comme réussies, de sorte qu'une réponse `301` ou `302` peut s'afficher vide même lorsque la même URL fonctionne dans Postman. Utilisez l'URL de destination finale ou configurez l'endpoint pour renvoyer une réponse `2xx` (généralement `200`) à l'URL appelée par Braze. Consultez [Pourquoi le contenu connecté échoue-t-il lorsque mon endpoint renvoie une redirection ?]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#why-does-connected-content-fail-when-my-endpoint-returns-a-redirect-301-or-302).

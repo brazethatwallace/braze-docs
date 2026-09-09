@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "이 문서에서는 사용 가능한 이메일 템플릿 목록 Braze 엔드포인트에 대한 세부 정보를 설명합니다."
-
 ---
 {% api %}
 # 사용 가능한 이메일 템플릿 목록 {#list-available-email-templates}
@@ -19,7 +18,7 @@ description: "이 문서에서는 사용 가능한 이메일 템플릿 목록 Br
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#eec24bf4-a3f4-47cb-b4d8-bb8f03964cca {% endapiref %}
 
 ## 필수 조건 {#prerequisites}
-이 엔드포인트를 사용하려면 `templates.email.list` 권한이 있는 [API 키]({{site.baseurl}}/api/api_key)가 필요합니다.
+이 엔드포인트를 사용하려면 `templates.email.list` 권한이 있는 [API 키]({{site.baseurl}}/api/basics)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 

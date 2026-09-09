@@ -110,4 +110,4 @@ Verwenden Sie den Liquid-Tag {%raw%}``{% catalog_items <name_of_your_catalog> {{
 
 - Nutzer:innen sind für 90 Tage abonniert. Wenn der Preis eines Artikels innerhalb von 90 Tagen nicht sinkt, wird die Nutzer:in aus dem Abo entfernt.
 - Wenn Sie die Benachrichtigungsregel **Notify all subscribed users** verwenden, benachrichtigt Braze 100.000 Nutzer:innen innerhalb von 10 Minuten.
-- Braze unterstützt bis zu 50.000 aktualisierte Artikel pro Tag, die für das Triggern von Preissenkungsbenachrichtigungen berechtigt sind. Sie können bis zu 100 Millionen aktive Abos gleichzeitig haben, wobei jedes Abo ein Nutzerprofil darstellt, das einen Katalogartikel beobachtet.
+- Braze unterstützt bis zu 50.000 aktualisierte Artikel pro Tag, die für das Triggern von Preissenkungsbenachrichtigungen berechtigt sind. Sie können bis zu 100 Millionen aktive Abos gleichzeitig haben, wobei jedes Abo ein Kundenprofil darstellt, das einen Katalogartikel beobachtet.

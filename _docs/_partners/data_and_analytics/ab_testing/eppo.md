@@ -31,7 +31,7 @@ Eppo analyzes experiments directly in your data warehouse. To enable the integra
 
 ### Step 2: Set up your experiment in a Braze campaign or Canvas
 
-You can use native A/B testing features in your campaigns and Canvases. To learn more, see [Multivariate and A/B testing]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing#what-are-multivariate-and-ab-testing).
+You can use native A/B testing features in your campaigns and Canvases. To learn more, see [Multivariate and A/B testing]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 ### Step 3: Set up Eppo to measure Braze experiments
 

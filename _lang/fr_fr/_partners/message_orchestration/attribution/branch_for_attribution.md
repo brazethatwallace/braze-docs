@@ -89,7 +89,7 @@ Ici, vous trouverez l'endpoint REST et pourrez générer votre clé d'importatio
 ### Étape 3 : Configurer les flux de données {#step-3-set-up-data-feeds}
 
 1. Dans Branch, sous la section **Exports**, sélectionnez **Data Feeds**.
-2. Sur la page **Data Feeds Manager**, sélectionnez l'onglet **Data Integrations** en haut de la page.
+2. Sur la page **Data Feeds gestionnaire**, sélectionnez l'onglet **Data Integrations** en haut de la page.
 3. Sélectionnez Braze dans la liste des partenaires de données disponibles.
 4. Sur la page d'exportation de Braze, indiquez la clé d'importation des données et l'endpoint REST que vous avez trouvés dans le tableau de bord de Braze, puis sélectionnez **Enable**.
 

@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "Cet article présente en détail l'endpoint Braze permettant de lister les Content Blocks disponibles."
-
 ---
 {% api %}
 # Lister les Content Blocks disponibles {#list-available-content-blocks}
@@ -19,7 +18,7 @@ description: "Cet article présente en détail l'endpoint Braze permettant de li
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#6d87048f-68fd-46c9-aa15-3a970e99540e {% endapiref %}
 
 ## Conditions préalables {#prerequisites}
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/api_key) avec l'autorisation `content_blocks.list`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics) avec l'autorisation `content_blocks.list`.
 
 ## Limite de débit {#rate-limit}
 

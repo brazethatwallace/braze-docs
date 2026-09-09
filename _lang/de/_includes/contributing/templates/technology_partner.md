@@ -1,4 +1,4 @@
-Sie können dieses Template verwenden, um eine Dokumentation für Technologiepartner zu erstellen. Ein Beispiel finden Sie unter [Scuba Analytics]({{site.baseurl}}/partners/data_and_analytics/business_intelligence/scuba/).
+Sie können dieses Template verwenden, um eine Dokumentation für Technologie-Partner zu erstellen. Ein Beispiel finden Sie unter [Scuba Analytics]({{site.baseurl}}/partners/data_and_analytics).
 
 {% details Template anzeigen %}
 {% raw %}
@@ -43,7 +43,7 @@ Before you start, you need the following:
 |-----------------------|-----------------|
 | A PARTNER_NAME account   | A PARTNER_NAME account is required to take advantage of this partnership.  |
 | A Braze REST API key  | A Braze REST API key with `users.track` permissions. <br><br> Create this key in the Braze dashboard from **Settings** > **API Keys**. |
-| A Braze REST endpoint | [Your REST endpoint URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Your endpoint depends on the Braze URL for your instance.  |
+| A Braze REST endpoint | [Your REST endpoint URL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Your endpoint depends on the Braze URL for your instance.  |
 {: .reset-td-br-1 .reset-td-br-2 aria-label=”Prerequisites” }
 
 ## Integrating TOOL_NAME
@@ -73,12 +73,11 @@ curl -X POST "PARTNER_POST_URL" \
 
 Ersetzen Sie Folgendes:
 
-| Platzhalter | Beschreibung |
+| Platzhalter     | Beschreibung      |
 |---------------------|---------------------|
-| `BRAZE_API_ENDPOINT` | Die Braze-REST-Endpunkt-URL Ihrer aktuellen Braze-Instanz. Weitere Informationen finden Sie unter [REST-API-Schlüssel]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/#rest-api-keys). |
-| `BRAZE_API_KEY` | Ihr Braze-REST-API-Schlüssel mit der `users.track`-Berechtigung. |
-| `HOSTNAME` | Der Hostname Ihrer aktuellen PARTNER_NAME-Instanz. |
-| `PARTNER_NAME_API_TOKEN` | Ihr PARTNER_NAME-API-Token. |
+| `BRAZE_API_ENDPOINT`    | Die Braze-REST-Endpunkt-URL Ihrer aktuellen Braze-Instanz. Weitere Informationen finden Sie unter [REST-API-Schlüssel]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab#rest-api-keys). |
+| `BRAZE_API_KEY`         | Ihr Braze-REST-API-Schlüssel mit der `users.track`-Berechtigung. |                                                                                                                                    | `HOSTNAME`                  | Der Hostname Ihrer aktuellen PARTNER_NAME-Instanz.  |
+| `PARTNER_NAME_API_TOKEN`       | Ihr PARTNER_NAME-API-Token.  |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 2: POST-Anfrage senden" }
 
 #### Standardverhalten
@@ -92,22 +91,22 @@ CONTENT.
 ## Anpassung von TOOL_NAME
 <!-- Ein optionaler Abschnitt, in dem Sie zusätzliche Anpassungsschritte beschreiben können. Es ist wichtig, prägnant zu sein und die minimal erforderlichen Schritte zu beschreiben. -->
 
-### 1. Schritt: ACTION_TO_COMPLETE
+### Schritt 1: ACTION_TO_COMPLETE
 
 CONTENT.
 
-### 2. Schritt: ACTION_TO_COMPLETE
+### Schritt 2: ACTION_TO_COMPLETE
 
 CONTENT.
 
 ## Verwendung von TOOL_NAME mit Braze / USE_CASE
 <!-- Ein Abschnitt, der beschreibt, wie Sie Ihre Integration mit Braze verwenden. Zum Beispiel, wie Sie auf die an Braze gesendeten Daten zugreifen, wie Sie Ihre Integration mit Braze-Messaging nutzen oder wie Sie einen bestimmten Anwendungsfall aus dem Abschnitt „Anwendungsfälle“ umsetzen. -->
 
-### 1. Schritt: ACTION_TO_COMPLETE
+### Schritt 1: ACTION_TO_COMPLETE
 
 CONTENT.
 
-### 2. Schritt: ACTION_TO_COMPLETE
+### Schritt 2: ACTION_TO_COMPLETE
 
 CONTENT.
 

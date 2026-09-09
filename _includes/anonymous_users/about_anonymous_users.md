@@ -1,6 +1,6 @@
 After you [integrate the Braze SDK]({{site.baseurl}}/developer_guide/sdk_integration/), users who launch your app for the first time will be considered "anonymous" until you call the `changeUser` method and assign them an `external_id`. Once assigned, you can't make them anonymous again. However, if they uninstall and reinstall your app, they will become anonymous again until `changeUser` is called.
 
-If a previously-identified user starts a session on a new device, all of their anonymous activity will automatically sync to their existing profile after you call `changeUser` on that device using their `external_id`. This includes any attributes, events, or history collected during the session on the new device.
+If a previously-identified user starts a session on a new device, Braze merges specific fields from the anonymous profile that don't already exist on the identified profile after you call `changeUser` on that device using their `external_id`. Not all data is transferred—only fields that are not already populated on the identified profile are merged. For the complete list of fields that transfer, see [merge behavior]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior).
 
 {% if include.section == "user_guide" %}
 {% alert tip %}

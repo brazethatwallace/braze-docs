@@ -185,7 +185,7 @@ Salve a consulta com um nome e execute, ou simplesmente execute a consulta. Apó
 {% tab Audience Studio %}
 #### Etapa 3.1: Crie uma ativação {#step-31-create-an-activation}
 
-Crie um novo segmento ou escolha um segmento existente para sincronizar com a Braze como uma coorte. Dentro do segmento, selecione **Create activation**.
+Crie um novo Segment ou escolha um Segment existente para sincronizar com a Braze como uma coorte. Dentro do Segment, selecione **Create activation**.
 
 #### Etapa 3.2: Preencha os detalhes da ativação {#step-32-fill-out-your-activation-details}
 
@@ -229,9 +229,9 @@ Defina o cronograma de sincronização desejado e salve a ativação.
 {% endtab %}
 {% endtabs %}
 
-### Etapa 4: Crie um segmento da Braze a partir da Exportação do Treasure Data {#step-4-create-a-braze-segment-from-the-treasure-data-export}
+### Etapa 4: Crie um Segment da Braze a partir da Exportação do Treasure Data {#step-4-create-a-braze-segment-from-the-treasure-data-export}
 
-Na Braze, navegue até **Segments**, crie um novo segmento e selecione **Treasure Data Cohorts** como seu filtro. A partir daqui, você pode escolher qual coorte do Treasure Data deseja incluir. Depois que o segmento de coorte do Treasure Data for criado, você poderá selecioná-lo como um filtro de público ao criar uma Campaign ou um Canvas.
+Na Braze, navegue até **Segments**, crie um novo Segment e selecione **Treasure Data Cohorts** como seu filtro. A partir daqui, você pode escolher qual coorte do Treasure Data deseja incluir. Depois que o Segment de coorte do Treasure Data for criado, você poderá selecioná-lo como um filtro de público ao criar uma Campaign ou um Canvas.
 
 ![Catálogo do hub de integrações do Treasure Data]({% image_buster /assets/img/treasure_data/cohort/cohort4.png %})
 

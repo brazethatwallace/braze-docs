@@ -133,7 +133,7 @@ Verwenden Sie entweder inkrementelle Warenkorb-Aktualisierungen (`add` oder `rem
 Um Messaging über dieses Event auszulösen, verwenden Sie den Trigger **Warenkorb-Aktualisierungs-Event durchführen** in Canvas und Campaigns. Dieser Trigger enthält eine spezielle Behandlung, um zu verhindern, dass der Warenkorb im Shopping-Funnel weiter fortschreitet.
 
 {% alert tip %}
-Der Warenkorb erstellt ein Warenkorb-Mapping-Objekt im Nutzerprofil, das den {% raw %}`{% shopping_cart %}`{% endraw %} Liquid-Tag unterstützt. Der Warenkorb läuft nach 30 Tagen ohne Aktualisierung ab. Wenn zwei Nutzerprofile zusammengeführt werden, behält Braze beide Warenkörbe bei.
+Der Warenkorb erstellt ein Warenkorb-Mapping-Objekt im Kundenprofil, das den {% raw %}`{% shopping_cart %}`{% endraw %} Liquid-Tag unterstützt. Der Warenkorb läuft nach 30 Tagen ohne Aktualisierung ab. Wenn zwei Nutzerprofile zusammengeführt werden, behält Braze beide Warenkörbe bei.
 {% endalert %}
 
 #### Event-Eigenschaften
@@ -805,7 +805,7 @@ Lösen Sie dieses Event aus, wenn eine Bestellung erfolgreich abgeschlossen oder
 Verwenden Sie die SDK-E-Commerce-Event-APIs, sofern verfügbar. Plattformspezifische Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
 
 {% alert important %}
-Dieses Event ist der primäre Umsatztreiber. Es erhöht `total_revenue` um den Wert in `total_value` und `total_orders` um 1 im Nutzerprofil.
+Dieses Event ist der primäre Umsatztreiber. Es erhöht `total_revenue` um den Wert in `total_value` und `total_orders` um 1 im Kundenprofil.
 {% endalert %}
 
 #### Event-Eigenschaften
@@ -913,7 +913,7 @@ Lösen Sie dieses Event aus, wenn eine Bestellung storniert wird.
 Verwenden Sie `logCustomEvent`. Plattformspezifische Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
 
 {% alert important %}
-Dieses Event verringert `total_orders` um 1 im Nutzerprofil. Es hat keinen Einfluss auf `total_revenue`; verwenden Sie `order_refunded`, um den Umsatz anzupassen.
+Dieses Event verringert `total_orders` um 1 im Kundenprofil. Es hat keinen Einfluss auf `total_revenue`; verwenden Sie `order_refunded`, um den Umsatz anzupassen.
 {% endalert %}
 
 #### Event-Eigenschaften
@@ -1010,7 +1010,7 @@ Lösen Sie dieses Event aus, wenn eine vollständige oder teilweise Erstattung a
 Verwenden Sie `logCustomEvent`. Plattformspezifische Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
 
 {% alert important %}
-Dieses Event verringert `total_revenue` um den Wert in `total_value` und erhöht `total_refunds` im Nutzerprofil. Setzen Sie bei Teilerstattungen `total_value` nur auf den erstatteten Betrag, nicht auf den ursprünglichen Bestellwert.
+Dieses Event verringert `total_revenue` um den Wert in `total_value` und erhöht `total_refunds` im Kundenprofil. Setzen Sie bei Teilerstattungen `total_value` nur auf den erstatteten Betrag, nicht auf den ursprünglichen Bestellwert.
 {% endalert %}
 
 #### Event-Eigenschaften
@@ -1133,12 +1133,12 @@ Die folgende Tabelle fasst zusammen, was Braze automatisch für jedes Event tut,
 
 | Event | Was Braze automatisch tut |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------|
-| `ecommerce.order_placed` | Erhöht **Gesamtumsatz** um `total_value` und **Gesamtbestellungen** um 1 im Nutzerprofil. |
+| `ecommerce.order_placed` | Erhöht **Gesamtumsatz** um `total_value` und **Gesamtbestellungen** um 1 im Kundenprofil. |
 | `ecommerce.order_cancelled` | Verringert **Gesamtbestellungen** um 1. |
 | `ecommerce.order_refunded` | Verringert **Gesamtumsatz** um `total_value` und erhöht **Gesamterstattungswert**. |
-| `ecommerce.cart_updated` | Erstellt oder aktualisiert das Warenkorb-Mapping-Objekt im Nutzerprofil (vollständige Warenkorb-Payloads oder inkrementelle Warenkorb-Aktualisierungen mit optionalem `action`: `add`, `remove` oder `replace`). Der Warenkorb läuft nach 30 Tagen ohne Aktualisierung ab. |
-| `ecommerce.product_viewed` | Keine Änderungen am Nutzerprofil. Verfügbar für Segmentierung, Triggering und BrazeAI<sup>TM</sup>-Features (wie Artikelempfehlungen). |
-| `ecommerce.checkout_started` | Keine Änderungen am Nutzerprofil. Verfügbar für Segmentierung und Triggering (z. B. abgebrochene Checkout-Flows). |
+| `ecommerce.cart_updated` | Erstellt oder aktualisiert das Warenkorb-Mapping-Objekt im Kundenprofil (vollständige Warenkorb-Payloads oder inkrementelle Warenkorb-Aktualisierungen mit optionalem `action`: `add`, `remove` oder `replace`). Der Warenkorb läuft nach 30 Tagen ohne Aktualisierung ab. |
+| `ecommerce.product_viewed` | Keine Änderungen am Kundenprofil. Verfügbar für Segmentierung, Triggering und BrazeAI<sup>TM</sup>-Features (wie Artikelempfehlungen). |
+| `ecommerce.checkout_started` | Keine Änderungen am Kundenprofil. Verfügbar für Segmentierung und Triggering (z. B. abgebrochene Checkout-Flows). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="E-Commerce-Event-Nachverarbeitung" }
 
 {% alert important %}
@@ -1215,10 +1215,10 @@ Nachdem Sie ein Event gesendet haben, können Sie mit einer der folgenden Method
 
 Das Event wird nicht als empfohlenes Event verarbeitet. Im Einzelnen:
 
-- **Das Event wird vollständig verworfen.** Ungültige empfohlene E-Commerce-Events landen nicht im Nutzerprofil, erscheinen nicht in Currents und stehen nicht für die Segmentierung zur Verfügung.
+- **Das Event wird vollständig verworfen.** Ungültige empfohlene E-Commerce-Events landen nicht im Kundenprofil, erscheinen nicht in Currents und stehen nicht für die Segmentierung zur Verfügung.
 - Nachgelagerte Features für empfohlene Events werden nicht ausgeführt, darunter:
   - Umsatz-Tracking (Umsatz-Reporting, berechnete Nutzerfelder wie `total_revenue`)
-  - Warenkorb-Objekt-Aktualisierungen im Nutzerprofil
+  - Warenkorb-Objekt-Aktualisierungen im Kundenprofil
   - „Perform Cart Updated Event“- oder „Placed Order“-Trigger in Canvas und Campaigns
 
 Wie Fehler gemeldet werden, hängt vom Aufnahmepfad ab:

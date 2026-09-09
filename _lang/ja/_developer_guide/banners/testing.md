@@ -14,10 +14,10 @@ noindex: true
 
 ## 前提条件 {#prerequisites}
 
-Brazeでバナーメッセージをテストする前に、[Brazeでバナーキャンペーンを作成する]({{site.baseurl}}/user_guide/channels/banners/create_a_banner)必要があります。さらに、テストしたいプレースメントがすでに[アプリやWebサイトに配置されている]({{site.baseurl}}/developer_guide/banners/placements)ことを確認してください。
+Brazeでバナーメッセージをテストするには、まず[Brazeでバナーキャンペーンを作成]({{site.baseurl}}/user_guide/channels/banners/create_a_banner)する必要があります。さらに、テストしたいプレースメントがすでに[アプリまたはWebサイトに配置されている]({{site.baseurl}}/developer_guide/banners/placements)ことを確認してください。
 
-テストを[コンテンツテストグループ]({{site.baseurl}}/user_guide/administrative/app_settings/developer_console/internal_groups_tab#content-test-groups)または個々のユーザーに送信するには、送信前にテストデバイスでプッシュが有効になっており、テストユーザーの有効なプッシュトークンが登録されている必要があります。
+[コンテンツテストグループ]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups)または個別のユーザーにテストを送信するには、送信前にテストデバイスでプッシュが有効になっており、テストユーザーに有効なプッシュトークンが登録されている必要があります。
 
-## バナーをテストする {#test-a-banner}
+## バナーのテスト {#test-a-banner}
 
 {% multi_lang_include banners/testing.md page="testing" %}

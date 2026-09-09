@@ -65,7 +65,7 @@ Para configurar este comportamiento al hacer clic:
 
 #### ¿Qué es una etiqueta UTM? {#what-is-a-utm-tag}
 
-Las [etiquetas UTM (Urchin Traffic Manager)](https://support.google.com/analytics/answer/10917952?sjid=14344007686729081565-NC#zippy=%2Cin-this-article) te permiten incluir detalles de atribución de Campaign directamente dentro de los enlaces. Las etiquetas UTM son utilizadas por Google Analytics para recopilar datos de atribución de Campaign y se pueden usar para rastrear las siguientes propiedades:
+Las [etiquetas UTM (Urchin Traffic Administrador)](https://support.google.com/analytics/answer/10917952?sjid=14344007686729081565-NC#zippy=%2Cin-this-article) te permiten incluir detalles de atribución de Campaign directamente dentro de los enlaces. Las etiquetas UTM son utilizadas por Google Analytics para recopilar datos de atribución de Campaign y se pueden usar para rastrear las siguientes propiedades:
 
 - `utm_source`: El identificador de la fuente del tráfico (por ejemplo, `my_app`)
 - `utm_medium`: El medio de la Campaign (por ejemplo, `newsfeed`)

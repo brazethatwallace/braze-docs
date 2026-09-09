@@ -32,7 +32,7 @@ Os aplicativos ChatGPT oferecem uma plataforma poderosa para a criação de apli
 - **E-commerce**: Track product inquiries, cart additions, and purchases made through ChatGPT conversations
 - **SaaS**: Monitor feature requests, support interactions, and trial-to-paid conversions
 - **Content/Media**: Understand what topics users are most interested in and create targeted content campaigns
-- **Financial Services**: Track financial advice requests and product recommendations for compliance and optimization
+- **serviços financeiros**: Track financial advice requests and product recommendations for compliance and optimization
 - **Travel**: Monitor destination research, booking inquiries, and trip planning interactions
 
 By integrating Braze with your ChatGPT App, you ensure that every AI interaction becomes a data point in your customer engagement strategy, not just a black box interaction on someone else's platform. -->

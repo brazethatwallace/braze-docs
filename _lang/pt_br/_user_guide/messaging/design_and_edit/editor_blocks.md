@@ -30,7 +30,7 @@ Os blocos do editor ficam na seção **Conteúdo** para mensagens de e-mail. Arr
 Para saber mais sobre como criar e-mails no **editor de arrastar e soltar**, consulte [Criar um e-mail com arrastar e soltar]({{site.baseurl}}/user_guide/channels/email/drag_and_drop) e <a href="{{site.baseurl}}/user_guide/channels/email/drag_and_drop/#other-customizations">Outras personalizações</a> nesse artigo.
 
 {% alert tip %}
-Você também pode adicionar [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes) a qualquer URL dentro dos blocos do editor `Image`, `Button` ou `Text`.
+Você também pode adicionar [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types) a qualquer URL dentro dos blocos do editor `Image`, `Button` ou `Text`.
 {% endalert %}
 
 ### Título {#title}
@@ -306,7 +306,7 @@ Adiciona uma lista de opções da qual os usuários podem selecionar uma. Quando
 
 {% multi_lang_include drag_and_drop/editor_block_properties/radio_button_properties.md %}
 
-### Imagem {#image}
+### Imagem
 
 Insere uma imagem da [biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library).
 
@@ -330,7 +330,7 @@ Insere um hiperlink que os usuários podem clicar para navegar até uma URL espe
 
 {% multi_lang_include drag_and_drop/editor_block_properties/link_actions.md %}
 
-### Espaçador {#spacer}
+### Espaçador
 
 Adiciona espaço ou preenchimento entre outros blocos.
 
@@ -383,14 +383,14 @@ Os usuários podem selecionar entre várias opções. Os valores são definidos 
 
 ### Texto longo {#long-text}
 
-Campo de texto multilinha para fluxos no estilo de pesquisa. Se você não vir este bloco, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) ou seu gerente de sucesso do cliente da Braze.
+Campo de texto multilinha para fluxos no estilo de pesquisa. Se você não vir este bloco, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) ou seu CSM da Braze.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 <!-- Saved row is not yet released. Uncomment when available.
 ### Saved row {#saved-row}
 
-Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze customer success manager.
+Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze CSM.
 -->
 
 ## Informações importantes {#things-to-know}
@@ -472,7 +472,7 @@ Insere HTML, CSS ou JavaScript personalizado para personalização avançada, co
 <!-- Countdown timer is not yet released. Uncomment when available.
 ### Countdown timer {#countdown-timer}
 
-Displays a countdown to a date and time you set. If you don't see this block, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze customer success manager.
+Displays a countdown to a date and time you set. If you don't see this block, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze CSM.
 
 After you add a **Countdown timer** block, use the properties panel to set the target date and time, labels, and styling.
 -->
@@ -515,7 +515,7 @@ Os usuários escolhem várias opções; os valores são definidos ou adicionados
 
 ### Gerenciar inscrições {#manage-subscriptions}
 
-Adiciona uma lista de verificação de [grupos de inscrições de e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-groups) para que os visitantes possam optar por participar ou gerenciar suas inscrições ao enviar o formulário. Configure-o depois de adicionar grupos de inscrições ao bloco. Este bloco aceita apenas grupos de inscrições de e-mail; ele não aceita grupos de inscrições de SMS, RCS ou WhatsApp.
+Adiciona uma lista de verificação de grupos de inscrições de [e-mail]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups), [SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#sms-subscription-states) ou [WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-subscription-states) para que os visitantes possam optar por participar ou gerenciar suas inscrições ao enviar o formulário. Cada bloco é para um canal. Configure-o depois de adicionar grupos de inscrições ao bloco. Este bloco não lista grupos de inscrições de RCS.
 
 Para usuários identificados que abrem a página por meio da [Liquid tag]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) da landing page, o bloco preenche previamente cada caixa de seleção com o estado de inscrição atual do usuário, podendo também servir como uma página de gerenciamento de preferências.
 
@@ -537,14 +537,14 @@ Para o fluxo completo de configuração, consulte [Bloco Gerenciar inscrições]
 
 ### Texto longo
 
-Campo de texto multilinha para fluxos no estilo de pesquisa. Se você não vir este bloco, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) ou seu gerente de sucesso do cliente da Braze. Este bloco não está disponível para landing pages padrão.
+Campo de texto multilinha para fluxos no estilo de pesquisa. Se você não vir este bloco, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) ou seu CSM da Braze. Este bloco não está disponível para landing pages padrão.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 <!-- Saved row is not yet released. Uncomment when available.
 ### Saved row
 
-Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze customer success manager.
+Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze CSM.
 -->
 
 ## Informações importantes
@@ -631,14 +631,14 @@ Coleta um endereço de e-mail e o adiciona ao perfil do usuário na Braze ao env
 
 ### Texto longo
 
-Campo de texto multilinha para fluxos no estilo de pesquisa. Se você não vir este bloco, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) ou seu gerente de sucesso do cliente da Braze.
+Campo de texto multilinha para fluxos no estilo de pesquisa. Se você não vir este bloco, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) ou seu CSM da Braze.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 <!-- Saved row is not yet released. Uncomment when available.
 ### Saved row
 
-Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze customer success manager.
+Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze CSM.
 -->
 
 ## Informações importantes
@@ -648,7 +648,7 @@ Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved
 
 {% endsdktab %}
 
-{% sdktab preference center %}
+{% sdktab Central de Preferências %}
 ## Blocos do editor da Central de Preferências {#preference-center-editor-blocks}
 
 Arraste blocos da seção **Criar** para uma linha no editor de arrastar e soltar da Central de Preferências. Cada bloco tem suas próprias configurações; o painel lateral direito alterna para propriedades ou estilo do elemento selecionado.

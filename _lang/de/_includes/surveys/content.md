@@ -77,7 +77,7 @@ Sie können die folgenden Formularblöcke zu Umfragen hinzufügen:
 - Einzelnes Kontrollkästchen
 - Kontrollkästchengruppe
 - Bewertungsskala
-- NPS
+- Net Promoter Score
 
 ### Antwortmöglichkeiten randomisieren {#randomize-answer-choices}
 

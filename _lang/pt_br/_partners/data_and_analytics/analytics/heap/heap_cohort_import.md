@@ -43,13 +43,13 @@ Nessa página, você pode encontrar sua chave de importação de dados e um endp
 
 ### Etapa 2: Segmentar usuários importados na Braze {#step-2-segment-imported-users-in-braze}
 
-Na Braze, navegue até **Segments**, dê um nome ao seu segmento de coorte da Heap e selecione **Heap Cohorts** como filtro. Aqui você pode escolher qual coorte da Heap deseja incluir. Depois que seu segmento de coorte da Heap for criado, você poderá selecioná-lo como filtro de público ao criar uma Campaign ou Canvas.
+Na Braze, navegue até **Segments**, dê um nome ao seu Segment de coorte da Heap e selecione **Heap Cohorts** como filtro. Aqui você pode escolher qual coorte da Heap deseja incluir. Depois que seu Segment de coorte da Heap for criado, você poderá selecioná-lo como filtro de público ao criar uma Campaign ou Canvas.
 
 ![No criador de segmentos da Braze, o filtro de atributos do usuário "Heap cohort" está definido como "includes" e "Heap Test Cohort".]({% image_buster /assets/img/heap/heap1.png %}){: style="max-width:90%;"}
 
 ### Usando essa integração {#using-this-integration}
 
-Para usar seu segmento da Heap, crie uma Campaign ou Canvas na Braze e selecione o segmento como seu público-alvo.
+Para usar seu Segment da Heap, crie uma Campaign ou Canvas na Braze e selecione o Segment como seu público-alvo.
 
 ![No criador de Campaigns da Braze, na etapa de direcionamento, o filtro "Direcionar por segmento de usuários" está definido como "Heap cohort".]({% image_buster /assets/img/heap/heap3.png %}){: style="max-width:90%;"}
 

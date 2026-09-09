@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Antavo Loyalty Cloud
 
-> [Antavo](https://antavo.com/) es un proveedor de tecnología de fidelización SaaS de nivel empresarial que crea programas de fidelización integrales para fomentar la fidelidad a la marca y cambiar el comportamiento del cliente.
+> [Antavo](https://antavo.com/) es un proveedor de tecnología de fidelización software como servicio (SaaS) de nivel empresarial que crea programas de fidelización integrales para fomentar la fidelidad a la marca y cambiar el comportamiento del cliente.
 
 _Esta integración está mantenida por Antavo._
 

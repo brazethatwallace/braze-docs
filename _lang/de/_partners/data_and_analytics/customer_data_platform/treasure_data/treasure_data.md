@@ -66,7 +66,7 @@ Die Parameter der Exportergebnisse sind in der folgenden Tabelle aufgeführt:
 |---------------------------|---|---|
 | `mode`                    | User - New Alias<br>User - Identifying<br>User - Track<br>User - Delete | Konnektor-Modus |
 | `pre_formatted_fields`    | String | Verwenden Sie diese Option für Array- oder JSON-Spalten, um das Format beizubehalten. |
-| `track_record_type`       | Custom Events<br>Purchases<br>User Profile Attributes | Datensatztyp für den Modus **User - Track** |
+| `track_record_type`       | Custom Events<br>Purchases<br>Kundenprofil Attributes | Datensatztyp für den Modus **User - Track** |
 | `skip_on_invalid_records` | Boolescher Wert | Falls aktiviert, fahren Sie fort und ignorieren alle ungültigen Datensätze für die JSON-Spalte. <br> Andernfalls wird der Auftrag abgebrochen. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Anpassung" }
 

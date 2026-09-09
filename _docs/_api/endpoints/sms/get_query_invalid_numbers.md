@@ -13,7 +13,7 @@ description: "This article outlines details about Query invalid phone numbers Br
 /sms/invalid_phone_numbers
 {% endapimethod %}
 
-> Use this endpoint to pull a list of phone numbers that have been marked "invalid" within a certain time frame. See [Invalid Phone Number Handling]({{site.baseurl}}/user_guide/message_building_by_channel/sms/phone_numbers/user_phone_numbers#handling-invalid-phone-numbers) documentation for more information.
+> Use this endpoint to pull a list of phone numbers that have been marked "invalid" within a certain time frame. See [Handling invalid phone numbers]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#handling-invalid-phone-numbers) for more information.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#81ceae19-15d1-4ac1-ad22-a6b86a92456d {% endapiref %}
 
@@ -30,11 +30,11 @@ To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-
 | Parameter | Required | Data Type | Description |
 | ----------|-----------| ----------|----- |
 | `start_date` | Optional <br>(see note) | String in YYYY-MM-DD format| Start date of the range to retrieve invalid phone numbers, must be earlier than `end_date`. This is treated as midnight in UTC time by the API. |
-| `end_date` | Optional <br>(see note) | String in YYYY-MM-DD format | End date of the range to retrieve invalid phone numbers. This is treated as midnight in UTC time by the API. |
+| `end_date` | Optional <br>(see note) | String in YYYY-MM-DD format | End date of the range to retrieve invalid phone numbers. This is treated as midnight in UTC time by the API. Results include invalid numbers detected through the end of this calendar day in UTC (inclusive). |
 | `limit` | Optional | Integer | Optional field to limit the number of results returned. Defaults to 100, maximum is 500. |
 | `offset` | Optional | Integer | Optional beginning point in the list to retrieve from. |
-| `phone_numbers` | Optional <br>(see note) | Array of Strings in e.164 format | If provided, we will return the phone number if it has been found to be invalid. |
-| `reason` | Optional <br>(see note) | String | Available values are "provider_error" (provider error indicates phone cannot receive SMS) or "deactivated" (phone number has been deactivated). If omitted, all reasons are returned. |
+| `phone_numbers` | Optional <br>(see note) | Array of Strings in e.164 format | If provided, Braze returns the phone number if it has been found to be invalid. |
+| `reason` | Optional <br>(see note) | String | Available values are `provider_error` (the provider indicates the phone cannot receive SMS), `deactivated` (the phone number has been deactivated), or `invalid_format` (the number failed formatting validation, such as a non-E.164 value). If omitted, all reasons are returned. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 {% alert note %}
@@ -68,7 +68,7 @@ Entries are listed in descending order.
     {
       "phone": (string) phone number in e.164 format,
       "invalid_detected_at": (string) the time the invalid number was detected in ISO 8601
-      "reason" : "provider_error"
+      "reason" : "invalid_format"
     }
   ],
   "message": "success"

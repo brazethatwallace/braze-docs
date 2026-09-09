@@ -18,31 +18,31 @@ search_rank: 1
 
 ## 前提条件 {#prerequisites}
 
-始める前に、以下の要件を満たしていることを確認してください。
+始める前に、以下を準備してください。
 
 | 要件 | 説明 |
 | --- | --- |
 | キャンペーンまたはキャンバス | WhatsAppメッセージを作成する前に、[キャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns)または[キャンバス]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)を設定してください。 |
 | WhatsAppチャネルの設定 | [WhatsApp設定フロー]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup)を完了してください。ポリシーの確認、接続の設定、送信インフラの構成が含まれます。 |
-| 承認済みテンプレート | ビジネス主導の送信には、Metaでテンプレートを作成し、承認を受けてください。詳細については、[WhatsApp設定のステップ3]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup#step-3-create-whatsapp-templates)を参照してください。 |
+| 承認済みテンプレート | ビジネス主導の送信には、Metaでテンプレートを作成し、承認を受けてください。詳しくは[WhatsApp設定のステップ3]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup#step-3-create-whatsapp-templates)を参照してください。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="WhatsAppメッセージの前提条件" }
 
 ## メッセージタイプ {#message-type}
 
 WhatsAppはBrazeで2種類のメッセージタイプをサポートしています。
 
-- **テンプレートメッセージ：**ビジネス主導の会話に使用します。テンプレートは送信前にMetaで承認を受ける必要があります。
-- **応答メッセージ：**アクティブな24時間の会話時間枠内で、ユーザーからの受信メッセージに返信するために使用します。
+- **テンプレートメッセージ：** ビジネス主導の会話に使用します。テンプレートは送信前にMetaで承認を受ける必要があります。
+- **応答メッセージ：** アクティブな24時間の会話時間枠内で、ユーザーからの受信メッセージに返信するために使用します。
 
 ## 購読グループ {#subscription-group}
 
-各メッセージバリアントまたはキャンバスのメッセージステップに対して、WhatsApp購読グループを選択します。購読グループは、どの送信者設定が使用されるか、またどのユーザーがメッセージを受信する資格があるかを決定します。
+WhatsAppメッセージのバリアントまたはキャンバスのメッセージステップごとにWhatsApp購読グループを選択します。購読グループによって、使用する送信者設定と、メッセージの受信対象となるユーザーが決まります。
 
 ## テンプレートメッセージの言語 {#languages-for-template-messages}
 
-承認済みの各テンプレートは特定の言語に紐づけられています。複数のテンプレート言語をサポートする必要がある場合は、バリアントまたはキャンバスのステップを個別に設定してください。
+承認済みの各テンプレートは特定の言語に紐付けられています。複数のテンプレート言語をサポートする必要がある場合は、個別のバリアントまたはキャンバスステップを設定してください。
 
-右から左に書く言語でコピーを追加する場合は、[右から左へのメッセージの作成]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages)を参照してください。
+右から左に読む言語でコピーを追加する場合は、[右から左に読むメッセージの作成]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages)を参照してください。
 
 ## メッセージの作成 {#step-2-compose-your-whatsapp-message}
 
@@ -200,7 +200,17 @@ Brazeを通じて送信するWhatsAppメッセージでは、以下のコール�
 
 WhatsAppメッセージの作成後、送信の構築と検証を続けます。
 
-- [キャンペーンをスケジュールする]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign)か、[キャンバス]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)の設定を続ける
-- [ユーザーをターゲットにする]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users)、[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)を設定する
-- [テストメッセージを送信する]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=whatsapp)
-- [WhatsAppレポート]({{site.baseurl}}/user_guide/channels/whatsapp/reporting)を確認する
+{% article_tiles %}
+- name: キャンバスを作成する
+  link: /docs/user_guide/messaging/canvas/create_a_canvas
+- name: キャンペーンをスケジュールする
+  link: /docs/user_guide/messaging/campaigns/schedule_your_campaign
+- name: ユーザーをターゲットにする
+  link: /docs/user_guide/messaging/messaging_fundamentals/target_users
+- name: コンバージョンイベント
+  link: /docs/user_guide/messaging/messaging_fundamentals/conversion_events
+- name: テストメッセージを送信する
+  link: /docs/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=whatsapp
+- name: WhatsAppレポート
+  link: /docs/user_guide/channels/whatsapp/reporting
+{% endarticle_tiles %}

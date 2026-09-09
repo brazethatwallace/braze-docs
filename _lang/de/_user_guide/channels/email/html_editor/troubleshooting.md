@@ -16,11 +16,11 @@ Ordnen Sie Ihr Symptom in der folgenden Tabelle zu, um zum entsprechenden Abschn
 
 | Symptom | Gehe zu |
 | --- | --- |
-| Test-E-Mail-HTML sieht falsch aus | [HTML wird in Test-E-Mails nicht korrekt dargestellt](#html-renders-incorrectly-in-test-emails) |
-| Editor verhält sich in Chrome ungewöhnlich | [Erweiterungskonflikte](#extension-conflicts) |
+| HTML der Test-E-Mail sieht falsch aus | [HTML wird in Test-E-Mails nicht korrekt dargestellt](#html-renders-incorrectly-in-test-emails) |
+| Editor verhält sich in Chrome unerwartet | [Erweiterungskonflikte](#extension-conflicts) |
 | E-Mail sieht in verschiedenen Clients unterschiedlich aus | [E-Mail-Rendering](#email-rendering) |
 | E-Mail zeigt Liquid-Code oder fehlerhafte Links an | [Unausgeglichenes HTML in Liquid-Templates](#unbalanced-html-in-liquid-templates) |
-| Inbox-Vision-Vorschau stimmt nicht mit gesendeter E-Mail überein | [CSS-Inlining](#css-inlining) |
+| Inbox Vision-Vorschau stimmt nicht mit gesendeter E-Mail überein | [CSS-Inlining](#css-inlining) |
 | Leerraum oder Linien nach Bildern in Test-E-Mails | [Leerraum unter Bildern](#white-space-under-images) |
 | Klick-Analytics enthalten keine Abfrageparameter | [Einschränkungen bei Link-Klick-Analytics](#link-click-analytics-limitations) |
 | Hochgestellte Zeichen verursachen inkonsistenten Zeilenabstand | [Probleme mit der Zeilenhöhe bei hochgestellten Zeichen](#superscript-line-height-issues) |
@@ -31,16 +31,16 @@ Ordnen Sie Ihr Symptom in der folgenden Tabelle zu, um zum entsprechenden Abschn
 Verwenden Sie diesen Workflow, wenn das Rendering von HTML-E-Mails oder das Verhalten des Editors nicht Ihren Erwartungen entspricht. Beginnen Sie bei Schritt 1.
 
 1. Validieren Sie Ihr HTML-Markup im Editor oder einem externen Validator.
-2. Senden Sie eine [Test-E-Mail]({{site.baseurl}}/developer_guide/platform_wide/sending_test_messages#sending-a-test-push-notification-or-in-app-messages-a-classmargin-fix-namepush-inapp-testa) und notieren Sie, welche E-Mail-Clients oder Browser das Problem anzeigen.
-3. Verwenden Sie die Vorschau mit [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision), um das Rendering über verschiedene Clients hinweg zu vergleichen.
-4. Schließen Sie [Konflikte mit Browsererweiterungen](#extension-conflicts) aus, wenn sich der Editor selbst fehlerhaft verhält.
-5. Wenn das Problem weiterhin besteht, eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support) mit Screenshots aus Inbox Vision und den betroffenen Clients.
+2. Senden Sie eine [Test-E-Mail]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages) und notieren Sie, bei welchen E-Mail-Clients oder Browsern das Problem auftritt.
+3. Nutzen Sie die Vorschau mit [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision), um das Rendering über verschiedene Clients hinweg zu vergleichen.
+4. Schließen Sie [Konflikte mit Browser-Erweiterungen](#extension-conflicts) aus, wenn sich der Editor selbst unerwünscht verhält.
+5. Wenn das Problem weiterhin besteht, erstellen Sie ein [Support-Ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support) mit Screenshots aus Inbox Vision und den betroffenen Clients.
 
 ## HTML wird in Test-E-Mails nicht korrekt dargestellt {#html-renders-incorrectly-in-test-emails}
 
 ### Symptom {#symptom}
 
-Eine [Test-E-Mail]({{site.baseurl}}/developer_guide/platform_wide/sending_test_messages#sending-a-test-push-notification-or-in-app-messages-a-classmargin-fix-namepush-inapp-testa) entspricht nicht dem, was Sie im Editor erwarten.
+Eine [Test-E-Mail]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages) entspricht nicht dem, was Sie im Editor erwarten.
 
 Überprüfen Sie zunächst Ihr HTML-Setup und sehen Sie sich dann [Erweiterungskonflikte](#extension-conflicts), [E-Mail-Rendering](#email-rendering), [CSS-Inlining](#css-inlining) und [Weißer Raum unter Bildern](#white-space-under-images) an.
 
@@ -49,7 +49,7 @@ Eine [Test-E-Mail]({{site.baseurl}}/developer_guide/platform_wide/sending_test_m
 Bestimmte Browser-Erweiterungen können Probleme mit dem E-Mail-Editor verursachen. Ein Beispiel ist [Grammarly](https://chrome.google.com/webstore/detail/grammarly-for-chrome/kbfnbcaeplbcioakkpcpgfkobkghlhen?hl=en) in Verbindung mit Google Chrome. Wenn Sie eine dieser Erweiterungen verwenden, sollten Sie entweder:
 
 - Braze-E-Mails in einem Browser bearbeiten, in dem Grammarly nicht als Browser-Erweiterung installiert ist
-- Ihren Braze Account Manager kontaktieren und darum bitten, Ihre E-Mail-Editoren auf reines HTML oder Nur-Text umzustellen.
+- Ihren Braze Account Manager:in kontaktieren und darum bitten, Ihre E-Mail-Editoren auf reines HTML oder Nur-Text umzustellen.
 
 Die Nur-Text-Ansicht entfernt Ihren `WYSIWYG`-Editor (What You See Is What You Get), daher sollten Sie zunächst sicherstellen, dass alle Teammitglieder mit HTML vertraut sind, bevor Sie diese Änderung anfordern.
 
@@ -163,7 +163,7 @@ Dieses Verhalten verhindert, dass Analytics durch Tausende eindeutiger Abfragepa
 
 Wenn Sie auf eindeutige Abfrageparameter angewiesen sind, um nutzerspezifisches Verhalten in externen Plattformen zu verfolgen (zum Beispiel `https://example.com?user_id=USER_ID`), beachten Sie, dass die Klick-Analytics von Braze diese Parameter nur für die ersten 100 angeklickten eindeutigen Links beibehalten. Nach diesem Schwellenwert werden Klicks weiterhin in Ihren Analytics erfasst, aber der deparametrisierten URL zugeordnet.
 
-Klickdaten auf Nutzer:innenebene bleiben über [Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents) oder das [Nachrichtenaktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) verfügbar, unabhängig davon, wie viele eindeutige parametrisierte Links angeklickt werden.
+Klickdaten auf Nutzer:innenebene bleiben über [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) oder das [Nachrichtenaktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) verfügbar, unabhängig davon, wie viele eindeutige parametrisierte Links angeklickt werden.
 
 ### Probleme mit der Zeilenhöhe bei hochgestelltem Text {#superscript-line-height-issues}
 

@@ -3,13 +3,13 @@ nav_title: Correspondência de critérios de saída com eventos de entrada
 article_title: Correspondência de critérios de saída com eventos de entrada
 page_order: 5
 page_type: tutorial
-description: "Saiba como configurar critérios de saída e jornadas de ação que comparam propriedades de eventos com propriedades de entrada do Canvas, para que os usuários só saiam ou sigam uma ramificação quando concluírem a ação específica com a qual entraram."
+description: "Saiba como configurar critérios de saída e jornadas de ação que comparam propriedades de eventos com propriedades de entrada do Canvas, para que os usuários só saiam ou sigam uma Branch quando concluírem a ação específica com a qual entraram."
 tool: Canvas
 ---
 
 # Correspondência de critérios de saída com eventos de entrada {#matching-exit-criteria-to-entry-events}
 
-> Este artigo explica como configurar critérios de saída e jornadas de ação que se correlacionam diretamente com o evento de entrada do Canvas, para que os usuários só saiam ou sigam uma ramificação quando realizarem uma ação específica relacionada ao motivo pelo qual entraram no Canvas.
+> Este artigo explica como configurar critérios de saída e jornadas de ação que se correlacionam diretamente com o evento de entrada do Canvas, para que os usuários só saiam ou sigam uma Branch quando realizarem uma ação específica relacionada ao motivo pelo qual entraram no Canvas.
 
 Ao comparar propriedades de eventos com [propriedades de entrada do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties), você pode criar fluxos altamente direcionados. Por exemplo, em um Canvas de checkout abandonado, você pode configurar um usuário para sair somente quando ele comprar o item exato que abandonou, enquanto continua recebendo mensagens de lembrete se comprar um item diferente.
 
@@ -37,7 +37,7 @@ Para configurar isso:
 
 Isso compara o `event_id` do evento `Purchased Ticket` com o `event_id` armazenado do evento de entrada original do Canvas. Para mais detalhes sobre como configurar esses filtros, consulte [Exemplos de critérios de saída]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables#exit-criteria-examples).
 
-## Jornadas de ação: ramificação com base em uma ação correspondente {#action-paths-branching-based-on-a-matching-action}
+## Jornadas de ação: Branch com base em uma ação correspondente {#action-paths-branching-based-on-a-matching-action}
 
 Use [Jornadas de ação]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) quando quiser que um usuário permaneça no Canvas, mas siga uma jornada diferente dependendo de a ação subsequente corresponder ou não ao evento de entrada.
 

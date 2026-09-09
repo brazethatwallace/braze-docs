@@ -37,6 +37,22 @@ An [anonymous user]({{site.baseurl}}/user_guide/data/unification/user_data/user_
 - You can still track events, attributes, and message engagement  
 - These users can receive messages, depending on channel and opt-in status
 
+#### Anonymous users and consent
+
+If you need to wrap the Braze SDK in a consent wrapper to comply with your consent policies, you can collect anonymous data before users grant consent. When the SDK initializes, an anonymous user profile is created, allowing you to track behavior while respecting consent requirements.
+
+**Messaging anonymous users:**
+Anonymous users can trigger and receive messages as long as the Braze SDK remains initialized. This includes:
+
+- [In-app messages]({{site.baseurl}}/user_guide/channels/in_app_messages)
+- [Push notifications]({{site.baseurl}}/user_guide/channels/push) (if push tokens are registered)
+- [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards)
+
+However, if you disable or prevent SDK initialization when a user doesn't give consent or withdraws consent, SDK-triggered channels don't work for that user.
+
+**Targeting users based on consent status:**
+To message users based on their consent status, set a custom user attribute (such as `has_marketing_consent`) on their profile. You can then create segments based on this attribute and keep this value synchronized if users change their consent preferences outside of Braze. For more on targeting anonymous users, see [Use cases]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users#use-cases).
+
 ### Identified users
 
 An [identified user]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#identified-user-profiles) is one that has been associated with an `external_id` you provide (for example, a customer ID or account ID).

@@ -44,31 +44,31 @@ Event-Nutzerprotokolle bleiben nach der Protokollierung 30 Tage lang im Dashboar
 
 ### Fehlende SDK-Protokolle für Testnutzer:innen {#missing-sdk-logs-for-test-users}
 
-Wenn Sie eine:n Nutzer:in zu einer internen Gruppe hinzugefügt haben, aber keine SDK-Protokolle im Event-Nutzerprotokoll angezeigt werden, kann dies an einer fehlenden Konfigurationsoption liegen. Um SDK-Protokolle zu erfassen, stellen Sie sicher, dass Sie **Nutzerereignisse für Gruppenmitglieder aufzeichnen** in den **Einstellungen der internen Gruppe** für diese [interne Gruppe]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups) auswählen.
+Wenn Sie eine:n Nutzer:in zu einer internen Gruppe hinzugefügt haben, aber im Event-Nutzerprotokoll keine SDK-Protokolle angezeigt werden, kann dies an einer fehlenden Konfigurationsoption liegen. Um SDK-Protokolle zu erfassen, wählen Sie in den **Einstellungen für interne Gruppen** der jeweiligen [internen Gruppe]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups) die Option **Nutzerereignisse für Gruppenmitglieder aufzeichnen** aus.
 
 ### Verzögerung bei Protokollaktualisierungen {#delay-in-logs-updates}
 
 Diese Verzögerung wird in der Regel durch die normale API-Verarbeitungslast verursacht.
 
-Wenn Sie SDK-Methoden aufrufen, speichert das SDK diese Ereignisse in der Regel lokal zwischen und sendet sie alle 10 Sekunden an den Server. Es kann zwischen einer Sekunde und einigen Minuten dauern, bis unsere Verarbeitungswarteschlange Ereignisse aufnimmt, abhängig von der Gesamtlast zu diesem Zeitpunkt.
+Wenn Sie SDK-Methoden aufrufen, speichert das SDK diese Ereignisse im Allgemeinen lokal zwischen und überträgt sie alle 10 Sekunden an den Server. Je nach Gesamtlast zum jeweiligen Zeitpunkt kann es zwischen einer Sekunde und einigen Minuten dauern, bis unsere Verarbeitungswarteschlange die Ereignisse aufnimmt.
 
 Wenn Sie möchten, dass Ereignisse so schnell wie möglich eintreffen, rufen Sie die Funktion `requestImmediateDataFlush()` auf.
 
-### Fehlgeschlagene Impressions bei In-App-Nachrichten {#in-app-message-impression-failures}
+### Fehlgeschlagene Impressions von In-App-Nachrichten {#in-app-message-impression-failures}
 
-Wenn eine In-App-Nachricht nicht angezeigt wird, können Sie den Grund im Event-Nutzerprotokoll finden, indem Sie die Roh-JSON-Daten für die entsprechende SDK-Anfrage aufklappen und im Response nach dem Feld `error_code` suchen. Der `error_code` identifiziert den spezifischen Grund für das Fehlschlagen der Impression (zum Beispiel ein ungültiger Farbwert oder ein Rendering-Problem). Teilen Sie diesen Fehlercode dem [Braze-Support]({{site.baseurl}}/braze_support) mit, wenn eine weitere Untersuchung erforderlich ist.
+Wenn eine In-App-Nachricht nicht angezeigt wird, können Sie den Grund im Event-Nutzerprotokoll finden, indem Sie die JSON-Rohdaten der entsprechenden SDK-Anfrage aufklappen und im Antwortfeld nach dem Feld `error_code` suchen. Der `error_code` gibt den spezifischen Grund an, warum die Impression fehlgeschlagen ist (zum Beispiel ein ungültiger Farbwert oder ein Rendering-Problem). Teilen Sie diesen Fehlercode dem [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) mit, wenn eine weitere Untersuchung erforderlich ist.
 
-### Sitzungsende und Sitzungsstart haben ähnliche Zeitstempel (iOS) {#session-end-and-session-start-have-similar-timestamps-ios}
+### Session-Ende und Session-Start haben ähnliche Zeitstempel (iOS) {#session-end-and-session-start-have-similar-timestamps-ios}
 
-Das Event-Nutzerprotokoll zeigt den Zeitstempel an, zu dem Braze über das Sitzungsende benachrichtigt wurde – das ist Millisekunden vor dem Start der nächsten Sitzung. Braze kann nicht wissen, dass die Sitzung beendet wurde, bevor die App erneut geöffnet wird, da iOS die Ausführung von Threads aggressiv stoppt, wenn die App im Hintergrund läuft – sodass keine Daten an Braze gesendet werden können, bis die App wieder geöffnet wird.
+Das Event-Nutzerprotokoll zeigt den Zeitstempel an, zu dem Braze über das Session-Ende benachrichtigt wurde – das ist Millisekunden vor dem Start der nächsten Session. Braze kann nicht wissen, dass die Session beendet wurde, bevor die App erneut geöffnet wird, da iOS die Ausführung von Threads aggressiv stoppt, wenn sich die App im Hintergrund befindet – sodass keine Daten an Braze übertragen werden können, bis die App wieder geöffnet wird.
 
-Obwohl die Sitzungsendzeit als Sekunden vor dem Sitzungsstart angegeben wird, wird die Sitzungsdauer beim Senden des Ereignisses separat übermittelt und ist korrekt – sie spiegelt die Zeit wider, in der die App geöffnet war. Daher hat dieses Verhalten keinen Einfluss auf den Filter `Median Session Duration`.
+Obwohl die Session-Endzeit als Sekunden vor dem Session-Start angegeben wird, wird die Session-Dauer beim Übertragen des Ereignisses separat übermittelt und ist korrekt – sie spiegelt die Zeit wider, in der die App geöffnet war. Daher hat dieses Verhalten keinen Einfluss auf den Filter `Median Session Duration`.
 
-In Bezug auf Nutzersitzungen können Sie Braze verwenden, um Daten wie die folgenden zu überwachen:
+In Bezug auf Nutzer:innen-Sessions können Sie Braze verwenden, um Daten wie die folgenden zu überwachen:
 
-- Wie viele Sitzungen ein:e Nutzer:in hatte
-- Wann ein:e Nutzer:in zuletzt eine Sitzung gestartet hat
-- Ob ein:e Nutzer:in nach dem Erhalt einer Campaign eine Sitzung startet
-- Wie hoch die mediane Sitzungsdauer der/des Nutzer:in ist
+- Wie viele Sessions eine:r Nutzer:in hatte
+- Wann eine:r Nutzer:in zuletzt eine Session gestartet hat
+- Ob die:der Nutzer:in eine Session startet, nachdem sie:er eine Campaign erhalten hat
+- Wie lang die mittlere Session-Dauer der:des Nutzer:in ist
 
-Diese Verhaltensweisen werden nicht dadurch beeinflusst, dass das Sitzungsende-Ereignis in der nächsten Sitzung gesendet wird.
+Diese Verhaltensweisen werden nicht davon beeinflusst, dass das Session-Ende-Ereignis bei der nächsten Session übertragen wird.

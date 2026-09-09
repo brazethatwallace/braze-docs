@@ -88,7 +88,7 @@ Itera sobre el arreglo analizado y renderiza los campos como lo harías con una 
 ```
 {% endraw %}
 
-Ve a la sección **Preview** en el creador de mensajes y confirma que los campos se renderizan.
+Ve a la sección **vista previa** en el creador de mensajes y confirma que los campos se renderizan.
 
 ### Paso 4: Aplica el mismo patrón a otras estructuras JSON {#step-4-apply-the-same-pattern-to-other-json-shapes}
 

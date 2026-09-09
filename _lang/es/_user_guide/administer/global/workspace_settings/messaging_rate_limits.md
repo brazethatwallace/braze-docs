@@ -70,7 +70,7 @@ El límite de velocidad se aplica al despacho, es decir, al inicio del intento d
 
 Cuando una Campaign o un Canvas tiene su propio límite de velocidad establecido y también se aplica un límite de velocidad a nivel de espacio de trabajo, ambos se aplican. Por ejemplo, si una Campaign tiene un límite de velocidad de 500 000 pero, debido a los límites de velocidad del espacio de trabajo, solo puede enviar 100 000 mensajes por minuto en ese momento, entonces el límite de velocidad del espacio de trabajo tiene efecto.
 
-Braze intenta distribuir uniformemente los despachos de mensajes a lo largo del minuto, pero no puede garantizarlo. Por ejemplo, si tienes una Campaign con un límite de velocidad de 500 000 mensajes por minuto, intentaremos distribuir los 500 000 mensajes de manera uniforme durante el minuto (aproximadamente 8400 mensajes por segundo), pero puede haber cierta variación en la tasa por segundo.
+Braze intenta distribuir uniformemente los despachos de mensajes a lo largo del minuto, pero no puede garantizarlo. Por ejemplo, si tienes una Campaign con un límite de velocidad de 500 000 mensajes por minuto, intentaremos distribuir los 500 000 mensajes de manera uniforme durante el minuto (aproximadamente 8400 MPS), pero puede haber cierta variación en la tasa por segundo.
 
 Ten en cuenta que aún puedes establecer límites de velocidad individuales en tus Campaigns y Canvas. Estos se aplican de forma independiente de los límites de velocidad de mensajería del espacio de trabajo.
 

@@ -65,24 +65,24 @@ Les Content Cards peuvent être supprimées lorsque les utilisateurs effectuent 
 
 ## Rapports et analyses {#reporting-and-analytics}
 
-Après le lancement d'une étape Content Cards dans Canvas, vous pouvez commencer à analyser plusieurs indicateurs pour cette étape. Ces indicateurs incluent le nombre de messages envoyés, les impressions quotidiennes uniques, les taux de conversion, le chiffre d'affaires total, et bien plus encore.
+Après avoir lancé une étape Content Cards dans Canvas, vous pouvez commencer à analyser plusieurs indicateurs différents pour cette étape. Ces indicateurs incluent le nombre de messages envoyés, les impressions quotidiennes uniques, les taux de conversion, le chiffre d'affaires total, et plus encore.
 
-![Analyses d'une étape Message avec les performances des messages Content Card.]({% image_buster /assets/img_archive/content-cards-in-canvas-analytics.png %})
+![Analyses d'une étape Message avec les performances du message Content Card.]({% image_buster /assets/img_archive/content-cards-in-canvas-analytics.png %})
 
 Pour plus d'informations sur les indicateurs disponibles et leurs définitions, consultez notre [Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
-## Cas d'utilisation {#use-cases}
+## Cas d'usage {#use-cases}
 
 ### Offres promotionnelles {#promotional-offers}
 
-Ajoutez des cartes au flux d'un utilisateur lorsqu'il devient éligible à des promotions et publicités spécifiques. Par exemple, si un utilisateur devient éligible à une nouvelle offre après avoir effectué une action ou un achat, Canvas vous permet de lui envoyer une Content Card, en complément d'autres canaux de communication, afin que l'offre soit disponible lors de sa prochaine ouverture de l'application.
+Ajoutez des cards au flux d'un utilisateur lorsqu'il remplit les conditions pour des promotions et publicités spécifiques. Par exemple, si un utilisateur devient éligible à une nouvelle offre après avoir effectué une action ou un achat, vous pouvez utiliser Canvas pour lui envoyer une Content Card, en complément d'autres canaux de communication, afin que l'offre soit disponible lors de sa prochaine ouverture de l'application.
 
 ### Boîte de réception des notifications push {#push-notification-inbox}
 
-Il arrive qu'un utilisateur ignore une notification push ou supprime un e-mail, mais vous souhaitez lui rappeler l'offre ou la promouvoir au cas où il changerait d'avis.
+Il arrive qu'un utilisateur ignore une notification push ou supprime un e-mail, mais vous souhaitez lui rappeler ou promouvoir l'offre au cas où il changerait d'avis.
 
-Avec Canvas, vous pouvez ajouter un composant qui envoie à la fois une Content Card et une notification push, offrant ainsi aux utilisateurs une « boîte de réception » persistante de cartes correspondant aux messages promotionnels envoyés par notification push.
+En utilisant Canvas, vous pouvez ajouter un composant qui envoie à la fois une Content Card et une notification push pour offrir aux utilisateurs une « boîte de réception » persistante de cards correspondant aux messages promotionnels envoyés par notification push.
 
 ### Flux multiples basés sur des catégories {#multiple-feeds-based-on-categories}
 
-Vous pouvez séparer vos Content Cards en plusieurs flux basés sur des catégories, comme différents sujets que les utilisateurs peuvent parcourir, ou des flux transactionnels et marketing. Pour plus d'informations sur la création de flux multiples à l'aide de paires clé-valeur, consultez notre guide sur la [personnalisation des flux de Content Cards]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed#multiple-feeds).
+Vous pouvez séparer vos Content Cards en plusieurs flux basés sur des catégories, comme différents sujets que les utilisateurs peuvent parcourir, ou des flux transactionnels et marketing. Pour en savoir plus sur la création de flux multiples à l'aide de paires clé-valeur, consultez notre guide sur la [personnalisation des flux de Content Cards]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed#implementing-multiple-feeds).

@@ -4,12 +4,22 @@ nav_title: Inicio
 article_title: Partners tecnológicos
 alias: /partners/partners/
 search_tag: Partner
-description: "Explora los partners tecnológicos de Braze (Alloys) en orden alfabético. Encuentra documentación de integración para personalización, orquestación, datos, eCommerce, Audience Sync y más."
+description: "Explora los partners tecnológicos de Braze Alloys y la documentación de integración para personalización, datos, eCommerce y Audience Sync."
 ---
 
 # Partners tecnológicos {#technology-partners}
 
-Te damos la bienvenida a la documentación de Braze Alloys, nuestros partners tecnológicos. Explora los partners en orden alfabético.
+> Los partners tecnológicos de Braze Alloys amplían Braze con herramientas de personalización, infraestructura de datos, atribución, eCommerce, sincronización de audiencias y flujos de trabajo. Este centro de documentación enumera los partners en orden alfabético y enlaza a las guías de integración de cada conexión. Usa estos artículos para revisar los requisitos previos, los pasos de configuración y las características de Braze compatibles antes de habilitar un partner en tu espacio de trabajo. Busca en la lista alfabética de partners o salta a una letra para encontrar una integración específica, y luego abre el artículo de ese partner para ver los detalles de configuración. Para categorías de partners y ejemplos, consulta las secciones a continuación.
+
+## Preguntas frecuentes {#frequently-asked-questions}
+
+### ¿Cómo encuentro una integración de un partner tecnológico de Braze? {#how-do-i-find-a-braze-technology-partner-integration}
+
+Explora la lista alfabética en esta página o salta a una letra del encabezado para localizar un partner por nombre. Cada entrada enlaza con el artículo de integración de Braze de ese partner.
+
+### ¿Qué es Braze Alloys? {#what-is-braze-alloys}
+
+Braze Alloys es el programa de partners tecnológicos de Braze. Los partners amplían la plataforma Braze con capacidades complementarias de datos, contenido, atribución y orquestación documentadas en este hub.
 
 <div class="partners-az-list" markdown="1">
 
@@ -100,7 +110,7 @@ Te damos la bienvenida a la documentación de Braze Alloys, nuestros partners te
 ## E
 
 - [Eagle Eye]({{site.baseurl}}/partners/data_and_analytics/loyalty/eagleeye)
-- [eduMe]({{site.baseurl}}/partners/additional_channels_and_extensions/extensions/learning/edume)
+- [EduMe]({{site.baseurl}}/partners/additional_channels_and_extensions/extensions/learning/edume)
 - [Email Love]({{site.baseurl}}/partners/message_orchestration/templates/email_love)
 - [EmailShepherd]({{site.baseurl}}/partners/message_orchestration/templates/emailshepherd)
 - [Eppo]({{site.baseurl}}/partners/data_and_analytics/ab_testing/eppo)
@@ -135,6 +145,7 @@ Te damos la bienvenida a la documentación de Braze Alloys, nuestros partners te
 - [Google Gemini]({{site.baseurl}}/partners/ai_model_providers/google_gemini)
 - [GRAVTY®]({{site.baseurl}}/partners/data_and_analytics/loyalty/lji)
 - [GrowthLoop]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/growthloop)
+- [GrowSurf]({{site.baseurl}}/partners/message_personalization/referrals/growsurf)
 
 </div>
 
@@ -168,7 +179,6 @@ Te damos la bienvenida a la documentación de Braze Alloys, nuestros partners te
 - [Jasper]({{site.baseurl}}/partners/message_orchestration/templates/jasper)
 - [Jebbit]({{site.baseurl}}/partners/additional_channels_and_extensions/extensions/surveys/jebbit)
 - [Judo]({{site.baseurl}}/partners/message_personalization/dynamic_content/visual_and_interactive_content/judo)
-- [JustAI]({{site.baseurl}}/partners/message_personalization/dynamic_content/content_optimization_testing/just_ai)
 - [Justuno]({{site.baseurl}}/partners/data_and_analytics/leads_capture/justuno)
 
 </div>
@@ -338,7 +348,7 @@ Te damos la bienvenida a la documentación de Braze Alloys, nuestros partners te
 - [Talon.One]({{site.baseurl}}/partners/data_and_analytics/loyalty/talonone)
 - [Tangerine]({{site.baseurl}}/partners/ecommerce/analytics_workflow/tangerine)
 - [Tapcart]({{site.baseurl}}/partners/ecommerce/tapcart)
-- [Taxi for Email]({{site.baseurl}}/partners/message_orchestration/templates/taxi_for_email)
+- [Taxi for Email for Email]({{site.baseurl}}/partners/message_orchestration/templates/taxi_for_email)
 - [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium)
 - [Tellius]({{site.baseurl}}/partners/data_and_analytics/business_intelligence/tellius)
 - [The Trade Desk Audience Sync]({{site.baseurl}}/partners/canvas_audience_sync/trade_desk_audience_sync)
@@ -401,12 +411,12 @@ Para obtener una lista completa, con búsqueda y filtros, de todos los partners 
 
 ## Solución de problemas de conexiones con partners {#troubleshooting-partner-connections}
 
-Si la integración requiere configuración del lado de Braze, inicia sesión en tu panel de Braze y ve a **Integraciones de partners** > **Partners tecnológicos**.
+Si la integración requiere configuración del lado de Braze, inicia sesión en tu panel de Braze y navega a **Integraciones de partners** > **Partners tecnológicos**.
 
 {% alert note %}
-Es posible que las integraciones totalmente gestionadas por el partner no aparezcan aquí. Consulta la documentación específica del partner para verificar la propiedad de la integración y los pasos de configuración.
+Es posible que las integraciones totalmente gestionadas por el partner no aparezcan aquí. Consulta la documentación específica del partner para verificar la titularidad de la integración y los pasos de configuración.
 {% endalert %}
 
-Si ves **Credenciales no válidas** para un partner en Braze, pero la integración parece correcta en el panel de ese partner, desconecta y vuelve a conectar la integración en la página de Partners tecnológicos y confirma las claves de API, los tokens de OAuth y los permisos del lado del partner.
+Si ves **Credenciales no válidas** para un partner en Braze, pero la integración parece correcta en el panel de ese partner, desconecta y vuelve a conectar la integración en la página de Partners tecnológicos y confirma las claves de API, los tokens de OAuth y los permisos en el lado del partner.
 
-Algunos paneles externos (por ejemplo, herramientas de capacidad de entrega o monitoreo de buzón de entrada) pueden mostrar un estado de conexión o verificación diferente al de la página de Partners tecnológicos de Braze. Usa el mosaico del partner en Braze para consultar el estado de conexión en el que Braze se basa para la sincronización y el envío.
+Algunos paneles externos (por ejemplo, herramientas de capacidad de entrega o monitoreo de buzón de entrada) pueden mostrar un estado de conexión o verificación diferente al de la página de Partners tecnológicos de Braze. Usa el mosaico del partner en Braze para conocer el estado de conexión en el que Braze se basa para la sincronización y el envío.

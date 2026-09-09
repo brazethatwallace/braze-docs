@@ -45,7 +45,7 @@ Custom-Scheme-Deeplinks (zum Beispiel `myapp://products/123`) öffnen Ihre App d
 Universal Links (zum Beispiel `https://myapp.com/products/123`) sind Standard-HTTPS-URLs, die iOS an Ihre App weiterleiten kann, anstatt sie in einem Browser zu öffnen. Sie erfordern eine serverseitige Konfiguration (eine AASA-Datei) und ein App-seitiges Setup (Associated-Domains-Entitlement).
 
 **Verwenden Sie Universal Links, wenn:**
-- Sie E-Mails senden. Ihr ESP wrappt Links für das Klick-Tracking, daher müssen Links HTTPS sein.
+- Sie E-Mails senden. Ihr E-Mail-Anbieter wrappt Links für das Klick-Tracking, daher müssen Links HTTPS sein.
 - Sie SMS oder andere Kanäle nutzen, bei denen Links gewrappt oder gekürzt werden.
 - Der Link auf eine Webseite zurückfallen soll, wenn die App nicht installiert ist.
 - Sie einen Drittanbieter für Linking wie Branch oder Appsflyer verwenden.
@@ -89,7 +89,7 @@ Diese Option öffnet eine Webseite in einem modalen WebView innerhalb Ihrer App.
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Universal Links" }
 
 {% alert important %}
-Wenn Sie E-Mails über Braze versenden, umschließt Ihr ESP (SendGrid, SparkPost oder Amazon SES) Links mit einer Klick-Tracking-Domain. Sie müssen die AASA-Datei auch auf Ihrer Klick-Tracking-Domain hosten, nicht nur auf Ihrer primären Domain. Die vollständige Einrichtung finden Sie unter [Universal Links und App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links). Falls jeder E-Mail-Link die App öffnet, lesen Sie [Jeder E-Mail-Link öffnet die App]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting#every-email-link-opens-the-app).
+Wenn Sie E-Mails über Braze versenden, umschließt Ihr E-Mail-Anbieter (SendGrid, SparkPost oder Amazon SES) Links mit einer Klick-Tracking-Domain. Sie müssen die AASA-Datei auch auf Ihrer Klick-Tracking-Domain hosten, nicht nur auf Ihrer primären Domain. Die vollständige Einrichtung finden Sie unter [Universal Links und App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links). Falls jeder E-Mail-Link die App öffnet, lesen Sie [Jeder E-Mail-Link öffnet die App]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting#every-email-link-opens-the-app).
 {% endalert %}
 
 ### „Web-URL in der App öffnen“

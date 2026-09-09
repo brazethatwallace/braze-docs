@@ -9,7 +9,7 @@ search_tag: Partner
 
 ---
 
-# [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/amplitude-integration-with-braze){: style="float:right;width:120px;border:0;" class="noimgborder"}Amplitude pour Currents {#amplitude-for-currents}
+# [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/amplitude-integration-with-braze){: style="float:right;width:120px;border:0;" class="noimgborder"}Amplitude pour Currents {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomamplitude-integration-with-braze-stylefloatrightwidth120pxborder0-classnoimgborderamplitude-for-currents}
 
 > [Amplitude](https://amplitude.com/) est une plateforme d'analyse de produits et d'aide à la décision.
 
@@ -17,39 +17,39 @@ L'intégration bidirectionnelle entre Braze et Amplitude vous permet de [synchro
 
 ## Prérequis {#prerequisites}
 
-| Condition requise | Description |
+| Condition | Description |
 |---|---|
 | Compte Amplitude | Un [compte Amplitude](https://amplitude.com/) est nécessaire pour tirer parti de ce partenariat. |
 | Currents | Pour exporter des données vers Amplitude, vous devez avoir configuré [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents#access-currents) pour votre compte. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prérequis" }
 
-## Intégration d'exportation de données {#data-export-integration}
+## Intégration d'export de données {#data-export-integration}
 
-Une liste complète des événements et des propriétés d'événement pouvant être exportés de Braze vers Amplitude est disponible dans les sections suivantes. Tous les événements envoyés à Amplitude incluront l'`external_user_id` de l'utilisateur comme ID utilisateur Amplitude. Les propriétés d'événement spécifiques à Braze seront envoyées sous la clé `event_properties` dans les données transmises à Amplitude.
+Une liste complète des événements et des propriétés d'événements qui peuvent être exportés de Braze vers Amplitude se trouve dans les sections suivantes. Tous les événements envoyés à Amplitude incluront l'`external_user_id` de l'utilisateur comme identifiant utilisateur Amplitude. Les propriétés d'événements spécifiques à Braze seront envoyées sous la clé `event_properties` dans les données transmises à Amplitude.
 
 {% alert important %}
-Pour utiliser cette fonctionnalité, votre ID utilisateur Amplitude doit correspondre à l'ID externe Braze.
+Pour utiliser cette fonctionnalité, votre identifiant utilisateur Amplitude doit correspondre à l'ID externe Braze.
 {% endalert %}
 
-Braze n'enverra des données d'événement que pour les utilisateurs dont l'`external_user_id` est défini ou pour les utilisateurs anonymes dont le `device_id` est défini. Pour les utilisateurs anonymes, vous devrez synchroniser votre ID d'appareil Amplitude avec l'ID d'appareil Braze dans le SDK. Par exemple :
+Braze n'enverra les données d'événements que pour les utilisateurs dont l'`external_user_id` est défini ou les utilisateurs anonymes dont le `device_id` est défini. Pour les utilisateurs anonymes, vous devrez synchroniser votre identifiant d'appareil Amplitude avec l'identifiant d'appareil Braze dans le SDK. Par exemple :
 
 ```java
 amplitude.setDeviceId(Appboy.getInstance(context).getDeviceId();)
 ```
 
-Vous pouvez exporter deux types d'événements vers Amplitude : les [événements d'engagement liés aux messages](#supported-currents-events), comprenant les événements Braze directement liés à l'envoi de messages, et les [événements de comportement client](#supported-currents-events), incluant d'autres activités de l'application ou du site web telles que les sessions, les événements personnalisés et les achats suivis via la plateforme. Tous les événements réguliers sont préfixés par `[Appboy]`, et tous les événements personnalisés sont préfixés par `[Appboy] [Custom Event]`. Les propriétés d'événements personnalisés et d'achats sont respectivement préfixées par `[Custom event property]` et `[Purchase property]`.
+Vous pouvez exporter deux types d'événements vers Amplitude : les [événements d'engagement liés aux messages](#supported-currents-events) comprenant les événements Braze directement liés à l'envoi de messages, et les [événements de comportement client](#supported-currents-events), incluant d'autres activités de l'application ou du site web telles que les sessions, les custom events et les achats suivis via la plateforme. Tous les événements réguliers sont préfixés par `[Appboy]`, et tous les custom events sont préfixés par `[Appboy] [Custom Event]`. Les propriétés des custom events et des événements d'achat sont préfixées par `[Custom event property]` et `[Purchase property]`, respectivement.
 
 {% alert note %}
-Braze Currents applique le préfixe `[Appboy]` lors de l'exportation d'événements vers Amplitude. Ce libellé fait référence à l'ancien nom de produit de Braze. Il s'agit d'un comportement attendu et cela n'indique pas un problème de SDK ou d'intégration.
+Braze Currents applique le préfixe `[Appboy]` lors de l'export des événements vers Amplitude. Ce libellé fait référence à l'ancien nom de produit de Braze. Il s'agit d'un comportement attendu et cela n'indique pas un problème de SDK ou d'intégration.
 {% endalert %}
 
 Toutes les cohortes nommées et importées dans Braze seront préfixées par `[Amplitude]` et suffixées par leur `cohort_id`. Cela signifie qu'une cohorte nommée « TEST_COHORT » avec le `cohort_id` « abcd1234 » sera intitulée `[Amplitude] TEST_COHORT: abcd1234` dans les filtres Braze.
 
-Contactez votre gestionnaire de compte ou ouvrez un [ticket d'assistance]({{site.baseurl}}/braze_support) si vous avez besoin d'accéder à des droits d'événement supplémentaires.
+Contactez votre gestionnaire de compte ou ouvrez un [ticket de support]({{site.baseurl}}/user_guide/administer/personal/braze_support) si vous avez besoin d'accéder à des droits d'événements supplémentaires.
 
 ### Étape 1 : Configurer l'intégration Amplitude dans Braze {#step-1-configure-amplitude-integration-in-braze}
 
-Dans Amplitude, localisez votre clé API d'exportation Amplitude.
+Dans Amplitude, localisez votre clé API d'export Amplitude.
 
 {% alert warning %}
 Maintenez votre clé API Amplitude à jour. Si les identifiants de votre connecteur expirent, le connecteur cessera d'envoyer des événements. Si cela persiste pendant plus de **48 heures**, les événements du connecteur seront supprimés et les données seront définitivement perdues.
@@ -57,13 +57,13 @@ Maintenez votre clé API Amplitude à jour. Si les identifiants de votre connect
 
 ### Étape 2 : Créer un Braze Current {#step-2-create-braze-current}
 
-Dans Braze, accédez à **Currents > + Create Current > Create Amplitude Export**. Indiquez un nom d'intégration, une adresse e-mail de contact, une clé API d'exportation Amplitude et une région Amplitude dans les champs proposés. Ensuite, sélectionnez les événements que vous souhaitez suivre ; une liste des événements disponibles est fournie. Enfin, cliquez sur **Launch Current**.
+Dans Braze, accédez à **Currents > + Create Current > Create Amplitude Export**. Fournissez un nom d'intégration, une adresse e-mail de contact, une clé API d'export Amplitude et une région Amplitude dans les champs indiqués. Ensuite, sélectionnez les événements que vous souhaitez suivre ; une liste des événements disponibles est fournie. Enfin, cliquez sur **Launch Current**.
 
 {% alert note %}
-Les événements envoyés depuis Braze Currents vers Amplitude seront comptabilisés dans votre quota de volume d'événements Amplitude.
+Les événements envoyés de Braze Currents vers Amplitude seront comptabilisés dans votre quota de volume d'événements Amplitude.
 {% endalert %}
 
-![La page Braze Amplitude Currents. Cette page comprend des champs pour le nom d'intégration, l'adresse e-mail de contact, la clé API et la région US. La moitié inférieure de la page Currents répertorie les événements Currents disponibles que vous pouvez envoyer.]({% image_buster /assets/img/amplitude4.png %})
+![La page Braze Amplitude Currents. Cette page comprend des champs pour le nom d'intégration, l'adresse e-mail de contact, la clé API et la région US. La moitié inférieure de la page Currents liste les événements Currents disponibles que vous pouvez envoyer.]({% image_buster /assets/img/amplitude4.png %})
 
 {% alert tip %}
 Si vous recevez une erreur « Invalid API key » lors du collage de votre clé API Amplitude, essayez de saisir la clé manuellement. Certains navigateurs peuvent ajouter des caractères masqués lors du copier-coller, ce qui peut provoquer des erreurs de validation.
@@ -75,9 +75,9 @@ Pour plus d'informations, consultez la documentation d'Amplitude sur l'[intégra
 
 ## Limites de débit {#rate-limits}
 
-Currents se connecte à l'API HTTP d'Amplitude, qui dispose d'une [limite de débit](https://developers.amplitude.com/docs/http-api-v2#upload-limit) de 30 événements/seconde par appareil et d'une limite non documentée de 500 000 événements/jour par appareil. Si ces seuils sont dépassés, Amplitude limitera les événements enregistrés via Currents. Si un appareil de votre intégration dépasse cette limite de débit, vous pourriez observer un délai avant que les événements de tous les appareils n'apparaissent dans Amplitude.
+Currents se connecte à l'API HTTP d'Amplitude, qui impose une [limite de débit](https://developers.amplitude.com/docs/http-api-v2#upload-limit) de 30 événements/seconde par appareil et une limite non documentée de 500 000 événements/jour par appareil. Si ces seuils sont dépassés, Amplitude limitera les événements enregistrés via Currents. Si un appareil de votre intégration dépasse cette limite de débit, vous pourriez constater un délai avant que les événements de tous les appareils n'apparaissent dans Amplitude.
 
-Les appareils ne devraient pas enregistrer plus de 30 événements/seconde ou 500 000 événements/jour dans des conditions normales, et ce type de volume ne devrait se produire qu'en raison d'une intégration mal configurée. Pour éviter ce type de délai, assurez-vous que votre intégration SDK enregistre les événements à un rythme normal, tel que spécifié dans nos instructions d'intégration SDK, et évitez d'exécuter des tests automatisés générant un grand nombre d'événements pour un seul appareil.
+Les appareils ne devraient pas enregistrer plus de 30 événements/seconde ou 500 000 événements/jour dans des circonstances normales, et ce type de schéma d'événements ne devrait se produire qu'en raison d'une intégration mal configurée. Pour éviter ce type de délai, assurez-vous que votre intégration SDK enregistre les événements à un rythme normal, conformément aux instructions de notre intégration SDK, et évitez d'exécuter des tests automatisés qui génèrent un grand nombre d'événements pour un seul appareil.
 
 ## Événements Currents pris en charge {#supported-currents-events}
 

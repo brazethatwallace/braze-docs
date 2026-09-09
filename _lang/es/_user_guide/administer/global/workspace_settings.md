@@ -4,7 +4,7 @@ article_title: Configuración del espacio de trabajo
 page_order: 4
 layout: dev_guide
 guide_top_header: "Configuración del espacio de trabajo"
-guide_top_text: "La configuración del espacio de trabajo se aplica únicamente al espacio de trabajo que estás viendo en ese momento. Usa estos ajustes para administrar claves de API, configurar preferencias de correo electrónico y push, establecer directrices de marca y monitorear la actividad del espacio de trabajo a través de registros y alertas.<br><br>La mayoría de las características dentro de <b>Configuración del espacio de trabajo</b> solo están disponibles para los administradores de la cuenta de Braze. Si no tienes acceso pero crees que deberías tenerlo, ponte en contacto con el administrador de la cuenta de Braze de tu empresa. Para la configuración a nivel de empresa que afecta a todos los espacios de trabajo, consulta <a href='/docs/user_guide/administer/global/admin_settings'>Configuración de administrador</a>."
+guide_top_text: "La configuración del espacio de trabajo se aplica únicamente al espacio de trabajo que estás viendo en ese momento. Usa estos ajustes para administrar claves de API, configurar preferencias de correo electrónico y push, establecer directrices de marca y monitorear la actividad del espacio de trabajo a través de registros y alertas.<br><br>La mayoría de las características dentro de <b>Configuración del espacio de trabajo</b> solo están disponibles para los administradores de la cuenta de Braze. Si no tienes acceso pero crees que deberías tenerlo, ponte en contacto con el administrador de la cuenta de Braze de tu empresa. La política de OAuth a nivel de empresa, incluido el acceso MCP, se configura en <a href='/docs/user_guide/administer/global/admin_settings'>Configuración de administrador</a>."
 
 page_type: landing
 description: "Esta sección cubre la configuración a nivel de espacio de trabajo: API e identificadores, directrices de marca, preferencias de correo electrónico, registros y alertas, y más."
@@ -38,6 +38,9 @@ guide_featured_list:
 - name: Límites de velocidad de mensajería
   link: /docs/user_guide/administer/global/workspace_settings/messaging_rate_limits
   image: /assets/img/braze_icons/mail-01.svg
+- name: Acceso a OAuth y MCP
+  link: /docs/user_guide/administer/global/workspace_settings/oauth_settings
+  image: /assets/img/braze_icons/lock-04.svg
 ---
 
 <br>

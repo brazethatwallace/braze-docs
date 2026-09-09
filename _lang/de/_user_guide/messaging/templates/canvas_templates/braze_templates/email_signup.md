@@ -1,17 +1,17 @@
 ---
-nav_title: E-Mail-Registrierung mit Double-Opt-in
-article_title: E-Mail-Registrierung mit Double-Opt-in
+nav_title: E-Mail-registrieren mit Double-Opt-in
+article_title: E-Mail-registrieren mit Double-Opt-in
 page_order: 2
 page_type: reference
 description: "Dieser Artikel beschreibt, wie Sie ein Braze-Canvas-Template verwenden, um Ihre Reichweite mit verifizierten E-Mail-Registrierungen zu erweitern."
 tool: Canvas
 ---
 
-# E-Mail-Registrierung mit Double-Opt-in {#email-sign-up-with-double-opt-in}
+# E-Mail-registrieren mit Double-Opt-in {#email-sign-up-with-double-opt-in}
 
-> Verwenden Sie das Template für die E-Mail-Registrierung mit Double-Opt-in, um Ihre Reichweite mit verifizierten E-Mail-Registrierungen zu erweitern. Sprechen Sie neue Nutzer:innen an, um deren E-Mail-Adresse zu erfassen, ihr Abo zu bestätigen und einen Aktionscode zu erhalten – alles in einer nahtlosen Journey.
+> Verwenden Sie das Template für die E-Mail-registrieren mit Double-Opt-in, um Ihre Reichweite mit verifizierten E-Mail-Registrierungen zu erweitern. Sprechen Sie neue Nutzer:innen an, um deren E-Mail-Adresse zu erfassen, ihr Abo zu bestätigen und einen Aktionscode zu erhalten – alles in einer nahtlosen Journey.
 
-Dieser Artikel führt Sie durch einen Anwendungsfall für das Template **E-Mail-Registrierung mit Double-Opt-in**, das für die Erwägungsphase des Nutzerlebenszyklus konzipiert ist. Am Ende werden Sie ein Canvas erstellt haben, das E-Mails und In-App-Nachrichten an Nutzer:innen sendet, wenn sie eine Sitzung starten oder ihr Onboarding nicht abgeschlossen haben.
+Dieser Artikel führt Sie durch einen Anwendungsfall für das Template **E-Mail-registrieren mit Double-Opt-in**, das für die Erwägungsphase des Nutzerlebenszyklus konzipiert ist. Am Ende werden Sie ein Canvas erstellt haben, das E-Mails und In-App-Nachrichten an Nutzer:innen sendet, wenn sie eine Sitzung starten oder ihr Onboarding nicht abgeschlossen haben.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -25,7 +25,7 @@ Um dieses Template erfolgreich zu verwenden, benötigen Sie Folgendes:
 
 Nehmen wir an, Sie arbeiten für Steppington, eine Gesundheits-App, die für Features wie Kalorienverfolgung, digitale Fitnesskurse und Flashmob-Marathons bekannt ist. Bevor Sie das Canvas erstellen, [richten Sie mehrseitige In-App- und In-Browser-Nachrichten ein]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop#multi-page), die eine Reihe ansprechender Fragen enthalten, um die Erfahrung und den Eindruck der ersten Nutzung der App zu ermitteln.
 
-Um auf das Template zuzugreifen, wählen Sie beim Erstellen eines neuen Canvas **Use a Canvas template** > **Braze templates**. Wählen Sie dann neben **Email sign-up with double opt-in** die Option **Apply Template**. Nun können wir das Template an unsere Bedürfnisse anpassen.
+Um auf das Template zuzugreifen, wählen Sie beim Erstellen eines neuen Canvas **Use a Canvas template** > **Braze templates**. Wählen Sie dann neben **Email Registrierung with double opt-in** die Option **Apply Template**. Nun können wir das Template an unsere Bedürfnisse anpassen.
 
 ### 1. Schritt: Details einrichten {#step-1-set-up-the-details}
 
@@ -64,7 +64,7 @@ Aktualisieren Sie für das **Entry Window** die **Started Time (Required)** auf 
 
 ### 4. Schritt: Zielgruppe auswählen {#step-4-select-the-target-audience}
 
-Definieren Sie Ihre Zielgruppe als Steppington-Nutzer:innen, die keine E-Mail-Adresse in ihrem Nutzerprofil haben, indem Sie den Standard-[Segmentierungsfilter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) des Templates `Email Available is false` beibehalten.
+Definieren Sie Ihre Zielgruppe als Steppington-Nutzer:innen, die keine E-Mail-Adresse in ihrem Kundenprofil haben, indem Sie den Standard-[Segmentierungsfilter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) des Templates `Email Available is false` beibehalten.
 
 ![Entry-Zielgruppe mit dem Filter „Email Available is false“.]({% image_buster /assets/img/canvas_templates/email_signup6.png %}){: style="max-width:90%;"}
 
@@ -78,7 +78,7 @@ Behalten Sie die Standard-Abo-Einstellungen bei, sodass Sie nur an Nutzer:innen 
 
 Erstellen Sie als Nächstes das Canvas, indem Sie die Kanäle und Inhalte anpassen, die Sie an Nutzer:innen senden möchten. Da Sie sich auf die Verifizierung von E-Mail-Registrierungen konzentrieren, müssen Sie keine Canvas-Schritte und Kanäle des Templates hinzufügen oder entfernen.
 
-1. Wählen Sie den ersten Nachrichtenschritt mit dem Namen **Email Sign-up**. Hier aktualisieren Sie das Template, um unsere mehrseitige In-App- (und In-Browser-) Nachricht zu verwenden.
+1. Wählen Sie den ersten Nachrichtenschritt mit dem Namen **Email Registrierung**. Hier aktualisieren Sie das Template, um unsere mehrseitige In-App- (und In-Browser-) Nachricht zu verwenden.
 
 - Seite 1 erfasst die E-Mail-Adressen.
 - Seite 2 zeigt eine Bestätigungsnachricht an.
@@ -97,7 +97,7 @@ Erstellen Sie als Nächstes das Canvas, indem Sie die Kanäle und Inhalte anpass
 5. Aktualisieren Sie abschließend den Nachrichtenschritt **Welcome + Discount** mit unserer Bestätigungs-E-Mail, die einen exklusiven Aktionscode enthält.
 
 {% alert note %}
-Der Nachrichtenschritt **Verify Email** wird bei der zweiten Sitzung der Nutzer:innen ausgelöst. Dies liegt daran, dass das erste Sitzungsstart-Event das Canvas auslöst, aber ein zweiter Sitzungsstart erforderlich ist, nachdem die Nutzer:innen den ersten Nachrichtenschritt **Email Sign-up** erreicht haben, damit sie berechtigt sind, die zweite In-App-Nachricht auszulösen.
+Der Nachrichtenschritt **Verify Email** wird bei der zweiten Sitzung der Nutzer:innen ausgelöst. Dies liegt daran, dass das erste Sitzungsstart-Event das Canvas auslöst, aber ein zweiter Sitzungsstart erforderlich ist, nachdem die Nutzer:innen den ersten Nachrichtenschritt **Email Registrierung** erreicht haben, damit sie berechtigt sind, die zweite In-App-Nachricht auszulösen.
 {% endalert %}
 
 ### 7. Schritt: Canvas testen und starten {#step-7-test-and-launch-your-canvas}

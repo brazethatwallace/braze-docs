@@ -1,9 +1,8 @@
 ---
 nav_title: Seguimiento de ubicación
-article_title: Seguimiento de la ubicación a través del SDK de Braze
+article_title: "Seguimiento de la ubicación"
 page_order: 3.4
 description: "Aprende a realizar el seguimiento de la ubicación a través del SDK de Braze."
-
 ---
 
 # Seguimiento de la ubicación {#track-location}
@@ -69,7 +68,7 @@ Para aprender a desactivar el seguimiento continuo, consulta la [documentación 
 {% multi_lang_include developer_guide/swift/analytics/tracking_location.md %}
 {% endsdktab %}
 
-{% sdktab react native %}
+{% sdktab React Native %}
 {% multi_lang_include developer_guide/react_native/analytics/tracking_location.md %}
 {% endsdktab %}
 {% endsdktabs %}

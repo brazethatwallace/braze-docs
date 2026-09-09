@@ -26,7 +26,7 @@ tool:
 
 ## GIF {#gifs}
 
-GIF는 iOS 푸시, 인앱 메시지, 이메일, Content Cards, MMS 또는 RCS 메시지에서 지원됩니다. 매우 길쭉한 형태(예: 3000 x 2 픽셀)이거나 300프레임 이상인 GIF는 전체 파일 크기가 작더라도 업로드에 실패할 수 있습니다.
+GIF는 iOS 푸시, 인앱 메시지, 이메일, Content Cards, MMS 또는 RCS 메시지에서 지원됩니다. 매우 길쭉한 형태(예: 3000 x 2 픽셀)이거나 300프레임 이상인 GIF는 전체 파일 크기가 작더라도 업로드에 실패할 수 있습니다. iOS에서의 RCS 관련 GIF 동작에 대해서는 [RCS](#rcs)를 참고하세요.
 
 {% multi_lang_include alerts/note_alerts.md alert='GIF platform support' %}
 
@@ -46,7 +46,7 @@ GIF는 iOS 푸시, 인앱 메시지, 이메일, Content Cards, MMS 또는 RCS �
 
 {% alert tip %} 자신 있게 에셋을 만들어 보세요! 인앱 메시지 이미지 템플릿과 세이프 존 오버레이는 모든 크기의 기기에서 잘 작동하도록 설계되었습니다. [디자인 템플릿 ZIP 다운로드]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %}). {% endalert %}
 
-자세한 내용은 [인앱 메시지 크리에이티브 세부 사항]({{site.baseurl}}/user_guide/channels/in_app_messages/customize)을 참조하세요.
+자세한 내용은 [인앱 메시지 크리에이티브 세부 정보]({{site.baseurl}}/user_guide/channels/in_app_messages/customize)를 참조하세요.
 
 #### Font Awesome
 
@@ -60,9 +60,9 @@ Braze는 Modal 인앱 메시지 아이콘에 [Font Awesome v4.3.0](https://fonta
 
 #### 권장 메시지 길이 {#recommended-message-lengths}
 
-최상의 결과를 위해 푸시 메시지를 작성할 때 다음 메시지 길이 가이드라인을 참조하세요. 이미지 유무, 알림 상태(iOS), 사용자 기기의 디스플레이 설정, 기기 크기에 따라 다소 차이가 있을 수 있습니다.
+최적의 결과를 위해 푸시 메시지를 작성할 때 다음 메시지 길이 가이드라인을 참고하세요. 이미지 유무, 알림 상태(iOS), 사용자 기기의 디스플레이 설정, 기기 크기에 따라 약간의 차이가 있을 수 있습니다.
 
-| 메시지 유형 | 권장 길이(텍스트만) | 권장 길이(리치) |
+| 메시지 유형 | 권장 길이(텍스트 전용) | 권장 길이(리치) |
 | --- | --- | --- |
 | iOS 잠금 화면 | 160자 | 130자 |
 | iOS 알림 센터 | 160자 | 130자 |
@@ -82,18 +82,18 @@ iOS 글자 수에 대한 자세한 내용은 [iOS 글자 수 가이드라인]({{
 | --- | --- |
 | Chrome | 192 x 192 px 이상 |
 | Firefox | 192 x 192 px 이상 |
-| Safari | 192 x 192 px 이상 (macOS 13+ Safari 16에서 Campaign별 설정 가능) |
+| Safari | 192 x 192 px 이상 (macOS 13 이상의 Safari 16에서 캠페인별 설정 가능) |
 | Opera | 192 x 192 px 이상 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="웹 푸시" }
 
 | 브라우저 | 플랫폼 | 큰 이미지 크기 |
 | --- | --- | --- |
-| Chrome | Android | 2:1 비율 |
+| Chrome | Android | 2:1 종횡비 |
 | Firefox | Android | 해당 없음 |
-| Chrome | Windows | 2:1 비율 |
-| Edge | Windows | 2:1 비율 |
+| Chrome | Windows | 2:1 종횡비 |
+| Edge | Windows | 2:1 종횡비 |
 | Firefox | Windows | 해당 없음 |
-| Opera | Windows | 2:1 비율 |
+| Opera | Windows | 2:1 종횡비 |
 | Chrome | macOS | 해당 없음 |
 | Safari | macOS | 해당 없음 |
 | Firefox | macOS | 해당 없음 |
@@ -125,8 +125,8 @@ iOS 글자 수에 대한 자세한 내용은 [iOS 글자 수 가이드라인]({{
 {% tabs %}
 {% tab iOS %}
 
-![텍스트에 "Hi! This is an iOS Push with an image"라고 표시되고 이모지가 포함된 iOS 푸시 알림. 텍스트 옆에 작은 이미지가 있습니다.]({% image_buster /assets/img_archive/braze_richpush1.png %}){: style="max-width:50%;"}
-![이전 메시지와 동일한 텍스트가 포함된 iOS 하드 푸시 알림으로, 텍스트 앞에 확장된 이미지가 표시됩니다.]({% image_buster /assets/img_archive/braze_richpush2.png %}){: style="max-width:50%;"}
+![텍스트에 "Hi! This is an iOS Push with an image"와 이모지가 표시된 iOS 푸시 알림. 텍스트 옆에 작은 이미지가 있습니다.]({% image_buster /assets/img_archive/braze_richpush1.png %}){: style="max-width:50%;"}
+![이전 메시지와 동일한 텍스트가 포함된 iOS 강제 푸시 알림으로, 텍스트 앞에 확장된 이미지가 표시됩니다.]({% image_buster /assets/img_archive/braze_richpush2.png %}){: style="max-width:50%;"}
 
 {% endtab %}
 {% tab Android %}
@@ -147,3 +147,9 @@ iOS 글자 수에 대한 자세한 내용은 [iOS 글자 수 가이드라인]({{
 {% multi_lang_include channels/image_specs.md variable_name='sms and mms' %}
 
 MMS 메시지 작성에 대해서는 [SMS, MMS 또는 RCS 메시지 만들기]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create)를 참조하세요.
+
+### RCS {#rcs}
+
+RCS 미디어 메시지는 JPG, JPEG 및 GIF 이미지를 지원합니다. 파일 크기 및 형식에 대한 자세한 내용은 [SMS, MMS 또는 RCS 메시지 만들기]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create)를 참조하세요.
+
+iOS에서는 RCS 리치 카드의 GIF가 정적 이미지로 표시됩니다. Android에서는 예상대로 애니메이션이 재생됩니다. 자세한 내용은 [RCS 리치 카드의 GIF가 iOS에서 정적으로 표시되는 이유는 무엇인가요?]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs#why-do-gifs-in-rcs-rich-cards-appear-static-on-ios)를 참조하세요.

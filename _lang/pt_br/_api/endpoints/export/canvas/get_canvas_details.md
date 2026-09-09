@@ -149,9 +149,7 @@ A seguir, um exemplo de resposta que inclui mensagens do Canvas enviadas por dif
         "message_1": {
           "channel": "email",
           "subject": "Welcome to Kitchenerie!",
-          "body": "<html><body>Welcome to the Kitchenerie family, {{first_name}}!</body></html>",
-          "created_at": "2023-01-01T12:00:00Z",
-          "updated_at": "2023-01-01T12:00:00Z"
+          "body": "<html><body>Welcome to the Kitchenerie family, {{first_name}}!</body></html>"
         }
       }
     },
@@ -171,9 +169,7 @@ A seguir, um exemplo de resposta que inclui mensagens do Canvas enviadas por dif
         "message_2": {
           "channel": "push",
           "title": "Don't Forget to Complete Your Kitchenerie Profile",
-          "body": "Complete your Kitchenerie profile for access to special offers and local events.",
-          "created_at": "2023-01-02T12:00:00Z",
-          "updated_at": "2023-01-02T12:00:00Z"
+          "body": "Complete your Kitchenerie profile for access to special offers and local events."
         }
       }
     },
@@ -192,9 +188,7 @@ A seguir, um exemplo de resposta que inclui mensagens do Canvas enviadas por dif
       "messages": {
         "message_3": {
           "channel": "sms",
-          "body": "Hi {{first_name}}, remember to complete Kitchenerie your profile!",
-          "created_at": "2023-01-03T12:00:00Z",
-          "updated_at": "2023-01-03T12:00:00Z"
+          "body": "Hi {{first_name}}, remember to complete Kitchenerie your profile!"
         }
       }
     },
@@ -209,9 +203,7 @@ A seguir, um exemplo de resposta que inclui mensagens do Canvas enviadas por dif
         "message_4": {
           "channel": "in_app_message",
           "header": "Complete Your Kitchenerie Profile",
-          "body": "Complete your Kitchenerie profile to unlock access to savings and local events!",
-          "created_at": "2023-01-04T12:00:00Z",
-          "updated_at": "2023-01-04T12:00:00Z"
+          "body": "Complete your Kitchenerie profile to unlock access to savings and local events!"
         }
       }
     }

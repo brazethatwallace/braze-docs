@@ -18,14 +18,14 @@ O [rastreamento de análise de dados]({{site.baseurl}}/user_guide/analytics/trac
 
 Para executar esses relatórios, faça o seguinte:
 1. No **Criador de consultas**, escolha criar um novo relatório SQL com um modelo.
-2. Selecione **Segment breakdowns** para a métrica, o que filtra os modelos para aqueles em que as métricas incluem detalhamentos por segmento, que são:
-- Métricas de desempenho de e-mail por segmento
-- Métricas de engajamento de e-mail para variantes ou etapas, por segmento
-- Compras e receita por segmento
-- Compras e receita para variantes ou etapas, por segmento
-- Desempenho de push por segmento
+2. Selecione **Segment breakdowns** para a métrica, o que filtra os modelos para aqueles em que as métricas incluem detalhamentos por Segment, que são:
+- Métricas de desempenho de e-mail por Segment
+- Métricas de engajamento de e-mail para variantes ou etapas, por Segment
+- Compras e receita por Segment
+- Compras e receita para variantes ou etapas, por Segment
+- Desempenho de push por Segment
 
-![A página de detalhamento por segmento contém um editor SQL, um painel lateral com guias para Variáveis, Tabelas de dados disponíveis, Histórico de consultas e o Criador de consultas com IA, além de uma seção de resultados.]({% image_buster /assets/img_archive/segment_breakdown.png %})
+![A página de detalhamento por Segment contém um editor SQL, um painel lateral com guias para Variáveis, Tabelas de dados disponíveis, Histórico de consultas e o Criador de consultas com IA, além de uma seção de resultados.]({% image_buster /assets/img_archive/segment_breakdown.png %})
 
 ## Modelos de relatório {#report-templates}
 
@@ -34,7 +34,7 @@ Para executar esses relatórios, faça o seguinte:
 
 ### Visualizando métricas para Campaigns ou Canvas {#campaign-canvas-email}
 
-Para visualizar métricas de desempenho de e-mail detalhadas por segmento no nível de Campaign ou Canvas, use a guia [Variáveis](#variables) para especificar as Campaigns ou Canvas e um período para extrair os dados. Se nenhuma Campaign ou Canvas for especificada, o relatório incluirá e-mails de todas as Campaigns e Canvas do período especificado. Você também pode optar por visualizar todas as Campaigns e Canvas com determinadas tags.
+Para visualizar métricas de desempenho de e-mail detalhadas por Segment no nível de Campaign ou Canvas, use a guia [Variáveis](#variables) para especificar as Campaigns ou Canvas e um período para extrair os dados. Se nenhuma Campaign ou Canvas for especificada, o relatório incluirá e-mails de todas as Campaigns e Canvas do período especificado. Você também pode optar por visualizar todas as Campaigns e Canvas com determinadas tags.
 
 As seguintes métricas de e-mail estão disponíveis neste relatório:
 - Envios
@@ -51,14 +51,14 @@ As seguintes métricas de e-mail estão disponíveis neste relatório:
 
 #### Resultados {#results}
 
-Seus resultados mostrarão métricas de engajamento de e-mail por segmento para as Campaigns ou Canvas que você selecionou. Se você não selecionou Campaigns ou Canvas específicas, seu relatório mostrará as métricas de e-mail para cada segmento em todas as Campaigns e Canvas de e-mail dentro do período do relatório.
+Seus resultados mostrarão métricas de engajamento de e-mail por Segment para as Campaigns ou Canvas que você selecionou. Se você não selecionou Campaigns ou Canvas específicas, seu relatório mostrará as métricas de e-mail para cada Segment em todas as Campaigns e Canvas de e-mail dentro do período do relatório.
 
 - **Linhas:** Segments
 - **Colunas:** Métricas de engajamento de e-mail
 
 ### Visualizando métricas para variantes ou etapas {#viewing-metrics-for-variants-or-steps}
 
-Para visualizar o desempenho de e-mail detalhado por segmento no nível de variante de Campaign, variante de Canvas ou etapa do Canvas, primeiro escolha um relatório no nível de variante ou etapa (são relatórios que possuem "for variants or steps" no título) e, em seguida, use a guia **Variáveis** para especificar o seguinte:
+Para visualizar o desempenho de e-mail detalhado por Segment no nível de variante de Campaign, variante de Canvas ou etapa do Canvas, primeiro escolha um relatório no nível de variante ou etapa (são relatórios que possuem "for variants or steps" no título) e, em seguida, use a guia **Variáveis** para especificar o seguinte:
 
 - Campaign ou Canvas específica (obrigatório ao usar um relatório no nível de variante ou etapa)
 - Variantes (obrigatório ao usar um relatório no nível de variante ou etapa)
@@ -68,7 +68,7 @@ As métricas são as mesmas oferecidas no modelo de [nível de Campaign ou Canva
 
 #### Resultados
 
-Seus resultados mostrarão métricas de engajamento de e-mail por segmento para as variantes ou etapas selecionadas.
+Seus resultados mostrarão métricas de engajamento de e-mail por Segment para as variantes ou etapas selecionadas.
 
 - **Linhas:** Segments
 - **Colunas:** Métricas de engajamento de e-mail
@@ -78,7 +78,7 @@ Seus resultados mostrarão métricas de engajamento de e-mail por segmento para 
 {% tab Purchases and revenue by segment %}
 ### Visualizando métricas para Campaigns ou Canvas {#viewing-metrics-for-campaigns-or-canvases}
 
-Para visualizar métricas de compra e receita detalhadas por segmento para uma Campaign ou Canvas específica, use a guia [Variáveis](#variables) para especificar o seguinte:
+Para visualizar métricas de compra e receita detalhadas por Segment para uma Campaign ou Canvas específica, use a guia [Variáveis](#variables) para especificar o seguinte:
 
 - Janela de conversão (o número de dias após o recebimento ou clique no e-mail em que a Braze deve atribuir compras ou receita)
 - Produto específico (opcional)
@@ -103,13 +103,13 @@ Todas as métricas de taxa usam destinatários únicos de e-mail como denominado
 - "Após recebimento" refere-se a eventos de compra ou receita que ocorreram dentro da janela de conversão especificada, após os usuários receberem as Campaigns ou Canvas especificadas.
 - "Após clique" refere-se a eventos de compra ou receita que ocorreram após os eventos de compra, dentro da janela de conversão especificada, após os usuários clicarem nas Campaigns ou Canvas especificadas.
 
-Por exemplo, digamos que um segmento contém 10 usuários e cinco deles fizeram uma compra após receber seu e-mail. Se um desses cinco fez uma compra após clicar no seu e-mail, sua "taxa de compras únicas após recebimento" seria de 50% e sua "taxa de compras únicas após clique" seria de 10%.
+Por exemplo, digamos que um Segment contém 10 usuários e cinco deles fizeram uma compra após receber seu e-mail. Se um desses cinco fez uma compra após clicar no seu e-mail, sua "taxa de compras únicas após recebimento" seria de 50% e sua "taxa de compras únicas após clique" seria de 10%.
 
 ![O relatório mostra métricas de e-mail incluindo compras únicas após recebimento, receita após recebimento, compras únicas após clique, receita após clique, destinatários únicos e cliques únicos em e-mail.]({% image_buster /assets/img_archive/segment_breakdown_results.png %})
 
 #### Resultados
 
-Seus resultados mostrarão métricas de compra por segmento para as Campaigns ou Canvas selecionadas. Se você não selecionou Campaigns ou Canvas específicas, seu relatório mostrará as métricas de compra para cada segmento em todas as Campaigns ou Canvas de e-mail dentro do período do relatório.
+Seus resultados mostrarão métricas de compra por Segment para as Campaigns ou Canvas selecionadas. Se você não selecionou Campaigns ou Canvas específicas, seu relatório mostrará as métricas de compra para cada Segment em todas as Campaigns ou Canvas de e-mail dentro do período do relatório.
 
 - **Linhas:** Segments
 - **Colunas:** Métricas de compra
@@ -117,7 +117,7 @@ Seus resultados mostrarão métricas de compra por segmento para as Campaigns ou
 
 ### Visualizando métricas para variantes ou etapas
 
-Para visualizar métricas de compra e receita detalhadas por segmento para uma variante de Campaign, variante de Canvas ou etapa do Canvas específica, use a guia [Variáveis](#variables) para especificar o seguinte:
+Para visualizar métricas de compra e receita detalhadas por Segment para uma variante de Campaign, variante de Canvas ou etapa do Canvas específica, use a guia [Variáveis](#variables) para especificar o seguinte:
 
 - Campaign ou Canvas específica
 - Variantes
@@ -127,7 +127,7 @@ Para visualizar métricas de compra e receita detalhadas por segmento para uma v
 
 #### Resultados
 
-Seus resultados mostrarão métricas de compra por segmento para as variantes ou etapas selecionadas.
+Seus resultados mostrarão métricas de compra por Segment para as variantes ou etapas selecionadas.
 
 - **Linhas:** Segments
 - **Colunas:** Métricas de compra
@@ -197,7 +197,7 @@ Para visualizar este relatório, você deve especificar as seguintes variáveis 
 - "Após recebimento" refere-se a eventos de compra ou receita que ocorreram dentro da janela de conversão especificada, após os usuários receberem as Campaigns ou Canvas especificadas.
 - "Após clique" refere-se a eventos de compra ou receita que ocorreram após os eventos de compra, dentro da janela de conversão especificada, após os usuários clicarem nas Campaigns ou Canvas especificadas.
 
-Por exemplo, digamos que um segmento contém 10 usuários e cinco deles fizeram uma compra após receber seu e-mail. Se um desses cinco fez uma compra após clicar no seu e-mail, sua taxa de "compras únicas após recebimento" seria de 50% e sua taxa de "compras únicas após clique" seria de 10%.
+Por exemplo, digamos que um Segment contém 10 usuários e cinco deles fizeram uma compra após receber seu e-mail. Se um desses cinco fez uma compra após clicar no seu e-mail, sua taxa de "compras únicas após recebimento" seria de 50% e sua taxa de "compras únicas após clique" seria de 10%.
 
 #### Resultados
 

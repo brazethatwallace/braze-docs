@@ -181,7 +181,7 @@ table td {
 | Banner    | Cualquier relación de aspecto | 600&nbsp;px de anchura mínima |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tabla" }
 
-Para más información, consulta [Detalles creativos de Content Cards]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details).
+Para más información, consulta [Detalles creativos de Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/creative_details).
 
 {% endif %}
 

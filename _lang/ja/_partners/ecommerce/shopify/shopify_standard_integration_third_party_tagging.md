@@ -10,9 +10,9 @@ page_order: 2
 
 # Shopify標準統合とサードパーティタグツール {#shopify-standard-integration-with-third-party-tagging-tool}
 
-> このページでは、Google Tag Managerのようなサードパーティツールを[Shopify標準統合]({{site.baseurl}}/shopify_standard_integration)で使用し、Braze Web SDKを初期化して読み込む方法をご案内します。
+> このページでは、Google Tag マネージャーのようなサードパーティツールを[Shopify標準統合]({{site.baseurl}}/shopify_standard_integration)で使用し、Braze Web SDKを初期化して読み込む方法をご案内します。
 
-Shopifyオンラインストアの場合は、Brazeの標準統合方法を使用して、サイトでBraze SDKをサポートすることを推奨します。ただし、Google Tag Managerのようなサードパーティツールの使用を希望される場合があることも理解しています。BrazeのShopifyコネクターでサードパーティツールを使用する場合は、Braze統合とアプリ埋め込みがチェックアウトプロセス中にSDKを管理することに留意してください。
+Shopifyオンラインストアの場合は、Brazeの標準統合方法を使用して、サイトでBraze SDKをサポートすることを推奨します。ただし、Google Tag マネージャーのようなサードパーティツールの使用を希望される場合があることも理解しています。BrazeのShopifyコネクターでサードパーティツールを使用する場合は、Braze統合とアプリ埋め込みがチェックアウトプロセス中にSDKを管理することに留意してください。
 
 ## 要件 {#requirements}
 
@@ -34,7 +34,7 @@ Braze SDKとサードパーティツールの間で競合が発生する可能�
 3. APIキーをサードパーティツールのWeb SDK設定に貼り付け、SDKバージョンをBraze Shopify統合と一致するように設定します。
 
 {% alert note %}
-Google Tag Managerを使用している場合は、GTMとBraze Shopify統合設定の両方でSDKバージョンを揃えてください。
+Google Tag マネージャーを使用している場合は、GTMとBraze Shopify統合設定の両方でSDKバージョンを揃えてください。
 {% endalert %}
 
 ## Shopifyデータの取得とユーザーの同期 {#capturing-shopify-data-and-syncing-users}

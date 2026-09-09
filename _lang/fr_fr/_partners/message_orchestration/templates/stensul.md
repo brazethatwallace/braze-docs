@@ -42,7 +42,7 @@ Créez un e-mail Stensul dans la plateforme Stensul et cliquez sur **Complete**.
 ![Options d'enregistrement de Stensul]({% image_buster /assets/img_archive/stensul_save_options.png %})
 
 ### Étape 2 : Exporter le modèle vers Braze {#step-2-export-template-to-braze}
-Dans la nouvelle boîte de dialogue qui s'affiche sur la page de finalisation, sélectionnez **Upload to ESP**.
+Dans la nouvelle boîte de dialogue qui s'affiche sur la page de finalisation, sélectionnez **Upload to fournisseur de services d'e-mailing**.
 
 ![Options de téléchargement de Stensul]({% image_buster /assets/img_archive/stensul_upload_options.png %})
 

@@ -27,9 +27,9 @@ Esse endpoint não garante a sequência de objetos `alias_updates` que estão se
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key) com a permissão `users.alias.update`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics) com a permissão `users.alias.update`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='users alias update' %}
 
@@ -48,9 +48,9 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 ### Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | --------- | --------- | ----------- |
-| `alias_updates` | Obrigatória | Vetor de objetos de alias de usuário de atualização | Consulte o [objeto de alias de usuário]({{site.baseurl}}/api/objects_filters/user_alias_object).<br><br> Para saber mais sobre `old_alias_name`, `new_alias_name` e `alias_label`, consulte [Aliases de usuário]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases). |
+| `alias_updates` | Obrigatório | Vetor de objetos de alias de usuário de atualização | Consulte o [objeto de alias de usuário]({{site.baseurl}}/api/objects_filters/user_alias_object).<br><br> Para saber mais sobre `old_alias_name`, `new_alias_name` e `alias_label`, consulte [Aliases de usuário]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ### Corpo da solicitação do endpoint com especificação do objeto de atualização de alias de usuário {#endpoint-request-body-with-update-user-alias-object-specification}

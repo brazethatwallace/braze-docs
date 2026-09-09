@@ -35,7 +35,7 @@ Oui, vous devez quand même créer un compte WhatsApp Business. Nous vous recomm
 Après avoir terminé le flux d'inscription intégré, vous pouvez accéder à votre compte sur business.facebook.com en vous rendant dans la [section WhatsApp](https://business.facebook.com/wa/manage/home).
 
 #### Puis-je connecter plusieurs WABA à Braze ? {#can-i-connect-multiple-wabas-to-braze}
-Oui, vous pouvez ajouter jusqu'à 10 comptes WhatsApp Business par espace de travail, et chaque compte peut être imbriqué sous un Meta Business Manager différent.
+Oui, vous pouvez ajouter jusqu'à 10 comptes WhatsApp Business par espace de travail, et chaque compte peut être imbriqué sous un Meta Business gestionnaire différent.
 
 ![Schéma de l'écosystème Braze et WhatsApp, montrant comment les espaces de travail et les comptes WhatsApp Business se connectent : vous pouvez relier un groupe d'abonnement à un numéro de téléphone, plusieurs comptes WhatsApp Business à un espace de travail, et un espace de travail à plusieurs Meta Business Portfolios.]({% image_buster /assets/img/whatsapp/whatsapp_braze_ecosystem.png %})
 
@@ -43,7 +43,7 @@ Oui, vous pouvez ajouter jusqu'à 10 comptes WhatsApp Business par espace de tra
 Non. Meta contrôle la devise de votre compte WhatsApp Business, et Braze ne peut ni la modifier ni la convertir. Pour utiliser une devise différente, [créez un compte WhatsApp Business distinct]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup) avec cette devise, ou contactez le support Meta pour demander s'ils peuvent mettre à jour la devise de votre compte existant.
 
 #### Qu'est-ce que la vérification d'entreprise ? {#what-is-business-verification}
-La vérification d'entreprise est un concept WhatsApp utilisé pour garantir que la marque est une entreprise légitime. Elle peut être effectuée dans le WhatsApp Manager. La vérification d'entreprise est également requise pour augmenter les volumes d'envoi. Sans vérification d'entreprise, vous ne pouvez envoyer des messages qu'à 250 utilisateurs finaux uniques maximum sur une période glissante de 24 heures.
+La vérification d'entreprise est un concept WhatsApp utilisé pour garantir que la marque est une entreprise légitime. Elle peut être effectuée dans le WhatsApp gestionnaire. La vérification d'entreprise est également requise pour augmenter les volumes d'envoi. Sans vérification d'entreprise, vous ne pouvez envoyer des messages qu'à 250 utilisateurs finaux uniques maximum sur une période glissante de 24 heures.
 
 #### Qu'est-ce qu'un compte professionnel officiel ? {#what-is-an-official-business-account}
 L'OBA (Official Business Account) vous donne la coche verte à côté de votre nom d'affichage et est facultatif. Vous pouvez demander un compte professionnel officiel après avoir terminé la vérification d'entreprise. Notez que la vérification d'entreprise et le compte professionnel officiel sont des concepts WhatsApp distincts.
@@ -124,13 +124,13 @@ Ainsi, pour passer de 100k à illimité, vous devez envoyer au moins 50 000 conv
 Si toutes les conditions précédentes sont remplies, vous pouvez augmenter votre limite d'envoi de 1k à illimité en 4 jours.
 
 #### Où puis-je consulter ma limite d'envoi actuelle ? {#where-can-i-see-my-current-messaging-limit}
-Vous pouvez vérifier vos limites d'envoi actuelles dans l'onglet **WhatsApp Manager > Overview Dashboard > Insights**.
+Vous pouvez vérifier vos limites d'envoi actuelles dans l'onglet **WhatsApp gestionnaire > Overview Dashboard > Insights**.
 
 #### Que se passe-t-il si je tente d'envoyer des messages alors que j'ai déjà atteint ma limite d'envoi ? {#what-happens-if-i-attempt-to-send-messages-when-i-have-already-reached-my-messaging-limit}
 Si vous essayez d'envoyer une Campaign ou un Canvas à plus d'utilisateurs uniques que votre limite actuelle ne le permet, les messages ne seront pas envoyés. Braze continuera de tenter de renvoyer les messages si/quand votre limite d'envoi augmentera, pendant un jour maximum.
 
 #### Ma limite d'envoi peut-elle diminuer ? {#can-my-messaging-limit-decrease}
-Oui, si la note de qualité de votre numéro de téléphone baisse trop, vous risquez que WhatsApp diminue votre limite d'envoi. Braze vous recommande de vous abonner aux notifications liées à la qualité de WhatsApp, y compris les mises à jour concernant le statut de votre numéro de téléphone et le niveau de limite d'envoi. Vous pouvez vous abonner aux notifications directement dans le tableau de bord du WhatsApp Manager.
+Oui, si la note de qualité de votre numéro de téléphone baisse trop, vous risquez que WhatsApp diminue votre limite d'envoi. Braze vous recommande de vous abonner aux notifications liées à la qualité de WhatsApp, y compris les mises à jour concernant le statut de votre numéro de téléphone et le niveau de limite d'envoi. Vous pouvez vous abonner aux notifications directement dans le tableau de bord du WhatsApp gestionnaire.
 
 #### Quels facteurs affectent la note de qualité du numéro de téléphone, et que se passe-t-il lorsque ma note de qualité baisse trop ? {#what-factors-affect-phone-number-quality-rating-and-what-happens-when-my-quality-rating-drops-too-low}
 Les facteurs qui affectent la note de qualité du numéro de téléphone incluent le blocage de l'entreprise par un utilisateur final (et les raisons qu'il fournit lors du blocage) et le signalement de l'entreprise par un utilisateur final.
@@ -146,19 +146,19 @@ Meta dispose de sa propre limite de débit, distincte de la limite d'envoi du WA
 WhatsApp exige que tous les messages initiés par l'entreprise commencent par un modèle approuvé. Le modèle comprend le texte du message, ainsi que des médias enrichis optionnels comme des images, des appels à l'action et des boutons de réponse rapide. Une fois les modèles approuvés par WhatsApp, ils peuvent être utilisés pour composer un message WhatsApp dans Braze.
 
 #### Où puis-je créer, modifier et gérer mes modèles WhatsApp ? {#where-do-i-create-edit-and-manage-my-whatsapp-templates}
-Vous pouvez créer et soumettre des modèles dans Braze à l'aide du [générateur de modèles WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder), ou dans le WhatsApp Manager de Meta. Les modèles créés dans l'un ou l'autre emplacement apparaissent dans le tableau de bord de Braze avec un indicateur de statut. Après soumission, les champs verrouillés nécessitent une nouvelle approbation de Meta ; consultez les [limitations de modification dans la FAQ du générateur de modèles]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder#can-i-edit-a-template-after-its-been-approved) pour plus de détails.
+Vous pouvez créer et soumettre des modèles dans Braze à l'aide du [générateur de modèles WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder), ou dans le WhatsApp gestionnaire de Meta. Les modèles créés dans l'un ou l'autre emplacement apparaissent dans le tableau de bord de Braze avec un indicateur de statut. Après soumission, les champs verrouillés nécessitent une nouvelle approbation de Meta ; consultez les [limitations de modification dans la FAQ du générateur de modèles]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder#can-i-edit-a-template-after-its-been-approved) pour plus de détails.
 
 #### Combien de temps WhatsApp met-il pour examiner la soumission d'un modèle ? {#how-long-does-it-take-whatsapp-to-review-a-template-submission}
 Le processus d'approbation peut prendre jusqu'à 24 heures, mais souvent les modèles sont traités en quelques heures ou minutes.
 
 #### Combien de modèles puis-je avoir à un moment donné ? {#how-many-templates-can-i-have-at-a-given-time}
-Votre limite de modèles de messages dépend de votre statut de vérification d'entreprise. Vous pouvez vérifier votre limite sur la page **WhatsApp Manager > Message Templates**.
+Votre limite de modèles de messages dépend de votre statut de vérification d'entreprise. Vous pouvez vérifier votre limite sur la page **WhatsApp gestionnaire > Message Templates**.
 
 #### Comment personnaliser le texte et les médias enrichis d'un modèle dans Braze ? {#how-do-i-personalize-template-copy-and-rich-media-in-braze}
 WhatsApp permet d'insérer des paramètres variables dans les modèles de messages. Les messages ne peuvent pas commencer ou finir par un paramètre variable. Les paramètres variables peuvent être remplis avec la logique Liquid dans la plateforme Braze. Consultez la section [Composition d'un message WhatsApp dans Braze]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#step-2-compose-your-whatsapp-message) pour en savoir plus sur les paramètres variables.
 
 #### Mon modèle a été rejeté. Braze peut-il m'aider à le faire approuver ? {#my-template-got-rejected-can-braze-help-me-get-it-approved}
-L'équipe Braze n'a pas de visibilité sur les rejets de modèles. Vous devez travailler directement avec votre WhatsApp Business Manager pour modifier et resoumettre le modèle. Assurez-vous de fournir un exemple de modèle si nécessaire. Vérifiez que votre modèle respecte les politiques [commerciales](https://www.whatsapp.com/legal/business-policy/?fbclid=IwAR2qWg6yFKdyjDMxJkbNSM38FLGsxXxffC1qStY2gaHOyp-gl_8g72rZNIw) ou de [commerce](https://www.whatsapp.com/legal/commerce-policy/?fbclid=IwAR3bzN3LTZ-7kO-wnO7X3smtPKGy0asxaFod-U1Ub8B9JUpnrfy1_y7LpAQ) de Meta.
+L'équipe Braze n'a pas de visibilité sur les rejets de modèles. Vous devez travailler directement avec votre WhatsApp Business gestionnaire pour modifier et resoumettre le modèle. Assurez-vous de fournir un exemple de modèle si nécessaire. Vérifiez que votre modèle respecte les politiques [commerciales](https://www.whatsapp.com/legal/business-policy/?fbclid=IwAR2qWg6yFKdyjDMxJkbNSM38FLGsxXxffC1qStY2gaHOyp-gl_8g72rZNIw) ou de [commerce](https://www.whatsapp.com/legal/commerce-policy/?fbclid=IwAR3bzN3LTZ-7kO-wnO7X3smtPKGy0asxaFod-U1Ub8B9JUpnrfy1_y7LpAQ) de Meta.
 
 #### Les médias enrichis peuvent-ils être ciblés ou personnalisés dans Braze ? {#can-rich-media-be-targeted-or-personalized-in-braze}
 Oui. Vous pouvez télécharger des images statiques depuis la bibliothèque multimédia, ou ajouter des images par URL et les personnaliser avec [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) ou le [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content). Les URL d'images prennent en charge la logique Liquid complète n'importe où dans l'URL. Cela s'applique aux messages de modèle et aux messages de réponse (messages multimédias et mises en page à réponse rapide). Pour plus de détails, consultez la section [Images dynamiques]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#dynamic-images).
@@ -172,13 +172,13 @@ Si vous pensez que Meta a signalé votre modèle à tort, utilisez le lien de r�
 #### Pourquoi mon modèle WhatsApp importé affiche-t-il « Message Incomplete » dans l'éditeur ? {#why-does-my-imported-whatsapp-template-show-message-incomplete-in-the-composer}
 L'avertissement « Message Incomplete » apparaît lorsque les emplacements de variables requis du modèle ne sont pas remplis avec des valeurs valides dans l'éditeur.
 
-Lorsque vous créez des modèles à l'aide du [générateur de modèles WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder), Braze renumérote les variables en marques substitutives séquentielles ({% raw %}`{{1}}`, `{{2}}`, `{{3}}`{% endraw %}, etc.). Les modèles créés en externe dans le WhatsApp Manager de Meta peuvent contenir des schémas rendant le mappage des variables sujet aux erreurs, comme :
+Lorsque vous créez des modèles à l'aide du [générateur de modèles WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder), Braze renumérote les variables en marques substitutives séquentielles ({% raw %}`{{1}}`, `{{2}}`, `{{3}}`{% endraw %}, etc.). Les modèles créés en externe dans le WhatsApp gestionnaire de Meta peuvent contenir des schémas rendant le mappage des variables sujet aux erreurs, comme :
 
 - Une numérotation non séquentielle (par exemple, {% raw %}`{{1}}`, `{{3}}`, `{{5}}`{% endraw %})
 - Des variables manquantes dans la séquence (par exemple, le saut de {% raw %}`{{2}}`{% endraw %})
 - Des variables qui commencent par un numéro autre que 1
 
-Pour résoudre ce problème, modifiez votre modèle dans le WhatsApp Manager de Meta pour utiliser un formatage séquentiel des marques substitutives, puis réimportez-le dans Braze. Dans Braze, confirmez que chaque champ de variable requis est rempli avec une valeur Liquid valide.
+Pour résoudre ce problème, modifiez votre modèle dans le WhatsApp gestionnaire de Meta pour utiliser un formatage séquentiel des marques substitutives, puis réimportez-le dans Braze. Dans Braze, confirmez que chaque champ de variable requis est rempli avec une valeur Liquid valide.
 
 #### Pourquoi ma Campaign WhatsApp ne s'envoie-t-elle pas alors que le modèle s'affiche correctement en aperçu ? {#why-is-my-whatsapp-campaign-not-sending-despite-template-previewing}
 Si votre modèle s'affiche correctement en aperçu mais que le journal de traitement indique **Abort** avec le détail « Param text cannot have new-line/tab characters or more than 4 consecutive spaces », vérifiez les valeurs des paramètres générées par Liquid dans votre message. WhatsApp exige que les valeurs textuelles des paramètres ne contiennent pas :

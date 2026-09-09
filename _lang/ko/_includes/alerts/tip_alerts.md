@@ -9,7 +9,7 @@ Braze 랜딩 페이지에서도 가입을 관리할 수 있습니다. **Manage S
 {% if include.alert == "Liquid email display name and reply-to address" %}
 
 {% alert tip %}
-**From Display Name + Address** 및 **Reply-To Address** 필드에서 [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid)를 사용하여 커스텀 속성을 기반으로 동적으로 템플릿화할 수 있습니다. 이를 통해 단일 이메일 Campaign 또는 캔버스 단계에서 다양한 브랜드, 지역 또는 부서로부터 발송할 수 있습니다.
+**From Display Name + Address** 및 **Reply-To Address** 필드에서 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)를 사용하여 커스텀 속성을 기반으로 동적으로 템플릿화할 수 있습니다. 이를 통해 단일 이메일 Campaign 또는 캔버스 단계에서 다양한 브랜드, 지역 또는 부서로부터 발송할 수 있습니다.
 {% endalert %}
 
 {% endif %}
@@ -17,7 +17,7 @@ Braze 랜딩 페이지에서도 가입을 관리할 수 있습니다. **Manage S
 {% if include.alert == "Reference properties from triggering event" %}
 
 {% alert tip %}
-[오디언스 경로]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/audience_paths) 또는 [결정 분할]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/decision_split) 단계에서 트리거 이벤트의 속성을 참조하기 위해 Context 단계가 필요하지 않습니다. **Context Variable** 필터를 사용하여 필터 그룹에서 속성을 직접 참조할 수 있습니다. 올바른 데이터 유형을 선택해야 합니다.
+[오디언스 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) 또는 [결정 분할]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split) 단계에서 트리거 이벤트의 속성을 참조하기 위해 Context 단계가 필요하지 않습니다. **Context Variable** 필터를 사용하여 필터 그룹에서 속성을 직접 참조할 수 있습니다. 올바른 데이터 유형을 선택해야 합니다.
 {% endalert %}
 
 {% endif %}
@@ -33,7 +33,7 @@ Braze 랜딩 페이지에서도 가입을 관리할 수 있습니다. **Manage S
 {% if include.alert == 'Export troubleshooting' %}
 
 {% alert tip %}
-CSV 및 API 내보내기에 대한 도움이 필요하면 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting)을 방문하세요.
+CSV 및 API 내보내기에 대한 도움이 필요하면 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)을 방문하세요.
 {% endalert %}
 
 {% endif %}
@@ -398,7 +398,7 @@ function countLength(type, s) {
 function escapeHtml(text) {
   return text.replace(/[&<>"'\/]/g, function (c) {
     switch (c) {
-      case '&': return '&amp;';
+      case '&': return '&가속 모바일 페이지;';
       case '<': return '&lt;';
       case '>': return '&gt;';
       case '"': return '&quot;';

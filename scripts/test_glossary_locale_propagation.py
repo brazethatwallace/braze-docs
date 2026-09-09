@@ -161,6 +161,15 @@ class TestReplaceInMarkdown:
         assert "**設定** > **APIキー**." in out
 
 
+class TestPropagationReplaceValue:
+    def test_uses_primary_synonym(self):
+        assert glp.propagation_replace_value("SDK or Software-Development-Kit") == "SDK"
+        assert glp.propagation_replace_value("KPI or Leistungskennzahl or Leistungskennzahlen") == "KPI"
+
+    def test_preserves_single_value(self):
+        assert glp.propagation_replace_value("Kampagne") == "Kampagne"
+
+
 class TestBuildLocaleChanges:
     def test_builds_added_and_updated_changes(self):
         old = {"Campaign": "キャンペーン", "contractor": "請負業者"}
@@ -180,6 +189,13 @@ class TestBuildLocaleChanges:
         )
         assert changes == []
 
+    def test_uses_primary_synonym_for_added_terms(self):
+        old = {}
+        new = {"SMS": "Kurzmitteilungsdienst or SMS"}
+        changes = glp.build_locale_changes_from_glossary_diff("de", old, new, {"global": []})
+        assert len(changes) == 1
+        assert changes[0]["replace"] == "Kurzmitteilungsdienst"
+
 
     def test_skips_duplicate_when_old_translation_equals_english_term(self):
         old = {"contractor": "contractor"}
@@ -188,6 +204,134 @@ class TestBuildLocaleChanges:
         assert len(changes) == 1
         assert changes[0]["search"] == "contractor"
         assert changes[0]["replace"] == "業務委託先"
+
+    def test_updated_synonym_reorder_searches_full_old_value(self):
+        old = {"campaign": "campagne or Kampagne"}
+        new = {"campaign": "Kampagne or campagne"}
+        changes = glp.build_locale_changes_from_glossary_diff("de", old, new, {"global": []})
+        translation_updates = [
+            change for change in changes if change["search"] != "campaign"
+        ]
+        assert len(translation_updates) == 1
+        assert translation_updates[0]["search"] == "campagne or Kampagne"
+        assert translation_updates[0]["replace"] == "Kampagne"
+
+
+class TestChangeSortKey:
+    def test_stale_suffix_first_then_longest_search(self):
+        changes = [
+            {"kind": "added", "search": "Customer Data Platform", "replace": "x"},
+            {"kind": "updated", "search": "Data", "replace": "y"},
+            {"kind": "added_stale_suffix", "search": "到達性センター", "replace": "z"},
+        ]
+        sorted_changes = sorted(changes, key=glp._change_sort_key)
+        assert sorted_changes[0]["kind"] == "added_stale_suffix"
+        assert sorted_changes[1]["search"] == "Customer Data Platform"
+        assert sorted_changes[2]["search"] == "Data"
+
+
+class TestStaleLocaleSuffixCandidates:
+    def test_finds_shorter_suffix_in_locale_text(self):
+        replace = "配信到達性センター"
+        text = "到達性センターです。Brazeダッシュボードの到達性センターを使用します。"
+        assert glp._stale_locale_suffix_candidates(replace, text) == ["到達性センター"]
+
+    def test_skips_when_full_translation_present(self):
+        replace = "配信到達性センター"
+        text = "配信到達性センターを開きます。"
+        assert glp._stale_locale_suffix_candidates(replace, text) == []
+
+    def test_skips_single_occurrence_suffix(self):
+        replace = "配信到達性センター"
+        text = "ヘルプセンターと到達性センター。"
+        assert glp._stale_locale_suffix_candidates(replace, text) == []
+
+
+class TestAddedTermStalePropagation:
+    def test_updates_mirrored_locale_file_with_stale_suffix(self, tmp_path):
+        english = (
+            tmp_path
+            / "_docs"
+            / "_user_guide"
+            / "analytics"
+            / "dashboards"
+            / "deliverability_center.md"
+        )
+        locale = (
+            tmp_path
+            / "_lang"
+            / "ja"
+            / "_user_guide"
+            / "analytics"
+            / "dashboards"
+            / "deliverability_center.md"
+        )
+        english.parent.mkdir(parents=True)
+        locale.parent.mkdir(parents=True)
+        english.write_text("# Deliverability Center\n\nUse the Deliverability Center.\n", encoding="utf-8")
+        locale.write_text("# 到達性センター\n\nBrazeダッシュボードの到達性センターです。\n", encoding="utf-8")
+
+        result = glp.propagate_glossary_changes(
+            [{
+                "lang": "ja",
+                "term": "Deliverability center",
+                "kind": "added",
+                "search": "Deliverability center",
+                "replace": "配信到達性センター",
+            }],
+            repo_root=tmp_path,
+        )
+
+        assert result["files_changed"] == 1
+        updated = locale.read_text(encoding="utf-8")
+        assert updated == (
+            "# 配信到達性センター\n\n"
+            "Brazeダッシュボードの配信到達性センターです。\n"
+        )
+
+    def test_mixed_language_page_does_not_double_prefix(self, tmp_path):
+        english = (
+            tmp_path
+            / "_docs"
+            / "_user_guide"
+            / "analytics"
+            / "dashboards"
+            / "deliverability_center.md"
+        )
+        locale = (
+            tmp_path
+            / "_lang"
+            / "ja"
+            / "_user_guide"
+            / "analytics"
+            / "dashboards"
+            / "deliverability_center.md"
+        )
+        english.parent.mkdir(parents=True)
+        locale.parent.mkdir(parents=True)
+        english.write_text(
+            "# Deliverability Center\n\nUse the Deliverability Center.\n",
+            encoding="utf-8",
+        )
+        locale.write_text(
+            "# Deliverability center\n\n到達性センターです。到達性センターを開きます。\n",
+            encoding="utf-8",
+        )
+
+        glp.propagate_glossary_changes(
+            [{
+                "lang": "ja",
+                "term": "Deliverability center",
+                "kind": "added",
+                "search": "Deliverability center",
+                "replace": "配信到達性センター",
+            }],
+            repo_root=tmp_path,
+        )
+
+        updated = locale.read_text(encoding="utf-8")
+        assert "配信配信到達性センター" not in updated
+        assert updated.count("配信到達性センター") == 3
 
 
 class TestPropagateGlossaryChanges:
@@ -230,3 +374,79 @@ class TestPropagateGlossaryChanges:
         )
         assert result["files_changed"] == 1
         assert "セグメント" in md.read_text(encoding="utf-8")
+
+    def test_skips_api_reference_files(self, tmp_path):
+        user_guide = tmp_path / "_lang" / "de" / "_user_guide" / "sample.md"
+        api_doc = tmp_path / "_lang" / "de" / "_api" / "endpoints" / "sample.md"
+        user_guide.parent.mkdir(parents=True)
+        api_doc.parent.mkdir(parents=True)
+        text = "Use the SDK for integration.\n"
+        user_guide.write_text(text, encoding="utf-8")
+        api_doc.write_text(text, encoding="utf-8")
+
+        result = glp.propagate_glossary_changes(
+            [{
+                "lang": "de",
+                "term": "SDK",
+                "kind": "added",
+                "search": "SDK",
+                "replace": "Software Development Kit",
+            }],
+            repo_root=tmp_path,
+        )
+        assert result["files_changed"] == 1
+        assert "Software Development Kit" in user_guide.read_text(encoding="utf-8")
+        assert api_doc.read_text(encoding="utf-8") == text
+
+
+class TestRepairGlossaryPropagationCorruption:
+    def test_noun_restoration_skips_oder_registrieren(self):
+        import repair_glossary_propagation_corruption as repair  # noqa: WPS433
+
+        text = "melden Sie sich an oder registrieren Sie sich.\n"
+        repaired, count = repair.apply_phrase_repairs(text)
+        assert repaired == text
+        assert count == 0
+
+    def test_noun_restoration_fixes_der_registrieren_phrase(self):
+        import repair_glossary_propagation_corruption as repair  # noqa: WPS433
+
+        text = "nach der registrieren einer App\n"
+        repaired, count = repair.apply_phrase_repairs(text)
+        assert repaired == "nach der Registrierung einer App\n"
+        assert count == 1
+
+    def test_click_corruption_repairs_javascript_literals(self):
+        import repair_glossary_propagation_corruption as repair  # noqa: WPS433
+
+        text = (
+            "$('#x').click(function() {});\n"
+            "$('#y').on('click', function() {});\n"
+            "document.getElementById('z').addEventListener('click', function () {});\n"
+        )
+        corrupted = text.replace("click", "Klick, der")
+        repaired, count = repair.apply_click_corruption_repairs(corrupted)
+        assert repaired == text
+        assert count > 0
+
+    def test_inclusive_marker_repairs_manager_doubling(self):
+        import repair_glossary_propagation_corruption as repair  # noqa: WPS433
+
+        text = 'Kontaktieren Sie Ihre:n Braze Account Manager:in:in.\n'
+        repaired, count = repair.apply_inclusive_marker_repairs(text)
+        assert repaired == 'Kontaktieren Sie Ihre:n Braze Account Manager:in.\n'
+        assert count == 1
+
+    def test_phrase_repairs_restore_support_form_literals(self):
+        import repair_glossary_propagation_corruption as repair  # noqa: WPS433
+
+        text = (
+            "'angepasste Attribute' : {}\n"
+            'document.Cookie = "x";\n'
+            '"Token": "abc"\n'
+        )
+        repaired, count = repair.apply_phrase_repairs(text)
+        assert "'Custom Attributes' :" in repaired
+        assert "document.cookie" in repaired
+        assert '"token":' in repaired
+        assert count > 0

@@ -100,7 +100,7 @@ tool: Canvas
 1. 同じ最初のメッセージステップで、**In-App Messages**バリアントを選択します。メッセージコントロールはそのままにします。
 2. ヘッダーと本文には、ユーザーに Proxy War 3 の体験について正直に回答するよう促す文言を使用します。
 3. 調査の回答をプロファイルに記録したいため、調査を**単一選択**および**送信時に属性を記録**のままにします。
-4. 3つの調査選択肢それぞれについて、カスタム属性として**Experience Feedback**を選択します。
+4. 3つの調査選択肢それぞれについて、カスタム属性として**Experience フィードバック**を選択します。
 5. これらの値はカスタム属性と一致しているため、ユーザープロファイルの属性値はそのままにします。
 
 ![ユーザーに最近の Proxy War 3 の購入を楽しんだかどうかを尋ねる調査。「Loved it」、「It was OK」、「Not for me」の3つの選択肢があります。]({% image_buster /assets/img/canvas_templates/post_purchase_feedback/survey_example_iam.png %}){: style="max-width:90%;"}

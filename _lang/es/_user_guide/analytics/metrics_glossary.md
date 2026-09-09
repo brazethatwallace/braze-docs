@@ -18,25 +18,25 @@ tool: Reports
 
 {% api %}
 
-## AMP Clicks {#amp-clicks}
+## páginas móviles aceleradas Clicks {#amp-clicks}
 
 {% apitags %}
 Email
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='AMP Clicks' %}
+{% multi_lang_include analytics/metrics.md metric='páginas móviles aceleradas Clicks' %}
 
 {% endapi %}
 
 {% api %}
 
-## AMP Opens {#amp-opens}
+## páginas móviles aceleradas Opens {#amp-opens}
 
 {% apitags %}
 Email
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='AMP Opens' %}
+{% multi_lang_include analytics/metrics.md metric='páginas móviles aceleradas Opens' %}
 
 {% endapi %}
 
@@ -146,7 +146,7 @@ In-App Message
 Feature Flags
 {% endapitags %}
 
-El rendimiento del mensaje a través de varios canales. Las métricas mostradas dependen del canal de mensajería seleccionado y de si el [experimento de conmutador de características]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/experiments#campaign-analytics) es una prueba multivariante.
+El rendimiento del mensaje a través de varios canales. Las métricas mostradas dependen del canal de mensajería seleccionado y de si el [experimento de conmutador de características]({{site.baseurl}}/developer_guide/feature_flags/experiments#campaign-analytics) es una prueba multivariante.
 
 {% endapi %}
 
@@ -533,7 +533,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, LINE
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Lifetime Value Per User' %}
+{% multi_lang_include analytics/metrics.md metric='LTV Per User' %}
 
 {% endapi %}
 
@@ -635,26 +635,26 @@ Email
 
 {% api %}
 
-## Primary Conversions (A) o Primary Conversion Event {#primary-conversions-a-or-primary-conversion-event}
+## Primary Conversions (A) o conversión primaria Event {#primary-conversions-a-or-primary-conversion-event}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, WhatsApp
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or Primary Conversion Event' %}
+{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or conversión primaria Event' %}
 
 | Canal | Información adicional |
 |-------|-----------------------|
 | Correo electrónico, push, webhooks | Después del envío inicial.|
 | Content Cards, mensajes dentro de la aplicación | Cuando el usuario ve la Content Card o el mensaje por primera vez.|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Primary Conversions (A) o Primary Conversion Event" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Primary Conversions (A) o conversión primaria Event" }
 
 {::nomarkdown}
 <span class="calculation-line">
     Cálculo:
     <ul>
-        <li><i>Primary Conversions (A) o Primary Conversion Event</i>: Recuento</li>
-        <li><i>Primary Conversions (A) %</i> o <i>Primary Conversion Event Rate</i>: (Primary Conversions) / (Unique Recipients)</li>
+        <li><i>Primary Conversions (A) o conversión primaria Event</i>: Recuento</li>
+        <li><i>Primary Conversions (A) %</i> o <i>conversión primaria Event Rate</i>: (Primary Conversions) / (Unique Recipients)</li>
     </ul>
 </span>
 {:/}
@@ -899,7 +899,7 @@ Email, Content Cards, SMS/MMS, LINE
 
 | Canal | Información adicional |
 |-------|-------|
-| LINE | Se rastrea después de alcanzar un umbral mínimo de 20 mensajes por día. Los correos electrónicos AMP incluyen clics registrados tanto en las versiones HTML como de texto plano. Este número puede estar inflado artificialmente por herramientas antispam.|
+| LINE | Se rastrea después de alcanzar un umbral mínimo de 20 mensajes por día. Los correos electrónicos páginas móviles aceleradas incluyen clics registrados tanto en las versiones HTML como de texto plano. Este número puede estar inflado artificialmente por herramientas antispam.|
 | Banners | El número total (y porcentaje) de usuarios que hicieron clic dentro del mensaje entregado, independientemente de si el mismo usuario hace clic varias veces.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Clics totales" }
 
@@ -971,7 +971,7 @@ Email, iOS Push, Android Push, Web Push, LINE
 | Canal | Información adicional |
 |-------|-----------------------|
 | LINE | Se rastrea después de alcanzar un umbral mínimo de 20 mensajes por día.|
-| Correos electrónicos AMP | Las aperturas totales para las versiones HTML y de texto plano.|
+| Correos electrónicos páginas móviles aceleradas | Las aperturas totales para las versiones HTML y de texto plano.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Aperturas totales" }
 
 {::nomarkdown}

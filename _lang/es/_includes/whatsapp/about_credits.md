@@ -1,4 +1,4 @@
-A partir del 1 de julio de 2025, WhatsApp ahora cobra por mensaje. Las tarifas de los mensajes se basan tanto en el código de país del número de teléfono del destinatario como en el tipo de mensaje que estás enviando. El tipo de mensaje se determina a partir de la [plantilla de mensaje](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines/) que envías para aprobación en WhatsApp Manager.
+A partir del 1 de julio de 2025, WhatsApp ahora cobra por mensaje. Las tarifas de los mensajes se basan tanto en el código de país del número de teléfono del destinatario como en el tipo de mensaje que estás enviando. El tipo de mensaje se determina a partir de la [plantilla de mensaje](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines/) que envías para aprobación en WhatsApp Administrador.
 
 {% alert note %}
 Todas las conversaciones iniciadas por la empresa en la plataforma deben comenzar con un mensaje de plantilla aprobado.
@@ -6,7 +6,7 @@ Todas las conversaciones iniciadas por la empresa en la plataforma deben comenza
 
 {% if include.content == "h2" %}##{% else include.content == "h3" %}###{% endif %} Definiciones de plantillas de mensaje
 
-Estas son las plantillas de mensaje que puedes enviar para aprobación en WhatsApp Manager:
+Estas son las plantillas de mensaje que puedes enviar para aprobación en WhatsApp Administrador:
 
 | Plantilla | Definición |
 |----------|------------|

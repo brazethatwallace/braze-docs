@@ -5,8 +5,7 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión de Braze para listar los Content Blocks disponibles."
-
+description: "En este artículo se describen los detalles del endpoint de Braze para listar los Content Blocks disponibles."
 ---
 {% api %}
 # Lista de Content Blocks disponibles {#list-available-content-blocks}
@@ -14,12 +13,12 @@ description: "En este artículo se describen los detalles del punto de conexión
 /content_blocks/list
 {% endapimethod %}
 
-> Utiliza este punto de conexión para listar la información de tus [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) existentes.
+> Utiliza este endpoint para listar la información de tus [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) existentes.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#6d87048f-68fd-46c9-aa15-3a970e99540e {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/api_key) con el permiso `content_blocks.list`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics) con el permiso `content_blocks.list`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -31,8 +30,8 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 |---|---|---|---|
 | `modified_after` | Opcional | Cadena en formato [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) | Recupera solo los Content Blocks actualizados a la hora indicada o después. |
 | `modified_before` | Opcional | Cadena en formato [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) | Recupera solo los Content Blocks actualizados a la hora indicada o antes. |
-| `limit` | Opcional | Número positivo | Número máximo de Content Blocks a recuperar. Predeterminado a 100 si no se proporciona, con un valor máximo aceptable de 1000. |
-| `offset` | Opcional | Número positivo | Número de Content Blocks que se omiten antes de devolver el resto de plantillas que se ajustan a los criterios de búsqueda. |
+| `limit` | Opcional | Número positivo | Número máximo de Content Blocks a recuperar. Predeterminado en 100 si no se proporciona, con un valor máximo aceptable de 1000. |
+| `offset` | Opcional | Número positivo | Número de Content Blocks que se omiten antes de devolver el resto de las plantillas que se ajustan a los criterios de búsqueda. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplo de solicitud {#example-request}
@@ -63,7 +62,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/content_blocks/list
 
 ## Solución de problemas {#troubleshooting}
 
-La siguiente tabla enumera los posibles errores devueltos y sus pasos asociados para la solución de problemas.
+La siguiente tabla enumera los posibles errores devueltos y los pasos asociados para solucionarlos.
 
 | Error | Solución de problemas |
 | --- | --- |

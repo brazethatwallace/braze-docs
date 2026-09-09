@@ -1,7 +1,7 @@
 ---
 nav_title: Zeotap para Currents
 article_title: Zeotap para Currents
-description: "Este artigo de referência descreve a parceria entre Braze Currents e Zeotap, uma plataforma de dados do cliente de próxima geração que ajuda você a descobrir e entender seu público móvel, fornecendo resolução de identidade, insights e enriquecimento de dados."
+description: "Este artigo de referência descreve a parceria entre Braze Currents e Zeotap, uma CDP de próxima geração que ajuda você a descobrir e entender seu público móvel, fornecendo resolução de identidade, insights e enriquecimento de dados."
 page_type: partner
 tool: Currents
 search_tag: Partner
@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Zeotap para Currents {#zeotap-for-currents}
 
-> A [Zeotap](https://zeotap.com/) é uma plataforma de dados do cliente de próxima geração que ajuda você a descobrir e entender seu público móvel, fornecendo resolução de identidade, insights e enriquecimento de dados.
+> A [Zeotap](https://zeotap.com/) é uma CDP de próxima geração que ajuda você a descobrir e entender seu público móvel, fornecendo resolução de identidade, insights e enriquecimento de dados.
 
 A integração da Braze com a Zeotap permite que você amplie a escala e o alcance das suas campanhas sincronizando os segmentos de clientes da Zeotap com os perfis de usuários da Braze. Com o [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), você também pode conectar dados à Zeotap para torná-los acionáveis em toda a growth stack.
 

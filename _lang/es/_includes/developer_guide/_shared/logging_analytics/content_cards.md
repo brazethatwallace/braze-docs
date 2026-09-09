@@ -220,7 +220,7 @@ Para leer el estado almacenado en caché actual sin bloquear el hilo que realiza
 {% endsubtabs %}
 {% endtab %}
 
-{% tab react native %}
+{% tab React Native %}
 
 Para escuchar actualizaciones, suscríbete a los eventos de actualización de Content Cards:
 
@@ -377,7 +377,7 @@ Para gestionar Content Cards de variante de control en tu interfaz personalizada
 {% endalert %}
 {% endtab %}
 
-{% tab react native %}
+{% tab React Native %}
 
 Registra eventos de impresión cuando los usuarios ven las tarjetas:
 

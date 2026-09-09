@@ -54,7 +54,7 @@ Durch das Inkrementieren eines angepassten Attributs, das ein Event erfasst, kö
 
 ### Ein Array von Objekten aktualisieren {#updating-an-array-of-objects}
 
-Ein [Array von Objekten]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects) ist ein datenreiches angepasstes Attribut, das im Profil von Nutzer:innen gespeichert wird. Sie können es verwenden, um einen Verlauf der Interaktionen von Nutzer:innen mit Ihrer Marke zu erstellen und Segmente basierend auf einem berechneten Feld wie Kaufhistorie oder Gesamt-Lifetime-Value zu erstellen.
+Ein [Array von Objekten]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects) ist ein datenreiches angepasstes Attribut, das im Profil von Nutzer:innen gespeichert wird. Sie können es verwenden, um einen Verlauf der Interaktionen von Nutzer:innen mit Ihrer Marke zu erstellen und Segmente basierend auf einem berechneten Feld wie Kaufhistorie oder Gesamt-LTV zu erstellen.
 
 Mit der Option **Advanced JSON Editor** können Sie JSON einfügen, um Elemente zu diesem Array von Objekten hinzuzufügen oder daraus zu entfernen.
 
@@ -171,9 +171,9 @@ Fügen Sie dem JSON-Editor ein Attribut-, Event- oder Kauf-JSON-Objekt mit bis z
 
 ![Fügen Sie dem JSON-Editor ein Attribut-, Event- oder Kauf-JSON-Objekt mit bis zu 65.536 Zeichen hinzu. Der globale Abo-Status und der Status der Abo-Gruppe einer Nutzer:in können ebenfalls festgelegt werden.]({% image_buster /assets/img_archive/canvas_user_update_composer.png %}){: style="max-width:90%;"}
 
-Mit dem JSON-Editor können Sie auch im Tab **Preview and test** eine Vorschau anzeigen und testen, ob das Nutzerprofil mit Ihren Änderungen aktualisiert wird. Sie können entweder eine zufällige Nutzer:in auswählen oder nach einer bestimmten Nutzer:in suchen. Sehen Sie sich dann nach dem Senden eines Tests an eine Nutzer:in das Nutzerprofil über den generierten Link an.
+Mit dem JSON-Editor können Sie auch im Tab **Preview and test** eine Vorschau anzeigen und testen, ob das Kundenprofil mit Ihren Änderungen aktualisiert wird. Sie können entweder eine zufällige Nutzer:in auswählen oder nach einer bestimmten Nutzer:in suchen. Sehen Sie sich dann nach dem Senden eines Tests an eine Nutzer:in das Kundenprofil über den generierten Link an.
 
-![Mit dem JSON-Editor können Sie auch im Tab „Preview and test“ eine Vorschau anzeigen und testen, ob das Nutzerprofil mit Ihren Änderungen aktualisiert wird. Sie können entweder eine zufällige Nutzer:in auswählen oder nach einer bestimmten Nutzer:in suchen. Sehen Sie sich dann nach dem Senden eines Tests an eine Nutzer:in das Nutzerprofil über den generierten Link an.]({% image_buster /assets/img_archive/canvas_user_update_test_preview.png %}){: style="max-width:90%;"}
+![Mit dem JSON-Editor können Sie auch im Tab „Preview and test“ eine Vorschau anzeigen und testen, ob das Kundenprofil mit Ihren Änderungen aktualisiert wird. Sie können entweder eine zufällige Nutzer:in auswählen oder nach einer bestimmten Nutzer:in suchen. Sehen Sie sich dann nach dem Senden eines Tests an eine Nutzer:in das Kundenprofil über den generierten Link an.]({% image_buster /assets/img_archive/canvas_user_update_test_preview.png %}){: style="max-width:90%;"}
 
 ### Hinweise {#considerations}
 

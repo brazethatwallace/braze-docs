@@ -20,15 +20,15 @@ Die Zustellung durchläuft in der Regel drei Phasen: die **Verarbeitung** durch 
 
 Wenn sich ein:e Nutzer:in von einem Gerät oder einer Website abmeldet, bleibt er/sie per Push erreichbar, bis sich ein:e andere:r Nutzer:in anmeldet. Zu diesem Zeitpunkt wird das Push-Token dem/der neuen Nutzer:in zugewiesen. Das liegt daran, dass jedes Gerät nur ein aktives Push-Abo pro App oder Website haben kann.
 
-Wenn ein Push-Token neu zugewiesen wird, wird die Änderung im **Push Changelog** des Nutzerprofils angezeigt. Sie finden dieses, indem Sie im Nutzerprofil zum Tab **Engagement** navigieren.
+Wenn ein Push-Token neu zugewiesen wird, wird die Änderung im **Push Changelog** des Nutzerprofils angezeigt. Sie finden dieses, indem Sie im Kundenprofil zum Tab **Engagement** navigieren.
 
 ![Das „Push Changelog“ im Abschnitt „Contact Settings“.]({% image_buster /assets/img/push_changelog_faq.png %}){: style="max-width:50%;"}
 
 ## Wird ein Test-Push an alle meine Geräte gesendet? {#when-i-send-a-test-push-does-it-go-to-all-of-my-devices}
 
-Ja. Der Test-Push wird an jedes Push-fähige Gerät gesendet, das mit dem ausgewählten Nutzerprofil verknüpft ist. Wenn Sie mehrere Telefone oder Tablets mit demselben/derselben Nutzer:in angemeldet haben, erhält jedes Gerät mit einem gültigen Push-Token die Benachrichtigung.
+Ja. Der Test-Push wird an jedes Push-fähige Gerät gesendet, das mit dem ausgewählten Kundenprofil verknüpft ist. Wenn Sie mehrere Telefone oder Tablets mit demselben/derselben Nutzer:in angemeldet haben, erhält jedes Gerät mit einem gültigen Push-Token die Benachrichtigung.
 
-Um den Test-Push nur an ein Gerät zu senden, können Sie vor dem Testen die Push-Token für die anderen Geräte aus dem Nutzerprofil entfernen. Alternativ können Sie beim Senden über den [`/messages/send`-Endpunkt]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) im `apple_push`- oder `android_push`-Objekt `send_to_most_recent_device_only` auf `true` setzen, sodass nur das zuletzt aktive Gerät den Push erhält.
+Um den Test-Push nur an ein Gerät zu senden, können Sie vor dem Testen die Push-Token für die anderen Geräte aus dem Kundenprofil entfernen. Alternativ können Sie beim Senden über den [`/messages/send`-Endpunkt]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) im `apple_push`- oder `android_push`-Objekt `send_to_most_recent_device_only` auf `true` setzen, sodass nur das zuletzt aktive Gerät den Push erhält.
 
 ## Was bedeutet „Error sending push because the payload was invalid“? {#what-does-error-sending-push-because-the-payload-was-invalid-mean}
 
@@ -87,6 +87,6 @@ Wenn eine Erfolgsmeldung zurückgegeben wird, protokolliert Braze den Versand, u
 
 - Bei Push-Campaigns mit aktionsbasierter Zustellung wird der Nachrichtenversand protokolliert, sobald der/die Nutzer:in die Aktion ausgeführt hat, die die Campaign auslöst.
 - Bei geplanten Campaigns ist der Sendezeitpunkt der Zeitpunkt, zu dem die Nachricht in die Warteschlange eingereiht und an den Push-Dienstanbieter übergeben wurde.
-- Bei beiden Zustellungsarten wird die Nachricht in Braze und im Nutzerprofil unter **Campaigns Received** als „gesendet“ markiert, auch wenn der/die Nutzer:in den Push möglicherweise noch nicht gesehen oder erhalten hat.
+- Bei beiden Zustellungsarten wird die Nachricht in Braze und im Kundenprofil unter **Campaigns Received** als „gesendet“ markiert, auch wenn der/die Nutzer:in den Push möglicherweise noch nicht gesehen oder erhalten hat.
 
 Die Metrik „Zustellungen“ für Push im Dashboard wird beim Laden der Seite als Anzahl der Sendungen abzüglich der Bounces berechnet.

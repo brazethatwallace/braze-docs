@@ -580,7 +580,7 @@ Voici quelques exemples particulièrement utiles dans les contextes de messageri
 - [aria-labelledby](#aria-labelledby)
 - [aria-hidden="true"](#aria-hiddentrue)
 - [role="presentation"](#rolepresentation)
-- [aria-live="polite"](#aria-livepolite)
+- [aria-en direct="polite"](#aria-livepolite)
 
 #### aria-label {#aria-label}
 
@@ -631,7 +631,7 @@ En général, il est préférable d'utiliser `alt=""` pour les [images décorati
 
 Les e-mails créés dans l'éditeur d'e-mail par glisser-déposer ont les éléments de présentation automatiquement marqués avec l'attribut ARIA `role="presentation"`.
 
-#### aria-live="polite" {#aria-livepolite}
+#### aria-en direct="polite" {#aria-livepolite}
 
 `aria-live="polite"` annonce les mises à jour lorsque le contenu change sans nécessiter d'interaction de l'utilisateur. Utilisez-le lorsque vous affichez des mises à jour dynamiques dans un message, comme des succès, des erreurs ou d'autres notifications.
 

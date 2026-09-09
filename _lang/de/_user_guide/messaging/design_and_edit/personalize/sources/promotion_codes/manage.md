@@ -52,7 +52,7 @@ Testversendungen und Seed-Gruppen-E-Mail-Versendungen verbrauchen Aktionscodes, 
 
 ## Aktionscodes in Nutzerprofilen speichern {#save-to-profile}
 
-Um denselben Aktionscode in nachfolgenden Nachrichten zu referenzieren, muss der Code als angepasstes Attribut im Nutzerprofil gespeichert werden. Dies kann über einen [Nutzeraktualisierungs-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) erfolgen, der den Rabattcode einem angepassten Attribut wie „Aktionscode“ direkt vor einem Nachrichten-Schritt zuweist.
+Um denselben Aktionscode in nachfolgenden Nachrichten zu referenzieren, muss der Code als angepasstes Attribut im Kundenprofil gespeichert werden. Dies kann über einen [Nutzeraktualisierungs-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) erfolgen, der den Rabattcode einem angepassten Attribut wie „Aktionscode“ direkt vor einem Nachrichten-Schritt zuweist.
 
 Wählen Sie zunächst Folgendes für jedes Feld im Nutzeraktualisierungs-Schritt aus:
 

@@ -42,7 +42,7 @@ Para clientes que adquiriram Monthly Active Users CY 24-25, Universal MAU, Web M
 Para clientes com limites de frequência legados, cada solicitação `/users/track` pode conter até 75 objetos de atributo, 75 objetos de evento e 75 objetos de compra. Cada objeto pode atualizar um usuário, para um máximo combinado de até 225 objetos por solicitação. Um único perfil de usuário pode ser atualizado por múltiplos objetos.
 {% enddetails %}
 
-Para saber mais, consulte [Limites de frequência da API]({{site.baseurl}}/api/api_limits). Entre em contato com seu gerente de sucesso do cliente para solicitar um aumento.
+Para saber mais, consulte [Limites de frequência da API]({{site.baseurl}}/api/api_limits). Entre em contato com seu CSM para solicitar um aumento.
 
 <!---/users/export/ids-->
 
@@ -113,7 +113,7 @@ Ao usar filtros de Connected Audience em sua solicitação, aplicamos um limite 
 Os endpoints da Braze aceitam [solicitações de API em lote]({{site.baseurl}}/api/api_limits#batching-api-requests). Uma única solicitação para os endpoints de envio de mensagens pode alcançar qualquer um dos seguintes itens:
 
 - Até 50 `external_ids` específicos, cada um com parâmetros de mensagem individuais
-- Um segmento de público de qualquer tamanho, definido na solicitação como um objeto de [Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience)
+- Um Segment de público de qualquer tamanho, definido na solicitação como um objeto de [Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience)
 
 <!---/transactional/v1/campaigns/{campaign_id}/send -->
 
@@ -121,11 +121,11 @@ Os endpoints da Braze aceitam [solicitações de API em lote]({{site.baseurl}}/a
 O endpoint `/transactional/v1/campaigns/{campaign_id}/send` é um endpoint pago em unidades por hora (por exemplo, 50.000 por hora, dependendo do seu pacote). Não há limite de frequência separado por endpoint: você pode enviar além do seu volume alocado, mas apenas o volume alocado é coberto pelo SLA. As solicitações para esse endpoint contam para o seu [limite geral de frequência da API externa]({{site.baseurl}}/api/api_limits). Se você exceder esse limite (por exemplo, 250.000 solicitações por hora em todos os endpoints), a Braze retorna 429 e as solicitações são limitadas. A contagem do volume transacional é redefinida a cada hora, então após uma hora, outra alocação fica disponível. Dentro do volume coberto pelo SLA, 99,9% dos e-mails serão enviados em menos de um minuto.
 
 <!---POST /preference_center/v1 and PUT /preference_center/v1/{preferenceCenterExternalID}-->
-{% elsif include.endpoint == "post or put preference center" %}
+{% elsif include.endpoint == "post or put Central de Preferências" %}
 Esse endpoint tem um limite de frequência de 10 solicitações por minuto, por espaço de trabalho, conforme documentado em [Limites de frequência da API]({{site.baseurl}}/api/api_limits).
 
 <!---GET /preference_center/v1-->
-{% elsif include.endpoint == "get preference center" %}
+{% elsif include.endpoint == "get Central de Preferências" %}
 Esse endpoint tem um limite de frequência de 1.000 solicitações por minuto, por espaço de trabalho, conforme documentado em [Limites de frequência da API]({{site.baseurl}}/api/api_limits).
 
 <!---/sends/id/create-->
@@ -164,8 +164,8 @@ Esse endpoint tem um limite de frequência de 100 solicitações por hora, confo
 Os endpoints da Braze aceitam [solicitações de API em lote]({{site.baseurl}}/api/api_limits#batching-api-requests). Uma única solicitação para os endpoints de envio de mensagens pode alcançar qualquer um dos seguintes itens:
 
 - Até 50 `external_ids` específicos, cada um com parâmetros de mensagem individuais
-- Um segmento de qualquer tamanho criado no dashboard da Braze, especificado por seu `segment_id`
-- Um segmento de público de qualquer tamanho, definido na solicitação como um objeto de [Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience)
+- Um Segment de qualquer tamanho criado no dashboard da Braze, especificado por seu `segment_id`
+- Um Segment de público de qualquer tamanho, definido na solicitação como um objeto de [Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience)
 
 {% endif %}
 
@@ -174,7 +174,7 @@ Os endpoints da Braze aceitam [solicitações de API em lote]({{site.baseurl}}/a
 Os endpoints da Braze aceitam [solicitações de API em lote]({{site.baseurl}}/api/api_limits#batching-api-requests). Uma única solicitação para os endpoints de envio de mensagens pode alcançar qualquer um dos seguintes itens:
 
 - Até 50 `external_ids` específicos, cada um com parâmetros de mensagem individuais
-- Um segmento de público de qualquer tamanho, definido na solicitação como um objeto de [Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience)
+- Um Segment de público de qualquer tamanho, definido na solicitação como um objeto de [Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience)
 
 {% endif %}
 
@@ -193,8 +193,8 @@ Esse endpoint tem um limite de frequência de 250.000 solicitações por minuto.
 Os endpoints da Braze aceitam [solicitações de API em lote]({{site.baseurl}}/api/api_limits#batching-api-requests). Uma única solicitação para os endpoints de envio de mensagens pode alcançar qualquer um dos seguintes itens:
 
 - Até 50 `external_ids` específicos
-- Um segmento de qualquer tamanho criado no dashboard da Braze, especificado por seu `segment_id`
-- Um segmento de público de qualquer tamanho, definido na solicitação como um objeto de [Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience)
+- Um Segment de qualquer tamanho criado no dashboard da Braze, especificado por seu `segment_id`
+- Um Segment de público de qualquer tamanho, definido na solicitação como um objeto de [Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience)
 
 {% endif %}
 

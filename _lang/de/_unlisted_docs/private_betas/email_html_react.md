@@ -12,14 +12,14 @@ description: "Dieser Artikel bietet eine Übersicht über den aktualisierten HTM
 
 ## Vorteile {#benefits}
 
-Der aktualisierte HTML-Editor schafft ein einheitliches Erlebnis über unsere Editoren in anderen Messaging-Kanälen hinweg. Sie können nahtlos zwischen den Editoren (HTML, klassisch, Klartext und AMP) über die obere Editor-Navigation wechseln. Diese Optionen waren im alten HTML-Editor zuvor in einem Dropdown versteckt.
+Der aktualisierte HTML-Editor schafft ein einheitliches Erlebnis über unsere Editoren in anderen Messaging-Kanälen hinweg. Sie können nahtlos zwischen Editoren (HTML, klassisch, Nur-Text und AMP) über die obere Editor-Navigation wechseln. Diese Optionen waren im alten HTML-Editor zuvor in einem Dropdown-Menü versteckt.
 
-Zu den Vorteilen gehören außerdem eine verbesserte Liquid-Syntaxunterstützung und [Unterstützung für Mehrsprachigkeitseinstellungen]({{site.baseurl}}/user_guide/administrative/app_settings/multi_language_settings/).
+Zu den Vorteilen gehören außerdem eine verbesserte Liquid-Syntaxunterstützung und die [Unterstützung für Mehrsprachigkeitseinstellungen]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings).
 
-Die Linkverwaltung wird im aktualisierten HTML-Editor ebenfalls unterstützt, auch wenn Sie [Link Aliasing]({{site.baseurl}}/user_guide/message_building_by_channel/email/templates/link_aliasing/) nicht aktiviert haben.
+Die Linkverwaltung wird im aktualisierten HTML-Editor ebenfalls unterstützt, auch wenn Sie [Link Aliasing]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing) nicht aktiviert haben.
 
-![Der aktualisierte HTML-Editor für E-Mail mit einer Beispiel-HTML-E-Mail.]({% image_buster /assets/unlisted_docs/img_archive/email_html_editor_updated.png %})
+![Der aktualisierte HTML-Editor für E-Mails mit einer Beispiel-HTML-E-Mail.]({% image_buster /assets/unlisted_docs/img_archive/email_html_editor_updated.png %})
 
 {% alert tip %}
-Sehen Sie sich unseren speziellen Abschnitt zum [HTML-Editor für E-Mail]({{site.baseurl}}/user_guide/message_building_by_channel/email/html_editor/) an, um weitere Ressourcen zu erhalten.
+Schauen Sie sich unseren speziellen Abschnitt zum [HTML-Editor für E-Mails]({{site.baseurl}}/user_guide/channels/email/html_editor) an, um weitere Ressourcen zu finden.
 {% endalert %}

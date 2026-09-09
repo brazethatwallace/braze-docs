@@ -1367,11 +1367,8 @@ $(document).ready(function() {
     $(this).val(page_language).prop('selected', true);
   });
 
-  $('[role="tablist"]').each(function(){
-    if (!$(this).attr('tabindex')) {
-      $(this).attr('tabindex', 0)
-    }
-  });
+  // Tablists use roving tabindex on [role="tab"] children (syncTabAriaFromActiveClass).
+  // Do not add tabindex to the tablist container — that creates a second tab stop (BD-6573).
   setAdaTableRole();
 
   // intialized mermaid

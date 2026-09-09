@@ -15,23 +15,23 @@ page_order: 3
 Google은 2024년 3월 6일부터 시행되는 [디지털 시장법(DMA)](https://ads-developers.googleblog.com/2023/10/updates-to-customer-match-conversion.html)의 변경 사항에 대응하여 [EU 사용자 동의 정책](https://www.google.com/about/company/user-consent-policy/)을 업데이트하고 있습니다. 이 새로운 변경 사항은 광고주가 EEA, 영국 및 스위스 최종 사용자에게 특정 정보를 공개하고 필요한 동의를 얻도록 요구합니다. 자세한 내용은 다음 설명서를 검토하세요.
 {% endalert %}
 
-Braze Audience Sync to Google 통합을 통해 브랜드는 크로스채널 고객 여정의 도달 범위를 Google 검색, Google 쇼핑, Gmail, YouTube 및 Google 디스플레이로 확장할 수 있습니다. 퍼스트파티 고객 데이터를 사용하여 동적 행동 트리거, 세분화 등을 기반으로 안전하게 광고를 전달할 수 있습니다. Braze Canvas의 일부로 메시지(예: 푸시, 이메일 또는 SMS)를 트리거하는 데 일반적으로 사용하는 모든 기준을 Google의 [Customer Match](https://support.google.com/google-ads/answer/6379332?hl=en)를 통해 해당 사용자에게 광고를 트리거하는 데 사용할 수 있습니다.
+Braze Audience Sync to Google 통합을 통해 브랜드는 크로스채널 고객 여정의 도달 범위를 Google 검색, Google 쇼핑, Gmail, YouTube 및 Google 디스플레이로 확장할 수 있습니다. 퍼스트파티 고객 데이터를 사용하여 동적 행동 트리거, 세분화 등을 기반으로 안전하게 광고를 전달할 수 있습니다. BRAZE 캔버스의 일부로 메시지(예: 푸시, 이메일 또는 SMS)를 트리거하는 데 일반적으로 사용하는 모든 기준을 Google의 [Customer Match](https://support.google.com/google-ads/answer/6379332?hl=en)를 통해 해당 사용자에게 광고를 트리거하는 데 사용할 수 있습니다.
 
 {% alert note %}
-Braze Audience Sync to Google 통합은 Google Ads를 지원하며, Google Ads Manager는 지원하지 않습니다.
+Braze Audience Sync to Google 통합은 Google Ads를 지원하며, Google Ads 매니저는 지원하지 않습니다.
 {% endalert %}
 
 Google Ads는 더 이상 타겟팅 및 보고를 위한 유사 오디언스("유사 잠재고객"이라고도 함)를 생성하지 않습니다. 자세한 내용은 [Google Ads 설명서](https://support.google.com/google-ads/answer/12463119?)를 참조하세요.
 
-## Google Data Manager API
+## Google Data 매니저 API
 
 {% alert important %}
-Google Audience Sync를 위한 Google Data Manager API 지원은 얼리 액세스 단계입니다. 자격 요건 및 출시 일정에 대해서는 Braze 계정 매니저에게 문의하세요.
+Google Audience Sync를 위한 Google Data 매니저 API 지원은 얼리 액세스 단계입니다. 자격 요건 및 출시 일정에 대해서는 Braze 계정 매니저에게 문의하세요.
 {% endalert %}
 
-Google은 광고 통합을 Data Manager API로 통합하고 있습니다. 얼리 액세스 단계에서 Braze Audience Sync to Google은 이 API를 사용하여 지속적인 Google 광고 API 변경 사항을 지원할 수 있습니다.
+Google은 광고 통합을 Data 매니저 API로 통합하고 있습니다. 얼리 액세스 단계에서 Braze Audience Sync to Google은 이 API를 사용하여 지속적인 Google 광고 API 변경 사항을 지원할 수 있습니다.
 
-신규 및 재연결된 Google Audience Sync 연결의 경우, Braze가 필요한 Data Manager 범위를 자동으로 요청합니다. 기존 연결은 재연결할 때까지 레거시 경로를 통해 계속 동기화됩니다.
+신규 및 재연결된 Google Audience Sync 연결의 경우, Braze가 필요한 Data 매니저 범위를 자동으로 요청합니다. 기존 연결은 재연결할 때까지 레거시 경로를 통해 계속 동기화됩니다.
 
 계정 연결, 오디언스 설정 및 동기화 동작에 대해서는 이 가이드를 계속 따라 주세요.
 
@@ -197,7 +197,7 @@ Canvas 내에서 나머지 사용자 여정을 완료한 다음 시작합니다!
 
 사용자가 오디언스 동기화 구성 요소에 도달하면, Braze는 Google Ads API 사용량 제한을 준수하면서 거의 실시간으로 해당 사용자를 동기화합니다. 실제로 이는 Braze가 사용자를 Google로 전송하기 전에 5초마다 가능한 한 많은 사용자를 일괄 처리하려고 시도한다는 것을 의미합니다.
 
-고객이 Google Ads API 사용량 제한에 근접하면, Google은 재시도 권장 사항에 대한 피드백을 Braze에 제공합니다. Braze 고객이 사용량 제한에 도달하면, Braze Canvas는 최대 &#126;13시간 동안 동기화를 재시도합니다. 동기화가 불가능한 경우, 해당 사용자는 오류 발생 사용자 측정기준에 표시됩니다.
+고객이 Google Ads API 사용량 제한에 근접하면, Google은 재시도 권장 사항에 대한 피드백을 Braze에 제공합니다. Braze 고객이 사용량 제한에 도달하면, BRAZE 캔버스는 최대 &#126;13시간 동안 동기화를 재시도합니다. 동기화가 불가능한 경우, 해당 사용자는 오류 발생 사용자 측정기준에 표시됩니다.
 
 ## 분석 이해하기 {#understanding-analytics}
 

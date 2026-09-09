@@ -13,7 +13,7 @@ Braze hat die Unterstützung für die Eclipse IDE entfernt, da [Google die Unter
 {% endalert %}
 
 ## 1. Schritt {#step-1}
-Klonen Sie in Ihrer Befehlszeile das [Braze Android GitHub Repository](https://github.com/braze-inc/braze-android-sdk).
+Klon Sie in Ihrer Befehlszeile das [Braze Android GitHub Repository](https://github.com/braze-inc/braze-android-sdk).
 
 ```bash
 $ git clone git@github.com:braze-inc/braze-android-sdk.git

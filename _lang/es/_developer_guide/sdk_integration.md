@@ -40,7 +40,7 @@ Si la inicialización del SDK falla con errores de confianza de certificados HTT
 {% multi_lang_include developer_guide/flutter/sdk_integration.md %}
 {% endsdktab %}
 
-{% sdktab react native %}
+{% sdktab React Native %}
 {% multi_lang_include developer_guide/react_native/sdk_integration.md %}
 {% endsdktab %}
 
@@ -77,7 +77,7 @@ config[config_fields.HEARTBEAT_FREQ_IN_SECONDS] = 5
 globalNode.addFields({brazeConfig: config})
 ```
 
-Puedes encontrar tu [punto final de SDK]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints) y tu clave de API en el panel de Braze.
+Puedes encontrar tu [punto final de SDK]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) y tu clave de API en el panel de Braze.
 
 ### Paso 4: Inicializar Braze {#step-4-initialize-braze}
 

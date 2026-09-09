@@ -31,11 +31,11 @@ Puedes hacer lo siguiente con los usuarios anónimos capturados:
 
 ## Fusionar usuarios anónimos {#merging-anonymous-users}
 
-A veces, los perfiles de usuario anónimos son duplicados que tienen el mismo número de teléfono o dirección de correo electrónico que otros perfiles de usuario. Uno de los duplicados puede ser incluso un perfil de usuario identificado. Estos duplicados pueden fusionarse en un solo perfil de usuario utilizando el [punto de conexión POST: Fusionar usuarios]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) o una de las herramientas de fusión de la plataforma Braze, como la [fusión basada en reglas]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users#rules-based-merging).
+A veces, los perfiles de usuarios anónimos son duplicados que tienen el mismo número de teléfono o dirección de correo electrónico que otros perfiles de usuario. Uno de los duplicados puede ser incluso un perfil de usuario identificado. Estos duplicados pueden fusionarse en un solo perfil de usuario utilizando el [endpoint POST: Fusionar usuarios]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) o una de las herramientas de fusión de la plataforma Braze, como la [fusión basada en reglas]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users#rules-based-merging).
 
 ## Buscar un usuario anónimo {#looking-up-an-anonymous-user}
 
-Como los usuarios anónimos no tienen un `external_id`, puedes utilizar un ID de dispositivo para buscar un perfil específico. Los siguientes pasos muestran cómo obtener el ID de dispositivo del usuario actual en tu integración del SDK Web:
+Dado que los usuarios anónimos no tienen un `external_id`, puedes utilizar un ID de dispositivo para buscar un perfil específico. Los siguientes pasos muestran cómo obtener el ID de dispositivo del usuario actual en tu integración del SDK Web:
 
 1. Abre las herramientas de desarrollador de tu navegador (por ejemplo, en Chrome, pulsa **Command + Option + J** en Mac o **Ctrl + Shift + I** en Windows).
 2. En la pestaña **Console**, ejecuta lo siguiente:
@@ -45,26 +45,26 @@ console.log(braze.getDeviceId());
 ```
 
 {:start="3"}
-3. En el dashboard de Braze, utiliza la [Búsqueda de usuarios]({{site.baseurl}}/user_guide/engagement_tools/segments/using_user_search) para buscar el ID de dispositivo devuelto.
+3. En el panel de Braze, utiliza la [búsqueda de usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) para buscar el ID de dispositivo devuelto.
 
-## Casos de uso {#use-cases}
+## Ejemplos {#use-cases}
 
-### Dirigirte a usuarios anónimos en tu segmento {#target-anonymous-users-in-your-segment}
+### Dirigirse a usuarios anónimos en tu Segment {#target-anonymous-users-in-your-segment}
 
-Como los usuarios anónimos no tienen un `external_id`, puedes dirigirte a ellos de forma masiva utilizando el filtro de segmentación **External User ID is blank**. Para mayor precisión, puedes añadir un atributo personalizado a los usuarios anónimos a los que quieras dirigirte y filtrar por ello.
+Dado que los usuarios anónimos no tienen un `external_id`, puedes dirigirte a ellos de forma masiva utilizando el filtro de segmentación **El ID externo del usuario está en blanco**. Para mayor precisión, puedes añadir un atributo personalizado a los usuarios anónimos a los que deseas dirigirte y filtrar por ese atributo.
 
-Digamos que asignas el atributo personalizado "is_lead_profile" a cada perfil de usuario anónimo. Podrías dirigirte a estos perfiles con uno de estos filtros o con ambos:
+Supongamos que asignas el atributo personalizado "is_lead_profile" a cada perfil de usuario anónimo. Podrías dirigirte a estos perfiles con uno o ambos filtros:
 
-- **External User ID is blank**
-- "is_lead_profile" **is true**
+- **El ID externo del usuario está en blanco**
+- "is_lead_profile" **es verdadero**
 
-![Filtros de segmento para un ID externo de usuario en blanco y un atributo personalizado verdadero "is_lead_profile".]({% image_buster /assets/img/getting_started/anonymous_users.png %})
+![Filtros de Segment para un ID externo de usuario en blanco y un atributo personalizado "is_lead_profile" verdadero.]({% image_buster /assets/img/getting_started/anonymous_users.png %})
 
 ### Capturar datos de pago de un usuario anónimo {#capture-checkout-data-from-an-anonymous-user}
 
-Puedes capturar datos de pago de un usuario anónimo (o visitante invitado) creando un perfil con alias de usuario durante el proceso de pago. Cuando un usuario anónimo realiza una compra utilizando un formulario de captura web, haz que se desencadene una llamada a la API para crear un perfil con alias de usuario y registrar un evento de compra. Entonces podrás actualizar el perfil de usuario creado a través de la API de Braze.
+Puedes capturar datos de pago de un usuario anónimo (o visitante invitado) creando un perfil con alias de usuario durante el proceso de pago. Cuando un usuario anónimo realiza el pago mediante un formulario de captura web, haz que una llamada a la API se desencadene para crear un perfil con alias de usuario y registrar un evento de compra. Después podrás actualizar el perfil de usuario creado a través de la API de Braze.
 
-Aquí tienes un ejemplo de carga útil que se generará cuando se envíe el formulario de captura web:
+Este es un ejemplo de carga útil que se generará cuando se envíe el formulario de captura web:
 
 {% raw %}
 ```json

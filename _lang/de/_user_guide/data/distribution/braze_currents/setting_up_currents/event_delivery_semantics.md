@@ -104,7 +104,7 @@ Von Zeit zu Zeit kann Braze Änderungen am Avro-Schema vornehmen, wenn Felder hi
 
 #### Nicht-brechende Änderungen {#non-breaking-changes}
 
-Wenn ein Feld zum Avro-Schema hinzugefügt wird, betrachten wir dies als nicht-brechende Änderung. Hinzugefügte Felder sind immer „optionale“ Avro-Felder (z. B. mit einem Standardwert von `null`), sodass sie gemäß der [Avro-Schema-Auflösungsspezifikation](http://avro.apache.org/docs/current/spec.html#schema+resolution) mit älteren Schemas „übereinstimmen“. Diese Ergänzungen sollten bestehende ETL-Prozesse (Extract, Transform, Load) nicht beeinträchtigen, da das Feld einfach ignoriert wird, bis es zu Ihrem ETL-Prozess hinzugefügt wird.
+Wenn ein Feld zum Avro-Schema hinzugefügt wird, betrachten wir dies als nicht-brechende Änderung. Hinzugefügte Felder sind immer „optionale“ Avro-Felder (z. B. mit einem Standardwert von `null`), sodass sie gemäß der [Avro-Schema-Auflösungsspezifikation](http://avro.apache.org/docs/current/spec.html#schema+resolution) mit älteren Schemas „übereinstimmen“. Diese Ergänzungen sollten bestehende ETL-Prozesse (ETL) nicht beeinträchtigen, da das Feld einfach ignoriert wird, bis es zu Ihrem ETL-Prozess hinzugefügt wird.
 
 {% alert important %}
 Wir empfehlen, dass Ihr ETL-Setup explizit die zu verarbeitenden Felder angibt, um zu vermeiden, dass der Ablauf beim Hinzufügen neuer Felder unterbrochen wird.

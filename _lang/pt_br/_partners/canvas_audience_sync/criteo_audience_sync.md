@@ -11,7 +11,7 @@ tool:
 
 # Sincronização de público com a Criteo {#audience-sync-to-criteo}
 
-Usando o Braze Audience Sync com a Criteo, as marcas podem optar por adicionar dados de usuários de sua própria integração da Braze às listas de clientes da Criteo para veicular anúncios com base em gatilhos comportamentais, segmentação e muito mais. Qualquer critério que você normalmente usaria para disparar uma mensagem (push, e-mail, SMS, webhook, etc.) em um Braze Canvas com base nos dados de seu usuário agora pode ser usado para disparar um anúncio para esse usuário em suas listas de clientes da Criteo.
+Usando o Braze Audience Sync com a Criteo, as marcas podem optar por adicionar dados de usuários de sua própria integração da Braze às listas de clientes da Criteo para veicular anúncios com base em gatilhos comportamentais, segmentação e muito mais. Qualquer critério que você normalmente usaria para disparar uma mensagem (push, e-mail, SMS, webhook, etc.) em um BRAZE CANVAS com base nos dados de seu usuário agora pode ser usado para disparar um anúncio para esse usuário em suas listas de clientes da Criteo.
 
 **Os casos de uso comuns para sincronização de público incluem:**
 
@@ -131,7 +131,7 @@ A tabela a seguir inclui métricas e descrições para ajudar você a entender m
 | Métrica | Descrição |
 | --- | --- |
 | Entered | Número de usuários que entraram neste componente para serem sincronizados com o Criteo. |
-| Proceeded to Next Step | Quantos usuários avançaram para o próximo componente, se houver um. Todos os usuários avançarão automaticamente se esta for a última etapa na ramificação do Canvas. |
+| Proceeded to Next Step | Quantos usuários avançaram para o próximo componente, se houver um. Todos os usuários avançarão automaticamente se esta for a última etapa na Branch do Canvas. |
 | Users Synced | Número de usuários que foram sincronizados com sucesso com o Criteo. |
 | Users Not Synced | Número de usuários que não foram sincronizados devido à falta de campos para correspondência. |
 | Users Pending | Número de usuários que estão sendo processados pela Braze para sincronização com o Criteo. |

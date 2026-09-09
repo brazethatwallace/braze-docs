@@ -25,7 +25,7 @@ Voici un exemple du format standard de l'étiquette Liquid pour `message_extras`
 Vous pouvez ajouter ces étiquettes selon vos besoins pour vos paires clé-valeur dans le corps du message. Cependant, la longueur totale de toutes les clés et valeurs ne doit pas dépasser 1 000 octets (1&nbsp;Ko). Dans Currents et le partage de données Snowflake, vous verrez un nouveau champ d'événement appelé `message_extras` pour vos événements d'envoi. Celui-ci génère une chaîne de caractères sérialisée en JSON dans un seul champ.
 
 {% alert note %}
-Les extras d'e-mail envoient des métadonnées aux fournisseurs de services d'e-mailing et ne sont pas publiés dans Currents ni dans Snowflake. Pour ajouter des métadonnées ou des valeurs dynamiques aux événements d'envoi Currents ou Snowflake, utilisez l'étiquette Liquid `message_extras`.
+Les extras d'e-mail envoient des métadonnées aux fournisseurs de services d'e-mail marketing et ne sont pas publiés dans Currents ni dans Snowflake. Pour ajouter des métadonnées ou des valeurs dynamiques aux événements d'envoi Currents ou Snowflake, utilisez l'étiquette Liquid `message_extras`.
 {% endalert %}
 
 ## Comment les données des extras de message sont envoyées via Currents {#how-message-extras-data-is-sent-using-currents}

@@ -10,22 +10,22 @@ page_order: 1.3
 
 > Una vez creada y entrenada tu predicción, tendrás acceso a la página **Análisis de predicciones**. Esta página te ayuda a decidir a qué usuarios debes dirigirte en función de su puntuación de probabilidad o categoría.
 
-## Acerca del análisis predictivo de eventos {#about-predictive-event-analytics}
+## Acerca del análisis de predicciones de eventos {#about-predictive-event-analytics}
 
-En cuanto la predicción haya terminado de entrenarse y esta página esté llena, puedes empezar a utilizar [filtros]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/messaging_users#filters) en segmentos o campañas para empezar a utilizar los resultados del modelo. Si quieres ayuda para decidir a quién dirigirte y por qué, esta página puede ayudarte basándose en la precisión histórica del modelo y en tus propios objetivos de negocio.
+En cuanto la predicción haya terminado de entrenarse y esta página esté llena, puedes empezar a utilizar [filtros]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/messaging_users#filters) en Segments o Campaigns para comenzar a utilizar los resultados del modelo. Si quieres ayuda para decidir a quién dirigirte y por qué, esta página puede ayudarte basándose en la precisión histórica del modelo y en tus propios objetivos de negocio.
 
-Estos son los componentes que conforman el análisis predictivo de eventos:
+Estos son los componentes que conforman el análisis de predicciones de eventos:
 
 - [Puntuación de probabilidad](#purchase_score)
 - [Calidad de la predicción](#prediction_quality)
 - [Precisión estimada](#estimated_results)
 - [Tabla de correlación de eventos](#correlation_table)
 
-La distribución de las puntuaciones de probabilidad de toda la audiencia de predicción se muestra en la parte superior de la página. Los usuarios de los contenedores situados más al final tienen puntuaciones más altas y es más probable que realicen el evento. Los usuarios de los contenedores situados más al inicio tienen menos probabilidades de realizar el evento. El control deslizante situado debajo del gráfico te permitirá seleccionar una sección de usuarios y estimar cuáles serían los resultados de dirigirte a esos usuarios.
+La distribución de las puntuaciones de probabilidad de toda la audiencia de predicción se muestra en la parte superior de la página. Los usuarios en los contenedores situados más al final tienen puntuaciones más altas y es más probable que realicen el evento. Los usuarios en los contenedores situados más al inicio tienen menos probabilidades de realizar el evento. El control deslizante debajo del gráfico te permitirá seleccionar una sección de usuarios y estimar cuáles serían los resultados de dirigirte a esos usuarios.
 
-A medida que muevas los controles deslizantes a diferentes posiciones, la barra de la mitad izquierda del panel te informará de cuántos usuarios de toda la audiencia de predicción serían objetivo utilizando la parte de la población que hayas seleccionado.
+A medida que muevas los controles del deslizador a diferentes posiciones, la barra en la mitad izquierda del panel te informará de cuántos usuarios del total de la audiencia de predicción serían objetivo utilizando la parte de la población que hayas seleccionado.
 
-![A medida que muevas los controles deslizantes a diferentes posiciones, la barra de la mitad izquierda del panel te informará de cuántos usuarios de toda la audiencia de predicción serían objetivo utilizando la parte de la población que hayas seleccionado.]({% image_buster /assets/img/purchasePrediction/purchaseTargeting.png %}){: style="max-width:90%"}
+![A medida que muevas los controles del deslizador a diferentes posiciones, la barra en la mitad izquierda del panel te informará de cuántos usuarios del total de la audiencia de predicción serían objetivo utilizando la parte de la población que hayas seleccionado.]({% image_buster /assets/img/purchasePrediction/purchaseTargeting.png %}){: style="max-width:90%"}
 
 ## Puntuación de probabilidad {#purchase_score}
 
@@ -90,8 +90,10 @@ Los datos de correlación de las predicciones de vista previa estarán parcialme
 
 ## Solución de problemas {#troubleshooting}
 
-### No se puede crear una predicción {#unable-to-create-a-prediction}
+### No hay suficiente comportamiento de eventos pasados {#not-enough-past-event-behavior}
 
-Si no puedes crear una predicción para un evento personalizado, es posible que se deba a un tamaño de muestra insuficiente. Braze calcula el número de usuarios que han realizado el evento y, si no hay suficientes usuarios que lo hayan realizado, es posible que la muestra no proporcione datos suficientes para entrenar el modelo. En este caso, el sistema puede extrapolar a ningún usuario, lo que impide la creación de predicciones.
+Al crear una predicción de Predictive Events, es posible que veas el mensaje "This Prediction will fail to build given the very low number of past event behavior" o un mensaje similar sobre el comportamiento de eventos pasados.
 
-Para crear una predicción con éxito, asegúrate de que un número suficiente de usuarios de tu audiencia de predicción haya realizado tu evento personalizado objetivo. El umbral exacto varía, pero es posible que los eventos con un uso muy bajo entre tu base de usuarios no proporcionen datos suficientes para un entrenamiento fiable del modelo.
+Braze necesita un número suficiente de usuarios que hayan realizado el evento objetivo en el periodo de entrenamiento para construir el modelo. El modelo normalmente requiere al menos 3500 usuarios etiquetados como **Past Event Behavior** en ese periodo. Los eventos con un uso muy bajo en tu base de usuarios podrían no alcanzar este umbral.
+
+Si tienes menos usuarios que cumplan los requisitos, amplía tu audiencia de predicción o extiende el periodo de eventos antes de construir la predicción. Para consultar los pasos de configuración, ve [Crear una predicción de eventos]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/creating_an_event_prediction).

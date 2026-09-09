@@ -54,7 +54,7 @@ Sua equipe de CRM planejará os casos de uso de envio de mensagens que serão la
 * [Público-alvo]({{site.baseurl}}/user_guide/audience/segments)
 * [Métricas de sucesso]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)
 
-Por exemplo, uma Campaign para novos clientes pode ser: um e-mail enviado diariamente às 10h para um segmento de clientes que registraram sua primeira sessão ontem. O evento de conversão (a métrica de sucesso) é o registro de uma sessão.
+Por exemplo, uma Campaign para novos clientes pode ser: um e-mail enviado diariamente às 10h para um Segment de clientes que registraram sua primeira sessão ontem. O evento de conversão (a métrica de sucesso) é o registro de uma sessão.
 
 <br>
 {% alert important %}
@@ -111,9 +111,9 @@ Você precisará de desenvolvedores que estejam familiarizados com:
 * Habilidades gerais de gerenciamento de dados
 * Configuração de registros DNS
 
-### Integração com parceiros de CDP {#cdp-integration-partners}
+### Parceiros de integração CDP {#cdp-integration-partners}
 
-Muitos clientes usam a integração da Braze como uma oportunidade de também se integrar a uma plataforma de dados do cliente (CDP) como parceiro de integração. A Braze oferece rastreamento e análise de dados, enquanto uma CDP pode oferecer roteamento e orquestração de dados adicionais. A Braze oferece integração perfeita com muitas CDPs, como a [mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle) e o [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment).
+Muitos clientes usam a integração da Braze como uma oportunidade de também se integrar a uma CDP (CDP) como parceiro de integração. A Braze oferece rastreamento e análise de dados, enquanto uma CDP pode oferecer roteamento e orquestração de dados adicionais. A Braze oferece integração perfeita com muitas CDPs, como a [mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle) e o [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment).
 
 Se estiver realizando a integração lado a lado com uma CDP, você mapeará as chamadas do SDK da sua CDP para o SDK da Braze. Essencialmente, você irá:
 * Mapear chamadas de identificação para `changeUser` ([Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/change-user.html), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/changeuser(userid:sdkauthsignature:fileid:line:)/), [web](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser)) e definir atributos.
@@ -163,7 +163,7 @@ Os pontos de dados são uma estrutura por meio da qual você garante que está c
 
 Você pode usar o [`/users/track endpoint`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) da Braze para migrar dados históricos que foram registrados fora da Braze. Exemplos de dados comumente importados incluem tokens por push e compras anteriores. Esse endpoint pode ser usado para importações pontuais ou atualizações regulares em lote.
 
-Também é possível importar usuários e atualizar os valores dos atributos de clientes por meio de um único [upload de CSV]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_import#importing-a-csv) para o dashboard. Fazer upload de CSVs pode ser útil para profissionais de marketing, enquanto nossa REST API permite maior flexibilidade.
+Também é possível importar usuários e atualizar os valores dos atributos de clientes por meio de um único [upload de CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users) para o dashboard. Fazer upload de CSVs pode ser útil para profissionais de marketing, enquanto nossa REST API permite maior flexibilidade.
 
 ### Configuração do rastreamento de sessão {#setting-up-session-tracking}
 
@@ -179,7 +179,7 @@ Os IDs de usuário, chamados de `external_id`s na Braze, devem ser definidos par
 
 ### Outras ferramentas {#other-tools}
 
-Com base no seu caso de uso, pode haver outras ferramentas que você precise configurar. Por exemplo, talvez seja necessário configurar uma ferramenta como [geofences]({{site.baseurl}}/user_guide/engagement_tools/locations_and_geofences#about-locations-and-geofences) para realizar suas histórias de usuários. Descobrimos que os clientes que têm a capacidade de configurar essas ferramentas adicionais depois de concluir as etapas essenciais de integração são mais bem-sucedidos.
+Com base no seu caso de uso, pode haver outras ferramentas que você precise configurar. Por exemplo, talvez seja necessário configurar uma ferramenta como [geofences]({{site.baseurl}}/user_guide/audience/locations_and_geofences) para realizar suas histórias de usuários. Descobrimos que os clientes que têm a capacidade de configurar essas ferramentas adicionais depois de concluir as etapas essenciais de integração são mais bem-sucedidos.
 
 ## Controle de qualidade {#qa}
 Ao executar a integração, você realizará o controle de qualidade para garantir que tudo o que está sendo configurado esteja funcionando conforme o esperado. Esse controle de qualidade se divide em duas categorias gerais: ingestão de dados e canais de envio de mensagens.
@@ -193,7 +193,7 @@ Confira se os seus ambientes de produção e teste estão configurados antes de 
 | Você realizará o controle de qualidade na forma como os dados são ingeridos, armazenados e exportados. | Você garantirá que as mensagens estão sendo enviadas corretamente aos usuários e que tudo está excelente. |
 | Execute testes para confirmar que os dados estão armazenados corretamente. | Crie segmentos de usuários. |
 | Confirme se os dados da sessão estão corretamente atribuídos ao espaço de trabalho pretendido na Braze. | Lance Campaigns e Canvas com sucesso. |
-| Confirme se o início e o fim da sessão estão sendo registrados. | Confirme se as Campaigns corretas estão sendo exibidas para os segmentos de usuários corretos. |
+| Confirme se o início e o fim da sessão estão sendo registrados. | Confirme se as Campaigns corretas estão sendo exibidas para os Segments de usuários corretos. |
 | Confirme se as informações de atributos do usuário estão corretamente registradas nos perfis de usuário. | Confirme se os tokens por push estão sendo registrados corretamente. |
 | Teste se os dados personalizados estão sendo registrados corretamente nos perfis de usuários. | Confirme se os tokens por push foram removidos corretamente. |
 | Crie perfis de usuário anônimos. | Teste se as campanhas push estão sendo enviadas corretamente para os dispositivos e se o engajamento está registrado. |
@@ -211,7 +211,7 @@ Ao realizar o controle de qualidade na sua integração de SDK, use o [Depurador
 
 Depois de integrar a plataforma ou o site, envolva a equipe de marketing para passar a propriedade da plataforma para eles. Esse processo é diferente em cada empresa, mas pode incluir o seguinte:
 
-* Criação de uma [lógica Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid#about-liquid) complexa
+* Criação de uma [lógica Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) complexa
 * Ajuda para facilitar o [aquecimento de IP de e-mail]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming)
 * Garantia de que outras partes interessadas entendam o tipo de dados que estão sendo rastreados
 
@@ -233,25 +233,25 @@ Você fará o rastreamento das atualizações da plataforma Braze por meio do [G
 
 ### Monthly Active Users CY 24-25, Universal MAU, Web MAU e Mobile MAU {#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau}
 
-Para clientes que adquiriram Monthly Active Users CY 24-25, Universal MAU, Web MAU e Mobile MAU, a Braze aplica limites de frequência no lado do servidor para solicitações de API usadas por nossos SDKs para atualizar sessões, atributos de usuários, eventos e outros dados de perfil de usuário. Isso garante a estabilidade da plataforma e mantém um serviço rápido e confiável.
+Para clientes que adquiriram Monthly Active Users CY 24-25, Universal MAU, Web MAU e Mobile MAU, a Braze aplica limites de frequência no lado do servidor para requisições de API usadas pelos nossos SDKs para atualizar sessões, atributos de usuário, eventos e outros dados de perfil de usuário. Isso garante a estabilidade da plataforma e mantém um serviço rápido e confiável.
 
-* Os limites de frequência por hora são definidos de acordo com o tráfego esperado do SDK na sua conta, que pode corresponder ao número de usuários ativos mensais (MAU) que você adquiriu, ao setor, à sazonalidade ou a outros fatores. Quando o limite de frequência por hora é atingido, a Braze limita as solicitações até a próxima hora.
-* Todas as solicitações limitadas são automaticamente reenviadas pelo SDK.
-* As solicitações do SDK estão relacionadas à quantidade de dados personalizados coletados na sua implementação. Se você está consistentemente próximo ou no seu limite de frequência por hora, considere:
+* Os limites de frequência por hora são definidos de acordo com o tráfego esperado do SDK na sua conta, que pode corresponder ao número de usuários ativos mensais (MAU) que você adquiriu, setor, sazonalidade ou outros fatores. Quando o limite de frequência por hora é atingido, a Braze aplica throttling nas requisições até a próxima hora.
+* Todas as requisições que atingem o limite de frequência são automaticamente reexecutadas pelo SDK.
+* As requisições do SDK estão relacionadas à quantidade de dados personalizados coletados na sua implementação. Se você estiver consistentemente próximo ou no seu limite de frequência por hora, considere:
     * Revisar sua integração SDK para reduzir a coleta excessiva de dados.
-    * Bloquear dados personalizados que não são essenciais para seus casos de uso de marketing.
-* Os limites de frequência de pico são limites de curta duração que se aplicam quando um grande volume de solicitações chega em um período muito curto (ou seja, em segundos). Você não precisa tomar nenhuma ação quando os limites de pico ocorrem, e o SDK fará uma nova tentativa logo em seguida.
-* Os limites de frequência contínuos controlam o volume sustentado de solicitações em uma janela móvel mais longa que a janela de pico (por exemplo, vários minutos) e ajudam a suavizar o tráfego contínuo entre os limites de pico e o seu limite de frequência por hora.
+    * Adicionar à blocklist dados personalizados que não são essenciais para seus casos de uso de marketing.
+* Os limites de frequência de pico (burst) são limites de curta duração que se aplicam quando um alto volume de requisições chega em um período muito curto (ou seja, em segundos). Você não precisa tomar nenhuma ação quando limites de pico ocorrem, e o SDK fará uma nova tentativa logo em seguida.
+* Os limites de frequência sustentados (steady) controlam o volume de requisições contínuas em uma janela de tempo mais longa que a janela de pico (por exemplo, vários minutos) e ajudam a suavizar o tráfego contínuo entre os limites de pico e o seu limite de frequência por hora.
 
 ### Encontrando seus limites de frequência {#finding-your-rate-limits}
 
-Para encontrar os limites atuais com base na taxa de transferência esperada do SDK, acesse **Configurações** > **APIs e Identificadores** > **Limites de API e SDK**.
+Para encontrar os limites atuais com base no throughput esperado do SDK, acesse **Configurações** > **APIs e Identificadores** > **Limites de API e SDK**.
 
 Para o histórico de uso, acesse **Configurações** > **APIs e Identificadores** > **Dashboard de API e SDK**.
 
 ### Solicitando limites de frequência mais altos {#requesting-higher-rate-limits}
 
-Se você precisa de um limite de frequência mais alto na Braze, entre em contato com o suporte da Braze ou com seu gerente de sucesso do cliente e inclua os seguintes detalhes:
+Se você precisa de um limite de frequência mais alto na Braze, entre em contato com o suporte da Braze ou com seu CSM e inclua os seguintes detalhes:
 
 * Se você precisa de um aumento temporário ou permanente.
 * Por que você precisa do aumento.
@@ -259,8 +259,8 @@ Se você precisa de um limite de frequência mais alto na Braze, entre em contat
 * Seu volume aproximado de tráfego e cronograma, incluindo data de início, duração e horários de pico.
 * Se você pode agrupar chamadas ou distribuir o tráfego ao longo do tempo.
 
-Após enviar sua solicitação, a Braze a analisa e informa o resultado.
+Após o envio da sua solicitação, a Braze a revisa e informa o resultado.
 
 ### Alterações e suporte {#changes-and-support}
 
-A Braze pode modificar os limites de frequência para proteger a estabilidade do sistema ou permitir maior taxa de transferência de dados na sua conta. Entre em contato com o suporte da Braze ou com seu gerente de sucesso do cliente para dúvidas ou preocupações sobre limites de frequência e como eles impactam o seu negócio.
+A Braze pode modificar os limites de frequência para proteger a estabilidade do sistema ou permitir um maior throughput de dados na sua conta. Entre em contato com o suporte da Braze ou com seu CSM para dúvidas ou questões sobre limites de frequência e como eles impactam o seu negócio.

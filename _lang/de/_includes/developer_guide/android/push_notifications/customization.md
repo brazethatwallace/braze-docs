@@ -383,7 +383,7 @@ Mit dem Feld [Firebase Messaging Delivery Priority](https://firebase.google.com/
 
 ### Lebensdauer (TTL) {#ttl}
 
-Im Feld **Time to Live** (TTL) können Sie eine angepasste Zeitspanne für die Speicherung von Nachrichten beim Push-Messaging-Dienst festlegen. Die Standardwerte für die Lebensdauer betragen vier Wochen für FCM und 31 Tage für ADM.
+Im Feld **TTL** (TTL) können Sie eine angepasste Zeitspanne für die Speicherung von Nachrichten beim Push-Messaging-Dienst festlegen. Die Standardwerte für die Lebensdauer betragen vier Wochen für FCM und 31 Tage für ADM.
 
 ### Zusammenfassungstext {#summary-text}
 

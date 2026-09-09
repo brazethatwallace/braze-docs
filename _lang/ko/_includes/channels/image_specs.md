@@ -181,7 +181,7 @@ table td {
 | 배너    | 모든 종횡비 | 최소 너비 600&nbsp;px |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="표" }
 
-자세한 내용은 [Content Cards 크리에이티브 세부 정보]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details)를 참조하세요.
+자세한 내용은 [Content Cards 크리에이티브 세부 정보]({{site.baseurl}}/user_guide/channels/content_cards/creative_details)를 참조하세요.
 
 {% endif %}
 

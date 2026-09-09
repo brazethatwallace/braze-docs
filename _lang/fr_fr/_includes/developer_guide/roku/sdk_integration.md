@@ -1,23 +1,23 @@
-## Intégration du SDK Roku
+## Intégrer le SDK Roku {#integrating-the-roku-sdk}
 
-### Étape 1 : Ajouter des fichiers
+### Étape 1 : Ajouter les fichiers {#step-1-add-files}
 
-Les fichiers du SDK Braze sont disponibles dans le répertoire `sdk_files` du [référentiel SDK Roku de Braze](https://github.com/braze-inc/braze-roku-sdk).
+Les fichiers du SDK Braze se trouvent dans le répertoire `sdk_files` du [dépôt GitHub du SDK Roku de Braze](https://github.com/braze-inc/braze-roku-sdk).
 
-1. Ajouter `BrazeSDK.brs` à votre application dans le répertoire `source`.
-2. Ajouter `BrazeTask.brs` et `BrazeTask.xml` à votre application dans le répertoire `components`.
+1. Ajoutez `BrazeSDK.brs` à votre application dans le répertoire `source`.
+2. Ajoutez `BrazeTask.brs` et `BrazeTask.xml` à votre application dans le répertoire `components`.
 
-### Étape 2 : Ajouter des références
+### Étape 2 : Ajouter les références {#step-2-add-references}
 
-Ajouter une référence à `BrazeSDK.brs` dans votre scène principale, en utilisant l’élément `script` :
+Ajoutez une référence à `BrazeSDK.brs` dans votre scène principale à l'aide de l'élément `script` suivant :
 
 ```
 <script type="text/brightscript" uri="pkg:/source/BrazeSDK.brs"/>
 ```
 
-### Étape 3 : Configurer
+### Étape 3 : Configurer {#step-3-configure}
 
-Dans `main.brs`, définissez la configuration Braze sur le nœud global :
+Dans `main.brs`, définissez la configuration de Braze sur le nœud global :
 
 ```brightscript
 globalNode = screen.getGlobalNode()
@@ -30,19 +30,19 @@ config[config_fields.HEARTBEAT_FREQ_IN_SECONDS] = 5
 globalNode.addFields({brazeConfig: config})
 ```
 
-Vous trouverez votre [endpoint SDK]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints/) et votre clé API dans le tableau de bord de Braze.
+Vous pouvez trouver votre [endpoint du SDK]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) et votre clé API dans le tableau de bord de Braze.
 
-### Étape 4 : Initialiser Braze
+### Étape 4 : Initialiser Braze {#step-4-initialize-braze}
 
-Initialiser l’instance Braze :
+Initialisez l'instance de Braze :
 
 ```brightscript
 m.BrazeTask = createObject("roSGNode", "BrazeTask")
 m.Braze = getBrazeInstance(m.BrazeTask)
 ```
 
-## Configurations optionnelles
+## Configurations optionnelles {#optional-configurations}
 
-### Journalisation
+### Journalisation {#logging}
 
-Pour déboguer votre intégration Braze, vous pouvez afficher la console de débogage Roku pour les journaux Braze. Pour en savoir plus, reportez-vous au [Code de débogage](https://developer.roku.com/docs/developer-program/debugging/debugging-channels.md) des développeurs Roku.
+Pour déboguer votre intégration Braze, vous pouvez consulter la console de débogage Roku pour les journaux Braze. Consultez la section [Debugging code](https://developer.roku.com/docs/developer-program/debugging/debugging-channels.md) de Roku Developers pour en savoir plus.

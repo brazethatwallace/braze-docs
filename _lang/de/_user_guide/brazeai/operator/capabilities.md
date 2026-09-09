@@ -11,13 +11,13 @@ description: "Dieser Referenzartikel behandelt, was BrazeAI Operator™ im gesam
 
 > [BrazeAI<sup>TM</sup> Operator]({{site.baseurl}}/user_guide/brazeai/operator) ist ein KI-Assistent, der in das Braze-Dashboard integriert ist. Er beantwortet Fragen, verfasst Nachrichten und agiert auf unterstützten Seiten – beschreiben Sie in natürlicher Sprache, was Sie möchten, und Operator erledigt es im Kontext.
 
-Da Operator Ihren Workspace versteht – Ihre Markenrichtlinien, angepassten Attribute, Connected-Content und die Seite, an der Sie arbeiten – ist die Ausgabe kontextbewusster als das, was eigenständige Assistenten liefern können. Wenn Operator eine Änderung an einer Campaign, einem Canvas, einem Segment oder einem anderen Objekt vorschlägt, zeigt es die Änderung als visuellen Diff in einer [Aktionskarte]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions) an, die Sie überprüfen und genehmigen, bevor etwas gespeichert wird.
+Da Operator Ihren Workspace versteht – angepasste Attribute, Connected-Content, die Seite, an der Sie arbeiten, und alle Markenrichtlinien, die Sie als Kontext hinzufügen – ist die Ausgabe kontextbewusster als das, was eigenständige Assistenten liefern können. Wenn Operator eine Änderung an einer Campaign, einem Canvas, einem Segment oder einem anderen Objekt vorschlägt, zeigt es die Änderung als visuellen Diff in einer [Aktionskarte]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions) an, die Sie überprüfen und genehmigen, bevor etwas gespeichert wird.
 
 Sie können das Gespräch mit Folgefragen fortsetzen. Operator merkt sich frühere Nachrichten, bis Sie Ihren Chatverlauf löschen.
 
 ## Voraussetzungen {#prerequisites}
 
-Der Operator verfügt über dieselben Berechtigungen wie Sie, sodass bestimmte Aktionen die entsprechende Berechtigung für die jeweilige Oberfläche erfordern. Zum Beispiel erfordert das Generieren eines Bildes die Berechtigung *Medienbibliothek-Assets bearbeiten*. Wenn Sie keinen Einstiegspunkt sehen, überprüfen Sie Ihre Berechtigungen bei Ihrer bzw. Ihrem Admin. Weitere Informationen finden Sie unter [Liste der Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
+Operator verfügt über dieselben Berechtigungen wie Sie, sodass bestimmte Aktionen die entsprechende Berechtigung für die jeweilige Oberfläche erfordern. Zum Beispiel erfordert das Generieren eines Bildes die Berechtigung *Medienbibliothek-Assets bearbeiten*. Wenn Sie keinen Einstiegspunkt sehen, überprüfen Sie Ihre Berechtigungen bei Ihrem Admin. Weitere Informationen finden Sie unter [Liste der Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
 
 ## Im Dashboard navigieren {#navigate-the-dashboard}
 
@@ -80,15 +80,15 @@ Operator kann Ihnen helfen, Agents in der [Agent Console]({{site.baseurl}}/user_
 
 - **Einen Agent von Grund auf erstellen:** Operator hat Zugriff auf jedes Feld in der Agent Console, sodass Sie den gewünschten Agent beschreiben können und Operator Ihnen bei der Konfiguration hilft. Dies umfasst Anweisungen, Ausgabeeinstellungen und andere Agent-Felder.
 - **Von einem Template starten:** Die Agent Console bietet eine Option **Agent mit Operator erstellen**, die einen vorgeschriebenen Prompt für einen gängigen Anwendungsfall lädt, z. B. Texterstellung, Sentimentanalyse, Journey-Routing oder Kataloganreicherung. Wählen Sie eine Kategorie, und Operator hilft Ihnen, einen Agent zu entwerfen, den Sie verfeinern können. Die vollständige Liste der Templates finden Sie unter [Mit Operator erstellte Agent-Templates]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator).
-- **Einen bestehenden Agent verfeinern:** Wenn Sie einen Agent bearbeiten, wählen Sie **Mit Operator generieren** oder **Mit Operator verfeinern** neben dem Anweisungsfeld des Agents, um Operators Hilfe beim Schreiben oder Überarbeiten des Agent-Prompts und der Ausgabeeinstellungen zu erhalten.
+- **Einen bestehenden Agent verfeinern:** Wenn Sie einen Agent bearbeiten, wählen Sie **Mit Operator generieren** oder **Mit Operator verfeinern** neben dem Anweisungsfeld des Agents, um Operators Hilfe beim Schreiben oder Überarbeiten des Agent-Prompts und der Ausgabeeinstellungen zu erhalten. Wenn der Agent bereits eine Markenrichtlinie hat, hängt Operator diese als Kontext an.
 
 ## Inhalt und Kreatives {#content-and-creative}
 
-Operator kann den Inhalt Ihrer Nachrichten generieren und überprüfen – einschließlich Text, Nachrichten-HTML, Liquid und Bilder – und wendet Ihre Markenrichtlinien automatisch an, wo immer sie konfiguriert sind. Sie können Operator auch über die Template-Bibliothek und Übersichtsseiten um Hilfe bitten. So können Sie beispielsweise [E-Mail-Templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates) oder Content Blocks über deren Listenseiten erstellen oder aktualisieren, Arbeit im [Content-Kalender]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/campaign_calendar) planen, [Farbprofil-Templates für In-App-Nachrichten]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template#reusable-color-profiles) erstellen oder [Banner-Platzierungen]({{site.baseurl}}/developer_guide/banners/placements) konfigurieren.
+Operator kann den Inhalt Ihrer Nachrichten generieren und überprüfen – einschließlich Text, Nachrichten-HTML, Liquid und Bilder – und alle Markenrichtlinien anwenden, die Sie als Kontext hinzufügen. Sie können Operator auch über die Template-Bibliothek und Übersichtsseiten um Hilfe bitten. So können Sie beispielsweise [E-Mail-Templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates) oder Content Blocks über deren Listenseiten erstellen oder aktualisieren, Arbeit im [Content-Kalender]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/campaign_calendar) planen, [Farbprofil-Templates für In-App-Nachrichten]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template#reusable-color-profiles) erstellen oder [Banner-Platzierungen]({{site.baseurl}}/developer_guide/banners/placements) konfigurieren.
 
 ### Markenrichtlinien anwenden {#apply-brand-guidelines}
 
-Operator verwendet die in Ihrem Workspace konfigurierten Markenrichtlinien, damit generierte Texte, Templates und Bilder zur Stimme, zum Ton und zum Stil Ihrer Marke passen. Um Markenrichtlinien einzurichten, gehen Sie zu **Inhalt** > **Markenrichtlinien**. Weitere Informationen finden Sie unter [Markenrichtlinien]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) und [Markenrichtlinien anwenden]({{site.baseurl}}/user_guide/brazeai/operator#apply-brand-guidelines) im Operator-Nutzungsleitfaden.
+Fügen Sie [Markenrichtlinien]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) als Kontext im Operator-Chat-Panel hinzu, damit generierte Texte, Templates und Bilder zur Stimme, zum Ton und zum Stil Ihrer Marke passen.
 
 ### Texte generieren {#generate-copy}
 
@@ -96,14 +96,14 @@ Sie können Operator nutzen, um von überall aus Texte zu brainstormen oder zu g
 
 Operator verbessert den eigenständigen Copywriter auf mehrere Arten:
 
-- Es wendet Ihre [Markenrichtlinien](#apply-brand-guidelines) automatisch an, wenn diese konfiguriert sind.
+- Es wendet alle [Markenrichtlinien](#apply-brand-guidelines) an, die Sie als Kontext hinzufügen.
 - Es nutzt [seitenbezogenen Kontext]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context), sodass Sie den Kanal oder die Nachricht, an der Sie arbeiten, nicht erneut beschreiben müssen. Da es seitenbezogen ist, können Sie es auch verwenden, um eine bestehende Nachricht zu bearbeiten oder zu verfeinern, anstatt eine von Grund auf neu zu generieren.
 - Es kann Ihre [angepassten Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) und Events nachschlagen, sodass Sie es bitten können, Textempfehlungen mit echtem Liquid zu personalisieren.
 - Sie können das Gespräch fortsetzen und iterieren. Fragen Sie zum Beispiel nach einem anderen Ton, einer kürzeren Version oder einer Übersetzung.
 
 #### Tonalität {#generate-copy-tones}
 
-Die Tonalität des generierten Textes wird durch Ihren Prompt bestimmt. Beschreiben Sie den gewünschten Stil, und Operator passt seine Ausgabe entsprechend an. Fragen Sie zum Beispiel nach formell, locker, dringend oder auffällig. Sie können die Tonalität auch in Folgeprompts verfeinern, zum Beispiel nach einer entspannteren oder ausgefeilteren Version fragen. Wenn Markenrichtlinien konfiguriert sind, wendet Operator diese automatisch an, damit Texte konsistent mit der Stimme Ihrer Marke bleiben.
+Die Tonalität des generierten Textes wird durch Ihren Prompt bestimmt. Beschreiben Sie den gewünschten Stil, und Operator passt seine Ausgabe entsprechend an. Fragen Sie zum Beispiel nach formell, locker, dringend oder auffällig. Sie können die Tonalität auch in Folgeprompts verfeinern, zum Beispiel nach einer entspannteren oder ausgefeilteren Version fragen. Wenn Sie Markenrichtlinien als Kontext hinzufügen, wendet Operator diese an, damit Texte konsistent mit der Stimme Ihrer Marke bleiben.
 
 ### Nachrichten generieren {#generate-messages}
 
@@ -119,7 +119,7 @@ Operator kann ein vollständiges Nachrichtendesign für jeden Kanal oder Editor 
 
 Drag-and-Drop-Editoren unterstützen keine direkte Designgenerierung, obwohl Operator Ihnen weiterhin bei Texten oder anderen Inhalten helfen kann, die Sie manuell hinzufügen. Beschreiben Sie die gewünschte Nachricht in natürlicher Sprache, überprüfen Sie die Ausgabe und fügen Sie sie in Ihren Editor ein. Setzen Sie das Gespräch fort, um das Ergebnis zu verfeinern. Sie können zum Beispiel nach einem anderen Layout, kürzerem Text oder aktualisierten Button-Styles fragen, bevor Sie das HTML in den Editor einfügen.
 
-Die besten Ergebnisse erzielen Sie, wenn Sie Operator in dem Editor verwenden, in dem Sie gerade arbeiten, da es dort [seitenbezogenen Kontext]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context) für den Kanal und den Nachrichtentyp hat. Wenn Markenrichtlinien konfiguriert sind, wendet Operator diese automatisch an.
+Die besten Ergebnisse erzielen Sie, wenn Sie Operator in dem Editor verwenden, in dem Sie gerade arbeiten, da es dort [seitenbezogenen Kontext]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context) für den Kanal und den Nachrichtentyp hat. Wenn Sie Markenrichtlinien als Kontext hinzufügen, wendet Operator diese auf die generierte Nachricht an.
 
 ### Content Blocks erstellen {#create-content-blocks}
 
@@ -230,7 +230,7 @@ Fragen Sie zum Beispiel: „Erstelle mir einen Bericht, der das SMS-Engagement m
 
 ### Prognosen erstellen {#create-predictions}
 
-Operator kann Ihnen helfen, [Predictive-Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn)-Prognosen und [KI-Artikelempfehlungen]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai) anzuzeigen und zu erstellen. Beschreiben Sie das gewünschte Ergebnis, und Operator schlägt die Prognose oder Empfehlung vor, die Sie überprüfen können.
+Operator kann Ihnen helfen, [Predictive-Abwanderung]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn)-Prognosen und [KI-Artikelempfehlungen]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai) anzuzeigen und zu erstellen. Beschreiben Sie das gewünschte Ergebnis, und Operator schlägt die Prognose oder Empfehlung vor, die Sie überprüfen können.
 
 ### SQL-Anfragen schreiben {#write-sql-queries}
 
@@ -275,7 +275,7 @@ Die Dashboard-Unterstützung von Operator ist umfassend, hat aber Grenzen.
 
 ## Frühere Assistenten {#legacy-assistants}
 
-Vor Operator waren mehrere KI-Features als eigenständige Assistenten verfügbar: der AI Copywriter, der AI Liquid Assistant, der AI Image Generator, der AI SQL Generator, der Data Transformations AI Copilot und die Inhaltsüberprüfung. Alle ihre Einstiegspunkte bleiben erhalten und leiten zu Operator weiter, sodass Ihre bestehenden Workflows nicht beeinträchtigt werden. Was diese heute leisten, erfahren Sie unter [Inhalt und Kreatives](#content-and-creative) und [Datenautomatisierung und -suche](#data-automation-and-lookup).
+Vor Operator waren mehrere KI-Features als eigenständige Assistenten verfügbar: der KI Copywriter, der KI Liquid Assistant, der KI Image Generator, der KI SQL Generator, der Data Transformations KI Copilot und die Inhaltsüberprüfung. Alle ihre Einstiegspunkte bleiben erhalten und leiten zu Operator weiter, sodass Ihre bestehenden Workflows nicht beeinträchtigt werden. Was diese heute leisten, erfahren Sie unter [Inhalt und Kreatives](#content-and-creative) und [Datenautomatisierung und -suche](#data-automation-and-lookup).
 
 {% multi_lang_include brazeai/generative_ai/policy.md %}
 
@@ -285,7 +285,17 @@ Operator integriert sich mit OpenAI, um Ausgaben zu generieren. Weitere Informat
 
 ## Nächste Schritte {#next-steps}
 
-- [Erste Schritte mit Operator]({{site.baseurl}}/user_guide/brazeai/operator): Zugriff auf und Nutzung von Operator
-- [Prompt-Bibliothek]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library): Fertige Beispiel-Prompts durchstöbern
-- [Aktionen überprüfen]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions): Vorgeschlagene Änderungen von Operator überprüfen und genehmigen
-- [Fehlerbehebung]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting): Häufige Probleme und Lösungen nachschlagen
+{% article_tiles %}
+- name: Erste Schritte mit Operator
+  link: /docs/user_guide/brazeai/operator
+  description: Zugriff auf und Nutzung von Operator im Braze-Dashboard.
+- name: Prompt-Bibliothek
+  link: /docs/user_guide/brazeai/operator/prompt_library
+  description: Fertige Beispiel-Prompts durchstöbern.
+- name: Aktionen überprüfen
+  link: /docs/user_guide/brazeai/operator/reviewing_actions
+  description: Vorgeschlagene Änderungen von Operator überprüfen und genehmigen.
+- name: Fehlerbehebung
+  link: /docs/user_guide/brazeai/operator/troubleshooting
+  description: Häufige Probleme und Lösungen nachschlagen.
+{% endarticle_tiles %}

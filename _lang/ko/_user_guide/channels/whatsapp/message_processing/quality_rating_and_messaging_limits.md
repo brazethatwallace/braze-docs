@@ -23,7 +23,7 @@ channel:
 
 ## 온보딩 {#onboarding}
 
-새 WhatsApp Business 계정이 생성되면 Meta는 다양한 요소를 사용하여 초기 발송 한도를 결정합니다. 이 한도는 WhatsApp Business Manager에서 확인할 수 있으며, 전화번호 인사이트 페이지에서 추가 세부 정보를 확인할 수 있습니다.
+새 WhatsApp Business 계정이 생성되면 Meta는 다양한 요소를 사용하여 초기 발송 한도를 결정합니다. 이 한도는 WhatsApp Business 매니저에서 확인할 수 있으며, 전화번호 인사이트 페이지에서 추가 세부 정보를 확인할 수 있습니다.
 
 [한도 확인](https://developers.facebook.com/docs/whatsapp/messaging-limits#checking-your-limit) 및 [전화번호 요구 사항](https://developers.facebook.com/docs/whatsapp/cloud-api/phone-numbers)에 대해 자세히 알아보려면 Meta 설명서를 참조하세요.
 

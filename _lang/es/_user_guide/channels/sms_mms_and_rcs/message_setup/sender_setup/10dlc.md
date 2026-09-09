@@ -54,7 +54,7 @@ El rendimiento de mensajes para tu 10DLC depende de varios factores, incluyendo 
 
 #### Puntuación de confianza de marca {#trust-score}
 
-El Campaign Registry (TCR) es una agencia de terceros que utiliza un algoritmo de reputación para revisar criterios específicos relacionados con tu empresa y asignar una puntuación de confianza que determina el rendimiento de mensajería para cada marca. Esta puntuación de confianza se asignará cuando un cliente se registre para la mensajería 10DLC en EE. UU. Cuanto mayor sea la puntuación de confianza, mejores mensajes por segundo (MPS) experimentarás.
+El Campaign Registry (TCR) es una agencia de terceros que utiliza un algoritmo de reputación para revisar criterios específicos relacionados con tu empresa y asignar una puntuación de confianza que determina el rendimiento de mensajería para cada marca. Esta puntuación de confianza se asignará cuando un cliente se registre para la mensajería 10DLC en EE. UU. Cuanto mayor sea la puntuación de confianza, mejores MPS (MPS) experimentarás.
 
 |     | Puntuación de confianza | AT&T | T-Mobile | Verizon |
 | --- | ----------- | ---- | -------- | ------- |
@@ -69,7 +69,7 @@ Las empresas que figuran en el índice Russell 3000 recibirán un alto rendimien
 
 #### Límites diarios de mensajes {#daily-message-limits}
 
-Los límites diarios van desde 2,000 hasta 200,000 mensajes dependiendo de tu puntuación de confianza de marca y se aplican a todos los códigos largos. Si bien las puntuaciones de confianza de marca altas vienen con un rendimiento de 60 mensajes por segundo, cualquier límite diario de mensajes establecido por el operador seguirá aplicándose. Esto significa que los códigos abreviados serían una mejor opción si los mensajes pico diarios de una marca son superiores al límite diario impuesto.
+Los límites diarios van desde 2,000 hasta 200,000 mensajes dependiendo de tu puntuación de confianza de marca y se aplican a todos los códigos largos. Si bien las puntuaciones de confianza de marca altas vienen con un rendimiento de 60 MPS, cualquier límite diario de mensajes establecido por el operador seguirá aplicándose. Esto significa que los códigos abreviados serían una mejor opción si los mensajes pico diarios de una marca son superiores al límite diario impuesto.
 
 #### Casos de uso de mensajería {#messaging-use-cases}
 

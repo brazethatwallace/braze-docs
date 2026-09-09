@@ -11,36 +11,36 @@ noindex: true
 
 _Fecha de revisión: 30 de marzo de 2026_
 
-## ¿Qué incluye la documentación de conformidad? {#what-is-included-in-the-compliance-documentation}
+## ¿Qué incluye la documentación de cumplimiento? {#what-is-included-in-the-compliance-documentation}
 
-La documentación de conformidad que figura a continuación establece los términos específicos aplicables a tu producto, canal, característica, funcionalidad o servicio adquiridos:
+La documentación de cumplimiento que se presenta a continuación establece los términos específicos aplicables a tu producto, canal, característica, funcionalidad o servicio adquirido:
 
-- Para la funcionalidad de los servicios de Braze que permite a los clientes interactuar con, integrarse con o acceder al producto, sitio web, aplicación o servicio de un proveedor externo, la documentación de conformidad contiene los términos del proveedor externo aplicables a tu uso de dicha funcionalidad; y
-- Cualquier práctica y norma general del sector que los clientes de Braze deban cumplir para el uso de dicho producto, canal, característica, funcionalidad o servicio de Braze.
+- Para la funcionalidad de los servicios de Braze que permite a los clientes interactuar con, integrarse con o acceder al producto, sitio web, aplicación o servicio de un proveedor externo, la documentación de cumplimiento contiene los términos del proveedor externo aplicables a tu uso de dicha funcionalidad; y
+- Cualquier práctica y estándar general de la industria que los clientes de Braze deben cumplir para el uso de dicho producto, canal, característica, funcionalidad o servicio de Braze.
 
-## Actualizaciones de la documentación de conformidad {#updates-to-the-compliance-documentation}
+## Actualizaciones de la documentación de cumplimiento {#updates-to-the-compliance-documentation}
 
-Puedes suscribirte para recibir actualizaciones de nuestra documentación (incluida la documentación de conformidad) a través del [repositorio de GitHub de Braze](https://github.com/braze-inc/release-notes).
+Puedes suscribirte para recibir actualizaciones de nuestra documentación (incluida la documentación de cumplimiento) a través del [repositorio de GitHub de Braze](https://github.com/braze-inc/release-notes).
 
-## Documentación de conformidad para canales, integraciones y características específicos {#compliance-documentation-for-specific-channels-integrations-and-features}
+## Documentación de cumplimiento para canales, integraciones y características específicas {#compliance-documentation-for-specific-channels-integrations-and-features}
 
-A continuación se muestra la lista de nuestros productos, canales, características, funcionalidades y servicios que tienen documentación de conformidad aplicable. Si utilizas varios productos, se aplica toda la documentación de conformidad pertinente.
+A continuación se encuentra la lista de nuestros productos, canales, características, funcionalidades y servicios que tienen documentación de cumplimiento aplicable. Si utilizas varios productos, se aplica toda la documentación de cumplimiento relevante.
 
 ### Términos generales {#general-terms}
 
-Sin limitar ninguna obligación del cliente en virtud del acuerdo, y para evitar cualquier duda, el cliente será el único responsable de obtener todos los derechos, consentimientos y autorizaciones necesarios, y de proporcionar avisos de privacidad legalmente adecuados en relación con su uso, así como de obtener todos los consentimientos y autorizaciones legalmente requeridos para el uso de los canales y características que se enumeran a continuación.
+Sin limitar ninguna obligación del cliente en virtud del Acuerdo, y para evitar dudas, el cliente será el único responsable de obtener todos los derechos, consentimientos y autorizaciones necesarios, y de proporcionar avisos de privacidad legalmente adecuados en relación con su uso, así como de obtener todos los consentimientos y autorizaciones legalmente requeridos para el uso de los canales y características enumerados a continuación.
 
 ## Canales y características {#channels-and-features}
 
-1. [Canal de mensajería móvil](#mobile-messages-channel)
+1. [Canal de mensajes móviles](#mobile-messages-channel)
 2. [Canal de webhooks](#webhooks-channel)
-3. [Documentación de conformidad del canal WhatsApp](#hatsapp-channel-compliance-documentation)
-4. [Documentación de conformidad del canal LINE](#line-channel-compliance-documentation)
-5. [Documentación de conformidad de la integración con Shopify](#shopify-integration-compliance-documentation)
-6. [Documentación de conformidad de Audience Sync](#audience-sync-compliance-documentation)
-7. [Documentación de conformidad del archivado de mensajes y cifrado a nivel de campo](#message-archiving-and-field-level-encryption-compliance-documentation)
-8. [Documentación de conformidad de la Consola de Agente](#agent-console-compliance-documentation)
-9. [Documentación de conformidad del canal KakaoTalk](#kakaotalk-channel-compliance-documentation)
+3. [Documentación de cumplimiento del canal de WhatsApp](#hatsapp-channel-compliance-documentation)
+4. [Documentación de cumplimiento del canal de LINE](#line-channel-compliance-documentation)
+5. [Documentación de cumplimiento de la integración con Shopify](#shopify-integration-compliance-documentation)
+6. [Documentación de cumplimiento de Audience Sync](#audience-sync-compliance-documentation)
+7. [Documentación de cumplimiento de archivado de mensajes y cifrado a nivel de campo](#message-archiving-and-field-level-encryption-compliance-documentation)
+8. [Documentación de cumplimiento de la consola de agentes](#agent-console-compliance-documentation)
+9. [Documentación de cumplimiento del canal de KakaoTalk](#kakaotalk-channel-compliance-documentation)
 
 ## 1. Canal de mensajería móvil {#mobile-messages-channel}
 
@@ -102,7 +102,7 @@ Los siguientes términos adicionales se aplican en relación con el uso del cana
 
 ### Términos aplicables del proveedor externo {#applicable-third-party-provider-terms}
 
-El cliente deberá cumplir con todos los requisitos previos, términos y políticas aplicables al canal WhatsApp, incluidos los términos requeridos por WhatsApp, LLC y sus empresas afiliadas, como se describe en la página de [configuración de WhatsApp]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/overview/) de Braze.
+El cliente deberá cumplir con todos los requisitos previos, términos y políticas aplicables al canal WhatsApp, incluidos los términos requeridos por WhatsApp, LLC y sus empresas afiliadas, como se describe en la página de [configuración de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup) de Braze.
 
 ### Términos de excepción para el uso de webhooks
 
@@ -126,7 +126,6 @@ Al utilizar el canal LINE, el cliente acepta cumplir y quedar vinculado por, seg
 
 Sin perjuicio de cualquier disposición en contrario en los Términos de LINE, el cliente sigue siendo el principal responsable de su uso de los servicios de LINE.
 
-
 ## 5. Documentación de conformidad de la integración con Shopify {#shopify-integration-compliance-documentation}
 
 Los siguientes términos adicionales se aplican en relación con el uso de la integración con Shopify por parte del cliente en conexión con los servicios de Braze ("**Integración con Shopify**"):
@@ -135,15 +134,15 @@ El cliente acepta cumplir y quedar vinculado por cualquier término y condición
 
 El cliente reconoce que Shopify puede en cualquier momento y a su entera discreción: (i) requerir que Braze deshabilite o bloquee el acceso del cliente a la integración con Shopify; o (ii) dejar de proporcionar, suspender o terminar el acceso del cliente a la integración con Shopify. Braze no tendrá responsabilidad alguna con respecto a que Shopify deje de proporcionar acceso a la integración con Shopify al cliente o a través de los servicios de Braze en general.
 
-## 6. Documentación de conformidad de Audience Sync {#audience-sync-compliance-documentation}
+## 6. Documentación de cumplimiento de Audience Sync {audience-sync-compliance-documentation} {#6-audience-sync-compliance-documentation-audience-sync-compliance-documentation}
 
 Los siguientes términos adicionales se aplican al uso de Audience Sync por parte del cliente.
 
-### Términos aplicables del proveedor externo
+### Términos aplicables de proveedores externos
 
-El cliente acepta cumplir y quedar vinculado por cualquier término y condición, política, directriz y documentación aplicable de los proveedores externos que el cliente utilice en conexión con cualquier integración de Audience Sync.
+El cliente acepta cumplir y quedar vinculado por cualesquiera términos y condiciones, políticas, directrices y documentación aplicables de los proveedores externos que el cliente utilice en relación con cualquier integración de Audience Sync.
 
-El cliente reconoce que los proveedores externos pueden revisar, examinar y/o eliminar cualquier dato, anuncio o contenido utilizado en conexión con sus servicios.
+El cliente reconoce que los proveedores externos pueden revisar, examinar y/o eliminar cualquier dato, anuncio o contenido utilizado en relación con sus servicios.
 
 ## 7. Documentación de conformidad del archivado de mensajes y cifrado a nivel de campo {#message-archiving-and-field-level-encryption-compliance-documentation}
 
@@ -154,7 +153,7 @@ El cliente reconoce que el uso del archivado de mensajes y/o el cifrado a nivel 
 
 ### Proveedores de LLM como subencargados o proveedores externos {#llm-providers-as-sub-processors-or-third-party-providers}
 
-Cuando el cliente utiliza una integración con un modelo de lenguaje grande proporcionado por Braze a través de la opción Braze Auto en los servicios de Braze ("LLM proporcionado por Braze"), el proveedor de dicho LLM proporcionado por Braze actuará como subencargado de Braze, sujeto a los términos del Anexo de procesamiento de datos (DPA) entre el cliente y Braze.
+Cuando el cliente utiliza una integración con un modelo de lenguaje grande proporcionado por Braze a través de la opción Braze Auto en los servicios de Braze ("LLM proporcionado por Braze"), el proveedor de dicho LLM proporcionado por Braze actuará como subencargado de Braze, sujeto a los términos del Anexo de procesamiento de datos (asesor sobre protección de datos) entre el cliente y Braze.
 
 Si el cliente elige traer su propia clave de API para integrarse con la funcionalidad de BrazeAI, el proveedor de la suscripción LLM propia del cliente se considerará un proveedor externo, según se define en el contrato entre el cliente y Braze.
 

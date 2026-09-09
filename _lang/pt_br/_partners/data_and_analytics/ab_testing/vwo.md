@@ -37,18 +37,18 @@ Ao integrar o VWO com a Braze, você pode aproveitar os dados de experimentos do
 
 6. Depois de ativar a integração, o VWO começará a enviar dados de experimentos para a Braze no nível da campanha.
 
-### Etapa 2: Crie um segmento na Braze com propriedades de evento do VWO {#step-2-create-a-segment-in-braze-with-vwo-event-properties}
+### Etapa 2: Crie um Segment na Braze com propriedades de evento do VWO {#step-2-create-a-segment-in-braze-with-vwo-event-properties}
 
 1. No dashboard da Braze, selecione **Segments** > **+ Create Segment**.
-3. Na janela **Create Segment**, insira um nome para o segmento e depois selecione **Create Segment**.
-4. No seu segmento recém-criado, selecione **Filters** > **Add Filter** e escolha **Custom Event** como o tipo de filtro.
+3. Na janela **Create Segment**, insira um nome para o Segment e depois selecione **Create Segment**.
+4. No seu Segment recém-criado, selecione **Filters** > **Add Filter** e escolha **Custom Event** como o tipo de filtro.
 6. No dropdown de filtro, procure por **VWO**.
 7. Selecione a propriedade relevante do VWO e especifique o valor necessário.
 8. Se necessário, configure o número de visitas e o período de tempo. Quando terminar, selecione **Save**.
 
    ![Criação de segmento na Braze]({% image_buster /assets/img/vwo/vwo3_braze_segment.png %})
 
-9. Para ver o número de usuários que correspondem aos critérios do seu segmento, selecione **Calculate Exact Statistics**.
+9. Para ver o número de usuários que correspondem aos critérios do seu Segment, selecione **Calculate Exact Statistics**.
 
    ![Estatísticas de segmento na Braze]({% image_buster /assets/img/vwo/vwo4_braze_segment_calculate_size.png %})
 
@@ -67,7 +67,7 @@ Essas propriedades de evento personalizado também podem ser usadas para segment
 
 ### Solicitar segmentação de propriedades de evento {#request-event-property-segmentation}
 
-Antes de usar a segmentação de propriedades de evento, você precisará ativá-la na Braze. Use o seguinte modelo para entrar em contato com seu gerente de sucesso do cliente da Braze ou a equipe de suporte para obter acesso.
+Antes de usar a segmentação de propriedades de evento, você precisará ativá-la na Braze. Use o seguinte modelo para entrar em contato com seu CSM da Braze ou a equipe de suporte para obter acesso.
 
    <table aria-label="Request event property segmentation">
      <caption>Solicitar segmentação de propriedades de evento</caption>
@@ -118,4 +118,4 @@ Se você não estiver vendo dados do VWO na Braze:
 
  ![Solução de problemas da Braze]({% image_buster /assets/img/vwo/vwo5_troubleshooting.png %})
 
-Para suporte adicional, entre em contato com seu gerente de sucesso do cliente do VWO.
+Para suporte adicional, entre em contato com seu CSM do VWO.

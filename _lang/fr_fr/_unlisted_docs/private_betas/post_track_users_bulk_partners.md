@@ -16,7 +16,7 @@ description: "Si vous êtes un partenaire Braze, utilisez cet endpoint pour enre
 > Si vous êtes un partenaire Braze, utilisez cet endpoint pour enregistrer des événements personnalisés et des achats, et mettre à jour les attributs de profil utilisateur en masse.
 
 {% alert important %}
-Cet endpoint est disponible pour les partenaires Braze afin de migrer les cas d'utilisation en masse dans leur intégration Braze. Pour toute question, contactez [isv-support@braze.com](mailto:isv-support@braze.com).
+Cet endpoint est disponible pour les partenaires Braze afin de migrer les cas d'utilisation en masse dans leur intégration Braze. Pour toute question, contactez [éditeur de logiciels indépendant-support@braze.com](mailto:isv-support@braze.com).
 {% endalert %}
 
 ## Quand utiliser cet endpoint {#when-to-use-this-endpoint}

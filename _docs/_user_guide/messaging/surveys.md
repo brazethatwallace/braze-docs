@@ -102,6 +102,10 @@ Long-form text capture is useful for qualitative feedback. You can configure the
 
 ![Long text capture block settings.]({% image_buster /assets/img/surveys/long-form-surveys.png %}){: style="max-width:40%;"}
 
+{% alert important %}
+Long-form text fields in iOS in-app message surveys are temporarily limited to 250 characters. This limitation is being addressed in a future iOS SDK update. For now, consider keeping your maximum character count at or below 250 for surveys shown to iOS users.
+{% endalert %}
+
 Long text responses are available in reporting and exports, but they can't be logged as user profile custom attributes—so you can't segment users by a long-form response value directly. See [Limitations]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/surveys#limitations) on either channel page for details.
 
 In Currents, long-form responses use `answer_type = 'free_form_text'` with the text in `answer_long_string`.

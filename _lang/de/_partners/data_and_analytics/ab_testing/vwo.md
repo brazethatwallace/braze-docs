@@ -118,4 +118,4 @@ Wenn Sie keine VWO-Daten in Braze sehen:
 
  ![Braze-Fehlerbehebung]({% image_buster /assets/img/vwo/vwo5_troubleshooting.png %})
 
-Wenn Sie zusätzliche Unterstützung benötigen, wenden Sie sich an Ihren Customer-Success-Manager von VWO.
+Wenn Sie zusätzliche Unterstützung benötigen, wenden Sie sich an Ihren CSM von VWO.

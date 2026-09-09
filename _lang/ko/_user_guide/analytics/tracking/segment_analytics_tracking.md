@@ -17,25 +17,25 @@ Segment에 대해 분석 추적을 켜지 않더라도 해당 Segment의 [실시
 
 ## Segment 분석 활성화 {#turning-on-segment-analytics}
 
-Segment 페이지의 **Segment Details** 섹션에서 **Analytics Tracking**을 활성화하세요.
+Segment 페이지의 **Segment Details** 섹션에서 **Analytics Tracking**을 켭니다.
 
 ![Segment의 분석 추적 기술 토글]({% image_buster /assets/img_archive/A_Tracking_2.png %})
 
-워크스페이스에서 최대 25개의 Segment에 대해 추적 기술을 활성화할 수 있습니다. Braze는 Campaign이 세션, 매출, 구매에 미치는 영향을 파악할 때 분석하기 중요한 Segment를 추적하는 것을 권장합니다.
+하나의 워크스페이스에서 최대 25개의 Segment에 대해 추적 기술을 활성화할 수 있습니다. Braze는 Campaign이 세션, 매출 및 구매에 미치는 영향을 분석할 때 중요한 Segment를 추적하는 것을 권장합니다.
 
 {% alert note %}
-분석 추적 기술을 활성화한 후 보고서에 Segment 데이터가 채워지기까지 지연이 발생할 수 있습니다. 24시간 이내에 데이터가 채워지지 않으면 [지원팀에 문의]({{site.baseurl}}/braze_support)하세요.
+분석 추적 기술을 활성화한 후 Segment 데이터가 보고서에 채워지기까지 지연이 발생할 수 있습니다. 24시간 이내에 데이터가 채워지지 않으면 [지원팀에 문의]({{site.baseurl}}/user_guide/administer/personal/braze_support)하세요.
 {% endalert %}
 
-## 시간에 따른 매출 및 구매 보기 {#viewing-revenue-and-purchases-over-time}
+## 시간 경과에 따른 매출 및 구매 보기 {#viewing-revenue-and-purchases-over-time}
 
-**Analytics** > **매출 보고서**로 이동하여 [이 Segment의 시간에 따른 매출 및 구매 데이터]({{site.baseurl}}/user_guide/analytics/reports/revenue_report)를 확인하세요.
+**Analytics** > **Revenue Report**로 이동하여 [이 Segment의 시간 경과에 따른 매출 및 구매 데이터]({{site.baseurl}}/user_guide/analytics/reports/revenue_report)를 확인합니다.
 
-매출 및 구매 차트는 해당 Segment에 대해 분석 추적 기술이 활성화된 이후에 기록된 활동을 반영합니다. 추적 기술을 활성화해도 이전 구매 내역이 해당 보고서에 소급 반영되지는 않습니다. Segments를 비교할 때는 선택한 각 Segment에 대해 추적 기술이 활성화된 기간만 사용하세요.
+매출 및 구매 차트는 해당 Segment에 대해 분석 추적 기술이 활성화된 이후 기록된 활동을 반영합니다. 추적 기술을 활성화해도 이전 구매가 해당 보고서에 소급 적용되지 않습니다. Segments를 비교할 때는 선택한 각 Segment에 대해 추적 기술이 활성화된 기간만 사용하세요.
 
 ![Segment별 매출 데이터]({% image_buster /assets/img_archive/Revenue.png %})
 
-커스텀 기간에 대한 Segment 데이터를 시각적으로 비교하려면 그래프에서 Segments를 추가하거나 제거하세요. **Breakdown** 드롭다운에서 **By Segment**를 선택한 다음, **Breakdown values**에서 Segments를 선택하세요.
+커스텀 기간에 대한 Segment 데이터를 시각적으로 비교하려면 그래프에서 Segments를 추가하거나 제거합니다. **Breakdown** 드롭다운에서 **By Segment**를 선택한 다음 **Breakdown values**에서 원하는 Segments를 선택합니다.
 
 그래프 범례에서 Segment 이름을 선택하면 해당 Segment의 측정기준 표시 여부를 켜거나 끌 수 있습니다.
 
@@ -47,16 +47,16 @@ Segment 페이지의 **Segment Details** 섹션에서 **Analytics Tracking**을 
 
 ![Segment별 세션 데이터]({% image_buster /assets/img_archive/events_over_time2.png %})
 
-## 시간에 따른 커스텀 이벤트 보기 {#view-custom-events-over-time}
+## 시간 경과에 따른 커스텀 이벤트 보기 {#view-custom-events-over-time}
 
-**분석** > **커스텀 이벤트 보고서**로 이동하여 [Segments의 시간에 따른 커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events#analytics) 데이터를 확인하세요.
+**Analytics** > **Custom events report**로 이동하여 [Segments에 대한 시간 경과에 따른 커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events#analytics) 데이터를 확인하세요.
 
-## Query Builder 템플릿 사용하기 {#using-query-builder-templates}
+## 쿼리 빌더 템플릿 사용하기 {#using-query-builder-templates}
 
-분석 추적 기술이 켜져 있으면, Query Builder 보고서 템플릿을 사용하여 Campaigns, Canvas, 배리언트 및 단계별 성능 측정기준을 Segments별로 분석할 수 있습니다. 자세한 내용은 [Segment 데이터]({{site.baseurl}}/user_guide/audience/segments/segment_data#viewing-performance-data-by-segment)를 확인하세요.
+분석 추적 기술이 활성화되면, 쿼리 빌더 리포트 템플릿을 사용하여 Campaign, Canvas, 배리언트 및 단계별 성능 측정기준을 Segments별로 분류할 수 있습니다. 자세한 내용은 [Segment 데이터]({{site.baseurl}}/user_guide/audience/segments/segment_data#viewing-performance-data-by-segment)를 확인하세요.
 
 ## 자주 묻는 질문 {#frequently-asked-questions}
 
-### 분석 추적 기술이 잘못되었거나 비어 있는 것처럼 보이면 무엇을 확인해야 하나요? {#what-should-i-check-if-analytics-tracking-looks-wrong-or-empty}
+### 분석 추적이 잘못 표시되거나 비어 있는 경우 무엇을 확인해야 하나요? {#what-should-i-check-if-analytics-tracking-looks-wrong-or-empty}
 
-**Segment 세부 정보**에서 **분석 추적 기술**이 여전히 활성화되어 있는지 확인하고, 워크스페이스당 제한(추적 기술이 활성화된 Segment 25개)을 초과하지 않았는지 확인하세요. 추적 기술을 처음 활성화한 후 데이터가 채워지기까지 최대 24시간이 걸릴 수 있습니다. 문제가 계속되면 Segment 정의와 보고서 날짜 범위를 확인한 다음 [지원팀에 문의]({{site.baseurl}}/braze_support)하세요.
+**Segment 세부 정보**에서 **분석 추적 기술**이 여전히 활성화되어 있는지 확인하고, 워크스페이스당 제한(추적 기술이 활성화된 Segment 25개)을 초과하지 않았는지 점검하세요. 추적 기술을 처음 활성화한 후 데이터가 채워지기까지 최대 24시간이 걸릴 수 있습니다. 문제가 계속되면 Segment 정의와 보고서 날짜 범위를 확인한 다음 [고객 지원팀에 문의]({{site.baseurl}}/user_guide/administer/personal/braze_support)하세요.

@@ -41,7 +41,7 @@ Para criar sua mensagem da direita para a esquerda na Braze:
 
 O método de copiar e colar para mensagens push pode ser difícil de usar com notificações por push mais longas, pois conteúdos mais extensos podem ser renderizados em várias linhas em um dispositivo móvel. Se você copiar o texto da mensagem de fora da Braze (como de um documento do Word) e colá-lo diretamente na Braze, o alinhamento das frases e o posicionamento das palavras podem mudar. Para evitar esse cenário, copie e cole em partes e adicione uma quebra de linha. Por exemplo, copie e cole as cinco primeiras palavras, adicione uma quebra de linha, copie as próximas cinco palavras, adicione uma quebra de linha, e assim por diante.
 
-As funções de pré-visualização e teste são feitas para mensagens da esquerda para a direita, então mensagens da direita para a esquerda não serão renderizadas corretamente na seção **Preview & Test**, mas serão renderizadas corretamente nos dispositivos dos usuários se as configurações estiverem definidas para isso. Sugerimos enviar mensagens para você mesmo em um ambiente real para confirmar que elas são renderizadas corretamente com base nas configurações do dispositivo.
+As funções de pré-visualização e teste são feitas para mensagens da esquerda para a direita, então mensagens da direita para a esquerda não serão renderizadas corretamente na seção **prévia & Test**, mas serão renderizadas corretamente nos dispositivos dos usuários se as configurações estiverem definidas para isso. Sugerimos enviar mensagens para você mesmo em um ambiente real para confirmar que elas são renderizadas corretamente com base nas configurações do dispositivo.
 
 ### Alinhamento do título e do corpo {#title-and-body-alignment}
 

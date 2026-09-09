@@ -2,7 +2,7 @@
 nav_title: mParticle de Rokt
 article_title: mParticle de Rokt
 alias: /partners/mparticle/
-description: "Este artículo de referencia describe la asociación entre Braze y mParticle, una plataforma de datos de los clientes que recopila y encamina información entre fuentes de tu stack de marketing."
+description: "Este artículo de referencia describe la asociación entre Braze y mParticle, una CDP que recopila y encamina información entre fuentes de tu stack de marketing."
 page_type: partner
 search_tag: Partner
 
@@ -12,7 +12,7 @@ search_tag: Partner
 
 {% multi_lang_include video.html id="Njhqwd36gZM" align="right" %}
 
-> Con la plataforma de datos de los clientes de mParticle, podrás hacer mucho más con tus datos. Los especialistas en marketing más sofisticados utilizan mParticle para orquestar los datos de todo su stack de crecimiento, lo que les permite ganar en los momentos clave del recorrido del cliente.
+> Con la CDP de mParticle, podrás hacer mucho más con tus datos. Los especialistas en marketing más sofisticados utilizan mParticle para orquestar los datos de todo su stack de crecimiento, lo que les permite ganar en los momentos clave del recorrido del cliente.
 
 La integración de Braze y mParticle te permite controlar fácilmente el flujo de información entre ambos sistemas:
 - Sincroniza las audiencias de mParticle con Braze para la segmentación de Campaign y Canvas de Braze.

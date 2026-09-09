@@ -6,7 +6,6 @@ page_order: 1
 layout: api_page
 page_type: reference
 description: "この記事では、「外部IDの名前を変更」エンドポイントの詳細について説明します。"
-
 ---
 {% api %}
 # 外部IDの名前を変更する {#rename-external-id}
@@ -38,7 +37,7 @@ description: "この記事では、「外部IDの名前を変更」エンドポ�
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`users.external_ids.rename`権限を持つ[APIキー]({{site.baseurl}}/api/api_key)が必要です。
+このエンドポイントを使用するには、`users.external_ids.rename`権限を持つ[APIキー]({{site.baseurl}}/api/basics)が必要です。
 
 ## レート制限 {#rate-limit}
 

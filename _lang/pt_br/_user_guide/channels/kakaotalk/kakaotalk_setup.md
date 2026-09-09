@@ -16,8 +16,8 @@ channel:
 
 | Requisito | Descrição |
 | --- | --- |
-| Conta com um parceiro KakaoTalk compatível | É necessário ter uma conta com um parceiro KakaoTalk compatível, [CJ OliveNetworks](https://www.braze.com/partners/solutions-partners/cjolivenetworks/) ou [Infobip](https://marketplace.braze.com/partners/infobip), para usar o canal de envio de mensagens KakaoTalk. |
-| Canal Business do KakaoTalk | Sua conta do KakaoTalk precisa ser um canal Business do KakaoTalk para enviar mensagens do KakaoTalk pela Braze. Quando você cria uma conta, o status padrão é básico. Para transformar sua conta em um canal Business, você precisará verificar sua empresa e fornecer a documentação relevante. |
+| Conta com um parceiro KakaoTalk compatível | É necessário ter uma conta com um parceiro KakaoTalk compatível, [CJ OliveNetworks](https://www.braze.com/partners/solutions-partners/cjolivenetworks/) ou [Infobip](https://marketplace.braze.com/partners/infobip), para usar o canal de envio de mensagens do KakaoTalk. |
+| Canal Business do KakaoTalk | Sua conta KakaoTalk precisa ser um canal Business do KakaoTalk para enviar mensagens do KakaoTalk pela Braze. Quando você cria uma conta, seu status padrão é básico. Para tornar sua conta um canal Business, você precisará verificar sua empresa e fornecer a documentação relevante. |
 | Sender Key do KakaoTalk | Uma Sender Key válida do KakaoTalk. |
 | Número de telefone de contato | Um número de telefone de contato do administrador do seu canal KakaoTalk. |
 | IPs do cluster da Braze na lista de permissões | O registro na lista de permissões de IP é obrigatório para todos os clientes. Registre os endereços IP da Braze para o seu cluster antes de integrar o KakaoTalk na Braze. |
@@ -27,19 +27,19 @@ channel:
 
 Registre os endereços IP da Braze para o seu cluster no dashboard do Comm.One.
 
-1. No dashboard do Comm.One, acesse **Account Management (계정 관리)**, selecione o ícone de menu e depois selecione **View Details (자세히보기)**.
+1. No dashboard do Comm.One, acesse **Account Management (계정 관리)**, selecione o ícone de menu e, em seguida, selecione **View Details (자세히보기)**.
 2. Selecione **Center & Upload IP Allowlist (센터&업로드 IP 화이트리스트)**.
-3. Adicione os endereços IP do seu cluster da Braze. Para a lista completa de IPs por cluster, consulte [Lista de permissões de IP]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-allowlisting).
+3. Adicione os endereços IP para o seu cluster da Braze. Para a lista completa de IPs por cluster, consulte [Lista de permissões de IP]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-allowlisting).
 
 ![Dashboard do Comm.One mostrando onde você pode adicionar endereços IP.]({% image_buster /assets/img/kakaotalk/register_braze_ip.png %})
 
-### Tipos de contas do KakaoTalk {#types-of-kakaotalk-accounts}
+### Tipos de contas KakaoTalk {#types-of-kakaotalk-accounts}
 
 | Tipo de conta | Descrição |
 | --- | --- |
-| Canal básico | Um canal padrão do KakaoTalk que qualquer organização pode configurar. Ele permite o envio de mensagens em massa e chat 1:1 pelo KakaoTalk. |
-| [Canal Business](https://www.kakaocorp.com/page/service/service/KakaoTalkChannel) | Um canal do KakaoTalk aprimorado e verificado para empresas que exige um processo de solicitação e verificação. Ele oferece recursos avançados, como {::nomarkdown}<ul><li>Selo de verificação</li><li>Aparição como canal recomendado</li><li>Suporte para envio de mensagens comerciais</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Tipos de contas do KakaoTalk" }
+| Canal básico | Um canal KakaoTalk padrão que qualquer organização pode configurar. Ele permite o envio de mensagens em massa e chat 1:1 pelo KakaoTalk. |
+| [Canal Business](https://www.kakaocorp.com/page/service/service/KakaoTalkChannel) | Um canal KakaoTalk aprimorado e verificado para empresas que requer um processo de solicitação e verificação. Ele oferece recursos avançados, como {::nomarkdown}<ul><li>Selo de verificação</li><li>Aparição como canal recomendado</li><li>Suporte para mensagens comerciais</li></ul>{:/} |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tipos de contas KakaoTalk" }
 
 #### Solicitar um canal Business {#apply-for-a-business-channel}
 
@@ -50,24 +50,24 @@ Antes de iniciar a solicitação, reúna a seguinte documentação empresarial:
 - Licenças específicas do setor
 
 {% alert important %}
-As informações no seu canal KakaoTalk (como nome do canal, imagem de perfil e outros) devem corresponder exatamente às informações nos seus documentos oficiais enviados.
+As informações no seu canal KakaoTalk (como nome do canal, imagem de perfil, entre outras) devem corresponder exatamente às informações nos seus documentos oficiais enviados.
 {% endalert %}
 
 Após reunir sua documentação, siga estas etapas:
 
 1. Faça login no [KakaoTalk Channel Admin Center](https://center-pf.kakao.com/).
-2. Selecione o canal KakaoTalk existente que você deseja fazer upgrade.
+2. Selecione o canal KakaoTalk existente que deseja fazer upgrade.
 3. Na seção **Management (관리)**, selecione a opção **Business Channel Application (비즈니스 채널 신청)**.
 4. Selecione o botão **Apply** ou **Request (신청)** para iniciar o processo.
 5. Forneça as informações necessárias.
 6. Aguarde uma notificação com os resultados da análise.
 
-## Integrar o KakaoTalk {#integrate-kakaotalk}
+## Integrar KakaoTalk {#integrate-kakaotalk}
 
 ### Conectar o canal KakaoTalk à Braze {#connect-the-kakaotalk-channel-to-braze}
 
 1. Acesse **Partner Integrations** > **Technology Partners** e selecione seu provedor de KakaoTalk.
-2. Reúna as credenciais necessárias para o seu provedor (consulte a seção a seguir), insira-as na página **Technology Partners** e salve.
+2. Reúna as credenciais necessárias do seu provedor (consulte a seção a seguir) e insira-as na página de **Technology Partners** e salve.
 3. Use as credenciais recém-salvas para envio.
 
 #### CJ OliveNetworks
@@ -94,7 +94,7 @@ Acesse seu [dashboard do Comm.One](https://ums.cjmplace.com/) e reúna as seguin
 ![Dashboard do Comm.One mostrando uma Sender Key censurada.]({% image_buster /assets/img/kakaotalk/sender_key.png %})
 
 {% alert important %}
-Você pode integrar uma Sender Key do KakaoTalk em apenas um espaço de trabalho por vez. Para usar a mesma Sender Key em um espaço de trabalho diferente, primeiro você deve arquivar o grupo de inscrições do KakaoTalk no espaço de trabalho original e depois entrar em contato com o [suporte da Braze]({{site.baseurl}}/braze_support) para remover a integração. Após a Braze remover a integração, você pode configurar a integração no novo espaço de trabalho.
+Você pode integrar uma Sender Key do KakaoTalk em apenas um espaço de trabalho por vez. Para usar a mesma Sender Key em um espaço de trabalho diferente, você deve primeiro arquivar o grupo de inscrições do KakaoTalk no espaço de trabalho original e depois entrar em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) para remover a integração. Depois que a Braze remover a integração, você poderá configurar a integração no novo espaço de trabalho.
 {% endalert %}
 
 ![Credenciais para um canal KakaoTalk da Braze.]({% image_buster /assets/img/kakaotalk/cj_credentials.png %})
@@ -116,7 +116,7 @@ Você pode integrar uma Sender Key do KakaoTalk em apenas um espaço de trabalho
 Somente os canais mapeados para um único ID comum podem ser registrados.
 {% endalert %}
 
-![Campos na página Technology Partners para CJ OliveNetworks.]({% image_buster /assets/img/kakaotalk/cj_olivenetworks.png %}){: style="max-width:30%;"}
+![Campos na página de Technology Partners para CJ OliveNetworks.]({% image_buster /assets/img/kakaotalk/cj_olivenetworks.png %}){: style="max-width:30%;"}
 
 #### Infobip
 
@@ -142,7 +142,7 @@ Acesse seu dashboard da Infobip e o [KakaoTalk Channel Admin Center](https://cen
 3. Selecione **CREATE API KEY**.
 4. Insira o **Name**, selecione a **Expiration date** e depois selecione os escopos de API necessários para o KakaoTalk. Esses escopos controlam quais ações da API da Infobip sua chave pode executar.
 
-![Página Create API Key da Infobip mostrando os campos de nome, data de expiração e escopos de API.]({% image_buster /assets/img/kakaotalk/infobip_api_key_scopes.png %})
+![Página de criação de chave de API da Infobip mostrando os campos de nome, data de expiração e escopos de API.]({% image_buster /assets/img/kakaotalk/infobip_api_key_scopes.png %})
 
 {: start="5"}
 5. Selecione **CREATE** para gerar a chave.
@@ -154,7 +154,7 @@ Acesse seu dashboard da Infobip e o [KakaoTalk Channel Admin Center](https://cen
 2. Na janela **Channel Information**, encontre o **Channel name** e o **Search id** (UUID do remetente).
 3. Insira as **Customer center contact information**. Isso é necessário ao enviar mensagens publicitárias.
 
-![Janela de informações do canal KakaoTalk mostrando os campos de informações de contato do centro de atendimento ao cliente.]({% image_buster /assets/img/kakaotalk/kakao_customer_center_contact.png %})
+![Janela de informações do canal do KakaoTalk mostrando os campos de informações de contato do centro de atendimento ao cliente.]({% image_buster /assets/img/kakaotalk/kakao_customer_center_contact.png %})
 
 {: start="4"}
 4. Para visualizar um canal diferente, selecione o ícone do canal no topo do menu.
@@ -166,4 +166,4 @@ Os perfis de usuário devem ter números de telefone no formato E.164 para receb
 
 ### Importar números de telefone {#import-phone-numbers}
 
-Importe números de telefone [fazendo upload de um CSV ou usando a API]({{site.baseurl}}/user_guide/data/unification/user_data/import_users) para criar um usuário. Certifique-se de que os números de telefone estejam no formato E.164 antes de importar.
+Importe números de telefone [fazendo upload de um CSV ou usando a API]({{site.baseurl}}/user_guide/audience/manage_audience/import_users) para criar um usuário. Certifique-se de que os números de telefone estejam no formato E.164 antes de importar.

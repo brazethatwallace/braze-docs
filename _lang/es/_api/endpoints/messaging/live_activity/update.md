@@ -7,7 +7,6 @@ page_order: 1
 layout: api_page
 page_type: reference
 description: "En este artículo se describen los detalles del endpoint Actualizar actividad en vivo."
-
 ---
 {% api %}
 # Actualizar actividad en vivo {#update-live-activity}
@@ -15,7 +14,7 @@ description: "En este artículo se describen los detalles del endpoint Actualiza
 /messages/live_activity/update
 {% endapimethod %}
 
-> Usa este endpoint para actualizar y finalizar las [actividades en vivo]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?sdktab=swift) mostradas por tu aplicación iOS. Este endpoint requiere configuración adicional.
+> Usa este endpoint para actualizar y finalizar las [actividades en vivo]({{site.baseurl}}/developer_guide/live_notifications?sdktab=swift) mostradas por tu aplicación iOS. Este endpoint requiere configuración adicional.
 
 Después de registrar una actividad en vivo, puedes pasar una carga útil JSON para actualizar tu servicio de notificaciones push de Apple (APN). Consulta la documentación de Apple sobre la [actualización de tu actividad en vivo con cargas útiles de notificaciones push](https://developer.apple.com/documentation/activitykit/updating-and-ending-your-live-activity-with-activitykit-push-notifications) para más información.
 
@@ -28,7 +27,7 @@ Si `content-available` no está configurado, la prioridad predeterminada del ser
 Para usar este endpoint, tendrás que completar lo siguiente:
 
 - Generar una clave de API con el permiso `messages.live_activity.update`.
-- Registrar una actividad en vivo [de forma remota]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?tab=remote&sdktab=swift) o [local]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?tab=local&sdktab=swift) utilizando el SDK Swift de Braze.
+- Registrar una actividad en vivo [de forma remota]({{site.baseurl}}/developer_guide/live_notifications?tab=remote&sdktab=swift) o [local]({{site.baseurl}}/developer_guide/live_notifications?tab=local&sdktab=swift) utilizando el SDK Swift de Braze.
 
 {% multi_lang_include api/payload_size_alert.md %}
 

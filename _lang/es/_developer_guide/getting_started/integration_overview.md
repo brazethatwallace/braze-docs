@@ -113,7 +113,7 @@ Necesitarás desarrolladores que estén familiarizados con:
 
 ### Partners de integración de CDP {#cdp-integration-partners}
 
-Muchos clientes utilizan la incorporación a Braze como una oportunidad para integrarse también con una plataforma de datos de los clientes (CDP) como partner de integración. Braze proporciona seguimiento y análisis de datos, mientras que un CDP puede proporcionar enrutamiento y orquestación de datos adicionales. Braze ofrece una integración sin problemas con muchos CDP, como [mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle) y [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment).
+Muchos clientes utilizan la incorporación a Braze como una oportunidad para integrarse también con una CDP (CDP) como partner de integración. Braze proporciona seguimiento y análisis de datos, mientras que un CDP puede proporcionar enrutamiento y orquestación de datos adicionales. Braze ofrece una integración fluida con muchos CDP, como [mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle) y [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment).
 
 Si realizas una integración en paralelo con un CDP, mapearás las llamadas del SDK de tu CDP al SDK de Braze. Esencialmente, harás lo siguiente:
 * Mapear las llamadas de identificación a `changeUser` ([Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/change-user.html), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/changeuser(userid:sdkauthsignature:fileid:line:)/), [web](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser)) y establecer atributos.
@@ -163,7 +163,7 @@ Los puntos de datos son una estructura mediante la cual te aseguras de que está
 
 Puedes utilizar el [`/users/track endpoint`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) de Braze para migrar datos históricos registrados fuera de Braze. Algunos ejemplos de datos importados habitualmente son los tokens de notificaciones push y las compras anteriores. Este endpoint puede utilizarse para importaciones puntuales o actualizaciones periódicas por lotes.
 
-También puedes importar usuarios y actualizar los valores de los atributos de los clientes mediante una única [carga de CSV]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_import#importing-a-csv) al panel. Cargar CSV puede ser útil para los especialistas en marketing, mientras que nuestra REST API permite una mayor flexibilidad.
+También puedes importar usuarios y actualizar los valores de los atributos de los clientes mediante una única [carga de CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users) al panel. Cargar CSV puede ser útil para los especialistas en marketing, mientras que nuestra REST API permite una mayor flexibilidad.
 
 ### Configuración del seguimiento de la sesión {#setting-up-session-tracking}
 
@@ -179,7 +179,7 @@ Los ID de usuario, llamados `external_id`s en Braze, deben establecerse para tod
 
 ### Otras herramientas {#other-tools}
 
-Según tu caso de uso, puede haber otras herramientas que necesites configurar. Por ejemplo, puede que necesites configurar una herramienta como las [geovallas]({{site.baseurl}}/user_guide/engagement_tools/locations_and_geofences#about-locations-and-geofences) para realizar tus historias de usuario. Hemos comprobado que los clientes que tienen la posibilidad de configurar estas herramientas adicionales después de completar los pasos esenciales de la integración son los que tienen más éxito.
+Según tu caso de uso, puede haber otras herramientas que necesites configurar. Por ejemplo, puede que necesites configurar una herramienta como las [geovallas]({{site.baseurl}}/user_guide/audience/locations_and_geofences) para realizar tus historias de usuario. Hemos comprobado que los clientes que tienen la posibilidad de configurar estas herramientas adicionales después de completar los pasos esenciales de la integración son los que tienen más éxito.
 
 ## Garantía de calidad {#qa}
 A medida que ejecutes tu integración, proporcionarás una garantía de calidad para asegurarte de que todo lo que estás configurando funciona según lo esperado. Este control de calidad se divide en dos categorías generales: la ingesta de datos y los canales de mensajes.
@@ -211,17 +211,17 @@ Mientras realizas el control de calidad de la integración del SDK, utiliza el [
 
 Una vez que hayas integrado tu plataforma o sitio web, querrás implicar a tu equipo de marketing para pasarles la propiedad de la plataforma. Este proceso es diferente en cada empresa, pero puede incluir lo siguiente:
 
-* Componer la compleja [lógica Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid#about-liquid)
+* Componer [lógica Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) compleja
 * Ayudar a facilitar el [calentamiento de IP del correo electrónico]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming)
-* Asegurarse de que otras partes interesadas comprenden el tipo de datos que se están siguiendo
+* Asegurarse de que otras partes interesadas comprenden el tipo de datos que se están rastreando
 
 ### Desarrollar para el futuro {#develop-for-the-future}
 
 ¿Alguna vez has heredado una base de código y no tenías ni idea de lo que estaba pensando el desarrollador inicial? Peor aún, ¿alguna vez has escrito código, lo has entendido completamente y luego te has sentido totalmente desconcertado cuando has vuelto a él un año después?
 
-Cuando incorpores Braze, las decisiones colectivas que tomes en relación con los datos, los perfiles de usuario, qué integraciones estaban y no estaban dentro del alcance, cómo se supone que deben funcionar las personalizaciones, y mucho más, te parecerán recientes y, por tanto, obvias. Cuando tu equipo quiera ampliar Braze o cuando se asignen otros recursos técnicos a tu proyecto Braze, esta información será difícil de encontrar.
+Cuando incorpores Braze, las decisiones colectivas que tomes en relación con los datos, los perfiles de usuario, qué integraciones estaban y no estaban dentro del alcance, cómo se supone que deben funcionar las personalizaciones, y mucho más, te parecerán recientes y, por tanto, obvias. Cuando tu equipo quiera ampliar Braze o cuando se asignen otros recursos técnicos a tu proyecto de Braze, esta información será difícil de encontrar.
 
-Crea un recurso para consolidar la información que aprendiste durante tus sesiones de resumen técnico. Este recurso te ayudará a reducir el tiempo de incorporación de los nuevos desarrolladores que se incorporen a tu equipo (o te servirá de recordatorio cuando necesites ampliar tu actual implementación de Braze).
+Crea un recurso para consolidar la información que aprendiste durante tus sesiones de resumen técnico. Este recurso te ayudará a reducir el tiempo de incorporación de los nuevos desarrolladores que se unan a tu equipo (o te servirá de recordatorio cuando necesites ampliar tu implementación actual de Braze).
 
 ## Mantenimiento {#maintenance}
 
@@ -235,13 +235,13 @@ Realizarás un seguimiento de las actualizaciones de la plataforma Braze a trav�
 
 Para los clientes que han adquirido Monthly Active Users CY 24-25, Universal MAU, Web MAU y Mobile MAU, Braze aplica límites de velocidad del lado del servidor en las solicitudes de API utilizadas por nuestros SDK para actualizar sesiones, atributos de usuario, eventos y otros datos del perfil de usuario. Esto es para garantizar la estabilidad de la plataforma y mantener un servicio rápido y fiable.
 
-* Los límites de velocidad por hora se establecen en función del tráfico esperado del SDK en tu cuenta, que puede corresponder al número de usuarios activos al mes (MAU) que has adquirido, el sector, la estacionalidad u otros factores. Cuando se alcanza el límite de velocidad por hora, Braze limitará las solicitudes hasta la hora siguiente.
+* Los límites de velocidad por hora se establecen de acuerdo con el tráfico esperado del SDK en tu cuenta, que puede corresponder al número de MAU (MAU) que has adquirido, el sector, la estacionalidad u otros factores. Cuando se alcanza el límite de velocidad por hora, Braze limitará las solicitudes hasta la hora siguiente.
 * Todas las solicitudes con límite de velocidad son reintentadas automáticamente por el SDK.
-* Las solicitudes del SDK se correlacionan con la cantidad de datos personalizados recopilados en tu implementación. Si estás constantemente cerca o en tu límite de velocidad por hora, considera:
+* Las solicitudes del SDK se correlacionan con la cantidad de datos personalizados recopilados en tu implementación. Si te encuentras constantemente cerca o en tu límite de velocidad por hora, considera:
     * Revisar tu integración de SDK para reducir la recopilación excesiva de datos.
-    * Incluir en la lista de bloqueo los datos personalizados que no sean esenciales para tus casos de uso de marketing.
-* Los límites de velocidad de ráfaga son límites de velocidad de corta duración que se aplican cuando un gran volumen de solicitudes llega en un período muy corto (es decir, en cuestión de segundos). No necesitas tomar ninguna acción cuando se producen límites de ráfaga, y el SDK reintentará poco después.
-* Los límites de velocidad estables controlan el volumen sostenido de solicitudes durante una ventana móvil más larga que la ventana de ráfaga (por ejemplo, varios minutos) y ayudan a suavizar el tráfico continuo entre los límites de ráfaga y tu límite de velocidad por hora.
+    * Incluir en la lista de bloqueo los datos personalizados que no sean esenciales para tus ejemplos de marketing.
+* Los límites de velocidad por ráfaga son límites de velocidad de corta duración que se aplican cuando un gran volumen de solicitudes llega en un periodo muy corto (es decir, en cuestión de segundos). No necesitas tomar ninguna acción cuando ocurren los límites por ráfaga, y el SDK lo reintentará poco después.
+* Los límites de velocidad estables controlan el volumen sostenido de solicitudes durante una ventana móvil más larga que la ventana de ráfaga (por ejemplo, varios minutos) y ayudan a suavizar el tráfico continuo entre los límites por ráfaga y tu límite de velocidad por hora.
 
 ### Encontrar tus límites de velocidad {#finding-your-rate-limits}
 
@@ -251,16 +251,16 @@ Para el uso histórico, ve a **Configuración** > **API e identificadores** > **
 
 ### Solicitar límites de velocidad más altos {#requesting-higher-rate-limits}
 
-Si necesitas un límite de velocidad de Braze más alto, contacta con soporte de Braze o tu administrador de éxito de cliente e incluye los siguientes detalles:
+Si necesitas un límite de velocidad de Braze más alto, contacta con soporte de Braze o tu CSM e incluye los siguientes detalles:
 
 * Si necesitas un aumento temporal o permanente.
 * Por qué necesitas el aumento.
 * Qué endpoints y entornos se ven afectados.
 * Tu volumen de tráfico aproximado y cronograma, incluyendo la fecha de inicio, la duración y las horas pico.
-* Si puedes agrupar llamadas o distribuir el tráfico a lo largo del tiempo.
+* Si puedes agrupar las llamadas o distribuir el tráfico a lo largo del tiempo.
 
-Después de enviar tu solicitud, Braze la revisará y te informará del resultado.
+Después de enviar tu solicitud, Braze la revisa y te informa del resultado.
 
 ### Cambios y soporte {#changes-and-support}
 
-Braze puede modificar los límites de velocidad para proteger la estabilidad del sistema o permitir un mayor rendimiento de datos en tu cuenta. Contacta con soporte de Braze o tu administrador de éxito de cliente si tienes preguntas o inquietudes sobre los límites de velocidad y cómo afectan a tu negocio.
+Braze puede modificar los límites de velocidad para proteger la estabilidad del sistema o permitir un mayor rendimiento de datos en tu cuenta. Contacta con soporte de Braze o tu CSM si tienes preguntas o inquietudes sobre los límites de velocidad y cómo afectan a tu negocio.

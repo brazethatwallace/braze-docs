@@ -18,6 +18,19 @@ Snowflake Data Sharing is part of Braze Data Distribution. For a full overview o
 **Interested in having access to Snowflake-level data without the need for a Snowflake account?**<br>Check out [Snowflake Reader Accounts]({{site.baseurl}}/user_guide/data/braze_currents/how_braze_uses_currents/#snowflake-reader-accounts). With Reader Accounts, Braze will create and share your data into an account and provide you credentials to log in and access your data. This will result in all data sharing and usage billing being handled entirely by Braze.
 {% endalert %}
 
+## Data Distribution entitlements
+
+Your Data Distribution entitlement determines which event types are available in your data share. Braze organizes events into the following categories:
+
+| Entitlement | Event category | Description | Event glossary reference |
+|------------|----------------|-------------|--------------------------|
+| **Engagement Events** | Message engagement events | Events related to message sends, deliveries, opens, clicks, bounces, and other messaging channel interactions | [Message engagement events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) |
+| **Customer Behavior Events** | Message engagement events and customer behavior events | Includes all Message Engagement Events, plus events related to purchases, custom events, sessions, attribution, and in-app user actions | [Message engagement events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events), [Customer behavior and user events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) |
+| **User Profiles and Attributes** | Message engagement events, customer behavior events, and user profile events | Includes Message Engagement Events and Customer Behavior Events, plus events related to changes in user profiles and attributes | [Message engagement events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events), [Customer behavior and user events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events), [User profile events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/user_profiles_events) |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Data Distribution entitlements" }
+
+For questions about which events are included in your entitlement, contact your Braze account or customer success manager.
+
 ## About Secure Data Sharing
 
 With data sharing, no actual data is copied or transferred between accounts. All sharing is accomplished through Snowflake's unique services layer and metadata store. This is an important concept because shared data does not take up any storage in your account and, therefore, does not contribute to your monthly data storage charges. The **only** charges are for the computing resources (such as virtual warehouses) used to query the shared data.
@@ -35,6 +48,7 @@ To learn more about Snowflake's data sharing, see [Introduction to Secure Data S
 | Requirement | Description |
 | ----------- | ----------- |
 | Braze access | Contact your Braze account or customer success manager to set up Data Sharing. |
+| Braze workspace permissions | [View Currents Integrations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) to view Data Sharing. [Edit Currents Integrations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) to create, update, or delete a data share. |
 | Snowflake account | A Snowflake account with `admin` permissions. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
@@ -71,6 +85,10 @@ Similar to Currents, you can use your Snowflake Secure Data Sharing to:
 {% multi_lang_include partners/data_sharing_use_cases.md %}
 
 [Download the raw table schemas.](/docs/assets/download_file/data-sharing-raw-table-schemas.txt)
+
+{% alert note %}
+The raw schema download does not include user profile attribute views. For the complete schemas and usage guidance for `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED`, `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED`, and related user attribute views, see [User profile attributes]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/user_attributes).
+{% endalert %}
 
 ### User ID schema
 

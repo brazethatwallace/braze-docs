@@ -14,7 +14,7 @@ description: "Dieser Referenzartikel beschreibt, wie Sie Braze Teams im Dashboar
 
 Teams können nach Standort der Kundenbasis, Sprache und angepassten Attributen eingerichtet werden, sodass Teammitglieder und Nicht-Teammitglieder unterschiedlichen Zugriff auf Messaging-Features und Kundendaten haben. Team-Filter und Tags können über verschiedene Engagement-Tools zugewiesen werden. Es gibt keine Begrenzung hinsichtlich der Anzahl der Teams, die Sie in Ihrem Workspace erstellen können.
 
-Teams sind nicht in allen Braze-Verträgen enthalten. Um auf dieses Feature zuzugreifen, wenden Sie sich bitte an Ihren Braze Account Manager oder [kontaktieren Sie uns](mailto:success@braze.com) für eine Beratung.
+Teams sind nicht in allen Braze-Verträgen enthalten. Um auf dieses Feature zuzugreifen, wenden Sie sich bitte an Ihren Braze Account Manager:in oder [kontaktieren Sie uns](mailto:success@braze.com) für eine Beratung.
 
 ## Wie unterscheiden sich Teams von Berechtigungssets und Rollen? {#how-do-teams-differ-from-permission-sets-and-roles}
 

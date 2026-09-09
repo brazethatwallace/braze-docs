@@ -4,34 +4,34 @@ Wenn Sie Braze über das eingebettete Kit von mParticle im Internet integrieren,
 
 ## Über sanfte Push-Aufforderungen {#about-soft-push-prompts}
 
-Es ist oft eine gute Idee, eine „sanfte“ Push-Aufforderung zu implementieren, mit der Sie die Nutzer:innen „vorbereiten“ und Ihre Argumente für das Senden von Push-Benachrichtigungen darlegen, bevor Sie die Push-Berechtigung anfordern. Dies ist nützlich, da der Browser die Häufigkeit drosselt, mit der Sie Nutzer:innen direkt auffordern können, und wenn Nutzer:innen die Erlaubnis verweigern, können Sie sie nie wieder fragen.
+Oft ist es für Websites sinnvoll, eine „sanfte“ Push-Aufforderung zu implementieren, bei der Sie Nutzer:innen vorbereiten und Ihre Argumente für den Versand von Push-Benachrichtigungen darlegen, bevor die Push-Berechtigung angefragt wird. Dies ist nützlich, da der Browser einschränkt, wie oft Nutzer:innen direkt aufgefordert werden können, und wenn Nutzer:innen die Berechtigung ablehnen, können Sie sie nie wieder danach fragen.
 
-Wenn Sie alternativ eine spezielle angepasste Verarbeitung einbinden möchten, verwenden Sie anstelle des direkten Aufrufs von `requestPushPermission()`, wie in der Standard-[Web-Push-Integration]({{site.baseurl}}/developer_guide/platform_integration_guides/web/push_notifications/integration/#step-2-browser-registration) beschrieben, unsere [getriggerten In-App-Nachrichten]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages/?tab=web).
+Alternativ können Sie, wenn Sie eine spezielle angepasste Verarbeitung einbinden möchten, anstatt `requestPushPermission()` direkt aufzurufen, wie in der standardmäßigen [Web-Push-Integration]({{site.baseurl}}/developer_guide/platform_integration_guides/web/push_notifications/integration#step-2-browser-registration) beschrieben, unsere [getriggerten In-App-Nachrichten]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages/?tab=web) verwenden.
 
 {% alert tip %}
-Dies kann ohne SDK-Anpassung mit unserem neuen [No Code Push Primer]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages/) geschehen.
+Dies kann ohne SDK-Anpassung mit unserem neuen [Push-Primer ohne Code]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages) umgesetzt werden.
 {% endalert %}
 
-## Einrichtung von Soft-Push-Aufforderungen {#setting-up-soft-push-prompts}
+## Sanfte Push-Aufforderungen einrichten {#setting-up-soft-push-prompts}
 
 {% multi_lang_include archive/web-v4-rename.md %}
 
-### 1. Schritt: Push-Primer-Kampagne erstellen {#step-1-create-a-push-primer-campaign}
+### Schritt 1: Eine Push-Primer-Campaign erstellen {#step-1-create-a-push-primer-campaign}
 
-Zunächst müssen Sie im Braze-Dashboard eine „Prime for Push“-In-App-Messaging-Kampagne erstellen:
+Zunächst müssen Sie eine In-App-Messaging-Campaign „Prime for Push“ im Braze-Dashboard erstellen:
 
-1. Erstellen Sie eine **modale** In-App-Nachricht mit dem gewünschten Text und Design.
-2. Legen Sie anschließend das Verhalten beim Klick auf **Nachricht schließen** fest. Dieses Verhalten wird zu einem späteren Zeitpunkt angepasst.
-3. Fügen Sie der Nachricht ein Schlüssel-Wert-Paar hinzu, wobei der Schlüssel `msg-id` und der Wert `push-primer` lautet.
-4. Weisen Sie der Nachricht eine angepasste Event-triggernde Aktion zu (z. B. „prime-for-push“). Bei Bedarf können Sie das angepasste Event manuell über das Dashboard erstellen.
+1. Erstellen Sie eine **modale** In-App-Nachricht mit dem gewünschten Text und Styling.
+2. Setzen Sie dann das Klickverhalten auf **Nachricht schließen**. Dieses Verhalten wird später angepasst.
+3. Fügen Sie der Nachricht ein Schlüssel-Wert-Paar hinzu, wobei der Schlüssel `msg-id` und der Wert `push-primer` ist.
+4. Weisen Sie der Nachricht eine angepasste Event-Trigger-Aktion zu (z. B. „prime-for-push“). Sie können das angepasste Event bei Bedarf manuell über das Dashboard erstellen.
 
-### 2. Schritt: Aufrufe entfernen {#step-2-remove-calls}
+### Schritt 2: Aufrufe entfernen {#step-2-remove-calls}
 
-Suchen Sie in Ihrer Braze-SDK-Integration nach Aufrufen von `automaticallyShowInAppMessages()` und entfernen Sie diese aus Ihrem Lade-Snippet.
+Suchen und entfernen Sie in Ihrer Braze-SDK-Integration alle Aufrufe von `automaticallyShowInAppMessages()` aus Ihrem Lade-Snippet.
 
-### 3. Schritt: Integration aktualisieren {#step-3-update-integration}
+### Schritt 3: Integration aktualisieren {#step-3-update-integration}
 
-Ersetzen Sie abschließend den entfernten Aufruf durch das folgende Snippet. Rufen Sie `subscribeToInAppMessage()` auf, bevor Sie `openSession()` aufrufen. Dadurch wird sichergestellt, dass Ihr In-App-Nachrichten-Listener rechtzeitig registriert wird, um die Push-Primer-Nachricht zu empfangen.
+Ersetzen Sie abschließend den entfernten Aufruf durch das folgende Snippet. Rufen Sie `subscribeToInAppMessage()` auf, bevor Sie `openSession()` aufrufen. So wird sichergestellt, dass Ihr In-App-Nachrichten-Listener rechtzeitig registriert ist, um die Push-Primer-Nachricht zu empfangen.
 
 ```javascript
 import * as braze from "@braze/web-sdk";
@@ -77,4 +77,4 @@ braze.subscribeToInAppMessage(function(inAppMessage) {
 });
 ```
 
-Wenn Sie den Nutzer:innen die Soft-Push-Aufforderung anzeigen möchten, rufen Sie `braze.logCustomEvent` auf – mit dem Event-Namen, der diese In-App-Nachricht triggert.
+Wenn Sie die sanfte Push-Aufforderung anzeigen möchten, rufen Sie `braze.logCustomEvent` auf – mit dem Event-Namen, der diese In-App-Nachricht triggert.

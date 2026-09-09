@@ -16,7 +16,7 @@ Wenn Sie die Integration von Braze und Outgrow für interaktive Inhalte nutzen, 
 - **Verbesserte Personalisierung**: Erfassen Sie Daten aus Outgrow-Quizzes, Umfragen und Rechnern, die angepassten Attributen in Braze zugeordnet werden können. Diese Daten ermöglichen eine präzise Segmentierung und personalisierte Campaigns.
 - **Echtzeit-Datensynchronisierung**: Empfangen Sie Outgrow-Daten in Braze in Realtime, sodass Sie sofort auf Nutzer:innen-Insights reagieren können. Dies ermöglicht zeitnahe Nachfassaktionen oder personalisierte Nachrichten, die auf den letzten Interaktionen der Nutzer:innen basieren.
 - **Optimierte Datenverwaltung**: Automatisieren Sie den Datentransfer zwischen Outgrow und Braze. So vermeiden Sie manuelle Datenexporte und -importe, reduzieren Datenabweichungen und sparen Zeit.
-- **Verbesserte Nutzererfahrung**: Nutzen Sie Insights der Nutzer:innen, um relevantere Erlebnisse zu schaffen, die zu höherer Zufriedenheit, Bindung und Lifetime-Value führen.
+- **Verbesserte Nutzererfahrung**: Nutzen Sie Insights der Nutzer:innen, um relevantere Erlebnisse zu schaffen, die zu höherer Zufriedenheit, Bindung und LTV führen.
 - **Flexibles Targeting und Segmentierung**: Verfeinern Sie die Segmentierung in Braze mithilfe von Outgrow-Daten, um Nutzer:innen auf der Grundlage bestimmter Interaktionen (z. B. Quiz-Ergebnisse oder Antworten auf Umfragen) anzusprechen und Campaigns zu erstellen, die bei Ihren Nutzer:innen auf Resonanz stoßen.
 
 ## Voraussetzungen {#prerequisites}
@@ -66,7 +66,7 @@ In Outgrow können Sie Antworten aus interaktiven Inhalten (wie Quiz-Ergebnisse,
 Nachdem Sie die Integration konfiguriert haben, führen Sie einen Test durch, um zu überprüfen, ob die Daten ordnungsgemäß von Outgrow zu Braze übertragen werden.
 
 1. Veröffentlichen Sie ein Outgrow-Erlebnis (z. B. ein Quiz oder einen Rechner) und schließen Sie es als Testnutzer:in ab.
-2. Gehen Sie in Ihrem Braze-Konto zum Abschnitt **User Profile** und prüfen Sie, ob die Attribute aktualisiert wurden (z. B. `outgrow_quiz_score` oder `outgrow_custom_segment`).
+2. Gehen Sie in Ihrem Braze-Konto zum Abschnitt **Kundenprofil** und prüfen Sie, ob die Attribute aktualisiert wurden (z. B. `outgrow_quiz_score` oder `outgrow_custom_segment`).
 3. Überprüfen Sie, ob die Daten unter den entsprechenden angepassten Attributen korrekt ausgefüllt sind.
 
 ## Verwendung von Outgrow-Daten in Braze für Segmentierung und Targeting {#using-outgrow-data-in-braze-for-segmentation-and-targeting}

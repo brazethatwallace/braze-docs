@@ -15,10 +15,10 @@ channel: email
 
 | Symptôme | Aller à |
 | --- | --- |
-| Les taux d'ouverture des e-mails ont chuté soudainement | [Faibles taux d'ouverture des e-mails](#low-email-open-rates) |
-| Les liens suivis renvoient HTTP 403 | [HTTP 403 sur les liens de redirection](#http-403-on-redirect-links) |
-| Le DNS ou le CNAME pointe vers le fournisseur de services d'e-mailing au lieu du CDN | [Problèmes de registre de domaine](#domain-registry-issues) |
-| « La connexion n'est pas privée » ou les liens ne fonctionnent pas pendant la configuration | [Problèmes de CDN](#cdn-issues) |
+| Les taux d'ouverture des e-mails ont chuté soudainement | [Taux d'ouverture des e-mails faibles](#low-email-open-rates) |
+| Les liens suivis renvoient une erreur HTTP 403 | [HTTP 403 sur les liens de redirection](#http-403-on-redirect-links) |
+| Le DNS ou le CNAME pointe vers le fournisseur de services d'e-mail marketing au lieu du CDN | [Problèmes de registre de domaine](#domain-registry-issues) |
+| « La connexion n'est pas privée » ou les liens échouent lors de la configuration | [Problèmes de CDN](#cdn-issues) |
 | La configuration SSL est terminée mais les liens affichent toujours HTTP | [Statut d'activation SSL](#ssl-enablement-status) |
 | L'URL suivie échoue mais l'URL non suivie fonctionne | [Problèmes de suivi des clics](#click-tracking-issues) |
 | Erreurs d'activation SSL spécifiques à Amazon SES | [Amazon SES](#amazon-ses) |
@@ -26,41 +26,41 @@ channel: email
 
 ## Parcours d'investigation standard {#standard-investigation-path}
 
-1. Confirmez que votre sous-domaine de suivi des clics pointe vers votre [réseau de diffusion de contenu (CDN)]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#what-is-a-cdn-and-why-do-i-need-it), et non directement vers votre fournisseur de services d'e-mailing (SendGrid, SparkPost ou Amazon SES). Demandez à votre équipe informatique ou web de vérifier que les paramètres de votre domaine correspondent à votre configuration Braze. Pour les exigences Braze, consultez [Obtenir un certificat SSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate).
-2. Confirmez que votre certificat SSL est actif pour le domaine de suivi. Demandez à votre équipe informatique ou web de confirmer que le certificat est à jour et couvre votre sous-domaine de suivi des clics. Pour les étapes de configuration et les guides spécifiques au CDN, consultez [Obtenir un certificat SSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate) et [Ressources supplémentaires]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#additional-resources).
+1. Confirmez que votre sous-domaine de suivi des clics pointe vers votre [réseau de diffusion de contenu (CDN)]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#what-is-a-cdn-and-why-do-i-need-it), et non directement vers votre fournisseur de services d'e-mail marketing (SendGrid, SparkPost ou Amazon SES). Demandez à votre équipe informatique ou web de vérifier que les paramètres de votre domaine correspondent à votre configuration Braze. Pour les exigences Braze, consultez [Obtenir un certificat SSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate).
+2. Confirmez que votre certificat SSL est actif pour le domaine de suivi. Demandez à votre équipe informatique ou web de confirmer que le certificat est à jour et couvre votre sous-domaine de suivi des clics. Pour les étapes de configuration et les guides spécifiques aux CDN, consultez [Obtenir un certificat SSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate) et [Ressources supplémentaires]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#additional-resources).
 3. Envoyez un e-mail de test à l'aide du [modèle de résolution des problèmes de suivi des clics](#click-tracking-issues). Comparez les URL suivies et non suivies.
 4. Si les liens suivis échouent avec une erreur 403, vérifiez les règles du CDN et du WAF (agents utilisateurs, chaînes de requête, schémas de redirection).
 5. Si la configuration est terminée mais que les liens restent en HTTP, contactez votre gestionnaire du succès des clients Braze pour confirmer que Braze a activé le SSL.
-6. En cas de problèmes persistants, coordonnez-vous avec votre CDN ou votre équipe informatique et contactez l'[Assistance Braze]({{site.baseurl}}/braze_support) en fournissant les codes d'erreur et tout détail provenant de votre CDN ou de votre fournisseur de domaine.
+6. Pour les problèmes persistants, coordonnez-vous avec votre CDN ou votre équipe informatique et contactez l'[Assistance Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) en fournissant les codes d'erreur et tout détail provenant de votre CDN ou fournisseur de domaine.
 
 ## Concepts clés {#key-concepts}
 
 - **Domaine de suivi des clics (CTD) :** Le sous-domaine personnalisé que Braze utilise pour encapsuler les liens à des fins de suivi des clics (par exemple, `clicks.mail.yourbrand.com`).
-- **URL suivie :** Encapsule le lien HTTPS d'origine dans votre domaine de suivi. Lorsqu'un utilisateur clique dessus, le domaine de suivi résout la requête et redirige vers la destination finale. Un CDN vous permet de suivre les URL sécurisées (HTTPS). Sans CDN, les utilisateurs peuvent rencontrer une erreur de confidentialité « la connexion n'est pas sécurisée ».
+- **URL suivie :** Encapsule le lien HTTPS d'origine dans votre domaine de suivi. Lorsqu'un utilisateur clique dessus, le domaine de suivi résout la requête et redirige vers la destination finale. Un CDN vous permet de suivre les URL sécurisées (HTTPS). Sans celui-ci, les utilisateurs peuvent rencontrer une erreur de confidentialité « la connexion n'est pas sécurisée ».
 - **URL non suivie :** Conserve l'URL d'origine intacte, en contournant le CDN pour servir d'environnement de contrôle.
-- **Routage Phase 1 et Phase 2 :** La Phase 1 fait pointer le CNAME de votre domaine de suivi des clics directement vers votre fournisseur de services d'e-mailing (ESP) pour la vérification HTTP initiale. La Phase 2 fait pointer le CNAME vers votre CDN ou pare-feu d'application web (WAF), qui termine le SSL et transmet les requêtes par proxy à l'ESP avec les en-têtes requis. Pour les destinations CNAME spécifiques à chaque ESP, consultez [Routage ESP Phase 1 et Phase 2](#esp-phase-1-and-phase-2-routing).
+- **Routage Phase 1 et Phase 2 :** La Phase 1 pointe le CNAME de votre domaine de suivi des clics directement vers votre fournisseur de services d'e-mail marketing (fournisseur de services d'e-mailing) pour la vérification HTTP initiale. La Phase 2 pointe le CNAME vers votre CDN ou pare-feu d'application web (WAF), qui termine le SSL et transmet les requêtes par proxy à l'fournisseur de services d'e-mailing avec les en-têtes requis. Pour les destinations CNAME spécifiques à chaque fournisseur de services d'e-mailing, consultez [Routage Phase 1 et Phase 2 de l'fournisseur de services d'e-mailing](#esp-phase-1-and-phase-2-routing).
 
 ## Domaines de suivi des clics et phases DNS {#click-tracking-domains-and-dns-phases}
 
 Le suivi des clics SSL nécessite une configuration DNS en deux phases, car Braze ne provisionne ni ne renouvelle les certificats de sécurité externes en votre nom.
 
-1. **Phase 1 (configuration initiale) :** Le CNAME de votre domaine de suivi des clics pointe directement vers l'endpoint de votre fournisseur de services d'e-mailing pour la vérification HTTP non chiffrée.
-2. **Phase 2 (déploiement SSL) :** Vous mettez à jour le CNAME pour qu'il pointe vers votre CDN ou votre WAF edge, qui détient votre certificat SSL personnalisé et transmet les requêtes au fournisseur de services d'e-mailing avec les en-têtes requis. Le fournisseur de services d'e-mailing enregistre le clic et redirige le destinataire vers la destination finale.
+1. **Phase 1 (configuration initiale) :** Le CNAME de votre domaine de suivi des clics pointe directement vers l'endpoint de votre fournisseur de services d'e-mail marketing pour la vérification HTTP non chiffrée.
+2. **Phase 2 (déploiement SSL) :** Vous mettez à jour le CNAME pour qu'il pointe vers votre CDN ou votre WAF edge, qui détient votre certificat SSL personnalisé et transmet les requêtes au fournisseur de services d'e-mail marketing avec les en-têtes requis. Le fournisseur de services d'e-mail marketing enregistre le clic et redirige le destinataire vers la destination finale.
 
 {% alert important %}
-Braze n'active le suivi des clics SSL qu'une fois la vérification de la Phase 1 terminée. Si le SSL est activé mais que votre DNS pointe toujours vers le fournisseur de services d'e-mailing (Phase 1), les destinataires peuvent voir des [erreurs de non-concordance de nom SSL](#ssl-name-mismatch-errors).
+Braze n'active le suivi des clics SSL qu'une fois la vérification de la Phase 1 terminée. Si le SSL est activé mais que votre DNS pointe toujours vers le fournisseur de services d'e-mail marketing (Phase 1), les destinataires peuvent voir des [erreurs de non-concordance de nom SSL](#ssl-name-mismatch-errors).
 {% endalert %}
 
-## Routage ESP Phase 1 et Phase 2 {#esp-phase-1-and-phase-2-routing}
+## Routage fournisseur de services d'e-mailing Phase 1 et Phase 2 {#esp-phase-1-and-phase-2-routing}
 
-Lors de la résolution des problèmes d'erreurs de suivi des liens, vérifiez si votre enregistrement DNS pointe vers le réseau ESP non chiffré (Phase 1) ou vers votre CDN (Phase 2).
+Lors de la résolution des problèmes d'erreurs de suivi des liens, vérifiez si votre enregistrement DNS pointe vers le réseau fournisseur de services d'e-mailing non chiffré (Phase 1) ou vers votre CDN (Phase 2).
 
-| ESP | Destination CNAME Phase 1 (directe vers l'ESP) | Destination CNAME Phase 2 | Configuration CDN requise |
+| fournisseur de services d'e-mailing | Destination CNAME Phase 1 (directe vers l'fournisseur de services d'e-mailing) | Destination CNAME Phase 2 | Configuration CDN requise |
 | --- | --- | --- | --- |
 | Amazon SES | `r.us-east-1.awstrack.me` (US)<br>`r.eu-central-1.awstrack.me` (EU) | Votre endpoint CDN (par exemple, `d123.cloudfront.net`, `ssl.fastly.net` ou Cloudflare) | Activez l'en-tête `X-Forwarded-Host` avec le nom de domaine de suivi des clics |
 | SendGrid | `sendgrid.net` | Votre endpoint CDN | Transférez les en-têtes `Host` d'origine (ou les identifiants de suivi personnalisés) vers l'origine sans supprimer les paramètres |
 | SparkPost | `spgo.io` | Votre endpoint CDN | Activez `X-Forwarded-Host` et transférez l'en-tête `User-Agent` d'origine intact |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Routage ESP Phase 1 et Phase 2" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Routage fournisseur de services d'e-mailing Phase 1 et Phase 2" }
 
 Pour les étapes de configuration du CDN et la documentation des partenaires, consultez [SSL chez Braze]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl).
 
@@ -68,9 +68,9 @@ Pour les étapes de configuration du CDN et la documentation des partenaires, co
 
 Une non-concordance de nom SSL est un échec d'authentification d'identité lors de la négociation TLS. Elle se produit lorsqu'un navigateur établit une connexion chiffrée mais que le domaine dans la barre d'adresse ne correspond à aucune entrée dans les champs Nom commun (CN) ou Noms alternatifs du sujet (SAN) du certificat.
 
-### Le DNS pointe toujours vers le fournisseur de services d'e-mailing (Phase 1) {#dns-still-points-to-the-esp-phase-1}
+### Le DNS pointe toujours vers le fournisseur de services d'e-mail marketing (Phase 1) {#dns-still-points-to-the-esp-phase-1}
 
-Si vous demandez à Braze d'activer le suivi des clics SSL mais que vous laissez votre CNAME DNS pointer directement vers le fournisseur de services d'e-mailing (par exemple, `sendgrid.net` de SendGrid), le navigateur du destinataire ouvre votre domaine de suivi des clics et atteint l'infrastructure du fournisseur. Le fournisseur n'a aucune trace de votre certificat personnalisé et sert son propre certificat de secours (par exemple, `*.sendgrid.net`). La non-concordance de nom fait échouer la connexion et renvoie un avertissement de connexion privée.
+Si vous demandez à Braze d'activer le suivi des clics SSL mais que vous laissez votre CNAME DNS pointer directement vers le fournisseur de services d'e-mail marketing (par exemple, `sendgrid.net` de SendGrid), le navigateur du destinataire ouvre votre domaine de suivi des clics et atteint l'infrastructure du fournisseur. Le fournisseur n'a aucune trace de votre certificat personnalisé et sert son propre certificat de secours (par exemple, `*.sendgrid.net`). La non-concordance de nom fait échouer la connexion et renvoie un avertissement de connexion privée.
 
 ### Le certificat ne couvre pas le sous-domaine de suivi (Phase 2) {#certificate-does-not-cover-the-tracking-subdomain-phase-2}
 
@@ -90,7 +90,7 @@ Dans la section `ANSWER SECTION`, examinez vers où le CNAME résout :
 
 | Résultat | Signification | Étape suivante |
 | --- | --- | --- |
-| Résout vers un endpoint ESP (`sendgrid.net`, `spgo.io` ou `awstrack.me`) | Le DNS est encore en Phase 1 | Mettez à jour votre registre de domaine pour acheminer le trafic via votre CDN. Consultez [Routage ESP Phase 1 et Phase 2](#esp-phase-1-and-phase-2-routing). |
+| Résout vers un endpoint fournisseur de services d'e-mailing (`sendgrid.net`, `spgo.io` ou `awstrack.me`) | Le DNS est encore en Phase 1 | Mettez à jour votre registre de domaine pour acheminer le trafic via votre CDN. Consultez [Routage fournisseur de services d'e-mailing Phase 1 et Phase 2](#esp-phase-1-and-phase-2-routing). |
 | Résout vers un endpoint de distribution CDN | Le routage DNS Phase 2 est correct | Passez à l'étape 2 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Résultats de la recherche CNAME" }
 
@@ -124,13 +124,13 @@ Si vous constatez soudainement de faibles taux d'ouverture des e-mails, vérifie
 
 Si les liens de redirection suivis renvoient `403 Forbidden`, l'échec se produit souvent au niveau de votre réseau de diffusion de contenu (CDN) ou de votre pare-feu d'application web (WAF) — par exemple, des règles sur AWS WAF ou Amazon CloudFront qui bloquent certains agents utilisateurs, chaînes de requête ou schémas de redirection. Examinez les journaux et les indicateurs des requêtes bloquées avec votre fournisseur de CDN ou de cloud. Pour AWS, consultez [Résolution des problèmes avec CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/troubleshooting.html).
 
-Pour déterminer si le problème est spécifique au suivi des clics, désactivez le suivi des clics pour un lien de test (voir [Désactiver le suivi des clics lien par lien]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#turning-off-click-tracking-on-a-link-to-link-basis)). Si l'URL de destination se charge lorsque le suivi des clics est désactivé mais renvoie `403` lorsqu'il est activé, concentrez-vous sur la configuration de votre domaine de suivi des clics, de votre CDN et de votre WAF. Si votre CNAME pointe toujours vers le fournisseur de services d'e-mailing alors que le SSL est activé, vous pouvez rencontrer une [erreur de non-concordance de nom SSL](#ssl-name-mismatch-errors) à la place — commencez par le [flux de triage](#triage-workflow).
+Pour déterminer si le problème est spécifique au suivi des clics, désactivez le suivi des clics pour un lien de test (voir [Désactiver le suivi des clics lien par lien]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#turning-off-click-tracking-on-a-link-to-link-basis)). Si l'URL de destination se charge lorsque le suivi des clics est désactivé mais renvoie `403` lorsqu'il est activé, concentrez-vous sur la configuration de votre domaine de suivi des clics, de votre CDN et de votre WAF. Si votre CNAME pointe toujours vers le fournisseur de services d'e-mail marketing alors que le SSL est activé, vous pouvez rencontrer une [erreur de non-concordance de nom SSL](#ssl-name-mismatch-errors) à la place — commencez par le [flux de triage](#triage-workflow).
 
 ## Problèmes de registre de domaine {#domain-registry-issues}
 
-**Symptôme :** Le DNS ou le CNAME de votre sous-domaine de suivi pointe vers votre fournisseur de services d'e-mailing au lieu de votre CDN.
+**Symptôme :** Le DNS ou le CNAME de votre sous-domaine de suivi pointe vers votre fournisseur de services d'e-mail marketing au lieu de votre CDN.
 
-Exécutez une commande dig pour confirmer que le suivi des liens pointe vers le CDN. Dans votre terminal, exécutez `dig CNAME link_tracking_subdomain`. Sous `ANSWER SECTION`, la réponse indique vers où pointe votre CNAME. S'il pointe vers le fournisseur de services d'e-mailing (SendGrid, SparkPost ou Amazon SES) et non vers votre CDN, reconfigurez votre registre de domaine pour pointer vers votre CDN.
+Exécutez une commande dig pour confirmer que le suivi des liens pointe vers le CDN. Dans votre terminal, exécutez `dig CNAME link_tracking_subdomain`. Sous `ANSWER SECTION`, la réponse indique vers où pointe votre CNAME. S'il pointe vers le fournisseur de services d'e-mail marketing (SendGrid, SparkPost ou Amazon SES) et non vers votre CDN, reconfigurez votre registre de domaine pour pointer vers votre CDN.
 
 ## Problèmes de CDN {#cdn-issues}
 
@@ -138,7 +138,7 @@ Exécutez une commande dig pour confirmer que le suivi des liens pointe vers le 
 
 Si les liens d'e-mails en production cessent de fonctionner pendant la configuration, vous avez probablement dirigé le DNS vers votre CDN avant que la configuration ne soit correctement effectuée. Cela peut se manifester par une erreur de « mauvais lien ». Contactez votre fournisseur de CDN et consultez sa documentation pour résoudre le problème de configuration.
 
-Si vous voyez un message d'erreur indiquant que votre connexion n'est pas privée, cela peut indiquer que votre SSL ou votre CDN n'est pas correctement configuré. Exécutez une commande `dig` dans votre terminal (par exemple, `dig CNAME your_link_tracking_subdomain`). Dans la section `ANSWER SECTION`, si le résultat pointe vers votre fournisseur de services d'e-mailing au lieu de votre CDN, le problème est une mauvaise configuration. Pour que le suivi des clics SSL de Braze fonctionne, le CNAME doit pointer vers votre CDN. Coordonnez-vous avec l'équipe qui gère votre configuration SSL et CDN pour obtenir de l'aide.
+Si vous voyez un message d'erreur indiquant que votre connexion n'est pas privée, cela peut indiquer que votre SSL ou votre CDN n'est pas correctement configuré. Exécutez une commande `dig` dans votre terminal (par exemple, `dig CNAME your_link_tracking_subdomain`). Dans la section `ANSWER SECTION`, si le résultat pointe vers votre fournisseur de services d'e-mail marketing au lieu de votre CDN, le problème est une mauvaise configuration. Pour que le suivi des clics SSL de Braze fonctionne, le CNAME doit pointer vers votre CDN. Coordonnez-vous avec l'équipe qui gère votre configuration SSL et CDN pour obtenir de l'aide.
 
 ## Statut d'activation SSL {#ssl-enablement-status}
 
@@ -148,10 +148,10 @@ Si vous avez terminé la configuration SSL et que les liens apparaissent toujour
 
 ### Amazon SES {#amazon-ses}
 
-Si vous utilisez Amazon SES comme fournisseur de services d'e-mailing, les problèmes de configuration suivants peuvent empêcher Braze d'activer le SSL ou provoquer des erreurs pendant la configuration :
+Si vous utilisez Amazon SES comme fournisseur de services d'e-mail marketing, les problèmes de configuration suivants peuvent empêcher Braze d'activer le SSL ou provoquer des erreurs pendant la configuration :
 
 - **Incompatibilité de région :** Vérifiez que l'origine de votre CDN pointe vers le domaine de suivi AWS correspondant à votre cluster Braze. Les clusters US utilisent `r.us-east-1.awstrack.me`. Les clusters EU utilisent `r.eu-central-1.awstrack.me`. L'utilisation de la mauvaise région peut bloquer l'activation du SSL.
-- **En-tête host :** Amazon SES exige que votre CDN transmette le bon en-tête host. Activez l'en-tête `X-Forwarded-Host` sur votre domaine de suivi des clics. Pour les exigences de routage Phase 1 et Phase 2, consultez la section [Routage ESP Phase 1 et Phase 2](#esp-phase-1-and-phase-2-routing).
+- **En-tête host :** Amazon SES exige que votre CDN transmette le bon en-tête host. Activez l'en-tête `X-Forwarded-Host` sur votre domaine de suivi des clics. Pour les exigences de routage Phase 1 et Phase 2, consultez la section [Routage fournisseur de services d'e-mailing Phase 1 et Phase 2](#esp-phase-1-and-phase-2-routing).
 - **Configuration du proxy :** Une configuration de proxy ou de CDN qui remplace ou entre en conflit avec l'en-tête host peut entraîner l'échec de l'activation du SSL. Vérifiez les paramètres du proxy avec votre fournisseur de CDN pour confirmer qu'ils n'interfèrent pas avec la transmission de l'en-tête host.
 - **Enregistrement alias Route 53 :** Si vous utilisez Route 53 pour gérer le DNS de votre domaine, créez un [enregistrement alias dans Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-creating.html) qui pointe vers votre distribution CDN (par exemple, `d111111abcdef8.cloudfront.net`). L'utilisation d'un CNAME standard au lieu d'un enregistrement alias peut renvoyer des erreurs HTTP 400.
 - **Transmission d'en-têtes désactivée :** Si l'activation du SSL échoue toujours après avoir configuré `X-Forwarded-Host`, essayez de désactiver la transmission d'en-têtes sur votre CDN ou votre proxy. Certaines configurations résolvent le problème lorsque la transmission est entièrement désactivée. Travaillez avec votre équipe informatique ou votre fournisseur de CDN pour tester cette configuration.
@@ -164,7 +164,7 @@ Les problèmes courants de redirection résultent généralement d'une mauvaise 
 
 ### Exigences de formatage des liens HTML {#html-link-formatting-requirements}
 
-Pour que le suivi des clics fonctionne, votre fournisseur de services d'e-mailing (SendGrid, SparkPost ou Amazon SES) doit trouver et remplacer les liens dans votre HTML. Quel que soit le fournisseur, les liens doivent respecter ces exigences de formatage :
+Pour que le suivi des clics fonctionne, votre fournisseur de services d'e-mail marketing (SendGrid, SparkPost ou Amazon SES) doit trouver et remplacer les liens dans votre HTML. Quel que soit le fournisseur, les liens doivent respecter ces exigences de formatage :
 
 - Les liens doivent se trouver dans une balise HTML `<a>` avec un attribut `href`.
 - L'URL doit commencer par `http://` ou `https://`.
@@ -406,15 +406,15 @@ Après avoir complété le [parcours de triage](#triage-workflow), utilisez le m
 3. Envoyez-vous un e-mail de test et sélectionnez les deux boutons.
 4. Vérifiez que le comportement attendu et les critères de réussite correspondent à ce qui est décrit dans le modèle.
 
-Si votre URL non suivie fonctionne mais que votre URL suivie échoue, il se peut qu'il y ait un problème de configuration. Consultez la documentation de votre fournisseur de services d'e-mailing et de votre CDN. Pour connaître les exigences détaillées en matière de provisionnement de certificats, consultez [SSL chez Braze]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl).
+Si votre URL non suivie fonctionne mais que votre URL suivie échoue, il se peut qu'il y ait un problème de configuration. Consultez la documentation de votre fournisseur de services d'e-mail marketing et de votre CDN. Pour connaître les exigences détaillées en matière de provisionnement de certificats, consultez [SSL chez Braze]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl).
 
 Utilisez le tableau suivant pour diagnostiquer les erreurs courantes lors du test du suivi des clics.
 
 | Code d'erreur | Résolution des problèmes |
 | --- | --- |
 | `"Your connection is not private" (NET::ERR_CERT_COMMON_NAME_INVALID)` | Complétez le [parcours de triage](#triage-workflow) et consultez [Erreurs de non-concordance de nom SSL](#ssl-name-mismatch-errors). Vérifiez que votre domaine de suivi des clics figure dans le Common Name ou les Subject Alternative Names du certificat. |
-| `"This site can't be reached" (DNS_PROBE_FINISHED_NXDOMAIN)` | Vérifiez vos paramètres DNS. Assurez-vous que votre sous-domaine de suivi est configuré conformément aux recommandations de votre CDN et de votre fournisseur de services d'e-mailing. |
+| `"This site can't be reached" (DNS_PROBE_FINISHED_NXDOMAIN)` | Vérifiez vos paramètres DNS. Assurez-vous que votre sous-domaine de suivi est configuré conformément aux recommandations de votre CDN et de votre fournisseur de services d'e-mail marketing. |
 | `525 / 526 SSL Error` | Vérifiez que le paramètre SSL de votre CDN (comme Cloudflare) correspond aux capacités de votre origine. |
-| `404 Not Found` | Vérifiez que votre CDN est configuré pour transmettre l'intégralité du chemin de l'URL au fournisseur de services d'e-mailing, plutôt que de pointer vers un répertoire racine vide. |
-| `400 Bad Request: Request Header or Cookie Too Large` | Cette erreur se produit généralement lorsque le domaine de suivi des clics hérite d'un trop grand nombre de cookies volumineux provenant du domaine de votre site web. Braze ne définit ni ne bloque aucun cookie sur le domaine de suivi. Configurez votre CDN pour ne pas envoyer ces cookies au fournisseur de services d'e-mailing lors du reverse-proxy de la requête de suivi des clics. Vous devrez peut-être également augmenter le paramètre `large_client_header_buffers` dans votre configuration nginx (par exemple, `large_client_header_buffers 4 32k;` pour autoriser des en-têtes jusqu'à 32&nbsp;Ko). Pour plus d'informations, consultez votre fournisseur de CDN ou votre équipe d'ingénierie web. |
+| `404 Not Found` | Vérifiez que votre CDN est configuré pour transmettre l'intégralité du chemin de l'URL au fournisseur de services d'e-mail marketing, plutôt que de pointer vers un répertoire racine vide. |
+| `400 Bad Request: Request Header or Cookie Too Large` | Cette erreur se produit généralement lorsque le domaine de suivi des clics hérite d'un trop grand nombre de cookies volumineux provenant du domaine de votre site web. Braze ne définit ni ne bloque aucun cookie sur le domaine de suivi. Configurez votre CDN pour ne pas envoyer ces cookies au fournisseur de services d'e-mail marketing lors du reverse-proxy de la requête de suivi des clics. Vous devrez peut-être également augmenter le paramètre `large_client_header_buffers` dans votre configuration nginx (par exemple, `large_client_header_buffers 4 32k;` pour autoriser des en-têtes jusqu'à 32&nbsp;Ko). Pour plus d'informations, consultez votre fournisseur de CDN ou votre équipe d'ingénierie web. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Codes d'erreur et résolution des problèmes" }

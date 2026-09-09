@@ -145,7 +145,7 @@ implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1"
 implementation 'androidx.core:core:1.6.0'
 ```
 
-También puedes establecer estas dependencias utilizando el [External Dependency Manager](https://github.com/googlesamples/unity-jar-resolver).
+También puedes establecer estas dependencias utilizando el [External Dependency Administrador](https://github.com/googlesamples/unity-jar-resolver).
 
 #### Paso 3.4: Automatiza la integración de Unity en Android {#step-34-automate-the-unity-android-integration}
 

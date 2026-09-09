@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Nift
 
-> [Nift](https://gonift.com/) hilft Unternehmen, Kund:innen zu gewinnen, zu binden und zu halten. Die zweiseitige Plattform hilft Partnern, sich bei ihren Kund:innen mit Nift-Geschenkkarten zu bedanken. Sich bei Kund:innen zu bedanken steigert den Lifetime-Value und generiert zusätzlichen Umsatz.
+> [Nift](https://gonift.com/) hilft Unternehmen, Kund:innen zu gewinnen, zu binden und zu halten. Die zweiseitige Plattform hilft Partnern, sich bei ihren Kund:innen mit Nift-Geschenkkarten zu bedanken. Sich bei Kund:innen zu bedanken steigert den LTV und generiert zusätzlichen Umsatz.
 
 _Diese Integration wird von Nift gepflegt._
 

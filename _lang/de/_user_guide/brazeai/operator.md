@@ -21,7 +21,7 @@ description: "Erfahren Sie, wie Sie auf BrazeAI Operator<sup>TM</sup> zugreifen 
 ![Das Operator-Chat-Panel.]({% image_buster /assets/img/operator/operator_chat_panel.png %})
 
 {% alert tip %}
-Maximieren Sie das Panel für einfacheres Lesen oder minimieren Sie es, um Operator während der Arbeit verfügbar zu halten.
+Maximieren Sie das Panel für leichteres Lesen, oder minimieren Sie es, um Operator während der Arbeit verfügbar zu halten.
 {% endalert %}
 
 ## Operator verwenden {#use-operator}
@@ -31,65 +31,71 @@ Beschreiben Sie in natürlicher Sprache, was Sie erreichen möchten. Klare und s
 - **Eine Frage stellen:** Warum wird mein Liquid nicht gerendert?
 - **Etwas erstellen:** Erstelle ein Segment von Nutzer:innen, die in den letzten 7 Tagen ihren Warenkorb abgebrochen haben.
 
-Operator kann Schritt-für-Schritt-Anleitungen, Links zur Braze-Dokumentation, Erklärungen in einfacher Sprache sowie Entwürfe von Campaigns, Canvases, Segmenten und Inhalten bereitstellen, die Sie überprüfen und direkt in Ihre Arbeit einfügen können. Wie Operator Änderungen vorschlägt und anwendet, erfahren Sie unter [Mit Operator Aktionen ausführen](#take-action-with-operator).
+Operator kann Schritt-für-Schritt-Anleitungen, Links zur Braze-Dokumentation, verständliche Erklärungen sowie Entwürfe von Campaigns, Canvases, Segmenten und Inhalten liefern, die Sie überprüfen und direkt in Ihre Arbeit einfügen können. Informationen dazu, wie Operator Änderungen vorschlägt und anwendet, finden Sie unter [Mit Operator Aktionen ausführen](#take-action-with-operator).
 
-Operator verwendet [GPT-5.6 Terra](https://developers.openai.com/api/docs/models/gpt-5.6-terra), das für komplexe, mehrstufige Aufgaben geeignet ist. Den vollständigen Umfang dessen, was Operator Ihnen beim Erstellen helfen kann, finden Sie unter [Was Sie mit Operator tun können]({{site.baseurl}}/user_guide/brazeai/operator/capabilities). Fertige Beispiele finden Sie in der [Prompt-Bibliothek]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library).
+Operator verwendet [GPT-5.6 Terra](https://developers.openai.com/api/docs/models/gpt-5.6-terra), das für komplexe, mehrstufige Aufgaben geeignet ist. Den vollständigen Überblick darüber, was Operator Ihnen beim Erstellen helfen kann, finden Sie unter [Was Sie mit Operator tun können]({{site.baseurl}}/user_guide/brazeai/operator/capabilities). Gebrauchsfertige Beispiele finden Sie in der [Prompt-Bibliothek]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library).
 
 Sehen Sie sich dieses Video an, um ein Beispiel dafür zu sehen, was Operator leisten kann.
 
 {% multi_lang_include video.html id="lnv9t8hn11" source="wistia" %}
 
-## Best Practices {#best-practices}
+## Bewährte Praktiken {#best-practices}
 
-Behandeln Sie Operator wie ein Gespräch, nicht wie eine Suchmaschine. Kurze, natürliche Prompts funktionieren am besten.
+Behandeln Sie den Operator wie eine Konversation, nicht wie eine Suchmaschine. Kurze, natürliche Prompts funktionieren am besten.
 
-- **Seien Sie konkret:** Statt „Erzähl mir etwas über Canvas“ versuchen Sie „Wie verwende ich Aktionspfade in Canvas?“.
-- **Stellen Sie Folgefragen:** Wenn die erste Antwort nicht Ihrem Bedarf entspricht, fragen Sie nach Klarstellung oder zusätzlichen Details. Operator merkt sich frühere Nachrichten im Gespräch, bis Sie Ihren Chatverlauf löschen.
-- **Nutzen Sie den seitenabhängigen Kontext:** Operator versteht, wo Sie sich in Braze befinden. Öffnen Sie Operator, während Sie die relevante Seite betrachten, um die genauesten Ergebnisse zu erhalten.
+- **Seien Sie spezifisch:** Statt „Erzähl mir etwas über Canvas“ versuchen Sie „Wie verwende ich Aktionspfade in Canvas?“.
+- **Stellen Sie Folgefragen:** Wenn die erste Antwort Ihren Bedarf nicht abdeckt, fragen Sie nach Klarstellung oder zusätzlichen Details. Der Operator merkt sich frühere Nachrichten in der Konversation, bis Sie Ihren Chatverlauf löschen.
+- **Nutzen Sie den seitenabhängigen Kontext:** Der Operator versteht Ihren Standort in Braze. Öffnen Sie den Operator, während Sie die relevante Seite ansehen, um die genauesten Ergebnisse zu erhalten.
 
 ## Erlebnis anpassen {#customize-your-experience}
 
 ### Markenrichtlinien anwenden {#apply-brand-guidelines}
 
-Fügen Sie Markenrichtlinien als Kontext zu Operator-Anfragen hinzu, damit die Antworten zur Stimme, zum Ton und zur Persönlichkeit Ihrer Marke passen. Operator verwendet die in Ihrem Workspace konfigurierten Markenrichtlinien, was dazu beiträgt, konsistentes Messaging sicherzustellen, wenn es Texte vorschlägt oder Features erklärt.
+Fügen Sie Markenrichtlinien als Kontext hinzu, damit Operator die Stimme, den Ton und die Persönlichkeit Ihrer Marke einhalten kann, wenn es Texte vorschlägt oder Features erklärt.
 
-Um Markenrichtlinien einzurichten, gehen Sie zu **Inhalt** > **Markenrichtlinien**. Weitere Informationen finden Sie unter [Markenrichtlinien]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines).
+1. Wählen Sie <i class="fa-regular fa-plus" aria-label="Hinzufügen"></i>&nbsp;**Kontext für Operator hinzufügen** im Chat-Panel.
+2. Wählen Sie unter **Markenrichtlinien** eine oder mehrere Richtlinien aus.
+
+Operator wendet nur die von Ihnen ausgewählten Richtlinien an. Standardmäßig ist nichts ausgewählt, auch nicht der Workspace-Standard.
+
+Wenn Sie Operator über **Mit Operator generieren** oder **Mit Operator verfeinern** in der Agent Console öffnen, fügt Operator die bereits beim Agent hinterlegte Richtlinie als Kontext hinzu. Sie können Richtlinien über dasselbe Menü hinzufügen oder entfernen.
+
+Um Markenrichtlinien einzurichten, navigieren Sie zu **Content** > **Markenrichtlinien**. Weitere Informationen finden Sie unter [Markenrichtlinien]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines).
 
 ![Auswahl von Markenrichtlinien im Operator-Chat-Panel.]({% image_buster /assets/img/operator/operator_brand_guidelines.png %})
 
 ### Seitenabhängigen Kontext nutzen {#leverage-page-aware-context}
 
-Operator erkennt automatisch, wo Sie sich in Braze befinden, und passt die Antworten basierend auf diesem Kontext an. Wenn Sie beispielsweise Operator öffnen, während Sie einen Canvas erstellen, kann es relevante Schritte vorschlagen oder Hinweise zu Canvas-Features geben, ohne dass Sie erklären müssen, wo Sie sich in Ihrem Workflow befinden.
+Operator erkennt automatisch, wo Sie sich in Braze befinden, und passt die Antworten auf diesen Kontext an. Wenn Sie Operator beispielsweise beim Erstellen eines Canvas öffnen, kann es relevante Schritte vorschlagen oder Hinweise zu Canvas-Features geben, ohne dass Sie erklären müssen, wo Sie sich in Ihrem Workflow befinden.
 
-Dieses Kontextbewusstsein bedeutet, dass Sie kurze, natürliche Prompts verwenden können, um mit Operator zu interagieren, wie z. B. „Aktualisiere meine Editor-Einstellungen, damit sie meinen Markenrichtlinien entsprechen.“ Wenn Ihre Anfrage einen anderen Bereich des Dashboards erfordert, kann Operator Sie [direkt dorthin navigieren]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#navigate-the-dashboard).
+Dank dieser Kontextwahrnehmung können Sie mit kurzen, natürlichen Prompts mit Operator interagieren, z. B. „Aktualisiere meine Editor-Einstellungen, damit sie meinen Markenrichtlinien entsprechen.“ Wenn Ihre Anfrage einen anderen Bereich des Dashboards erfordert, kann Operator Sie direkt [dorthin navigieren]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#navigate-the-dashboard).
 
-
-Fertige Prompt-Ideen finden Sie in der [Prompt-Bibliothek]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library).
+Für sofort einsetzbare Prompt-Ideen besuchen Sie die [Prompt-Bibliothek]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library).
 
 ## Mit Operator-Antworten arbeiten {#work-with-operator-responses}
 
 ### Mit vorgeschlagenen Prompts starten {#get-started-with-suggested-prompts}
 
-Wenn Sie eine Konversation mit Operator öffnen, erscheinen vorgeschlagene Prompts basierend auf häufigen Aufgaben und Ihrer aktuellen Seite. Wählen Sie einen aus, um schnell loszulegen, oder geben Sie Ihre eigene Frage ein.
+Wenn Sie eine Konversation mit Operator öffnen, erscheinen vorgeschlagene Prompts basierend auf häufigen Aufgaben und Ihrer aktuellen Seite. Wählen Sie einen aus, um schnell zu starten, oder geben Sie Ihre eigene Frage ein.
 
 ### Verstehen, wie Operator denkt {#understand-how-operator-thinks}
 
-Operator zeigt seine Denkschritte in einklappbaren Abschnitten mit der Bezeichnung **Reasoned** an. Wählen Sie das Dropdown aus, um diese Abschnitte zu erweitern und zu sehen, wie Operator eine Antwort ermittelt hat. Das ist hilfreich, wenn Sie die Logik hinter einem Vorschlag nachvollziehen oder den Ansatz überprüfen möchten.
+Operator zeigt seine Denkschritte in einklappbaren Abschnitten an, die mit **Reasoned** beschriftet sind. Wählen Sie das Dropdown aus, um diese Abschnitte zu erweitern und zu sehen, wie Operator eine Antwort ermittelt hat. Das ist hilfreich, wenn Sie die Logik hinter einem Vorschlag nachvollziehen oder den Ansatz überprüfen möchten.
 
 ![Das eingeklappte „Reasoned“-Dropdown in einer Operator-Antwort.]({% image_buster /assets/img/operator/operator_reasoning_collapsed.png %}){:style="max-width:40%"}
 
 ### Mit Operator Aktionen ausführen {#take-action-with-operator}
 
-Operator kann Änderungen direkt im Braze-Dashboard vorschlagen und ausführen, z. B. Formularfelder ausfüllen, Einstellungen aktualisieren, Inhalte generieren oder Sie zu einer anderen Seite navigieren, um Ihre Anfrage abzuschließen. Jede vorgeschlagene Änderung wird als Aktionskarte angezeigt, die Sie überprüfen und genehmigen können, bevor sie wirksam wird. Weitere Informationen finden Sie unter [Aktionen überprüfen]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions).
+Operator kann Änderungen direkt im Braze-Dashboard vorschlagen und ausführen, z. B. Formularfelder ausfüllen, Einstellungen aktualisieren, Inhalte generieren oder Sie zu einer anderen Seite navigieren, um Ihre Anfrage abzuschließen. Jede vorgeschlagene Änderung wird als Aktionskarte präsentiert, die Sie überprüfen und genehmigen können, bevor sie wirksam wird. Weitere Informationen dazu finden Sie unter [Aktionen überprüfen]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions).
 
 ### Antworten in andere Tools kopieren {#copy-responses-to-other-tools}
 
-Operator-Antworten sind in Markdown formatiert. Wenn Sie eine Antwort erhalten haben, wählen Sie **Copy** in der eingeblendeten Symbolleiste, um die vollständige Antwort in Ihre Zwischenablage zu kopieren. Die meisten Tools rendern Markdown nativ oder akzeptieren es mit geringfügigen Anpassungen. Wählen Sie einen Tab für Ihr Ziel aus:
+Operator-Antworten sind in Markdown formatiert. Nachdem Sie eine Antwort erhalten haben, wählen Sie **Copy** in der erscheinenden Symbolleiste, um die vollständige Antwort in Ihre Zwischenablage zu kopieren. Die meisten Tools rendern Markdown nativ oder akzeptieren es mit geringfügigen Anpassungen. Wählen Sie einen Tab für Ihr Ziel aus:
 
 {% tabs %}
 {% tab Google Docs %}
 
-Gehen Sie zunächst zu **Tools** > **Preferences** und wählen Sie **Automatically detect Markdown**. Um Markdown einzufügen, gehen Sie dann zu **Edit** > **Paste from Markdown**. Sie können auch mit einem Rechtsklick **Paste from Markdown** auswählen.
+Gehen Sie zunächst zu **Tools** > **Preferences** und wählen Sie **Automatically detect Markdown**. Um dann Markdown einzufügen, gehen Sie zu **Edit** > **Paste from Markdown**. Sie können auch rechtsklicken und **Paste from Markdown** auswählen.
 
 {% endtab %}
 {% tab Microsoft Word und Outlook %}
@@ -109,9 +115,9 @@ Direkt einfügen. Slack rendert Fettschrift, Inline-Code, Code-Blöcke, Blockzit
 {% endtab %}
 {% tab Andere Tools %}
 
-Wenn Sie in einer Datei arbeiten oder Konvertierungstools verwenden möchten, können Sie auch:
+Wenn Sie in einer Datei arbeiten oder Konvertierungstools nutzen möchten, können Sie auch:
 
-- Einen Texteditor wie [VS Code](https://code.visualstudio.com/) öffnen und eine neue Textdatei erstellen, dann das Markdown einfügen und die Vorschau nutzen, um die Formatierung zu überprüfen, bevor Sie es konvertieren oder anderswo einfügen.
+- Einen Texteditor wie [VS Code](https://code.visualstudio.com/) öffnen und eine neue Textdatei erstellen, dann das Markdown einfügen und die Vorschau verwenden, um die Formatierung zu prüfen, bevor Sie es konvertieren oder an anderer Stelle einfügen.
 - [Pandoc](https://pandoc.org/) verwenden, um Markdown in ein Word-Dokument, HTML oder PDF zu konvertieren, wenn Sie eine vorhersagbare Struktur in Word oder Outlook benötigen, ohne aus einem Browser einzufügen.
 
 {% endtab %}
@@ -133,13 +139,21 @@ Am Ende jeder Antwort können Sie über die Daumen-hoch- oder Daumen-runter-Butt
 
 ## Datenschutz und Sicherheit {#data-privacy-and-security}
 
-BrazeAI Operator<sup>TM</sup> ist mit OpenAI integriert, das als Braze-Unterauftragsverarbeiter gemäß dem Datenverarbeitungsnachtrag (DPA) zwischen Ihnen und Braze agiert. Daten, die über Braze an OpenAI gesendet werden, werden nicht zum Trainieren oder Verbessern von OpenAI-Modellen verwendet. Einzelheiten zu HIPAA-Konformität, Datenaufbewahrung, PII-Handhabung und Governance finden Sie unter [Datenschutz und Sicherheit]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security).
+BrazeAI Operator<sup>TM</sup> ist mit OpenAI integriert, das als Unterauftragsverarbeiter von Braze den Bestimmungen des Datenschutzvertrags (DPA) zwischen Ihnen und Braze unterliegt. Daten, die über Braze an OpenAI gesendet werden, werden nicht zum Trainieren oder Verbessern von OpenAI-Modellen verwendet. Einzelheiten zu HIPAA-Konformität, Datenaufbewahrung, PII-Handling und Governance finden Sie unter [Datenschutz und Sicherheit]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security).
 
 ## Nächste Schritte {#next-steps}
 
-- [Was Sie mit Operator tun können]({{site.baseurl}}/user_guide/brazeai/operator/capabilities): Durchsuchen Sie die Funktionen von Operator im gesamten Dashboard
-- [Prompt-Bibliothek]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library): Durchsuchen Sie Beispiel-Prompts, organisiert nach Dashboard-Seite
-- [Aktionen überprüfen]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions): Erfahren Sie, wie Sie vorgeschlagene Änderungen von Operator überprüfen und genehmigen
-- [Support-Tickets einreichen]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets): Reichen Sie Support-Tickets direkt über Operator ein
-- [Fehlerbehebung]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting): Referenz für häufige Probleme und Lösungen
-- [Datenschutz und Sicherheit]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security): Informieren Sie sich über HIPAA-Konformität, Datenaufbewahrung und PII-Minimierung
+{% article_tiles %}
+- name: Was Sie mit Operator tun können
+  link: /docs/user_guide/brazeai/operator/capabilities
+- name: Prompt-Bibliothek
+  link: /docs/user_guide/brazeai/operator/prompt_library
+- name: Aktionen überprüfen
+  link: /docs/user_guide/brazeai/operator/reviewing_actions
+- name: Support-Tickets einreichen
+  link: /docs/user_guide/brazeai/operator/support_tickets
+- name: Fehlerbehebung
+  link: /docs/user_guide/brazeai/operator/troubleshooting
+- name: Datenschutz und Sicherheit
+  link: /docs/user_guide/brazeai/operator/data_privacy_security
+{% endarticle_tiles %}

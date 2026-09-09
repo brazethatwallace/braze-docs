@@ -43,7 +43,7 @@ Salesforce 고객지원에서 Salesforce Sales Cloud에서 연결된 앱을 만�
 
 ### 1단계: `client_id` 및 `client_secret` 수집하기 {#step-1-collect-your-client_id-and-client_secret}
 
-1. Salesforce에서 **Platform Tools** > **Apps** > **App Manager**로 이동합니다.
+1. Salesforce에서 **Platform Tools** > **Apps** > **App 매니저**로 이동합니다.
 2. 새로 생성한 Braze 앱을 찾아 **View**를 선택합니다.
 3. **Consumer Key and Secret** 아래에서 **Manage Consumer Details**를 선택합니다.
 4. 결과 페이지에서 **Consumer Key**와 **Consumer Secret**을 기록합니다. **Consumer Key**는 `client_id`이고, **Consumer Secret**은 `client_secret`입니다.
@@ -100,7 +100,7 @@ Salesforce에서 리드를 업데이트하는 Braze Salesforce Sales Cloud 웹�
 
 ### 1단계: `client_id` 및 `client_secret` 수집하기
 
-1. Salesforce에서 **Platform Tools** > **Apps** > **App Manager**로 이동합니다.
+1. Salesforce에서 **Platform Tools** > **Apps** > **App 매니저**로 이동합니다.
 2. 새로 생성한 Braze 앱을 찾아 **View**를 선택합니다.
 3. **Consumer Key and Secret** 아래에서 **Manage Consumer Details**를 선택합니다.
 4. 결과 페이지에서 **Consumer Key**와 **Consumer Secret**을 기록합니다.

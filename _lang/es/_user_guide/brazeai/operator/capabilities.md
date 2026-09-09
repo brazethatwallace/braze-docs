@@ -11,7 +11,7 @@ description: "Este artículo de referencia cubre lo que BrazeAI Operator™ pued
 
 > [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator) es un asistente de IA integrado en el panel de Braze. Responde preguntas, redacta mensajes y actúa en las páginas compatibles: describe lo que quieres en lenguaje natural y Operator se encarga de ello en contexto.
 
-Dado que Operator comprende tu espacio de trabajo —tus directrices de marca, atributos personalizados, contenido conectado y la página en la que estás trabajando—, su resultado es más consciente del contexto de lo que los asistentes independientes pueden producir. Cuando Operator propone un cambio en una Campaign, un Canvas, un Segment u otro objeto, muestra el cambio como una diferencia visual en una [tarjeta de acción]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions) que revisas y apruebas antes de que se guarde nada.
+Dado que Operator comprende tu espacio de trabajo —atributos personalizados, contenido conectado, la página en la que estás trabajando y cualquier directriz de marca que añadas como contexto—, su resultado es más consciente del contexto de lo que los asistentes independientes pueden producir. Cuando Operator propone un cambio en una Campaign, un Canvas, un Segment u otro objeto, muestra el cambio como una diferencia visual en una [tarjeta de acción]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions) que revisas y apruebas antes de que se guarde nada.
 
 Puedes continuar la conversación con seguimientos. Operator recuerda los mensajes anteriores hasta que borres tu historial de chat.
 
@@ -80,15 +80,15 @@ Operator puede ayudarte a crear y refinar agentes en [Agent Console]({{site.base
 
 - **Crear un agente desde cero:** Operator tiene acceso a todos los campos en Agent Console, así que puedes describir el agente que deseas y Operator te ayuda a configurarlo. Esto incluye instrucciones, configuración de salida y otros campos del agente.
 - **Empezar desde una plantilla:** Agent Console ofrece una opción **Create agent with Operator** que carga un prompt preescrito para un caso de uso común, como redacción de textos, análisis de sentimiento, enrutamiento de recorridos o enriquecimiento de catálogos. Selecciona una categoría, y Operator te ayuda a redactar un agente que puedes refinar. Para la lista completa de plantillas, consulta [Plantillas de agentes creadas con Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator).
-- **Refinar un agente existente:** Cuando estás editando un agente, selecciona **Generate with Operator** o **Refine with Operator** cerca del campo de instrucciones del agente para obtener la ayuda de Operator al escribir o revisar el prompt y la configuración de salida del agente.
+- **Refinar un agente existente:** Cuando estás editando un agente, selecciona **Generate with Operator** o **Refine with Operator** cerca del campo de instrucciones del agente para obtener la ayuda de Operator al escribir o revisar el prompt y la configuración de salida del agente. Si el agente ya tiene una directriz de marca, Operator la adjunta como contexto.
 
 ## Contenido y creatividad {#content-and-creative}
 
-Operator puede generar y revisar el contenido de tus mensajes, incluyendo textos, HTML de mensajes, Liquid e imágenes, y aplica tus directrices de marca automáticamente donde estén configuradas. También puedes pedirle ayuda a Operator desde la biblioteca de plantillas y las páginas de resumen. Por ejemplo, puedes crear o actualizar [plantillas de correo electrónico]({{site.baseurl}}/user_guide/messaging/templates/email_templates) o Content Blocks desde sus páginas de lista, programar trabajo en el [calendario de contenido]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/campaign_calendar), crear [plantillas de perfil de color para mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template#reusable-color-profiles) o configurar [ubicaciones de Banner]({{site.baseurl}}/developer_guide/banners/placements).
+Operator puede generar y revisar el contenido de tus mensajes, incluyendo textos, HTML de mensajes, Liquid e imágenes, y aplicar cualquier directriz de marca que añadas como contexto. También puedes pedirle ayuda a Operator desde la biblioteca de plantillas y las páginas de resumen. Por ejemplo, puedes crear o actualizar [plantillas de correo electrónico]({{site.baseurl}}/user_guide/messaging/templates/email_templates) o Content Blocks desde sus páginas de lista, programar trabajo en el [calendario de contenido]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/campaign_calendar), crear [plantillas de perfil de color para mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template#reusable-color-profiles) o configurar [ubicaciones de Banner]({{site.baseurl}}/developer_guide/banners/placements).
 
 ### Aplicar directrices de marca {#apply-brand-guidelines}
 
-Operator utiliza las directrices de marca configuradas en tu espacio de trabajo para que los textos, plantillas e imágenes generados coincidan con la voz, el tono y el estilo de tu marca. Para configurar las directrices de marca, ve a **Content** > **Brand Guidelines**. Para más información, consulta [Directrices de marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) y [Aplicar directrices de marca]({{site.baseurl}}/user_guide/brazeai/operator#apply-brand-guidelines) en la guía de uso de Operator.
+Añade [directrices de marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) como contexto en el panel de chat de Operator para que los textos, plantillas e imágenes generados coincidan con la voz, el tono y el estilo de tu marca.
 
 ### Generar textos {#generate-copy}
 
@@ -96,14 +96,14 @@ Puedes usar Operator para hacer lluvia de ideas o generar textos desde cualquier
 
 Operator mejora respecto al redactor independiente de varias maneras:
 
-- Aplica tus [directrices de marca](#apply-brand-guidelines) automáticamente cuando están configuradas.
+- Aplica cualquier [directriz de marca](#apply-brand-guidelines) que añadas como contexto.
 - Utiliza [contexto consciente de la página]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context), por lo que no tienes que volver a describir el canal o mensaje en el que estás trabajando. Como es consciente de la página, también puedes usarlo para editar o refinar un mensaje existente en lugar de generar uno desde cero.
 - Puede buscar tus [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) y eventos, para que puedas pedirle que personalice las recomendaciones de texto con Liquid real.
 - Puedes continuar la conversación e iterar. Por ejemplo, pide un tono diferente, una versión más corta o una traducción.
 
 #### Tonos {#generate-copy-tones}
 
-El tono del texto generado está determinado por tu prompt. Describe el estilo que deseas y Operator ajusta su resultado para que coincida. Por ejemplo, pide un tono formal, casual, urgente o llamativo. También puedes refinar el tono en prompts de seguimiento, como pedir una versión más relajada o más pulida. Cuando las directrices de marca están configuradas, Operator las aplica automáticamente para que el texto se mantenga consistente con la voz de tu marca.
+El tono del texto generado está determinado por tu prompt. Describe el estilo que deseas y Operator ajusta su resultado para que coincida. Por ejemplo, pide un tono formal, casual, urgente o llamativo. También puedes refinar el tono en prompts de seguimiento, como pedir una versión más relajada o más pulida. Cuando añades directrices de marca como contexto, Operator las aplica para que el texto se mantenga consistente con la voz de tu marca.
 
 ### Generar mensajes {#generate-messages}
 
@@ -119,7 +119,7 @@ Operator puede generar un diseño de mensaje completo para cualquier canal o edi
 
 Los editores de arrastrar y soltar no admiten la generación directa de diseños, aunque Operator aún puede ayudar con textos u otro contenido que agregues manualmente. Describe el mensaje que deseas en lenguaje natural, revisa el resultado e insértalo en tu creador. Continúa la conversación para refinar el resultado. Por ejemplo, puedes pedir un diseño diferente, un texto más corto o un estilo de botón actualizado antes de insertar el HTML en el editor.
 
-Obtienes los mejores resultados cuando usas Operator en el creador en el que estás trabajando, donde tiene [contexto consciente de la página]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context) para el canal y tipo de mensaje. Cuando las directrices de marca están configuradas, Operator las aplica automáticamente.
+Obtienes los mejores resultados cuando usas Operator en el creador en el que estás trabajando, donde tiene [contexto consciente de la página]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context) para el canal y tipo de mensaje. Cuando añades directrices de marca como contexto, Operator las aplica al mensaje generado.
 
 ### Crear Content Blocks {#create-content-blocks}
 
@@ -183,19 +183,19 @@ En la pestaña **Test** para SMS, push de Android, push de iOS y mensajes dentro
 
 Más allá de su revisión predeterminada, puedes dirigir a Operator para que se enfoque en verificaciones específicas. Considera pedirle que revise cualquiera de los siguientes aspectos:
 
-- **Ortografía y gramática:** Revisa errores ortográficos y gramaticales y sugiere correcciones que mejoren la precisión de tu contenido.
-- **Tono:** Evalúa si el tono coincide con tu estilo de comunicación previsto y señala cualquier cosa que pueda malinterpretarse.
-- **Lenguaje ofensivo:** Busca lenguaje potencialmente ofensivo o inapropiado para que puedas revisarlo y mantener tu mensajería respetuosa.
-- **Contenido accidental:** Detecta código suelto, marcado o mensajes de prueba que se agregaron involuntariamente, incluyendo Liquid que no se renderizó para un usuario de prueba.
-- **Otros idiomas:** Revisa contenido escrito en otro idioma. El soporte para contenido en idiomas distintos al inglés puede variar, así que revisa los resultados cuidadosamente.
+- **Ortografía y gramática:** revisa errores ortográficos y gramaticales y sugiere correcciones que mejoren la precisión de tu contenido.
+- **Tono:** evalúa si el tono coincide con tu estilo de comunicación previsto y señala cualquier cosa que pueda malinterpretarse.
+- **Lenguaje ofensivo:** busca lenguaje potencialmente ofensivo o inapropiado para que puedas revisarlo y mantener tu mensajería respetuosa.
+- **Contenido accidental:** detecta código suelto, marcado o mensajes de prueba que se agregaron involuntariamente, incluyendo Liquid que no se renderizó para un usuario de prueba.
+- **Otros idiomas:** revisa contenido escrito en otro idioma. El soporte para contenido en idiomas distintos al inglés puede variar, así que revisa los resultados cuidadosamente.
 
 #### Mejores prácticas {#review-content-quality-best-practices}
 
 Considera lo siguiente para aprovechar al máximo la revisión de contenido:
 
-- **Revisa tu mensaje:** Aunque la revisión de contenido puede ayudar a identificar errores, sigue siendo esencial revisar tu contenido manualmente. Confía en las sugerencias generadas por IA como una guía útil, pero usa tu criterio para garantizar la precisión.
-- **Comprende el análisis de tono:** Los resultados del análisis de tono son subjetivos y se basan en la comprensión del modelo de IA. Si bien pueden proporcionar información útil, considera tu tono previsto y el contexto de la conversación para hacer los ajustes apropiados.
-- **Verifica el lenguaje ofensivo señalado:** La detección de lenguaje ofensivo está diseñada para ser robusta, pero ocasionalmente puede señalar falsos positivos. Revisa las secciones señaladas cuidadosamente y realiza los cambios apropiados según sea necesario.
+- **Revisa tu mensaje:** aunque la revisión de contenido puede ayudar a identificar errores, sigue siendo esencial revisar tu contenido manualmente. Confía en las sugerencias generadas por IA como una guía útil, pero usa tu criterio para garantizar la precisión.
+- **Comprende el análisis de tono:** los resultados del análisis de tono son subjetivos y se basan en la comprensión del modelo de IA. Si bien pueden proporcionar información útil, considera tu tono previsto y el contexto de la conversación para hacer los ajustes apropiados.
+- **Verifica el lenguaje ofensivo señalado:** la detección de lenguaje ofensivo está diseñada para ser robusta, pero ocasionalmente puede señalar falsos positivos. Revisa las secciones señaladas cuidadosamente y realiza los cambios apropiados según sea necesario.
 
 ## Automatización de datos y búsqueda {#data-automation-and-lookup}
 
@@ -285,7 +285,17 @@ Operator se integra con OpenAI para generar resultados. Para más información s
 
 ## Próximos pasos {#next-steps}
 
-- [Comenzar con Operator]({{site.baseurl}}/user_guide/brazeai/operator): accede y usa Operator
-- [Biblioteca de prompts]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library): explora prompts de ejemplo listos para usar
-- [Revisar acciones]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions): revisa y aprueba los cambios propuestos por Operator
-- [Solución de problemas]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting): consulta problemas comunes y soluciones
+{% article_tiles %}
+- name: Comenzar con Operator
+  link: /docs/user_guide/brazeai/operator
+  description: Accede y usa Operator en el panel de Braze.
+- name: Biblioteca de prompts
+  link: /docs/user_guide/brazeai/operator/prompt_library
+  description: Explora prompts de ejemplo listos para usar.
+- name: Revisar acciones
+  link: /docs/user_guide/brazeai/operator/reviewing_actions
+  description: Revisa y aprueba los cambios propuestos por Operator.
+- name: Solución de problemas
+  link: /docs/user_guide/brazeai/operator/troubleshooting
+  description: Consulta problemas comunes y soluciones.
+{% endarticle_tiles %}

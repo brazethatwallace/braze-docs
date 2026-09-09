@@ -5,7 +5,6 @@ alias: /partners/facebook/
 description: "This reference article outlines the partnership between Braze and Facebook, a leading social platform for brands to reach and engage with their customers."
 page_type: partner
 search_tag: Partner
-
 ---
 
 # Facebook Audience export
@@ -24,7 +23,7 @@ If you are using this feature alongside the [Audience Sync to Facebook]({{site.b
 {% endalert %}
 
 {% alert note %}
-If you are participating in testing Meta Work Accounts in beta, ensure you disconnect and reconnect your account to the [Facebook partner page]({{site.baseurl}}/partners/canvas_steps/facebook_audience_sync#step-1-connect-to-facebook). 
+If you are participating in testing Meta Work Accounts in beta, ensure you disconnect and reconnect your account to the [Facebook partner page]({{site.baseurl}}/partners/canvas_audience_sync/facebook_audience_sync#step-1-connect-to-facebook). 
 {% endalert %}
 
 ## Prerequisites

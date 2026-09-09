@@ -20,6 +20,6 @@ description: "この記事には2020年11月のリリースノートが含まれ
 
 開発者中心の技術戦略を採用し、Brazeはユースケース駆動のiOSコンテンツカードガイドラインとベストプラクティスを強調した最初の実装ガイドをリリースしました。この包括的なガイドは、ユニークな使用例、動画ウォークスルー、付随するコードスニペット、および貴重なユーザーメトリクスを記録する方法に関するガイダンスを提供します。プロのようにiOSコンテンツカードの実装を開始する方法について詳しく読むには、[実装ガイド]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/content_cards/implementation_guide/)をご覧ください。 
 
-## Swift Package Manager
+## Swift Package マネージャー
 
-[Swift Package Manager]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift#swift_integrating-the-swift-sdk) は、Swift ビルドシステムと統合されており、依存関係を自動的にダウンロード、コンパイル、およびリンクします。Swiftパッケージマネージャーを介してiOS SDKをインストールすると、インストールプロセスの大部分が自動化されます。
+[Swift Package マネージャー]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift#swift_integrating-the-swift-sdk) は、Swift ビルドシステムと統合されており、依存関係を自動的にダウンロード、コンパイル、およびリンクします。Swiftパッケージマネージャーを介してiOS SDKをインストールすると、インストールプロセスの大部分が自動化されます。

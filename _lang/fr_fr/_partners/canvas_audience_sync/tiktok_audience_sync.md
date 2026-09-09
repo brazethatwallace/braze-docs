@@ -103,7 +103,7 @@ Braze offre également la possibilité d'ajouter des utilisateurs à des audienc
 ### Étape 4 : Lancer le Canvas {#step-4-launch-canvas}
 Après avoir configuré votre composant TikTok Audience, lancez le Canvas ! Une nouvelle audience est créée, et les utilisateurs qui passent par le composant TikTok Audience sont ajoutés à cette audience sur TikTok. Si votre Canvas contient des composants ultérieurs, vos utilisateurs progressent vers l'étape suivante de leur parcours utilisateur.
 
-Vous pouvez consulter l'audience dans TikTok en accédant à votre **Ads Manager Account** et en sélectionnant **Audiences** dans le menu déroulant **Assets**. Depuis la page **Audience**, vous pouvez voir la taille de chaque audience une fois qu'elle atteint &#126;1 000.
+Vous pouvez consulter l'audience dans TikTok en accédant à votre **Ads gestionnaire Account** et en sélectionnant **Audiences** dans le menu déroulant **Assets**. Depuis la page **Audience**, vous pouvez voir la taille de chaque audience une fois qu'elle atteint &#126;1 000.
 
 ![Page TikTok listant les indicateurs suivants pour l'audience donnée.]({% image_buster /assets/img/tiktok/tiktok5.png %})
 

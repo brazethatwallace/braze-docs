@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "この記事では、「ユーザー設定センターの作成」Brazeエンドポイントの詳細について説明します。"
-
 ---
 {% api %}
 # ユーザー設定センターの作成 {#create-preference-center}
@@ -14,7 +13,7 @@ description: "この記事では、「ユーザー設定センターの作成」
 /preference_center/v1
 {% endapimethod %}
 
-> このエンドポイントを使用してユーザー設定センターを作成し、ユーザーがメールキャンペーンの通知設定を管理できるようにします。APIで生成されるユーザー設定センターの構築手順については、[APIを使用したユーザー設定センターの作成]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview#creating-a-preference-center-with-api)を参照してください。
+> このエンドポイントを使用してユーザー設定センターを作成し、ユーザーがメールキャンペーンの通知設定を管理できるようにします。APIで生成されるユーザー設定センターの構築手順については、[APIを使用したユーザー設定センターの作成]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/api_preference_center)を参照してください。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#e15d7065-2cbc-4eb3-ae16-32efe43357a6 {% endapiref %}
 

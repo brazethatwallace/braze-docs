@@ -1,7 +1,7 @@
 ---
 nav_title: BrazeAI
 article_title: BrazeAI
-description: "BrazeAI<sup>TM</sup> powers a collection of accessible, easy-to-use tools that lower the barriers to entry for creativity, personalization and optimization for your engagement strategy."
+description: "BrazeAI tools for creativity, personalization, and optimization across your customer engagement strategy."
 page_order: 8
 layout: dev_guide
 search_rank: 12
@@ -40,14 +40,11 @@ guide_featured_list:
   - name: Predictive Suite
     link: /docs/user_guide/brazeai/predictive_suite
     image: /assets/img/braze_icons/stars-01.svg
-  - name: Personalized Paths
-    link: /docs/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths
-    image: /assets/img/braze_icons/chevron-up-double.svg
   - name: Winning Path
     link: /docs/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path
     image: /assets/img/braze_icons/dataflow-03.svg
-  - name: Winning Variant and Personalized Variant
-    link: /docs/user_guide/messaging/ab_testing/optimizations
+  - name: Optimize with BrazeAI™
+    link: /docs/user_guide/brazeai/intelligence_suite/variant_selection
     image: /assets/img/braze_icons/trophy-01.svg
 ---
 
@@ -58,7 +55,7 @@ guide_featured_list:
 | Your goal | Recommended feature |
 | --- | --- |
 | Personalize message copy per user using their context | [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents) ([Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step) or [catalog]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#use-catalog-agents)); for one-off draft copy, [Generative AI]({{site.baseurl}}/user_guide/brazeai/generative_ai) |
-| Optimize which message content (such as subject, CTA) performs best over time | [Content Optimizer]({{site.baseurl}}/user_guide/brazeai/content_optimizer) (email, push notifications, or SMS/MMS/RCS) or [Winning Variant]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations) |
+| Optimize which message content (such as subject or CTA) performs best over time | [Content Optimizer]({{site.baseurl}}/user_guide/brazeai/content_optimizer) (email, push notifications, or SMS/MMS/RCS) or [Optimize with BrazeAI™]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection) |
 | Maximize a business metric (revenue, conversions) with 1:1 decisions across offers, channels, and timing | [Decisioning Studio]({{site.baseurl}}/user_guide/brazeai/decisioning_studio) |
 | Find users likely to churn or to perform an event | [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) or [Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events) |
 | Recommend specific products from a catalog in messages | [Item recommendations]({{site.baseurl}}/user_guide/brazeai/item_recommendations) |

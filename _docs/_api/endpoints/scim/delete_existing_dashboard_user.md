@@ -43,7 +43,7 @@ To use this endpoint, you'll need a SCIM token. You'll use your service origin a
 ```http
 Content-Type: application/json
 X-Request-Origin: YOUR-REQUEST-ORIGIN-HERE
-Authorization: Bearer YOUR-REST-API-KEY
+Authorization: Bearer YOUR-SCIM-TOKEN-HERE
 ```
 
 ## Example request
@@ -56,14 +56,17 @@ curl --location --request DELETE 'https://rest.iad-01.braze.com/scim/v2/Users/df
 
 ## Response
 
-### Example error response
+### Example success response
+
+When the user is permanently deleted, the endpoint returns:
 
 ```http
-HTTP/1.1 204 Not Found
-Content-Type: text/html; charset=UTF-8
+HTTP/1.1 204 No Content
 ```
 
-If a developer with this ID doesn't exist in Braze, the endpoint will respond with:
+### Example error responses
+
+If a developer with this ID doesn't exist in Braze, the endpoint responds with:
 ```http
 HTTP/1.1 404 Not Found
 Content-Type: text/html; charset=UTF-8
@@ -74,4 +77,18 @@ Content-Type: text/html; charset=UTF-8
     "status": 404
 }
 ```
+
+If you attempt to delete the last remaining company user, the endpoint returns a `500 Internal Server Error` response and doesn't delete the user:
+
+```http
+HTTP/1.1 500 Internal Server Error
+Content-Type: application/json
+
+{
+    "schemas": ["urn:ietf:params:scim:api:messages:2.0:Error"],
+    "detail": "Failed to delete user",
+    "status": 500
+}
+```
+
 {% endapi %}

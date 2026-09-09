@@ -26,7 +26,7 @@ description: "Erfahren Sie, wie Sie die Zielgruppe für Ihren BrazeAI Decisionin
 {% tab Braze %}
 
 1. Erstellen Sie ein Segment für die Zielgruppe, die Sie ansprechen möchten.
-2. Geben Sie die Segment-ID an Ihr AI Decisioning Services-Team weiter.
+2. Geben Sie die Segment-ID an Ihr KI Decisioning Services-Team weiter.
 
 {% alert note %}
 Für Braze können wir mehrere Segmente aufnehmen und kombinieren, um die Zielgruppe zu erstellen. Decisioning Studio kann ein Segment für eine Business-as-Usual-Vergleichs-Campaign aufnehmen. Alle diese Muster sind zulässig.
@@ -39,7 +39,7 @@ Für Braze können wir mehrere Segmente aufnehmen und kombinieren, um die Zielgr
 2. Richten Sie ein SFMC Installed Package für die API-Integration mit den von Decisioning Studio benötigten Berechtigungen ein.
 3. Stellen Sie sicher, dass diese Data Extension täglich aktualisiert wird, da Decisioning Studio die neuesten inkrementellen Daten abruft.
 
-Geben Sie die Extension-ID und den API-Schlüssel an unser AI Decisioning Services-Team weiter, das Sie bei den nächsten Schritten zur Aufnahme von Kundendaten unterstützt.
+Geben Sie die Extension-ID und den API-Schlüssel an unser KI Decisioning Services-Team weiter, das Sie bei den nächsten Schritten zur Aufnahme von Kundendaten unterstützt.
 
 {% endtab %}
 {% tab Weitere Plattformen %}

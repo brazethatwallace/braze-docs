@@ -27,7 +27,7 @@ Es posible enviar MMS a números fuera de EE. UU. y Canadá, pero los mensajes M
 
 Algunos usuarios pueden no implementar o usar códigos abreviados de MMS, pero están disponibles si se necesitan en una fecha posterior.
 
-Para los usuarios que obtuvieron sus códigos abreviados antes de que Braze fuera compatible con MMS, todos los clientes existentes con códigos abreviados de EE. UU. son elegibles para habilitar MMS de forma instantánea. Ponte en contacto con tu administrador de éxito de cliente si esta situación aplica a tu caso y deseas habilitar MMS.
+Para los usuarios que obtuvieron sus códigos abreviados antes de que Braze fuera compatible con MMS, todos los clientes existentes con códigos abreviados de EE. UU. son elegibles para habilitar MMS de forma instantánea. Ponte en contacto con tu CSM si esta situación aplica a tu caso y deseas habilitar MMS.
 
 {% alert important %}
 Al habilitar MMS para códigos abreviados que anteriormente no tenían MMS habilitado, es posible que los códigos abreviados necesiten ser aprobados nuevamente en un proceso de aprobación que podría tomar semanas. Es importante tener en cuenta este plazo al decidir habilitar MMS.

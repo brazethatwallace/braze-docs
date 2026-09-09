@@ -65,7 +65,7 @@ Pour définir ce comportement au clic :
 
 #### Qu'est-ce qu'une balise UTM ? {#what-is-a-utm-tag}
 
-Les [balises UTM (Urchin Traffic Manager)](https://support.google.com/analytics/answer/10917952?sjid=14344007686729081565-NC#zippy=%2Cin-this-article) vous permettent d'inclure des détails d'attribution de campagne directement dans les liens. Les balises UTM sont utilisées par Google Analytics pour collecter des données d'attribution de campagne et peuvent être utilisées pour suivre les propriétés suivantes :
+Les [balises UTM (Urchin Traffic gestionnaire)](https://support.google.com/analytics/answer/10917952?sjid=14344007686729081565-NC#zippy=%2Cin-this-article) vous permettent d'inclure des détails d'attribution de campagne directement dans les liens. Les balises UTM sont utilisées par Google Analytics pour collecter des données d'attribution de campagne et peuvent être utilisées pour suivre les propriétés suivantes :
 
 - `utm_source` : L'identifiant de la source du trafic (par exemple, `my_app`)
 - `utm_medium` : Le support de la campagne (par exemple, `newsfeed`)

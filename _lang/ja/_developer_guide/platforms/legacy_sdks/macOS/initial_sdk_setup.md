@@ -15,19 +15,19 @@ noindex: true
 
 > この参照記事では、MacOS用のBraze SDKのインストール方法について説明します。
 
-バージョン [3.32.0](https://github.com/Appboy/appboy-ios-sdk/releases/tag/3.32.0) 以降、Braze SDKはSwift Package Managerを介して統合する場合、[Mac Catalyst](https://developer.apple.com/mac-catalyst/) を使用するアプリのmacOSをサポートしています。現在、SDKはCocoaPodsまたはCarthageを使用する場合、Mac Catalystをサポートしていません。
+バージョン [3.32.0](https://github.com/Appboy/appboy-ios-sdk/releases/tag/3.32.0) 以降、Braze SDKはSwift Package マネージャーを介して統合する場合、[Mac Catalyst](https://developer.apple.com/mac-catalyst/) を使用するアプリのmacOSをサポートしています。現在、SDKはCocoaPodsまたはCarthageを使用する場合、Mac Catalystをサポートしていません。
 
 {% alert note %}
 Mac Catalystでアプリを構築するには、<a href="https://developer.apple.com/documentation/uikit/mac_catalyst">Appleのドキュメント</a> を参照してください。
 {% endalert %}
 
-アプリでCatalystがサポートされたら、[次の手順に従ってSwift Package Managerを使用して]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/sdk_integration?tab=swift%20package%20manager/)Braze SDKをアプリにインポートします。
+アプリでCatalystがサポートされたら、[次の手順に従ってSwift Package マネージャーを使用して]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/sdk_integration?tab=swift%20package%20manager/)Braze SDKをアプリにインポートします。
 
 ## サポートされている機能 {#supported-features}
 
-Brazeは、Mac Catalyst上で実行している場合、[プッシュ通知]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift)、[Content Cards]({{site.baseurl}}/developer_guide/platforms/swift/content_cards#content-cards-data-model)、[アプリ内メッセージ]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=swift)、および[自動ロケーション収集]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=swift)をサポートしています。
+Brazeは、Mac Catalyst上で実行する場合、[プッシュ通知]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift)、[Content Cards]({{site.baseurl}}/developer_guide/content_cards?sdktab=swift)、[アプリ内メッセージ]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=swift)、および[自動位置情報収集]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=swift)をサポートしています。
 
-Push Stories、リッチプッシュ、ジオフェンスはmacOSではサポートされていません。
+Push Stories、リッチプッシュ、およびジオフェンスはmacOSではサポートされていません。
 
 [1]:https://github.com/Appboy/appboy-ios-sdk/releases/tag/3.32.0
 [2]:https://developer.apple.com/mac-catalyst/

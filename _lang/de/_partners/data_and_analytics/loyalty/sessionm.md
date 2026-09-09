@@ -22,9 +22,9 @@ search_tag: Partner
 | SessionM | Ein SessionM Core REST-Endpunkt | Ihr Endpunkt hängt von der SessionM-URL Ihrer Instanz ab. Dieser kann im SessionM-Dashboard unter **Digital Properties** erstellt werden. |
 | SessionM | Ein SessionM Core REST-API-Schlüssel | Der SessionM-API-Schlüssel, der mit Ihrer Instanz und der Braze-Integration verbunden ist. Dieser Schlüssel kann für alle Core-basierten Aufrufe einschließlich Tags verwendet werden. Dieser kann im SessionM-Dashboard unter **Digital Properties** erstellt werden. |
 | SessionM | Ein SessionM Core REST-API-Geheimnis | Das SessionM-API-Geheimnis, das mit Ihrer Instanz und der Braze-Integration verbunden ist. Dieser Schlüssel kann für alle Core-basierten Aufrufe einschließlich Tags verwendet werden. Dieser kann im SessionM-Dashboard unter **Digital Properties** erstellt werden. |
-| SessionM | Ein SessionM Connect REST-Endpunkt | Ihr Endpunkt hängt von der SessionM-URL Ihrer Instanz ab. Wenden Sie sich an Ihren technischen SessionM Account Manager oder das Delivery-Team. |
-| SessionM | Ein SessionM Connect REST-Autorisierungs-String | Der SessionM Connect Basic-Authorization-String, der mit Ihrer Instanz verknüpft ist. Dieser Authentifizierungs-String kann für alle verbindungsbasierten Aufrufe verwendet werden, einschließlich get_user_offers. Bitte wenden Sie sich an Ihren technischen SessionM Account Manager oder das Delivery-Team. |
-| SessionM | Eine SessionM Connect REST-Retailer-ID | Eine eindeutige GUID-Kennung für den spezifischen Kunden, der mit Ihrer Instanz verbunden ist. Wenden Sie sich an Ihren technischen SessionM Account Manager oder das Delivery-Team. |
+| SessionM | Ein SessionM Connect REST-Endpunkt | Ihr Endpunkt hängt von der SessionM-URL Ihrer Instanz ab. Wenden Sie sich an Ihren technischen SessionM Account Manager:in oder das Delivery-Team. |
+| SessionM | Ein SessionM Connect REST-Autorisierungs-String | Der SessionM Connect Basic-Authorization-String, der mit Ihrer Instanz verknüpft ist. Dieser Authentifizierungs-String kann für alle verbindungsbasierten Aufrufe verwendet werden, einschließlich get_user_offers. Bitte wenden Sie sich an Ihren technischen SessionM Account Manager:in oder das Delivery-Team. |
+| SessionM | Eine SessionM Connect REST-Retailer-ID | Eine eindeutige GUID-Kennung für den spezifischen Kunden, der mit Ihrer Instanz verbunden ist. Wenden Sie sich an Ihren technischen SessionM Account Manager:in oder das Delivery-Team. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
@@ -51,7 +51,7 @@ Erstellen Sie in Braze ein Segment von Nutzer:innen für das Targeting mit Sessi
 
 Erstellen Sie zunächst eine Webhook-Kampagne in Braze und setzen Sie die Webhook-URL auf {% raw %}`{{endpoint_core}}/priv/v1/apps/{{appkey_core}}/users/{{${user_id}}}/tags`{% endraw %}. Verwenden Sie Liquid, um die `user_id` innerhalb der URL zu definieren.
 
-Stellen Sie den **Body für die Anfrage** des Webhooks mit Hilfe eines Rohtextes so zusammen, dass er die gewünschten Tags, die dem Nutzerprofil in SessionM hinzugefügt werden sollen, und die gewünschte Gültigkeitsdauer enthält. Ein Beispiel:
+Stellen Sie den **Body für die Anfrage** des Webhooks mit Hilfe eines Rohtextes so zusammen, dass er die gewünschten Tags, die dem Kundenprofil in SessionM hinzugefügt werden sollen, und die gewünschte Gültigkeitsdauer enthält. Ein Beispiel:
 
  ```
  {

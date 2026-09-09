@@ -25,9 +25,9 @@ Mac Catalyst로 앱을 빌드하려면 <a href="https://developer.apple.com/docu
 
 ## 지원되는 기능 {#supported-features}
 
-Braze는 Mac Catalyst에서 실행할 때 [푸시 알림]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift), [Content Cards]({{site.baseurl}}/developer_guide/platforms/swift/content_cards#content-cards-data-model), [인앱 메시지]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=swift), [자동 위치 수집]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=swift)을 지원합니다.
+Braze는 Mac Catalyst에서 실행할 때 [푸시 알림]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift), [Content Cards]({{site.baseurl}}/developer_guide/content_cards?sdktab=swift), [인앱 메시지]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=swift) 및 [자동 위치 수집]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=swift)을 지원합니다.
 
-Push Stories, 리치 푸시 및 지오펜스는 macOS에서 지원되지 않습니다.
+Push Stories, 리치 푸시, 지오펜스는 macOS에서 지원되지 않습니다.
 
 [1]:https://github.com/Appboy/appboy-ios-sdk/releases/tag/3.32.0
 [2]:https://developer.apple.com/mac-catalyst/

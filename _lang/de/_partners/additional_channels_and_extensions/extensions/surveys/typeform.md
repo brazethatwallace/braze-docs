@@ -21,8 +21,8 @@ Durch die Integration von Braze und Typeform können Sie:
 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
-| Typeform-Konto | Sie benötigen ein Typeform-Konto mit Zugriff auf Webhooks, um die Vorteile dieser Partnerschaft zu nutzen. |
-| Braze-Datentransformation | Eine [Datentransformations-URL]({{site.baseurl}}/data_transformation) ist erforderlich, um Daten von Typeform zu empfangen. |
+| Typeform-Konto | Ein Typeform-Konto mit Zugriff auf Webhooks ist erforderlich, um diese Partnerschaft nutzen zu können. |
+| Braze-Datentransformation | Eine [Datentransformations-URL]({{site.baseurl}}/user_guide/data/unification/data_transformation) ist erforderlich, um Daten von Typeform zu empfangen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
@@ -60,7 +60,7 @@ Dieser Rückgabewert muss dem Format des `/users/track`-Anfragekörpers von Braz
 
 {% multi_lang_include data_transformation/transformation_code_requirements.md %}
 
-## Beispiel für eine Typeform-Webhook-Nutzlast {#example-typeform-webhook-payload}
+## Beispiel für einen Typeform-Webhook-Payload {#example-typeform-webhook-payload}
 
 ```http
 Content-Type: application/json
@@ -316,22 +316,22 @@ Content-Type: application/json
 }
 ```
 
-## Anwendungsfälle der Datentransformation {#data-transformation-use-cases}
+## Anwendungsfälle für die Datentransformation {#data-transformation-use-cases}
 
-Im Folgenden finden Sie Beispiel-Templates, die mit unserer [Beispiel-Typeform-Webhook-Nutzlast](#example-typeform-webhook-payload) erstellt wurden. Diese Templates können als Ausgangspunkt verwendet werden. Sie können ganz von vorne anfangen oder bestimmte Komponenten nach Bedarf löschen.
+Die folgenden Beispiel-Templates wurden unter Verwendung unserer [Beispiel-Typeform-Webhook-Payload](#example-typeform-webhook-payload) erstellt. Diese Templates können als Ausgangspunkt verwendet werden. Sie können bei Null anfangen oder bestimmte Komponenten nach Belieben entfernen.
 
-In diesen Beispiel-Templates protokollieren wir ein angepasstes Event im Braze-Profil. Der Titel des Typeforms wird als Name des angepassten Events übergeben, und die Typeform-Ergebnisse werden als Event-Eigenschaften übergeben. Diese Beispiel-Templates berücksichtigen nicht die Fragetypen Calendly, Dateiupload oder Zahlung in Typeform.
+In diesen Beispiel-Templates wird ein angepasstes Event im Braze-Profil protokolliert. Der Titel des Typeform wird als Name des angepassten Events übergeben, und die Typeform-Ergebnisse werden als Event-Eigenschaften übergeben. Diese Beispiel-Templates berücksichtigen nicht die Fragetypen „Calendly“, „Datei-Upload“ oder „Zahlung“ in Typeform.
 
 ### Anwendungsfall: E-Mail als Bezeichner {#use-case-email-as-identifier}
 
-In diesem Beispiel-Template verwenden wir eine E-Mail-Adresse (die aus einer E-Mail-Adressfrage innerhalb des Typeforms erfasst wird) als Bezeichner.
+In diesem Beispiel-Template verwenden wir eine E-Mail-Adresse (die über eine E-Mail-Adressfrage innerhalb des Typeform erfasst wurde) als Bezeichner.
 
 {% alert note %}
-Wenn Sie eine E-Mail-Adresse als Bezeichner verwenden möchten, lesen Sie unsere [häufig gestellten Fragen]({{site.baseurl}}/api/endpoints/user_data/post_user_track#frequently-asked-questions) für den `/users/track`-Endpunkt, um weitere Informationen zum erwarteten Verhalten zu erhalten.
+Wenn Sie beabsichtigen, eine E-Mail-Adresse als Bezeichner zu verwenden, lesen Sie unsere [häufig gestellten Fragen]({{site.baseurl}}/api/endpoints/user_data/post_user_track#frequently-asked-questions) zum `/users/track`-Endpunkt, um mehr über das erwartete Verhalten zu erfahren.
 {% endalert %}
 
 {% tabs local %}
-{% tab Input %}
+{% tab Eingabe %}
 
 ```javascript
 /* In the Typeform webhook payload each question is stored as a “title” within each object of the “fields” array. Our code defines a “title” variable where we store the value of each field title. */
@@ -403,7 +403,7 @@ return brazecall;
 ```
 
 {% endtab %}
-{% tab Output %}
+{% tab Ausgabe %}
 
 ```json
 {
@@ -464,14 +464,14 @@ return brazecall;
 {% endtab %}
 {% endtabs %}
 
-### Anwendungsfall: Bezeichner über Hidden Fields übergeben {#use-case-using-identifier-passed-in-hidden-fields}
+### Anwendungsfall: Verwendung eines Bezeichners, der über versteckte Felder übergeben wird {#use-case-using-identifier-passed-in-hidden-fields}
 
-Sie können Typeform Hidden Fields verwenden, um Daten in der Typeform-Webhook-Nutzlast zu übergeben – wie z. B. die ID von Nutzer:innen –, ohne diese Informationen in der Typeform-Antwort weitergeben zu müssen.
+Sie können die versteckten Felder von Typeform verwenden, um Daten in der Typeform-Webhook-Payload zu übergeben, wie z. B. die ID einer Nutzer:in, ohne diese Information in der Typeform-Antwort übergeben zu müssen.
 
-In diesem Beispiel-Template verwenden wir ein Hidden Field `user_id` und übergeben dieses als `external_id` in die Nutzlast der `/users/track`-Anfrage. Obwohl wir hier `user_id` verwenden, können die Felder an Ihre Bedürfnisse angepasst werden.
+In diesem Beispiel-Template verwenden wir ein verstecktes Feld „user_id“ und übergeben es in der `/users/track`-Anfrage-Payload als `external_id`. Obwohl wir „user_id“ verwenden, können die Felder an Ihre Anforderungen angepasst werden.
 
 {% tabs local %}
-{% tab Input %}
+{% tab Eingabe %}
 
 ```javascript
 /* In the Typeform webhook payload each question is stored as a “title” within each object of the “fields” array. Our code defines a “title” variable where we store the value of each field title. */
@@ -543,7 +543,7 @@ return brazecall;
 ```
 
 {% endtab %}
-{% tab Output %}
+{% tab Ausgabe %}
 
 ```json
 {
@@ -604,14 +604,14 @@ return brazecall;
 {% endtab %}
 {% endtabs %}
 
-### Schritt 4: Typeform-Webhook veröffentlichen {#step-4-publish-your-typeform-webhook}
+### Schritt 4: Veröffentlichen Sie Ihren Typeform-Webhook {#step-4-publish-your-typeform-webhook}
 
-Nachdem Sie Ihre Datentransformation geschrieben haben, klicken Sie auf **Validate**, um sicherzustellen, dass Ihr Datentransformationscode korrekt formatiert ist und wie erwartet funktioniert. Speichern und aktivieren Sie anschließend Ihre Datentransformation.
+Nachdem Sie Ihre Datentransformation geschrieben haben, klicken Sie auf **Validate**, um sicherzustellen, dass Ihr Datentransformations-Code korrekt formatiert ist und wie erwartet funktioniert. Speichern und aktivieren Sie dann Ihre Datentransformation.
 
-Wenn die Datentransformation aktiviert ist, werden angepasste Event-Daten im Profil von Nutzer:innen protokolliert, sobald diese Ihr Formular ausfüllen.
+Nach der Aktivierung werden angepasste Event-Daten im Profil einer Nutzer:in protokolliert, wenn sie Ihr Formular ausfüllt.
 
 ![Nutzerprofil mit einem protokollierten angepassten Event nach einer Typeform-Übermittlung.]({% image_buster /assets/img/typeform/typeform_custom_event.png %})
 
 ## Überwachung und Fehlerbehebung {#monitoring-and-troubleshooting}
 
-Im Abschnitt [Überwachung Ihrer Transformation]({{site.baseurl}}/user_guide/data_and_analytics/data_transformation/creating_a_transformation#step-5-monitor-your-transformation) finden Sie weitere Informationen zur Überwachung und Fehlerbehebung Ihrer Transformation.
+Weitere Informationen zur Überwachung und Fehlerbehebung Ihrer Transformation finden Sie im Abschnitt [Ihre Transformation überwachen]({{site.baseurl}}/user_guide/data_and_analytics/data_transformation/creating_a_transformation#step-5-monitor-your-transformation).

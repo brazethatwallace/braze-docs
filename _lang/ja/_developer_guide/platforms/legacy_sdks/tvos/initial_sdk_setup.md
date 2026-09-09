@@ -13,34 +13,34 @@ noindex: true
 
 # SDKの初期セットアップ {#initial-sdk-setup}
 
-> この参照記事では、tvOS 用 Braze SDKをインストールする方法について説明します。Braze SDKをインストールすると、基本的な分析機能が提供されます。
+> この参照記事では、tvOS用のBraze SDKをインストールする方法について説明します。Braze SDKをインストールすると、基本的な分析機能が提供されます。
 
 {% alert note %}
-当社の tvOS SDKは現在、分析機能をサポートしています。ダッシュボードに tvOS アプリを追加するには、[サポートチケット]({{site.baseurl}}/braze_support)を開いてください。
+当社のtvOS SDKは現在、分析機能をサポートしています。ダッシュボードにtvOSアプリを追加するには、[サポートチケット]({{site.baseurl}}/user_guide/administer/personal/braze_support)を開いてください。
 {% endalert %}
 
-tvOS Braze SDKは、Objective-C および Swift プロジェクトの依存関係マネージャーである [CocoaPods](http://cocoapods.org/) を使用してインストールまたは更新する必要があります。CocoaPods を使用すると、統合と更新がさらに簡単になります。
+tvOS Braze SDKは、Objective-CおよびSwiftプロジェクトの依存関係マネージャーである[CocoaPods](http://cocoapods.org/)を使用してインストールまたは更新する必要があります。CocoaPodsを使用すると、統合と更新がさらに簡単になります。
 
-## tvOS SDK CocoaPods の統合 {#tvos-sdk-cocoapods-integration}
+## tvOS SDK CocoaPods統合
 
-### ステップ1:CocoaPods をインストールする {#step-1-install-cocoapods}
+### ステップ1: CocoaPodsをインストールする
 
-tvOS [CocoaPods](http://cocoapods.org/) を介してSDKをインストールすると、インストールプロセスの大部分が自動化されます。このプロセスを開始する前に、[Ruby バージョン 2.0.0](https://www.ruby-lang.org/en/installation/) 以降を使用していることを確認してください。
+tvOS [CocoaPods](http://cocoapods.org/) を使用してSDKをインストールすると、インストールプロセスの大部分が自動化されます。このプロセスを開始する前に、[Ruby バージョン 2.0.0](https://www.ruby-lang.org/en/installation/) 以上を使用していることを確認してください。
 
-開始するには、次のコマンドを実行します。
+以下のコマンドを実行して開始します：
 
 ```bash
 $ sudo gem install cocoapods
 ```
 
-- `rake` 実行可能ファイルを上書きするプロンプトが表示された場合、詳細については CocoaPods.org の [Getting started](http://guides.cocoapods.org/using/getting-started.html) を参照してください。
-- CocoaPods に関する問題がある場合は、[CocoaPods トラブルシューティングガイド](http://guides.cocoapods.org/using/troubleshooting.html)を参照してください。
+- `rake` 実行ファイルの上書きを求められた場合は、CocoaPods.orgの[Getting started](http://guides.cocoapods.org/using/getting-started.html)を参照してください。
+- CocoaPodsに関する問題がある場合は、[CocoaPods troubleshooting guide](http://guides.cocoapods.org/using/troubleshooting.html)を参照してください。
 
-### ステップ2:Podfile の構築 {#step-2-constructing-the-podfile}
+### ステップ2: Podfileを構成する
 
-CocoaPods Ruby Gem をインストールしたら、Xcode プロジェクトディレクトリに `Podfile` という名前のファイルを作成する必要があります。
+CocoaPods Ruby Gemをインストールしたら、Xcodeプロジェクトディレクトリに `Podfile` という名前のファイルを作成する必要があります。
 
-次の行を Podfile に追加します。
+Podfileに以下の行を追加します：
 
 ```
 target 'YourAppTarget' do
@@ -48,31 +48,31 @@ target 'YourAppTarget' do
 end
 ```
 
-ポッドの更新がマイナーバージョンの更新よりも小さいものを自動的に取得するように、Braze をバージョン管理することをお勧めします。これは `pod 'Appboy-tvOS-SDK' ~> Major.Minor.Build` のようになります。メジャーな変更があっても最新の Braze SDK バージョンを自動的に統合する場合は、Podfile で `pod 'Appboy-tvOS-SDK'` を使用できます。
+マイナーバージョン更新未満のものをpod更新で自動的に取得するように、Brazeのバージョンを指定することをお勧めします。これは `pod 'Appboy-tvOS-SDK' ~> Major.Minor.Build` のようになります。メジャー変更を含む最新のBraze SDKバージョンを自動的に統合したい場合は、Podfileで `pod 'Appboy-tvOS-SDK'` を使用できます。
 
-### ステップ3:Braze SDKのインストール {#step-3-installing-the-braze-sdk}
+### ステップ3: Braze SDKをインストールする
 
-Braze SDK CocoaPods をインストールするには、ターミナル内で Xcode アプリプロジェクトのディレクトリに移動し、次のコマンドを実行します。
+Braze SDK CocoaPodsをインストールするには、ターミナル内でXcodeアプリプロジェクトのディレクトリに移動し、以下のコマンドを実行します：
 ```
 pod install
 ```
 
-この時点で、CocoaPods によって作成された新しい Xcode プロジェクトワークスペースを開くことができるはずです。Xcode プロジェクトの代わりに、必ずこの Xcode ワークスペースを使用してください。
+この時点で、CocoaPodsによって作成された新しいXcodeプロジェクトワークスペースを開けるはずです。Xcodeプロジェクトではなく、このXcodeワークスペースを使用してください。
 
-![CocoaPods によって作成された新しい Xcode プロジェクトワークスペース。Xcode プロジェクトの代わりに、必ずこの Xcode ワークスペースを使用してください。]({% image_buster /assets/img_archive/podsworkspace.png %})
+![CocoaPodsによって作成された新しいXcodeプロジェクトワークスペースを開けるはずです。Xcodeプロジェクトではなく、このXcodeワークスペースを使用してください。]({% image_buster /assets/img_archive/podsworkspace.png %})
 
-### ステップ4:アプリデリゲートの更新 {#step-4-updating-your-app-delegate}
+### ステップ4: アプリデリゲートを更新する
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-次のコード行を `AppDelegate.m` ファイルに追加します。
+`AppDelegate.m` ファイルに以下のコード行を追加します：
 
 ```objc
 #import <AppboyTVOSKit/AppboyKit.h>
 ```
 
-`AppDelegate.m` ファイル内で、`application:didFinishLaunchingWithOptions` メソッド内に次のスニペットを追加します。
+`AppDelegate.m` ファイル内の `application:didFinishLaunchingWithOptions` メソッド内に以下のスニペットを追加します：
 
 ```objc
 [Appboy startWithApiKey:@"YOUR-API-KEY"
@@ -80,75 +80,75 @@ pod install
      withLaunchOptions:launchOptions];
 ```
 
-最後に、**設定の管理**ページの正しい値で `YOUR-API-KEY` を更新します。
+最後に、`YOUR-API-KEY` を**設定の管理**ページの正しい値に更新します。
 
 {% endtab %}
 {% tab swift %}
 
-Braze SDKを CocoaPods または Carthage と統合する場合は、次のコード行を `AppDelegate.swift` ファイルに追加します。
+Braze SDKをCocoaPodsまたはCarthageで統合する場合は、`AppDelegate.swift` ファイルに以下のコード行を追加します：
 
 ```swift
 import AppboyTVOSKit
 ```
 
-Swift プロジェクトでの Objective-C コードの使用方法について詳しくは、[Apple 開発者ガイド](https://developer.apple.com/library/ios/documentation/swift/conceptual/buildingcocoaapps/MixandMatch.html)を参照してください。
+SwiftプロジェクトでObjective-Cコードを使用する方法の詳細については、[Apple Developer Docs](https://developer.apple.com/library/ios/documentation/swift/conceptual/buildingcocoaapps/MixandMatch.html)を参照してください。
 
-`AppDelegate.swift` で、次のスニペットを `application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool` に追加します。
+`AppDelegate.swift` で、`application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool` に以下のスニペットを追加します：
 
 ```swift
 Appboy.start(withApiKey: "YOUR-API-KEY", in:application, withLaunchOptions:launchOptions)
 ```
 
-次に、**設定の管理**ページの正しい値で `YOUR-API-KEY` を更新します。
+次に、`YOUR-API-KEY` を**設定の管理**ページの正しい値に更新します。
 
-`sharedInstance` シングルトンは、Braze 機能を使用するための前提条件である `startWithApiKey:` が呼び出される前は nil になります。
+`sharedInstance` シングルトンは `startWithApiKey:` が呼び出されるまで nil になります。これはBrazeの機能を使用するための前提条件です。
 
 {% endtab %}
 {% endtabs %}
 
 {% alert warning %}
-必ずアプリケーションのメインスレッドで Braze を初期化してください。非同期で初期化すると、機能が破損する可能性があります。
+アプリケーションのメインスレッドでBrazeを初期化してください。非同期で初期化すると、機能が正しく動作しなくなる可能性があります。
 {% endalert %}
 
-### ステップ5:カスタムエンドポイントまたはデータクラスターを指定する {#step-5-specify-your-custom-endpoint-or-data-cluster}
+### ステップ5: カスタムエンドポイントまたはデータクラスターを指定する
 
 {% alert note %}
-2019年12月をもって、カスタムエンドポイントは提供されなくなりました。既存のカスタムエンドポイントがある場合は、それを引き続き使用できます。詳細については、<a href="{{site.baseurl}}/api/basics#endpoints">利用可能なエンドポイントのリスト</a> を参照してください。
+2019年12月現在、カスタムエンドポイントは新たに提供されなくなりました。既存のカスタムエンドポイントをお持ちの場合は、引き続き使用できます。詳細については、<a href="{{site.baseurl}}/api/basics#endpoints">利用可能なエンドポイントのリスト</a> を参照してください。
 {% endalert %}
 
-Braze 担当者から、[正しいエンドポイント]({{ site.baseurl }}/user_guide/administrative/access_braze/sdk_endpoints/)についてすでに案内があったはずです。
+Brazeの担当者が、[正しいエンドポイント]({{ site.baseurl }}/user_guide/administrative/access_braze/sdk_endpoints/)についてすでにアドバイスしているはずです。
 
-#### コンパイル時のエンドポイント構成（推奨） {#compile-time-endpoint-configuration-recommended}
-既存のカスタムエンドポイントが指定されている場合:
-- Braze iOS SDK v3.0.2 以降では、`Info.plist` ファイルを使用してカスタムエンドポイントを設定できます。`Appboy` ディクショナリを Info.plist ファイルに追加します。`Appboy` ディクショナリ内で、`Endpoint` 文字列サブエントリを追加し、値をカスタムエンドポイント URL のオーソリティに設定します（例: `https://sdk.iad-01.braze.com` ではなく `sdk.iad-01.braze.com`）。
+#### コンパイル時のエンドポイント設定（推奨）
+既存のカスタムエンドポイントが提供されている場合：
+- Braze iOS SDK v3.0.2以降では、`Info.plist` ファイルを使用してカスタムエンドポイントを設定できます。Info.plistファイルに `Appboy` ディクショナリを追加します。`Appboy` ディクショナリ内に `Endpoint` 文字列サブエントリを追加し、カスタムエンドポイントURLのオーソリティに値を設定します（例：`sdk.iad-01.braze.com`、`https://sdk.iad-01.braze.com` ではありません）。
 
-#### ランタイムエンドポイント構成 {#runtime-endpoint-configuration}
-既存のカスタムエンドポイントが指定されている場合:
-- Braze iOS SDK v3.17.0 以降では、`startWithApiKey:inApplication:withLaunchOptions:withAppboyOptions:` に渡される `appboyOptions` パラメーター内の `ABKEndpointKey` を使用してエンドポイントの設定をオーバーライドできます。値をカスタムエンドポイント URL のオーソリティに設定します（例: `https://sdk.iad-01.braze.com` ではなく `sdk.iad-01.braze.com`）。
+#### ランタイムのエンドポイント設定
+既存のカスタムエンドポイントが提供されている場合：
+- Braze iOS SDK v3.17.0以降では、`startWithApiKey:inApplication:withLaunchOptions:withAppboyOptions:` に渡される `appboyOptions` パラメーター内の `ABKEndpointKey` を使用してエンドポイントをオーバーライドして設定できます。カスタムエンドポイントURLのオーソリティに値を設定します（例：`sdk.iad-01.braze.com`、`https://sdk.iad-01.braze.com` ではありません）。
 
 {% alert note %}
-`ABKAppboyEndpointDelegate` を使用した実行時のエンドポイント設定サポートは、Braze iOS SDK v3.17.0 で削除されました。すでに `ABKAppboyEndpointDelegate` を使用している場合は、Braze iOS SDK バージョン v3.14.1 から v3.16.0 では、`getApiEndpoint()` メソッドの `dev.appboy.com` への参照を `sdk.iad-01.braze.com` への参照に置き換える必要があります。
+`ABKAppboyEndpointDelegate` を使用したランタイムでのエンドポイント設定のサポートは、Braze iOS SDK v3.17.0で削除されました。すでに `ABKAppboyEndpointDelegate` を使用している場合、Braze iOS SDKバージョン v3.14.1 から v3.16.0 では、`getApiEndpoint()` メソッド内の `dev.appboy.com` への参照を `sdk.iad-01.braze.com` への参照に置き換える必要があることに注意してください。
 {% endalert %}
 
-### SDKの統合が完了 {#sdk-integration-complete}
+### SDKの統合完了
 
-これで、Braze はアプリケーションからデータを収集しており、基本的な統合は完了しているはずです。tvOS アプリおよびその他のサードパーティライブラリをコンパイルするときは、Bitcode を有効にする必要があることに注意してください。
+Brazeがアプリケーションからデータを収集するようになり、基本的な統合が完了したはずです。tvOSアプリおよびその他のサードパーティライブラリをコンパイルする際、Bitcodeを有効にする必要があることに注意してください。
 
-### CocoaPods 経由で Braze SDKを更新する {#updating-the-braze-sdk-via-cocoapods}
+### CocoaPodsを使用してBraze SDKを更新する
 
-CocoaPod を更新するには、プロジェクトディレクトリ内で次のコマンドを実行するだけです。
+CocoaPodを更新するには、プロジェクトディレクトリ内で以下のコマンドを実行するだけです：
 
 ```
 pod update
 ```
 
-## 起動時の Braze のカスタマイズ {#customizing-braze-on-startup}
+## 起動時のBrazeカスタマイズ
 
-起動時に Braze をカスタマイズする場合は、代わりに Braze 初期化メソッド `startWithApiKey:inApplication:withLaunchOptions:withAppboyOptions` を使用し、オプションの Braze 起動キーの `NSDictionary` を渡すことができます。
+起動時にBrazeをカスタマイズしたい場合は、代わりにBrazeの初期化メソッド `startWithApiKey:inApplication:withLaunchOptions:withAppboyOptions` を使用し、Braze起動キーのオプション `NSDictionary` を渡すことができます。
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-`AppDelegate.m` ファイルの `application:didFinishLaunchingWithOptions` メソッド内に、次の Braze メソッドを追加します。
+`AppDelegate.m` ファイル内の `application:didFinishLaunchingWithOptions` メソッドに、以下のBrazeメソッドを追加してください：
 
 ```objc
 [Appboy startWithApiKey:@"YOUR-API-KEY"
@@ -160,7 +160,7 @@ pod update
 {% endtab %}
 {% tab swift %}
 
-`AppDelegate.swift` の `application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool` メソッド内に、次の Braze メソッドを追加します。
+`AppDelegate.swift` 内の `application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool` メソッドに、以下のBrazeメソッドを追加してください：
 
 ```swift
 Appboy.start(withApiKey: "YOUR-API-KEY",
@@ -169,28 +169,26 @@ Appboy.start(withApiKey: "YOUR-API-KEY",
                  withAppboyOptions:appboyOptions)
 ```
 
-ここで、`appboyOptions` はスタートアップ構成値の `Dictionary` です。
+ここで `appboyOptions` は起動設定値の `Dictionary` です。
 
 {% endtab %}
 {% endtabs %}
 
-このメソッドは `startWithApiKey:inApplication:withLaunchOptions:` 初期化メソッドを置き換え、次のパラメーターで呼び出されます。
+このメソッドは `startWithApiKey:inApplication:withLaunchOptions:` 初期化メソッドの代わりに使用され、以下のパラメータで呼び出されます：
 
-- `YOUR-API-KEY`: アプリケーションの API キーは、Braze ダッシュボードの**設定の管理**にあります。
-- `application`: 現在のアプリ。
-- `launchOptions`: `application:didFinishLaunchingWithOptions:` から取得するオプション `NSDictionary`。
-- `appboyOptions`: Braze のスタートアップ構成値を持つオプションの `NSDictionary`。
+- `YOUR-API-KEY`：アプリケーションのAPIキーは、Brazeダッシュボードの**設定の管理**にあります。
+- `application`：現在のアプリです。
+- `launchOptions`：`application:didFinishLaunchingWithOptions:` から取得するオプション `NSDictionary` です。
+- `appboyOptions`：Brazeの起動設定値を含むオプション `NSDictionary` です。
 
-Braze 起動キーの一覧については、[Appboy.h](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/Appboy.h) を参照してください。
+Braze起動キーの一覧については、[Appboy.h](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/Appboy.h) を参照してください。
 
-## Appboy.sharedInstance() および Swift の nullability {#appboysharedinstance-and-swift-nullability}
-一般的な慣例とは多少異なりますが、`Appboy.sharedInstance()` シングルトンはオプションです。これは、`startWithApiKey:` が呼び出される前は `sharedInstance` が `nil` であり、遅延初期化を使用できる非標準だが無効ではない実装がいくつかあるためです。
+## Appboy.sharedInstance()とSwiftのnull許容性
+一般的なプラクティスとは多少異なり、`Appboy.sharedInstance()`シングルトンはオプショナルです。これは、`startWithApiKey:`が呼び出される前は`sharedInstance`が`nil`であり、遅延初期化を使用する非標準ではあるものの無効ではない実装が存在するためです。
 
-Appboy の `sharedInstance`（標準実装）にアクセスする前に `didFinishLaunchingWithOptions:` デリゲートで `startWithApiKey:` を呼び出すと、`Appboy.sharedInstance()?.changeUser("testUser")` のようなオプショナルチェーンを使用して、煩雑なチェックを回避できます。これは、非 null の `sharedInstance` を想定した Objective-C 実装と同等になります。
+Appboyの`sharedInstance`への任意のアクセスよりも前に`didFinishLaunchingWithOptions:`デリゲートで`startWithApiKey:`を呼び出す場合（標準的な実装）、`Appboy.sharedInstance()?.changeUser("testUser")`のようにオプショナルチェーンを使用することで、煩雑なチェックを回避できます。これは、非nullの`sharedInstance`を前提としたObjective-C実装と同等の動作になります。
 
-## 手動統合オプション {#manual-integration-options}
+tvOS SDKを手動で統合することもできます。[パブリックリポジトリ](https://github.com/appboy/appboy-ios-sdk)からFrameworkを取得し、前のセクションで説明した手順に従ってBrazeを初期化してください。
 
-tvOS SDKを手動で統合することもできます。[パブリックリポジトリ](https://github.com/appboy/appboy-ios-sdk)からフレームワークを取得し、前のセクションで説明したように Braze を初期化するだけです。
-
-## ユーザーの特定と分析レポート {#identifying-users-and-reporting-analytics}
-ユーザー ID の設定、カスタムイベントのログ記録、ユーザー属性の設定については、[iOS ドキュメント]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=swift)を参照してください。また、[イベントの命名規則]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions)についてもよく理解しておくことをお勧めします。
+## ユーザーの識別と分析レポート
+ユーザーIDの設定、カスタムイベントのログ記録、ユーザー属性の設定については、[iOSドキュメント]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=swift)を参照してください。また、[イベント命名規則]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions)についても理解しておくことをお勧めします。

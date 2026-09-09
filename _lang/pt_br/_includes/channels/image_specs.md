@@ -181,7 +181,7 @@ table td {
 | Banner    | Qualquer proporção | Largura mínima de 600&nbsp;px |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tabela" }
 
-Para saber mais, consulte os [detalhes de criação dos Content Cards]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details).
+Para saber mais, consulte os [detalhes de criação dos Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/creative_details).
 
 {% endif %}
 

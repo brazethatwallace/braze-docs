@@ -84,7 +84,7 @@ Im Folgenden finden Sie die Definitionen der verfügbaren Statistiken, wie sie b
 
 *Nutzer:innen* ist die Gesamtzahl der in diesem Workspace erstellten Nutzer:innen. Dies umfasst alle Nutzer:innen, die Ihre App oder Website zu irgendeinem Zeitpunkt verwendet haben, sowie diejenigen, die möglicherweise keiner bestimmten App oder Website zugeordnet sind. Diese Zahl gibt den Prozentsatz an, wie viele Ihrer Lifetime-Nutzer:innen als *monatlich aktive Nutzer:innen* (MAU) dargestellt werden, was nützlich ist, um die Nutzerbindung über einen langen Zeitraum zu betrachten.
 
-Ein niedriges MAU-zu-Nutzer:innen-Verhältnis kann darauf hindeuten, dass Sie Ihre Messaging-Kanäle diversifizieren oder Ihre Bemühungen verstärken müssen, passive Nutzer:innen zu erreichen. Weitere Informationen finden Sie in unserem Quick Win zum Thema [Passive Nutzer:innen zurückgewinnen]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users). Im Allgemeinen wird das MAU-zu-Lifetime-Verhältnis aufgrund von Churn im Laufe der Zeit unweigerlich sinken, aber die Tools von Braze können Ihnen helfen, diesen Effekt zu minimieren, indem sie Nutzer:innen länger engagiert halten.
+Ein niedriges MAU-zu-Nutzer:innen-Verhältnis kann darauf hindeuten, dass Sie Ihre Messaging-Kanäle diversifizieren oder Ihre Bemühungen verstärken müssen, passive Nutzer:innen zu erreichen. Weitere Informationen finden Sie in unserem Quick Win zum Thema [Passive Nutzer:innen zurückgewinnen]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users). Im Allgemeinen wird das MAU-zu-Lifetime-Verhältnis aufgrund von Abwanderung im Laufe der Zeit unweigerlich sinken, aber die Tools von Braze können Ihnen helfen, diesen Effekt zu minimieren, indem sie Nutzer:innen länger engagiert halten.
 
 ### Lifetime-Sitzungen {#lifetime-sessions}
 
@@ -134,14 +134,14 @@ MAU-Zahlen in Braze hängen davon ab, wo Sie sie anzeigen. Die Gesamt-MAU wird a
 
 ### Täglich aktive Nutzer:innen {#daily-active-users}
 
-*Täglich aktive Nutzer:innen* (DAU) zeigt die Anzahl der eindeutigen Nutzer:innen an, die an einem bestimmten Tag mindestens eine Sitzung in Ihrer App oder auf Ihrer Website aufzeichnen. DAU kann eine nützliche Statistik sein, um die tägliche Variabilität der Nutzung Ihrer App oder Website zu untersuchen und Ihre Messaging-Kampagnen so effektiv wie möglich zu gestalten. Beispielsweise könnte die Nutzung Ihrer App an Wochenenden deutlich ansteigen – das würde Ihnen zeigen, dass Sie an diesen Tagen mehr Nutzer:innen mit In-App-Nachrichten erreichen könnten als an Wochentagen.
+*Täglich aktive Nutzer:innen* (täglich aktive:r Nutzer:in; täglich aktiv) zeigt die Anzahl der eindeutigen Nutzer:innen an, die an einem bestimmten Tag mindestens eine Sitzung in Ihrer App oder auf Ihrer Website aufzeichnen. täglich aktive:r Nutzer:in; täglich aktiv kann eine nützliche Statistik sein, um die tägliche Variabilität der Nutzung Ihrer App oder Website zu untersuchen und Ihre Messaging-Kampagnen so effektiv wie möglich zu gestalten. Beispielsweise könnte die Nutzung Ihrer App an Wochenenden deutlich ansteigen – das würde Ihnen zeigen, dass Sie an diesen Tagen mehr Nutzer:innen mit In-App-Nachrichten erreichen könnten als an Wochentagen.
 
 ### Neue Nutzer:innen {#new-users}
 
 *Neue Nutzer:innen* gibt an, wie viele Nutzer:innen, die zuvor noch nie eine Sitzung aufgezeichnet haben, begonnen haben, Ihre App oder Website zu nutzen. Diese Zahl ist die Gesamtzahl neuer Nutzer:innen über den angegebenen Zeitraum. Diese Statistik kann sehr wertvoll sein, um die Effektivität Ihrer Werbemaßnahmen zu verfolgen.
 
 {% alert note %}
-Wenn Sie Braze erstmals integrieren, werden alle Nutzer:innen als neue Nutzer:innen angezeigt, da Braze zuvor noch nie eine Sitzung für sie aufgezeichnet hat. <br><br> Anders als bei MAU kann die Zahl der *neuen Nutzer:innen* rückwirkend sinken, wenn Braze ein anonymes Profil mit einem identifizierten Profil zusammenführt und das anonyme Profil verwaist. Braze entfernt das verwaiste Profil aus den App-Nutzungssummen, was die Zahl der *neuen Nutzer:innen* für bereits angezeigte Daten senken kann. Informationen zum Verhalten bei der Profilverknüpfung finden Sie unter [Nutzerprofil-Lebenszyklus]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle).
+Wenn Sie Braze erstmals integrieren, werden alle Nutzer:innen als neue Nutzer:innen angezeigt, da Braze zuvor noch nie eine Sitzung für sie aufgezeichnet hat. <br><br> Anders als bei MAU kann die Zahl der *neuen Nutzer:innen* rückwirkend sinken, wenn Braze ein anonymes Profil mit einem identifizierten Profil zusammenführt und das anonyme Profil verwaist. Braze entfernt das verwaiste Profil aus den App-Nutzungssummen, was die Zahl der *neuen Nutzer:innen* für bereits angezeigte Daten senken kann. Informationen zum Verhalten bei der Profilverknüpfung finden Sie unter [Kundenprofil-Lebenszyklus]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle).
 {% endalert %}
 
 {% alert important %}
@@ -150,7 +150,7 @@ Nutzer:innen, die mit mehr als einer App verknüpft sind, werden für jede App s
 
 ### Kundenbindung (Stickiness) {#stickiness}
 
-Der *Stickiness*-Wert ist das Verhältnis von DAU zu MAU eines bestimmten Zeitraums. Im Wesentlichen misst Stickiness den Prozentsatz Ihrer MAU, die täglich zurückkehren.
+Der *Stickiness*-Wert ist das Verhältnis von täglich aktive:r Nutzer:in; täglich aktiv zu MAU eines bestimmten Zeitraums. Im Wesentlichen misst Stickiness den Prozentsatz Ihrer MAU, die täglich zurückkehren.
 
 Wenn der Zeitraum beispielsweise auf 30 Tage eingestellt ist, bedeutet ein Verhältnis von 50 %, dass ein:e aktive:r Nutzer:in die App oder Website im Durchschnitt an 15 von 30 Tagen nutzt, oder dass etwa die Hälfte Ihrer aktiven Nutzer:innen täglich zurückkehrt. Stickiness ist eine wichtige Erfolgsmetrik, da die meisten Nutzer:innen eine App nicht aufgeben, weil sie sie aktiv nicht mögen, sondern weil sie nicht Teil ihrer täglichen Routine geworden ist. Daher können Sie Stickiness als Indikator dafür verwenden, wie gut Sie Ihre Nutzer:innen engagieren.
 
@@ -166,7 +166,7 @@ Der MAU-Wert wird nächtlich berechnet und erst am nächsten Tag aktualisiert.
 
 ### Tägliche Sitzungen {#daily-sessions}
 
-*Tägliche Sitzungen* ist die Anzahl der an einem bestimmten Tag aufgezeichneten Sitzungen. Ein Vergleich dieses Werts mit Ihrer DAU-Zahl kann Ihnen zeigen, wie oft Ihre Nutzer:innen die App öffnen oder die Website besuchen an Tagen, an denen sie mindestens eine Sitzung aufzeichnen.
+*Tägliche Sitzungen* ist die Anzahl der an einem bestimmten Tag aufgezeichneten Sitzungen. Ein Vergleich dieses Werts mit Ihrer täglich aktive:r Nutzer:in; täglich aktiv-Zahl kann Ihnen zeigen, wie oft Ihre Nutzer:innen die App öffnen oder die Website besuchen an Tagen, an denen sie mindestens eine Sitzung aufzeichnen.
 
 {% alert note %}
 Die *Anzahl der täglichen Sitzungen* für ein bestimmtes Datum kann sich ändern, wenn Sie das Home-Dashboard an verschiedenen Tagen aufrufen. Wenn ein:e Nutzer:in eine Sitzung offline startet, erreicht die Sitzung Braze möglicherweise erst, wenn die App erneut geöffnet wird. Wenn diese Sitzung übermittelt wird, ordnet Braze sie dem Datum zu, an dem die Sitzung gestartet wurde, was die Zahl für dieses Datum rückwirkend erhöhen kann.

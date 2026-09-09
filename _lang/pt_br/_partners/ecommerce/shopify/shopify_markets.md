@@ -13,7 +13,7 @@ hidden: true
 > Este artigo aborda a integração do Shopify Markets (atualmente em beta), incluindo o que está no escopo, como funciona e como usar os dados de mercados no seu envio de mensagens. A Braze está lançando progressivamente funcionalidades adicionais de Markets ao longo do período de beta, ampliando o suporte para estruturas de mercado mais complexas ao longo do tempo.
 
 {% alert important %}
-O Shopify Markets está atualmente em beta. Para saber mais, entre em contato com seu gerente de sucesso do cliente da Braze.
+O Shopify Markets está atualmente em beta. Para saber mais, entre em contato com seu CSM da Braze.
 {% endalert %}
 
 ## Como a integração funciona {#how-the-integration-works}
@@ -224,7 +224,7 @@ Você pode usar um mercado fixo quando uma mensagem é direcionada a um mercado 
    - **Personalized:** Cada destinatário vê produtos e preços do mercado que corresponde ao atributo `country` do seu perfil.
    - **A synced market:** Selecione um mercado pelo nome para fixar a seleção nos produtos e preços desse mercado. Use isso quando uma mensagem é direcionada a um único mercado.
 4. Finalize quaisquer critérios de filtro adicionais e salve a seleção.
-5. Em **Preview for user**, selecione um usuário para ver o que a seleção retorna para esse perfil. Seleções que usam **Personalized** só podem ser visualizadas após selecionar um usuário.
+5. Em **prévia for user**, selecione um usuário para ver o que a seleção retorna para esse perfil. Seleções que usam **Personalized** só podem ser visualizadas após selecionar um usuário.
 
 | Alvo | Filtro |
 | --- | --- |

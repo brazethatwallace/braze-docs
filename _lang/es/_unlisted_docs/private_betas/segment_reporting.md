@@ -12,7 +12,7 @@ page_type: reference
 
 > Este artículo explica cómo usar Segments como dimensión de informes en el generador de informes, incluyendo cómo generar informes sobre Segments, desglosar por Segment y qué combinaciones son compatibles.
 
-{% multi_lang_include alerts/early_access_beta_alert.md feature='Segment reporting' contact='customer success manager' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Segment reporting' contact='CSM' %}
 
 El generador de informes admite **Segments** en filas y como opción de desglose, para que puedas ver el rendimiento de tus Segments y desglosar el rendimiento de Campaigns o Canvas por pertenencia a un Segment. Si **Segments** no aparece en los desplegables de **Rows** o **Drilldown**, esta característica no se ha habilitado para tu cuenta.
 

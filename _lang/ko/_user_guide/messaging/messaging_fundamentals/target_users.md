@@ -93,7 +93,7 @@ Segment 멤버십 필터를 통해 **추가 필터** 섹션에 Segment를 추가
 Braze는 하단에 타겟팅된 채널의 상세한 오디언스 통계를 제공합니다. 사용자 기반이 클수록 **도달 가능 사용자** 수는 대략적인 추정치일 가능성이 높습니다. [글로벌 컨트롤 그룹]({{site.baseurl}}/user_guide/audience/global_control_group)을 사용하거나 메시지 자격 조건을 설정하면 도달 가능 사용자 수가 줄어들 수 있습니다.
 
 - 도달 가능 사용자의 정확한 수를 확인하려면 [정확한 통계 계산]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size#calculating-exact-statistics)을 선택하세요. 이 기능은 사용자 기반의 모든 사용자를 검색합니다.
-- 사용자 기반 중 타겟팅되는 비율이나 이 Segment의 생애주기 가치(LTV)를 확인하려면 **추가 통계 보기**를 선택하세요.
+- 사용자 기반 중 타겟팅되는 비율이나 이 Segment의 LTV(LTV)를 확인하려면 **추가 통계 보기**를 선택하세요.
 
 ##### 타겟 오디언스 수와 도달 가능 사용자 수가 다를 수 있는 이유 {#why-the-target-audience-count-could-differ-from-the-reachable-users-count}
 

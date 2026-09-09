@@ -24,7 +24,7 @@ You can also call this endpoint through the [Braze MCP server]({{site.baseurl}}/
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5eb1fe0d-2795-474d-aaf2-c4e2977dc94b {% endapiref %}
 
 ## Prerequisites
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key) with the `templates.email.create` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics) with the `templates.email.create` permission.
 
 ## Rate limit
 

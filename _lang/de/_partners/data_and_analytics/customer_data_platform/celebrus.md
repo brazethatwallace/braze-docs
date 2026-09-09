@@ -37,7 +37,7 @@ Der Konnektor setzt das Braze SDK in Ihrem Kanal ein und konfiguriert es. Daher 
 ```
 
 {% alert important %}
-Der Celebrus-Konnektor für das Braze SDK fügt das Braze SDK ein und initialisiert es, um die Nutzer:innen zu identifizieren und den Bezeichner zum Identitätsgraphen von Celebrus hinzuzufügen. Dieser Konnektor protokolliert keine Daten im Nutzerprofil und triggert keine anderen Braze SDK-Methoden. <br><br>Sie können alle gewünschten Methoden direkt in Ihrer Code-Basis aufrufen, um Daten über das [Braze SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) zu protokollieren oder andere vom Braze SDK unterstützte Features zu nutzen.
+Der Celebrus-Konnektor für das Braze SDK fügt das Braze SDK ein und initialisiert es, um die Nutzer:innen zu identifizieren und den Bezeichner zum Identitätsgraphen von Celebrus hinzuzufügen. Dieser Konnektor protokolliert keine Daten im Kundenprofil und triggert keine anderen Braze SDK-Methoden. <br><br>Sie können alle gewünschten Methoden direkt in Ihrer Code-Basis aufrufen, um Daten über das [Braze SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) zu protokollieren oder andere vom Braze SDK unterstützte Features zu nutzen.
 {% endalert%}
 
 ### Celebrus-Konnektor für angepasste Attribute von Braze {#celebrus-connector-for-braze-custom-attributes}

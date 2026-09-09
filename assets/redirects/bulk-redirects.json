@@ -110,6 +110,131 @@
     "permanent": true
   },
   {
+    "source": "/docs/api/endpoints/custom_objects",
+    "destination": "/docs/api/endpoints/data_objects",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/object_relationships",
+    "destination": "/docs/api/endpoints/data_objects/object_relationships",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/object_relationships/delete_object_relationship",
+    "destination": "/docs/api/endpoints/data_objects/object_relationships/delete_object_relationship",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/object_relationships/get_list_object_relationships",
+    "destination": "/docs/api/endpoints/data_objects/object_relationships/get_list_object_relationships",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/object_relationships/patch_update_object_relationship",
+    "destination": "/docs/api/endpoints/data_objects/object_relationships/patch_update_object_relationship",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/object_relationships/post_create_object_relationship",
+    "destination": "/docs/api/endpoints/data_objects/object_relationships/post_create_object_relationship",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/object_relationships/put_replace_object_relationship",
+    "destination": "/docs/api/endpoints/data_objects/object_relationships/put_replace_object_relationship",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/objects",
+    "destination": "/docs/api/endpoints/data_objects/objects",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/objects/delete_custom_object",
+    "destination": "/docs/api/endpoints/data_objects/objects/delete_data_object",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/objects/get_custom_object",
+    "destination": "/docs/api/endpoints/data_objects/objects/get_data_object",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/objects/get_list_custom_objects",
+    "destination": "/docs/api/endpoints/data_objects/objects/get_list_data_objects",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/objects/patch_update_custom_object",
+    "destination": "/docs/api/endpoints/data_objects/objects/patch_update_data_object",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/objects/post_create_custom_object",
+    "destination": "/docs/api/endpoints/data_objects/objects/post_create_data_object",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/objects/put_replace_custom_object",
+    "destination": "/docs/api/endpoints/data_objects/objects/put_replace_data_object",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/types",
+    "destination": "/docs/api/endpoints/data_objects/types",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/types/get_custom_object_type",
+    "destination": "/docs/api/endpoints/data_objects/types/get_data_object_type",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/types/get_list_custom_object_types",
+    "destination": "/docs/api/endpoints/data_objects/types/get_list_data_object_types",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/types/get_list_object_relationship_types",
+    "destination": "/docs/api/endpoints/data_objects/types/get_list_object_relationship_types",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/types/get_list_user_relationship_types",
+    "destination": "/docs/api/endpoints/data_objects/types/get_list_user_relationship_types",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/user_relationships",
+    "destination": "/docs/api/endpoints/data_objects/user_relationships",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/user_relationships/delete_user_relationship",
+    "destination": "/docs/api/endpoints/data_objects/user_relationships/delete_user_relationship",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/user_relationships/get_list_user_relationships",
+    "destination": "/docs/api/endpoints/data_objects/user_relationships/get_list_user_relationships",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/user_relationships/patch_update_user_relationship",
+    "destination": "/docs/api/endpoints/data_objects/user_relationships/patch_update_user_relationship",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/user_relationships/post_create_user_relationship",
+    "destination": "/docs/api/endpoints/data_objects/user_relationships/post_create_user_relationship",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/user_relationships/put_replace_user_relationship",
+    "destination": "/docs/api/endpoints/data_objects/user_relationships/put_replace_user_relationship",
+    "permanent": true
+  },
+  {
     "source": "/docs/api/endpoints/email/bounce/remove",
     "destination": "/docs/api/endpoints/email/post_remove_hard_bounces",
     "permanent": true
@@ -212,6 +337,51 @@
   {
     "source": "/docs/api/interactive",
     "destination": "/docs/api/home",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/messaging_api",
+    "destination": "/docs/api/device_messaging_api",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/messaging_api/authentication",
+    "destination": "/docs/api/device_messaging_api/authentication",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/messaging_api/endpoints",
+    "destination": "/docs/api/device_messaging_api/endpoints",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/messaging_api/endpoints/banners",
+    "destination": "/docs/api/device_messaging_api/endpoints/banners",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/messaging_api/endpoints/banners/post_sync_banners",
+    "destination": "/docs/api/device_messaging_api/endpoints/banners/post_sync_banners",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/messaging_api/endpoints/banners/post_track_banner_events",
+    "destination": "/docs/api/device_messaging_api/endpoints/banners/post_track_banner_events",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/messaging_api/error_handling",
+    "destination": "/docs/api/device_messaging_api/error_handling",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/messaging_api/overview",
+    "destination": "/docs/api/device_messaging_api/overview",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/messaging_api/rate_limits",
+    "destination": "/docs/api/device_messaging_api/rate_limits",
     "permanent": true
   },
   {
@@ -646,7 +816,7 @@
   },
   {
     "source": "/docs/create_rcs_message",
-    "destination": "/docs/user_guide/channels/sms_mms_and_rcs/create",
+    "destination": "/docs/user_guide/channels/sms_mms_and_rcs/create#rcs-message-types",
     "permanent": true
   },
   {
@@ -697,6 +867,11 @@
   {
     "source": "/docs/de/_partners/data_and_analytics/wrapper_sdks",
     "destination": "/docs/de/developer_guide/sdk_integration",
+    "permanent": true
+  },
+  {
+    "source": "/docs/de/create_rcs_message",
+    "destination": "/docs/de/user_guide/channels/sms_mms_and_rcs/create#rcs-message-types",
     "permanent": true
   },
   {
@@ -5995,6 +6170,16 @@
     "permanent": true
   },
   {
+    "source": "/docs/de/rate_limiting_v3",
+    "destination": "/docs/de/user_guide/messaging/messaging_fundamentals/frequency_capping",
+    "permanent": true
+  },
+  {
+    "source": "/docs/de/shopify_collections_sync",
+    "destination": "/docs/de/partners/ecommerce/shopify/shopify_catalogs#shopify-product-sync",
+    "permanent": true
+  },
+  {
     "source": "/docs/de/user_guide/administer/global/user_management/permissions/granular_permissions_migration",
     "destination": "/docs/de/user_guide/administer/global/user_management/permissions",
     "permanent": true
@@ -6550,6 +6735,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/de/user_guide/analytics/query_builder/query_templates",
+    "destination": "/docs/de/user_guide/analytics/reports/query_builder/query_templates",
+    "permanent": true
+  },
+  {
     "source": "/docs/de/user_guide/analytics/reporting/report_builder",
     "destination": "/docs/de/user_guide/analytics/reports/report_builder",
     "permanent": true
@@ -6597,6 +6787,11 @@
   {
     "source": "/docs/de/user_guide/data/custom_data/custom_events",
     "destination": "/docs/de/user_guide/data/activation/events/custom_events",
+    "permanent": true
+  },
+  {
+    "source": "/docs/de/user_guide/data/data_transformation/creating_a_transformation",
+    "destination": "/docs/de/user_guide/data/unification/data_transformation/creating_a_transformation",
     "permanent": true
   },
   {
@@ -17155,6 +17350,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/es/create_rcs_message",
+    "destination": "/docs/es/user_guide/channels/sms_mms_and_rcs/create#rcs-message-types",
+    "permanent": true
+  },
+  {
     "source": "/docs/es/create_sms_message",
     "destination": "/docs/es/user_guide/channels/sms_mms_and_rcs/create",
     "permanent": true
@@ -21065,6 +21265,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/es/developer_guide/platforms/android/push_notifications/troubleshooting",
+    "destination": "/docs/es/developer_guide/push_notifications/troubleshooting?sdktab=android",
+    "permanent": true
+  },
+  {
     "source": "/docs/es/developer_guide/platforms/swift/content_cards",
     "destination": "/docs/es/developer_guide/content_cards?sdktab=swift",
     "permanent": true
@@ -21077,6 +21282,11 @@
   {
     "source": "/docs/es/developer_guide/rest_api/api_campaigns",
     "destination": "/docs/es/api/api_campaigns",
+    "permanent": true
+  },
+  {
+    "source": "/docs/es/developer_guide/rest_api/export",
+    "destination": "/docs/es/api/endpoints/export",
     "permanent": true
   },
   {
@@ -21920,6 +22130,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/es/partners/data_augmentation/contextual_location/bluedot",
+    "destination": "/docs/es/partners/message_personalization/location/bluedot",
+    "permanent": true
+  },
+  {
     "source": "/docs/es/partners/ecommerce/loyalty/voucherify/voucherify_using_braze_promotion_codes_list",
     "destination": "/docs/es/partners/ecommerce/loyalty/voucherify",
     "permanent": true
@@ -22445,6 +22660,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/es/partners/message_personalization/dynamic_content/content_optimization_testing/just_ai",
+    "destination": "/docs/es/partners/home",
+    "permanent": true
+  },
+  {
     "source": "/docs/es/partners/technology_partners/data_and_infrastructure_agility",
     "destination": "/docs/es/partners/data_and_analytics",
     "permanent": true
@@ -22515,8 +22735,18 @@
     "permanent": true
   },
   {
+    "source": "/docs/es/rate_limiting_v3",
+    "destination": "/docs/es/user_guide/messaging/messaging_fundamentals/frequency_capping",
+    "permanent": true
+  },
+  {
     "source": "/docs/es/releases/release_notes",
     "destination": "/docs/es/releases/home",
+    "permanent": true
+  },
+  {
+    "source": "/docs/es/shopify_collections_sync",
+    "destination": "/docs/es/partners/ecommerce/shopify/shopify_catalogs#shopify-product-sync",
     "permanent": true
   },
   {
@@ -23155,6 +23385,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/es/user_guide/brazeai/predictive_events",
+    "destination": "/docs/es/user_guide/brazeai/predictive_suite/predictive_events",
+    "permanent": true
+  },
+  {
     "source": "/docs/es/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/geographic_permissions",
     "destination": "/docs/es/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions",
     "permanent": true
@@ -23640,6 +23875,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/es/user_guide/engagement_tools/campaigns/ideas_and_strategies/campaigns_in_multiple_languages",
+    "destination": "/docs/es/user_guide/messaging/messaging_fundamentals/localization",
+    "permanent": true
+  },
+  {
     "source": "/docs/es/user_guide/engagement_tools/campaigns/ideas_and_strategies/capturing_lapsing_users",
     "destination": "/docs/es/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users",
     "permanent": true
@@ -23835,6 +24075,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/es/user_guide/engagement_tools/canvas/create_a_canvas/in-app_messages_in_canvas",
+    "destination": "/docs/es/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas",
+    "permanent": true
+  },
+  {
     "source": "/docs/es/user_guide/engagement_tools/canvas/faqs",
     "destination": "/docs/es/user_guide/messaging/canvas/faqs",
     "permanent": true
@@ -23955,6 +24200,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/es/user_guide/engagement_tools/landing_pages/personalizing_pages",
+    "destination": "/docs/es/user_guide/messaging/landing_pages/personalize_landing_pages",
+    "permanent": true
+  },
+  {
     "source": "/docs/es/user_guide/engagement_tools/landing_pages/retargeting",
     "destination": "/docs/es/user_guide/messaging/landing_pages/retargeting_users",
     "permanent": true
@@ -23972,6 +24222,11 @@
   {
     "source": "/docs/es/user_guide/engagement_tools/messaging_fundamentals",
     "destination": "/docs/es/user_guide/messaging/messaging_fundamentals",
+    "permanent": true
+  },
+  {
+    "source": "/docs/es/user_guide/engagement_tools/messaging_fundamentals/about_statuses",
+    "destination": "/docs/es/user_guide/messaging/governance/statuses",
     "permanent": true
   },
   {
@@ -24157,6 +24412,11 @@
   {
     "source": "/docs/es/user_guide/engagement_tools/testing/multivariant_testing",
     "destination": "/docs/es/user_guide/messaging/ab_testing",
+    "permanent": true
+  },
+  {
+    "source": "/docs/es/user_guide/engagement_tools/testing/multivariant_testing/create_multivariate_campaign",
+    "destination": "/docs/es/user_guide/messaging/ab_testing/create_tests",
     "permanent": true
   },
   {
@@ -24417,6 +24677,11 @@
   {
     "source": "/docs/es/user_guide/message_building_by_channel/email/inbox_vision",
     "destination": "/docs/es/user_guide/channels/email/inbox_vision",
+    "permanent": true
+  },
+  {
+    "source": "/docs/es/user_guide/message_building_by_channel/email/link_templates",
+    "destination": "/docs/es/user_guide/messaging/templates/email_templates/link_template",
     "permanent": true
   },
   {
@@ -24695,6 +24960,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/es/user_guide/message_building_by_channel/push/push_action_buttons",
+    "destination": "/docs/es/user_guide/channels/push/create_a_push_message/push_action_buttons",
+    "permanent": true
+  },
+  {
     "source": "/docs/es/user_guide/message_building_by_channel/push/push_registration",
     "destination": "/docs/es/user_guide/channels/push/push_setup/push_token_lifecycle",
     "permanent": true
@@ -24742,6 +25012,11 @@
   {
     "source": "/docs/es/user_guide/message_building_by_channel/sms/sms_campaign_analytics",
     "destination": "/docs/es/user_guide/channels/sms_mms_and_rcs/reporting",
+    "permanent": true
+  },
+  {
+    "source": "/docs/es/user_guide/message_building_by_channel/sms/sms_subscription_group",
+    "destination": "/docs/es/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups",
     "permanent": true
   },
   {
@@ -25000,6 +25275,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/es/user_guide/onboarding_with_braze/email_setup/ip_warming",
+    "destination": "/docs/es/user_guide/channels/email/email_setup/ip_warming",
+    "permanent": true
+  },
+  {
     "source": "/docs/es/user_guide/personalization_and_dynamic_content",
     "destination": "/docs/es/user_guide/messaging/design_and_edit/personalize",
     "permanent": true
@@ -25120,6 +25400,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/es/user_guide/sage_ai/recommendations/about_item_recommendations",
+    "destination": "/docs/es/user_guide/brazeai/item_recommendations",
+    "permanent": true
+  },
+  {
     "source": "/docs/faqs",
     "destination": "/docs/user_guide/home",
     "permanent": true
@@ -25132,6 +25417,11 @@
   {
     "source": "/docs/fr/create_mms_message",
     "destination": "/docs/fr/user_guide/channels/sms_mms_and_rcs/create",
+    "permanent": true
+  },
+  {
+    "source": "/docs/fr/create_rcs_message",
+    "destination": "/docs/fr/user_guide/channels/sms_mms_and_rcs/create#rcs-message-types",
     "permanent": true
   },
   {
@@ -25310,6 +25600,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/fr/developer_guide/platform_integration_guides/swift/in-app_messaging/customization/setting_delegates",
+    "destination": "/docs/fr/developer_guide/in_app_messages/customization#swift_setting-up-the-ui-delegate-required",
+    "permanent": true
+  },
+  {
     "source": "/docs/fr/developer_guide/platform_integration_guides/swift/in-app_messaging/overview",
     "destination": "/docs/fr/developer_guide/in_app_messages?sdktab=swift",
     "permanent": true
@@ -25420,6 +25715,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/fr/developer_guide/push_notifications/live_notifications",
+    "destination": "/docs/fr/developer_guide/live_notifications?sdktab=swift",
+    "permanent": true
+  },
+  {
     "source": "/docs/fr/developer_guide/rest_api/api_campaigns",
     "destination": "/docs/fr/api/api_campaigns",
     "permanent": true
@@ -25427,6 +25727,16 @@
   {
     "source": "/docs/fr/developer_guide/rest_api/basics",
     "destination": "/docs/fr/api/basics",
+    "permanent": true
+  },
+  {
+    "source": "/docs/fr/developer_guide/rest_api/email_templates",
+    "destination": "/docs/fr/api/endpoints/templates",
+    "permanent": true
+  },
+  {
+    "source": "/docs/fr/developer_guide/rest_api/export",
+    "destination": "/docs/fr/api/endpoints/export",
     "permanent": true
   },
   {
@@ -25457,6 +25767,21 @@
   {
     "source": "/docs/fr/granular_permissions_migration",
     "destination": "/docs/fr/user_guide/administer/global/user_management/permissions",
+    "permanent": true
+  },
+  {
+    "source": "/docs/fr/help/best_practices/race_conditions",
+    "destination": "/docs/fr/user_guide/messaging/ab_testing/concepts/race_conditions",
+    "permanent": true
+  },
+  {
+    "source": "/docs/fr/help/best_practices/utilizing_badge_count",
+    "destination": "/docs/fr/user_guide/channels/push/platform_specific_resources/ios/utilizing_badge_count",
+    "permanent": true
+  },
+  {
+    "source": "/docs/fr/help/faqs",
+    "destination": "/docs/fr/user_guide/home",
     "permanent": true
   },
   {
@@ -25695,6 +26020,16 @@
     "permanent": true
   },
   {
+    "source": "/docs/fr/rate_limiting_v3",
+    "destination": "/docs/fr/user_guide/messaging/messaging_fundamentals/frequency_capping",
+    "permanent": true
+  },
+  {
+    "source": "/docs/fr/shopify_collections_sync",
+    "destination": "/docs/fr/partners/ecommerce/shopify/shopify_catalogs#shopify-product-sync",
+    "permanent": true
+  },
+  {
     "source": "/docs/fr/user_guide/administer/global/billing/message_usage_dashboard",
     "destination": "/docs/fr/credits_usage_dashboard",
     "permanent": true
@@ -25930,6 +26265,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/fr/user_guide/data/braze_currents/how_braze_uses_currents",
+    "destination": "/docs/fr/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents",
+    "permanent": true
+  },
+  {
     "source": "/docs/fr/user_guide/data/braze_data_platform",
     "destination": "/docs/fr/user_guide/data",
     "permanent": true
@@ -25937,6 +26277,11 @@
   {
     "source": "/docs/fr/user_guide/data/data_transformation/creating_a_transformation",
     "destination": "/docs/fr/user_guide/data/unification/data_transformation/creating_a_transformation",
+    "permanent": true
+  },
+  {
+    "source": "/docs/fr/user_guide/data/distribution/braze_currents/available_partners",
+    "destination": "/docs/fr/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners",
     "permanent": true
   },
   {
@@ -26180,6 +26525,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/fr/user_guide/engagement_tools/campaigns/scheduling_and_organizing/campaign_alerts",
+    "destination": "/docs/fr/user_guide/messaging/campaigns/manage_campaigns/campaign_alerts",
+    "permanent": true
+  },
+  {
     "source": "/docs/fr/user_guide/engagement_tools/campaigns/scheduling_and_organizing/delivery_types",
     "destination": "/docs/fr/user_guide/messaging/campaigns/schedule_your_campaign",
     "permanent": true
@@ -26290,6 +26640,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/fr/user_guide/engagement_tools/canvas/create_a_canvas/in-app_messages_in_canvas",
+    "destination": "/docs/fr/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas",
+    "permanent": true
+  },
+  {
     "source": "/docs/fr/user_guide/engagement_tools/canvas/get_started",
     "destination": "/docs/fr/user_guide/messaging/canvas",
     "permanent": true
@@ -26312,6 +26667,11 @@
   {
     "source": "/docs/fr/user_guide/engagement_tools/canvas/get_started/braze_templates/post_purchase_feedback",
     "destination": "/docs/fr/user_guide/messaging/templates/canvas_templates/braze_templates/post_purchase_feedback",
+    "permanent": true
+  },
+  {
+    "source": "/docs/fr/user_guide/engagement_tools/canvas/get_started/the_basics",
+    "destination": "/docs/fr/user_guide/messaging/canvas/canvas_basics",
     "permanent": true
   },
   {
@@ -26522,6 +26882,11 @@
   {
     "source": "/docs/fr/user_guide/engagement_tools/segments/suppression_lists",
     "destination": "/docs/fr/user_guide/audience/suppression_lists",
+    "permanent": true
+  },
+  {
+    "source": "/docs/fr/user_guide/engagement_tools/segments/troubleshooting",
+    "destination": "/docs/fr/user_guide/audience/segments/troubleshooting",
     "permanent": true
   },
   {
@@ -26815,6 +27180,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/fr/user_guide/message_building_by_channel/in-app_messages/best_practices",
+    "destination": "/docs/fr/user_guide/channels/in_app_messages/best_practices",
+    "permanent": true
+  },
+  {
     "source": "/docs/fr/user_guide/message_building_by_channel/in-app_messages/creative_details/modal",
     "destination": "/docs/fr/user_guide/channels/in_app_messages/message_types/modal",
     "permanent": true
@@ -26862,6 +27232,11 @@
   {
     "source": "/docs/fr/user_guide/message_building_by_channel/in-app_messages/in_app_message_color_templates",
     "destination": "/docs/fr/user_guide/channels/in_app_messages/customize#color-profile",
+    "permanent": true
+  },
+  {
+    "source": "/docs/fr/user_guide/message_building_by_channel/in-app_messages/ios_app_rating_prompt",
+    "destination": "/docs/fr/user_guide/channels/in_app_messages/best_practices/ios_app_rating_prompt",
     "permanent": true
   },
   {
@@ -27050,6 +27425,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/fr/user_guide/message_building_by_channel/sms/sms_subscription_group",
+    "destination": "/docs/fr/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups",
+    "permanent": true
+  },
+  {
     "source": "/docs/fr/user_guide/message_building_by_channel/sms_mms_rcs",
     "destination": "/docs/fr/user_guide/channels/sms_mms_and_rcs",
     "permanent": true
@@ -27200,6 +27580,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/fr/user_guide/message_building_by_channel/whatsapp/message_processing/opt-ins_and_opt-outs",
+    "destination": "/docs/fr/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs",
+    "permanent": true
+  },
+  {
     "source": "/docs/fr/user_guide/message_building_by_channel/whatsapp/message_processing/quality_rating",
     "destination": "/docs/fr/user_guide/channels/whatsapp/message_processing/quality_rating_and_messaging_limits",
     "permanent": true
@@ -27237,6 +27622,11 @@
   {
     "source": "/docs/fr/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/click_tracking",
     "destination": "/docs/fr/user_guide/channels/whatsapp/message_features_and_optimization/click_tracking",
+    "permanent": true
+  },
+  {
+    "source": "/docs/fr/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create",
+    "destination": "/docs/fr/user_guide/channels/whatsapp/create_a_whatsapp_message",
     "permanent": true
   },
   {
@@ -27302,6 +27692,11 @@
   {
     "source": "/docs/fr/user_guide/onboarding_with_braze/data_points",
     "destination": "/docs/fr/user_guide/data/infrastructure/data_points",
+    "permanent": true
+  },
+  {
+    "source": "/docs/fr/user_guide/onboarding_with_braze/email_setup/ip_warming",
+    "destination": "/docs/fr/user_guide/channels/email/email_setup/ip_warming",
     "permanent": true
   },
   {
@@ -28840,6 +29235,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/ja/api/endpoints/messaging/duplicate_campaigns",
+    "destination": "/docs/ja/api/endpoints/messaging/duplicate_messages/post_duplicate_campaigns",
+    "permanent": true
+  },
+  {
     "source": "/docs/ja/contributing/home",
     "destination": "/docs/ja/user_guide/home",
     "permanent": true
@@ -28847,6 +29247,11 @@
   {
     "source": "/docs/ja/contributing/your_first_contribution",
     "destination": "/docs",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ja/create_rcs_message",
+    "destination": "/docs/ja/user_guide/channels/sms_mms_and_rcs/create#rcs-message-types",
     "permanent": true
   },
   {
@@ -28887,6 +29292,11 @@
   {
     "source": "/docs/ja/developer_guide/platform_integration_guides/android/analytics/setting_user_ids",
     "destination": "/docs/ja/developer_guide/analytics/setting_user_ids?tab=android",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ja/developer_guide/platform_integration_guides/android/analytics/tracking_custom_events",
+    "destination": "/docs/ja/developer_guide/analytics/logging_events?tab=android",
     "permanent": true
   },
   {
@@ -28997,6 +29407,11 @@
   {
     "source": "/docs/ja/developer_guide/platform_integration_guides/ios/initial_sdk_setup/other_sdk_customizations",
     "destination": "/docs/ja/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ja/developer_guide/platform_integration_guides/ios/push_notifications/silent_push_notifications",
+    "destination": "/docs/ja/developer_guide/platforms/legacy_sdks/ios/push_notifications/silent_push_notifications",
     "permanent": true
   },
   {
@@ -29165,6 +29580,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/ja/developer_guide/rest_api/api_campaigns",
+    "destination": "/docs/ja/api/api_campaigns",
+    "permanent": true
+  },
+  {
     "source": "/docs/ja/developer_guide/rest_api/email_templates",
     "destination": "/docs/ja/api/endpoints/templates",
     "permanent": true
@@ -29217,6 +29637,11 @@
   {
     "source": "/docs/ja/help/home",
     "destination": "/docs/ja/user_guide/home",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ja/help/release_notes/2018/may",
+    "destination": "/docs/ja/releases/2018/may",
     "permanent": true
   },
   {
@@ -29460,6 +29885,16 @@
     "permanent": true
   },
   {
+    "source": "/docs/ja/rate_limiting_v3",
+    "destination": "/docs/ja/user_guide/messaging/messaging_fundamentals/frequency_capping",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ja/shopify_collections_sync",
+    "destination": "/docs/ja/partners/ecommerce/shopify/shopify_catalogs#shopify-product-sync",
+    "permanent": true
+  },
+  {
     "source": "/docs/ja/user_guide/administer/global/billing/message_usage_dashboard",
     "destination": "/docs/ja/credits_usage_dashboard",
     "permanent": true
@@ -29560,6 +29995,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/ja/user_guide/administrative/app_settings/developer_console",
+    "destination": "/docs/ja/user_guide/administer/global/workspace_settings",
+    "permanent": true
+  },
+  {
     "source": "/docs/ja/user_guide/administrative/app_settings/developer_console/event_user_log_tab",
     "destination": "/docs/ja/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log",
     "permanent": true
@@ -29657,6 +30097,11 @@
   {
     "source": "/docs/ja/user_guide/analytics/query_builder",
     "destination": "/docs/ja/user_guide/analytics/reports/query_builder",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ja/user_guide/analytics/query_builder/sql_variables",
+    "destination": "/docs/ja/user_guide/analytics/reports/query_builder/sql_variables",
     "permanent": true
   },
   {
@@ -30915,6 +31360,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/ja/user_guide/message_building_by_channel/in-app_messages/drag_and_drop/templates/email_confirmation_page",
+    "destination": "/docs/ja/user_guide/messaging/templates/in_app_message_templates/email_confirmation_page",
+    "permanent": true
+  },
+  {
     "source": "/docs/ja/user_guide/message_building_by_channel/in-app_messages/drag_and_drop/templates/email_discount",
     "destination": "/docs/ja/user_guide/messaging/templates/in_app_message_templates/email_discount",
     "permanent": true
@@ -31445,6 +31895,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/ja/user_guide/personalization_and_dynamic_content/catalogs/product_blocks",
+    "destination": "/docs/ja/user_guide/data/activation/events/recommended_events/product_blocks",
+    "permanent": true
+  },
+  {
     "source": "/docs/ja/user_guide/personalization_and_dynamic_content/connected_content",
     "destination": "/docs/ja/user_guide/messaging/design_and_edit/personalize/connected_content",
     "permanent": true
@@ -31562,6 +32017,11 @@
   {
     "source": "/docs/knowledge_sources",
     "destination": "/docs/user_guide/brazeai/agents/knowledge_sources",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ko/create_rcs_message",
+    "destination": "/docs/ko/user_guide/channels/sms_mms_and_rcs/create#rcs-message-types",
     "permanent": true
   },
   {
@@ -31702,6 +32162,11 @@
   {
     "source": "/docs/ko/developer_guide/platform_integration_guides/ios/in-app_messaging/customization/handling_in_app_display",
     "destination": "/docs/ko/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/customization/handling_in_app_display",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ko/developer_guide/platform_integration_guides/ios/in-app_messaging/customization/setting_delegates",
+    "destination": "/docs/ko/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/customization/setting_delegates",
     "permanent": true
   },
   {
@@ -31857,6 +32322,16 @@
   {
     "source": "/docs/ko/developer_guide/rest_api/basics",
     "destination": "/docs/ko/api/basics",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ko/developer_guide/rest_api/reminder_messaging",
+    "destination": "/docs/ko/developer_guide/home",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ko/developer_guide/sdk_integration/initialization",
+    "destination": "/docs/ko/developer_guide/sdk_integration?sdktab=web",
     "permanent": true
   },
   {
@@ -32132,6 +32607,16 @@
   {
     "source": "/docs/ko/partners/message_orchestration/learning/edume",
     "destination": "/docs/ko/partners/additional_channels_and_extensions/extensions/learning/edume",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ko/rate_limiting_v3",
+    "destination": "/docs/ko/user_guide/messaging/messaging_fundamentals/frequency_capping",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ko/shopify_collections_sync",
+    "destination": "/docs/ko/partners/ecommerce/shopify/shopify_catalogs#shopify-product-sync",
     "permanent": true
   },
   {
@@ -32420,6 +32905,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/ko/user_guide/data/data_transformation/creating_a_transformation",
+    "destination": "/docs/ko/user_guide/data/unification/data_transformation/creating_a_transformation",
+    "permanent": true
+  },
+  {
     "source": "/docs/ko/user_guide/data/distribution/braze_currents/s3_to_snowflake",
     "destination": "/docs/ko/user_guide/data/distribution/braze_currents/use_cases/s3_to_snowflake",
     "permanent": true
@@ -32442,6 +32932,11 @@
   {
     "source": "/docs/ko/user_guide/data/distribution/export_braze_data/exporting_revenue_data",
     "destination": "/docs/ko/user_guide/analytics/reports/revenue_report",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ko/user_guide/data/user_data_collection/user_import/csv_import",
+    "destination": "/docs/ko/user_guide/audience/manage_audience/import_users/csv_import",
     "permanent": true
   },
   {
@@ -33665,6 +34160,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/ko/user_guide/message_building_by_channel/sms/sms_setup/short_and_long_codes",
+    "destination": "/docs/ko/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup",
+    "permanent": true
+  },
+  {
     "source": "/docs/ko/user_guide/message_building_by_channel/sms_mms_rcs",
     "destination": "/docs/ko/user_guide/channels/sms_mms_and_rcs",
     "permanent": true
@@ -34565,6 +35065,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/partners/data_and_analytics/analytics/npaw",
+    "destination": "/docs/partners/home",
+    "permanent": true
+  },
+  {
     "source": "/docs/partners/data_and_analytics/business_intelligence/heap",
     "destination": "/docs/partners/data_and_analytics/analytics/heap",
     "permanent": true
@@ -34761,7 +35266,7 @@
   },
   {
     "source": "/docs/partners/data_and_infrastructure_agility/analytics/npaw",
-    "destination": "/docs/partners/data_and_analytics/analytics/npaw",
+    "destination": "/docs/partners/home",
     "permanent": true
   },
   {
@@ -35520,8 +36025,13 @@
     "permanent": true
   },
   {
+    "source": "/docs/partners/just_ai",
+    "destination": "/docs/partners/home",
+    "permanent": true
+  },
+  {
     "source": "/docs/partners/just_words",
-    "destination": "/docs/partners/message_personalization/dynamic_content/content_optimization_testing/just_ai",
+    "destination": "/docs/partners/home",
     "permanent": true
   },
   {
@@ -35662,11 +36172,6 @@
   {
     "source": "/docs/partners/message_orchestration/additional_channels/retargeting/remerge",
     "destination": "/docs/partners/message_orchestration/retargeting/remerge",
-    "permanent": true
-  },
-  {
-    "source": "/docs/partners/message_orchestration/attribution",
-    "destination": "/docs/partners/message_orchestration",
     "permanent": true
   },
   {
@@ -36045,11 +36550,6 @@
     "permanent": true
   },
   {
-    "source": "/docs/partners/message_personalization/dynamic_content",
-    "destination": "/docs/partners/message_personalization",
-    "permanent": true
-  },
-  {
     "source": "/docs/partners/message_personalization/dynamic_content/amazon_personalize",
     "destination": "/docs/partners/message_personalization/dynamic_content/personalized_recommendations/amazon_personalize/amazon_personalize",
     "permanent": true
@@ -36075,8 +36575,13 @@
     "permanent": true
   },
   {
+    "source": "/docs/partners/message_personalization/dynamic_content/content_optimization_testing/just_ai",
+    "destination": "/docs/partners/home",
+    "permanent": true
+  },
+  {
     "source": "/docs/partners/message_personalization/dynamic_content/content_optimization_testing/just_words",
-    "destination": "/docs/partners/message_personalization/dynamic_content/content_optimization_testing/just_ai",
+    "destination": "/docs/partners/home",
     "permanent": true
   },
   {
@@ -36226,6 +36731,11 @@
   },
   {
     "source": "/docs/partners/neura",
+    "destination": "/docs/partners/home",
+    "permanent": true
+  },
+  {
+    "source": "/docs/partners/npaw",
     "destination": "/docs/partners/home",
     "permanent": true
   },
@@ -36502,6 +37012,11 @@
   {
     "source": "/docs/programmatic_message_sending",
     "destination": "/docs/api/endpoints/messaging#messaging",
+    "permanent": true
+  },
+  {
+    "source": "/docs/pt-br/create_rcs_message",
+    "destination": "/docs/pt-br/user_guide/channels/sms_mms_and_rcs/create#rcs-message-types",
     "permanent": true
   },
   {
@@ -36805,6 +37320,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/pt-br/granular_permissions_migration",
+    "destination": "/docs/pt-br/user_guide/administer/global/user_management/permissions",
+    "permanent": true
+  },
+  {
     "source": "/docs/pt-br/help/help_articles/api/attribute_name_id_across_sources",
     "destination": "/docs/pt-br/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources",
     "permanent": true
@@ -37080,8 +37600,23 @@
     "permanent": true
   },
   {
+    "source": "/docs/pt-br/rate_limiting_v3",
+    "destination": "/docs/pt-br/user_guide/messaging/messaging_fundamentals/frequency_capping",
+    "permanent": true
+  },
+  {
+    "source": "/docs/pt-br/shopify_collections_sync",
+    "destination": "/docs/pt-br/partners/ecommerce/shopify/shopify_catalogs#shopify-product-sync",
+    "permanent": true
+  },
+  {
     "source": "/docs/pt-br/sms_faq",
     "destination": "/docs/pt-br/user_guide/channels/sms_mms_and_rcs/faqs",
+    "permanent": true
+  },
+  {
+    "source": "/docs/pt-br/user_guide/administer/global/billing/message_usage_dashboard",
+    "destination": "/docs/pt-br/credits_usage_dashboard",
     "permanent": true
   },
   {
@@ -37157,6 +37692,11 @@
   {
     "source": "/docs/pt-br/user_guide/administrative/app_settings/company_settings/notification_preferences",
     "destination": "/docs/pt-br/user_guide/administer/global/admin_settings/notification_preferences",
+    "permanent": true
+  },
+  {
+    "source": "/docs/pt-br/user_guide/administrative/app_settings/company_settings/security_settings",
+    "destination": "/docs/pt-br/user_guide/administer/global/admin_settings/security_settings",
     "permanent": true
   },
   {
@@ -37347,6 +37887,16 @@
   {
     "source": "/docs/pt-br/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/geographic_permissions",
     "destination": "/docs/pt-br/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions",
+    "permanent": true
+  },
+  {
+    "source": "/docs/pt-br/user_guide/data/activation/catalogs/using_catalogs",
+    "destination": "/docs/pt-br/user_guide/data/activation/catalogs/use",
+    "permanent": true
+  },
+  {
+    "source": "/docs/pt-br/user_guide/data/activation/custom_data/custom_attributes",
+    "destination": "/docs/pt-br/user_guide/data/activation/custom_data/data_types",
     "permanent": true
   },
   {
@@ -37827,6 +38377,11 @@
   {
     "source": "/docs/pt-br/user_guide/engagement_tools/canvas/managing_canvases/cloning_canvases",
     "destination": "/docs/pt-br/user_guide/messaging/canvas/managing_canvases/cloning_canvases",
+    "permanent": true
+  },
+  {
+    "source": "/docs/pt-br/user_guide/engagement_tools/canvas/testing_canvases",
+    "destination": "/docs/pt-br/user_guide/messaging/canvas/testing_canvases",
     "permanent": true
   },
   {
@@ -38415,6 +38970,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/pt-br/user_guide/message_building_by_channel/in-app_messages/traditional/templates/simple_survey",
+    "destination": "/docs/pt-br/user_guide/channels/in_app_messages/message_types/simple_survey",
+    "permanent": true
+  },
+  {
     "source": "/docs/pt-br/user_guide/message_building_by_channel/kakaotalk/kakaotalk_click_tracking",
     "destination": "/docs/pt-br/user_guide/channels/kakaotalk/kakaotalk_click_tracking",
     "permanent": true
@@ -38627,6 +39187,11 @@
   {
     "source": "/docs/pt-br/user_guide/message_building_by_channel/sms_mms_rcs/link_shortening",
     "destination": "/docs/pt-br/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening",
+    "permanent": true
+  },
+  {
+    "source": "/docs/pt-br/user_guide/message_building_by_channel/sms_mms_rcs/link_shortening/custom_domains",
+    "destination": "/docs/pt-br/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/custom_domains",
     "permanent": true
   },
   {
@@ -38960,6 +39525,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/rate_limiting_v3",
+    "destination": "/docs/user_guide/messaging/messaging_fundamentals/frequency_capping",
+    "permanent": true
+  },
+  {
     "source": "/docs/react_native",
     "destination": "/docs/developer_guide/sdk_integration?sdktab=react%20native",
     "permanent": true
@@ -39102,6 +39672,11 @@
   {
     "source": "/docs/setting_up_shopify_legacy",
     "destination": "/docs/partners/ecommerce/shopify/shopify_overview",
+    "permanent": true
+  },
+  {
+    "source": "/docs/shopify_collections_sync",
+    "destination": "/docs/partners/ecommerce/shopify/shopify_catalogs#shopify-product-sync",
     "permanent": true
   },
   {
@@ -40161,7 +40736,7 @@
   },
   {
     "source": "/docs/user_guide/brazeai/decisioning_studio/personalized_paths",
-    "destination": "/docs/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths",
+    "destination": "/docs/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path",
     "permanent": true
   },
   {
@@ -40296,7 +40871,7 @@
   },
   {
     "source": "/docs/user_guide/brazeai/intelligence/intelligent_selection",
-    "destination": "/docs/user_guide/brazeai/intelligence_suite/intelligent_selection",
+    "destination": "/docs/user_guide/brazeai/intelligence_suite/variant_selection",
     "permanent": true
   },
   {
@@ -40307,6 +40882,11 @@
   {
     "source": "/docs/user_guide/brazeai/intelligence/tutorial",
     "destination": "/docs/user_guide/brazeai/intelligence_suite/use_case",
+    "permanent": true
+  },
+  {
+    "source": "/docs/user_guide/brazeai/intelligence_suite/intelligent_selection",
+    "destination": "/docs/user_guide/brazeai/intelligence_suite/variant_selection",
     "permanent": true
   },
   {
@@ -40890,11 +41470,6 @@
     "permanent": true
   },
   {
-    "source": "/docs/user_guide/data/cloud_ingestion/sync_accounts_data",
-    "destination": "/docs/user_guide/data/unification/cloud_ingestion/sync_accounts_data",
-    "permanent": true
-  },
-  {
     "source": "/docs/user_guide/data/cloud_ingestion/sync_catalogs_data",
     "destination": "/docs/user_guide/data/unification/cloud_ingestion/sync_catalogs_data",
     "permanent": true
@@ -41205,17 +41780,17 @@
     "permanent": true
   },
   {
-    "source": "/docs/user_guide/data/unification/cloud_ingestion/decisioning_studio",
-    "destination": "/docs/user_guide/brazeai/decisioning_studio/prepare_data/connect_data_sources",
-    "permanent": true
-  },
-  {
     "source": "/docs/user_guide/data/unification/cloud_ingestion/deleteusers",
     "destination": "/docs/user_guide/data/unification/cloud_ingestion/delete_users",
     "permanent": true
   },
   {
     "source": "/docs/user_guide/data/unification/cloud_ingestion/overview",
+    "destination": "/docs/user_guide/data/unification/cloud_ingestion",
+    "permanent": true
+  },
+  {
+    "source": "/docs/user_guide/data/unification/cloud_ingestion/sync_accounts_data",
     "destination": "/docs/user_guide/data/unification/cloud_ingestion",
     "permanent": true
   },
@@ -42841,12 +43416,12 @@
   },
   {
     "source": "/docs/user_guide/engagement_tools/canvas/canvas_components/experiment_step/personal_path",
-    "destination": "/docs/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths",
+    "destination": "/docs/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path",
     "permanent": true
   },
   {
     "source": "/docs/user_guide/engagement_tools/canvas/canvas_components/experiment_step/personalized_paths",
-    "destination": "/docs/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths",
+    "destination": "/docs/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path",
     "permanent": true
   },
   {
@@ -44066,7 +44641,7 @@
   },
   {
     "source": "/docs/user_guide/intelligence/intelligent_selection",
-    "destination": "/docs/user_guide/brazeai/intelligence_suite/intelligent_selection",
+    "destination": "/docs/user_guide/brazeai/intelligence_suite/variant_selection",
     "permanent": true
   },
   {
@@ -46335,6 +46910,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths",
+    "destination": "/docs/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path",
+    "permanent": true
+  },
+  {
     "source": "/docs/user_guide/messaging/canvas/create_a_canvas/canvas_templates",
     "destination": "/docs/user_guide/messaging/templates/canvas_templates",
     "permanent": true
@@ -47601,7 +48181,7 @@
   },
   {
     "source": "/docs/user_guide/sage_ai/intelligence/intelligent_selection",
-    "destination": "/docs/user_guide/brazeai/intelligence_suite/intelligent_selection",
+    "destination": "/docs/user_guide/brazeai/intelligence_suite/variant_selection",
     "permanent": true
   },
   {

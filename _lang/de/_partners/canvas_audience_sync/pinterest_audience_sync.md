@@ -22,7 +22,7 @@ Mit diesem Feature können Marken kontrollieren, welche spezifischen First-Party
 
 {% alert important %}
 **Audience Sync Pro – Haftungsausschluss**<br>
-Braze Audience Sync to Pinterest ist eine Audience Sync Pro-Integration. Für weitere Informationen zu dieser Integration wenden Sie sich bitte an Ihren Braze Account Manager.
+Braze Audience Sync to Pinterest ist eine Audience Sync Pro-Integration. Für weitere Informationen zu dieser Integration wenden Sie sich bitte an Ihren Braze Account Manager:in.
 {% endalert %}
 
 ## Voraussetzungen {#prerequisites}
@@ -102,7 +102,7 @@ Braze bietet auch die Möglichkeit, Nutzer:innen zu bestehenden Pinterest-Zielgr
 
 Sobald Sie Ihre Audience Sync to Pinterest konfiguriert haben, starten Sie das Canvas! Die neue Zielgruppe wird erstellt, und Nutzer:innen, die den Audience Sync-Schritt durchlaufen, werden in diese Zielgruppe auf Pinterest übertragen. Wenn Ihr Canvas nachfolgende Komponenten enthält, werden Ihre Nutzer:innen zum nächsten Schritt in ihrer User Journey vorangebracht.
 
-Sie können die Zielgruppe auf Pinterest einsehen, indem Sie sich in Ihrem Ads-Manager-Konto anmelden und im Ads-Dropdown **Audiences** auswählen. Auf der Audience-Seite sehen Sie die Größe jeder Zielgruppe, sobald sie ~100 erreicht hat.
+Sie können die Zielgruppe auf Pinterest einsehen, indem Sie sich in Ihrem Ads-Manager:in-Konto anmelden und im Ads-Dropdown **Audiences** auswählen. Auf der Audience-Seite sehen Sie die Größe jeder Zielgruppe, sobald sie ~100 erreicht hat.
 
 ![Zielgruppendetails für eine bestimmte Pinterest-Zielgruppe, einschließlich Zielgruppenname, Zielgruppen-ID, Zielgruppentyp und Zielgruppengröße.]({% image_buster /assets/img/pinterest/pinterest11.png %})
 
@@ -135,7 +135,7 @@ Beachten Sie, dass es bei der Berichterstattung zu Verzögerungen bei synchronis
 
 ### Wie lange dauert es, bis meine Zielgruppen in Pinterest befüllt sind? {#how-long-will-it-take-for-my-audiences-to-populate-in-pinterest}
 
-Die Zielgruppengröße wird innerhalb von 24–48 Stunden auf der Seite **Audiences** im Ads Manager von Pinterest aktualisiert.
+Die Zielgruppengröße wird innerhalb von 24–48 Stunden auf der Seite **Audiences** im Ads Manager:in von Pinterest aktualisiert.
 
 ### Wie erfahre ich, ob Nutzer:innen nach der Übergabe an Pinterest zugeordnet wurden? {#how-do-i-know-if-users-have-matched-after-passing-users-to-pinterest}
 

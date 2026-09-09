@@ -22,7 +22,7 @@ Braze와 Snowplow 통합을 통해 Snowplow의 이벤트 포워딩 솔루션을 
 - 전달을 선택할 때까지 모든 데이터를 프라이빗 클라우드에 보관합니다.
 - 기존 Snowplow 클라우드 계정 내에서 솔루션을 직접 배포합니다.
 
-Snowplow의 [이벤트 포워딩](https://docs.snowplow.io/docs/destinations/forwarding-events/)은 Snowplow 고객에게 제공되는 유료 애드온 기능입니다. 이 애드온 없이 이벤트를 Braze에 전달하려면 Snowplow의 [Google Tag Manager 서버 측](https://docs.snowplow.io/docs/destinations/forwarding-events/google-tag-manager-server-side/) 통합을 사용하세요.
+Snowplow의 [이벤트 포워딩](https://docs.snowplow.io/docs/destinations/forwarding-events/)은 Snowplow 고객에게 제공되는 유료 애드온 기능입니다. 이 애드온 없이 이벤트를 Braze에 전달하려면 Snowplow의 [Google Tag 매니저 서버 측](https://docs.snowplow.io/docs/destinations/forwarding-events/google-tag-manager-server-side/) 통합을 사용하세요.
 
 Snowplow의 풍부한 행동 데이터를 활용하여 Braze에서 강력한 고객 중심 인터랙션을 유도하고 개인화된 메시지를 실시간으로 전달하세요.
 

@@ -6,32 +6,32 @@ Antes de poder implementar la vinculación en profundidad en tu aplicación Flut
 {% endtab %}
 
 {% tab Android %}
-Para Flutter en Android, no se requiere configuración nativa adicional si gestionas los vínculos profundos en la capa de Dart. La implementación mínima que se muestra en este artículo es suficiente para la mayoría de las aplicaciones Flutter.
+Para Flutter en Android, no se requiere ninguna configuración nativa adicional si gestionas los vínculos profundos en la capa Dart. La implementación mínima que se muestra en este artículo es suficiente para la mayoría de las aplicaciones Flutter.
 
 {% alert warning %}
-La marca nativa `com_braze_handle_push_deep_links_automatically` de Braze tiene como valor predeterminado `false` en Android. Sin establecerla en `true` en tu `braze.xml`, tu aplicación no se lleva automáticamente al primer plano ni se redirige al destino del vínculo profundo cuando un usuario toca una notificación push, aunque un evento `push_opened` siga llegando a tu listener de Dart. Para más información, consulta [Añadir vínculos profundos (Android)]({{site.baseurl}}/developer_guide/push_notifications#flutter_step-4-add-deep-links-android).
+La opción nativa `com_braze_handle_push_deep_links_automatically` de Braze tiene como valor predeterminado `false` en Android. Sin configurarla como `true` en tu `braze.xml`, tu aplicación no se lleva automáticamente al primer plano ni se dirige al destino del vínculo profundo cuando un usuario toca una notificación push, aunque un evento `push_opened` siga llegando a tu listener de Dart. Para más información, consulta [Añadir vínculos profundos (Android)]({{site.baseurl}}/developer_guide/push_notifications#flutter_step-4-add-deep-links-android).
 {% endalert %}
 
 Si necesitas un manejo avanzado de vínculos en la capa nativa (como implementaciones personalizadas de `IBrazeDeeplinkHandler`), consulta [Vinculación en profundidad para Android]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=android).
 {% endtab %}
 {% endtabs %}
 
-## Implementación de la vinculación en profundidad {#implementing-deep-linking}
+## Implementar la vinculación en profundidad {#implementing-deep-linking}
 
 ### Paso 1: Configurar el manejo integrado de Flutter {#step-1-set-up-flutters-built-in-handling}
 
 {% tabs %}
 {% tab iOS %}
-1. En tu proyecto de Xcode, abre el archivo `Info.plist`.
+1. En tu proyecto de Xcode, abre tu archivo `Info.plist`.
 2. Añade un nuevo par clave-valor.
-3. Establece la clave como `FlutterDeepLinkingEnabled`.
-4. Establece el tipo como `Boolean`.
-5. Establece el valor como `YES`.
-    ![Archivo Info.plist de un proyecto de ejemplo con el par clave-valor añadido.]({% image_buster /assets/img/flutter/flutter-ios-deep-link-info-plist.png %} "Xcode Project Info.plist File")
+3. Establece la clave en `FlutterDeepLinkingEnabled`.
+4. Establece el tipo en `Boolean`.
+5. Establece el valor en `YES`.
+    ![Archivo `Info.plist` de un proyecto de ejemplo con el par clave-valor añadido.]({% image_buster /assets/img/flutter/flutter-ios-deep-link-info-plist.png %} "Xcode Project Info.plist File"){: width="501" height="118"}
 {% endtab %}
 
 {% tab Android %}
-1. En tu proyecto de Android Studio, abre el archivo `AndroidManifest.xml`.
+1. En tu proyecto de Android Studio, abre tu archivo `AndroidManifest.xml`.
 2. Localiza `.MainActivity` en tus etiquetas `activity`.
 3. Dentro de la etiqueta `activity`, añade la siguiente etiqueta `meta-data`:
     ```xml
@@ -47,7 +47,7 @@ Puedes utilizar el manejo de enlaces nativo, propio o de terceros para casos de 
 #### Ejemplo: Vinculación en profundidad a un cuadro de diálogo de alerta {#example-deep-linking-to-an-alert-dialog}
 
 {% alert note %}
-Aunque el siguiente ejemplo no depende de paquetes adicionales, puedes utilizar un enfoque similar para implementar paquetes nativos, propios o de terceros, como [`go_router`](https://pub.dev/packages/go_router). Puede que se necesite código Dart adicional.
+Aunque el siguiente ejemplo no depende de paquetes adicionales, puedes utilizar un enfoque similar para implementar paquetes nativos, propios o de terceros, como [`go_router`](https://pub.dev/packages/go_router). Es posible que se requiera código Dart adicional.
 {% endalert %}
 
 Primero, se utiliza un canal de métodos en la capa nativa para reenviar los datos de la cadena URL del vínculo profundo a la capa Dart.

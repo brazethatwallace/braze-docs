@@ -30,7 +30,7 @@ Cada carga útil de solicitud enviada a OpenAI puede incluir lo siguiente:
 
 ### Proveedores de modelos como subprocesadores o proveedores externos {#model-providers-as-sub-processors-or-third-party-providers}
 
-Cuando utilizas una integración con un proveedor de LLM proporcionado por Braze a través de los servicios de Braze ("LLM proporcionado por Braze"), los proveedores de dicho LLM proporcionado por Braze actúan como subprocesadores de Braze, sujetos a los términos del Anexo de Procesamiento de Datos (DPA) entre tú y Braze. BrazeAI Operator<sup>TM</sup> se integra con OpenAI.
+Cuando utilizas una integración con un proveedor de LLM proporcionado por Braze a través de los servicios de Braze ("LLM proporcionado por Braze"), los proveedores de dicho LLM proporcionado por Braze actúan como subprocesadores de Braze, sujetos a los términos del Anexo de Procesamiento de Datos (asesor sobre protección de datos) entre tú y Braze. BrazeAI Operator<sup>TM</sup> se integra con OpenAI.
 
 ### Cómo se utilizan los datos con OpenAI {#how-data-is-used-with-openai}
 
@@ -58,7 +58,7 @@ El tiempo que OpenAI retiene los datos enviados a través de Operator depende de
 
 ### Entrenamiento de modelos {#model-training}
 
-Los datos enviados a la API de OpenAI a través de Braze no se utilizan para entrenar ni mejorar los modelos de OpenAI. Esto se rige por acuerdos contractuales entre Braze y OpenAI y los compromisos de la plataforma API de OpenAI. OpenAI actúa como subprocesador de Braze, y todos los datos personales están sujetos al DPA entre Braze y sus clientes.
+Los datos enviados a la API de OpenAI a través de Braze no se utilizan para entrenar ni mejorar los modelos de OpenAI. Esto se rige por acuerdos contractuales entre Braze y OpenAI y los compromisos de la plataforma API de OpenAI. OpenAI actúa como subprocesador de Braze, y todos los datos personales están sujetos al asesor sobre protección de datos entre Braze y sus clientes.
 
 ### Enrutamiento de datos en la UE {#eu-data-routing}
 

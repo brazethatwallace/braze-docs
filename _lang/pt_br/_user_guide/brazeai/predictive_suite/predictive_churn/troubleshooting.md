@@ -14,7 +14,7 @@ O Predictive Churn (e qualquer modelo de machine learning) é tão bom quanto os
 
 ## Comece aqui: identifique seu sintoma {#start-here-match-your-symptom}
 
-Encontre a mensagem de erro, alerta ou resultado que você vê ao compilar uma previsão na seção que explica como corrigir.
+Identifique a mensagem de erro, o alerta ou o resultado que você vê ao compilar uma previsão e acesse a seção que explica como corrigi-lo.
 
 | Sintoma | Acesse |
 | --- | --- |
@@ -22,18 +22,18 @@ Encontre a mensagem de erro, alerta ou resultado que você vê ao compilar uma p
 | Alerta "Not enough past non-churners" | [Público da previsão muito pequeno](#problems-with-prediction-audience-size) |
 | O público da previsão excede o limite de tamanho | [Público da previsão muito grande](#prediction-audience-size-is-too-big) |
 | Qualidade da previsão abaixo de 40% | [A previsão tem qualidade baixa](#prediction-has-poor-quality) |
-| Incerteza sobre se seus dados se encaixam no modelo | [Considerações sobre dados](#data-considerations) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Sintoma de Predictive Churn" }
+| Não tem certeza se seus dados se encaixam no modelo | [Considerações sobre dados](#data-considerations) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Sintoma de Churn Preditivo" }
 
 ## Caminho de investigação padrão {#standard-investigation-path}
 
-Use este fluxo de trabalho quando a compilação de uma previsão falhar ou quando você estiver bloqueado por requisitos de dados ou público. Comece pela etapa 1.
+Use este fluxo de trabalho quando a compilação de uma previsão falhar ou quando você estiver bloqueado por requisitos de dados ou público. Comece na etapa 1.
 
-1. Confirme se o Predictive Churn está ativado para sua empresa e se o espaço de trabalho tem usuários ativos mensais (MAU) suficientes — normalmente 300.000 MAU em um único espaço de trabalho.
+1. Confirme que o Predictive Churn está ativado para a sua empresa e que o espaço de trabalho tem usuários ativos mensais (MAU) suficientes — normalmente 300.000 MAU em um único espaço de trabalho.
 2. Revise sua definição de churn. Filtros muito restritivos reduzem o número de usuários desistentes disponíveis para treinamento.
 3. Revise a definição do público da previsão. Um número muito baixo de não desistentes históricos impede o treinamento do modelo.
-4. Confirme se eventos personalizados (não apenas atributos personalizados) capturam as ações de alto valor que indicam risco de churn.
-5. Se os erros persistirem após ampliar as definições, entre em contato com o [suporte da Braze]({{site.baseurl}}/braze_support).
+4. Confirme que eventos personalizados (e não apenas atributos personalizados) capturam as ações de alto valor que indicam risco de churn.
+5. Se os erros persistirem após ampliar as definições, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
 ## Dados insuficientes para treinar {#not-enough-data-to-train}
 

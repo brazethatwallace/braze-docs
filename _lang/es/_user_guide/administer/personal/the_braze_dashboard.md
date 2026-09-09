@@ -46,9 +46,9 @@ El menú vertical en el lado principal organiza las herramientas de Braze por fu
 
 ![Selector de espacio de trabajo en el panel de Braze]({% image_buster /assets/img/workspace_switcher.png %}){: style="max-width:35%;float:right;margin-left:15px"}
 
-#### Selector de espacio de trabajo {#workspace-switcher}
+#### SELECTOR de espacio de trabajo {#workspace-switcher}
 
-Ubicado en la parte superior de la navegación lateral, el selector de espacio de trabajo te permite moverte entre diferentes espacios de trabajo en tu instancia de Braze. El espacio de trabajo activo aparece resaltado.
+Ubicado en la parte superior de la navegación lateral, el SELECTOR de espacio de trabajo te permite moverte entre diferentes espacios de trabajo en tu instancia de Braze. El espacio de trabajo activo aparece resaltado.
 
 Los [espacios de trabajo]({{site.baseurl}}/user_guide/get_started/workspaces) ayudan a organizar el contenido por marca, región, línea de producto o equipo. Cada espacio de trabajo incluye sus propios datos, campañas y configuración. Tu acceso puede variar entre espacios de trabajo. Por ejemplo, podrías tener acceso de edición en un espacio de trabajo y acceso de solo lectura en otro.
 
@@ -146,7 +146,7 @@ Para más información, consulta [Panel de inicio]({{site.baseurl}}/user_guide/a
 
 ### Espacios de trabajo favoritos {#favorite-workspaces}
 
-Si trabajas en varios espacios de trabajo, puedes marcar los que usas con más frecuencia como favoritos. Los espacios de trabajo favoritos aparecen en la parte superior del selector de espacio de trabajo para un acceso más rápido.
+Si trabajas en varios espacios de trabajo, puedes marcar los que usas con más frecuencia como favoritos. Los espacios de trabajo favoritos aparecen en la parte superior del SELECTOR de espacio de trabajo para un acceso más rápido.
 
 Para añadir espacios de trabajo favoritos:
 

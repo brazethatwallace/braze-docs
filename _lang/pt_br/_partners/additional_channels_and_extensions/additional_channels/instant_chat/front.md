@@ -217,7 +217,7 @@ Em seguida, configure seu filtro:
 
 ### Segmentos faturáveis {#billable-segments}
 
-- As mensagens SMS na Braze são cobradas por segmento de mensagem. Entender o que define um segmento e como essas mensagens serão divididas é fundamental para entender como você será cobrado pelas mensagens. Para saber mais, consulte nossa [documentação]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator).
+- As mensagens SMS na Braze são cobradas por Segment de mensagem. Entender o que define um Segment e como essas mensagens serão divididas é fundamental para entender como você será cobrado pelas mensagens. Para saber mais, consulte nossa [documentação]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator).
 - Respostas longas dos agentes consumirão mais segmentos faturáveis.
 
 ### Registro de pontos de dados {#logging-data-points}

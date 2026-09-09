@@ -94,8 +94,6 @@ Every block has its settings, such as granular control on padding. The right-sid
 
 As you build your in-app message, you can select a mobile, tablet, or desktop view in the toolbar to preview how your in-app message looks for your user groups. This ensures that your content is responsive, and you can make any necessary adjustments along the way.
 
-{% multi_lang_include drag_and_drop/hide_rows_and_blocks_by_device.md channel='in_app_message' %}
-
 ## Creative details
 
 ### Fullscreen on larger screens {#fullscreen}

@@ -17,9 +17,9 @@ alias: /push_primer/
 
 Push-Primer-Campaigns ermutigen Ihre Nutzer:innen, Push auf ihrem Gerät für Ihre App zu aktivieren. Die Erlaubnis von Nutzer:innen einzuholen, um Nachrichten direkt an ihre Geräte zu senden, kann komplex sein, aber unsere Anleitungen können Ihnen dabei helfen! Dieser Leitfaden beschreibt die Schritte, die Entwickler:innen für die Integration von Push Priming durchführen müssen.
 
-## 1. Schritt: Snippet in die Datei AppDelegate.m einfügen {#step-1-add-snippet-in-appdelegatem-file}
+## Schritt 1: Snippet in der AppDelegate.m-Datei hinzufügen {#step-1-add-snippet-in-appdelegatem-file}
 
-Fügen Sie die folgende Codezeile anstelle der Standardintegration in Ihre `AppDelegate.m`-Datei ein:
+Fügen Sie die folgende Codezeile in Ihre `AppDelegate.m`-Datei anstelle der Standard-Integration ein:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -79,9 +79,9 @@ if #available(iOS 10, *) {
 {% endtab %}
 {% endtabs %}
 
-## 2. Schritt: Prüfung für angepasste Events an die Datei AppDelegate.m anhängen {#step-2-append-custom-event-checker-to-appdelegatem-file}
+## Schritt 2: Prüfung für angepasste Events in die Datei AppDelegate.m einfügen {#step-2-append-custom-event-checker-to-appdelegatem-file}
 
-Das folgende Code-Snippet prüft, ob ein angepasstes Event ausgelöst werden muss. Fügen Sie die folgende Codezeile in Ihre `AppDelegate.m`-Datei ein.
+Das folgende Code-Snippet prüft, ob ein angepasstes Event ausgelöst werden muss. Fügen Sie die folgende Codezeile zu Ihrer `AppDelegate.m` hinzu.
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -128,11 +128,11 @@ let notificationSettiings = UIApplication.shared.currentUserNotificationSettings
 {% endtab %}
 {% endtabs %}
 
-## 3. Schritt: Deeplink-Handler einrichten {#step-3-set-up-a-deep-link-handler}
+## Schritt 3: Einen Deeplink-Handler einrichten {#step-3-set-up-a-deep-link-handler}
 
-Platzieren Sie das folgende Code-Snippet in Ihrem Deeplink-Handling-Code. Sie sollten diesen Deeplinking-Code nur für Ihre Push-Primer-In-App-Nachricht ausführen.
+Platzieren Sie den folgenden Code-Snippet in Ihrem Deeplink-Handling-Code. Sie sollten diesen Deeplinking-Code nur für Ihre Push-Primer-In-App-Nachricht ausführen.
 
-Weitere Informationen über Deeplinking finden Sie unter [Anpassung der Linkbehandlung]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/advanced_use_cases/linking#linking-handling-customization).
+Weitere Informationen zum Deeplinking finden Sie unter [Anpassung der Link-Verarbeitung]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/advanced_use_cases/linking#linking-handling-customization).
 
 {% tabs %}
 {% tab OBJECTIVE-C %}

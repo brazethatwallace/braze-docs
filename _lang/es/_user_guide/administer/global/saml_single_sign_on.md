@@ -4,12 +4,12 @@ article_title: SAML e inicio de sesión único
 page_order: 2
 layout: dev_guide
 guide_top_header: "SAML e inicio de sesión único"
-guide_top_text: "El inicio de sesión único (SSO) proporciona a las empresas una forma segura y centralizada de controlar el acceso al panel de Braze. En resumen, se puede utilizar un único conjunto de credenciales para acceder a diferentes aplicaciones, incluida Braze. <br> <br> Braze es compatible con SAML SSO, que admite los últimos estándares de la industria Security Assertion Markup Language (SAML 2.0), y también es compatible con Microsoft Entra ID (anteriormente Azure Active Directory), Okta y OneLogin."
+guide_top_text: "El inicio de sesión único (inicio de sesión único) proporciona a las empresas una forma segura y centralizada de controlar el acceso al panel de Braze. En resumen, se puede utilizar un único conjunto de credenciales para acceder a diferentes aplicaciones, incluida Braze. <br> <br> Braze es compatible con SAML inicio de sesión único, que admite los últimos estándares de la industria Security Assertion Markup Language (SAML 2.0), y también es compatible con Microsoft Entra ID (anteriormente Azure Active Directory), Okta y OneLogin."
 
 page_type: landing
-description: "Esta página de inicio alberga artículos sobre el inicio de sesión único (SSO). Aquí puedes encontrar ayuda para configurar proveedores de identidad compatibles o realizar una configuración personalizada."
+description: "Esta página de inicio alberga artículos sobre el inicio de sesión único (inicio de sesión único). Aquí puedes encontrar ayuda para configurar proveedores de identidad compatibles o realizar una configuración personalizada."
 
-guide_featured_title: "Temas de SAML SSO"
+guide_featured_title: "Temas de SAML inicio de sesión único"
 guide_featured_list:
 - name: Configuración de SAML SSO
   link: /docs/user_guide/administer/global/saml_single_sign_on/saml_sso_setup
@@ -32,7 +32,7 @@ guide_featured_list:
 <br>
 
 {% alert important %}
-La compatibilidad con Google SSO y SAML SSO está disponible para clientes Pro y Enterprise. Para otros clientes, ponte en contacto con tu director de cuentas de Braze para obtener más detalles.
+La compatibilidad con Google inicio de sesión único y SAML inicio de sesión único está disponible para clientes Pro y Enterprise. Para otros clientes, ponte en contacto con tu director de cuentas de Braze para obtener más detalles.
 {% endalert %}
 
 <br>

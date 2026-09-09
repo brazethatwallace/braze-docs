@@ -21,12 +21,12 @@ guide_featured_list:
 
 ## 前提条件 {#prerequisites}
 
-Brazeを使用してプッシュメッセージを作成・送信するには、まず開発者と協力してWebサイトまたはアプリにプッシュを統合する必要があります。詳細な手順については、各プラットフォームの統合ガイドを参照してください。
+Brazeを使用してプッシュメッセージを作成・送信するには、開発者と連携してWebサイトまたはアプリにプッシュを統合する必要があります。詳細な手順については、各プラットフォームの統合ガイドを参照してください。
 
 - [iOS]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift)
-- [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications?tab=android)
+- [Android]({{site.baseurl}}/developer_guide/push_notifications?sdktab=android)
 - [Web]({{site.baseurl}}/developer_guide/push_notifications?sdktab=web)
 
 ## プッシュプライミング {#push-priming}
 
-ユーザーはメッセージを受信するためにプッシュをオプトインする必要があることに留意してください。そのため、アプリ内メッセージを使用して、プッシュ通知を送信したい理由やプッシュを有効にすることでどのようなメリットがあるかを顧客に説明することをお勧めします。このプロセスは[プッシュプライミング]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages)と呼ばれます。
+ユーザーがメッセージを受け取るにはプッシュへのオプトインが必要であることを念頭に置いてください。そのため、アプリ内メッセージを使用して、プッシュ通知を送信する理由やプッシュを有効にすることでどのようなメリットがあるかを顧客に説明することをお勧めします。このプロセスは[プッシュプライミング]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages)と呼ばれています。

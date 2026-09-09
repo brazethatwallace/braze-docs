@@ -41,7 +41,7 @@ Alterar a configuração de agregação (como média móvel de 7 dias) afeta ape
 
 Se você não conseguir selecionar uma data recente no seletor de datas, essa data provavelmente está desabilitada devido a atrasos configurados nos dados. Existem dois tipos de atrasos que podem limitar a disponibilidade de datas:
 
-- **Atrasos no pipeline de dados:** O tempo necessário para ingerir e processar dados da sua plataforma de dados do cliente no Decisioning Studio. Isso garante que os relatórios mostrem apenas dados completos e confiáveis.
+- **Atrasos no pipeline de dados:** O tempo necessário para ingerir e processar dados da sua CDP no Decisioning Studio. Isso garante que os relatórios mostrem apenas dados completos e confiáveis.
 - **Atrasos na ativação de recomendações:** O tempo entre o momento em que o mecanismo do Decisioning Studio prevê uma recomendação e o momento em que você a ativa nas suas Campaigns. Os relatórios não incluirão dias em que as recomendações ainda não foram ativadas.
 
 Esses atrasos são configurados para o seu caso de uso. Se você precisar entender o período específico do seu relatório, entre em contato com o seu AI Success Manager.
@@ -126,7 +126,7 @@ Os KPIs para casos de uso Go são definidos automaticamente e padronizados, já 
 
 O seletor de datas pode não permitir a seleção dos dias mais recentes. Isso é intencional. Os relatórios podem aplicar as seguintes restrições para evitar que dados incompletos ou instáveis apareçam:
 
-- **Atrasos no pipeline de dados:** Configurados para considerar o tempo necessário para ingerir e processar dados da sua plataforma de dados do cliente. Isso garante que todos os dados de um determinado dia estejam completos antes que ele apareça nos relatórios.
+- **Atrasos no pipeline de dados:** Configurados para considerar o tempo necessário para ingerir e processar dados da sua CDP. Isso garante que todos os dados de um determinado dia estejam completos antes que ele apareça nos relatórios.
 - **Atrasos na ativação de recomendações:** Configurados para considerar o intervalo entre o momento em que as recomendações são geradas e o momento em que são ativadas nas suas Campaigns. Dias em que as recomendações ainda não foram ativadas não aparecerão nos relatórios.
 - **Datas explicitamente excluídas:** Datas que você excluiu manualmente nas configurações de relatório.
 

@@ -5,6 +5,8 @@ page_order: 4.2
 page_type: reference
 description: "Dieser Referenzartikel beschreibt die Unterschiede zwischen Context- und Event-Eigenschaften und wann welche Eigenschaft verwendet werden sollte."
 tool: Canvas
+local_redirect:
+  timestamps-for-triggers: '/docs/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties#timestamps'
 ---
 
 # Context- und Event-Eigenschaften {#context-and-event-properties}
@@ -13,7 +15,7 @@ tool: Canvas
 
 {% multi_lang_include alerts/important_alerts.md alert='context variable' %}
 
-Context-Eigenschaften und Event-Eigenschaften funktionieren innerhalb Ihrer Canvas-Workflows unterschiedlich. Eigenschaften von Events oder API-Aufrufen, die den Eintritt von Nutzer:innen in einen Canvas triggern, werden als `context` bezeichnet. Eigenschaften von Events, die auftreten, während sich Nutzer:innen innerhalb einer Canvas-Journey bewegen, werden als `event_properties` bezeichnet. Der wesentliche Unterschied besteht darin, dass `context` sich nicht nur auf Events konzentriert, sondern auch auf die Eigenschaften von Eingangs-Payloads in API-getriggerten Canvases zugreift.
+Context-Eigenschaften und Event-Eigenschaften funktionieren innerhalb Ihrer Canvas-Workflows unterschiedlich. Eigenschaften von Events oder API-Aufrufen, die den Eintritt von Nutzer:innen in einen Canvas triggern, werden als `context` bezeichnet. Eigenschaften von Events, die auftreten, während sich Nutzer:innen innerhalb einer Canvas-Journey bewegen, werden als `event_properties` bezeichnet. Der wesentliche Unterschied besteht darin, dass `context` sich nicht nur auf Events konzentriert, sondern auch auf die Eigenschaften von Entry-Payloads in API-getriggerten Canvases zugreift.
 
 In der folgenden Tabelle finden Sie eine Zusammenfassung der Unterschiede zwischen Context- und Event-Eigenschaften.
 
@@ -26,13 +28,13 @@ In der folgenden Tabelle finden Sie eine Zusammenfassung der Unterschiede zwisch
 
 {% details Details zum ursprünglichen Canvas-Editor %}
 
-Sie können keine Canvases mehr mit dem ursprünglichen Editor erstellen oder duplizieren. Beachten Sie, dass Canvas Context im ursprünglichen Canvas-Editor nicht unterstützt wird. Dieser Abschnitt dient daher als Referenz für die Verwendung von Canvas-Eingangs-Eigenschaften und Event-Eigenschaften im vorherigen Canvas-Workflow.
+Sie können keine Canvases mehr mit dem ursprünglichen Editor erstellen oder duplizieren. Beachten Sie, dass Canvas Context im ursprünglichen Canvas-Editor nicht unterstützt wird. Dieser Abschnitt dient daher als Referenz für die Verwendung von Canvas-Entry-Eigenschaften und Event-Eigenschaften im vorherigen Canvas-Workflow.
 
-**Canvas-Eingangs-Eigenschaften:**
-- Persistente Eingangs-Eigenschaften müssen aktiviert sein.
+**Canvas-Entry-Eigenschaften:**
+- Persistente Entry-Eigenschaften müssen aktiviert sein.
 - Können `canvas_entry_properties` nur im ersten vollständigen Schritt eines Canvas referenzieren. Der Canvas muss aktionsbasiert oder API-getriggert sein.
 
-**Eingangs-Eigenschaften:**
+**Entry-Eigenschaften:**
 - Können `event_properties` in jedem vollständigen Schritt referenzieren, der aktionsbasierte Zustellung in einem Canvas verwendet.
 - Können nicht in geplanten vollständigen Schritten verwendet werden, außer im ersten vollständigen Schritt eines aktionsbasierten Canvas. Wenn jedoch eine [Canvas-Komponente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/about) verwendet wird, folgt das Verhalten den aktuellen Canvas-Workflow-Regeln für `event_properties`.
 
@@ -43,22 +45,20 @@ Sie können keine Canvases mehr mit dem ursprünglichen Editor erstellen oder du
 
 ## Wissenswertes {#things-to-know}
 
-- Context ist nur als Referenz in Liquid verfügbar. Um nach den Eigenschaften innerhalb des Canvas zu filtern, verwenden Sie stattdessen die [Event-Eigenschafts-Segmentierung]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects).
-- Für In-App-Nachrichten-Kanäle können Sie `context` und `event_properties` in einem Canvas referenzieren. Auf `event_properties` kann zugegriffen werden, wenn sie im ersten Canvas-Schritt enthalten sind, da dieser triggerbasiert ist.
-- Sie können `event_properties` nicht im führenden Nachrichten-Schritt verwenden. Stattdessen können Sie `context` verwenden oder einen Aktionspfade-Schritt mit dem entsprechenden Event **vor** dem Nachrichten-Schritt hinzufügen, der `event_properties` enthält.
-- Wenn ein Aktionspfade-Schritt einen Trigger „Eingehende SMS-Nachricht gesendet“ oder „Eingehende WhatsApp-Nachricht gesendet“ enthält, können die nachfolgenden Canvas-Schritte eine SMS- oder WhatsApp-Liquid-Eigenschaft enthalten. Dies spiegelt wider, wie Event-Eigenschaften in Canvases funktionieren. Auf diese Weise können Sie Ihre Nachrichten nutzen, um First-Party-Daten in Nutzerprofilen und konversationsbasiertem Messaging zu speichern und zu referenzieren.
+- Kontext ist nur als Referenz in Liquid verfügbar. Um nach den Eigenschaften innerhalb des Canvas zu filtern, verwenden Sie stattdessen die [Event-Eigenschafts-Segmentierung]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects).
+- Für In-App-Nachricht-Kanäle können Sie `context` und `event_properties` in einem Canvas referenzieren. Auf `event_properties` kann zugegriffen werden, wenn sie im ersten Canvas-Schritt enthalten sind, da dieser triggerbasiert ist.
+- Sie können `event_properties` nicht im ersten Nachrichten-Schritt verwenden. Stattdessen können Sie `context` verwenden oder einen Aktionspfade-Schritt mit dem entsprechenden Event **vor** dem Nachrichten-Schritt hinzufügen, der `event_properties` enthält.
+- Wenn ein Aktionspfad-Schritt einen Trigger „Eingehende SMS-Nachricht gesendet“ oder „Eingehende WhatsApp-Nachricht gesendet“ enthält, können die nachfolgenden Canvas-Schritte eine SMS- oder WhatsApp-Liquid-Eigenschaft enthalten. Dies spiegelt wider, wie Event-Eigenschaften in Canvases funktionieren. Auf diese Weise können Sie Ihre Nachrichten nutzen, um First-Party-Daten in Nutzerprofilen und im Conversational Messaging zu speichern und zu referenzieren.
 
 {% alert note %}
-Die Zielgruppen-Berechtigung wird einmalig beim Canvas-Eintritt ausgewertet. Wenn Nutzer:innen während des Eintritts zusammengeführt werden, durchlaufen die identifizierten Nutzer:innen den Canvas weiter und werden nicht erneut anhand der Canvas-Segment-Kriterien bewertet.
+Die Zielgruppen-Berechtigung wird einmalig beim Canvas-Entry ausgewertet. Wenn Nutzer:innen während des Entry zusammengeführt werden, durchlaufen die identifizierten Nutzer:innen den Canvas weiterhin und werden nicht erneut anhand der Canvas-Segmentkriterien ausgewertet.
 {% endalert %}
 
 {% multi_lang_include alerts/tip_alerts.md alert='Reference properties from triggering event' %}
 
-### Zeitstempel für Trigger {#timestamps-for-triggers}
+### Zeitstempel {#timestamps}
 
-Wenn Sie Zeitstempel mit einem [Datetime-Typ]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties) aus Events verwenden, die aktionsbasierte Canvases triggern und über [Context]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) referenziert werden, werden Zeitstempel auf UTC normalisiert.
-
-Angesichts dieses Verhaltens empfiehlt Braze dringend, einen Liquid-Zeitzonen-Filter wie im folgenden Beispiel zu verwenden, um sicherzustellen, dass Ihre Nachrichten mit Ihrer [bevorzugten Zeitzone]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters) gesendet werden.
+Alle Zeitstempel in Canvas sind auf UTC normalisiert. Angesichts dieses Verhaltens empfiehlt Braze dringend, einen Liquid-Zeitzonen-Filter zu verwenden, wie im folgenden Beispiel, damit Ihre Nachrichten in Ihrer [bevorzugten Zeitzone]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters) gesendet werden.
 
 {% raw %}
 ```liquid
@@ -68,14 +68,14 @@ Angesichts dieses Verhaltens empfiehlt Braze dringend, einen Liquid-Zeitzonen-Fi
 
 ## Anwendungsfall {#use-case}
 
-![Ein Aktionspfade-Schritt, gefolgt von einem Verzögerungs-Schritt und einem Nachrichten-Schritt für Nutzer:innen, die einen Artikel zu ihrer Wunschliste hinzugefügt haben, sowie ein Pfad für alle anderen.]({% image_buster /assets/img_archive/canvas_entry_properties1.png %}){: style="float:right;max-width:30%;margin-left:15px;"}
+![Ein Aktionspfad-Schritt, gefolgt von einem Verzögerungs- und einem Nachrichtenschritt für Nutzer:innen, die einen Artikel zu ihrer Wunschliste hinzugefügt haben, sowie ein Pfad für alle anderen.]({% image_buster /assets/img_archive/canvas_entry_properties1.png %}){: style="float:right;max-width:30%;margin-left:15px;"}
 
-Um die Unterschiede zwischen `context` und `event_properties` besser zu verstehen, betrachten wir folgendes Szenario: Nutzer:innen treten in einen aktionsbasierten Canvas ein, wenn sie das angepasste Event „Artikel zur Wunschliste hinzufügen“ ausführen.
+Um die Unterschiede zwischen `context` und `event_properties` besser zu verstehen, betrachten wir folgendes Szenario, in dem Nutzer:innen ein aktionsbasiertes Canvas betreten, wenn sie das angepasste Event „Artikel zur Wunschliste hinzufügen“ ausführen.
 
-Context wird im Schritt [Entry-Zeitplan]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-12-determine-your-canvas-entry-schedule) bei der Canvas-Erstellung konfiguriert und entspricht dem Zeitpunkt, an dem Nutzer:innen in einen Canvas eintreten. Context kann auch in jedem Nachrichten-Schritt referenziert werden.
+Der Kontext wird im Schritt [Entry-Zeitplan]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-12-determine-your-canvas-entry-schedule) bei der Canvas-Erstellung konfiguriert und entspricht dem Zeitpunkt, zu dem eine Nutzer:in ein Canvas betritt. Der Kontext kann auch in jedem Nachrichtenschritt referenziert werden.
 
-In diesem Canvas haben wir eine Nutzer-Journey, die mit einem Aktionspfade-Schritt beginnt, um festzustellen, ob Nutzer:innen einen Artikel zu ihrer Wunschliste hinzugefügt haben. Wenn dies der Fall ist, erleben sie eine Verzögerung, bevor sie die Nachricht „Neuer Artikel auf Ihrer Wunschliste!“ vom Nachrichten-Schritt erhalten.
+In diesem Canvas haben wir eine User Journey, die mit einem Aktionspfad-Schritt beginnt, um festzustellen, ob eine Nutzer:in einen Artikel zu ihrer Wunschliste hinzugefügt hat. Wenn die Nutzer:in einen Artikel hinzugefügt hat, erlebt sie von hier aus eine Verzögerung, bevor sie die Nachricht „Neuer Artikel auf Ihrer Wunschliste!“ vom Nachrichtenschritt erhält.
 
-Der erste Nachrichten-Schritt in einer Nutzer-Journey hat Zugriff auf die angepassten `event_properties` aus Ihrem Aktionspfade-Schritt. In diesem Fall können wir ``{% raw %} {{event_properties.${property_name}}} {% endraw %}`` in diesem Nachrichten-Schritt als Teil unseres Nachrichteninhalts einfügen. Wenn Nutzer:innen keinen Artikel zu ihrer Wunschliste hinzufügen, durchlaufen sie den Alle-anderen-Pfad, was bedeutet, dass die `event_properties` nicht referenziert werden können und einen Fehler für ungültige Einstellungen anzeigen.
+Der erste Nachrichtenschritt in einer User Journey hat Zugriff auf die angepassten `event_properties` aus Ihrem Aktionspfad-Schritt. In diesem Fall können wir ``{% raw %} {{event_properties.${property_name}}} {% endraw %}`` in diesem Nachrichtenschritt als Teil unseres Nachrichteninhalts einfügen. Wenn eine Nutzer:in keinen Artikel zu ihrer Wunschliste hinzufügt, durchläuft sie den „Alle anderen“-Pfad, was bedeutet, dass die `event_properties` nicht referenziert werden können und einen Fehler wegen ungültiger Einstellungen anzeigen.
 
-Beachten Sie, dass Sie nur Zugriff auf `event_properties` haben, wenn Ihr Nachrichten-Schritt auf einen Nicht-Alle-anderen-Pfad in einem Aktionspfade-Schritt zurückverfolgt werden kann. Wenn der Nachrichten-Schritt mit einem Alle-anderen-Pfad verbunden ist, aber auf einen Aktionspfade-Schritt in der Nutzer-Journey zurückverfolgt werden kann, haben Sie ebenfalls weiterhin Zugriff auf `event_properties`. Weitere Informationen zu diesen Verhaltensweisen finden Sie unter [Nachrichten-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step).
+Beachten Sie, dass Sie nur dann Zugriff auf `event_properties` haben, wenn Ihr Nachrichtenschritt auf einen Nicht-„Alle anderen“-Pfad in einem Aktionspfad-Schritt zurückverfolgt werden kann. Wenn der Nachrichtenschritt mit einem „Alle anderen“-Pfad verbunden ist, aber in der User Journey auf einen Aktionspfad-Schritt zurückverfolgt werden kann, haben Sie weiterhin Zugriff auf `event_properties`. Weitere Informationen zu diesem Verhalten finden Sie unter [Nachrichtenschritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step).

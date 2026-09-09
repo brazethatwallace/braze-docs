@@ -33,7 +33,7 @@ Para permitir imagens de prévia de links no iOS, os usuários devem adicionar s
 
 #### Etapa 1: Crie uma campanha de cartão de contato {#step-1-create-a-contact-card-campaign}
 
-Depois que os usuários salvarem sua marca como um contato, seja por meio de um [cartão de contato]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/contact_card) ou outro método, eles poderão ver os prompts **Tap to Load Preview** e os links da Movable Ink.
+Depois que os usuários salvarem sua marca como um contato, seja por meio de um [cartão de contato]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/contact_card) ou outro método, eles poderão ver os prompts **Tap to Load prévia** e os links da Movable Ink.
 
 ![Prompt de prévia de link no iOS][1]{: style="max-width:30%;"}
 
@@ -65,7 +65,7 @@ Os usuários do Android não precisam salvar sua marca como um contato para rece
 
 ![Prévia automática de link no Android][5]{: style="max-width:30%;"}
 
-Os usuários que não salvaram sua marca como contato e ativaram as prévias automáticas terão que selecionar **Tap to load preview** para carregar a imagem da prévia.
+Os usuários que não salvaram sua marca como contato e ativaram as prévias automáticas terão que selecionar **Tap to load prévia** para carregar a imagem da prévia.
 
 ![Opção de toque para carregar prévia no Android][6]{: style="max-width:30%;"}
 

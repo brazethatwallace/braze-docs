@@ -1,25 +1,25 @@
-## 六SDKの統合
+## Roku SDKの統合 {#integrating-the-roku-sdk}
 
-### ステップ 1: ファイルの追加
+### ステップ1：ファイルを追加する {#step-1-add-files}
 
-Braze SDK ファイルは、[Braze Roku SDK リポジトリ](https://github.com/braze-inc/braze-roku-sdk) の `sdk_files` ディレクトリにあります。
+Braze SDKファイルは、[Braze Roku SDKリポジトリ](https://github.com/braze-inc/braze-roku-sdk)の`sdk_files`ディレクトリにあります。
 
-1. `source` ディレクトリで、アプリに `BrazeSDK.brs` を追加します。
-2. `components` ディレクトリで、アプリに `BrazeTask.brs` と `BrazeTask.xml` を追加します。
+1. `BrazeSDK.brs`をアプリの`source`ディレクトリに追加します。
+2. `BrazeTask.brs`と`BrazeTask.xml`をアプリの`components`ディレクトリに追加します。
 
-### ステップ 2:参照の追加
+### ステップ2：参照を追加する {#step-2-add-references}
 
-次の `script` 要素を使用して、メインシーンに `BrazeSDK.brs` への参照を追加します。
+以下の`script`要素を使用して、メインシーンに`BrazeSDK.brs`への参照を追加します。
 
 ```
 <script type="text/brightscript" uri="pkg:/source/BrazeSDK.brs"/>
 ```
 
-### ステップ3:構成
+### ステップ3：設定する {#step-3-configure}
 
-`main.brs` 内で、グローバルノードにBrazeのコンフィギュレーションを設定する：
+`main.brs`内で、グローバルノードにBrazeの設定を行います。
 
-`````````brightscript
+```brightscript
 globalNode = screen.getGlobalNode()
 config = {}
 config_fields = BrazeConstants().BRAZE_CONFIG_FIELDS
@@ -30,19 +30,19 @@ config[config_fields.HEARTBEAT_FREQ_IN_SECONDS] = 5
 globalNode.addFields({brazeConfig: config})
 ```
 
-[SDK エンドポイント]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints/)と API キーは、Braze ダッシュボード内にあります。
+[SDKエンドポイント]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints)とAPIキーは、Brazeダッシュボードで確認できます。
 
-### ステップ4: Braze の初期化
+### ステップ4：Brazeを初期化する {#step-4-initialize-braze}
 
-Braze インスタンスを初期化します。
+Brazeインスタンスを初期化します。
 
-`````````brightscript
+```brightscript
 m.BrazeTask = createObject("roSGNode", "BrazeTask")
 m.Braze = getBrazeInstance(m.BrazeTask)
 ```
 
-## オプション構成
+## オプション設定 {#optional-configurations}
 
-### ロギング
+### ログ {#logging}
 
-Braze 統合をデバッグするため、Braze ログの Roku デバッグコンソールを表示できます。詳細については、Roku Developers の [Debugging code](https://developer.roku.com/docs/developer-program/debugging/debugging-channels.md) を参照してください。
+Brazeの統合をデバッグするには、RokuデバッグコンソールでBrazeのログを確認できます。詳しくは、Roku Developersの[Debugging code](https://developer.roku.com/docs/developer-program/debugging/debugging-channels.md)を参照してください。

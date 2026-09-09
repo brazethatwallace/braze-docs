@@ -108,5 +108,9 @@ This graph gives you the ability to quickly see your total data point usage vers
 
 ## Next steps
 
-- [Notification preferences]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences) to configure alerts for billing-related events and usage thresholds.
-- [Credits usage dashboard]({{site.baseurl}}/credits_usage_dashboard) to monitor message credit consumption.
+{% article_tiles %}
+- name: Notification preferences
+  link: /docs/user_guide/administer/global/admin_settings/notification_preferences
+- name: Credits usage dashboard
+  link: /docs/credits_usage_dashboard
+{% endarticle_tiles %}

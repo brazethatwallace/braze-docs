@@ -65,24 +65,24 @@ Las Content Cards pueden eliminarse cuando los usuarios completan una compra o r
 
 ## Informes y análisis {#reporting-and-analytics}
 
-Después de lanzar un paso de Content Cards en Canvas, puedes comenzar a analizar varias métricas diferentes para este paso. Estas métricas incluyen el número de mensajes enviados, impresiones diarias únicas, tasas de conversión, ingresos totales y más.
+Después de lanzar un paso de Content Cards en Canvas, puedes comenzar a analizar varias métricas diferentes para este paso. Estas métricas incluyen el número de mensajes enviados, las impresiones diarias únicas, las tasas de conversión, los ingresos totales y más.
 
-![Análisis de un paso de mensaje con el rendimiento del mensaje de Content Card.]({% image_buster /assets/img_archive/content-cards-in-canvas-analytics.png %})
+![Análisis de un paso de mensaje con el rendimiento del mensaje de Content Cards.]({% image_buster /assets/img_archive/content-cards-in-canvas-analytics.png %})
 
-Para más información sobre las métricas disponibles y sus definiciones, consulta nuestro [Glosario de métricas de informes]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
+Para obtener más información sobre las métricas disponibles y sus definiciones, consulta nuestro [Glosario de métricas de informes]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
-## Casos de uso {#use-cases}
+## Ejemplos {#use-cases}
 
 ### Ofertas promocionales {#promotional-offers}
 
-Añade tarjetas a la fuente de un usuario a medida que califique para promociones y anuncios específicos. Por ejemplo, si un usuario se vuelve elegible para una nueva oferta después de realizar una acción o hacer una compra, usando Canvas puedes enviarle una Content Card, además de otros canales de mensajería, para que la próxima vez que abra la aplicación la oferta esté disponible.
+Añade tarjetas al feed de un usuario a medida que cumple los requisitos para promociones y anuncios específicos. Por ejemplo, si un usuario se vuelve elegible para una nueva oferta después de realizar una acción o una compra, con Canvas puedes enviarle una Content Card, además de otros canales de mensajería, para que la próxima vez que abra la aplicación la oferta esté disponible.
 
 ### Buzón de entrada de notificaciones push {#push-notification-inbox}
 
-Hay ocasiones en las que un usuario puede descartar una notificación push o eliminar un correo electrónico, pero quieres recordarle o promocionar la oferta en caso de que cambie de opinión.
+Hay veces en que un usuario puede descartar una notificación push o eliminar un correo electrónico, pero quieres recordarle o promover la oferta en caso de que cambie de opinión.
 
-Usando Canvas, puedes añadir un componente que envíe tanto una Content Card como una notificación push para dar a los usuarios un "buzón de entrada" persistente de tarjetas que se alineen con los mensajes promocionales enviados a través de push.
+Con Canvas, puedes añadir un componente que envíe tanto una Content Card como una notificación push para ofrecer a los usuarios un "buzón de entrada" persistente de tarjetas que se alineen con los mensajes promocionales enviados a través de push.
 
-### Múltiples fuentes basadas en categorías {#multiple-feeds-based-on-categories}
+### Múltiples feeds basados en categorías {#multiple-feeds-based-on-categories}
 
-Puedes separar tus Content Cards en múltiples fuentes basadas en categorías, como diferentes temas que los usuarios pueden examinar, o fuentes transaccionales y de marketing. Para más información sobre cómo crear múltiples fuentes usando pares clave-valor, consulta nuestra guía para [Personalizar fuentes de Content Cards]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed#multiple-feeds).
+Puedes separar tus Content Cards en múltiples feeds basados en categorías, como diferentes temas que los usuarios pueden explorar, o feeds transaccionales y de marketing. Para más información sobre cómo crear múltiples feeds utilizando pares clave-valor, consulta nuestra guía para [Personalizar feeds de Content Cards]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed#implementing-multiple-feeds).

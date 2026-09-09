@@ -4,7 +4,7 @@
 
 ### 定義済みメソッド {#predefined-methods}
 
-Brazeは、[`BrazeUser`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/index.html)クラス内で以下のユーザー属性を設定するための定義済みメソッドを提供しています。メソッド仕様については、[KDoc](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/index.html)を参照してください。
+Brazeは、[`BrazeUser`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/index.html)クラス内で以下のユーザー属性を設定するための定義済みメソッドを提供しています。メソッドの仕様については、[KDocドキュメント](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/index.html)を参照してください。
 
 - 名
 - 姓
@@ -22,7 +22,7 @@ Brazeは、[`BrazeUser`](https://braze-inc.github.io/braze-android-sdk/kdoc/braz
 
 ### デフォルト属性の設定 {#setting-default-attributes}
 
-ユーザーにデフォルト属性を設定するには、Brazeインスタンスの`getCurrentUser()`メソッドを呼び出して、アプリの現在のユーザーへの参照を取得します。その後、メソッドを呼び出してユーザー属性を設定できます。
+ユーザーのデフォルト属性を設定するには、Brazeインスタンスで`getCurrentUser()`メソッドを呼び出し、アプリの現在のユーザーへの参照を取得します。その後、ユーザー属性を設定するメソッドを呼び出すことができます。
 
 {% tabs %}
 {% tab JAVA %}
@@ -39,7 +39,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
 {% endtab %}
 {% tab KOTLIN %}
 
-`````````kotlin
+```kotlin
 Braze.getInstance(context).getCurrentUser { brazeUser ->
   brazeUser.setFirstName("first_name")
 }
@@ -50,12 +50,12 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 
 ### デフォルト属性の解除 {#unsetting-default-attributes}
 
-ユーザー属性を解除するには、該当するメソッドに`null`を渡します。
+ユーザー属性を解除するには、関連するメソッドに`null`を渡します。
 
 {% tabs %}
 {% tab JAVA %}
 
-`````````java
+```java
 Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
   @Override
   public void onSuccess(BrazeUser brazeUser) {
@@ -67,7 +67,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
 {% endtab %}
 {% tab KOTLIN %}
 
-`````````kotlin
+```kotlin
 Braze.getInstance(context).getCurrentUser { brazeUser ->
   brazeUser.setFirstName(null)
 }
@@ -78,18 +78,18 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 
 ## カスタムユーザー属性 {#custom-user-attributes}
 
-デフォルトのユーザー属性に加えて、Brazeでは複数の異なるデータタイプを使用してカスタム属性を定義することもできます。各属性のセグメンテーションオプションの詳細については、[ユーザーデータ収集]({{site.baseurl}}/developer_guide/analytics/)を参照してください。
+デフォルトのユーザー属性に加えて、Brazeではいくつかの異なるデータタイプを使用してカスタム属性を定義することもできます。各属性のセグメンテーションオプションの詳細については、[ユーザーデータ収集]({{site.baseurl}}/developer_guide/analytics)を参照してください。
 
 ### カスタム属性の設定 {#setting-custom-attributes}
 
 {% tabs local %}
 {% tab String %}
-カスタム属性を`string`値で設定するには：
+`string`値でカスタム属性を設定するには：
 
 {% subtabs global %}
 {% subtab JAVA %}
 
-`````````java
+```java
 Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
   @Override
   public void onSuccess(BrazeUser brazeUser) {
@@ -101,7 +101,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
 {% endsubtab %}
 {% subtab KOTLIN %}
 
-`````````kotlin
+```kotlin
 Braze.getInstance(context).getCurrentUser { brazeUser ->
   brazeUser.setCustomUserAttribute("your_attribute_key", "your_attribute_value")
 }
@@ -111,12 +111,12 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% endsubtabs %}
 {% endtab %}
 {% tab Integers %}
-カスタム属性を`int`値で設定するには：
+`int`値でカスタム属性を設定するには：
 
 {% subtabs global %}
 {% subtab JAVA %}
 
-`````````java
+```java
 Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
   @Override
   public void onSuccess(BrazeUser brazeUser) {
@@ -131,7 +131,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
 {% endsubtab %}
 {% subtab KOTLIN %}
 
-`````````kotlin
+```kotlin
 Braze.getInstance(context).getCurrentUser { brazeUser ->
   brazeUser.setCustomUserAttribute("your_attribute_key", YOUR_INT_VALUE)
 
@@ -143,12 +143,12 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% endsubtab %}
 {% endsubtabs %}
 
-カスタム属性を`long`整数値で設定するには：
+`long`整数値でカスタム属性を設定するには：
 
 {% subtabs global %}
 {% subtab JAVA %}
 
-`````````java
+```java
 Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
   @Override
   public void onSuccess(BrazeUser brazeUser) {
@@ -160,7 +160,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
 {% endsubtab %}
 {% subtab KOTLIN %}
 
-`````````kotlin
+```kotlin
 Braze.getInstance(context).getCurrentUser { brazeUser ->
   brazeUser.setCustomUserAttribute("your_attribute_key", YOUR_LONG_VALUE)
 }
@@ -170,12 +170,12 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% endsubtabs %}
 {% endtab %}
 {% tab Floating-points %}
-カスタム属性を`float`値で設定するには：
+`float`値でカスタム属性を設定するには：
 
 {% subtabs global %}
 {% subtab JAVA %}
 
-`````````java
+```java
 Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
   @Override
   public void onSuccess(BrazeUser brazeUser) {
@@ -187,7 +187,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
 {% endsubtab %}
 {% subtab KOTLIN %}
 
-`````````kotlin
+```kotlin
 Braze.getInstance(context).getCurrentUser { brazeUser ->
   brazeUser.setCustomUserAttribute("your_attribute_key", YOUR_FLOAT_VALUE)
 }
@@ -196,12 +196,12 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% endsubtab %}
 {% endsubtabs %}
 
-カスタム属性を`double`値で設定するには：
+`double`値でカスタム属性を設定するには：
 
 {% subtabs global %}
 {% subtab JAVA %}
 
-`````````java
+```java
 Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
   @Override
   public void onSuccess(BrazeUser brazeUser) {
@@ -213,7 +213,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
 {% endsubtab %}
 {% subtab KOTLIN %}
 
-`````````kotlin
+```kotlin
 Braze.getInstance(context).getCurrentUser { brazeUser ->
   brazeUser.setCustomUserAttribute("your_attribute_key", YOUR_DOUBLE_VALUE)
 }
@@ -224,12 +224,12 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% endtab %}
 
 {% tab Boolean %}
-カスタム属性を`boolean`値で設定するには：
+`boolean`値でカスタム属性を設定するには：
 
 {% subtabs global %}
 {% subtab JAVA %}
 
-`````````java
+```java
 Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
   @Override
   public void onSuccess(BrazeUser brazeUser) {
@@ -241,7 +241,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
 {% endsubtab %}
 {% subtab KOTLIN %}
 
-`````````kotlin
+```kotlin
 Braze.getInstance(context).getCurrentUser { brazeUser ->
   brazeUser.setCustomUserAttribute("your_attribute_key", YOUR_BOOLEAN_VALUE)
 }
@@ -255,7 +255,7 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% subtabs global %}
 {% subtab JAVA %}
 
-`````````java
+```java
 Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
   @Override
   public void onSuccess(BrazeUser brazeUser) {
@@ -271,7 +271,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
 {% endsubtab %}
 {% subtab KOTLIN %}
 
-`````````kotlin
+```kotlin
 Braze.getInstance(context).getCurrentUser { brazeUser ->
   brazeUser.setCustomUserAttribute("your_attribute_key", YOUR_DATE_VALUE)
   // This method will assign the current time to a custom attribute at the time the method is called:
@@ -285,18 +285,18 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% endsubtabs %}
 
 {% alert warning %}
-このメソッドでBrazeに渡される日付は、[ISO 8601](http://en.wikipedia.org/wiki/ISO_8601)形式（例：`2013-07-16T19:20:30+01:00`）または`yyyy-MM-dd'T'HH:mm:ss:SSSZ`形式（例：`2016-12-14T13:32:31.601-0800`）のいずれかである必要があります。
+このメソッドでBrazeに渡す日付は、[ISO 8601](http://en.wikipedia.org/wiki/ISO_8601)形式（例：`2013-07-16T19:20:30+01:00`）または`yyyy-MM-dd'T'HH:mm:ss:SSSZ`形式（例：`2016-12-14T13:32:31.601-0800`）のいずれかである必要があります。
 {% endalert %}
 
 {% endtab %}
 {% tab Array %}
 
-配列内の要素のデフォルトおよび最大数は500です。最大数はBrazeダッシュボードの**データ設定** > **カスタム属性**で更新できます。要素数が最大値を超える配列は、最大要素数に切り詰められます。カスタム属性配列とその動作の詳細については、[配列]({{site.baseurl}}/developer_guide/analytics/#arrays)を参照してください。
+配列のデフォルトおよび最大要素数は500です。最大数はBrazeダッシュボードの**データ設定** > **カスタム属性**で更新できます。最大要素数を超える配列は、最大要素数に切り捨てられます。カスタム属性配列とその動作の詳細については、[配列]({{site.baseurl}}/developer_guide/analytics#arrays)を参照してください。
 
 {% subtabs global %}
 {% subtab JAVA %}
 
-`````````java
+```java
 Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
   @Override
   public void onSuccess(BrazeUser brazeUser) {
@@ -312,7 +312,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
 {% endsubtab %}
 {% subtab KOTLIN %}
 
-`````````kotlin
+```kotlin
 Braze.getInstance(context).getCurrentUser { brazeUser ->
   // Setting a custom attribute with an array value
   brazeUser.setCustomAttributeArray("your_attribute_key", testSetArray)
@@ -330,12 +330,12 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 
 ### カスタム属性の設定解除 {#unsetting-custom-attributes}
 
-カスタム属性を解除するには、該当する属性キーを`unsetCustomUserAttribute`メソッドに渡します。
+カスタム属性を解除するには、関連する属性キーを`unsetCustomUserAttribute`メソッドに渡します。
 
 {% tabs %}
 {% tab JAVA %}
 
-`````````java
+```java
 Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
   @Override
   public void onSuccess(BrazeUser brazeUser) {
@@ -347,7 +347,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
 {% endtab %}
 {% tab KOTLIN %}
 
-`````````kotlin
+```kotlin
 Braze.getInstance(context).getCurrentUser { brazeUser ->
   brazeUser.unsetCustomUserAttribute("your_attribute_key")
 }
@@ -356,13 +356,13 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% endtab %}
 {% endtabs %}
 
-### 階層化カスタム属性 {#nesting-custom-attributes}
+### カスタム属性のネスト {#nesting-custom-attributes}
 
-カスタム属性内にプロパティをネストすることもできます。次の例では、ネストされたプロパティを持つ`favorite_book`オブジェクトが、ユーザープロファイルのカスタム属性として設定されます。詳細については、[階層化カスタム属性]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/)を参照してください。
+カスタム属性内にプロパティをネストすることもできます。次の例では、ネストされたプロパティを持つ`favorite_book`オブジェクトがユーザープロファイルのカスタム属性として設定されています。詳細については、[階層化カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support)を参照してください。
 
 {% tabs %}
 {% tab JAVA %}
-`````````java
+```java
 JSONObject favoriteBook = new JSONObject();
 try {
   favoriteBook.put("title", "The Hobbit");
@@ -380,7 +380,7 @@ braze.getCurrentUser(user -> {
 {% endtab %}
 
 {% tab KOTLIN %}
-`````````kotlin
+```kotlin
 val favoriteBook = JSONObject()
   .put("title", "The Hobbit")
   .put("author", "J.R.R. Tolkien")
@@ -395,29 +395,29 @@ braze.getCurrentUser { user ->
 
 ### REST APIの使用 {#using-the-rest-api}
 
-ユーザー属性の設定や解除には、REST APIも使用できます。詳細については、[ユーザーデータエンドポイント]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data)を参照してください。
+REST APIを使用してユーザー属性を設定または解除することもできます。詳細については、[ユーザーデータエンドポイント]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data)を参照してください。
 
-## ユーザーサブスクリプションの設定 {#setting-user-subscriptions}
+## ユーザーの購読設定 {#setting-user-subscriptions}
 
-ユーザーのサブスクリプション（メールまたはプッシュ）を設定するには、それぞれ`setEmailNotificationSubscriptionType()`関数または`setPushNotificationSubscriptionType()`関数を呼び出します。これらの関数はいずれも引数として列挙型`NotificationSubscriptionType`を受け取ります。この型には、次の3つの状態があります。
+ユーザーの購読（メールまたはプッシュ）を設定するには、それぞれ `setEmailNotificationSubscriptionType()` または `setPushNotificationSubscriptionType()` 関数を呼び出します。これらの関数はいずれも、引数として列挙型 `NotificationSubscriptionType` を受け取ります。この型には3つの異なるステータスがあります。
 
-| サブスクリプションステータス | 定義 |
+| 購読ステータス | 定義 |
 | ------------------- | ---------- |
-| `OPTED_IN` | 配信登録済み、かつ明示的にオプトイン済み |
-| `SUBSCRIBED` | 購読中、ただし明示的にオプトインしていない |
-| `UNSUBSCRIBED` | 配信停止済みまたは明示的にオプトアウト済み、あるいはその両方 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `OPTED_IN` | 購読済みで、明示的にオプトイン済み |
+| `SUBSCRIBED` | 購読済みだが、明示的にはオプトインしていない |
+| `UNSUBSCRIBED` | 購読解除済み、および/または明示的にオプトアウト済み |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ユーザーの購読設定" }
 
 {% alert important %}
-Androidでは、ユーザーにプッシュ通知を送信する際に明示的なオプトインは必要ありません。ユーザーがプッシュ登録されると、デフォルトで`OPTED_IN`ではなく`SUBSCRIBED`に設定されます。サブスクリプションと明示的オプトインの実装の詳細については、[ユーザーサブスクリプションの管理]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#managing-user-subscriptions)を参照してください。
+Androidでは、ユーザーにプッシュ通知を送信するために明示的なオプトインは必要ありません。ユーザーがプッシュに登録されると、デフォルトでは `OPTED_IN` ではなく `SUBSCRIBED` に設定されます。購読と明示的なオプトインの実装の詳細については、[ユーザー購読の管理]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions#managing-user-subscriptions)を参照してください。
 {% endalert %}
 
-### メールサブスクリプションの設定 {#setting-email-subscriptions}
+### メール購読の設定 {#setting-email-subscriptions}
 
 {% tabs %}
 {% tab JAVA %}
 
-`````````java
+```java
 Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
   @Override
   public void onSuccess(BrazeUser brazeUser) {
@@ -429,7 +429,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
 {% endtab %}
 {% tab KOTLIN %}
 
-`````````kotlin
+```kotlin
 Braze.getInstance(context).getCurrentUser { brazeUser ->
   brazeUser.setEmailNotificationSubscriptionType(emailNotificationSubscriptionType)
 }
@@ -438,12 +438,12 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% endtab %}
 {% endtabs %}
 
-### プッシュ通知サブスクリプションの設定 {#setting-push-notification-subscription}
+### プッシュ通知購読の設定 {#setting-push-notification-subscription}
 
 {% tabs %}
 {% tab JAVA %}
 
-`````````java
+```java
 Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
   @Override
   public void onSuccess(BrazeUser brazeUser) {
@@ -455,7 +455,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
 {% endtab %}
 {% tab KOTLIN %}
 
-`````````kotlin
+```kotlin
 Braze.getInstance(context).getCurrentUser { brazeUser ->
   brazeUser.setPushNotificationSubscriptionType(pushNotificationSubscriptionType)
 }

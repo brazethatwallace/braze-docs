@@ -30,7 +30,7 @@ Some more specific use cases include the following:
 
 - Create a [lead-scoring workflow]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring) using webhooks and Canvas to qualify and route leads.
 - If a user unsubscribes from email, you could have a webhook update your analytics database or CRM with that same information, ensuring a holistic view of that user's behavior.
-- Send [transactional messages]({{site.baseurl}}/api/api_campaigns/transactional_api_campaign) to users within Facebook Messenger or Line.
+- Send [transactional messages]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/) to users within Facebook Messenger or Line.
 - Send direct mail to customers in response to their in-app and web activity by using webhooks to communicate with third-party services like [Lob.com]({{site.baseurl}}/partners/additional_channels_and_extensions/additional_channels/direct_mail/lob).
 - If a gamer reaches a certain level or accrues a certain number of points, use webhooks and your existing API setup to send a character upgrade or coins directly to their account. If you send the webhook as part of a multichannel messaging campaign, you can send a push or other message to let the gamer know about the reward at the same time.
 - If you're an airline, you can use webhooks and your existing API setup to credit a customer's account with a discount after they've booked a certain number of flights.
@@ -56,5 +56,11 @@ Check out:
 
 ## Next steps
 
-- [Create a webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook)
-- [Create a Braze-to-Braze webhook]({{site.baseurl}}/user_guide/channels/webhooks/use_case_create_a_braze_to_braze_webhook)
+{% article_tiles %}
+- name: Create a webhook
+  link: /docs/user_guide/channels/webhooks/create_a_webhook
+  description: Set up webhooks triggered by custom events and send data to external endpoints.
+- name: Create a Braze-to-Braze webhook
+  link: /docs/user_guide/channels/webhooks/use_case_create_a_braze_to_braze_webhook
+  description: Post to Braze APIs from campaigns and Canvases.
+{% endarticle_tiles %}

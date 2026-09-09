@@ -36,7 +36,7 @@ Na Braze, uma das condições de corrida mais comuns ocorre com mensagens direci
 
 No entanto, em alguns casos, o segundo evento é disparado primeiro. Isso significa que uma mensagem tenta ser enviada a um usuário que ainda não existe. Como resultado, o usuário nunca a recebe. Isso também se aplica a eventos ou atributos, em que o evento ou atributo tenta ser registrado em um perfil de usuário que ainda não foi criado.
 
-No caso de mensagens no app, a mensagem no app precisa ser carregada no dispositivo do usuário antes de ser disparada. Se o evento de gatilho faz parte do processo de integração, ou se o usuário sai do segmento para o evento personalizado como parte de sua primeira sessão, é provável que o usuário não veja a mensagem no app.
+No caso de mensagens no app, a mensagem no app precisa ser carregada no dispositivo do usuário antes de ser disparada. Se o evento de gatilho faz parte do processo de integração, ou se o usuário sai do Segment para o evento personalizado como parte de sua primeira sessão, é provável que o usuário não veja a mensagem no app.
 
 ### Mensagens no app {#in-app-messages}
 
@@ -150,4 +150,4 @@ Evite depender de "Interagir com etapa" imediatamente após uma etapa de Mensage
 
 #### Evite ramificações que dependam da interação {#avoid-branches-that-are-dependent-on-interaction}
 
-Projete seu Canvas de modo que a perda de uma interação imediata não prejudique a experiência do usuário. Por exemplo, evite decisões críticas de ramificação que dependam exclusivamente de a interação ser capturada na próxima etapa, ou adicione lógica de acompanhamento que possa corrigir as rotas dos usuários.
+Projete seu Canvas de modo que a perda de uma interação imediata não prejudique a experiência do usuário. Por exemplo, evite decisões críticas de Branch que dependam exclusivamente de a interação ser capturada na próxima etapa, ou adicione lógica de acompanhamento que possa corrigir as rotas dos usuários.

@@ -13,7 +13,7 @@ description: "Cet article présente en détail l'endpoint Braze Extraire les num
 /sms/invalid_phone_numbers
 {% endapimethod %}
 
-> Utilisez cet endpoint pour obtenir une liste des numéros de téléphone qui ont été marqués comme « invalides » dans un certain laps de temps. Pour plus d'informations, consultez la documentation sur la [gestion des numéros de téléphone non valides]({{site.baseurl}}/user_guide/message_building_by_channel/sms/phone_numbers/user_phone_numbers#handling-invalid-phone-numbers).
+> Utilisez cet endpoint pour obtenir une liste des numéros de téléphone qui ont été marqués comme « invalides » dans un certain laps de temps. Pour plus d'informations, consultez la documentation sur la [gestion des numéros de téléphone non valides]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#handling-invalid-phone-numbers).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#81ceae19-15d1-4ac1-ad22-a6b86a92456d {% endapiref %}
 
@@ -30,15 +30,15 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 | Paramètre | Requis | Type de données | Description |
 | ----------|-----------| ----------|----- |
 | `start_date` | Facultatif <br>(voir la note) | Chaîne de caractères au format YYYY-MM-DD | Date de début de la plage pour récupérer les numéros de téléphone non valides, doit être antérieure à `end_date`. Ce paramètre est traité comme minuit (UTC) par l'API. |
-| `end_date` | Facultatif <br>(voir la note) | Chaîne de caractères au format YYYY-MM-DD | Date de fin de la plage pour récupérer les numéros de téléphone non valides. Ce paramètre est traité comme minuit (UTC) par l'API. |
+| `end_date` | Facultatif <br>(voir la note) | Chaîne de caractères au format YYYY-MM-DD | Date de fin de la plage pour récupérer les numéros de téléphone non valides. Ce paramètre est traité comme minuit (UTC) par l'API. Les résultats incluent les numéros non valides détectés jusqu'à la fin de ce jour calendaire en UTC (inclus). |
 | `limit` | Facultatif | Entier | Champ facultatif pour limiter le nombre de résultats renvoyés. La valeur par défaut est 100, le maximum est 500. |
 | `offset` | Facultatif | Entier | Point de départ facultatif dans la liste où commencer la récupération. |
-| `phone_numbers` | Facultatif <br>(voir la note) | Tableau de chaînes de caractères au format e.164 | S'il est fourni, nous renverrons le numéro de téléphone s'il s'avère non valide. |
-| `reason` | Facultatif <br>(voir la note) | Chaîne de caractères | Les valeurs disponibles sont "provider_error" (une erreur de l'opérateur indique que le téléphone ne peut pas recevoir de SMS) ou "deactivated" (le numéro de téléphone a été désactivé). En cas d'omission, tous les motifs sont renvoyés. |
+| `phone_numbers` | Facultatif <br>(voir la note) | Tableau de chaînes de caractères au format e.164 | S'il est fourni, Braze renvoie le numéro de téléphone s'il s'avère non valide. |
+| `reason` | Facultatif <br>(voir la note) | Chaîne de caractères | Les valeurs disponibles sont `provider_error` (l'opérateur indique que le téléphone ne peut pas recevoir de SMS), `deactivated` (le numéro de téléphone a été désactivé) ou `invalid_format` (le numéro n'a pas passé la validation de format, par exemple une valeur non conforme au format E.164). En cas d'omission, tous les motifs sont renvoyés. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 {% alert note %}
-Vous devez fournir une `start_date` et une `end_date`, OU un `phone_numbers`. Si vous fournissez les trois (`start_date`, `end_date` et `phone_numbers`), nous donnerons la priorité aux numéros de téléphone communiqués et ignorerons la plage de dates.
+Vous devez fournir une `start_date` et une `end_date`, OU un `phone_numbers`. Si vous fournissez les trois (`start_date`, `end_date` et `phone_numbers`), la priorité sera donnée aux numéros de téléphone communiqués et la plage de dates sera ignorée.
 {% endalert %}
 
 Si votre plage de dates contient plus de numéros de téléphone non valides que la valeur `limit`, vous devrez effectuer plusieurs appels API en augmentant le `offset` à chaque fois, jusqu'à ce qu'un appel renvoie un nombre de résultats inférieur à `limit` ou égal à zéro.
@@ -68,7 +68,7 @@ Les entrées sont répertoriées par ordre décroissant.
     {
       "phone": (string) phone number in e.164 format,
       "invalid_detected_at": (string) the time the invalid number was detected in ISO 8601
-      "reason" : "provider_error"
+      "reason" : "invalid_format"
     }
   ],
   "message": "success"

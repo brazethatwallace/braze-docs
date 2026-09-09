@@ -1,11 +1,11 @@
 ---
-nav_title: Nutzerprofil
-article_title: Nutzerprofil
+nav_title: Kundenprofil
+article_title: Kundenprofil
 page_order: 0
 description: "Erfahren Sie, wie Sie Nachrichten mit Nutzerprofildaten personalisieren, einschließlich Standardattributen, angepassten Attributen und Event-Eigenschaften."
 ---
 
-# Nutzerprofil {#user-profile}
+# Kundenprofil {#user-profile}
 
 > Personalisieren Sie Ihre Nachrichten mit Daten, die im Profil jedes Nutzers bzw. jeder Nutzerin gespeichert sind, einschließlich Standardattributen, angepassten Attributen und Event-Eigenschaften. Braze stellt diese Daten über [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)-Tags bereit, die Sie direkt in Ihren Nachrichteninhalt einfügen können.
 

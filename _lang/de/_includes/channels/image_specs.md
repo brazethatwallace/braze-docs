@@ -73,7 +73,7 @@ SVG-Bilder werden für In-App-Nachrichten nicht unterstützt, da sie nicht auf a
 {% endtabs %}
 
 {% alert tip %}
-Das Rendering von In-App-Nachrichten im Web SDK kann durch benutzerdefinierte Textgrößeneinstellungen des Browsers beeinflusst werden. Nutzer:innen mit benutzerdefinierter Textgrößenskalierung können geringfügige Darstellungsprobleme feststellen, wie z. B. einen 1-px-Spalt am Rand eines modalen Bildes. Beim Testen und Vorschauen von In-App-Nachrichten empfehlen wir, die Standard-Textgrößeneinstellungen des Browsers zu verwenden, um eine möglichst genaue Darstellung zu erhalten.
+Das Rendering von In-App-Nachrichten im Web SDK kann durch benutzerdefinierte Textgrößeneinstellungen des Browsers beeinflusst werden. Nutzer:innen mit benutzerdefinierter Textgrößenskalierung können geringfügige Darstellungsprobleme feststellen, wie z. B. einen 1-px-Spalt am Rand eines modalen Bildes. Beim Testen und in der Vorschau von In-App-Nachrichten empfehlen wir, die Standard-Textgrößeneinstellungen des Browsers zu verwenden, um eine möglichst genaue Darstellung zu erhalten.
 {% endalert %}
 
 {% endif %}
@@ -181,7 +181,7 @@ table td {
 | Banner    | Beliebiges Seitenverhältnis | 600&nbsp;px Mindestbreite |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tabelle" }
 
-Weitere Informationen finden Sie unter [Kreative Details für Content Cards]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details).
+Weitere Informationen finden Sie unter [Kreative Details für Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/creative_details).
 
 {% endif %}
 

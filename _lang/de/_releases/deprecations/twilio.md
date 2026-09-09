@@ -31,7 +31,7 @@ Die Twilio-API erwartet, dass der Anfragetext URL-kodiert ist, daher müssen wir
 
 Der folgende Screenshot zeigt ein Beispiel dafür, wie Ihre Anfrage aussehen könnte, wenn Sie eine SMS an die Telefonnummer jeder Nutzerin bzw. jedes Nutzers mit dem Text „Hello from Braze!“ senden.
 
-- Sie benötigen gültige Telefonnummern in jedem Nutzerprofil Ihrer Zielgruppe.
+- Sie benötigen gültige Telefonnummern in jedem Kundenprofil Ihrer Zielgruppe.
 - Um das Anfrageformat von Twilio zu erfüllen, verwenden Sie den Liquid-Filter `url_param_escape` für den Inhalt Ihrer Nachrichten. Dieser Filter kodiert einen String so, dass alle Zeichen in einer HTML-Anfrage zulässig sind. Zum Beispiel ist das Pluszeichen (`+`) in der Telefonnummer `+12125551212` in URL-kodierten Daten nicht zulässig und wird in `%2B12125551212` umgewandelt.
 
 ![Webhook-Anfragetext]({% image_buster /assets/img_archive/Webhook_Body.png %})

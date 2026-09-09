@@ -267,7 +267,7 @@ Cuando creas una plantilla de un Content Block con Liquid, las consultas de medi
 
 ### ¿Cómo puedo previsualizar los valores de propiedades de evento en el creador de mensajes? {#how-do-i-preview-event-property-values-in-message-composer}
 
-Usa **Preview as Custom User** e introduce valores de muestra de propiedades de evento personalizado para el usuario que previsualices. Esto también es útil para mensajes con lógica de cancelación cuando necesitas valores de vista previa que no desencadenen una cancelación.
+Usa **vista previa as Custom User** e introduce valores de muestra de propiedades de evento personalizado para el usuario que previsualices. Esto también es útil para mensajes con lógica de cancelación cuando necesitas valores de vista previa que no desencadenen una cancelación.
 
 ## Liquid en los mensajes de correo electrónico {#liquid-in-email-messages}
 

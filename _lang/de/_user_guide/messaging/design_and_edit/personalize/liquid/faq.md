@@ -302,7 +302,7 @@ Dies gilt für Standardwerte, Bedingungen und jeden anderen Liquid-Code, der Anf
 
 Weitere Informationen zur Verwendung von Anführungszeichen in Liquid finden Sie unter [Liquid-Syntax]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#liquid-syntax).
 
-### Warum wird der Liquid-Fehler „Unexpected end token“ angezeigt? {#why-am-i-seeing-an-unexpected-end-token-liquid-error}
+### Warum wird der Liquid-Fehler „Unexpected end Token“ angezeigt? {#why-am-i-seeing-an-unexpected-end-token-liquid-error}
 
 Dieser Fehler weist in der Regel auf zusätzliche oder fehlende geschweifte Klammern hin. Verschachteln Sie {% raw %}`{{ }}`{% endraw %} nicht innerhalb eines anderen Liquid-Tag-Ausdrucks. Verwenden Sie zum Beispiel {% raw %}`{{custom_attribute.${date_of_birth} | date: '%s'}}`{% endraw %}, anstatt die Attributreferenz in ein zusätzliches Klammernpaar einzuschließen.
 

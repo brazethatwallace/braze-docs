@@ -1,7 +1,7 @@
 ---
 nav_title: Datadog
 article_title: Datadog
-description: "Este artículo de referencia describe la asociación entre Braze y Datadog, un servicio de observabilidad para aplicaciones a escala de nube, que proporciona supervisión de servidores, bases de datos, herramientas y servicios a través de una plataforma de análisis de datos basada en SaaS."
+description: "Este artículo de referencia describe la asociación entre Braze y Datadog, un servicio de observabilidad para aplicaciones a escala de nube, que proporciona supervisión de servidores, bases de datos, herramientas y servicios a través de una plataforma de análisis de datos basada en software como servicio (SaaS)."
 alias: /partners/datadog/
 page_type: partner
 search_tag: Partner
@@ -11,7 +11,7 @@ search_tag: Partner
 
 # Datadog
 
-> [Datadog](https://www.datadoghq.com/) es un servicio de observabilidad para aplicaciones a escala de nube, que proporciona supervisión de servidores, bases de datos, herramientas y servicios a través de una plataforma de análisis de datos basada en SaaS.
+> [Datadog](https://www.datadoghq.com/) es un servicio de observabilidad para aplicaciones a escala de nube, que proporciona supervisión de servidores, bases de datos, herramientas y servicios a través de una plataforma de análisis de datos basada en software como servicio (SaaS).
 
 La integración de Braze y Datadog permite a los clientes recopilar datos de Braze en Datadog y crear alertas sobre los datos que enviamos. Por ejemplo, configurar un monitor y una alerta si tu campaña de boletín semanal envía un volumen anormalmente bajo de mensajes, o si un paso en Canvas que normalmente solo envía unos pocos mensajes al día empieza a enviar miles.
 

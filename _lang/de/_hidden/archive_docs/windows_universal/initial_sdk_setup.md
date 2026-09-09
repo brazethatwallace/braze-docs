@@ -17,7 +17,7 @@ Das Braze SDK stellt Ihnen eine API zur Verfügung, mit der Sie Informationen f�
 
 ## 1. Schritt: Installieren Sie das SDK über den NuGet-Paketmanager {#step-1-install-the-sdk-via-the-nuget-package-manager}
 
-Das Windows Universal SDK wird über den [NuGet Package Manager](http://www.nuget.org/) installiert. So installieren Sie das Braze Windows SDK über NuGet:
+Das Windows Universal SDK wird über den [NuGet Package Manager:in](http://www.nuget.org/) installiert. So installieren Sie das Braze Windows SDK über NuGet:
 
 1. Rechtsklicken Sie auf die Projektdatei
 2. Klicken Sie auf „Manage NuGet Packages“

@@ -85,7 +85,7 @@ A saída CSV contém dados de perfil de usuário para cada destinatário da camp
 
 Se você tiver vinculado suas [credenciais do Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3) à Braze, o CSV também será enviado para o seu bucket S3. Caso contrário, o link enviado por e-mail expirará em algumas horas.
 
-O arquivo exportado inclui os mesmos campos de dados de usuários que são incluídos quando você [exporta dados de usuários para um segmento]({{site.baseurl}}/user_guide/analytics/dashboards/home). Além desses campos de dados, se você escolher "Exportar todos os dados do destinatário", o arquivo exportado também conterá os seguintes dados de cada usuário:
+O arquivo exportado inclui os mesmos campos de dados de usuários que são incluídos quando você [exporta dados de usuários para um Segment]({{site.baseurl}}/user_guide/analytics/dashboards/home). Além desses campos de dados, se você escolher "Exportar todos os dados do destinatário", o arquivo exportado também conterá os seguintes dados de cada usuário:
 
 - Nome da variação da campanha recebida
 - ID da API da variação da campanha recebida

@@ -17,7 +17,7 @@ En circunstancias excepcionales, los valores de atributos predeterminados y pers
 
 Por ejemplo, un atributo puede aparecer como `NULL` en Snowflake mientras que el panel muestra un valor para ese usuario.
 
-Si observas discrepancias generalizadas, contacta a tu administrador de éxito de cliente o a soporte de Braze.
+Si observas discrepancias generalizadas, contacta a tu CSM o a soporte de Braze.
 
 ## Vistas disponibles {#available-views}
 

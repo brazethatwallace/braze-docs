@@ -14,26 +14,26 @@ Predictive Churn (et tout modèle de machine learning) est aussi performant que 
 
 ## Commencez ici : identifiez votre symptôme {#start-here-match-your-symptom}
 
-Identifiez le message d'erreur, l'avertissement ou le résultat que vous observez lors de la création d'une prédiction, puis accédez à la section correspondante pour le résoudre.
+Identifiez le message d'erreur, l'avertissement ou le résultat que vous rencontrez lors de la création d'une prédiction, puis accédez à la section correspondante pour le résoudre.
 
 | Symptôme | Aller à |
 | --- | --- |
 | Erreur « Pas assez de données pour l'entraînement » | [Pas assez de données pour l'entraînement](#not-enough-data-to-train) |
-| Avertissement « Pas assez d'anciens non-désabonnés » | [Audience de prédiction trop petite](#problems-with-prediction-audience-size) |
+| Avertissement « Pas assez de non-désabonnés passés » | [Audience de prédiction trop petite](#problems-with-prediction-audience-size) |
 | L'audience de prédiction dépasse la limite de taille | [Audience de prédiction trop grande](#prediction-audience-size-is-too-big) |
 | Qualité de la prédiction inférieure à 40 % | [La prédiction est de mauvaise qualité](#prediction-has-poor-quality) |
-| Incertitude quant à l'adéquation de vos données au modèle | [Considérations relatives aux données](#data-considerations) |
+| Vous ne savez pas si vos données conviennent au modèle | [Considérations sur les données](#data-considerations) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Symptôme de prédiction du taux d'attrition" }
 
 ## Parcours d'investigation standard {#standard-investigation-path}
 
 Utilisez ce flux de travail lorsque la création d'une prédiction échoue ou que vous êtes bloqué par des exigences liées aux données ou à l'audience. Commencez à l'étape 1.
 
-1. Confirmez que la prédiction du taux d'attrition est activée pour votre entreprise et que l'espace de travail dispose d'un nombre suffisant d'utilisateurs actifs mensuels (MAU) — généralement 300 000 MAU dans un seul espace de travail.
+1. Vérifiez que la prédiction du taux d'attrition est activée pour votre entreprise et que l'espace de travail dispose d'un nombre suffisant d'utilisateurs actifs mensuels (MAU) — généralement 300 000 MAU dans un seul espace de travail.
 2. Vérifiez votre définition de l'attrition. Des filtres trop restrictifs réduisent le nombre d'utilisateurs désabonnés disponibles pour l'entraînement.
-3. Vérifiez la définition de votre audience de prédiction. Un nombre trop faible de non-désabonnés historiques empêche l'entraînement du modèle.
-4. Confirmez que des événements personnalisés (et pas uniquement des attributs personnalisés) capturent les actions à forte valeur indiquant un risque d'attrition.
-5. Si les erreurs persistent après avoir élargi les définitions, contactez l'[Assistance Braze]({{site.baseurl}}/braze_support).
+3. Vérifiez la définition de votre audience de prédiction. Un nombre insuffisant d'utilisateurs historiques non désabonnés empêche l'entraînement du modèle.
+4. Confirmez que ce sont des événements personnalisés (et non des attributs personnalisés seuls) qui capturent les actions à forte valeur ajoutée indiquant un risque d'attrition.
+5. Si les erreurs persistent après avoir élargi les définitions, contactez l'[Assistance Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
 ## Pas assez de données pour l'entraînement {#not-enough-data-to-train}
 

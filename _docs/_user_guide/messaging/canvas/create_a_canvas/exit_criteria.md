@@ -56,8 +56,6 @@ Additional exception events include:
 - Sending a WhatsApp inbound message
 - Sending a LINE inbound message
 - Performing a cart updated event
-- Performing a checkout completed event
-- Performing a checkout started event
 
 #### Scheduled steps
 

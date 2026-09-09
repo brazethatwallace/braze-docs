@@ -12,7 +12,7 @@ search_tag: Partner
 
 ## Integração de importação de dados {#data-import-integration}
 
-Quando você sincroniza uma coorte do Mixpanel para a Braze, a Braze recebe atualizações de associação à coorte para os usuários que o Mixpanel consegue corresponder a perfis existentes na Braze. Após a sincronização, você pode direcionar esses usuários com o filtro de segmento **Mixpanel cohorts**.
+Quando você sincroniza uma coorte do Mixpanel para a Braze, a Braze recebe atualizações de associação à coorte para os usuários que o Mixpanel consegue corresponder a perfis existentes na Braze. Após a sincronização, você pode direcionar esses usuários com o filtro de Segment **Mixpanel cohorts**.
 
 A sincronização de coorte não importa eventos do Mixpanel, propriedades de usuário do Mixpanel nem atributos personalizados para a Braze. O comportamento do conector, incluindo a cadência de sincronização, é controlado no Mixpanel. Para detalhes de configuração, consulte a [documentação de sincronização de coortes da Braze do Mixpanel](https://docs.mixpanel.com/docs/cohort-sync/integrations/braze). Para requisitos de correspondência de usuários, consulte [Correspondência de usuários](#user-matching).
 
@@ -49,11 +49,11 @@ Somente os usuários que já existem na Braze serão adicionados ou removidos de
 
 ### Etapa 4: Segmentar usuários na Braze {#step-4-segment-users-in-braze}
 
-Na Braze, para criar um segmento desses usuários, acesse **Público** > **Segments**, nomeie seu segmento e selecione **Mixpanel_Cohorts** como o filtro. Em seguida, use a opção "includes" e escolha a coorte que você criou no Mixpanel.
+Na Braze, para criar um Segment desses usuários, acesse **Público** > **Segments**, nomeie seu Segment e selecione **Mixpanel_Cohorts** como o filtro. Em seguida, use a opção "includes" e escolha a coorte que você criou no Mixpanel.
 
 ![No criador de segmentos da Braze, o filtro de atributos do usuário "Mixpanel cohorts" é definido como "includes" e "Braze cohort".]({% image_buster /assets/img_archive/mixpanel1.png %})
 
-Depois de salvar, você pode fazer referência a esse segmento durante a criação de Canvas ou Campaign na etapa de direcionamento de usuários.
+Depois de salvar, você pode fazer referência a esse Segment durante a criação de Canvas ou Campaign na etapa de direcionamento de usuários.
 
 ## Correspondência de usuários {#user-matching}
 

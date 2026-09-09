@@ -6,31 +6,31 @@
 
 ### Versão do SDK {#sdk-version}
 
-Para usar as Feature Flags, confira se os seus SDKs estão atualizados com pelo menos essas versões mínimas:
+Para usar Feature Flags, verifique se os seus SDKs estão atualizados com pelo menos estas versões mínimas:
 
 {% sdk_min_versions swift:5.9.0 android:24.2.0 web:4.6.0 unity:4.1.0 cordova:5.0.0 reactnative:4.1.0 flutter:6.0.0 roku:1.0.0 %}
 
 ### Permissões da Braze {#braze-permissions}
 
-Para gerenciar as Feature Flags no dashboard, você precisará ser um administrador ou ter as seguintes [permissões]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions):
+Para gerenciar Feature Flags no dashboard, você precisa ser administrador ou ter as seguintes [permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions):
 
-| Permissão                                                                    | O que você pode fazer                           |
+| Permissão                                                                     | O que você pode fazer                           |
 |-------------------------------------------------------------------------------|-------------------------------------------|
-| **Gerenciar Feature Flags**                                                      | Visualizar, criar e editar Feature Flags.     |
-| **Acessar Campaigns, Canvas, cartões, Feature Flags, Segments, Biblioteca de mídia** | Visualizar a lista de Feature Flags disponíveis. |
+| **Manage Feature Flags**                                                      | Visualizar, criar e editar Feature Flags.     |
+| **Access Campaigns, Canvases, Cards, Feature Flags, Segments, Media Library** | Visualizar a lista de Feature Flags disponíveis. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Permissões da Braze" }
 
-## Criação de uma Feature Flag {#creating-a-feature-flag}
+## Criando uma Feature Flag {#creating-a-feature-flag}
 
 ### Etapa 1: Criar uma nova Feature Flag {#step-1-create-a-new-feature-flag}
 
-Acesse **Envio de mensagens** > **Feature Flags** e selecione **Criar Feature Flag**.
+Acesse **Messaging** > **Feature Flags** e selecione **Create Feature Flag**.
 
 ![Uma tabela de dados mostrando uma Feature Flag existente e como criar uma nova.]({% image_buster /assets/img/feature_flags/create_ff.png %}){: style="max-width:75%"}
 
-### Etapa 2: Preencha os detalhes {#step-2-fill-out-the-details}
+### Etapa 2: Preencher os detalhes {#step-2-fill-out-the-details}
 
-Em **Detalhes da Feature Flag**, insira um nome, ID e descrição para sua Feature Flag.
+Em **Feature Flag details**, insira um nome, ID e descrição para sua Feature Flag.
 
 ![Um formulário mostrando que você pode adicionar um nome, ID, descrição e propriedades a uma Feature Flag.]({% image_buster /assets/img/feature_flags/create_ff_properties.png %}){: style="max-width:75%"}
 
@@ -38,18 +38,18 @@ Em **Detalhes da Feature Flag**, insira um nome, ID e descrição para sua Featu
 | Campo        | Descrição                                                                |
 |--------------|----------------------------------------------------------------------------|
 | Nome         | Um título legível para seus profissionais de marketing e administradores.              |
-| ID           | O ID exclusivo que você usará em seu código para verificar se esse recurso está [ativado para um usuário](#enabled). Esse ID não pode ser alterado posteriormente, portanto, revise as [práticas recomendadas de nomenclatura de ID](#naming-conventions) antes de continuar. |
-| Descrição  | Uma descrição opcional que fornece algum contexto sobre sua Feature Flag.   |
-| Propriedades   | Propriedades opcionais que configuram remotamente sua Feature Flag. Elas podem ser sobrescritas em etapas do Canvas ou em experimentos de Feature Flag. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 2: Preencha os detalhes" }
+| ID           | O ID exclusivo que você usará no seu código para verificar se esse recurso está [ativado para um usuário](#enabled). Esse ID não pode ser alterado posteriormente, então revise as [práticas recomendadas de nomenclatura de ID](#naming-conventions) antes de continuar. |
+| Descrição    | Uma descrição opcional que fornece algum contexto sobre sua Feature Flag.   |
+| Propriedades | Propriedades opcionais que configuram remotamente sua Feature Flag. Elas podem ser substituídas em etapas do Canvas ou em experimentos de Feature Flag. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 2: Preencher os detalhes" }
 
 ### Etapa 2a: Criar propriedades personalizadas {#step-2a-create-custom-properties}
 
-Em **Propriedades**, você pode opcionalmente criar propriedades personalizadas que seu app pode acessar por meio do SDK da Braze quando seu recurso estiver ativado. Você pode atribuir um valor de string, booleano, imagem, timestamp, JSON ou número a cada variável, além de definir um valor padrão.
+Em **Properties**, você pode opcionalmente criar propriedades personalizadas que seu app pode acessar por meio do SDK da Braze quando seu recurso estiver ativado. Você pode atribuir um valor de string, booleano, imagem, timestamp, JSON ou número a cada variável, além de definir um valor padrão.
 
 {% tabs local %}
-{% tab example %}
-No exemplo a seguir, a Feature Flag mostra um banner de produto esgotado para uma loja de eCommerce usando as propriedades personalizadas listadas:
+{% tab exemplo %}
+No exemplo a seguir, a Feature Flag exibe um banner de produto esgotado para uma loja de comércio eletrônico usando as propriedades personalizadas listadas:
 
 |Nome da propriedade|Tipo|Valor|
 |--|--|--|
@@ -68,64 +68,64 @@ Não há limite para o número de propriedades que você pode adicionar. No enta
 {% endtab %}
 {% endtabs %}
 
-### Etapa 4: Escolha os segmentos a serem direcionados {#step-4-choose-segments-to-target}
+### Etapa 4: Escolher os segmentos-alvo {#step-4-choose-segments-to-target}
 
-Antes de implementar uma Feature Flag, é necessário escolher um [segmento]({{site.baseurl}}/user_guide/engagement_tools/segments) de usuários para direcionamento. Selecione **Adicionar regra** no seu flag recém-criado e depois use os menus suspensos de grupo de filtro e segmento para filtrar usuários fora do seu público-alvo. Adicione múltiplos filtros para restringir ainda mais seu público.
+Antes de lançar uma Feature Flag, você precisa escolher um [Segment]({{site.baseurl}}/user_guide/audience/segments) de usuários para segmentar. Selecione **Add Rule** na flag recém-criada e use os menus suspensos de grupo de filtros e Segment para filtrar usuários do seu público-alvo. Adicione vários filtros para restringir ainda mais seu público.
 
-![Uma caixa de texto rotulada Tráfego de lançamento com a capacidade de adicionar segmentos e filtros.]({% image_buster /assets/img/feature_flags/segmentation_ff.png %}){: style="max-width:75%;"}
+![Uma caixa de texto intitulada Rollout Traffic com a opção de adicionar Segments e filtros.]({% image_buster /assets/img/feature_flags/segmentation_ff.png %}){: style="max-width:75%;"}
 
 ### Etapa 5: Definir o tráfego de lançamento {#rollout}
 
-Por padrão, as Feature Flags estão sempre inativas, o que permite separar a data de lançamento do seu recurso da ativação total dos usuários. Para iniciar seu lançamento, use a seção **Tráfego de lançamento** para inserir uma porcentagem na caixa de texto. Isso escolherá a porcentagem de usuários aleatórios no seu segmento selecionado para receber este novo recurso.
+Por padrão, as Feature Flags estão sempre inativas, o que permite separar a data de lançamento do seu recurso da ativação total de usuários. Para iniciar o lançamento, use a seção **Rollout Traffic** para inserir uma porcentagem na caixa de texto. Isso escolherá a porcentagem de usuários aleatórios no Segment selecionado para receber esse novo recurso.
 
 {% alert important %}
-Não defina seu tráfego de lançamento acima de 0% até que o novo recurso possa entrar em operação. Na primeira definição da sua Feature Flag no dashboard, deixe essa configuração em 0%.
+Não defina o tráfego de lançamento acima de 0% até que você esteja pronto para o lançamento do novo recurso. Quando você definir inicialmente sua Feature Flag no dashboard, deixe essa configuração em 0%.
 {% endalert %}
 
 {% alert important %}
-Para lançar um flag com apenas uma regra ou para um público singular, adicione sua primeira regra com critérios de segmentação e porcentagens de lançamento selecionadas. Por fim, confirme que a regra **Restante do público** está desativada e salve seu flag.
+Para lançar uma flag com apenas uma regra ou para um único público, adicione sua primeira regra com critérios de segmentação e porcentagens de lançamento selecionados. Por fim, confirme se a regra **Everyone Else** está desativada e salve sua flag.
 {% endalert %}
 
 ## Lançamentos de Feature Flag com múltiplas regras {#multi-rule-feature-flag-rollouts}
 
-Use lançamentos de Feature Flag com múltiplas regras para definir uma sequência de regras para avaliar usuários, o que permite segmentação precisa e lançamentos controlados de recursos. Esse método é ideal para implantar o mesmo recurso para públicos diversos.
+Use lançamentos de Feature Flag com múltiplas regras para definir uma sequência de regras de avaliação de usuários, o que permite segmentação precisa e lançamentos de recursos controlados. Esse método é ideal para implantar o mesmo recurso para públicos diversos.
 
 ### Ordem de avaliação {#evaluation-order}
 
-As regras de Feature Flag são avaliadas de cima para baixo, na ordem em que estão listadas. Um usuário se qualifica pela primeira regra que atende. Se um usuário não atender a nenhuma regra, sua elegibilidade é determinada pela regra padrão "Restante do público".
+As regras de Feature Flag são avaliadas de cima para baixo, na ordem em que estão listadas. O usuário se qualifica para a primeira regra que atender. Se um usuário não atender a nenhuma regra, sua elegibilidade será determinada pela regra padrão "Everyone Else".
 
 ### Qualificação do usuário {#user-qualification}
 
-- Se um usuário atender aos critérios da primeira regra, ele está imediatamente elegível para receber a Feature Flag.
-- Se um usuário não se qualificar para a primeira regra, ele será avaliado em relação à segunda regra, e assim por diante.
+- Se um usuário atender aos critérios da primeira regra, ele será imediatamente elegível para receber a Feature Flag.
+- Se um usuário não se qualificar para a primeira regra, será avaliado em relação à segunda regra, e assim por diante.
 
-A avaliação sequencial continua até que um usuário se qualifique para uma regra ou alcance a regra "Restante do público" no final da lista.
+A avaliação sequencial continua até que o usuário se qualifique para uma regra ou alcance a regra "Everyone Else" no final da lista.
 
-### Regra "Restante do público" {#everyone-else-rule}
+### Regra "Everyone Else" {#everyone-else-rule}
 
-A regra "Restante do público" atua como um padrão. Se um usuário não se qualificar para nenhuma das regras anteriores, sua elegibilidade para a Feature Flag será determinada pela configuração de alternância da regra "Restante do público". Por exemplo, se a regra "Restante do público" estiver alternada para "Desligado", no estado padrão, um usuário que não atender aos critérios de nenhuma outra regra não receberá a Feature Flag ao iniciar sua sessão.
+A regra "Everyone Else" funciona como padrão. Se um usuário não se qualificar para nenhuma regra anterior, sua elegibilidade para a Feature Flag será determinada pela configuração de alternância da regra "Everyone Else". Por exemplo, se a regra "Everyone Else" estiver desativada, no estado padrão, um usuário que não atender aos critérios de nenhuma outra regra não receberá a Feature Flag ao iniciar a sessão.
 
-### Reordenando regras {#re-ordering-rules}
+### Reordenação de regras {#re-ordering-rules}
 
 Por padrão, as regras são ordenadas na sequência em que foram criadas, mas você pode reordená-las arrastando e soltando no dashboard.
 
 ![Uma imagem mostrando que um usuário pode adicionar uma regra a uma Feature Flag.]({% image_buster /assets/img/feature_flags/add_rule.png %}){: style="max-width:80%;"}
 
-![Uma imagem mostrando um resumo de uma Feature Flag com várias regras adicionadas e uma regra de restante do público.]({% image_buster /assets/img/feature_flags/mr_rules_overview.png %}){: style="max-width:80%;"}
+![Uma imagem mostrando um resumo de uma Feature Flag com múltiplas regras adicionadas e uma regra "Everyone Else".]({% image_buster /assets/img/feature_flags/mr_rules_overview.png %}){: style="max-width:80%;"}
 
-### Casos de uso de Feature Flags com múltiplas regras {#multi-rule-feature-flag-use-cases}
+### Casos de uso de Feature Flag com múltiplas regras {#multi-rule-feature-flag-use-cases}
 
-#### Liberar gradualmente uma página de checkout {#gradually-release-a-checkout-page}
+#### Lançamento gradual de uma página de checkout {#gradually-release-a-checkout-page}
 
-Vamos supor que você trabalhe para uma marca de eCommerce e tenha uma nova página de checkout que deseja lançar em diferentes regiões para garantir estabilidade. Usando Feature Flags com múltiplas regras, você pode definir o seguinte:
+Digamos que você trabalha em uma marca de eCommerce e tem uma nova página de checkout que deseja lançar em diferentes regiões para garantir estabilidade. Usando Feature Flags com múltiplas regras, você pode configurar o seguinte:
 
-- **Regra 1:** Seu segmento dos EUA está definido para 100%.
-- **Regra 2:** Seu segmento está definido para 50% dos seus usuários brasileiros, então nem todos recebem o fluxo ao mesmo tempo.
-- **Regra 3 (Restante do público):** Para todos os outros usuários, ative sua regra "Restante do público" e defina-a para 15%, para que uma parte de todos os usuários possa finalizar a compra com o novo fluxo.
+- **Regra 1:** Seu Segment de usuários dos EUA está definido como 100%.
+- **Regra 2:** Seu Segment está definido como 50% dos seus usuários brasileiros, para que nem todos recebam o fluxo ao mesmo tempo.
+- **Regra 3 (Everyone Else):** Para todos os outros usuários, ative sua regra "Everyone Else" e defina como 15%, para que uma parte de todos os usuários possa fazer checkout com o novo fluxo.
 
-#### Alcançar os testadores internos primeiro {#reach-internal-testers-first}
+#### Alcançar testadores internos primeiro {#reach-internal-testers-first}
 
-Vamos supor que você seja um gerente de produto que quer garantir que seus testadores internos sempre recebam a Feature Flag quando você lançar um novo produto. Você pode adicionar seu segmento de testadores internos à sua primeira regra e defini-lo para 100%, para que seus testadores internos sejam elegíveis durante cada lançamento de recurso.
+Digamos que você é gerente de produto e quer garantir que seus testadores internos sempre recebam a Feature Flag quando você lançar um novo produto. Você pode adicionar o Segment dos seus testadores internos à primeira regra e defini-lo como 100%, para que seus testadores internos sejam elegíveis em todos os lançamentos de recursos.
 
 ## Usando o campo "enabled" para suas Feature Flags {#enabled}
 
@@ -887,41 +887,41 @@ export const useFeatureFlag = (id: string): FeatureFlag => {
 
 ## Verificando a elegibilidade do usuário {#checking-user-eligibility}
 
-Para verificar para quais Feature Flags um usuário é elegível na Braze, acesse **Público** > **Pesquisar usuários** e pesquise e selecione um usuário.
+Para verificar para quais Feature Flags um usuário é elegível na Braze, acesse **Público** > **Buscar usuários** e, em seguida, pesquise e selecione um usuário.
 
-Na guia **Elegibilidade das Feature Flags**, você pode filtrar a lista de Feature Flags elegíveis por plataforma, aplicativo ou dispositivo. Você também pode pré-visualizar a carga útil que será retornada ao usuário selecionando <i class="fa-solid fa-eye"></i> ao lado de uma Feature Flag.
+Na guia **Feature Flags Eligibility**, você pode filtrar a lista de Feature Flags elegíveis por plataforma, aplicativo ou dispositivo. Você também pode visualizar a carga útil que será retornada ao usuário selecionando <i class="fa-solid fa-eye" aria-label="Visualizar"></i> ao lado de uma Feature Flag.
 
 ![Uma imagem mostrando a tabela de Feature Flags para as quais um usuário é elegível.]({% image_buster /assets/img/feature_flags/eligibility.png %}){: style="max-width:85%;"}
 
-## Exibir o changelog {#viewing-the-changelog}
+## Visualizando o changelog {#viewing-the-changelog}
 
 Para visualizar o changelog de uma Feature Flag, abra uma Feature Flag e selecione **Changelog**.
 
-![A página "Editar" de uma Feature Flag, com o botão "Changelog" destacado.]({% image_buster /assets/img/feature_flags/changelog/open_changelog.png %}){: style="max-width:60%;"}
+![Página "Editar" de uma Feature Flag, com o botão "Changelog" destacado.]({% image_buster /assets/img/feature_flags/changelog/open_changelog.png %}){: style="max-width:60%;"}
 
-Aqui, você pode revisar quando uma mudança aconteceu, quem fez a mudança, a qual categoria pertence e mais.
+Aqui, você pode conferir quando uma alteração ocorreu, quem fez a alteração, a qual categoria ela pertence e mais.
 
 ![O changelog da Feature Flag selecionada.]({% image_buster /assets/img/feature_flags/changelog/changelog.png %}){: style="max-width:90%;"}
 
 ## Segmentação com Feature Flags {#segmentation}
 
-A Braze mantém automaticamente o rastreamento de quais usuários estão atualmente ativados para uma Feature Flag. Você pode criar um segmento ou direcionar o envio de mensagens usando o [filtro **Feature Flag**]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters#feature-flags). Para saber mais sobre filtragem em segmentos, consulte [Criação de um segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment).
+A Braze mantém automaticamente o rastreamento de quais usuários estão atualmente ativados para uma Feature Flag. Você pode criar um Segment ou direcionar o envio de mensagens usando o [filtro **Feature Flag**]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters#feature-flags). Para saber mais sobre filtragem em segmentos, consulte [Criação de um Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment).
 
 ![A seção "Filtros" com "Feature Flag" digitado na barra de pesquisa de filtros.]({% image_buster /assets/img/feature_flags/feature-flags-filter-name.png %}){: style="max-width:75%;"}
 
 {% alert note %}
-Para evitar segmentos recursivos, não é possível criar um segmento que faça referência a outras Feature Flags.
+Para evitar segmentos recursivos, não é possível criar um Segment que faça referência a outras Feature Flags.
 {% endalert %}
 
 ## Práticas recomendadas {#best-practices}
 
-### Não combine lançamentos com Canvas ou experimentos {#dont-combine-rollouts-with-canvases-or-experiments}
+### Não combine implementações graduais com Canvas ou experimentos {#dont-combine-rollouts-with-canvases-or-experiments}
 
-Para evitar que os usuários sejam ativados e desativados por diferentes pontos de entrada, defina o controle deslizante de lançamento como um valor maior que zero OU ative a Feature Flag em um Canvas ou experimento. Como prática recomendada, se você planeja usar uma Feature Flag em um Canvas ou experimento, mantenha a porcentagem de lançamento em zero.
+Para evitar que os usuários sejam ativados e desativados por diferentes pontos de entrada, você deve definir o controle deslizante de implementação gradual para um valor maior que zero OU ativar a Feature Flag em um Canvas ou experimento. Como prática recomendada, se você planeja usar uma Feature Flag em um Canvas ou experimento, mantenha a porcentagem de implementação gradual em zero.
 
 ### Convenções de nomenclatura {#naming-conventions}
 
-Para manter seu código claro e consistente, considere usar o seguinte formato ao nomear o ID da Feature Flag:
+Para manter seu código claro e consistente, considere usar o seguinte formato ao nomear o ID da sua Feature Flag:
 
 ```plaintext
 BEHAVIOR_PRODUCT_FEATURE
@@ -929,9 +929,9 @@ BEHAVIOR_PRODUCT_FEATURE
 
 Substitua o seguinte:
 
-| Espaço reservado | Descrição                                                                                                               |
+| Placeholder | Descrição                                                                                                               |
 |-------------|---------------------------------------------------------------------------------------------------------------------------|
-| `BEHAVIOR`  | O comportamento do recurso. Em seu código, certifique-se de que o comportamento esteja desativado por padrão e evite usar frases como `disabled` no nome da Feature Flag. |
+| `BEHAVIOR`  | O comportamento do recurso. No seu código, certifique-se de que o comportamento está desativado por padrão e evite usar frases como `disabled` no nome da Feature Flag. |
 | `PRODUCT`   | O produto ao qual o recurso pertence.                                                                                       |
 | `FEATURE`    | O nome do recurso.                                                                                                  |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Convenções de nomenclatura" }
@@ -942,21 +942,21 @@ Veja um exemplo de Feature Flag em que `show` é o comportamento, `animation_pro
 show_animation_profile_driver
 ```
 
-### Planejamento antecipado {#planning-ahead}
+### Planejando com antecedência {#planning-ahead}
 
-Sempre jogue pelo seguro. Ao considerar novos recursos que podem exigir um botão de desativação, é melhor lançar um novo código com uma Feature Flag e não precisar dela do que perceber que é necessária uma nova atualização do app.
+Sempre opte pela segurança. Ao considerar novos recursos que podem precisar de um botão de desligamento, é melhor lançar um novo código com uma Feature Flag e não precisar dela do que perceber que uma nova atualização do app é necessária.
 
 ### Seja descritivo {#be-descriptive}
 
-Adicione uma descrição à sua Feature Flag. Embora esse seja um campo opcional na Braze, ele pode ajudar a responder a perguntas que outras pessoas possam ter ao pesquisar as Feature Flags disponíveis.
+Adicione uma descrição à sua Feature Flag. Embora este seja um campo opcional na Braze, ele pode ajudar a responder perguntas que outras pessoas possam ter ao navegar pelas Feature Flags disponíveis.
 
-- Informações de contato de quem é responsável pela capacitação e pelo comportamento desse flag
-- Quando esse flag deve ser desativado
-- Links para documentação ou notas sobre o novo recurso que esse flag controla
+- Informações de contato de quem é responsável pela ativação e comportamento desta flag
+- Quando esta flag deve ser desativada
+- Links para documentação ou notas sobre o novo recurso que esta flag controla
 - Quaisquer dependências ou notas sobre como usar o recurso
 
-### Limpeza de Feature Flags antigas {#clean-up-old-feature-flags}
+### Limpe Feature Flags antigas {#clean-up-old-feature-flags}
 
-É muito comum deixarmos recursos 100% implementados por mais tempo do que o necessário.
+Todos nós somos culpados de deixar recursos ligados com 100% de implementação gradual por mais tempo do que o necessário.
 
-Para ajudar a manter seu código (e o dashboard da Braze) limpo, remova as Feature Flags permanentes da sua base de código depois que todos os usuários tiverem feito upgrade e você não precisar mais da opção de desativar o recurso. Isso ajuda a reduzir a complexidade do seu ambiente de desenvolvimento e também mantém sua lista de Feature Flags organizada.
+Para ajudar a manter seu código (e o dashboard da Braze) limpo, remova Feature Flags permanentes da sua base de código depois que todos os usuários tiverem feito a atualização e você não precisar mais da opção de desativar o recurso. Isso ajuda a reduzir a complexidade do seu ambiente de desenvolvimento e também mantém sua lista de Feature Flags organizada.

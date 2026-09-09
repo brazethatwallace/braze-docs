@@ -237,7 +237,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 Erstellen Sie ein persönliches Zugriffstoken in Databricks:
 
 1. Wählen Sie Ihren Benutzernamen und dann **User Settings** aus.
-2. Wählen Sie auf dem Tab **Access tokens** die Option **Generate new token** aus.
+2. Wählen Sie auf dem Tab **Access tokens** die Option **Generate new Token** aus.
 3. Fügen Sie einen Kommentar hinzu, um das Token zu identifizieren, z. B. „Braze CDI“.
 4. Lassen Sie das Feld **Lifetime (days)** leer, wenn keine Ablaufzeit festgelegt werden soll, und wählen Sie dann **Generate** aus.
 5. Kopieren Sie das Token und bewahren Sie es sicher auf, um es im Braze-Dashboard zu verwenden.
@@ -333,5 +333,5 @@ Beachten Sie Folgendes zur Zero-Copy-CDI, wenn die Nachrichtenarchivierung aktiv
 
 * Die Ergebnisse der Tabelle werden während der Verarbeitung vorübergehend in Braze gespeichert. Sie werden außerdem für 30 Tage nach Snowflake exportiert, damit Sie genau nachvollziehen können, was synchronisiert wurde.
 * Archivierte Nachrichten werden nirgendwo innerhalb von Braze gespeichert. Die Kopien werden ausschließlich in Ihrem konfigurierten Speicher abgelegt.
-* Bei der Verwendung von Zero-Copy-CDI mit Canvas-Triggern speichert Braze keine Sicherungskopie der Abfrageergebnisse aus dem Data Warehouse, und es werden keine Daten in das Nutzerprofil kopiert.
+* Bei der Verwendung von Zero-Copy-CDI mit Canvas-Triggern speichert Braze keine Sicherungskopie der Abfrageergebnisse aus dem Data Warehouse, und es werden keine Daten in das Kundenprofil kopiert.
 * Canvas-Kontext-Eigenschaften können bis zu 30 Tage lang in internen Systemen protokolliert werden.

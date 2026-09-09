@@ -14,21 +14,21 @@ hidden: true
 
 ## So funktioniert es {#how-it-works}
 
-Sie können die Schnittstelle [`IBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html) verwenden, um die Darstellung von Braze-Push-Benachrichtigungen anzupassen. Wenn Sie `BrazeNotificationFactory` erweitern, ruft Braze die Methode `createNotification()` Ihrer Factory auf, bevor die Benachrichtigung den Nutzer:innen angezeigt wird. Anschließend wird ein Payload übergeben, das angepasste Schlüssel-Wert-Paare enthält, die über das Braze-Dashboard oder die REST API gesendet wurden.
+Sie können die Schnittstelle [`IBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html) verwenden, um die Darstellung von Braze-Push-Benachrichtigungen anzupassen. Wenn Sie `BrazeNotificationFactory` erweitern, ruft Braze die Methode `createNotification()` Ihrer Factory auf, bevor die Benachrichtigung den Nutzer:innen angezeigt wird. Dabei wird ein Payload übergeben, der benutzerdefinierte Schlüssel-Wert-Paare enthält, die über das Braze-Dashboard oder die REST API gesendet wurden.
 
-## Ein Live Update anzeigen {#displaying-a-live-update}
+## Anzeigen eines Live Updates {#displaying-a-live-update}
 
-In diesem Abschnitt arbeiten Sie mit Superb Owl zusammen, dem Moderator einer neuen Spielshow, in der Teams für die Rettung wilder Tiere gegeneinander antreten, um zu sehen, wer die meisten Eulen retten kann. Sie möchten Live Updates in ihrer Android-App nutzen, um den Status eines laufenden Spiels anzuzeigen und die Benachrichtigung in Echtzeit dynamisch zu aktualisieren.
+In diesem Abschnitt arbeiten Sie mit Superb Owl zusammen, dem Moderator einer neuen Spielshow, in der Wildtierrettungsteams darum wetteifern, wer die meisten Eulen retten kann. Das Team möchte Live Updates in seiner Android-App nutzen, um den Status eines laufenden Spiels anzuzeigen und dynamische Aktualisierungen der Benachrichtigung in Echtzeit vorzunehmen.
 
 ![Ein Beispiel für ein Live Update unter Android]({% image_buster /assets/img/android/android-live-update.png %}){: style="max-width:40%;"}
 
 {% multi_lang_include developer_guide/prerequisites/android.md %}
 
-### Schritt 1: Eine benutzerdefinierte Benachrichtigungs-Factory erstellen {#step-1-create-a-custom-notification-factory}
+### Schritt 1: Eine benutzerdefinierte Notification Factory erstellen {#step-1-create-a-custom-notification-factory}
 
-Erstellen Sie in Ihrer Anwendung eine neue Datei namens `MyCustomNotificationFactory.kt`, die [`BrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html) erweitert, um die Anzeige von Braze Live Updates zu steuern.
+Erstellen Sie in Ihrer Anwendung eine neue Datei namens `MyCustomNotificationFactory.kt`, die [`BrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html) erweitert, um zu steuern, wie Braze Live Updates angezeigt werden.
 
-Im folgenden Beispiel hat Superb Owl eine benutzerdefinierte Benachrichtigungs-Factory erstellt, um ein Live Update für laufende Spiele anzuzeigen. Im nächsten Schritt erstellen Sie eine neue Methode namens `getTeamInfo`, um die Daten eines Teams der Aktivität zuzuordnen.
+Im folgenden Beispiel hat Superb Owl eine benutzerdefinierte Notification Factory erstellt, um ein Live Update für laufende Spiele anzuzeigen. Im nächsten Schritt erstellen Sie eine neue Methode namens `getTeamInfo`, um die Daten eines Teams der Activity zuzuordnen.
 
 ```kotlin
 class MyCustomNotificationFactory : IBrazeNotificationFactory {
@@ -70,7 +70,7 @@ class MyCustomNotificationFactory : IBrazeNotificationFactory {
 
 ### Schritt 2: Benutzerdefinierte Daten zuordnen {#step-2-map-custom-data}
 
-Erstellen Sie in `MyCustomNotificationFactory.kt` eine neue Methode zur Verarbeitung von Daten, wenn Live Updates angezeigt werden.
+Erstellen Sie in `MyCustomNotificationFactory.kt` eine neue Methode für die Datenverarbeitung, wenn Live Updates angezeigt werden.
 
 Superb Owl hat die folgende Methode erstellt, um den Namen und das Logo jedes Teams den erweiterten Live Updates zuzuordnen:
 
@@ -92,9 +92,9 @@ class CustomNotificationFactory : BrazeNotificationFactory() {
 }
 ```
 
-### Schritt 3: Die benutzerdefinierte Benachrichtigungs-Factory festlegen {#step-3-set-the-custom-notification-factory}
+### Schritt 3: Die benutzerdefinierte Notification Factory festlegen {#step-3-set-the-custom-notification-factory}
 
-Verwenden Sie in Ihrer Anwendungsklasse [`customBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/custom-braze-notification-factory.html?query=var%20customBrazeNotificationFactory:%20IBrazeNotificationFactory?), um Ihre benutzerdefinierte Benachrichtigungs-Factory festzulegen.
+Verwenden Sie in Ihrer Application-Klasse [`customBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/custom-braze-notification-factory.html?query=var%20customBrazeNotificationFactory:%20IBrazeNotificationFactory?), um Ihre benutzerdefinierte Notification Factory festzulegen.
 
 ```kotlin
 class MyApplication : Application() {
@@ -107,7 +107,7 @@ class MyApplication : Application() {
 }
 ```
 
-### Schritt 4: Die Aktivität senden {#step-4-send-the-activity}
+### Schritt 4: Die Activity senden {#step-4-send-the-activity}
 
 Sie können den REST-API-Endpunkt [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) verwenden, um eine Push-Benachrichtigung an das Android-Gerät einer Nutzerin oder eines Nutzers zu senden.
 
@@ -141,7 +141,7 @@ curl -X POST "https://BRAZE_REST_ENDPOINT/messages/send" \
 ```
 
 {% alert tip %}
-Obwohl curl-Befehle für Tests hilfreich sind, empfehlen wir, diesen Aufruf in Ihrem Backend zu verarbeiten, wo Sie bereits Ihre [iOS Live Activities]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?sdktab=swift) verwalten.
+Obwohl curl-Befehle zum Testen hilfreich sind, empfehlen wir, diesen Aufruf in Ihrem Backend zu verarbeiten, wo Sie bereits Ihre [iOS Live Activities]({{site.baseurl}}/developer_guide/live_notifications?sdktab=swift) verwalten.
 {% endalert %}
 
 #### Anfrageparameter {#request-parameters}
@@ -149,14 +149,14 @@ Obwohl curl-Befehle für Tests hilfreich sind, empfehlen wir, diesen Aufruf in I
 | Schlüssel | Beschreibung |
 |------------------------------|------------|
 | `REST_API_KEY` | Ein Braze-REST-API-Schlüssel mit `messages.send`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| `BRAZE_REST_ENDPOINT` | Ihre REST-Endpunkt-URL. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/api/basics#endpoints) ab. |
+| `BRAZE_REST_ENDPOINT` | Ihre REST-Endpunkt-URL. Ihr Endpunkt hängt von der [Braze-URL Ihrer Instanz]({{site.baseurl}}/api/basics#endpoints) ab. |
 | `USER_ID` | Die ID der Nutzerin oder des Nutzers, an die bzw. den Sie die Benachrichtigung senden. |
-| `messages.android_push.title` | Der Titel der Nachricht. Standardmäßig wird dieser nicht für die Live-Benachrichtigungen der benutzerdefinierten Benachrichtigungs-Factory verwendet, kann aber als Fallback dienen. |
-| `messages.android_push.alert` | Der Textkörper der Nachricht. Standardmäßig wird dieser nicht für die Live-Benachrichtigungen der benutzerdefinierten Benachrichtigungs-Factory verwendet, kann aber als Fallback dienen. |
-| `messages.extra` | Schlüssel-Wert-Paare, die die benutzerdefinierte Benachrichtigungs-Factory für Live-Benachrichtigungen verwendet. Sie können diesem Wert einen beliebigen String zuweisen&#8212;im [Beispiel-curl-Befehl](#example-curl-command) wird jedoch `live_updates` verwendet, um zu bestimmen, ob es sich um eine Standard- oder Live-Push-Benachrichtigung handelt. |
-| `ASSIGNED_NOTIFICATION_ID` | Die Benachrichtigungs-ID, die Sie der Live-Benachrichtigung der ausgewählten Nutzerin bzw. des ausgewählten Nutzers zuweisen möchten. Die ID muss für dieses Spiel eindeutig sein und muss verwendet werden, um [die bestehende Benachrichtigung später zu aktualisieren](#android_step-4-update-data-with-the-braze-rest-api). |
+| `messages.android_push.title` | Der Titel der Nachricht. Standardmäßig wird dieser nicht für die Live-Benachrichtigungen der benutzerdefinierten Notification Factory verwendet, kann aber als Fallback dienen. |
+| `messages.android_push.alert` | Der Nachrichtentext. Standardmäßig wird dieser nicht für die Live-Benachrichtigungen der benutzerdefinierten Notification Factory verwendet, kann aber als Fallback dienen. |
+| `messages.extra` | Schlüssel-Wert-Paare, die von der benutzerdefinierten Notification Factory für Live-Benachrichtigungen verwendet werden. Sie können diesem Wert einen beliebigen String zuweisen&#8212;im [Beispiel-curl-Befehl](#example-curl-command) wird jedoch `live_updates` verwendet, um zu bestimmen, ob es sich um eine Standard- oder eine Live-Push-Benachrichtigung handelt. |
+| `ASSIGNED_NOTIFICATION_ID` | Die Benachrichtigungs-ID, die Sie der Live-Benachrichtigung der ausgewählten Nutzerin oder des ausgewählten Nutzers zuweisen möchten. Die ID muss für dieses Spiel eindeutig sein und muss verwendet werden, um die [bestehende Benachrichtigung später zu aktualisieren](#android_step-4-update-data-with-the-braze-rest-api). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Anfrageparameter" }
 
-### Schritt 5: Die Aktivität aktualisieren {#step-5-update-the-activity}
+### Schritt 5: Die Activity aktualisieren {#step-5-update-the-activity}
 
 Um das bestehende Live Update mit neuen Daten zu aktualisieren, ändern Sie die relevanten Schlüssel-Wert-Paare, die `messages.extra` zugewiesen sind, und rufen Sie dann mit derselben `notification_id` den Endpunkt `/messages/send` erneut auf.

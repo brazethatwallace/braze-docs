@@ -41,7 +41,7 @@ Para um passo a passo detalhado, consulte [Intenção abandonada]({{site.baseurl
 Impulsione compras notificando seus usuários quando um item está de volta ao estoque com mensagens personalizadas. Considere o seguinte ao usar este modelo:
 
 - Em **Cronograma de entrada**, selecione um catálogo para usar. Isso permite que você acesse dados, como produtos, descontos e promoções, para direcionar ainda mais seus usuários.
-- Em **Público-alvo**, adicione um segmento para direcionar usuários que indicaram interesse em um determinado item.
+- Em **Público-alvo**, adicione um Segment para direcionar usuários que indicaram interesse em um determinado item.
 - Nas etapas de Mensagem ao longo do Canvas, atualize o Liquid para referenciar seu catálogo.
 
 {% endtab %}
@@ -74,7 +74,7 @@ Traga os usuários de volta ao seu app com incentivos baseados em seus engajamen
 
 Crie jornadas de integração que promovam uma adoção inicial sólida e incentivem relacionamentos duradouros com seus usuários. Considere o seguinte ao usar este modelo:
 
-- Na etapa de jornadas do público chamada "Divisão de público", considere personalizar as ações-chave para usuários engajados. No modelo, o filtro de segmento é "Clicou no e-mail da etapa E-mail de boas-vindas".
+- Na etapa de jornadas do público chamada "Divisão de público", considere personalizar as ações-chave para usuários engajados. No modelo, o filtro de Segment é "Clicou no e-mail da etapa E-mail de boas-vindas".
 
 {% endtab %}
 {% tab Post-Purchase Feedback %}

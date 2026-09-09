@@ -33,7 +33,7 @@ Para permitir imágenes de vista previa de enlaces en iOS, los usuarios deben a�
 
 #### Paso 1: Crea una campaña de tarjetas de contacto {#step-1-create-a-contact-card-campaign}
 
-Después de que los usuarios guarden tu marca como contacto, ya sea a través de una [tarjeta de contacto]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/contact_card) o de otro método, podrán ver las indicaciones de **Tap to Load Preview** y los enlaces de Movable Ink.
+Después de que los usuarios guarden tu marca como contacto, ya sea a través de una [tarjeta de contacto]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/contact_card) o de otro método, podrán ver las indicaciones de **Tap to Load vista previa** y los enlaces de Movable Ink.
 
 ![Un usuario de iOS toca para cargar la vista previa del enlace][1]{: style="max-width:30%;"}
 
@@ -65,7 +65,7 @@ Los usuarios de Android no necesitan guardar tu marca como contacto para recibir
 
 ![Vista previa de enlace cargada automáticamente en un dispositivo Android][5]{: style="max-width:30%;"}
 
-Los usuarios que no hayan guardado tu marca como contacto y hayan activado las vistas previas automáticas tendrán que seleccionar **Tap to load preview** para cargar la imagen de vista previa.
+Los usuarios que no hayan guardado tu marca como contacto y hayan activado las vistas previas automáticas tendrán que seleccionar **Tap to load vista previa** para cargar la imagen de vista previa.
 
 ![Indicación para tocar y cargar la vista previa en Android][6]{: style="max-width:30%;"}
 

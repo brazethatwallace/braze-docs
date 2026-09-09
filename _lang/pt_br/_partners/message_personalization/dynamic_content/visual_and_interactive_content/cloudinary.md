@@ -18,7 +18,7 @@ A conexão do Cloudinary à Braze dá às marcas acesso à mídia visual armazen
 Esta página descreve quatro métodos de integração possíveis, mas não exaustivos, entre o Cloudinary e a Braze. Esses métodos de integração dependem principalmente da modificação de links de ativos copiados manualmente da Biblioteca de mídia do Cloudinary.
 
 {% alert important %}
-Métodos de integração mais avançados, incluindo o uso de [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) para chamar a [API de administração](https://cloudinary.com/documentation/admin_api#banner) do Cloudinary, são possíveis, mas a abordagem varia de acordo com o cliente. Entre em contato com o gerente de sucesso do cliente do Cloudinary e da Braze para obter orientação.
+Métodos de integração mais avançados, incluindo o uso de [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) para chamar a [API de administração](https://cloudinary.com/documentation/admin_api#banner) do Cloudinary, são possíveis, mas a abordagem varia de acordo com o cliente. Entre em contato com o CSM do Cloudinary e da Braze para obter orientação.
 {% endalert %}
 
 ## Pré-requisitos {#prerequisites}

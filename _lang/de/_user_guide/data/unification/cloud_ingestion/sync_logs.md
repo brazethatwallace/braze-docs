@@ -67,7 +67,7 @@ Diese Tabelle bietet Einblick auf Zeilenebene in die während des Syncs verarbei
 * **Suche:** Sie können innerhalb der Ergebnisse des Durchlaufs nach einer bestimmten Nutzer:in suchen, indem Sie die Leiste **Search by user ID** verwenden.
 * **Verfügbare Details:**
   * **UPDATED_AT:** Der Zeitstempel aus der `UPDATED_AT`-Spalte für die jeweilige Zeile.
-  * **ID:** Die Nutzer:innen-Bezeichner (wie `external_id`, `email` oder `alias_name`), die verwendet werden, um den Datensatz einem Braze-Nutzerprofil zuzuordnen.
+  * **ID:** Die Nutzer:innen-Bezeichner (wie `external_id`, `email` oder `alias_name`), die verwendet werden, um den Datensatz einem Braze-Kundenprofil zuzuordnen.
   * **Status:** Der individuelle Verarbeitungsstatus für diese Zeile (**Success** oder **Error**).
   * **Source payload:** Ein Link zum Anzeigen des Daten-Payloads.
   * **Error reason:** Wenn der Status **Error** ist, enthält diese Spalte eine Meldung, die erklärt, warum die Zeile nicht synchronisiert werden konnte.

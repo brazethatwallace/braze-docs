@@ -24,7 +24,7 @@ Bevor Sie Braze in Unity-Skripten verwenden können, müssen Sie die Plugin-Date
 **Empfohlen:** Die Android- und iOS-Plugins sind als Unity-Paket gebündelt und können von der [SDK-Release-Seite][1] heruntergeladen werden.
 
 **Manuelle Plugin-Einrichtung:** Alternativ können Sie die Plugins in Ihr Unity-Projekt kopieren:
-  1. Klonen Sie zunächst dieses Repo.
+  1. Klon Sie zunächst dieses Repo.
   2. Wenn Sie keine anderen Plugins verwenden, müssen Sie lediglich das Verzeichnis `Plugins` aus diesem Repo in den Ordner `Assets` Ihres Unity-Projekts kopieren.
   3. Wenn Sie bereits ein Verzeichnis `/<your-project>/Assets/Plugins` haben (wahrscheinlich, weil Sie bereits ein anderes Plugin verwenden), kopieren Sie `Plugins/Appboy/AppboyBinding.cs` nach `/<your-project>/Assets/Plugins`. Kopieren Sie dann den Inhalt von `Plugins/iOS` und `Plugins/Android` aus diesem Repo in `/<your-project>/Assets/Plugins/iOS` bzw. `/<your-project>/Assets/Plugins/Android`.
 

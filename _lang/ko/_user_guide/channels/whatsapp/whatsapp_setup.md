@@ -28,7 +28,7 @@ search_rank: 2
 
 | 요구 사항 | 설명 |
 | --- | --- |
-| Meta Business Manager 계정 | 이 메시징 채널을 활용하려면 Meta Business 계정이 필요합니다. |
+| Meta Business 매니저 계정 | 이 메시징 채널을 활용하려면 Meta Business 계정이 필요합니다. |
 | WhatsApp Business 계정 | 이 메시징 채널을 활용하려면 WhatsApp Business 계정이 필요합니다. |
 | WhatsApp 전화번호 | 메시징 채널을 사용하려면 WhatsApp의 [Cloud API](https://developers.facebook.com/docs/whatsapp/cloud-api/phone-numbers) 또는 [On-Premises API](https://developers.facebook.com/docs/whatsapp/on-premises/phone-numbers) 요구 사항을 충족하는 전화번호를 취득해야 합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="전제 조건" }
@@ -60,10 +60,10 @@ WhatsApp 파트너 페이지에서 **Begin Integration**을 선택합니다.
 
 ### 3단계: WhatsApp 템플릿 만들기 {#step-3-create-whatsapp-templates}
 
-승인된 WhatsApp 메시지 템플릿만 고객과의 대화를 시작하는 데 사용할 수 있습니다. WhatsApp 템플릿은 [Meta Business Manager](https://www.facebook.com/business/help/2055875911147364?id=2129163877102343)에서 구축할 수 있습니다. Braze에서 지원하는 WhatsApp 메시징 기능 목록은 [지원되는 WhatsApp 기능]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#supported-whatsapp-features)을 확인하세요.
+승인된 WhatsApp 메시지 템플릿만 고객과의 대화를 시작하는 데 사용할 수 있습니다. WhatsApp 템플릿은 [Meta Business 매니저](https://www.facebook.com/business/help/2055875911147364?id=2129163877102343)에서 구축할 수 있습니다. Braze에서 지원하는 WhatsApp 메시징 기능 목록은 [지원되는 WhatsApp 기능]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#supported-whatsapp-features)을 확인하세요.
 
 1. **[템플릿 매니저](https://business.facebook.com/wa/manage/message-templates)로 이동합니다**<br>
-Meta Business Manager에서 **Account Tools** 아래의 **Message Templates**를 선택합니다.
+Meta Business 매니저에서 **Account Tools** 아래의 **Message Templates**를 선택합니다.
 그런 다음 **Create Templates**를 선택합니다.<br><br>![메시지 템플릿 목록이 있는 WhatsApp Manager.]({% image_buster /assets/img/whatsapp/whatsapp2.png %}){: style="max-width:100%;"}<br><br>
 2. **메시지 설정**<br>
 새 메시지 템플릿 작성기에서 메시지 카테고리를 선택하고, 템플릿 이름을 지정하며, 지원할 언어를 선택합니다. 나중에 언어를 삭제하거나 추가할 수 있습니다.<br><br>
@@ -79,7 +79,7 @@ Meta Business Manager에서 **Account Tools** 아래의 **Message Templates**를
 
 #### 템플릿 승인 시간 {#template-approval-time}
 
-메시지 템플릿의 승인 상태는 Meta Business Manager의 **Message Template** 페이지에서, 또는 Braze에서 Campaign이나 Canvas를 생성할 때 확인할 수 있습니다. 또한 알림 권한 설정에 따라 WhatsApp 팀으로부터 이메일 알림을 받을 수 있습니다.
+메시지 템플릿의 승인 상태는 Meta Business 매니저의 **Message Template** 페이지에서, 또는 Braze에서 Campaign이나 Canvas를 생성할 때 확인할 수 있습니다. 또한 알림 권한 설정에 따라 WhatsApp 팀으로부터 이메일 알림을 받을 수 있습니다.
 
 {% alert note %}
 승인된 템플릿은 원하는 만큼 많은 Campaigns와 Canvases에서 사용할 수 있습니다. 또한 옵트인한 사용자에게 원하는 만큼 전송할 수 있습니다. 단, 템플릿의 품질이 저하되지 않는 한 이 조건이 유지됩니다.
@@ -97,7 +97,7 @@ WhatsApp Business 계정이 생성되면 Meta가 초기 메시징 한도를 결�
 
 통합을 완료한 후, 다음 두 가지 Meta 프로세스를 완료하는 것을 권장합니다:
 - [비즈니스 인증](https://www.facebook.com/business/help/2058515294227817?id=180505742745347)
-	- 기존 Meta Business Manager를 사용한 적이 있다면 이미 비즈니스 인증이 완료되어 있을 수 있습니다.
+	- 기존 Meta Business 매니저를 사용한 적이 있다면 이미 비즈니스 인증이 완료되어 있을 수 있습니다.
 - [공식 비즈니스 계정](https://www.facebook.com/business/help/604726921052590?ref=search_new_0)
 
 또한 [사용자 전화번호]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers)에 대해 읽어보고, [조직에서 메시지 템플릿](https://www.facebook.com/business/help/2169003770027706?id=2190812977867143)을 생성해야 하는 사용자에게 액세스 권한을 추가하는 것을 권장합니다.
