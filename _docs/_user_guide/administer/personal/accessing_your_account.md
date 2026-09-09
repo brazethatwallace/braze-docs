@@ -54,15 +54,13 @@ Both email addresses direct emails to the same inbox, but Braze recognizes them 
 
 ### Create separate aliases with other providers
 
-If your email provider doesn't support `+` aliasing, you can still create separate aliases, such as setting up `rocky@braze.com` to forward to `rocky.lotito@braze.com`. This allows multiple addresses to funnel to the same inbox while being recognized as different emails by Braze.
+If your email provider doesn't support `+` aliasing, you can still create separate aliases, such as setting up `alias@example.com` to forward to `email@example.com`. This allows multiple addresses to funnel to the same inbox while being recognized as different emails by Braze.
 
 ### Use multi-company developers
 
 The multi-company developers feature allows sharing of a single user account across multiple companies. Dashboard users can toggle between different company dashboards from their user profile menu.
 
-If you have SSO and want to set up multi-company developers, you need to enable a SAML Custom Entity ID by setting up a custom SAML SSO integration. Follow the steps in [Service Provider (SP) initiated login]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup), but apply these changes:
-- Change **Entity ID** to `braze_dashboard_<companyID>` for each dashboard integration.
-- Contact your customer success manager or account manager to enable the `saml_sso_custom_entity_id` feature flipper for each dashboard.
+If you have SSO and want to set up multi-company developers, contact your customer success manager or account manager to coordinate the setup. This feature requires enabling a SAML Custom Entity ID and making synchronized changes to both your IdP configuration and Braze dashboard settings. To avoid access issues, these changes must be coordinated with Braze support rather than being made independently.
 
 #### Two-factor authentication (2FA)
 
