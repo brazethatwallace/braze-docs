@@ -15,7 +15,7 @@ description: "Cet article présente en détail l'endpoint Braze Créer un nouvea
 /scim/v2/Users
 {% endapimethod %}
 
-> Utilisez cet endpoint pour créer un nouveau compte utilisateur de tableau de bord en spécifiant l'adresse e-mail, le prénom et le nom de famille, ainsi que les autorisations (pour définir les autorisations au niveau de la société, de l'espace de travail et de l'équipe).
+> Utilisez cet endpoint pour créer un nouveau compte utilisateur de tableau de bord en spécifiant l'adresse e-mail, le prénom et le nom de famille, ainsi que les autorisations (pour définir les autorisations au niveau de l'entreprise, de l'espace de travail et de l'équipe).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#768a3c9d-ce1d-44fc-a0e4-d556b09f7aa3 {% endapiref %}
 
@@ -85,8 +85,8 @@ Authorization: Bearer YOUR-SCIM-TOKEN-KEY
 | `schemas` | Obligatoire | Tableau de chaînes de caractères | Nom du schéma SCIM 2.0 attendu pour l'objet utilisateur. |
 | `userName` | Obligatoire | Chaîne de caractères | L'adresse e-mail de l'utilisateur. |
 | `name` | Obligatoire | Objet JSON | Cet objet contient le prénom et le nom de famille de l'utilisateur. |
-| `department` | Obligatoire | Chaîne de caractères | Chaîne de caractères valide du département, tirée de la [documentation sur les chaînes de caractères du département]({{site.baseurl}}/api/objects_filters/scim_api_appendix). |
-| `permissions` | Facultatif | Objet JSON | Objet d'autorisations tel que décrit dans la [documentation de l'objet d'autorisations]({{site.baseurl}}/api/objects_filters/scim_api_appendix). |
+| `department` | Facultatif | Chaîne de caractères | Chaîne de caractères valide du département, tirée de la [documentation sur les chaînes de caractères du département]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_department-strings). Omettez ce paramètre ou transmettez une chaîne vide si la valeur est inconnue. |
+| `permissions` | Facultatif | Objet JSON | Objet d'autorisations tel que décrit dans la [documentation de l'objet d'autorisations]({{site.baseurl}}/api/objects_filters/scim_api_appendix). Lorsqu'il est omis ou vide, Braze attribue les autorisations d'espace de travail en lecture seule par défaut sur l'espace de travail par défaut configuré dans **SCIM Provisioning**. Après la migration des autorisations granulaires, cela inclut les autorisations d'espace de travail en consultation seule. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 ## Exemple de requête {#example-request}
@@ -140,7 +140,8 @@ curl --location --request POST 'https://rest.iad-01.braze.com/scim/v2/Users' \
         "familyName": "User"
     },
     "department": "finance",
-    "lastSignInAt": "Thursday, January 1, 1970 12:00:00 AM",
+    "lastSignInAt": "NA",
+    "createdAt": "NA",
     "permissions": {
         "companyPermissions": ["manage_company_settings"],
         "roles": [
@@ -216,7 +217,8 @@ curl --location --request POST 'https://rest.iad-01.braze.com/scim/v2/Users' \
 | `department` | Chaîne de caractères | Chaîne de caractères valide du département, tirée de la [documentation sur les chaînes de caractères du département]({{site.baseurl}}/api/objects_filters/scim_api_appendix). |
 | `permissions` | Objet JSON | Objet d'autorisations tel que décrit dans la [documentation de l'objet d'autorisations]({{site.baseurl}}/api/objects_filters/scim_api_appendix). |
 | `id` | Chaîne de caractères | ID généré par Braze, utilisé pour rechercher et gérer les comptes utilisateurs. |
-| `lastSignInAt` | Chaîne de caractères | Date de la dernière connexion réussie au format UTC. |
+| `createdAt` | Chaîne de caractères | Date de création du compte utilisateur au format UTC. Renvoie `NA` lorsque la valeur n'est pas définie. |
+| `lastSignInAt` | Chaîne de caractères | Date de la dernière connexion réussie au format UTC. Renvoie `NA` lorsque l'utilisateur ne s'est jamais connecté. Format : `YYYY Mon DD, H:MM AM/PM`. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paramètres de réponse" }
 
 ### États d'erreur {#error-states}

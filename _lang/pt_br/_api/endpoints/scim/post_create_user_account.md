@@ -85,8 +85,8 @@ Authorization: Bearer YOUR-SCIM-TOKEN-KEY
 | `schemas` | Obrigatório | Array de strings | Nome do esquema SCIM 2.0 esperado para o objeto do usuário. |
 | `userName` | Obrigatório | String | O endereço de e-mail do usuário. |
 | `name` | Obrigatório | Objeto JSON | Esse objeto contém o nome e o sobrenome do usuário. |
-| `department` | Obrigatório | String | String de departamento válida da [documentação de string de departamento]({{site.baseurl}}/api/objects_filters/scim_api_appendix). |
-| `permissions` | Opcional | Objeto JSON | Objeto de permissões, conforme descrito na [documentação do objeto de permissões]({{site.baseurl}}/api/objects_filters/scim_api_appendix). |
+| `department` | Opcional | String | String de departamento válida da [documentação de string de departamento]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_department-strings). Omita ou passe uma string vazia se desconhecido. |
+| `permissions` | Opcional | Objeto JSON | Objeto de permissões, conforme descrito na [documentação do objeto de permissões]({{site.baseurl}}/api/objects_filters/scim_api_appendix). Quando omitido ou vazio, a Braze atribui permissões padrão de somente leitura no espaço de trabalho padrão configurado em **SCIM Provisioning**. Após a migração de permissões granulares, isso inclui permissões de somente visualização no espaço de trabalho. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}
@@ -140,7 +140,8 @@ curl --location --request POST 'https://rest.iad-01.braze.com/scim/v2/Users' \
         "familyName": "User"
     },
     "department": "finance",
-    "lastSignInAt": "Thursday, January 1, 1970 12:00:00 AM",
+    "lastSignInAt": "NA",
+    "createdAt": "NA",
     "permissions": {
         "companyPermissions": ["manage_company_settings"],
         "roles": [
@@ -216,7 +217,8 @@ curl --location --request POST 'https://rest.iad-01.braze.com/scim/v2/Users' \
 | `department` | String | String de departamento válida da [documentação de string de departamento]({{site.baseurl}}/api/objects_filters/scim_api_appendix). |
 | `permissions` | Objeto JSON | Objeto de permissões, conforme descrito na [documentação do objeto de permissões]({{site.baseurl}}/api/objects_filters/scim_api_appendix). |
 | `id` | String | ID gerado pela Braze usado para pesquisar e gerenciar contas de usuário. |
-| `lastSignInAt` | String | Data do último login bem-sucedido, em UTC. |
+| `createdAt` | String | Data em que a conta de usuário foi criada, em UTC. Retorna `NA` quando não definido. |
+| `lastSignInAt` | String | Data do último login bem-sucedido, em UTC. Retorna `NA` quando o usuário não fez login. Formato: `YYYY Mon DD, H:MM AM/PM`. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Parâmetros de resposta" }
 
 ### Estados de erro {#error-states}

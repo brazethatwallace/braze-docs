@@ -85,8 +85,8 @@ Authorization: Bearer YOUR-SCIM-TOKEN-KEY
 | `schemas` | 必須 | 文字列の配列 | ユーザーオブジェクトに期待されるSCIM 2.0スキーマ名。 |
 | `userName` | 必須 | 文字列 | ユーザーのメールアドレス。 |
 | `name` | 必須 | JSONオブジェクト | このオブジェクトには、ユーザーの名と姓が含まれます。 |
-| `department` | 必須 | 文字列 | [部門文字列のドキュメント]({{site.baseurl}}/api/objects_filters/scim_api_appendix)にある有効な部門文字列。 |
-| `permissions` | オプション | JSONオブジェクト | [権限オブジェクトのドキュメント]({{site.baseurl}}/api/objects_filters/scim_api_appendix)で説明されている権限オブジェクト。 |
+| `department` | オプション | 文字列 | [部門文字列のドキュメント]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_department-strings)にある有効な部門文字列。不明な場合は省略するか、空の文字列を渡してください。 |
+| `permissions` | オプション | JSONオブジェクト | [権限オブジェクトのドキュメント]({{site.baseurl}}/api/objects_filters/scim_api_appendix)で説明されている権限オブジェクト。省略または空の場合、Brazeは**SCIM Provisioning**で設定されたデフォルトのワークスペースに対してデフォルトの読み取り専用ワークスペース権限を割り当てます。詳細権限への移行後は、閲覧のみのワークスペース権限が含まれます。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## リクエスト例 {#example-request}
@@ -140,7 +140,8 @@ curl --location --request POST 'https://rest.iad-01.braze.com/scim/v2/Users' \
         "familyName": "User"
     },
     "department": "finance",
-    "lastSignInAt": "Thursday, January 1, 1970 12:00:00 AM",
+    "lastSignInAt": "NA",
+    "createdAt": "NA",
     "permissions": {
         "companyPermissions": ["manage_company_settings"],
         "roles": [
@@ -216,7 +217,8 @@ curl --location --request POST 'https://rest.iad-01.braze.com/scim/v2/Users' \
 | `department` | 文字列 | [部門文字列のドキュメント]({{site.baseurl}}/api/objects_filters/scim_api_appendix)にある有効な部門文字列。 |
 | `permissions` | JSONオブジェクト | [権限オブジェクトのドキュメント]({{site.baseurl}}/api/objects_filters/scim_api_appendix)で説明されている権限オブジェクト。 |
 | `id` | 文字列 | Brazeが生成するIDで、ユーザーアカウントの検索や管理に使用されます。 |
-| `lastSignInAt` | 文字列 | 最後にサインインに成功した日付（UTC時間）。 |
+| `createdAt` | 文字列 | ユーザーアカウントが作成された日付（UTC）。未設定の場合は`NA`を返します。 |
+| `lastSignInAt` | 文字列 | 最後にサインインに成功した日付（UTC）。ユーザーがまだサインインしていない場合は`NA`を返します。形式: `YYYY Mon DD, H:MM AM/PM`。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Response parameters" }
 
 ### エラー状態 {#error-states}

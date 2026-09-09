@@ -5,23 +5,23 @@ La limite de débit par défaut de Braze de 250 000 requêtes par heure s'appliq
 
 <!---PUT /scim/v2/Users/YOUR_ID_HERE--->
 {% elsif include.endpoint == "update dashboard user" %}
-Cet endpoint a une limite de débit de 5 000 requêtes par jour et par société. Cette limite de débit est partagée avec les endpoints GET, DELETE et POST `/scim/v2/Users/`, comme documenté dans [Limites de débit de l'API]({{site.baseurl}}/api/api_limits).
+Cet endpoint a une limite de débit de 20 000 requêtes par jour et par société. Cette limite de débit est partagée avec les endpoints GET, DELETE et POST `/scim/v2/Users/`, comme documenté dans [Limites de débit de l'API]({{site.baseurl}}/api/api_limits).
 
 <!---GET /scim/v2/Users/YOUR_ID_HERE--->
 {% elsif include.endpoint == "look up dashboard user" %}
-Cet endpoint a une limite de débit de 5 000 requêtes par jour et par société. Cette limite de débit est partagée avec les endpoints PUT, GET, DELETE et POST `/scim/v2/Users/`, comme documenté dans [Limites de débit de l'API]({{site.baseurl}}/api/api_limits).
+Cet endpoint a une limite de débit de 20 000 requêtes par jour et par société. Cette limite de débit est partagée avec les endpoints PUT, GET, DELETE et POST `/scim/v2/Users/`, comme documenté dans [Limites de débit de l'API]({{site.baseurl}}/api/api_limits).
 
 <!---DELETE /scim/v2/Users/YOUR_ID_HERE--->
 {% elsif include.endpoint == "delete dashboard user" %}
-Cet endpoint a une limite de débit de 5 000 requêtes par jour et par société. Cette limite de débit est partagée avec les endpoints PUT, GET et POST `/scim/v2/Users/`, comme documenté dans [Limites de débit de l'API]({{site.baseurl}}/api/api_limits).
+Cet endpoint a une limite de débit de 20 000 requêtes par jour et par société. Cette limite de débit est partagée avec les endpoints PUT, GET et POST `/scim/v2/Users/`, comme documenté dans [Limites de débit de l'API]({{site.baseurl}}/api/api_limits).
 
 <!---POST /scim/v2/Users--->
 {% elsif include.endpoint == "create dashboard user" %}
-Cet endpoint a une limite de débit de 5 000 requêtes par jour et par société. Cette limite de débit est partagée avec les endpoints PUT, GET et DELETE `/scim/v2/Users/`, comme documenté dans [Limites de débit de l'API]({{site.baseurl}}/api/api_limits).
+Cet endpoint a une limite de débit de 20 000 requêtes par jour et par société. Cette limite de débit est partagée avec les endpoints PUT, GET et DELETE `/scim/v2/Users/`, comme documenté dans [Limites de débit de l'API]({{site.baseurl}}/api/api_limits).
 
 <!---GET /scim/v2/Users--->
 {% elsif include.endpoint == "look up dashboard user email" %}
-Cet endpoint a une limite de débit de 5 000 requêtes par jour et par société. Cette limite de débit est partagée avec les endpoints PUT, GET, DELETE et POST `/scim/v2/Users/`, comme documenté dans [Limites de débit de l'API]({{site.baseurl}}/api/api_limits).
+Cet endpoint a une limite de débit de 20 000 requêtes par jour et par société. Cette limite de débit est partagée avec les endpoints PUT, GET, DELETE et POST `/scim/v2/Users/`, comme documenté dans [Limites de débit de l'API]({{site.baseurl}}/api/api_limits).
 
 <!---/users/external_id/rename-->
 <!---/users/external_id/remove-->
@@ -218,7 +218,7 @@ Cet endpoint a une limite de débit partagée de 50 requêtes par minute entre t
 
 {% if include.endpoint == "asynchronous catalog fields" or include.endpoint == "asynchronous catalog selections" %}
 
-Cet endpoint a une limite de débit partagée de 50 requêtes par minute entre tous les endpoints de champs et sélections de catalogues asynchrones, comme documenté dans [Limites de débit de l'API]({{site.baseurl}}/api/api_limits).
+Cet endpoint a une limite de débit partagée de 50 requêtes par minute entre tous les endpoints de champs et de sélections de catalogues asynchrones, comme documenté dans [Limites de débit de l'API]({{site.baseurl}}/api/api_limits).
 
 {% endif %}
 

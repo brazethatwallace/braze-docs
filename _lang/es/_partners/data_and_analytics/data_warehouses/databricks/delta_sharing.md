@@ -19,20 +19,28 @@ Databricks Delta Sharing con Braze está en **beta cerrada**. La disponibilidad,
 
 Databricks Delta Sharing forma parte de Braze Data Distribution. Para un resumen completo de las opciones de Data Distribution, consulta [Data Distribution]({{site.baseurl}}/user_guide/data/distribution).
 
+## Requisitos previos {#prerequisites}
+
+| Requisito | Descripción |
+| ----------- | ----------- |
+| Acceso a la beta cerrada | Ponte en contacto con tu administrador de éxito de cliente de Braze para participar o para confirmar si esta característica está habilitada para tu espacio de trabajo. |
+| Permisos del espacio de trabajo de Braze | [Ver integraciones de Currents]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) para ver Data Sharing. [Editar integraciones de Currents]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) para crear, actualizar o eliminar un Delta share. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
+
 ## Configurar Delta Sharing {#set-up-delta-sharing}
 
-Para Databricks, el uso compartido de datos ocurre entre un proveedor de datos y un destinatario de datos. Tu cuenta de Braze es el **proveedor de datos** porque crea y envía el recurso compartido, y tu cuenta de Databricks es el **destinatario de datos** porque consume el recurso compartido para crear un catálogo que puedes consultar. Para más detalles, consulta la documentación de Databricks sobre [lectura de datos compartidos mediante Databricks-to-Databricks Delta Sharing (para destinatarios)](https://docs.databricks.com/en/delta-sharing/read-data-databricks.html).
+Para Databricks, el intercambio de datos ocurre entre un proveedor de datos y un destinatario de datos. Tu cuenta de Braze es el **proveedor de datos** porque crea y envía el recurso compartido, y tu cuenta de Databricks es el **destinatario de datos** porque consume el recurso compartido para crear un catálogo que puedes consultar. Para más detalles, consulta la documentación de Databricks sobre [lectura de datos compartidos mediante Databricks-to-Databricks Delta Sharing (para destinatarios)](https://docs.databricks.com/en/delta-sharing/read-data-databricks.html).
 
-### Paso 1: Configurar el uso compartido desde Braze {#step-1-configure-sharing-from-braze}
+### Paso 1: Configurar el intercambio desde Braze {#step-1-configure-sharing-from-braze}
 
-1. En Braze, ve a **Integraciones de socios** > **Uso compartido de datos** > **Databricks Delta Sharing**.
-2. Introduce tu identificador de uso compartido de Databricks.
+1. En Braze, ve a **Partner Integrations** > **Data Sharing** > **Databricks Delta Sharing**.
+2. Introduce tu identificador de intercambio de Databricks.
 3. Cuando hayas terminado, selecciona **Create Datashare**. Braze envía el recurso compartido a tu cuenta de Databricks.
 
 ### Paso 2: Crear un catálogo en Databricks {#step-2-create-a-catalog-in-databricks}
 
-1. Después de unos minutos, deberías recibir el recurso compartido de entrada en tu cuenta de Databricks.
-2. Usando el recurso compartido de entrada, crea un catálogo para ver y consultar las tablas. Por ejemplo:
+1. Después de unos minutos, deberías recibir el recurso compartido entrante en tu cuenta de Databricks.
+2. Usando el recurso compartido entrante, crea un catálogo para ver y consultar las tablas. Por ejemplo:
     {% raw %}
     ```sql
     CREATE CATALOG [IF NOT EXISTS] <catalog-name> USING SHARE braze.<share-name>;
@@ -46,7 +54,7 @@ Los datos compartidos son de solo lectura en tu espacio de trabajo de Databricks
 
 ## Uso y visualización {#usage-and-visualization}
 
-Una vez que el recurso compartido de datos esté aprovisionado, crea un catálogo a partir del recurso compartido entrante para que las tablas compartidas aparezcan en tu espacio de trabajo de Databricks y se puedan consultar como cualquier otro dato que almacenes allí. Los datos compartidos permanecen como solo lectura.
+Una vez provisionado el recurso compartido de datos, crea un catálogo a partir del recurso compartido entrante para que las tablas compartidas aparezcan en tu espacio de trabajo de Databricks y se puedan consultar como cualquier otro dato que almacenes allí. Los datos compartidos permanecen en modo de solo lectura.
 
 De forma similar a Currents, puedes usar Databricks Delta Sharing para:
 
@@ -55,7 +63,7 @@ De forma similar a Currents, puedes usar Databricks Delta Sharing para:
 Para obtener una lista completa de tablas y columnas disponibles en Databricks, [descarga los esquemas de tablas sin procesar de Databricks](/docs/assets/download_file/databricks-data-sharing-raw-table-schemas.txt) como archivo de texto. Este archivo refleja el esquema de Databricks Delta Sharing (por ejemplo, `DB_CREATED_AT` para el tiempo de ingesta). No es intercambiable con los [esquemas de tablas sin procesar de Snowflake](/docs/assets/download_file/data-sharing-raw-table-schemas.txt) ni con la [referencia de tablas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables), que describen la nomenclatura y los campos de Snowflake.
 
 {% alert note %}
-Durante la beta cerrada, es posible que no todas las tablas listadas en el archivo de esquema de Databricks estén disponibles en tu recurso compartido. Los nombres y tipos de columnas también pueden diferir de Snowflake Data Sharing (por ejemplo, `DB_CREATED_AT` en lugar de `SF_CREATED_AT`). Ponte en contacto con tu CSM de Braze si necesitas la lista actual de tablas para tu espacio de trabajo.
+Durante la beta cerrada, es posible que no todas las tablas listadas en el archivo de esquema de Databricks estén disponibles en tu recurso compartido. Los nombres y tipos de columnas también pueden diferir de los de Snowflake Data Sharing (por ejemplo, `DB_CREATED_AT` en lugar de `SF_CREATED_AT`). Contacta a tu administrador de éxito de cliente de Braze si necesitas la lista de tablas actual para tu espacio de trabajo.
 {% endalert %}
 
 ### Esquema de ID de usuario {#user-id-schema}
@@ -72,24 +80,24 @@ Ten en cuenta las siguientes diferencias entre las convenciones de nomenclatura 
 
 ### Disponibilidad de la beta cerrada {#closed-beta-availability}
 
-Durante la beta cerrada, es posible que tu recurso compartido no incluya todas las tablas del archivo de [esquemas de tablas sin procesar de Databricks](/docs/assets/download_file/databricks-data-sharing-raw-table-schemas.txt). Los datos compartidos también pueden diferir de Snowflake Data Sharing en nombres y tipos de columnas. Por ejemplo, los recursos compartidos de Databricks usan `DB_CREATED_AT` para el tiempo de ingesta, mientras que los recursos compartidos de Snowflake usan `SF_CREATED_AT`.
+Durante la beta cerrada, tu recurso compartido puede no incluir todas las tablas del archivo de [esquemas de tablas sin procesar de Databricks](/docs/assets/download_file/databricks-data-sharing-raw-table-schemas.txt). Los datos compartidos también pueden diferir de Snowflake Data Sharing en los nombres y tipos de columnas. Por ejemplo, los recursos compartidos de Databricks usan `DB_CREATED_AT` para la hora de ingesta, mientras que los de Snowflake usan `SF_CREATED_AT`.
 
-### Cambios con ruptura frente a cambios sin ruptura {#breaking-versus-non-breaking-changes}
+### Cambios con y sin interrupción {#breaking-versus-non-breaking-changes}
 
-#### Cambios sin ruptura {#non-breaking-changes}
+#### Cambios sin interrupción {#non-breaking-changes}
 
-Los cambios sin ruptura pueden ocurrir en cualquier momento y generalmente proporcionan funcionalidad adicional. Ejemplos de cambios sin ruptura:
+Los cambios sin interrupción pueden ocurrir en cualquier momento y generalmente proporcionan funcionalidad adicional. Ejemplos de cambios sin interrupción:
 
 - Agregar una nueva tabla o vista
 - Agregar una columna a una tabla o vista existente
 
 {% alert important %}
-Dado que las nuevas columnas se consideran cambios sin ruptura, Braze recomienda encarecidamente listar explícitamente las columnas de interés en cada consulta en lugar de usar consultas `SELECT *`. Alternativamente, crea vistas que nombren explícitamente las columnas y consulta esas vistas en lugar de consultar las tablas compartidas directamente.
+Dado que las nuevas columnas se consideran cambios sin interrupción, Braze recomienda encarecidamente listar explícitamente las columnas de interés en cada consulta en lugar de usar consultas `SELECT *`. Como alternativa, crea vistas que nombren explícitamente las columnas y consulta esas vistas en lugar de consultar las tablas compartidas directamente.
 {% endalert %}
 
-#### Cambios con ruptura {#breaking-changes}
+#### Cambios con interrupción {#breaking-changes}
 
-Cuando es posible, los cambios con ruptura van precedidos de un anuncio y un período de migración. Ejemplos de cambios con ruptura incluyen:
+Cuando es posible, los cambios con interrupción van precedidos de un anuncio y un periodo de migración. Ejemplos de cambios con interrupción incluyen:
 
 - Eliminar una tabla o vista
 - Eliminar una columna de una tabla o vista existente
@@ -101,9 +109,9 @@ Durante la beta cerrada, los proveedores de nube y las regiones compatibles pued
 
 ### Política de retención {#retention-policy}
 
-Durante la beta cerrada, el relleno histórico más allá de la ventana de retención estándar puede estar limitado.
+Durante la beta cerrada, el llenado histórico más allá de la ventana de retención estándar puede estar limitado.
 
-Puedes consultar los datos más recientes de dos años para cada evento en la vista `USERS_*_SHARED` correspondiente.
+Puedes consultar los datos más recientes de los últimos dos años para cada evento en la vista `USERS_*_SHARED` correspondiente.
 
 ### Cumplimiento del Reglamento General de Protección de Datos (RGPD) {#general-data-protection-regulation-gdpr-compliance}
 
@@ -111,14 +119,14 @@ Puedes consultar los datos más recientes de dos años para cada evento en la vi
 
 ### Consulta de datos compartidos: `TIME` y rendimiento de consultas {#querying-shared-data-time-and-query-performance}
 
-Los datos de eventos en las vistas de uso compartido de datos (por ejemplo, `USERS_BEHAVIORS_CUSTOMEVENT_SHARED`) están agrupados en el campo `TIME`. Cuando filtres por el momento en que ocurrió el evento, usa `TIME` como filtro preferido. Las consultas que restringen filas usando `TIME` generalmente tienen mejor rendimiento que las consultas que filtran por `DB_CREATED_AT`, porque la agrupación se alinea con el tiempo del evento.
+Los datos de eventos en las vistas de datos compartidos (por ejemplo, `USERS_BEHAVIORS_CUSTOMEVENT_SHARED`) se agrupan en el campo `TIME`. Cuando filtres por cuándo ocurrió el evento, usa `TIME` como filtro preferido. Las consultas que restringen filas usando `TIME` generalmente tienen mejor rendimiento que las consultas que filtran por `DB_CREATED_AT`, porque la agrupación se alinea con la hora del evento.
 
 | Campo | Significado |
 | ----- | ------- |
-| `TIME` | Marca de tiempo unix en la que ocurrió el evento. Prefiere este campo al filtrar por tiempo de ocurrencia. |
-| `DB_CREATED_AT` | Marca de tiempo en la que la fila se cargó en Databricks (tiempo de ingesta). |
+| `TIME` | Marca de tiempo unix en la que ocurrió el evento. Se recomienda usarla al filtrar por hora de ocurrencia. |
+| `DB_CREATED_AT` | Marca de tiempo de cuándo se cargó la fila en Databricks (hora de ingesta). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Consulta de datos compartidos: TIME y rendimiento de consultas" }
 
 ### Velocidad, rendimiento y costo de las consultas {#speed-performance-and-cost-of-queries}
 
-La velocidad, el rendimiento y el costo de cualquier consulta que ejecutes sobre los datos dependen del tamaño del almacén SQL que utilices. Dependiendo de la cantidad de datos a los que accedas, es posible que necesites un almacén más grande para que la consulta se complete correctamente. Para más información, consulta la documentación de Databricks sobre [creación y configuración de un almacén SQL](https://docs.databricks.com/en/compute/sql-warehouse/create.html) (incluyendo tamaño del clúster y escalado).
+La velocidad, el rendimiento y el costo de cualquier consulta que ejecutes sobre los datos dependen del tamaño del almacén SQL que utilices. Dependiendo de la cantidad de datos a los que accedas, es posible que necesites un almacén más grande para que la consulta se complete correctamente. Para más información, consulta la documentación de Databricks sobre [cómo crear y configurar un almacén SQL](https://docs.databricks.com/en/compute/sql-warehouse/create.html) (incluido el tamaño del clúster y el escalado).

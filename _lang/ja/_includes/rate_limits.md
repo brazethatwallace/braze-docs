@@ -5,23 +5,23 @@
 
 <!---PUT /scim/v2/Users/YOUR_ID_HERE--->
 {% elsif include.endpoint == "update dashboard user" %}
-このエンドポイントには、1日あたり1会社あたり5,000リクエストのレート制限があります。このレート制限は、[APIレート制限]({{site.baseurl}}/api/api_limits)に記載されているように、`/scim/v2/Users/` GET、DELETE、およびPOSTエンドポイントと共有されます。
+このエンドポイントには、1日あたり1会社あたり20,000リクエストのレート制限があります。このレート制限は、[APIレート制限]({{site.baseurl}}/api/api_limits)に記載されているように、`/scim/v2/Users/` GET、DELETE、およびPOSTエンドポイントと共有されます。
 
 <!---GET /scim/v2/Users/YOUR_ID_HERE--->
 {% elsif include.endpoint == "look up dashboard user" %}
-このエンドポイントには、1日あたり1会社あたり5,000リクエストのレート制限があります。このレート制限は、[APIレート制限]({{site.baseurl}}/api/api_limits)に記載されているように、`/scim/v2/Users/` PUT、GET、DELETE、およびPOSTエンドポイントと共有されます。
+このエンドポイントには、1日あたり1会社あたり20,000リクエストのレート制限があります。このレート制限は、[APIレート制限]({{site.baseurl}}/api/api_limits)に記載されているように、`/scim/v2/Users/` PUT、GET、DELETE、およびPOSTエンドポイントと共有されます。
 
 <!---DELETE /scim/v2/Users/YOUR_ID_HERE--->
 {% elsif include.endpoint == "delete dashboard user" %}
-このエンドポイントには、1日あたり1会社あたり5,000リクエストのレート制限があります。このレート制限は、[APIレート制限]({{site.baseurl}}/api/api_limits)に記載されているように、`/scim/v2/Users/` PUT、GET、およびPOSTエンドポイントと共有されます。
+このエンドポイントには、1日あたり1会社あたり20,000リクエストのレート制限があります。このレート制限は、[APIレート制限]({{site.baseurl}}/api/api_limits)に記載されているように、`/scim/v2/Users/` PUT、GET、およびPOSTエンドポイントと共有されます。
 
 <!---POST /scim/v2/Users--->
 {% elsif include.endpoint == "create dashboard user" %}
-このエンドポイントには、1日あたり1会社あたり5,000リクエストのレート制限があります。このレート制限は、[APIレート制限]({{site.baseurl}}/api/api_limits)に記載されているように、`/scim/v2/Users/` PUT、GET、およびDELETEエンドポイントと共有されます。
+このエンドポイントには、1日あたり1会社あたり20,000リクエストのレート制限があります。このレート制限は、[APIレート制限]({{site.baseurl}}/api/api_limits)に記載されているように、`/scim/v2/Users/` PUT、GET、およびDELETEエンドポイントと共有されます。
 
 <!---GET /scim/v2/Users--->
 {% elsif include.endpoint == "look up dashboard user email" %}
-このエンドポイントには、1日あたり1会社あたり5,000リクエストのレート制限があります。このレート制限は、[APIレート制限]({{site.baseurl}}/api/api_limits)に記載されているように、`/scim/v2/Users/` PUT、GET、DELETE、およびPOSTエンドポイントと共有されます。
+このエンドポイントには、1日あたり1会社あたり20,000リクエストのレート制限があります。このレート制限は、[APIレート制限]({{site.baseurl}}/api/api_limits)に記載されているように、`/scim/v2/Users/` PUT、GET、DELETE、およびPOSTエンドポイントと共有されます。
 
 <!---/users/external_id/rename-->
 <!---/users/external_id/remove-->

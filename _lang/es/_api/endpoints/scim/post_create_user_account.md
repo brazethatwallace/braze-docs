@@ -85,8 +85,8 @@ Authorization: Bearer YOUR-SCIM-TOKEN-KEY
 | `schemas` | Obligatorio | Matriz de cadenas | Nombre del esquema SCIM 2.0 esperado para el objeto de usuario. |
 | `userName` | Obligatorio | Cadena | La dirección de correo electrónico del usuario. |
 | `name` | Obligatorio | Objeto JSON | Este objeto contiene el nombre y los apellidos del usuario. |
-| `department` | Obligatorio | Cadena | Cadena de departamento válida de la [documentación de cadenas de departamento]({{site.baseurl}}/api/objects_filters/scim_api_appendix). |
-| `permissions` | Opcional | Objeto JSON | Objeto de permisos tal y como se describe en la [documentación del objeto de permisos]({{site.baseurl}}/api/objects_filters/scim_api_appendix). |
+| `department` | Opcional | Cadena | Cadena de departamento válida de la [documentación de cadenas de departamento]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_department-strings). Omite o pasa una cadena vacía si se desconoce. |
+| `permissions` | Opcional | Objeto JSON | Objeto de permisos tal y como se describe en la [documentación del objeto de permisos]({{site.baseurl}}/api/objects_filters/scim_api_appendix). Cuando se omite o está vacío, Braze asigna permisos predeterminados de solo lectura del espacio de trabajo en el espacio de trabajo predeterminado configurado en **SCIM Provisioning**. Tras la migración de permisos granulares, esto incluye permisos de solo visualización del espacio de trabajo. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplo de solicitud {#example-request}
@@ -140,7 +140,8 @@ curl --location --request POST 'https://rest.iad-01.braze.com/scim/v2/Users' \
         "familyName": "User"
     },
     "department": "finance",
-    "lastSignInAt": "Thursday, January 1, 1970 12:00:00 AM",
+    "lastSignInAt": "NA",
+    "createdAt": "NA",
     "permissions": {
         "companyPermissions": ["manage_company_settings"],
         "roles": [
@@ -216,7 +217,8 @@ curl --location --request POST 'https://rest.iad-01.braze.com/scim/v2/Users' \
 | `department` | Cadena | Cadena de departamento válida de la [documentación de cadenas de departamento]({{site.baseurl}}/api/objects_filters/scim_api_appendix). |
 | `permissions` | Objeto JSON | Objeto de permisos tal y como se describe en la [documentación del objeto de permisos]({{site.baseurl}}/api/objects_filters/scim_api_appendix). |
 | `id` | Cadena | ID generado por Braze que se utiliza para buscar y administrar cuentas de usuario. |
-| `lastSignInAt` | Cadena | Fecha del último inicio de sesión correcto en hora UTC. |
+| `createdAt` | Cadena | Fecha en que se creó la cuenta de usuario en UTC. Devuelve `NA` cuando no se ha establecido. |
+| `lastSignInAt` | Cadena | Fecha del último inicio de sesión correcto en UTC. Devuelve `NA` cuando el usuario no ha iniciado sesión. Formato: `YYYY Mon DD, H:MM AM/PM`. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Parámetros de respuesta" }
 
 ### Estados de error {#error-states}

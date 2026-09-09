@@ -13,9 +13,9 @@ description: "개인화, 데이터, 이커머스, Audience Sync를 위한 Braze 
 
 ## 자주 묻는 질문 {#frequently-asked-questions}
 
-### Braze 기술 파트너 통합은 어떻게 찾나요? {#how-do-i-find-a-braze-technology-partner-integration}
+### Braze 기술 파트너 통합은 어떻게 찾을 수 있나요? {#how-do-i-find-a-braze-technology-partner-integration}
 
-이 페이지의 알파벳순 목록을 탐색하거나 글자 제목으로 이동하여 이름으로 파트너를 찾을 수 있습니다. 각 항목은 해당 파트너의 Braze 통합 문서로 연결됩니다.
+이 페이지의 알파벳순 목록을 찾아보거나 글자 제목으로 이동하여 이름으로 파트너를 찾을 수 있습니다. 각 항목은 해당 파트너의 Braze 통합 문서로 연결됩니다.
 
 ### Braze Alloys란 무엇인가요? {#what-is-braze-alloys}
 
@@ -140,6 +140,7 @@ Braze Alloys는 Braze의 기술 파트너 프로그램입니다. 파트너는 �
 
 ## G
 
+- [Globalization Partners International]({{site.baseurl}}/partners/message_personalization/localization/gpi)
 - [Google 오디언스 Sync]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync)
 - [Google Cloud Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/google_cloud_storage_for_currents)
 - [Google Gemini]({{site.baseurl}}/partners/ai_model_providers/google_gemini)
@@ -411,12 +412,12 @@ Braze Alloys는 Braze의 기술 파트너 프로그램입니다. 파트너는 �
 
 ## 파트너 연결 문제 해결 {#troubleshooting-partner-connections}
 
-통합에 Braze 측 설정이 필요한 경우, Braze 대시보드에 로그인하여 **파트너 통합** > **기술 파트너**로 이동하세요.
+통합을 Braze 측에서 설정해야 하는 경우, Braze 대시보드에 로그인하고 **파트너 통합** > **기술 파트너**로 이동하세요.
 
 {% alert note %}
-파트너가 전적으로 소유한 통합은 여기에 나열되지 않을 수 있습니다. 통합 소유권 및 구성 단계를 확인하려면 해당 파트너의 설명서를 참조하세요.
+파트너가 전적으로 소유하는 통합은 여기에 표시되지 않을 수 있습니다. 통합 소유권 및 구성 단계를 확인하려면 해당 파트너의 설명서를 참조하세요.
 {% endalert %}
 
-Braze에서 파트너에 대해 **Invalid credentials**가 표시되지만 해당 파트너의 대시보드에서는 통합이 올바르게 보이는 경우, 기술 파트너 페이지에서 통합을 연결 해제한 후 다시 연결하고, 파트너 측에서 API 키, OAuth 토큰 및 권한을 확인하세요.
+Braze에서 파트너에 대해 **Invalid credentials**가 표시되지만 해당 파트너의 대시보드에서는 통합이 정상으로 보이는 경우, 기술 파트너 페이지에서 통합을 해제했다가 다시 연결하고, 파트너 측에서 API 키, OAuth 토큰 및 권한을 확인하세요.
 
 일부 외부 대시보드(예: 전달 가능성 또는 받은편지함 모니터링 도구)는 Braze 기술 파트너 페이지와 다른 연결 또는 인증 상태를 표시할 수 있습니다. 동기화 및 전송에 Braze가 의존하는 연결 상태를 확인하려면 Braze의 파트너 타일을 사용하세요.

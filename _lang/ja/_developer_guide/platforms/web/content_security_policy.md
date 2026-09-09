@@ -57,8 +57,17 @@ URLは、選択した`baseUrl`初期化オプションの[API SDKエンドポイ
 
 | URL | 情報 |
 |---|-----------|
-| `img-src: appboy-images.com braze-images.com cdn.braze.eu` | Braze CDNホスト画像を使用する場合に必要です。ホスト名はダッシュボードクラスタによって異なる場合があります。<br><br>**重要:** カスタムフォントを使用している場合は、`font-src`も含める必要があります。|
+| `img-src: appboy-images.com braze-images.com cdn.braze.com cdn.braze.eu` | Braze CDNホスト画像を使用する場合に必要です。すべてのダッシュボードクラスタで画像が正しく読み込まれるように、4つのCDNホスト名をすべて含めてください。<br><br>**重要:** カスタムフォントを使用している場合は、`font-src`も含める必要があります。|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="img-src #img-src" }
+
+#### CDNホスト名 {#cdn-hostnames}
+
+以下のすべてのホスト名を`img-src`ディレクティブに追加してください。
+
+- `appboy-images.com`
+- `braze-images.com`
+- `cdn.braze.com`
+- `cdn.braze.eu`
 
 ## Font Awesome {#font-awesome}
 

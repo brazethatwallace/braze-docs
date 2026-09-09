@@ -13,13 +13,13 @@ description: "Brazeのテクノロジーパートナー（Alloys）をアルフ�
 
 ## よくある質問 {#frequently-asked-questions}
 
-### Brazeテクノロジーパートナー連携を見つけるにはどうすればよいですか？ {#how-do-i-find-a-braze-technology-partner-integration}
+### Brazeのテクノロジーパートナー連携を見つけるにはどうすればよいですか？ {#how-do-i-find-a-braze-technology-partner-integration}
 
-このページのアルファベット順リストを参照するか、文字の見出しにジャンプしてパートナー名で検索できます。各エントリは、そのパートナーのBraze連携記事にリンクしています。
+このページのアルファベット順リストを参照するか、文字の見出しにジャンプしてパートナー名で検索できます。各エントリには、そのパートナーのBraze連携に関する記事へのリンクが含まれています。
 
 ### Braze Alloysとは何ですか？ {#what-is-braze-alloys}
 
-Braze AlloysはBrazeのテクノロジーパートナープログラムです。パートナーは、補完的なデータ、コンテンツ、アトリビューション、オーケストレーション機能でBrazeプラットフォームを拡張しており、それらはこのハブにドキュメントとしてまとめられています。
+Braze AlloysはBrazeのテクノロジーパートナープログラムです。パートナーは、このハブに記載されている補完的なデータ、コンテンツ、アトリビューション、オーケストレーション機能でBrazeプラットフォームを拡張します。
 
 <div class="partners-az-list" markdown="1">
 
@@ -140,6 +140,7 @@ Braze AlloysはBrazeのテクノロジーパートナープログラムです。
 
 ## G
 
+- [Globalization Partners International]({{site.baseurl}}/partners/message_personalization/localization/gpi)
 - [Google オーディエンス同期]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync)
 - [Google Cloud Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/google_cloud_storage_for_currents)
 - [Google Gemini]({{site.baseurl}}/partners/ai_model_providers/google_gemini)
@@ -411,12 +412,12 @@ Brazeテクノロジーパートナーの完全な検索・フィルター可能
 
 ## パートナー接続のトラブルシューティング {#troubleshooting-partner-connections}
 
-連携にBraze側でのセットアップが必要な場合は、Brazeダッシュボードにログインし、**パートナー連携** > **テクノロジーパートナー**に移動します。
+連携にBraze側での設定が必要な場合は、Brazeダッシュボードにログインし、**パートナー連携** > **テクノロジーパートナー**に移動します。
 
 {% alert note %}
-パートナーが完全に管理する連携は、ここに表示されない場合があります。連携の所有者と設定手順を確認するには、パートナー固有のドキュメントを参照してください。
+完全にパートナーが管理する連携は、ここに表示されない場合があります。連携の所有者と設定手順を確認するには、パートナー固有のドキュメントを参照してください。
 {% endalert %}
 
-Brazeでパートナーに対して**無効な認証情報**と表示されるが、そのパートナーのダッシュボードでは連携が正しく見える場合は、テクノロジーパートナーページで連携を切断してから再接続し、パートナー側でAPIキー、OAuthトークン、および権限を確認してください。
+Brazeでパートナーに対して**無効な認証情報**と表示されているが、パートナーのダッシュボードでは連携が正しく見える場合は、テクノロジーパートナーページで連携を切断して再接続し、パートナー側でAPIキー、OAuthトークン、権限を確認してください。
 
-一部の外部ダッシュボード（例えば、配信到達性や受信トレイモニタリングツール）では、Brazeのテクノロジーパートナーページとは異なる接続状態や検証ステータスが表示されることがあります。同期と送信のためにBrazeが依存する接続状態については、Braze内のパートナータイルを使用してください。
+一部の外部ダッシュボード（例：配信到達性や受信トレイモニタリングツール）では、Brazeのテクノロジーパートナーページとは異なる接続状態や検証ステータスが表示されることがあります。同期や送信にBrazeが依存する接続状態については、Braze内のパートナータイルを使用してください。

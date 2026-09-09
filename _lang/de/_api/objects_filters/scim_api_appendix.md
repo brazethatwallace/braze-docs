@@ -53,8 +53,8 @@ Ein gültiges Workspace-Berechtigungsobjekt ist ein JSON-Objekt mit den folgende
 | --- | --- | --- | --- |
 | `appGroupName` | Optional | String | Name des Workspace. Wird verwendet, um anzugeben, für welchen Workspace die in diesem Objekt enthaltenen Berechtigungen gelten. |
 | `appGroupId` | Erforderlich, wenn `appGroupName` fehlt | String | ID des Workspace, dient als alternative Methode zur Angabe des Workspace. |
-| `appGroupPermissionSets` | Optional | Array | Array mit einem einzelnen [Workspace-Berechtigungsset-Objekt]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-permissions-set-object). |
-| `appGroupPermissions` | Erforderlich | Array | Array von Berechtigungs-Strings auf Workspace-Ebene aus der Tabelle [Workspace-Berechtigungs-Strings]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-strings), wobei das Vorhandensein des Strings bedeutet, dass die Nutzer:in die entsprechende Berechtigung für den angegebenen Workspace hat. |
+| `appGroupPermissionSets` | Optional | Array | Array mit einem einzelnen [Workspace-Berechtigungsset-Objekt]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-permissions-set-object). Geben Sie pro Workspace-Eintrag entweder `appGroupPermissions` oder `appGroupPermissionSets` an, nicht beides. |
+| `appGroupPermissions` | Bedingt erforderlich | Array | Array von Berechtigungs-Strings auf Workspace-Ebene aus der Tabelle [Workspace-Berechtigungs-Strings]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-strings). Erforderlich, wenn `appGroupPermissionSets` nicht angegeben ist. |
 | `team` | Optional | Array | Array von [Team-Berechtigungsobjekten]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_team-permissions-object). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Workspace-Berechtigungsobjekt" }
 
@@ -65,7 +65,7 @@ Ein gültiges Workspace-Berechtigungsset-Objekt ist ein JSON-Objekt mit den folg
 | Schlüssel | Erforderlich | Datentyp | Beschreibung |
 | --- | --- | --- | --- |
 | `appGroupPermissionSetName` | Optional | String | Name des Workspace-Berechtigungssets, das der Nutzer:in für diesen Workspace zugewiesen wird. |
-| `appGroupPermissionSetID` | Erforderlich, wenn `appGroupPermissionSetName` fehlt | String | ID des Workspace, dient als alternative Methode zur Angabe des Workspace-Berechtigungssets, das der Nutzer:in für diesen Workspace zugewiesen wird. |
+| `appGroupPermissionSetId` | Erforderlich, wenn `appGroupPermissionSetName` fehlt | String | ID des Workspace-Berechtigungssets, dient als alternative Methode zur Angabe des Workspace-Berechtigungssets, das der Nutzer:in für diesen Workspace zugewiesen wird. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Workspace-Berechtigungsset-Objekt" }
 
 ### Team-Berechtigungsobjekt {#team-permissions-object}
@@ -158,6 +158,13 @@ Ein gültiges Rollenobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert
 | View Decisioning Studio Guardrails | `view_decisioning_studio_guardrails` |
 | Launch Campaigns | `launch_campaigns` |
 | Launch Canvases | `launch_canvases` |
+| Approve Campaigns | `approve_deny_campaigns` |
+| Approve Canvases | `approve_deny_canvases` |
+| Send Campaigns, Canvases | `send_campaigns_canvases` |
+| Publish Cards | `publish_cards` |
+| Export User Data | `export_user_data` |
+| View PII | `view_pii` |
+| View User Profiles (PII Redacted) | `view_user_profile` |
 | Edit Dashboard Users | `edit_dashboard_users` |
 | Edit Media Library Assets | `edit_media_library_assets` |
 | Delete Media Library Assets | `delete_media_library_assets` |
@@ -287,7 +294,7 @@ Ein gültiges Rollenobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert
 
 
 {% alert important %}
-Braze bietet jetzt [granulare Berechtigungen]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/?sdktab=granular%20permissions), eine flexiblere Möglichkeit, den Zugriff von Nutzer:innen zu verwalten. Weitere Informationen finden Sie unter [Migration zu granularen Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) und im Tab [Granular SCIM API]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api/), um die granularen SCIM-API-Objekte und den Anhang einzusehen. Braze wird ab Dezember 2026 keine Legacy-SCIM-API-Werte mehr akzeptieren.
+Braze bietet jetzt [granulare Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions?sdktab=granular%20permissions), eine flexiblere Möglichkeit, den Zugriff von Nutzer:innen zu verwalten. Weitere Informationen finden Sie unter [Migration zu granularen Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) und im Tab [Granular SCIM API]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api/), um die granularen SCIM-API-Objekte und den Anhang einzusehen. Braze wird ab Dezember 2026 keine Legacy-SCIM-API-Werte mehr akzeptieren.
 {% endalert %}
 
 ## Berechtigungsobjekt
@@ -324,22 +331,22 @@ Ein gültiges Workspace-Berechtigungsobjekt ist ein JSON-Objekt mit den folgende
 | --- | --- | --- | --- |
 | `appGroupName` | Optional | String | Name des Workspace. Wird verwendet, um anzugeben, für welchen Workspace die in diesem Objekt enthaltenen Berechtigungen gelten. |
 | `appGroupId` | Erforderlich, wenn `appGroupName` fehlt | String | ID des Workspace, dient als alternative Methode zur Angabe des Workspace. |
-| `appGroupPermissionSets` | Optional | Array | Array mit einem einzelnen [Workspace-Berechtigungsset-Objekt]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_workspace-permissions-set-object). |
-| `appGroupPermissions` | Erforderlich | Array | Array von Berechtigungs-Strings auf Workspace-Ebene aus der Tabelle [Workspace-Berechtigungs-Strings]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_workspace-strings), wobei das Vorhandensein des Strings bedeutet, dass die Nutzer:in die entsprechende Berechtigung für den angegebenen Workspace hat. |
+| `appGroupPermissionSets` | Optional | Array | Array mit einem einzelnen [Workspace-Berechtigungsset-Objekt]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_workspace-permissions-set-object). Geben Sie pro Workspace-Eintrag entweder `appGroupPermissions` oder `appGroupPermissionSets` an, nicht beides. |
+| `appGroupPermissions` | Bedingt erforderlich | Array | Array von Berechtigungs-Strings auf Workspace-Ebene aus der Tabelle [Workspace-Berechtigungs-Strings]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_workspace-strings). Erforderlich, wenn `appGroupPermissionSets` nicht angegeben ist. |
 | `team` | Optional | Array | Array von [Team-Berechtigungsobjekten]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_team-permissions-object). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Workspace-Berechtigungsobjekt" }
 
-### Workspace-Berechtigungsset-Objekt {#workspace-permissions-set-object}
+### Workspace-Berechtigungsset-Objekt {#legacyscimapi_workspace-permissions-set-object}
 
 Ein gültiges Workspace-Berechtigungsset-Objekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert-Paaren:
 
 | Schlüssel | Erforderlich | Datentyp | Beschreibung |
 | --- | --- | --- | --- |
 | `appGroupPermissionSetName` | Optional | String | Name des Workspace-Berechtigungssets, das der Nutzer:in für diesen Workspace zugewiesen wird. |
-| `appGroupPermissionSetID` | Erforderlich, wenn `appGroupPermissionSetName` fehlt | String | ID des Workspace, dient als alternative Methode zur Angabe des Workspace-Berechtigungssets, das der Nutzer:in für diesen Workspace zugewiesen wird. |
+| `appGroupPermissionSetId` | Erforderlich, wenn `appGroupPermissionSetName` fehlt | String | ID des Workspace-Berechtigungssets, dient als alternative Methode zur Angabe des Workspace-Berechtigungssets, das der Nutzer:in für diesen Workspace zugewiesen wird. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Workspace-Berechtigungsset-Objekt" }
 
-### Team-Berechtigungsobjekt {#team-permissions-object}
+### Team-Berechtigungsobjekt
 
 Ein gültiges Team-Berechtigungsobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert-Paaren:
 
@@ -350,7 +357,7 @@ Ein gültiges Team-Berechtigungsobjekt ist ein JSON-Objekt mit den folgenden Sch
 | `teamPermissions` | Erforderlich | Array | Array von Berechtigungs-Strings auf Team-Ebene aus der Tabelle [Team-Berechtigungs-Strings]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_team), wobei das Vorhandensein des Strings bedeutet, dass die Nutzer:in die entsprechende Berechtigung für das angegebene Team hat. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Team-Berechtigungsobjekt" }
 
-## Rollenobjekt {#role-object}
+## Rollenobjekt
 
 Ein gültiges Rollenobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert-Paaren:
 
@@ -362,7 +369,7 @@ Ein gültiges Rollenobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert
 
 ## Anhang
 
-### Unternehmens-Berechtigungs-Strings {#company}
+### Unternehmens-Berechtigungs-Strings
 
 | Anzeige in der UI | SCIM-API-String |
 | --- | --- |
@@ -371,19 +378,20 @@ Ein gültiges Rollenobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert
 | Can Add/Remove Workspaces | `add_remove_app_groups` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Unternehmens-Berechtigungs-Strings" }
 
-### Workspace-Berechtigungs-Strings {#workspace-strings}
+### Workspace-Berechtigungs-Strings
 
 | Berechtigungsname | SCIM-API-String |
 | --- | --- |
 | Admin | `admin` |
 | Access Campaigns, Canvases, Cards, Segments, Media Library | `basic_access` |
-| Approve and Deny Canvases | `approve_deny_campaigns` |
+| Approve Campaigns | `approve_deny_campaigns` |
+| Approve Canvases | `approve_deny_canvases` |
 | Send Campaigns, Canvases | `send_campaigns_canvases` |
 | Publish Cards | `publish_cards` |
 | Edit Segments | `edit_segments` |
 | Export User Data | `export_user_data` |
 | View PII | `view_pii` |
-| View User Profiles PII Compliant | `view_user_profile` |
+| View User Profiles (PII Redacted) | `view_user_profile` |
 | Manage Dashboard Users | `manage_dashboard_users` |
 | Manage Media Library Assets | `manage_media_library` |
 | View Usage Data | `view_usage_data` |
@@ -402,18 +410,19 @@ Ein gültiges Rollenobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert
 | Manage Catalogs Dashboard Permission | `manage_catalogs_dashboard_permission` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Workspace-Berechtigungs-Strings" }
 
-### Team-Berechtigungs-Strings {#team}
+### Team-Berechtigungs-Strings
 
 | Berechtigungsname | SCIM-API-String |
 | --- | --- |
 | Admin | `admin` |
 | Access Campaigns, Canvases, Cards, Segments, Media Library | `basic_access` |
-| Approve and Deny Canvases | `approve_deny_campaigns` |
+| Approve Campaigns | `approve_deny_campaigns` |
+| Approve Canvases | `approve_deny_canvases` |
 | Send Campaigns, Canvases | `send_campaigns_canvases` |
 | Publish Cards | `publish_cards` |
 | Edit Segments | `edit_segments` |
 | Export User Data | `export_user_data` |
-| View User Profile | `view_user_profile` |
+| View User Profiles (PII Redacted) | `view_user_profile` |
 | Manage Dashboard Users | `manage_dashboard_users` |
 | Manage Media Library Assets | `manage_media_library` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Team-Berechtigungs-Strings" }

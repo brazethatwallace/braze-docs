@@ -5,23 +5,23 @@ Aplicamos el límite de velocidad predeterminado de Braze de 250 000 solicitudes
 
 <!---PUT /scim/v2/Users/YOUR_ID_HERE--->
 {% elsif include.endpoint == "update dashboard user" %}
-Este endpoint tiene un límite de velocidad de 5000 solicitudes por día y empresa. Este límite de velocidad se comparte con los endpoints GET, DELETE y POST de `/scim/v2/Users/`, como se documenta en [Límites de velocidad de la API]({{site.baseurl}}/api/api_limits).
+Este endpoint tiene un límite de velocidad de 20 000 solicitudes por día y empresa. Este límite de velocidad se comparte con los endpoints GET, DELETE y POST de `/scim/v2/Users/`, como se documenta en [Límites de velocidad de la API]({{site.baseurl}}/api/api_limits).
 
 <!---GET /scim/v2/Users/YOUR_ID_HERE--->
 {% elsif include.endpoint == "look up dashboard user" %}
-Este endpoint tiene un límite de velocidad de 5000 solicitudes por día y empresa. Este límite de velocidad se comparte con los endpoints PUT, GET, DELETE y POST de `/scim/v2/Users/`, como se documenta en [Límites de velocidad de la API]({{site.baseurl}}/api/api_limits).
+Este endpoint tiene un límite de velocidad de 20 000 solicitudes por día y empresa. Este límite de velocidad se comparte con los endpoints PUT, GET, DELETE y POST de `/scim/v2/Users/`, como se documenta en [Límites de velocidad de la API]({{site.baseurl}}/api/api_limits).
 
 <!---DELETE /scim/v2/Users/YOUR_ID_HERE--->
 {% elsif include.endpoint == "delete dashboard user" %}
-Este endpoint tiene un límite de velocidad de 5000 solicitudes por día y empresa. Este límite de velocidad se comparte con los endpoints PUT, GET y POST de `/scim/v2/Users/`, como se documenta en [Límites de velocidad de la API]({{site.baseurl}}/api/api_limits).
+Este endpoint tiene un límite de velocidad de 20 000 solicitudes por día y empresa. Este límite de velocidad se comparte con los endpoints PUT, GET y POST de `/scim/v2/Users/`, como se documenta en [Límites de velocidad de la API]({{site.baseurl}}/api/api_limits).
 
 <!---POST /scim/v2/Users--->
 {% elsif include.endpoint == "create dashboard user" %}
-Este endpoint tiene un límite de velocidad de 5000 solicitudes por día y empresa. Este límite de velocidad se comparte con los endpoints PUT, GET y DELETE de `/scim/v2/Users/`, como se documenta en [Límites de velocidad de la API]({{site.baseurl}}/api/api_limits).
+Este endpoint tiene un límite de velocidad de 20 000 solicitudes por día y empresa. Este límite de velocidad se comparte con los endpoints PUT, GET y DELETE de `/scim/v2/Users/`, como se documenta en [Límites de velocidad de la API]({{site.baseurl}}/api/api_limits).
 
 <!---GET /scim/v2/Users--->
 {% elsif include.endpoint == "look up dashboard user email" %}
-Este endpoint tiene un límite de velocidad de 5000 solicitudes por día y empresa. Este límite de velocidad se comparte con los endpoints PUT, GET, DELETE y POST de `/scim/v2/Users/`, como se documenta en [Límites de velocidad de la API]({{site.baseurl}}/api/api_limits).
+Este endpoint tiene un límite de velocidad de 20 000 solicitudes por día y empresa. Este límite de velocidad se comparte con los endpoints PUT, GET, DELETE y POST de `/scim/v2/Users/`, como se documenta en [Límites de velocidad de la API]({{site.baseurl}}/api/api_limits).
 
 <!---/users/external_id/rename-->
 <!---/users/external_id/remove-->
@@ -121,11 +121,11 @@ Los endpoints de Braze admiten [solicitudes de API por lotes]({{site.baseurl}}/a
 El endpoint `/transactional/v1/campaigns/{campaign_id}/send` es un endpoint de pago por unidades por hora (por ejemplo, 50 000 por hora, dependiendo de tu paquete). No hay un límite de velocidad por endpoint independiente: puedes enviar más allá del volumen asignado, pero solo el volumen asignado está cubierto por el SLA. Las solicitudes a este endpoint cuentan para tu [límite de velocidad de API externa general]({{site.baseurl}}/api/api_limits). Si superas ese límite (por ejemplo, 250 000 solicitudes por hora en todos los endpoints), Braze devuelve 429 y las solicitudes se limitan. El recuento del volumen transaccional se restablece cada hora, por lo que, transcurrida una hora, hay disponible otra asignación. Dentro del volumen cubierto por el SLA, el 99,9 % de los correos electrónicos se enviarán en menos de un minuto.
 
 <!---POST /preference_center/v1 and PUT /preference_center/v1/{preferenceCenterExternalID}-->
-{% elsif include.endpoint == "post or put centro de preferencias" %}
+{% elsif include.endpoint == "post or put preference center" %}
 Este endpoint tiene un límite de velocidad de 10 solicitudes por minuto, por espacio de trabajo, como se documenta en [Límites de velocidad de la API]({{site.baseurl}}/api/api_limits).
 
 <!---GET /preference_center/v1-->
-{% elsif include.endpoint == "get centro de preferencias" %}
+{% elsif include.endpoint == "get preference center" %}
 Este endpoint tiene un límite de velocidad de 1000 solicitudes por minuto, por espacio de trabajo, como se documenta en [Límites de velocidad de la API]({{site.baseurl}}/api/api_limits).
 
 <!---/sends/id/create-->

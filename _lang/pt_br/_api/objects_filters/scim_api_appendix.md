@@ -53,8 +53,8 @@ Um objeto de permissão do espaço de trabalho válido é um objeto JSON com os 
 | --- | --- | --- | --- |
 | `appGroupName` | Opcional | String | Nome do espaço de trabalho. Usado para especificar a qual espaço de trabalho as permissões contidas neste objeto se referem. |
 | `appGroupId` | Obrigatória se `appGroupName` estiver ausente | String | ID do espaço de trabalho, servindo como um método alternativo de especificar o espaço de trabalho. |
-| `appGroupPermissionSets` | Opcional | Array | Array com um único [objeto de conjunto de permissões do espaço de trabalho]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-permissions-set-object). |
-| `appGroupPermissions` | Obrigatória | Array | Array de strings de permissão no nível do espaço de trabalho da tabela [strings de permissão do espaço de trabalho]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-strings), em que a presença da string corresponde ao usuário ter a permissão correspondente para o espaço de trabalho especificado. |
+| `appGroupPermissionSets` | Opcional | Array | Array com um único [objeto de conjunto de permissões do espaço de trabalho]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-permissions-set-object). Forneça `appGroupPermissions` ou `appGroupPermissionSets` por entrada de espaço de trabalho, não ambos. |
+| `appGroupPermissions` | Condicionalmente obrigatória | Array | Array de strings de permissão no nível do espaço de trabalho da tabela [strings de permissão do espaço de trabalho]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-strings). Obrigatória quando `appGroupPermissionSets` não é fornecido. |
 | `team` | Opcional | Array | Array de [objetos de permissão de equipe]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_team-permissions-object). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Objeto de permissões do espaço de trabalho" }
 
@@ -65,7 +65,7 @@ Um objeto de conjunto de permissões do espaço de trabalho válido é um objeto
 | Chave | Obrigatória | Tipo de dados | Descrição |
 | --- | --- | --- | --- |
 | `appGroupPermissionSetName` | Opcional | String | Nome do conjunto de permissões do espaço de trabalho que está sendo atribuído ao usuário para este espaço de trabalho. |
-| `appGroupPermissionSetID` | Obrigatória se `appGroupPermissionSetName` estiver ausente | String | ID do espaço de trabalho, servindo como um método alternativo de especificar o conjunto de permissões do espaço de trabalho atribuído ao usuário para este espaço de trabalho. |
+| `appGroupPermissionSetId` | Obrigatória se `appGroupPermissionSetName` estiver ausente | String | ID do conjunto de permissões do espaço de trabalho, servindo como um método alternativo de especificar o conjunto de permissões do espaço de trabalho atribuído ao usuário para este espaço de trabalho. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Objeto de conjunto de permissões do espaço de trabalho #workspace-permissions-set-object" }
 
 ### Objeto de permissões de equipe {#team-permissions-object}
@@ -158,6 +158,13 @@ Um objeto de função válido é um objeto JSON com os seguintes pares de chave-
 | View Decisioning Studio Guardrails | `view_decisioning_studio_guardrails` |
 | Launch Campaigns | `launch_campaigns` |
 | Launch Canvases | `launch_canvases` |
+| Approve Campaigns | `approve_deny_campaigns` |
+| Approve Canvases | `approve_deny_canvases` |
+| Send Campaigns, Canvases | `send_campaigns_canvases` |
+| Publish Cards | `publish_cards` |
+| Export User Data | `export_user_data` |
+| View PII | `view_pii` |
+| View User Profiles (PII Redacted) | `view_user_profile` |
 | Edit Dashboard Users | `edit_dashboard_users` |
 | Edit Media Library Assets | `edit_media_library_assets` |
 | Delete Media Library Assets | `delete_media_library_assets` |
@@ -287,7 +294,7 @@ Um objeto de função válido é um objeto JSON com os seguintes pares de chave-
 
 
 {% alert important %}
-A Braze agora oferece [permissões granulares]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/?sdktab=granular%20permissions), uma forma mais flexível de gerenciar o acesso dos usuários. Para saber mais, consulte [Migração para permissões granulares]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) e a guia [API SCIM granular]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api/) para visualizar os objetos e o apêndice da API SCIM granular. A Braze deixará de aceitar valores da API SCIM legada em dezembro de 2026.
+A Braze agora oferece [permissões granulares]({{site.baseurl}}/user_guide/administer/global/user_management/permissions?sdktab=granular%20permissions), uma forma mais flexível de gerenciar o acesso dos usuários. Para saber mais, consulte [Migração para permissões granulares]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) e a guia [API SCIM granular]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api/) para visualizar os objetos e o apêndice da API SCIM granular. A Braze deixará de aceitar valores da API SCIM legada em dezembro de 2026.
 {% endalert %}
 
 ## Objeto de permissões
@@ -324,8 +331,8 @@ Um objeto de permissão do espaço de trabalho válido é um objeto JSON com os 
 | --- | --- | --- | --- |
 | `appGroupName` | Opcional | String | Nome do espaço de trabalho. Usado para especificar a qual espaço de trabalho as permissões contidas neste objeto se referem. |
 | `appGroupId` | Obrigatória se `appGroupName` estiver ausente | String | ID do espaço de trabalho, servindo como um método alternativo de especificar o espaço de trabalho. |
-| `appGroupPermissionSets` | Opcional | Array | Array com um único [objeto de conjunto de permissões do espaço de trabalho]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_workspace-permissions-set-object). |
-| `appGroupPermissions` | Obrigatória | Array | Array de strings de permissão no nível do espaço de trabalho da tabela [strings de permissão do espaço de trabalho]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_workspace-strings), em que a presença da string corresponde ao usuário ter a permissão correspondente para o espaço de trabalho especificado. |
+| `appGroupPermissionSets` | Opcional | Array | Array com um único [objeto de conjunto de permissões do espaço de trabalho]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_workspace-permissions-set-object). Forneça `appGroupPermissions` ou `appGroupPermissionSets` por entrada de espaço de trabalho, não ambos. |
+| `appGroupPermissions` | Condicionalmente obrigatória | Array | Array de strings de permissão no nível do espaço de trabalho da tabela [strings de permissão do espaço de trabalho]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_workspace-strings). Obrigatória quando `appGroupPermissionSets` não é fornecido. |
 | `team` | Opcional | Array | Array de [objetos de permissão de equipe]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_team-permissions-object). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Objeto de permissões do espaço de trabalho #workspace-permission-object" }
 
@@ -336,7 +343,7 @@ Um objeto de conjunto de permissões do espaço de trabalho válido é um objeto
 | Chave | Obrigatória | Tipo de dados | Descrição |
 | --- | --- | --- | --- |
 | `appGroupPermissionSetName` | Opcional | String | Nome do conjunto de permissões do espaço de trabalho que está sendo atribuído ao usuário para este espaço de trabalho. |
-| `appGroupPermissionSetID` | Obrigatória se `appGroupPermissionSetName` estiver ausente | String | ID do espaço de trabalho, servindo como um método alternativo de especificar o conjunto de permissões do espaço de trabalho atribuído ao usuário para este espaço de trabalho. |
+| `appGroupPermissionSetId` | Obrigatória se `appGroupPermissionSetName` estiver ausente | String | ID do conjunto de permissões do espaço de trabalho, servindo como um método alternativo de especificar o conjunto de permissões do espaço de trabalho atribuído ao usuário para este espaço de trabalho. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Objeto de conjunto de permissões do espaço de trabalho #workspace-permissions-set-object" }
 
 ### Objeto de permissões de equipe
@@ -377,13 +384,14 @@ Um objeto de função válido é um objeto JSON com os seguintes pares de chave-
 | --- | --- |
 | Admin | `admin` |
 | Access Campaigns, Canvases, Cards, Segments, Media Library | `basic_access` |
-| Approve and Deny Canvases | `approve_deny_campaigns` |
+| Approve Campaigns | `approve_deny_campaigns` |
+| Approve Canvases | `approve_deny_canvases` |
 | Send Campaigns, Canvases | `send_campaigns_canvases` |
 | Publish Cards | `publish_cards` |
 | Edit Segments | `edit_segments` |
 | Export User Data | `export_user_data` |
 | View PII | `view_pii` |
-| View User Profiles PII Compliant | `view_user_profile` |
+| View User Profiles (PII Redacted) | `view_user_profile` |
 | Manage Dashboard Users | `manage_dashboard_users` |
 | Manage Media Library Assets | `manage_media_library` |
 | View Usage Data | `view_usage_data` |
@@ -408,12 +416,13 @@ Um objeto de função válido é um objeto JSON com os seguintes pares de chave-
 | --- | --- |
 | Admin | `admin` |
 | Access Campaigns, Canvases, Cards, Segments, Media Library | `basic_access` |
-| Approve and Deny Canvases | `approve_deny_campaigns` |
+| Approve Campaigns | `approve_deny_campaigns` |
+| Approve Canvases | `approve_deny_canvases` |
 | Send Campaigns, Canvases | `send_campaigns_canvases` |
 | Publish Cards | `publish_cards` |
 | Edit Segments | `edit_segments` |
 | Export User Data | `export_user_data` |
-| View User Profile | `view_user_profile` |
+| View User Profiles (PII Redacted) | `view_user_profile` |
 | Manage Dashboard Users | `manage_dashboard_users` |
 | Manage Media Library Assets | `manage_media_library` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Strings de permissão de equipe #team" }
