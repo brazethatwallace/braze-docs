@@ -57,8 +57,17 @@ Your URL must match the [API SDK endpoint]({{site.baseurl}}/user_guide/administe
 
 |URL|Information|
 |---|-----------|
-|`img-src: appboy-images.com braze-images.com cdn.braze.eu`|Required when using Braze CDN-hosted images. Hostnames may vary based on dashboard cluster.<br><br>**Important:** If you're using custom fonts, you also need to include `font-src`.|
+|`img-src: appboy-images.com braze-images.com cdn.braze.com cdn.braze.eu`|Required when using Braze CDN-hosted images. Include all four CDN hostnames to ensure images load correctly across all dashboard clusters.<br><br>**Important:** If you're using custom fonts, you also need to include `font-src`.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="img-src #img-src" }
+
+#### CDN hostnames
+
+Add all of the following hostnames to your `img-src` directive:
+
+- `appboy-images.com`
+- `braze-images.com`
+- `cdn.braze.com`
+- `cdn.braze.eu`
 
 ## Font Awesome {#font-awesome}
 
