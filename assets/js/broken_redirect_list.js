@@ -10636,6 +10636,20 @@ validurls['/docs/api/messaging_api/endpoints/banners'] = '/docs/api/device_messa
 validurls['/docs/api/messaging_api/endpoints/banners/post_sync_banners'] = '/docs/api/device_messaging_api/endpoints/banners/post_sync_banners';
 validurls['/docs/api/messaging_api/endpoints/banners/post_track_banner_events'] = '/docs/api/device_messaging_api/endpoints/banners/post_track_banner_events';
 
+// GSC 2026-09-09: locale liquid-leak redirects
+validurls['/docs/de/user_guide/get_started/{{site.baseurl}}/user_guide/get_started/workspaces'] = '/docs/de/user_guide/get_started/workspaces';
+validurls['/docs/es/user_guide/data/{{site.baseurl}}/user_guide/audience/manage_audience/user_profiles'] = '/docs/es/user_guide/audience/manage_audience/user_profiles';
+validurls['/docs/es/user_guide/get_started/{{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies'] = '/docs/es/user_guide/channels/email/best_practices/sunset_policies';
+validurls['/docs/fr/user_guide/data/{{site.baseurl}}/user_guide/audience/manage_audience/user_profiles'] = '/docs/fr/user_guide/audience/manage_audience/user_profiles';
+validurls['/docs/fr/user_guide/data/{{site.baseurl}}/user_guide/audience/segments'] = '/docs/fr/user_guide/audience/segments';
+validurls['/docs/fr/user_guide/data/{{site.baseurl}}/user_guide/data/activation'] = '/docs/fr/user_guide/data/activation';
+validurls['/docs/fr/user_guide/messaging/design_and_edit/personalize/liquid/{{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations'] = '/docs/fr/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations';
+validurls['/docs/fr/user_guide/messaging/design_and_edit/personalize/liquid/{{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id'] = '/docs/fr/user_guide/messaging/messaging_fundamentals/dispatch_id';
+validurls['/docs/ja/user_guide/data/{{site.baseurl}}/user_guide/data/activation'] = '/docs/ja/user_guide/data/activation';
+validurls['/docs/ko/user_guide/messaging/design_and_edit/personalize/liquid/{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content'] = '/docs/ko/user_guide/messaging/design_and_edit/personalize/connected_content';
+validurls['/docs/pt-br/user_guide/data/{{site.baseurl}}/user_guide/audience/manage_audience/user_profiles'] = '/docs/pt-br/user_guide/audience/manage_audience/user_profiles';
+validurls['/docs/pt-br/user_guide/messaging/design_and_edit/personalize/liquid/{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters'] = '/docs/pt-br/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters';
+validurls['/docs/pt-br/user_guide/messaging/design_and_edit/personalize/liquid/{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values'] = '/docs/pt-br/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values';
 // GSC 2026-09-09: legacy IA locale mirrors
 validurls['/docs/de/user_guide/analytics/query_builder/query_templates'] = '/docs/de/user_guide/analytics/reports/query_builder/query_templates';
 validurls['/docs/de/user_guide/data/data_transformation/creating_a_transformation'] = '/docs/de/user_guide/data/unification/data_transformation/creating_a_transformation';

@@ -9275,6 +9275,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/de/user_guide/get_started/{{site.baseurl}}/user_guide/get_started/workspaces",
+    "destination": "/docs/de/user_guide/get_started/workspaces",
+    "permanent": true
+  },
+  {
     "source": "/docs/de/user_guide/get_started/{{site.baseurl}}/user_guide/messaging/ab_testing",
     "destination": "/docs/de/user_guide/messaging/ab_testing",
     "permanent": true
@@ -23455,6 +23460,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/es/user_guide/data/{{site.baseurl}}/user_guide/audience/manage_audience/user_profiles",
+    "destination": "/docs/es/user_guide/audience/manage_audience/user_profiles",
+    "permanent": true
+  },
+  {
     "source": "/docs/es/user_guide/data/{{site.baseurl}}/user_guide/audience/segments",
     "destination": "/docs/es/user_guide/audience/segments",
     "permanent": true
@@ -24462,6 +24472,11 @@
   {
     "source": "/docs/es/user_guide/get_started/{{site.baseurl}}/user_guide/channels",
     "destination": "/docs/es/user_guide/channels",
+    "permanent": true
+  },
+  {
+    "source": "/docs/es/user_guide/get_started/{{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies",
+    "destination": "/docs/es/user_guide/channels/email/best_practices/sunset_policies",
     "permanent": true
   },
   {
@@ -26305,6 +26320,21 @@
     "permanent": true
   },
   {
+    "source": "/docs/fr/user_guide/data/{{site.baseurl}}/user_guide/audience/manage_audience/user_profiles",
+    "destination": "/docs/fr/user_guide/audience/manage_audience/user_profiles",
+    "permanent": true
+  },
+  {
+    "source": "/docs/fr/user_guide/data/{{site.baseurl}}/user_guide/audience/segments",
+    "destination": "/docs/fr/user_guide/audience/segments",
+    "permanent": true
+  },
+  {
+    "source": "/docs/fr/user_guide/data/{{site.baseurl}}/user_guide/data/activation",
+    "destination": "/docs/fr/user_guide/data/activation",
+    "permanent": true
+  },
+  {
     "source": "/docs/fr/user_guide/data_and_analytics/analytics/home_dashboard",
     "destination": "/docs/fr/user_guide/analytics/dashboards/home",
     "permanent": true
@@ -27675,8 +27705,18 @@
     "permanent": true
   },
   {
+    "source": "/docs/fr/user_guide/messaging/design_and_edit/personalize/liquid/{{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations",
+    "destination": "/docs/fr/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations",
+    "permanent": true
+  },
+  {
     "source": "/docs/fr/user_guide/messaging/design_and_edit/personalize/liquid/{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid",
     "destination": "/docs/fr/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid",
+    "permanent": true
+  },
+  {
+    "source": "/docs/fr/user_guide/messaging/design_and_edit/personalize/liquid/{{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id",
+    "destination": "/docs/fr/user_guide/messaging/messaging_fundamentals/dispatch_id",
     "permanent": true
   },
   {
@@ -30307,6 +30347,11 @@
   {
     "source": "/docs/ja/user_guide/data/user_data_collection/user_import",
     "destination": "/docs/ja/user_guide/audience/manage_audience/import_users",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ja/user_guide/data/{{site.baseurl}}/user_guide/data/activation",
+    "destination": "/docs/ja/user_guide/data/activation",
     "permanent": true
   },
   {
@@ -34410,6 +34455,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/ko/user_guide/messaging/design_and_edit/personalize/liquid/{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content",
+    "destination": "/docs/ko/user_guide/messaging/design_and_edit/personalize/connected_content",
+    "permanent": true
+  },
+  {
     "source": "/docs/ko/user_guide/messaging/design_and_edit/personalize/liquid/{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters",
     "destination": "/docs/ko/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters",
     "permanent": true
@@ -37960,6 +38010,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/pt-br/user_guide/data/{{site.baseurl}}/user_guide/audience/manage_audience/user_profiles",
+    "destination": "/docs/pt-br/user_guide/audience/manage_audience/user_profiles",
+    "permanent": true
+  },
+  {
     "source": "/docs/pt-br/user_guide/data_and_analytics/analytics/home_dashboard",
     "destination": "/docs/pt-br/user_guide/analytics/dashboards/home",
     "permanent": true
@@ -39377,6 +39432,16 @@
   {
     "source": "/docs/pt-br/user_guide/messaging/design_and_edit/personalize/liquid/{{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations",
     "destination": "/docs/pt-br/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations",
+    "permanent": true
+  },
+  {
+    "source": "/docs/pt-br/user_guide/messaging/design_and_edit/personalize/liquid/{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters",
+    "destination": "/docs/pt-br/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters",
+    "permanent": true
+  },
+  {
+    "source": "/docs/pt-br/user_guide/messaging/design_and_edit/personalize/liquid/{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values",
+    "destination": "/docs/pt-br/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values",
     "permanent": true
   },
   {
