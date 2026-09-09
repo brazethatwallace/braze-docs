@@ -220,7 +220,7 @@ Wenn Links Liquid für dynamische URLs verwenden, stimmen die angeklickten URLs 
 Klicks auf Abmeldelinks in der Heatmap können von der Metrik *Unsubscribers* in den Kampagnen-Analytics abweichen:
 
 - Wenn Sie eine benutzerdefinierte Abmelde-URL im Nachrichtentext verwenden, behandelt Braze diesen Link für Heatmap-Zwecke als einen standardmäßig getrackten Link – er erscheint in der **Link Table by Total Clicks** wie jeder andere Link. Wenn Braze eine Abmeldung über den von Braze bereitgestellten Abmeldelink verarbeitet, wird die Metrik *Unsubscribers* erhöht. Benutzerdefinierte Abmelde-URLs erhöhen diese Metrik nicht, es sei denn, Sie aktualisieren Nutzer:innen über die API.
-- Wenn sich eine Nutzer:in über den [List-Unsubscribe-Header]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#list-unsubscribe) abmeldet (eine Ein-Klick-Abmeldeoption, die von einigen Posteingangs-Anbietern angezeigt wird), wird *Unsubscribers* in den Kampagnen-Analytics erhöht, aber dies erscheint nicht als Klick in der Heatmap. Wenn die Nachricht **Unsubscribe from specific subscription group** verwendet, meldet Braze die Nutzer:in nur von der konfigurierten Abo-Gruppe ab, nicht global. Die Verfügbarkeit dieser Option variiert je nach Empfänger:in, da sich die Posteingangs-Anbieter darin unterscheiden, ob sie den List-Unsubscribe-Header rendern oder unterstützen.
+- Wenn sich Nutzer:innen über den [List-Unsubscribe-Header]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#list-unsubscribe) abmelden (eine Ein-Klick-Abmeldeoption, die von einigen Posteingangs-Anbietern angezeigt wird), wird *Unsubscribers* in den Kampagnen-Analytics erhöht, aber dies erscheint nicht als Klick in der Heatmap. Wenn die Nachricht **Unsubscribe from specific subscription group** verwendet, meldet Braze die Nutzer:in nur von der konfigurierten Abo-Gruppe ab, nicht global. Die Verfügbarkeit dieser Option variiert je nach Empfänger:in, da sich die Posteingangs-Anbieter darin unterscheiden, ob sie den List-Unsubscribe-Header rendern oder unterstützen.
 
 Für eine vollständige Übersicht über das Abmeldeverhalten überprüfen Sie sowohl die Heatmap-Link-Aufschlüsselung als auch die Metrik *Unsubscribers*. Weitere Details finden Sie unter [Warum sich *Unsubscribes* und Abmeldelink-Klicks unterscheiden können]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#why-unsubscribes-and-unsubscribe-link-clicks-can-differ).
 
@@ -265,7 +265,7 @@ Im Folgenden finden Sie eine Aufschlüsselung einiger wichtiger Metriken, die Si
             <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#messages-sent">Messages Sent</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Messages Sent' %} <br><br>
                 Die Berechnung hängt davon ab, was Sie für die
-                <a href="/docs/user_guide/message_building_by_channel/content_cards/create/card_creation/#differences-between-creating-cards-at-launch-or-Entry-versus-at-first-impression">Kartenerstellung</a> ausgewählt haben:<br><br>
+                <a href="/docs/user_guide/message_building_by_channel/content_cards/create/card_creation/#differences-between-creating-cards-at-launch-or-entry-versus-at-first-impression">Kartenerstellung</a> ausgewählt haben:<br><br>
                 <ul>
                     <li><b>Beim Start oder beim Einstieg in den Schritt:</b> Die Anzahl der erstellten und verfügbaren Karten. Dabei wird nicht berücksichtigt, ob die Nutzer:innen die Karte angesehen haben.</li>
                     <li><b>Bei der ersten Impression:</b> Die Anzahl der Karten, die den Nutzer:innen angezeigt wurden.</li>
@@ -429,7 +429,7 @@ Im Folgenden finden Sie einige wichtige E-Mail-spezifische Metriken, die in ande
             </td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#Click-to-open-rate">Click-to-Open Rate</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#click-to-open-rate">Click-to-Open Rate</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Click-to-Open Rate' %}</td>
         </tr>
         <tr>
@@ -479,16 +479,16 @@ Das Dashboard hebt _Hard Bounces_ hervor. Einige _Bounces_ können Soft Bounces 
 
 _Sendungen − (Zustellungen + Hard Bounces) ≈ Soft Bounces_
 
-_Zustellungen_ können während des Wiederholungsfensters Ihres E-Mail-Anbieters (E-Mail-Anbieter) steigen, wenn Wiederholungsversuche erfolgreich sind, während _Sendungen_ und Hard Bounces bei einem einmaligen Versand nach Abschluss des Versands feststehen. SendGrid und SparkPost wiederholen bis zu 72 Stunden; Amazon SES wiederholt bis zu 14 Stunden.
+_Zustellungen_ können während des Wiederholungsfensters Ihres E-Mail-Anbieters (ESP) steigen, wenn Wiederholungsversuche erfolgreich sind, während _Sendungen_ und Hard Bounces bei einem einmaligen Versand nach Abschluss des Versands feststehen. SendGrid und SparkPost wiederholen bis zu 72 Stunden; Amazon SES wiederholt bis zu 14 Stunden.
 
 ###### Häufige Szenarien bei der Fehlerbehebung der Zustellung {#common-delivery-troubleshooting-scenarios}
 
 Beachten Sie bei der Überprüfung Ihrer E-Mail-Analytics die folgenden Muster:
 
-- **Lücke zwischen _Sendungen_ und (_Zustellungen_ + _Hard Bounces_):** Während des E-Mail-Anbieter-Wiederholungsfensters nach einem einmaligen Versand spiegelt diese Lücke häufig Soft Bounces oder Deferrals wider, die noch wiederholt werden. Nach Abschluss der Wiederholungsversuche bedeutet eine verbleibende Lücke in der Regel, dass Nachrichten einen Soft Bounce hatten und nie zugestellt wurden – diese Sendungen werden nicht in den Kampagnen-_Zustellungen_ oder _Bounces_ gezählt. Verwenden Sie die Formel unter [Zustellungen und Bounces](#deliveries-and-bounces), um laufende Soft Bounces abzuschätzen.
+- **Lücke zwischen _Sendungen_ und (_Zustellungen_ + _Hard Bounces_):** Während des ESP-Wiederholungsfensters nach einem einmaligen Versand spiegelt diese Lücke häufig Soft Bounces oder Deferrals wider, die noch wiederholt werden. Nach Abschluss der Wiederholungsversuche bedeutet eine verbleibende Lücke in der Regel, dass Nachrichten einen Soft Bounce hatten und nie zugestellt wurden – diese Sendungen werden nicht in den Kampagnen-_Zustellungen_ oder _Bounces_ gezählt. Verwenden Sie die Formel unter [Zustellungen und Bounces](#deliveries-and-bounces), um laufende Soft Bounces abzuschätzen.
 - **Niedrige _Zustellungen_ nach Abschluss der Wiederholungsversuche:** Wenn die Zustellraten nach Abschluss der Wiederholungsversuche niedrig bleiben, vergleichen Sie das Sendevolumen mit Ihren üblichen Mustern. Postfach-Anbieter können E-Mails verzögern, drosseln oder mit einem Soft Bounce versehen, wenn das Volumen im Verhältnis zu Ihrer Absender-Reputation ansteigt. Möglicherweise sehen Sie Nachrichten wie `Email was deferred due to the following reason(s): [IPs were throttled by recipient server]` im [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log). Verwenden Sie [Rate-Limiting für die Zustellgeschwindigkeit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting), um große Sendungen zu dosieren, und lesen Sie [Gedrosselte IPs]({{site.baseurl}}/user_guide/channels/email/reporting#throttled-ips) für weitere Schritte zur Fehlerbehebung.
 - **Soft Bounces und Deferrals werden nicht in den Kampagnen-Analytics angezeigt:** Kampagnen-Analytics heben _Hard Bounces_ hervor, enthalten aber _Soft Bounces_ oder _Deferrals_ nicht als separate Spalten. Überwachen Sie diese Ereignisse im Nachrichten-Aktivitätsprotokoll, mit dem [Segmentfilter „Soft Bounced“]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced) oder über Currents-Deferral-Events. Informationen zur Funktionsweise von Wiederholungsversuchen finden Sie unter [Deferrals](#deferrals).
-- **Zustellprozentsätze, die sich möglicherweise nicht zu 100 % addieren:** _Zustellungen %_, _Bounce %_ und _Spam Rate %_ ergeben möglicherweise nicht 100 % der _Sendungen_. Nachrichten, die einen Soft Bounce haben und nach dem E-Mail-Anbieter-Wiederholungsfenster nie zugestellt werden, werden nicht in den Kampagnen-_Zustellungen_ oder _Bounces_ gezählt, sodass ein Teil der _Sendungen_ in diesen Raten nicht berücksichtigt wird. Warten Sie, bis die Wiederholungsversuche abgeschlossen sind, bevor Sie die endgültige Zustellleistung beurteilen, oder verwenden Sie die Formel unter [Zustellungen und Bounces](#deliveries-and-bounces), um abzuschätzen, wie viele Sendungen sich noch im Wiederholungsversuch befinden.
+- **Zustellprozentsätze, die sich möglicherweise nicht zu 100 % addieren:** _Zustellungen %_, _Bounce %_ und _Spam Rate %_ ergeben möglicherweise nicht 100 % der _Sendungen_. Nachrichten, die einen Soft Bounce haben und nach dem ESP-Wiederholungsfenster nie zugestellt werden, werden nicht in den Kampagnen-_Zustellungen_ oder _Bounces_ gezählt, sodass ein Teil der _Sendungen_ in diesen Raten nicht berücksichtigt wird. Warten Sie, bis die Wiederholungsversuche abgeschlossen sind, bevor Sie die endgültige Zustellleistung beurteilen, oder verwenden Sie die Formel unter [Zustellungen und Bounces](#deliveries-and-bounces), um abzuschätzen, wie viele Sendungen sich noch im Wiederholungsversuch befinden.
 
 ##### Klicks ohne Öffnungs-Event {#clicks-without-an-open-event}
 
@@ -522,7 +522,7 @@ Einige E-Mail-Sicherheitsprodukte folgen Links, um nach Bedrohungen zu scannen. 
 
 ##### Deferrals {#deferrals}
 
-Ein Deferral bedeutet, dass eine E-Mail nicht sofort zugestellt werden konnte, Braze die E-Mail jedoch über Ihren E-Mail-Anbieter nach diesem vorübergehenden Zustellungsfehler erneut versucht, um die Chancen auf eine erfolgreiche Zustellung zu maximieren, bevor die Versuche für diese spezielle Kampagne eingestellt werden. SendGrid und SparkPost wiederholen bis zu 72 Stunden; Amazon SES wiederholt bis zu 14 Stunden. Typische Gründe für Deferrals sind reputationsbasiertes Rate-Limiting des Posteingangs-Anbieters für das E-Mail-Volumen, vorübergehende Verbindungsprobleme oder DNS-Fehler.
+Ein Deferral bedeutet, dass eine E-Mail nicht sofort zugestellt werden konnte, Braze die E-Mail jedoch über Ihren ESP nach diesem vorübergehenden Zustellungsfehler erneut versucht, um die Chancen auf eine erfolgreiche Zustellung zu maximieren, bevor die Versuche für diese spezielle Kampagne eingestellt werden. SendGrid und SparkPost wiederholen bis zu 72 Stunden; Amazon SES wiederholt bis zu 14 Stunden. Typische Gründe für Deferrals sind reputationsbasiertes Rate-Limiting des Posteingangs-Anbieters für das E-Mail-Volumen, vorübergehende Verbindungsprobleme oder DNS-Fehler.
 
 _Deferrals_ unterscheiden sich von _Soft Bounces_. Wenn während dieses Wiederholungszeitraums keine E-Mail erfolgreich zugestellt wurde, sendet Braze ein Soft-Bounce-Event pro versuchtem Kampagnenversand. Vor dem 25. Februar 2025 wurden diese Wiederholungsversuche als mehrere Soft Bounces für einen Kampagnenversand gezählt.
 
@@ -530,13 +530,13 @@ Beachten Sie, dass _Deferrals_ derzeit nur über Currents oder Braze-Snowflake-F
 
 ##### Geschätzte reale Öffnungsrate {#estimated-real-open-rate}
 
-Diese Statistik verwendet ein proprietäres, von Braze entwickeltes Analysemodell, um eine Schätzung der individuellen Öffnungsrate der Kampagne zu rekonstruieren – so, als ob es keine automatischen Öffnungen gäbe. Obwohl wir bei einigen Öffnungs-Events von E-Mail-Absendern die Kennzeichnung *Machine Opens* erhalten, können diese Kennzeichnungen häufig tatsächliche Öffnungen fälschlicherweise als automatische Öffnungen markieren. Mit anderen Worten: Die *Other Opens* sind wahrscheinlich eine Unterschätzung der tatsächlichen Öffnungen (durch echte Nutzer:innen). Stattdessen verwendet Braze die Klickdaten der einzelnen Kampagnen, um auf die Rate zu schließen, mit der Menschen die Nachricht tatsächlich geöffnet haben. Dies kompensiert verschiedene Mechanismen zum automatischen Öffnen, einschließlich Apples E-Mail-Datenschutz.
+Diese Statistik verwendet ein proprietäres, von Braze entwickeltes Analysemodell, um eine Schätzung der individuellen Öffnungsrate der Kampagne zu rekonstruieren – so, als ob es keine automatischen Öffnungen gäbe. Obwohl wir bei einigen Öffnungs-Events von E-Mail-Absendern die Kennzeichnung *Machine Opens* erhalten, können diese Kennzeichnungen häufig tatsächliche Öffnungen fälschlicherweise als automatische Öffnungen markieren. Mit anderen Worten: Die *Other Opens* sind wahrscheinlich eine Unterschätzung der tatsächlichen Öffnungen (durch echte Nutzer:innen). Stattdessen verwendet Braze die Klickdaten der einzelnen Kampagnen, um auf die Rate zu schließen, mit der Menschen die Nachricht tatsächlich geöffnet haben. Dies kompensiert verschiedene Mechanismen zum automatischen Öffnen, einschließlich Apples MPP.
 
-Die _Estimated Real Open Rate_ wird 24 Stunden nach Beginn des E-Mail-Versands berechnet und danach alle 72 Stunden neu berechnet.
+Braze bewertet die _Estimated Real Open Rate_ in regelmäßigen Abständen, nachdem eine Kampagne genügend E-Mails versendet hat. Nach einer Bewertung kann Braze die Metrik einmal nach mindestens 72 Stunden erneut bewerten, selbst wenn sich das Sendevolumen der Kampagne nicht geändert hat. Weitere Neubewertungen erfordern ein erhöhtes Sendevolumen.
 
-Da diese Metrik kontinuierlich neu berechnet wird, kann sich der Wert der _Estimated Real Open Rate_ im Laufe der Zeit ändern, wenn neue Engagement-Signale (wie Öffnungen und Klicks) empfangen und in das Modell integriert werden. In der Praxis kann die _Estimated Real Open Rate_ täglich aktualisiert werden, solange eine Kampagne aktiv ist.
+Braze bewertet initial bis zu 10.000 zugestellte E-Mails pro Variante, aber das Erreichen dieses Volumens garantiert keine Schätzung. Jede Variante benötigt außerdem genügend qualifizierende Klicks von Empfänger:innen mit *Machine Opens* und Empfänger:innen ohne *Machine Opens*.
 
-Normalerweise sind etwa 10.000 zugestellte E-Mails erforderlich, damit die Statistik erfolgreich berechnet werden kann, wobei diese Zahl je nach Klickrate variieren kann. Wenn die Statistik nicht berechnet werden kann, wird in der Spalte „--“ angezeigt.
+Wenn die qualifizierende Klickaktivität nicht ausreicht, zeigt die Spalte „--“ an. Wenn Braze die Variante erneut bewertet, können zusätzliche qualifizierende Klicks eine Schätzung ergeben.
 
 ###### Einschränkungen {#considerations}
 
@@ -747,7 +747,7 @@ Die Anzahl der _Sendungen_ kann die Anzahl der _eindeutigen Empfänger:innen_ au
 {% tabs %}
 {% tab Apple Push Notification service %}
 
-Bounces treten bei Apple Push Notification Services (APNs) auf, wenn eine Push-Benachrichtigung versucht, an ein Gerät zugestellt zu werden, auf dem die gewünschte App nicht installiert ist. APNs hat außerdem das Recht, Token für Geräte beliebig zu ändern. Wenn Sie versuchen, an das Gerät einer Nutzer:in zu senden, deren Push-Token sich zwischen der Registrierung (z. B. zu Beginn jeder Sitzung, wenn wir eine Nutzer:in für ein Push-Token manuell registrieren) und dem Zeitpunkt des Sendens geändert hat, führt dies zu einem Bounce.
+Bounces treten bei Apple Push Notification Services (APNs) auf, wenn eine Push-Benachrichtigung versucht, an ein Gerät zugestellt zu werden, auf dem die gewünschte App nicht installiert ist. APNs hat außerdem das Recht, Token für Geräte beliebig zu ändern. Wenn Sie versuchen, an das Gerät einer Nutzer:in zu senden, deren Push-Token sich zwischen der Registrierung (z. B. zu Beginn jeder Sitzung, wenn wir eine Nutzer:in für ein Push-Token registrieren) und dem Zeitpunkt des Sendens geändert hat, führt dies zu einem Bounce.
 
 Wenn eine Nutzer:in Push in den Geräteeinstellungen deaktiviert, erkennt das SDK beim nächsten Öffnen der App, dass Push deaktiviert wurde, und benachrichtigt Braze. An diesem Punkt aktualisieren wir den Push-Aktivierungsstatus auf „deaktiviert“. Wenn eine deaktivierte Nutzer:in eine Push-Kampagne erhält, bevor sie eine neue Sitzung hat, wird die Kampagne erfolgreich gesendet und erscheint als zugestellt. Der Push wird für diese Nutzer:in nicht bouncen. Bei einer nachfolgenden Sitzung weiß Braze bereits, ob ein Vordergrund-Token vorhanden ist, sodass keine Benachrichtigung gesendet wird.
 
@@ -959,7 +959,7 @@ Sie können auch den [Berichts-Builder]({{site.baseurl}}/user_guide/analytics/re
 
 ### Meta-Analytics
 
-Zusätzlich zu den Braze-Analytics können Sie im WhatsApp Business Manager:in auf Analytics auf Template-Ebene zugreifen. Weitere Informationen finden Sie in der [Dokumentation von Meta](https://www.facebook.com/business/help/218116047387456).
+Zusätzlich zu den Braze-Analytics können Sie im WhatsApp Business Manager auf Analytics auf Template-Ebene zugreifen. Weitere Informationen finden Sie in der [Dokumentation von Meta](https://www.facebook.com/business/help/218116047387456).
 
 {% endif %}
 

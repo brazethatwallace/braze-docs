@@ -52,42 +52,44 @@ El módulo **Active cart** muestra el carrito más reciente en el perfil de usua
 
 ### Segmentación {#segmentation}
 
-Braze ofrece tres formas de segmentar usuarios con base en datos de eCommerce:
+Braze ofrece tres formas de segmentar usuarios en función de los datos de eCommerce:
 
-- **Filtros de eCommerce:** Usa la categoría **eCommerce** en el segmentador, que contiene filtros impulsados por eventos recomendados de eCommerce (como **Last Order Placed**, **Total Revenue** y **Average Order Value**). Para obtener una lista completa de los filtros disponibles, consulta [Filtros de Segment]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters).
-- **Filtros de eventos personalizados:** Debido a que los eventos de eCommerce se comportan como eventos personalizados, todos los filtros de eventos personalizados existentes funcionan de inmediato. Por ejemplo, puedes filtrar por "Ha realizado el evento personalizado `ecommerce.order_placed` más de X veces" o "Primera vez que realizó el evento personalizado `ecommerce.order_placed`".
-- **Extensiones de segmento:** Para segmentar por propiedades de eventos anidados, incluyendo el array anidado de productos o las propiedades de objetos de metadatos, usa las [extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension) con filtrado de propiedades de eventos anidados. Esto te permite crear audiencias como "usuarios que compraron el producto SKU-123 en los últimos 90 días" o combinar criterios entre diferentes propiedades del mismo pedido.
+- **Filtros de eCommerce:** Usa la categoría **eCommerce** en el segmentador, que contiene filtros basados en los eventos recomendados de eCommerce (como **Last Order Placed**, **Total Revenue** y **Average Order Value**). Para ver una lista completa de los filtros disponibles, consulta [Filtros de segmento]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters).
+- **Filtros de eventos personalizados:** Como los eventos de eCommerce se comportan como eventos personalizados, todos los filtros de eventos personalizados existentes funcionan de inmediato. Por ejemplo, puedes filtrar por "Ha realizado el evento personalizado `ecommerce.order_placed` más de X veces" o "Realizó por primera vez el evento personalizado `ecommerce.order_placed`".
+- **Extensiones de segmento:** Para segmentar por propiedades de eventos anidados, incluyendo el array de productos anidados o las propiedades de los objetos de metadatos, usa las [extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension) con el filtrado de propiedades de eventos anidados. Esto te permite crear audiencias como "usuarios que compraron el producto SKU-123 en los últimos 90 días" o combinar criterios de diferentes propiedades de un mismo pedido.
+
+Si necesitas filtrar por propiedades personalizadas que no forman parte del esquema de eventos documentado, anídalas dentro de `metadata` al registrar el evento (por ejemplo, `metadata.color` en lugar de `color`). Las propiedades personalizadas de nivel superior que envías a través de la API o el SDK no son válidas para los filtros de propiedades de extensión, aunque esas propiedades aparezcan en los datos de tu evento. Usar una propiedad de nivel superior que no esté en la lista permitida impide guardar o desarchivar la extensión.
 
 {% alert important %}
-Las extensiones de segmento para eventos recomendados de eCommerce son una característica de pago y se encuentran en acceso anticipado. Si te interesa participar en el acceso anticipado, ponte en contacto con tu administrador de éxito de cliente. Confirma que tu plan incluye acceso antes de recomendar la segmentación por propiedades anidadas a tu equipo.
+Las extensiones de segmento para eventos recomendados de eCommerce son una característica de pago y están en acceso anticipado. Si te interesa participar en el acceso anticipado, ponte en contacto con tu administrador de éxito de cliente. Confirma que tu plan incluye acceso antes de recomendar la segmentación por propiedades anidadas a tu equipo.
 {% endalert %}
 
-### Desencadenamiento {#triggering}
+### Desencadenadores {#triggering}
 
-Puedes usar desencadenadores de eventos personalizados realizados con eventos de eCommerce en todo Braze, de la misma forma que con otros eventos personalizados. Para flujos de carrito abandonado, usa el desencadenador **Perform Cart Updated Event** para capturar correctamente las actualizaciones del carrito.
+Puedes usar desencadenadores de eventos personalizados realizados con eventos de eCommerce en todo Braze, igual que con otros eventos personalizados. Para flujos de carrito abandonado, usa el desencadenador **Perform Cart Updated Event** para capturar correctamente las actualizaciones del carrito.
 
-Además, Braze ofrece un desencadenador dedicado **Places Order**, que te permite iniciar recorridos o ejecutar acciones con base en cualquier pedido realizado, o en pedidos que incluyan un producto específico. Puedes filtrar este desencadenador por nombre de producto, `product_id` o `variant_id` para dirigirte a escenarios de compra específicos. Para obtener más información, consulta [Entrega basada en acciones]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery).
+Además, Braze ofrece un desencadenador dedicado **Places Order**, que te permite iniciar recorridos o ejecutar acciones en función de cualquier pedido realizado, o de pedidos que incluyan un producto específico. Puedes filtrar este desencadenador por nombre de producto, `product_id` o `variant_id` para segmentar escenarios de compra específicos. Para más información, consulta [Entrega basada en acciones]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery).
 
 ![Desencadenador Places Order con una opción seleccionada para realizar cualquier pedido.]({% image_buster /assets/img/recommended_events/places_order_trigger.png %})
 
 ### Personalización con Liquid {#liquid-personalization}
 
-Los eventos de eCommerce admiten la [personalización con Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid) de la misma forma que los eventos personalizados; puedes hacer referencia a las propiedades del evento directamente en tu mensajería. Para incluir imágenes de productos, precios u otros datos de catálogo en tus mensajes, une tu catálogo con el evento usando `product_id` o `variant_id` como identificador de vinculación. La etiqueta de Liquid {% raw %}`{% shopping_cart %}`{% endraw %} te permite recorrer el contenido actual del carrito de un usuario para recordatorios de carrito abandonado, avisos de pago o confirmaciones de pedido. Para obtener ejemplos de código listos para usar, consulta [Ejemplos de eCommerce]({{site.baseurl}}/ecommerce_use_cases).
+Los eventos de eCommerce son compatibles con la [personalización con Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid) de la misma forma que los eventos personalizados; puedes hacer referencia directamente a las propiedades del evento en tus mensajes. Para incluir imágenes de productos, precios u otros datos de catálogo en tus mensajes, vincula tu catálogo con el evento usando `product_id` o `variant_id` como identificador de enlace. La etiqueta de Liquid {% raw %}`{% shopping_cart %}`{% endraw %} te permite recorrer el contenido actual del carrito de un usuario para recordatorios de carrito abandonado, notificaciones de pago o confirmaciones de pedido. Para ejemplos de código listos para usar, consulta [Ejemplos de eCommerce]({{site.baseurl}}/ecommerce_use_cases).
 
-Para una alternativa sin código, los [bloques de producto de arrastrar y soltar]({{site.baseurl}}/user_guide/messaging/design_and_edit/product_blocks) están disponibles en el programa de acceso anticipado.
+Como alternativa sin código, los [bloques de producto de arrastrar y soltar]({{site.baseurl}}/user_guide/messaging/design_and_edit/product_blocks) están disponibles en el programa de acceso anticipado.
 
 ### Plantillas de Canvas para eCommerce {#ecommerce-canvas-templates}
 
-Braze proporciona plantillas de Canvas listas para usar, preconfiguradas con eventos recomendados de eCommerce como criterios de entrada, salida y conversión, para que puedas lanzar flujos de ciclo de vida sin configuración personalizada. Cada plantilla incluye diseños de correo electrónico de arrastrar y soltar y es compatible con bloques de producto de arrastrar y soltar (actualmente en acceso anticipado). Para obtener ejemplos detallados y ejemplos de Liquid, consulta [Ejemplos de eCommerce]({{site.baseurl}}/ecommerce_use_cases).
+Braze ofrece plantillas de Canvas listas para usar, preconfiguradas con eventos recomendados de eCommerce como criterios de entrada, salida y conversión, para que puedas lanzar flujos de ciclo de vida sin configuración personalizada. Cada plantilla incluye diseños de correo electrónico de arrastrar y soltar y es compatible con bloques de producto de arrastrar y soltar (actualmente en acceso anticipado). Para ejemplos detallados y código Liquid, consulta [Ejemplos de eCommerce]({{site.baseurl}}/ecommerce_use_cases).
 
 Estas plantillas cubren los flujos de ciclo de vida de eCommerce más comunes. Úsalas como punto de partida y luego personaliza los tiempos, canales y creatividades para tu audiencia.
 
 {% tabs %}
 {% tab Navegación abandonada %}
 
-Vuelve a interactuar con usuarios que vieron un producto pero no lo añadieron a su carrito.
+Reactiva a los usuarios que vieron un producto pero no lo añadieron al carrito.
 
-Usa esta plantilla cuando quieras hacer que los navegantes vuelvan a considerar productos que vieron recientemente pero sobre los que no actuaron.
+Usa esta plantilla cuando quieras traer de vuelta a los visitantes para que reconsideren productos que vieron recientemente pero con los que no interactuaron.
 
 | Configuración | Valor |
 | --- | --- |
@@ -99,9 +101,9 @@ Usa esta plantilla cuando quieras hacer que los navegantes vuelvan a considerar 
 {% endtab %}
 {% tab Carrito abandonado %}
 
-Recupera a usuarios que añadieron artículos a su carrito pero no iniciaron el proceso de pago.
+Recupera a los usuarios que añadieron artículos al carrito pero no iniciaron el pago.
 
-Usa esta plantilla cuando quieras recordar a los usuarios los artículos en su carrito y motivarlos a completar la compra.
+Usa esta plantilla cuando quieras recordar a los usuarios los artículos en su carrito e impulsarlos a completar el pago.
 
 | Configuración | Valor |
 | --- | --- |
@@ -117,7 +119,7 @@ El evento `ecommerce.cart_updated` admite el reemplazo completo del carrito (cad
 {% endtab %}
 {% tab Pago abandonado %}
 
-Recupera a usuarios que iniciaron el proceso de pago pero no completaron la compra.
+Recupera a los usuarios que iniciaron el pago pero no completaron la compra.
 
 Usa esta plantilla cuando quieras recuperar compras en la etapa de mayor intención del embudo.
 
@@ -131,7 +133,7 @@ Usa esta plantilla cuando quieras recuperar compras en la etapa de mayor intenci
 {% endtab %}
 {% tab Confirmación de pedido y cuestionario %}
 
-Confirma una compra exitosa y realiza un seguimiento con un cuestionario de opinión para impulsar la recopilación de reseñas y la participación posterior a la compra.
+Confirma una compra exitosa y hace seguimiento con un cuestionario de opinión para impulsar la recopilación de reseñas y la participación posterior a la compra.
 
 Usa esta plantilla cuando quieras optimizar la comunicación posterior a la compra y recopilar opiniones de los clientes en un solo flujo de trabajo.
 
@@ -147,52 +149,52 @@ Usa esta plantilla cuando quieras optimizar la comunicación posterior a la comp
 #### Personalizar plantillas {#customize-templates}
 
 Estas plantillas están diseñadas como punto de partida. Las personalizaciones más comunes incluyen:
-  - **Personalizar el correo electrónico:** Cada plantilla incluye un correo electrónico preconfigurado creado con el editor de arrastrar y soltar, que es completamente editable para ajustarse a tu marca y contenido.
-  - **Añadir canales:** Combina el correo electrónico con push, SMS o mensajes dentro de la aplicación para un refuerzo multicanal.
-  - **Añadir retrasos y divisiones de decisiones:** Segmenta a los usuarios por comportamiento (por ejemplo, carrito de alto valor frente a carrito de bajo valor) o períodos de espera entre mensajes.
-  - **Cambiar las creatividades:** Reemplaza la plantilla de correo electrónico incluida con el estilo visual de tu marca.
-  - **Usar bloques de producto:** Usa bloques de producto de arrastrar y soltar (en el programa de acceso anticipado) para renderizar dinámicamente el contenido del carrito abandonado o los productos navegados sin escribir Liquid personalizado.
+  - **Personalizar el correo electrónico:** Cada plantilla incluye un correo electrónico preconfigurado creado con el editor de arrastrar y soltar, totalmente editable para adaptarse a tu marca y contenido.
+  - **Añadir canales:** Combina el correo electrónico con push, SMS o mensajes dentro de la aplicación para reforzar la comunicación multicanal.
+  - **Añadir retrasos y divisiones de decisiones:** Segmenta a los usuarios por comportamiento (por ejemplo, carrito de alto valor frente a carrito de bajo valor) o periodos de espera entre mensajes.
+  - **Cambiar la creatividad:** Reemplaza la plantilla de correo electrónico incluida con el estilo visual de tu marca.
+  - **Usar bloques de producto:** Usa los bloques de producto de arrastrar y soltar (en el programa de acceso anticipado) para renderizar dinámicamente el contenido de carritos abandonados o productos consultados sin escribir código Liquid personalizado.
 
 Para estrategias de ciclo de vida más avanzadas, incluyendo ejemplos de personalización con Liquid, consulta [Ejemplos de eCommerce]({{site.baseurl}}/ecommerce_use_cases).
 
 ## Informes de eCommerce {#ecommerce-reporting}
 
-Los eventos recomendados de eCommerce alimentan las mismas superficies de ingresos que los clientes ya utilizan hoy. Cuando tu integración envía eventos de eCommerce, los siguientes informes incluyen automáticamente los ingresos de eCommerce:
+Los eventos recomendados de eCommerce alimentan las mismas superficies de ingresos que los clientes ya utilizan hoy en día. Cuando tu integración envía eventos de eCommerce, los siguientes informes incluyen los ingresos de eCommerce automáticamente:
 
-| Informe                                      | Qué muestra                             |
+| Informe | Qué muestra |
 |---------------------------------------------|-------------------------------------------|
-| Informe de ingresos                              | Ingresos totales, ingresos diarios promedio, compras diarias e ingresos por usuario a lo largo del tiempo en todas las fuentes para el rango de fechas y las aplicaciones seleccionados.                                                                                     |
-| Panel de ingresos de atribución de último toque     | Ingresos atribuidos a la última Campaign o Canvas con la que un usuario interactuó antes de realizar un pedido. Los eventos de toque incluyen clics en correos electrónicos, aperturas de push, clics en tarjetas de contenido, clics en mensajes dentro de la aplicación y clics en enlaces cortos de SMS o WhatsApp. |
-| Análisis de Campaign y Canvas                | Ingresos totales atribuidos a una Campaign o Canvas específica dentro de la ventana de conversión primaria.                                                                                   |
-| Informe de conversiones                          | Ingresos vinculados a eventos de conversión en Campaigns y Canvas.<br> **Nota:** Para contabilizar los ingresos de `ecommerce.order_placed`, la Campaign o Canvas debe usar el tipo de evento de conversión "Place Order" como su evento de conversión.                                                                                    |
-| Información del segmento                            | Comparaciones de ingresos entre segmentos en el panel de información del segmento.                                                               |
-| Generador de informes                              | Métricas de ingresos en informes personalizados creados en el generador de informes.                                                                                  |
-| Dashboard Builder                           | Métricas de ingresos en paneles personalizados creados en Dashboard Builder.                                                                                  |
+| Informe de ingresos | Ingresos totales, ingresos diarios promedio, compras diarias e ingresos por usuario a lo largo del tiempo en todas las fuentes para el rango de fechas y las aplicaciones seleccionadas. |
+| Panel de ingresos de atribución de último contacto | Ingresos atribuidos a la última Campaign o Canvas con los que un usuario interactuó antes de realizar un pedido. Los eventos de contacto incluyen clics en correo electrónico, aperturas de push, clics en tarjetas de contenido, clics en mensajes dentro de la aplicación y clics en enlaces cortos de SMS o WhatsApp. |
+| Análisis de Campaign y Canvas | Ingresos totales atribuidos a una Campaign o Canvas específico dentro de la ventana de conversión primaria. |
+| Informe de conversiones | Ingresos vinculados a eventos de conversión en Campaigns y Canvas.<br> **Nota:** Para contabilizar los ingresos de `ecommerce.order_placed`, la Campaign o Canvas debe usar el tipo de evento de conversión "Place Order" como su evento de conversión. |
+| Información del segmento | Comparaciones de ingresos entre segmentos en el panel de información del segmento. |
+| Generador de informes | Métricas de ingresos en informes personalizados creados en el generador de informes. |
+| Dashboard Builder | Métricas de ingresos en paneles personalizados creados en Dashboard Builder. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Informes de eCommerce" }
 
-Para campos calculados no relacionados con el usuario (por ejemplo, ingresos de Campaign o Canvas), los ingresos se calculan de la misma manera en todos los informes: `price` multiplicado por `quantity` por producto en el pedido, sumado entre los productos de cada evento `order_placed`.
+Para los campos calculados no asociados a usuarios (por ejemplo, ingresos de Campaign o Canvas), los ingresos se calculan de la misma manera en todos los informes: `price` multiplicado por `quantity` por producto en el pedido, sumado entre los productos de cada evento `order_placed`.
 
 {% alert note %}
-Los cálculos de ingresos limitan las cantidades individuales de productos a 1000 unidades por pedido. Si falta el campo de cantidad para un producto, se establece de forma predeterminada en una unidad. El evento original `ecommerce.order_placed` conserva la cantidad completa que enviaste; solo el cálculo de ingresos aplica el límite.<br><br>
-Si estás migrando de eventos de compra heredados a `ecommerce.order_placed`, coordina con tu equipo de cuenta de Braze antes de realizar cualquier cambio en la integración. Durante el período de transición, envía tanto los eventos de compra heredados como los eventos `ecommerce.order_placed` para confirmar que se desencadenan correctamente y para preparar tus Campaigns, Canvas y segmentos activos para la migración al nuevo evento. Tu equipo de cuenta puede ayudarte a planificar la transición para cambiar los informes de ingresos de los eventos de compra heredados a `ecommerce.order_placed`.
+Los cálculos de ingresos limitan las cantidades individuales de productos a 1000 unidades por pedido. Si falta el campo de cantidad para un producto, se establece de forma predeterminada en una unidad. El evento `ecommerce.order_placed` original conserva la cantidad completa que enviaste; solo el cálculo de ingresos aplica el límite.<br><br>
+Si estás migrando de eventos de compra heredados a `ecommerce.order_placed`, coordina con tu equipo de cuenta de Braze antes de realizar cualquier cambio en la integración. Durante el período de transición, envía tanto los eventos de compra heredados como los eventos `ecommerce.order_placed` para confirmar que se activan correctamente y para preparar tus Campaigns, Canvas y segmentos activos para la migración al nuevo evento. Tu equipo de cuenta puede ayudarte a planificar la transición para cambiar los informes de ingresos de los eventos de compra heredados a `ecommerce.order_placed`.
 {% endalert %}
 
 ### BrazeAI<sup>TM</sup>
 
-[Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events), [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) y las [recomendaciones de artículos]({{site.baseurl}}/user_guide/brazeai/item_recommendations) admiten eventos de eCommerce como eventos objetivo y señales, y tienen una opción dedicada "Order Placed". El esquema estandarizado hace que estos modelos sean más fiables porque los datos son consistentes en toda tu base de usuarios.
+[Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events), [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) y [recomendaciones de artículos]({{site.baseurl}}/user_guide/brazeai/item_recommendations) son compatibles con los eventos de eCommerce como eventos objetivo y señales, y cuentan con una opción dedicada "Order Placed". El esquema estandarizado hace que estos modelos sean más fiables porque los datos son consistentes en toda tu base de usuarios.
 
 ### Exportar datos {#export-data}
 
-Braze ofrece varias formas de exportar datos de eventos de eCommerce para utilizarlos en tu almacén de datos, herramientas de BI o sistemas posteriores. Los eventos recomendados de eCommerce se exportan a través de los mismos canales que el resto de tus datos de eventos.
+Braze ofrece varias formas de exportar datos de eventos de eCommerce para su uso en tu almacén de datos, herramientas de BI o sistemas posteriores. Los eventos recomendados de eCommerce se exportan a través de los mismos canales que el resto de tus datos de eventos.
 
-| Ruta de exportación                         | Qué incluye                                                                                                                                                                                 |
+| Ruta de exportación | Qué incluye |
 |------------------------------------- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)                            | Los eventos de eCommerce se transmiten como eventos personalizados; busca en el espacio de nombres `ecommerce.*` para encontrarlos. Los productos de cada pedido están disponibles como compras.                                                |
-| [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing)               | Los eventos de eCommerce se comparten como eventos personalizados; busca en el espacio de nombres `ecommerce.*` para encontrarlos. Los productos de cada pedido están disponibles en la tabla de compras.                                   |
-| [Exportar datos de segmento a CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv)           | Exportación CSV de miembros del segmento. Para incluir eventos de eCommerce, selecciónalos por nombre en el menú desplegable de eventos personalizados.                                                                                |
-| [Exportar perfil de usuario por Segment (API)]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment#prerequisites) | Datos de perfil de usuario para miembros del segmento, devueltos a través de la API. Los eventos de eCommerce se incluyen como eventos personalizados.                                                                                        |
+| [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) | Los eventos de eCommerce se transmiten como eventos personalizados; busca en el espacio de nombres `ecommerce.*` para encontrarlos. Los productos de cada pedido están disponibles como compras. |
+| [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing) | Los eventos de eCommerce se comparten como eventos personalizados; busca en el espacio de nombres `ecommerce.*` para encontrarlos. Los productos de cada pedido están disponibles en la tabla de compras. |
+| [Exportar datos de segmento a CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv) | Exportación CSV de miembros del segmento. Para incluir eventos de eCommerce, selecciónalos por nombre en el desplegable de eventos personalizados. |
+| [Exportar perfil de usuario por segmento (API)]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment#prerequisites) | Datos de perfil de usuario para miembros del segmento, devueltos a través de la API. Los eventos de eCommerce se incluyen como eventos personalizados. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Exportar datos" }
 
-### ¿Cómo segmento usuarios por un producto específico? {#how-do-i-segment-users-by-a-specific-product}
+### ¿Cómo puedo segmentar usuarios por un producto específico? {#how-do-i-segment-users-by-a-specific-product}
 
-El segmentador te permite filtrar por el número de veces que un usuario realizó un evento de eCommerce. Para filtrar por propiedades específicas del producto (como `product_id` o `product_name`), usa las [extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension), que admiten el filtrado de propiedades de eventos anidados. Por ejemplo, puedes encontrar todos los usuarios que compraron el producto "SKU-123" en los últimos 90 días.
+El segmentador te permite filtrar por la cantidad de veces que un usuario realizó un evento de eCommerce. Para filtrar por propiedades de producto específicas (como `product_id` o `product_name`), usa las [extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension), que admiten el filtrado de propiedades de eventos anidados. Por ejemplo, puedes encontrar todos los usuarios que compraron el producto "SKU-123" en los últimos 90 días.

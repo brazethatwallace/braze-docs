@@ -21,33 +21,33 @@ Pour créer un délai, ajoutez une étape à votre Canvas. Glissez-déposez le c
 
 ### Délais prolongés {#extended-delays}
 
-Vous pouvez prolonger les étapes de délai jusqu'à deux ans (730 jours). Par exemple, si vous effectuez l'onboarding de nouveaux utilisateurs pour votre application, vous pouvez ajouter un délai prolongé de deux mois avant d'envoyer une étape Message pour relancer les utilisateurs qui n'ont pas démarré de session.
+Vous pouvez prolonger les étapes de délai jusqu'à deux ans (730 jours). Par exemple, si vous effectuez l'onboarding de nouveaux utilisateurs pour votre application, vous pouvez ajouter un délai prolongé de deux mois avant d'envoyer une étape Message pour inciter les utilisateurs qui n'ont pas démarré de session.
 
 ## Types de délais {#time-delay-types}
 
-Vous pouvez choisir le type de délai avant le prochain message dans votre Canvas. Vous pouvez soit définir un délai pour que vos utilisateurs attendent pendant une période déterminée, soit les retenir jusqu'à une date et une heure spécifiques.
+Vous pouvez choisir le type de délai avant le prochain message dans votre Canvas. Vous pouvez soit définir un délai pour que vos utilisateurs attendent pendant une durée déterminée, soit les retenir jusqu'à une date et une heure spécifiques.
 
-En cas de délai, il est normal que certains utilisateurs ne passent à l'étape suivante du Canvas qu'après le délai. Les utilisateurs en attente ne seront pas comptabilisés dans l'indicateur _Proceeded to Next Step_. Pour plus d'informations, consultez [Analyse des délais](#delay-analytics).
+En cas de délai, il est normal que certains utilisateurs ne passent à l'étape suivante du Canvas qu'après ce délai. Les utilisateurs en attente ne seront pas comptabilisés dans l'indicateur _Proceeded to Next Step_. Pour plus d'informations, consultez [Analyse des délais](#delay-analytics).
 
 {% tabs %}
 {% tab Durée %}
 
 Sélectionner **Duration** vous permet de retenir les utilisateurs pendant un nombre défini de secondes, minutes, heures, jours ou semaines, et à une heure spécifique. Par exemple, vous pouvez retenir les utilisateurs pendant quatre heures ou pendant un jour.
 
-Notez la différence entre le calcul des « jours » et des « jours calendaires ».
+Notez la différence de calcul entre les « jours » et les « jours calendaires ».
 
 - Un « jour » correspond à 24 heures et est calculé à partir du moment où l'utilisateur entre dans l'étape de délai.
-- Un « jour calendaire » définit le temps d'attente jusqu'à la prochaine heure spécifiée, qui peut être inférieur à 24 heures. Vous pouvez choisir de retenir selon l'heure de l'entreprise ou l'heure locale de l'utilisateur. Si aucune heure n'est spécifiée, l'utilisateur est retenu jusqu'à minuit le jour suivant, selon l'heure de l'entreprise.
+- Un « jour calendaire » définit le temps d'attente jusqu'à la prochaine heure spécifiée, qui peut être inférieur à 24 heures. Vous pouvez choisir de retarder selon l'heure de l'entreprise ou l'heure locale de l'utilisateur. Si aucune heure n'est spécifiée, l'utilisateur est retenu jusqu'à minuit le jour suivant, en heure de l'entreprise.
 
 ### Comportement du délai : « jours calendaires » à une heure spécifique versus « jours » {#delay-behavior-calendar-days-at-a-specific-time-versus-days}
 
-Lorsque vous sélectionnez **calendar days** comme unité et activez **At a specific time** (par exemple, **1 calendar day at 9 AM**), Canvas calcule d'abord la date calendaire cible, puis applique l'heure planifiée. Par exemple, si une étape Canvas envoie à 21 h un lundi et que l'étape de délai est définie sur **1 calendar day at 9 AM**, l'étape suivante envoie à 9 h le mardi. Canvas calcule lundi + 1 jour calendaire = mardi, puis applique l'heure de 9 h.
+Lorsque vous sélectionnez **calendar days** comme unité et activez **At a specific time** (par exemple, **1 calendar day at 9 AM**), Canvas calcule d'abord la date calendaire cible, puis applique l'heure planifiée. Par exemple, si une étape Canvas envoie un message à 21 h le lundi et que l'étape de délai est définie sur **1 calendar day at 9 AM**, l'étape suivante envoie à 9 h le mardi. Canvas calcule lundi + 1 jour calendaire = mardi, puis applique l'heure de 9 h.
 
 En revanche, lorsque vous sélectionnez **days** comme unité sans **At a specific time** (par exemple, **After 1 day**), Canvas attend une période complète de 24 heures à partir du moment où l'utilisateur entre dans l'étape de délai. Par exemple, si une étape envoie à 9 h 35 le 13 octobre et que l'étape de délai est **After 1 day**, l'étape suivante envoie à 9 h 35 le 14 octobre.
 
 Vous pouvez également sélectionner **At a specific time** pour spécifier quand les utilisateurs avancent dans le Canvas. Cette option prend en compte l'heure à laquelle l'utilisateur est entré dans l'étape de délai. Si cette heure dépasse l'heure configurée dans les paramètres, Braze ajoute des heures supplémentaires au délai.
 
-Par exemple, supposons que nous sommes le 11 décembre et que notre étape de délai est définie sur une **Duration** d'une semaine à 8 h UTC. Si un utilisateur entre dans l'étape de délai le 4 décembre, il est libéré de l'étape de délai pour poursuivre son parcours aujourd'hui s'il est entré dans l'étape de délai avant 8 h UTC. S'il est entré dans l'étape de délai après cette heure, l'utilisateur est retenu jusqu'au jour suivant (la prochaine occurrence de cette heure).
+Par exemple, supposons que nous sommes le 11 décembre et que notre étape de délai est définie sur une **Duration** d'une semaine à 8 h UTC. Si un utilisateur entre dans l'étape de délai le 4 décembre, il est libéré de l'étape de délai pour poursuivre son parcours aujourd'hui, à condition d'être entré dans l'étape de délai avant 8 h UTC. S'il est entré dans l'étape de délai après cette heure, l'utilisateur est retenu jusqu'au jour suivant (la prochaine occurrence de cette heure).
 
 {% endtab %}
 {% tab Date calendaire %}
@@ -56,7 +56,7 @@ Sélectionner **Calendar date** vous permet de retenir les utilisateurs dans l'�
 
 ### Considérations {#considerations}
 
-#### Les utilisateurs ne recevront pas les étapes ou messages dont la date est passée {#users-wont-receive-past-dated-steps-or-messages}
+#### Les utilisateurs ne recevront pas les étapes ou messages dont la date est dépassée {#users-wont-receive-past-dated-steps-or-messages}
 
 Si la date et l'heure sélectionnées sont déjà passées au moment où les utilisateurs atteignent l'étape de délai, ils quittent le Canvas. Il peut y avoir jusqu'à 31 jours entre le début du Canvas et les dates choisies pour les étapes « attendre jusqu'à un jour précis ».
 
@@ -67,7 +67,7 @@ Si vous participez à l'[accès anticipé Canvas Context]({{site.baseurl}}/user_
 Par exemple, les utilisateurs ne recevront pas les étapes ou messages dans ces scénarios :
 
 - Un message est planifié pour être envoyé le 3 mai à 21 h, mais l'étape de délai expire le 3 mai à 9 h.
-- Une étape Canvas retient jusqu'à une heure spécifique dans le fuseau horaire local de l'utilisateur, mais les utilisateurs n'ont pas de fuseau horaire défini dans leur profil utilisateur. Le délai utilise alors par défaut le fuseau horaire de l'entreprise pour ces utilisateurs, et l'heure spécifiée est déjà passée.
+- Une étape Canvas retient l'utilisateur jusqu'à une heure spécifique dans son fuseau horaire local, mais les utilisateurs n'ont pas de fuseau horaire défini sur leur profil utilisateur. Le délai utilise alors par défaut le fuseau horaire de l'entreprise pour ces utilisateurs, et l'heure spécifiée est déjà passée.
 
 #### Les utilisateurs quittent le Canvas si une étape de délai ultérieure se situe dans la période d'une étape de délai précédente {#users-exit-if-a-subsequent-delay-step-is-within-a-prior-delay-steps-timeline}
 
@@ -85,73 +85,71 @@ Les utilisateurs qui entrent dans l'étape 4 quittent le Canvas avant de recevoi
 {% endtab %}
 {% tab Jour de la semaine %}
 
-Sélectionner **Day of the week** vous permet de retenir les utilisateurs dans l'étape jusqu'à un jour spécifique de la semaine, à une heure spécifique. Par exemple, vous pouvez retenir les utilisateurs jusqu'au prochain jeudi à 16 h dans le fuseau horaire de l'entreprise.
+Sélectionner **Day of the week** vous permet de retenir les utilisateurs dans l'étape jusqu'à un jour spécifique de la semaine, à une heure donnée. Par exemple, vous pouvez retenir les utilisateurs jusqu'au prochain jeudi à 16 h dans le fuseau horaire de l'entreprise.
 
-Pour configurer correctement cette option, vous devez également sélectionner ce qui se passe si l'utilisateur entre dans le Canvas le jour de la semaine sélectionné (par exemple, jeudi), mais après l'heure spécifiée. Vous pouvez choisir de faire avancer l'utilisateur le même jour ou de le retenir jusqu'à la semaine suivante.
+Pour configurer cette option correctement, vous devez également sélectionner ce qui se passe si l'utilisateur entre dans le Canvas le jour de la semaine sélectionné (par exemple, jeudi), mais après l'heure spécifiée. Vous pouvez choisir de faire avancer l'utilisateur le même jour ou de le retenir jusqu'à la semaine suivante.
 {% endtab %}
 {% endtabs %}
 
 ### Mises à jour du profil pendant les délais {#profile-updates-during-delays}
 
-Si un utilisateur entre dans un Canvas et ajoute une adresse e-mail valide pendant l'étape de délai avant qu'elle ne se termine, il recevra l'e-mail à l'étape suivante. Cela s'applique également aux autres mises à jour du profil. Toute modification des attributs utilisateur ou des informations de contact pendant le délai est prise en compte lorsque l'utilisateur passe aux étapes suivantes.
+Si un utilisateur entre dans un Canvas et ajoute une adresse e-mail valide pendant l'étape de délai avant qu'elle ne se termine, il recevra l'e-mail à l'étape suivante. Cela s'applique également aux autres mises à jour de profil. Tout changement apporté aux attributs utilisateur ou aux informations de contact pendant le délai est pris en compte lorsque l'utilisateur avance vers les étapes suivantes.
 
 ## Utiliser les étapes de délai {#using-delay-steps}
 
-Imaginons que nous sommes le 10 juin. Le 11 juin, vous souhaitez que les utilisateurs entrent dans le Canvas et reçoivent un message concernant une promotion à venir. Ensuite, vous voulez maintenir les utilisateurs dans le Canvas jusqu'au 17 juin à 15 h, heure locale. À 15 h, heure locale, le 17 juin, vous souhaitez envoyer aux utilisateurs un message de rappel concernant la promotion.
+Imaginons que nous sommes le 10 juin. Le 11 juin, vous souhaitez que les utilisateurs entrent dans le Canvas et reçoivent un message concernant une promotion à venir. Ensuite, vous voulez retenir les utilisateurs dans le Canvas jusqu'au 17 juin à 15 h, heure locale. Le 17 juin à 15 h, heure locale, vous souhaitez envoyer aux utilisateurs un message de rappel concernant la promotion.
 
-La séquence des étapes du Canvas pourrait ressembler à ce qui suit :
+La séquence des étapes du Canvas pourrait ressembler à ceci :
 
-1. Commencez par ajouter une étape Message qui s'envoie immédiatement après que les utilisateurs entrent dans le Canvas le 11 juin.
-2. Créez une étape de délai qui maintient les utilisateurs jusqu'à 13 h, heure locale, le 17 juin.
+1. Commencez par ajouter une étape Message qui s'envoie immédiatement après l'entrée des utilisateurs dans le Canvas le 11 juin.
+2. Créez une étape de délai qui retient les utilisateurs jusqu'à 13 h, heure locale, le 17 juin.
 3. Reliez l'étape de délai à une autre étape Message qui envoie son message immédiatement.
 
 ### Composants de délai à la fin d'un Canvas {#delay-as-last-step}
 
-Si vous ajoutez un composant de délai à votre Canvas et qu'il n'y a pas d'étapes suivantes, tout utilisateur qui atteint la dernière étape est automatiquement sorti du Canvas. Cela est vrai même si le temps de l'étape de délai n'a pas encore été atteint. Cela signifie que les utilisateurs qui ont déjà atteint l'étape de délai ne recevront pas les messages que vous ajoutez après cette étape. Cependant, si un utilisateur n'a pas encore atteint l'étape de délai et qu'un message est ajouté, il recevra ce message.
+Si vous ajoutez un composant de délai à votre Canvas et qu'il n'y a aucune étape suivante, tout utilisateur qui atteint la dernière étape est automatiquement sorti du Canvas. C'est le cas même si le délai de l'étape n'a pas encore été atteint. Cela signifie que les utilisateurs ayant déjà atteint l'étape de délai ne recevront pas les messages que vous ajoutez après cette étape. Cependant, si un utilisateur n'a pas encore atteint l'étape de délai et qu'un message est ajouté, il recevra ce message.
 
 ### Délais personnalisés {#personalized-delays}
 
-{% multi_lang_include alerts/early_access_beta_alert.md feature='The personalized delays and extended delays feature' %}
-
-Sélectionnez le bouton **Personnaliser le délai** pour configurer un délai personnalisé pour vos utilisateurs. Vous pouvez l'utiliser avec une [étape Contexte]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) pour sélectionner la variable de contexte selon laquelle appliquer le délai. Cela remplace l'heure de la journée définie dans l'attribut ou la propriété sélectionnée. C'est utile lorsque vous appliquez un décalage en jours ou en semaines et que vous souhaitez que les utilisateurs avancent à une heure précise. Le fuseau horaire provient de l'attribut ou de la propriété, ou utilise le fuseau horaire de secours si aucun n'est disponible.
+Activez le bouton **Personnaliser le délai** pour configurer un délai personnalisé pour vos utilisateurs. Vous pouvez l'utiliser avec une [étape de contexte]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) afin de sélectionner la variable de contexte selon laquelle différer l'envoi. Cela remplace l'heure définie dans l'attribut ou la propriété sélectionnée. C'est utile lorsque vous appliquez un décalage en jours ou en semaines et que vous souhaitez que les utilisateurs avancent à une heure précise. Le fuseau horaire provient de l'attribut ou de la propriété, ou utilise le fuseau horaire de secours si aucun n'est disponible.
 
 #### Comportement du fuseau horaire pour « À une heure précise » {#time-zone-behavior-for-at-a-specific-time}
 
-Lorsque vous cochez la case **À une heure précise**, l'heure de réception que vous définissez utilise le même fuseau horaire que Braze utilise pour la date de calendrier personnalisée. Braze n'applique pas un fuseau horaire distinct pour la date et l'heure. Les deux utilisent le fuseau horaire de votre attribut ou variable de contexte, ou le fuseau horaire de secours lorsque la variable est une chaîne de caractères sans information de fuseau horaire.
+Lorsque vous cochez la case **À une heure précise**, l'heure de réception que vous définissez utilise le même fuseau horaire que celui utilisé par Braze pour la date de calendrier personnalisée. Braze n'applique pas un fuseau horaire distinct pour la date et l'heure. Les deux utilisent le fuseau horaire de votre attribut ou variable de contexte, ou le fuseau horaire de secours lorsque la variable est une chaîne de caractères sans information de fuseau horaire.
 
-Le fuseau horaire qui s'applique dépend du type de données de votre attribut ou variable de contexte :
+Le fuseau horaire appliqué dépend du type de donnée de votre attribut ou variable de contexte :
 
-- **Type de données chaîne de caractères avec fuseau horaire :** si l'attribut ou la variable de contexte est un type de données chaîne de caractères qui inclut des informations de fuseau horaire, il se conforme au fuseau horaire spécifié dans la chaîne. Par exemple, `2025-06-10T10:00:00-08:00` utilise UTC-8.
-- **Type de données chaîne de caractères sans fuseau horaire :** si l'attribut ou la variable de contexte est un type de données chaîne de caractères sans information de fuseau horaire, il se conforme au fuseau horaire de secours. Par exemple, `2025-06-10` utilise le fuseau horaire de secours.
-- **Type de données temporel :** si l'attribut ou la variable de contexte est un type de données temporel, il se conforme à UTC. En effet, le type de données temporel est toujours converti en UTC lors de l'enregistrement dans la base de données, donc « à une heure précise » fait toujours référence à UTC lorsque la variable est définie sur le type de données temporel. Par exemple, `2025-06-10T10:00:00-08:00` utilise UTC+0.
+- **Type de donnée chaîne de caractères avec fuseau horaire :** si l'attribut ou la variable de contexte est une chaîne de caractères incluant des informations de fuseau horaire, le fuseau horaire spécifié dans la chaîne est utilisé. Par exemple, `2025-06-10T10:00:00-08:00` utilise UTC-8.
+- **Type de donnée chaîne de caractères sans fuseau horaire :** si l'attribut ou la variable de contexte est une chaîne de caractères sans information de fuseau horaire, le fuseau horaire de secours est utilisé. Par exemple, `2025-06-10` utilise le fuseau horaire de secours.
+- **Type de donnée temporel :** si l'attribut ou la variable de contexte est un type de donnée temporel, le fuseau UTC est utilisé. En effet, le type de donnée temporel est toujours converti en UTC lors de l'enregistrement dans la base de données, de sorte que « à une heure précise » fait toujours référence à UTC lorsque la variable est définie sur le type de donnée temporel. Par exemple, `2025-06-10T10:00:00-08:00` utilise UTC+0.
 
 {% alert note %}
-Il est possible qu'un attribut personnalisé ou une variable de contexte n'ait ni heure précise ni fuseau horaire s'il s'agit d'un type de données chaîne de caractères. S'il s'agit d'un type de données temporel, vous devrez spécifier l'heure et le fuseau horaire. Cependant, si l'attribut personnalisé ou la variable de contexte est une chaîne « non pertinente » (comme « product_name »), l'utilisateur sort du Canvas.
+Il est possible qu'un attribut personnalisé ou une variable de contexte ne possède ni heure précise ni fuseau horaire s'il s'agit d'un type de donnée chaîne de caractères. S'il s'agit d'un type de donnée temporel, vous devrez spécifier l'heure et le fuseau horaire. Cependant, si l'attribut personnalisé ou la variable de contexte est une chaîne de caractères « non pertinente » (comme « product_name »), l'utilisateur sort du Canvas.
 {% endalert %}
 
 #### Cas d'usage {#use-case}
 
-Imaginons que vous souhaitez rappeler à vos clients d'acheter du dentifrice dans 30 jours. En utilisant une combinaison d'une étape Contexte et d'une étape de délai, vous pouvez sélectionner cette variable de contexte pour appliquer le délai. Dans ce cas, votre étape Contexte aurait les champs suivants :
+Imaginons que vous souhaitez rappeler à vos clients d'acheter du dentifrice dans 30 jours. En utilisant une combinaison d'une étape de contexte et d'une étape de délai, vous pouvez sélectionner cette variable de contexte pour différer l'envoi. Dans ce cas, votre étape de contexte comporterait les champs suivants :
 
 - **Nom de la variable de contexte :** product_reminder_interval
-- **Type de données :** Time
+- **Type de donnée :** Time
 - **Valeur :** {% raw %}`{{custom_attribute.${Order_filled_time}}}`{% endraw %}
 
 ![La variable « product_reminder_interval » et sa valeur.]({% image_buster /assets/img/context_step1.png %})
 
-Ensuite, parce que vous souhaitez rappeler à vos clients dans 30 jours, vous sélectionnerez **Jusqu'à un jour précis** comme option de délai et sélectionnerez **Personnaliser le délai** pour utiliser les informations de votre étape Contexte. Cela signifie que vos utilisateurs sont retenus jusqu'à la variable de contexte sélectionnée.
+Ensuite, parce que vous souhaitez rappeler à vos clients dans 30 jours, vous sélectionnerez **Jusqu'à un jour précis** comme option de délai et **Personnaliser le délai** pour utiliser les informations de votre étape de contexte. Cela signifie que vos utilisateurs sont retenus jusqu'à la variable de contexte sélectionnée.
 
-## Analyse des délais {#delay-analytics}
+## Analyse du composant Délai {#delay-analytics}
 
-Les composants de délai disposent des indicateurs suivants dans la vue d'analyse d'un Canvas actif ou précédemment actif.
+Les composants Délai disposent des indicateurs suivants dans la vue d'analyse d'un Canvas actif ou précédemment actif.
 
 | Indicateur | Description |
 |---|---|
-| _Entrées_ | Reflète le nombre de fois où l'étape a été atteinte. Si votre Canvas autorise la rééligibilité et qu'un utilisateur entre deux fois dans une étape de délai, deux entrées sont enregistrées. |
-| _Passés à l'étape suivante_ | Reflète le nombre d'entrées ayant progressé vers l'étape suivante du Canvas. |
-| _Sortis du Canvas_ | Reflète le nombre d'entrées ayant quitté le Canvas sans passer à l'étape suivante. |
-| _Échec de la personnalisation_ | Reflète le nombre de fois où un message ou contenu personnalisé destiné à un utilisateur n'a pas pu être distribué pour les raisons suivantes :<br> {::nomarkdown}<ul><li>La valeur du délai est dans le passé</li><li>La valeur du délai est à plus de 2 ans dans le futur</li><li>La valeur <b>Après une durée</b> n'est pas un nombre</li><li>La valeur <b>Jusqu'à un jour spécifique</b> n'est pas une date ou une chaîne de caractères au format date</li></ul>{:/} <br>Consultez [Erreurs d'échec de personnalisation](#personaliztion-failed-errors) pour plus de détails. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Analyse des délais" }
+| _Entrées_ | Indique le nombre de fois où l'étape a été atteinte. Si votre Canvas autorise la rééligibilité et qu'un utilisateur entre deux fois dans une étape Délai, deux entrées sont enregistrées. |
+| _Passé à l'étape suivante_ | Indique le nombre d'entrées ayant progressé vers l'étape suivante du Canvas. |
+| _Sorti du Canvas_ | Indique le nombre d'entrées ayant quitté le Canvas sans passer à l'étape suivante. |
+| _Échec de personnalisation_ | Indique le nombre de fois où un message ou contenu personnalisé destiné à un utilisateur n'a pas pu être distribué pour les raisons suivantes :<br> {::nomarkdown}<ul><li>La valeur du délai est dans le passé</li><li>La valeur du délai est à plus de 2 ans dans le futur</li><li>La valeur <b>Après une durée</b> n'est pas un nombre</li><li>La valeur <b>Jusqu'à un jour spécifique</b> n'est pas une date ou une chaîne de caractères au format date</li></ul>{:/} <br>Consultez [Erreurs d'échec de personnalisation](#personaliztion-failed-errors) pour plus de détails. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Analyse du composant Délai" }
 
 Les séries temporelles de ces analyses sont disponibles dans la vue étendue du composant.
 
@@ -159,12 +157,12 @@ Les séries temporelles de ces analyses sont disponibles dans la vue étendue du
 
 ### Erreurs d'échec de personnalisation {#personalization-failed-errors}
 
-Si les utilisateurs ne déclenchent pas un délai personnalisé, il se peut que l'étape de contexte que vous avez configurée pour les qualifier pour l'étape de délai ne fonctionne pas comme prévu. Lorsqu'une [variable de contexte est invalide]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#troubleshooting), un utilisateur poursuit son parcours dans votre Canvas sans que son contexte soit défini par l'étape de contexte. Cela peut l'empêcher de se qualifier pour des étapes ultérieures de votre Canvas, telles que les délais personnalisés.
+Si les utilisateurs ne déclenchent pas un délai personnalisé, il se peut que l'étape de contexte que vous avez configurée pour les qualifier pour l'étape de délai ne fonctionne pas comme prévu. Lorsqu'une [variable de contexte est invalide]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#troubleshooting), l'utilisateur poursuit son parcours dans votre Canvas sans que son contexte soit défini par l'étape de contexte. Cela peut l'empêcher de se qualifier pour des étapes ultérieures de votre Canvas, telles que les délais personnalisés.
 
 ## Résolution des problèmes
 
 ### Utilisateurs dans une étape de délai lorsqu'un Canvas est arrêté {#users-in-a-delay-step-when-a-canvas-is-stopped}
 
-Lorsque vous [arrêtez un Canvas]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#stopping-canvases), les utilisateurs qui attendent déjà dans une étape de délai ne sont pas immédiatement retirés. Braze planifie toujours la fin du délai, mais **aucun message supplémentaire n'est envoyé** tant que le Canvas est arrêté.
+Lorsque vous [arrêtez un Canvas]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#stopping-canvases), les utilisateurs qui attendent déjà dans une étape de délai ne sont pas immédiatement retirés. Braze planifie toujours l'achèvement du délai, mais **aucun message supplémentaire n'est envoyé** tant que le Canvas est arrêté.
 
 Si vous réactivez le Canvas avant que le délai d'un utilisateur ne soit écoulé, celui-ci peut passer à l'étape suivante comme prévu. Si la fenêtre de délai est déjà passée pendant que le Canvas était arrêté, ces utilisateurs quittent le Canvas au lieu de recevoir l'étape suivante. Pour des exemples, consultez [Que se passe-t-il lorsque vous arrêtez un Canvas ?]({{site.baseurl}}/user_guide/messaging/canvas/faqs#what-happens-when-you-stop-a-canvas) et [Arrêter des Canvas]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#stopping-canvases).

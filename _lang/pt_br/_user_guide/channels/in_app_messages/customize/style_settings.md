@@ -13,7 +13,7 @@ page_order: 1
 
 ## Estilos no nível da mensagem {#message-level-styles}
 
-Você pode definir certos estilos para serem aplicados em todos os blocos relevantes da sua mensagem no app a partir da guia **Message Styles**. Por exemplo, você pode querer personalizar a fonte de todo o texto ou a cor de todos os links na sua mensagem.
+Você pode definir determinados estilos para serem aplicados em todos os blocos relevantes da sua mensagem no app a partir da guia **Message Styles**. Por exemplo, você pode querer personalizar a fonte de todo o texto ou a cor de todos os links na sua mensagem.
 
 Os estilos nesta seção são usados em toda a sua mensagem, exceto quando você os substitui para um bloco específico. Se a sua mensagem tiver [múltiplas páginas]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop#multi-page), você também pode substituir os estilos no nível da mensagem para páginas individuais, exceto o tipo de exibição e a largura máxima.
 
@@ -28,7 +28,7 @@ Para retornar à guia **Message Styles** a qualquer momento:
 
 Aceitamos os seguintes tipos de arquivo para fontes: `.ttf`, `.woff`, `.otf` e `.woff2`. Para saber mais, consulte [Arquivos de ativos]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#asset-files).
 
-Você pode adicionar múltiplas variações de uma família de fontes, pois algumas opções de estilo podem não estar disponíveis para fontes personalizadas. Atualmente, não oferecemos suporte à adição de fontes via URL.
+Você pode adicionar múltiplas variações de uma família de fontes, já que algumas opções de estilo podem não estar disponíveis para fontes personalizadas. Atualmente, não oferecemos suporte para adicionar fontes por URL.
 
 Para adicionar uma fonte personalizada:
 
@@ -42,23 +42,23 @@ A fonte no nível da mensagem será aplicada apenas à mensagem atual e a quaisq
 
 ## Componentes da mensagem {#message-components}
 
-![Um GIF mostrando a criação de uma mensagem no app promocional.]({% image_buster /assets/img_archive/dnd_iam_create.gif %})
+![Um GIF mostrando uma mensagem no app promocional sendo criada.]({% image_buster /assets/img_archive/dnd_iam_create.gif %})
 
-O editor de arrastar e soltar usa dois componentes principais para compor mensagens no app: **linhas** e **blocos**. Todos os blocos devem ser colocados em uma linha.
+O editor de arrastar e soltar utiliza dois componentes principais para compor mensagens no app: **linhas** e **blocos**. Todos os blocos devem ser colocados em uma linha.
 
-### Botão fechar (x) {#close-x-button}
+### Botão de fechar x {#close-x-button}
 
-Para mensagens no app do tipo Modal e Tela Cheia, você pode personalizar o botão de fechar exibido como <i class="fa-solid fa-xmark"></i> no topo da sua mensagem. As opções de personalização incluem posição do botão, tamanho, cor de preenchimento, cor de fundo, estilo da borda e raio da borda.
+Para mensagens no app Modal e Tela cheia, você pode personalizar o botão de fechar exibido como <i class="fa-solid fa-xmark"></i> no topo da sua mensagem. As opções de personalização incluem posição do botão, tamanho, cor de preenchimento, cor de fundo, estilo da borda e raio da borda.
 
-![Opções para personalizar o botão fechar (x) em mensagens no app, incluindo tamanho do botão, cor de preenchimento, cor de fundo, estilo da borda e raio da borda.]({% image_buster /assets/img_archive/close_x_button.png %}){: style="max-width:40%"}
+![Opções para personalizar o botão de fechar x em mensagens no app, incluindo tamanho do botão, cor de preenchimento, cor de fundo, estilo da borda e raio da borda.]({% image_buster /assets/img_archive/close_x_button.png %}){: style="max-width:40%"}
 
-### Estilização com span {#span-styling}
+### Estilo span {#span-styling}
 
-Adicionar estilização com span ao texto dentro de mensagens no app permite uma personalização aprimorada da aparência da mensagem, possibilitando o uso de diferentes cores de texto, fontes e tamanhos. A estilização com span oferece aos seus usuários uma experiência mais envolvente e visualmente atraente, chamando a atenção para informações importantes e melhorando a clareza geral da mensagem.
+Adicionar estilo span ao texto dentro de mensagens no app permite uma personalização aprimorada da aparência da mensagem, possibilitando o uso de diferentes cores de texto, fontes e tamanhos. O estilo span proporciona aos seus usuários uma experiência mais envolvente e visualmente atraente, destacando informações importantes e melhorando a clareza geral da mensagem.
 
 ![Opção exibida ao destacar texto em uma mensagem no app. Um pequeno ícone de pincel mostra que você pode envolver com span para estilizar.]({% image_buster /assets/img_archive/span_1.png %}){: style="max-width:40%"}
 
-![Painel lateral de "Propriedades do Span" que permite ao usuário final personalizar família da fonte, peso da fonte, tamanho da fonte, espaçamento entre letras e cor do texto.]({% image_buster /assets/img_archive/span_2.png %}){: style="max-width:40%"}
+![Painel lateral de "Propriedades de Span" que permite ao usuário final personalizar família da fonte, peso da fonte, tamanho da fonte, espaçamento entre letras e cor do texto.]({% image_buster /assets/img_archive/span_2.png %}){: style="max-width:40%"}
 
 ### Linhas {#rows}
 
@@ -66,43 +66,39 @@ Linhas são unidades estruturais que definem a composição horizontal de uma se
 
 ![Linhas que você pode adicionar na sua mensagem no app.]({% image_buster /assets/img_archive/dnd_iam_rows.png %}){: style="max-width:40%"}
 
-Quando uma linha é selecionada, você pode adicionar ou remover o número de colunas necessárias na seção **Personalização de colunas** para colocar diferentes elementos de conteúdo lado a lado.
+Quando uma linha é selecionada, você pode adicionar ou remover o número de colunas necessárias na seção **Personalização de coluna** para colocar diferentes elementos de conteúdo lado a lado.
 
 Você também pode deslizar para ajustar o tamanho das colunas existentes.
 
-![Ajustando colunas na seção "Personalização de colunas".]({% image_buster /assets/img_archive/dnd_iam_column_customization.gif %}){: style="max-width:40%"}
+![Ajustando colunas na seção "Personalização de coluna".]({% image_buster /assets/img_archive/dnd_iam_column_customization.gif %}){: style="max-width:40%"}
 
-Como prática recomendada, formate as propriedades de linha e coluna antes de formatar qualquer um dos blocos dentro das linhas. Existem muitos lugares onde você pode ajustar o espaçamento e o alinhamento, então começar pela base facilita a edição ao longo do processo.
+Como prática recomendada, formate as propriedades de linha e coluna antes de formatar qualquer bloco dentro das linhas. Existem muitos lugares onde você pode ajustar o espaçamento e o alinhamento, então começar pela base facilita a edição ao longo do processo.
 
 #### Imagem de fundo {#background-image}
 
-Você pode adicionar uma imagem de fundo a uma linha no painel **Propriedades da linha**. Ative a opção **Imagem de fundo** e forneça uma URL de imagem ou selecione uma imagem da [biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). Por fim, configure o texto alternativo, o tamanho, a posição e se a imagem se repete para criar padrões ao longo da linha.
+Você pode adicionar uma imagem de fundo a uma linha no painel **Propriedades da linha**. Ative a opção **Imagem de fundo** e forneça uma URL de imagem ou selecione uma imagem da [biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). Por fim, configure o texto alternativo, tamanho, posição e se a imagem se repete para criar padrões ao longo da linha.
 
-![Uma imagem de fundo de linha com uma pizza que tem um padrão de repetição horizontal.]({% image_buster /assets/img_archive/background_row.png %})
+![Uma imagem de fundo de linha com uma pizza que possui um padrão de repetição horizontal.]({% image_buster /assets/img_archive/background_row.png %})
 
 ### Blocos {#blocks}
 
-Blocos representam diferentes tipos de conteúdo que você pode usar na sua mensagem. Arraste um para dentro de um Segment de linha existente, e ele se ajustará automaticamente à largura da célula.
+Blocos representam diferentes tipos de conteúdo que você pode usar na sua mensagem. Arraste um para dentro de um segmento de linha existente, e ele se ajustará automaticamente à largura da célula.
 
 {% alert tip %}
-Antes de adicionar blocos, configure os [estilos no nível da mensagem](#set-message-level-styles) para o contêiner da mensagem, fonte, cores e qualquer outra coisa que você queira personalizar. Depois, você pode personalizar blocos individuais conforme necessário. O **Botão Fechar** permanecerá na seção superior da sua mensagem para que os usuários sempre tenham a opção de dispensar a mensagem.
+Antes de adicionar blocos, configure os [estilos em nível de mensagem](#set-message-level-styles) para o contêiner da mensagem, fonte, cores e tudo mais que você quiser personalizar. Depois, você pode personalizar blocos individuais conforme necessário. O **Botão de fechar** permanecerá na seção superior da sua mensagem para que os usuários sempre tenham a opção de dispensar a mensagem.
 {% endalert %}
 
-![Caixas de arrastar e soltar para selecionar.]({% image_buster /assets/img_archive/dnd_iam_editor_blocks.png %}){: style="max-width:40%"}
+![Caixas de arrastar e soltar para seleção.]({% image_buster /assets/img_archive/dnd_iam_editor_blocks.png %}){: style="max-width:40%"}
 
-Cada bloco tem suas próprias configurações, como controle granular de preenchimento (padding). O painel do lado direito alterna automaticamente para um painel de estilização do elemento de conteúdo selecionado. Para saber mais, consulte [Propriedades dos blocos do editor]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages#inappmessages_properties).
+Cada bloco tem suas próprias configurações, como controle granular de preenchimento. O painel do lado direito alterna automaticamente para um painel de estilização para o elemento de conteúdo selecionado. Para saber mais, consulte [Propriedades dos blocos do editor]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages#inappmessages_properties).
 
-Ao criar sua mensagem no app, você pode selecionar uma visualização para celular, tablet ou desktop na barra de ferramentas para pré-visualizar como sua mensagem no app aparece para seus grupos de usuários. Isso garante que seu conteúdo seja responsivo, e você pode fazer os ajustes necessários ao longo do caminho.
-
-{% multi_lang_include drag_and_drop/hide_rows_and_blocks_by_device.md channel='in_app_message' %}
-
-{% multi_lang_include drag_and_drop/hide_rows_and_blocks_by_device.md channel='in_app_message' %}
+Ao criar sua mensagem no app, você pode selecionar a visualização para celular, tablet ou desktop na barra de ferramentas para pré-visualizar como sua mensagem no app aparece para seus grupos de usuários. Isso garante que seu conteúdo seja responsivo, e você pode fazer os ajustes necessários ao longo do processo.
 
 ## Detalhes criativos {#creative-details}
 
 ### Tela cheia em telas maiores {#fullscreen}
 
-Em um tablet ou navegador de desktop, uma mensagem no app em tela cheia ficará centralizada na tela do app. Quaisquer edições na largura máxima da mensagem em tela cheia serão aplicadas apenas a dispositivos tablet e desktop.
+Em um tablet ou navegador de desktop, uma mensagem no app em tela cheia ficará centralizada na tela do app. Qualquer edição na largura máxima da mensagem em tela cheia será aplicada apenas a dispositivos tablet e desktop.
 
 ![Exemplo de mensagem no app em tela cheia.]({% image_buster /assets/img_archive/dnd_iam_fullscreen_example.png %}){: style="border:none"}
 
@@ -115,12 +111,12 @@ Você pode adicionar uma imagem ao fundo da sua mensagem na guia **Estilos da me
 3. Adicione uma imagem da sua biblioteca de mídia ou insira a URL onde sua imagem está hospedada.
 
 {% alert tip %}
-Se estiver com dificuldade para selecionar um bloco específico, você pode usar a seta para cima na barra de ferramentas inline do bloco para mover o foco para cada bloco pai.
+Se você estiver com dificuldade para selecionar um bloco específico, use a seta para cima na barra de ferramentas inline do bloco para mover o foco para cada bloco pai.
 {% endalert %}
 
 #### Trocar imagens de fundo com Liquid {#swap-background-images-with-liquid}
 
-Para trocar dinamicamente imagens de fundo com base em dados do usuário (como atributos personalizados ou propriedades do usuário), use blocos Liquid {% raw %}`{% capture %}`{% endraw %} para atribuir a URL de imagem correta a uma variável antes que o HTML e o CSS sejam carregados.
+Para trocar dinamicamente imagens de fundo com base nos dados do usuário (como atributos personalizados ou propriedades do usuário), use blocos Liquid {% raw %}`{% capture %}`{% endraw %} para atribuir a URL de imagem correta a uma variável antes do carregamento do HTML e CSS.
 
 Coloque sua lógica Liquid no início da mensagem e, em seguida, referencie a variável capturada no campo de URL da imagem de fundo. Isso seleciona a imagem correta com base nos dados de cada usuário.
 
@@ -145,37 +141,37 @@ https://example.com/images/default-background.png
 
 ### Adicionar Liquid {#add-liquid}
 
-![Ícone para adicionar personalização com Liquid.]({% image_buster /assets/img_archive/dnd_iam_liquid.png %}){: style="float:right;max-width:25%;margin-left:15px"}
+![Ícone para adicionar personalização Liquid.]({% image_buster /assets/img_archive/dnd_iam_liquid.png %}){: style="float:right;max-width:25%;margin-left:15px"}
 
 Para adicionar [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) à sua mensagem no app, selecione <i class="fa-solid fa-circle-plus"></i> **Adicionar personalização** na barra de ferramentas do editor. Aqui, você pode adicionar vários tipos de personalização, como atributos padrão, atributos de dispositivo, atributos personalizados e muito mais.
 
 Em seguida, pegue o snippet Liquid gerado e insira-o na sua mensagem. Após projetar e criar sua mensagem no app, acesse **Prévia e teste** para visualizar sua mensagem.
 
-### Usar o Assistente de Copywriting com IA {#use-the-ai-copywriter}
+### Usar o assistente de IA para redação {#use-the-ai-copywriter}
 
-Quando um bloco de texto estiver selecionado na sua mensagem no app, selecione <i class="fa-solid fa-wand-magic-sparkles" title="Assistente de Copywriting com IA"></i> **Assistente de Copywriting com IA** na barra de ferramentas do bloco para abrir o [assistente de copywriting com tecnologia de IA]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). O Assistente de Copywriting com IA envia um breve nome ou descrição do produto para a ferramenta de geração de texto GPT3 da OpenAI para gerar textos de marketing semelhantes aos escritos por humanos para o seu envio de mensagens.
+Quando um bloco de texto estiver selecionado na sua mensagem no app, selecione <i class="fa-solid fa-wand-magic-sparkles" title="Assistente de IA para redação"></i> **Assistente de IA para redação** na barra de ferramentas do bloco para iniciar o [assistente de redação com tecnologia de IA]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). O assistente de IA para redação envia um breve nome ou descrição do produto para a ferramenta de geração de texto GPT3 da OpenAI para gerar textos de marketing semelhantes aos escritos por humanos para o seu envio de mensagens.
 
 {% alert tip %}
 Você pode economizar alguns cliques destacando o texto dentro do bloco antes de clicar no ícone. O texto destacado será adicionado à ferramenta e o texto será gerado imediatamente.
 {% endalert %}
 
-![GIF do Assistente de Copywriting com IA.]({% image_buster /assets/img_archive/dnd_iam_ai_copywriter.gif %})
+![GIF do assistente de IA para redação.]({% image_buster /assets/img_archive/dnd_iam_ai_copywriter.gif %})
 
 ### Redefinir estilos para o padrão {#reset-styles-to-default}
 
-As propriedades que você alterou em relação ao estilo padrão são marcadas com um ponto laranja. Para redefinir uma propriedade específica para seu estilo padrão, passe o cursor sobre o campo e selecione **Redefinir para o padrão**.
+As propriedades que foram alteradas em relação ao estilo padrão são marcadas com um ponto laranja. Para redefinir uma propriedade específica para seu estilo padrão, passe o mouse sobre o campo e selecione **Redefinir para o padrão**.
 
 ![Ponto laranja que redefine o tamanho do texto para seu tamanho padrão.]({% image_buster /assets/img_archive/dnd_iam_reset_styles.gif %}){: style="max-width:45%"}
 
-Você também pode redefinir todos os estilos de um elemento selecionado clicando em <i class="fas fa-paintbrush" title="Botão de copiar ou colar estilos"></i> ao lado do nome do painel de propriedades e selecionando **Redefinir para estilos padrão**.
+Você também pode redefinir todos os estilos de um elemento selecionado clicando em <i class="fas fa-paintbrush" title="Botão copiar ou colar estilos"></i> ao lado do nome do painel de propriedades e selecionando **Redefinir para estilos padrão**.
 
 ### Copiar e colar estilos {#copy-and-paste-styles}
 
 Após fazer alterações no estilo de um elemento, você pode copiar e colar esses estilos em outro elemento. Ao colar estilos, apenas as propriedades relevantes para aquele elemento são aplicadas.
 
-![Menu suspenso com opção de copiar estilos.]({% image_buster /assets/img_archive/dnd_iam_copypaste_styles.png %}){: style="float:right;margin-left:15px;max-width:35%"}
+![Menu suspenso com opção para copiar estilos.]({% image_buster /assets/img_archive/dnd_iam_copypaste_styles.png %}){: style="float:right;margin-left:15px;max-width:35%"}
 
-1. Com o elemento selecionado, selecione <i class="fas fa-paintbrush" title="Copiar ou colar estilos"></i> **Copiar ou colar estilos** ao lado do nome do painel de propriedades (por exemplo, se você tiver um botão selecionado, ao lado de "Propriedades do botão").
+1. Com o elemento selecionado, clique em <i class="fas fa-paintbrush" title="Copiar ou colar estilos"></i> **Copiar ou colar estilos** ao lado do nome do painel de propriedades (por exemplo, se você tiver um botão selecionado, ao lado de "Propriedades do botão").
 2. Clique em **Copiar estilos** e selecione o elemento onde deseja aplicar o estilo copiado.
 3. Selecione <i class="fas fa-paintbrush" title="Copiar ou colar estilos"></i> **Copiar ou colar estilos** novamente e escolha **Colar estilos**.
 
@@ -183,8 +179,8 @@ Após fazer alterações no estilo de um elemento, você pode copiar e colar ess
 
 Você também pode usar atalhos de teclado para copiar e colar estilos:
 
-| Ação           | Mac                                            | Windows                                           |
-| -------------- | ---------------------------------------------- | ------------------------------------------------- |
-| Copiar estilos | <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd> | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd> |
-| Colar estilos  | <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>v</kbd> | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>v</kbd> |
+| Ação          | Mac                                            | Windows                                           |
+| ------------- | ---------------------------------------------- | ------------------------------------------------- |
+| Copiar estilos  | <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd> | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd> |
+| Colar estilos | <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>v</kbd> | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>v</kbd> |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Atalhos de teclado" }
