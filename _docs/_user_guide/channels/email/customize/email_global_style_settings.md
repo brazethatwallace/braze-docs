@@ -32,6 +32,10 @@ For **Basic Styling**, you can set your default email and content background col
 
 With custom fonts, you can manually add a web font for branding consistency across various email platforms. You can add one custom font for each styling section.
 
+{% alert note %}
+Any font-weight settings in the CSS are ignored. Instead, select one of the preset weights when composing the message.
+{% endalert %}
+
 ### Requirements
 
 Before adding a custom font, check that the custom font file meets the following requirements:
@@ -41,7 +45,9 @@ Before adding a custom font, check that the custom font file meets the following
 - The file URL must point to a CSS file (not WOFF or OTF).
 - The custom font name must match the name of the font face in the CSS file.
 
-Note that the custom font provider may collect personal data from your recipients. You should review your font provider's policies prior to use.
+{% alert important %}
+The custom font provider may collect personal data from your recipients. You should review your font provider's policies prior to use.
+{% endalert %}
 
 ### Adding a custom font
 
