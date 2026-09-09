@@ -10694,6 +10694,14 @@ validurls['/docs/pt-br/user_guide/data/{{site.baseurl}}/user_guide/audience/mana
 validurls['/docs/pt-br/user_guide/messaging/design_and_edit/personalize/liquid/{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters'] = '/docs/pt-br/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters';
 validurls['/docs/pt-br/user_guide/messaging/design_and_edit/personalize/liquid/{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values'] = '/docs/pt-br/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values';
 
+// GSC 2026-09-09: double-locale and Decisioning Studio redirects
+validurls['/docs/es/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources'] = '/docs/es/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup';
+validurls['/docs/fr/fr/braze_support'] = '/docs/fr/braze_support';
+validurls['/docs/fr/fr/user_guide/administrative/access_braze/sdk_endpoints'] = '/docs/fr/user_guide/administer/personal/sdk_endpoints';
+validurls['/docs/ja/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration'] = '/docs/ja/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup';
+validurls['/docs/pt-br/pt-br/developer_guide/platform_integration_guides/ios/advanced_use_cases/linking'] = '/docs/pt-br/developer_guide/platforms/legacy_sdks/ios/advanced_use_cases/linking';
+validurls['/docs/pt-br/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration'] = '/docs/pt-br/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup';
+
 // GSC 2026-09-09: legacy IA locale mirrors
 validurls['/docs/de/user_guide/analytics/query_builder/query_templates'] = '/docs/de/user_guide/analytics/reports/query_builder/query_templates';
 validurls['/docs/de/user_guide/data/data_transformation/creating_a_transformation'] = '/docs/de/user_guide/data/unification/data_transformation/creating_a_transformation';

@@ -23400,6 +23400,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/es/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources",
+    "destination": "/docs/es/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup",
+    "permanent": true
+  },
+  {
     "source": "/docs/es/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration",
     "destination": "/docs/es/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup",
     "permanent": true
@@ -25855,6 +25860,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/fr/fr/braze_support",
+    "destination": "/docs/fr/braze_support",
+    "permanent": true
+  },
+  {
     "source": "/docs/fr/fr/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/implementation_guide/shareplay",
     "destination": "/docs/fr/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/implementation_guide/shareplay",
     "permanent": true
@@ -25867,6 +25877,11 @@
   {
     "source": "/docs/fr/fr/developer_guide/sdk_integration",
     "destination": "/docs/fr/developer_guide/sdk_integration?sdktab=swift",
+    "permanent": true
+  },
+  {
+    "source": "/docs/fr/fr/user_guide/administrative/access_braze/sdk_endpoints",
+    "destination": "/docs/fr/user_guide/administer/personal/sdk_endpoints",
     "permanent": true
   },
   {
@@ -30316,6 +30331,11 @@
   },
   {
     "source": "/docs/ja/user_guide/brazeai/decisioning_studio/decisioning_studio_go/launch_your_agent",
+    "destination": "/docs/ja/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ja/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration",
     "destination": "/docs/ja/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup",
     "permanent": true
   },
@@ -37825,6 +37845,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/pt-br/pt-br/developer_guide/platform_integration_guides/ios/advanced_use_cases/linking",
+    "destination": "/docs/pt-br/developer_guide/platforms/legacy_sdks/ios/advanced_use_cases/linking",
+    "permanent": true
+  },
+  {
     "source": "/docs/pt-br/pt-br/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/action_buttons",
     "destination": "/docs/pt-br/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/action_buttons",
     "permanent": true
@@ -38121,6 +38146,11 @@
   },
   {
     "source": "/docs/pt-br/user_guide/brazeai/decisioning_studio/decisioning_studio_go/launch_your_agent",
+    "destination": "/docs/pt-br/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup",
+    "permanent": true
+  },
+  {
+    "source": "/docs/pt-br/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration",
     "destination": "/docs/pt-br/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup",
     "permanent": true
   },
