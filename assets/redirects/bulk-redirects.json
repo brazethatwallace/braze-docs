@@ -4835,6 +4835,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/de/partners/additional_channels/support/pypestream",
+    "destination": "/docs/de/partners/additional_channels_and_extensions/additional_channels/instant_chat/pypestream",
+    "permanent": true
+  },
+  {
     "source": "/docs/de/partners/canvas_steps/facebook_audience_sync",
     "destination": "/docs/de/partners/canvas_audience_sync/facebook_audience_sync",
     "permanent": true
@@ -6817,6 +6822,11 @@
   {
     "source": "/docs/de/user_guide/data/data_transformation/creating_a_transformation",
     "destination": "/docs/de/user_guide/data/unification/data_transformation/creating_a_transformation",
+    "permanent": true
+  },
+  {
+    "source": "/docs/de/user_guide/data/unification/cloud_ingestion/sync_accounts_data",
+    "destination": "/docs/de/user_guide/data/unification/cloud_ingestion",
     "permanent": true
   },
   {
@@ -17390,6 +17400,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/es/compliance_documentation/index.md",
+    "destination": "/docs/es/compliance_documentation",
+    "permanent": true
+  },
+  {
     "source": "/docs/es/contributing/home",
     "destination": "/docs",
     "permanent": true
@@ -21405,6 +21420,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/es/partners/additional_channels/support/pypestream",
+    "destination": "/docs/es/partners/additional_channels_and_extensions/additional_channels/instant_chat/pypestream",
+    "permanent": true
+  },
+  {
     "source": "/docs/es/partners/canvas_steps",
     "destination": "/docs/es/partners/canvas_audience_sync",
     "permanent": true
@@ -22401,6 +22421,11 @@
   },
   {
     "source": "/docs/es/partners/message_orchestration/channel_extensions/ecommerce/shopify/scripttag_web_sdk_integration",
+    "destination": "/docs/es/partners/ecommerce/shopify/shopify_overview",
+    "permanent": true
+  },
+  {
+    "source": "/docs/es/partners/message_orchestration/channel_extensions/ecommerce/shopify/setting_up_shopify",
     "destination": "/docs/es/partners/ecommerce/shopify/shopify_overview",
     "permanent": true
   },
@@ -25920,6 +25945,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/fr/partners/additional_channels/support/pypestream",
+    "destination": "/docs/fr/partners/additional_channels_and_extensions/additional_channels/instant_chat/pypestream",
+    "permanent": true
+  },
+  {
     "source": "/docs/fr/partners/canvas_steps",
     "destination": "/docs/fr/partners/canvas_audience_sync",
     "permanent": true
@@ -25935,8 +25965,23 @@
     "permanent": true
   },
   {
+    "source": "/docs/fr/partners/data_and_infrastructure_agility/analytics/amplitude",
+    "destination": "/docs/fr/partners/data_and_analytics/customer_data_platform/amplitude",
+    "permanent": true
+  },
+  {
     "source": "/docs/fr/partners/data_and_infrastructure_agility/analytics/amplitude/amplitude_for_currents",
     "destination": "/docs/fr/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_for_currents",
+    "permanent": true
+  },
+  {
+    "source": "/docs/fr/partners/data_and_infrastructure_agility/analytics/contentsquare",
+    "destination": "/docs/fr/partners/data_and_analytics/analytics/contentsquare",
+    "permanent": true
+  },
+  {
+    "source": "/docs/fr/partners/data_and_infrastructure_agility/analytics/looker",
+    "destination": "/docs/fr/partners/data_and_analytics/business_intelligence/looker",
     "permanent": true
   },
   {
@@ -26112,6 +26157,11 @@
   {
     "source": "/docs/fr/partners/message_orchestration/channel_extensions/loyalty/talonone",
     "destination": "/docs/fr/partners/data_and_analytics/loyalty/talonone",
+    "permanent": true
+  },
+  {
+    "source": "/docs/fr/partners/message_orchestration/channel_extensions/loyalty/viralsweep",
+    "destination": "/docs/fr/partners/data_and_analytics/leads_capture/viralsweep",
     "permanent": true
   },
   {
@@ -26336,6 +26386,11 @@
   },
   {
     "source": "/docs/fr/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent",
+    "destination": "/docs/fr/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup",
+    "permanent": true
+  },
+  {
+    "source": "/docs/fr/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent/index.md",
     "destination": "/docs/fr/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup",
     "permanent": true
   },
@@ -29850,6 +29905,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/ja/partners/additional_channels/support/pypestream",
+    "destination": "/docs/ja/partners/additional_channels_and_extensions/additional_channels/instant_chat/pypestream",
+    "permanent": true
+  },
+  {
     "source": "/docs/ja/partners/data_and_analytics/customer_data_platform/simondata",
     "destination": "/docs/ja/partners/data_and_analytics/customer_data_platform/simonai",
     "permanent": true
@@ -29860,8 +29920,23 @@
     "permanent": true
   },
   {
+    "source": "/docs/ja/partners/data_and_infrastructure_agility/analytics/amplitude",
+    "destination": "/docs/ja/partners/data_and_analytics/customer_data_platform/amplitude",
+    "permanent": true
+  },
+  {
     "source": "/docs/ja/partners/data_and_infrastructure_agility/analytics/amplitude/amplitude_for_currents",
     "destination": "/docs/ja/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_for_currents",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ja/partners/data_and_infrastructure_agility/analytics/contentsquare",
+    "destination": "/docs/ja/partners/data_and_analytics/analytics/contentsquare",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ja/partners/data_and_infrastructure_agility/analytics/looker",
+    "destination": "/docs/ja/partners/data_and_analytics/business_intelligence/looker",
     "permanent": true
   },
   {
@@ -30027,6 +30102,11 @@
   {
     "source": "/docs/ja/partners/message_orchestration/channel_extensions/loyalty/talonone",
     "destination": "/docs/ja/partners/data_and_analytics/loyalty/talonone",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ja/partners/message_orchestration/channel_extensions/loyalty/viralsweep",
+    "destination": "/docs/ja/partners/data_and_analytics/leads_capture/viralsweep",
     "permanent": true
   },
   {
@@ -30482,6 +30562,11 @@
   {
     "source": "/docs/ja/user_guide/data/distribution/export_braze_data/opening_csv_reports_in_excel",
     "destination": "/docs/ja/user_guide/data/distribution/export_braze_data/faqs#how-do-i-open-csv-reports-in-excel",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ja/user_guide/data/unification/cloud_ingestion/sync_accounts_data",
+    "destination": "/docs/ja/user_guide/data/unification/cloud_ingestion",
     "permanent": true
   },
   {
@@ -32605,13 +32690,33 @@
     "permanent": true
   },
   {
+    "source": "/docs/ko/partners/additional_channels/support/pypestream",
+    "destination": "/docs/ko/partners/additional_channels_and_extensions/additional_channels/instant_chat/pypestream",
+    "permanent": true
+  },
+  {
     "source": "/docs/ko/partners/data_and_analytics/data_warehouses/databricks",
     "destination": "/docs/ko/databricks",
     "permanent": true
   },
   {
+    "source": "/docs/ko/partners/data_and_infrastructure_agility/analytics/amplitude",
+    "destination": "/docs/ko/partners/data_and_analytics/customer_data_platform/amplitude",
+    "permanent": true
+  },
+  {
     "source": "/docs/ko/partners/data_and_infrastructure_agility/analytics/amplitude/amplitude_for_currents",
     "destination": "/docs/ko/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_for_currents",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ko/partners/data_and_infrastructure_agility/analytics/contentsquare",
+    "destination": "/docs/ko/partners/data_and_analytics/analytics/contentsquare",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ko/partners/data_and_infrastructure_agility/analytics/looker",
+    "destination": "/docs/ko/partners/data_and_analytics/business_intelligence/looker",
     "permanent": true
   },
   {
@@ -32790,6 +32895,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/ko/partners/message_orchestration/channel_extensions/loyalty/viralsweep",
+    "destination": "/docs/ko/partners/data_and_analytics/leads_capture/viralsweep",
+    "permanent": true
+  },
+  {
     "source": "/docs/ko/partners/message_orchestration/channel_extensions/loyalty/voucherify",
     "destination": "/docs/ko/partners/ecommerce/loyalty/voucherify",
     "permanent": true
@@ -32817,6 +32927,11 @@
   {
     "source": "/docs/ko/rate_limiting_v3",
     "destination": "/docs/ko/user_guide/messaging/messaging_fundamentals/frequency_capping",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ko/releases/sdk_changelogs",
+    "destination": "/docs/ko/developer_guide/changelogs",
     "permanent": true
   },
   {
@@ -36245,6 +36360,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/partners/message_orchestration/ab_testing/offerfit",
+    "destination": "/docs/user_guide/brazeai/decisioning_studio",
+    "permanent": true
+  },
+  {
     "source": "/docs/partners/message_orchestration/additional_channels",
     "destination": "/docs/partners/additional_channels_and_extensions",
     "permanent": true
@@ -37300,6 +37420,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/pt-br/developer_guide/analytics/sdk-tracking.iad-01.braze.com",
+    "destination": "/docs/pt-br/developer_guide/analytics",
+    "permanent": true
+  },
+  {
     "source": "/docs/pt-br/developer_guide/authentication",
     "destination": "/docs/pt-br/developer_guide/sdk_integration/authentication",
     "permanent": true
@@ -37630,8 +37755,18 @@
     "permanent": true
   },
   {
+    "source": "/docs/pt-br/partners/additional_channels/support/pypestream",
+    "destination": "/docs/pt-br/partners/additional_channels_and_extensions/additional_channels/instant_chat/pypestream",
+    "permanent": true
+  },
+  {
     "source": "/docs/pt-br/partners/canvas_steps",
     "destination": "/docs/pt-br/partners/canvas_audience_sync",
+    "permanent": true
+  },
+  {
+    "source": "/docs/pt-br/partners/data_and_analytics/analytics/amplitude",
+    "destination": "/docs/pt-br/partners/data_and_analytics/customer_data_platform/amplitude",
     "permanent": true
   },
   {
@@ -37640,8 +37775,23 @@
     "permanent": true
   },
   {
+    "source": "/docs/pt-br/partners/data_and_infrastructure_agility/analytics/amplitude",
+    "destination": "/docs/pt-br/partners/data_and_analytics/customer_data_platform/amplitude",
+    "permanent": true
+  },
+  {
     "source": "/docs/pt-br/partners/data_and_infrastructure_agility/analytics/amplitude/amplitude_for_currents",
     "destination": "/docs/pt-br/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_for_currents",
+    "permanent": true
+  },
+  {
+    "source": "/docs/pt-br/partners/data_and_infrastructure_agility/analytics/contentsquare",
+    "destination": "/docs/pt-br/partners/data_and_analytics/analytics/contentsquare",
+    "permanent": true
+  },
+  {
+    "source": "/docs/pt-br/partners/data_and_infrastructure_agility/analytics/looker",
+    "destination": "/docs/pt-br/partners/data_and_analytics/business_intelligence/looker",
     "permanent": true
   },
   {
@@ -37707,6 +37857,11 @@
   {
     "source": "/docs/pt-br/partners/ecommerce/loyalty/voucherify/voucherify_fetching_data_through_braze_connected_content",
     "destination": "/docs/pt-br/partners/ecommerce/loyalty/voucherify",
+    "permanent": true
+  },
+  {
+    "source": "/docs/pt-br/partners/ecommerce/product_search_recommendations/stylitics",
+    "destination": "/docs/pt-br/partners/message_personalization/dynamic_content/visual_and_interactive_content/stylitics",
     "permanent": true
   },
   {
@@ -37817,6 +37972,11 @@
   {
     "source": "/docs/pt-br/partners/message_orchestration/channel_extensions/loyalty/talonone",
     "destination": "/docs/pt-br/partners/data_and_analytics/loyalty/talonone",
+    "permanent": true
+  },
+  {
+    "source": "/docs/pt-br/partners/message_orchestration/channel_extensions/loyalty/viralsweep",
+    "destination": "/docs/pt-br/partners/data_and_analytics/leads_capture/viralsweep",
     "permanent": true
   },
   {

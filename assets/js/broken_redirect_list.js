@@ -10702,6 +10702,40 @@ validurls['/docs/ja/user_guide/brazeai/decisioning_studio/decisioning_studio_go/
 validurls['/docs/pt-br/pt-br/developer_guide/platform_integration_guides/ios/advanced_use_cases/linking'] = '/docs/pt-br/developer_guide/platforms/legacy_sdks/ios/advanced_use_cases/linking';
 validurls['/docs/pt-br/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration'] = '/docs/pt-br/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup';
 
+// GSC 2026-09-09: translation gaps, malformed URLs, and locale stragglers
+validurls['/docs/de/partners/additional_channels/support/pypestream'] = '/docs/de/partners/additional_channels_and_extensions/additional_channels/instant_chat/pypestream';
+validurls['/docs/de/user_guide/data/unification/cloud_ingestion/sync_accounts_data'] = '/docs/de/user_guide/data/unification/cloud_ingestion';
+validurls['/docs/es/compliance_documentation/index.md'] = '/docs/es/compliance_documentation';
+validurls['/docs/es/partners/additional_channels/support/pypestream'] = '/docs/es/partners/additional_channels_and_extensions/additional_channels/instant_chat/pypestream';
+validurls['/docs/es/partners/message_orchestration/channel_extensions/ecommerce/shopify/setting_up_shopify'] = '/docs/es/partners/ecommerce/shopify/shopify_overview';
+validurls['/docs/fr/partners/additional_channels/support/pypestream'] = '/docs/fr/partners/additional_channels_and_extensions/additional_channels/instant_chat/pypestream';
+validurls['/docs/fr/partners/data_and_infrastructure_agility/analytics/amplitude'] = '/docs/fr/partners/data_and_analytics/customer_data_platform/amplitude';
+validurls['/docs/fr/partners/data_and_infrastructure_agility/analytics/contentsquare'] = '/docs/fr/partners/data_and_analytics/analytics/contentsquare';
+validurls['/docs/fr/partners/data_and_infrastructure_agility/analytics/looker'] = '/docs/fr/partners/data_and_analytics/business_intelligence/looker';
+validurls['/docs/fr/partners/message_orchestration/channel_extensions/loyalty/viralsweep'] = '/docs/fr/partners/data_and_analytics/leads_capture/viralsweep';
+validurls['/docs/fr/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent/index.md'] = '/docs/fr/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup';
+validurls['/docs/ja/partners/additional_channels/support/pypestream'] = '/docs/ja/partners/additional_channels_and_extensions/additional_channels/instant_chat/pypestream';
+validurls['/docs/ja/partners/data_and_infrastructure_agility/analytics/amplitude'] = '/docs/ja/partners/data_and_analytics/customer_data_platform/amplitude';
+validurls['/docs/ja/partners/data_and_infrastructure_agility/analytics/contentsquare'] = '/docs/ja/partners/data_and_analytics/analytics/contentsquare';
+validurls['/docs/ja/partners/data_and_infrastructure_agility/analytics/looker'] = '/docs/ja/partners/data_and_analytics/business_intelligence/looker';
+validurls['/docs/ja/partners/message_orchestration/channel_extensions/loyalty/viralsweep'] = '/docs/ja/partners/data_and_analytics/leads_capture/viralsweep';
+validurls['/docs/ja/user_guide/data/unification/cloud_ingestion/sync_accounts_data'] = '/docs/ja/user_guide/data/unification/cloud_ingestion';
+validurls['/docs/ko/partners/additional_channels/support/pypestream'] = '/docs/ko/partners/additional_channels_and_extensions/additional_channels/instant_chat/pypestream';
+validurls['/docs/ko/partners/data_and_infrastructure_agility/analytics/amplitude'] = '/docs/ko/partners/data_and_analytics/customer_data_platform/amplitude';
+validurls['/docs/ko/partners/data_and_infrastructure_agility/analytics/contentsquare'] = '/docs/ko/partners/data_and_analytics/analytics/contentsquare';
+validurls['/docs/ko/partners/data_and_infrastructure_agility/analytics/looker'] = '/docs/ko/partners/data_and_analytics/business_intelligence/looker';
+validurls['/docs/ko/partners/message_orchestration/channel_extensions/loyalty/viralsweep'] = '/docs/ko/partners/data_and_analytics/leads_capture/viralsweep';
+validurls['/docs/ko/releases/sdk_changelogs'] = '/docs/ko/developer_guide/changelogs';
+validurls['/docs/partners/message_orchestration/ab_testing/offerfit'] = '/docs/user_guide/brazeai/decisioning_studio';
+validurls['/docs/pt-br/developer_guide/analytics/sdk-tracking.iad-01.braze.com'] = '/docs/pt-br/developer_guide/analytics';
+validurls['/docs/pt-br/partners/additional_channels/support/pypestream'] = '/docs/pt-br/partners/additional_channels_and_extensions/additional_channels/instant_chat/pypestream';
+validurls['/docs/pt-br/partners/data_and_analytics/analytics/amplitude'] = '/docs/pt-br/partners/data_and_analytics/customer_data_platform/amplitude';
+validurls['/docs/pt-br/partners/data_and_infrastructure_agility/analytics/amplitude'] = '/docs/pt-br/partners/data_and_analytics/customer_data_platform/amplitude';
+validurls['/docs/pt-br/partners/data_and_infrastructure_agility/analytics/contentsquare'] = '/docs/pt-br/partners/data_and_analytics/analytics/contentsquare';
+validurls['/docs/pt-br/partners/data_and_infrastructure_agility/analytics/looker'] = '/docs/pt-br/partners/data_and_analytics/business_intelligence/looker';
+validurls['/docs/pt-br/partners/ecommerce/product_search_recommendations/stylitics'] = '/docs/pt-br/partners/message_personalization/dynamic_content/visual_and_interactive_content/stylitics';
+validurls['/docs/pt-br/partners/message_orchestration/channel_extensions/loyalty/viralsweep'] = '/docs/pt-br/partners/data_and_analytics/leads_capture/viralsweep';
+
 // GSC 2026-09-09: legacy IA locale mirrors
 validurls['/docs/de/user_guide/analytics/query_builder/query_templates'] = '/docs/de/user_guide/analytics/reports/query_builder/query_templates';
 validurls['/docs/de/user_guide/data/data_transformation/creating_a_transformation'] = '/docs/de/user_guide/data/unification/data_transformation/creating_a_transformation';
