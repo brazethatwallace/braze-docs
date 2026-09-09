@@ -11,6 +11,9 @@ on:
       - "assets/js/broken_redirect_list.js"
       - "assets/redirects/bulk-redirects.json"
       - "scripts/generate_bulk_redirects.py"
+      - "scripts/locale_redirect_utils.py"
+      - "scripts/validate_locale_mirror_redirects.py"
+      - "scripts/generate_gsc_redirect_batch.py"
       - "vercel.json"
       - "scripts/validate_doc_redirects.rb"
       - "scripts/jekyll_url_map_dump.rb"
@@ -100,3 +103,23 @@ jobs:
 
       - name: "Verify bulk redirects export"
         run: python3 scripts/generate_bulk_redirects.py --check
+
+  locale-mirror-redirects:
+    name: "Locale mirror redirects for new EN entries"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout PR head"
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
+        with:
+          fetch-depth: 0
+
+      - name: "Fetch base branch"
+        run: git fetch --no-tags origin "${{ github.base_ref }}"
+
+      - name: "Set up Python"
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: "Verify locale mirrors for added EN redirects"
+        run: python3 scripts/validate_locale_mirror_redirects.py --check-added --base "origin/${{ github.base_ref }}"
