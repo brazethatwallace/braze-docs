@@ -15,11 +15,11 @@ description: "Navegue pelos parceiros de tecnologia Braze Alloys e pela document
 
 ### Como encontro uma integração com parceiros de tecnologia da Braze? {#how-do-i-find-a-braze-technology-partner-integration}
 
-Navegue pela lista alfabética nesta página ou vá até uma letra específica para localizar um parceiro pelo nome. Cada entrada possui um link para o artigo de integração desse parceiro com a Braze.
+Navegue pela lista alfabética nesta página ou vá direto a uma letra para localizar um parceiro pelo nome. Cada entrada contém um link para o artigo de integração desse parceiro com a Braze.
 
 ### O que é o Braze Alloys? {#what-is-braze-alloys}
 
-Braze Alloys é o programa de parceiros de tecnologia da Braze. Os parceiros ampliam a plataforma Braze com recursos complementares de dados, conteúdo, atribuição e orquestração documentados neste hub.
+Braze Alloys é o programa de parceiros de tecnologia da Braze. Os parceiros estendem a plataforma da Braze com recursos complementares de dados, conteúdo, atribuição e orquestração documentados neste hub.
 
 <div class="partners-az-list" markdown="1">
 
@@ -140,11 +140,13 @@ Braze Alloys é o programa de parceiros de tecnologia da Braze. Os parceiros amp
 
 ## G
 
+- [Globalization Partners International]({{site.baseurl}}/partners/message_personalization/localization/gpi)
 - [Google Audience Sync]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync)
 - [Google Cloud Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/google_cloud_storage_for_currents)
 - [Google Gemini]({{site.baseurl}}/partners/ai_model_providers/google_gemini)
 - [GRAVTY®]({{site.baseurl}}/partners/data_and_analytics/loyalty/lji)
 - [GrowthLoop]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/growthloop)
+- [GrowSurf]({{site.baseurl}}/partners/message_personalization/referrals/growsurf)
 
 </div>
 
@@ -408,14 +410,14 @@ Braze Alloys é o programa de parceiros de tecnologia da Braze. Os parceiros amp
 <br>
 Para uma lista completa, pesquisável e filtrável de todos os parceiros de tecnologia da Braze, visite o [Braze Marketplace](https://marketplace.braze.com/t/type/technology-partner). Quer fazer parte da nossa comunidade de quem usa a Braze para modernizar a experiência do cliente? Conheça nosso [Customer Champions Program](https://brazefirebrands.splashthat.com/).
 
-## Solução de problemas com conexões de parceiros {#troubleshooting-partner-connections}
+## Solução de problemas de conexões com parceiros {#troubleshooting-partner-connections}
 
-Se a integração requer configuração no lado da Braze, faça login no seu dashboard da Braze e navegue até **Integrações de parceiros** > **Parceiros de tecnologia**.
+Se a integração exigir configuração no lado da Braze, faça login no seu dashboard da Braze e navegue até **Integrações de parceiros** > **Parceiros de tecnologia**.
 
 {% alert note %}
 Integrações totalmente gerenciadas pelo parceiro podem não estar listadas aqui. Consulte a documentação específica do parceiro para verificar a propriedade da integração e as etapas de configuração.
 {% endalert %}
 
-Se você vir **Credenciais inválidas** para um parceiro na Braze, mas a integração parecer correta no dashboard desse parceiro, desconecte e reconecte a integração na página de Parceiros de tecnologia e confirme as chaves de API, tokens OAuth e permissões no lado do parceiro.
+Se você vir **Credenciais inválidas** para um parceiro na Braze, mas a integração parecer correta no dashboard desse parceiro, desconecte e reconecte a integração na página Parceiros de tecnologia e confirme as chaves de API, tokens OAuth e permissões no lado do parceiro.
 
-Alguns dashboards externos (por exemplo, ferramentas de entregabilidade ou monitoramento de caixa de entrada) podem mostrar um status de conexão ou verificação diferente da página de Parceiros de tecnologia da Braze. Use o bloco do parceiro na Braze para verificar o estado de conexão que a Braze utiliza para sincronização e envio.
+Alguns dashboards externos (por exemplo, ferramentas de entregabilidade ou monitoramento de caixa de entrada) podem mostrar um status de conexão ou verificação diferente da página Parceiros de tecnologia da Braze. Use o bloco do parceiro na Braze para verificar o estado de conexão no qual a Braze se baseia para sincronização e envio.

@@ -15,7 +15,7 @@ search_rank: 2
 
 ## Requisitos previos {#prerequisites}
 
-Antes de poder enviar correos electrónicos con Braze, necesitas configurar tus IP dedicadas, dominios, autenticación de correo electrónico y calentamiento de IP. Para una guía completa, consulta [Configuración del correo electrónico]({{site.baseurl}}/user_guide/channels/email/email_setup).
+Antes de poder enviar correos electrónicos con Braze, necesitas configurar tus IP dedicadas, dominios, autenticación de correo electrónico y calentamiento de IP. Para un recorrido completo, consulta [Configuración del correo electrónico]({{site.baseurl}}/user_guide/channels/email/email_setup).
 
 ## Personaliza tus correos electrónicos {#customize-your-emails}
 
@@ -29,7 +29,7 @@ Puedes personalizar tu mensajería de correo electrónico de diversas maneras, i
 
 ## Prueba tus correos electrónicos {#test-your-emails}
 
-Los [grupos semilla]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups) envían automáticamente copias de tus campañas de correo electrónico a usuarios internos para realizar controles de calidad. Los correos electrónicos semilla incluyen `[SEED]` antepuesto a la línea del asunto para ayudarte a identificarlos.
+Los [grupos semilla]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups) envían automáticamente copias de tus campañas de correo electrónico a usuarios internos para realizar controles de calidad. Los correos electrónicos semilla incluyen `[SEED]` antes de la línea del asunto para ayudarte a identificarlos.
 
 ## Ejemplos {#use-cases}
 
@@ -39,7 +39,7 @@ Los [grupos semilla]({{site.baseurl}}/user_guide/administer/global/user_manageme
 | Incorporación | Incorpora y anima a los nuevos usuarios a activar las notificaciones push o a compartir la aplicación en las redes sociales. |
 | Mensajes enriquecidos | Permite mensajes HTML enriquecidos y dinámicos. |
 | Contenido multimedia | Facilita la colocación de contenido multimedia que atrae a los usuarios, como videos e imágenes. |
-| Boletines informativos | Envía cómodamente boletines informativos mensuales o semanales para mantener la participación de los usuarios. |
+| Boletines informativos | Envía cómodamente boletines mensuales o semanales para mantener la participación de los usuarios. |
 | Transacciones | Notifica a los usuarios sobre compras recientes y entrega información importante sobre productos y envíos con [correos transaccionales]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email).
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Ejemplos" }
 
@@ -67,18 +67,23 @@ Estos servicios pueden incluir:
 
 ### ¿Cómo configuro el envío de correo electrónico en Braze? {#how-do-i-set-up-email-sending-in-braze}
 
-Configura las IP dedicadas, los dominios, la autenticación y el calentamiento de IP antes de tu primer envío. Consulta [Configuración del correo electrónico]({{site.baseurl}}/user_guide/channels/email/email_setup) para ver la lista de verificación completa.
+Configura IPs dedicadas, dominios, autenticación y calentamiento de IP antes de tu primer envío. Consulta [Configuración del correo electrónico]({{site.baseurl}}/user_guide/channels/email/email_setup) para ver la lista de verificación completa.
 
 ### ¿Cuál es la diferencia entre las suscripciones de usuario y los grupos de suscripción? {#what-is-the-difference-between-user-subscriptions-and-subscription-groups}
 
-Las suscripciones de usuario controlan el estado global de adhesión voluntaria para un canal (por ejemplo, suscrito o cancelado de correo electrónico). Los grupos de suscripción permiten a los usuarios elegir categorías de mensajes específicas dentro de ese canal. Consulta [Suscripciones de usuario]({{site.baseurl}}/user_guide/channels/email/subscriptions) y [Grupos de suscripción]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups).
+Las suscripciones de usuario controlan el estado global de adhesión voluntaria para un canal (por ejemplo, suscrito o con suscripción cancelada para correo electrónico). Los grupos de suscripción permiten a los usuarios elegir categorías de mensajes específicas dentro de ese canal. Consulta [Suscripciones de usuario]({{site.baseurl}}/user_guide/channels/email/subscriptions) y [Grupos de suscripción]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups).
 
 ### ¿Cómo puedo probar un correo electrónico antes de enviar una campaña? {#how-can-i-test-an-email-before-i-send-a-campaign}
 
-Usa [grupos semilla]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups) para enviar copias de vista previa a revisores internos y confirmar la representación en diferentes clientes de correo electrónico.
+Usa [grupos semilla]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups) para enviar copias de vista previa a revisores internos y confirmar la representación en distintos clientes de correo electrónico.
 
 ## Próximos pasos {#next-steps}
 
-- [Configuración del correo electrónico]({{site.baseurl}}/user_guide/channels/email/email_setup)
-- [Crear un correo electrónico con el editor de arrastrar y soltar]({{site.baseurl}}/user_guide/channels/email/drag_and_drop)
-- [Crear un correo electrónico con el editor HTML]({{site.baseurl}}/user_guide/channels/email/html_editor)
+{% article_tiles %}
+- name: Configuración del correo electrónico
+  link: /docs/user_guide/channels/email/email_setup
+- name: Crear un correo electrónico con el editor de arrastrar y soltar
+  link: /docs/user_guide/channels/email/drag_and_drop
+- name: Crear un correo electrónico con el editor HTML
+  link: /docs/user_guide/channels/email/html_editor
+{% endarticle_tiles %}

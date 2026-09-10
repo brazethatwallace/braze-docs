@@ -260,6 +260,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     updateBottomBuffer();
     window.addEventListener("resize", updateBottomBuffer);
+    activateStep(0);
 
     steps.forEach((step, i) => {
       step.addEventListener("click", () => {
@@ -386,9 +387,5 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-    // Initialize this block after a short delay.
-    setTimeout(() => {
-      activateStep(0);
-    }, 100);
   });
 });

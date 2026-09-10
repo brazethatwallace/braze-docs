@@ -69,6 +69,15 @@ AppDelegate.braze?.banners.requestRefresh(placementIds: ["global_banner", "navig
 
 {% endtab %}
 {% tab Android %}
+
+`requestBannersRefresh()` merges into the existing Banner cache. Only the placement IDs you pass in are added, updated, or removed:
+
+- If the server returns a Banner for a requested placement, the cached Banner for that placement is replaced.
+- If the server returns no Banner for a requested placement, that placement is dropped from the cache.
+- Cached Banners for placements you didn't request stay in the cache and expire at their original expiry time.
+
+For how many placements you can request per refresh, see [About placement requests](#requests). You can refresh different sets of placements over time (for example, placements on the current screen) and keep Banners for other placements in the cache.
+
 {% subtabs %}
 {% subtab Java %}
 
@@ -414,6 +423,9 @@ if let braze = AppDelegate.braze {
 
 {% endtab %}
 {% tab Android %}
+
+After a refresh, the SDK updates a `BannerView` only when that placement's cached content changes (added, removed, or updated). Unchanged displayed Banners stay as-is. Calling `changeUser()` still updates every registered `BannerView`.
+
 {% subtabs %}
 {% subtab Java %}
 To get the Banner in Java code, use:

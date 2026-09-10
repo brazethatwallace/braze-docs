@@ -23,29 +23,29 @@ platform:
 
 ### 前提条件 {#prerequisites}
 
-バナープレースメントを作成するために必要な最小SDKバージョンは以下のとおりです。
+バナープレースメントを作成するために必要な最小SDKバージョンは以下の通りです。
 
 {% multi_lang_include developer_guide/sdk_versions.md feature='banners' %}
 
 {% multi_lang_include banners/creating_placements.md section="developer" %}
 
-### ステップ2:アプリでプレースメントを更新する {#requestBannersRefresh}
+### ステップ2:アプリ内のプレースメントを更新する {#requestBannersRefresh}
 
 プレースメントを更新するには、SDKの更新メソッドを呼び出します（Webおよび Androidでは`requestBannersRefresh()`、Swiftでは`requestRefresh()`）。
 
 バナーの更新動作には2つのパスがあります。
 
-1. **明示的な更新：** アクティブなセッション中の任意のタイミングで更新メソッドを呼び出すことができます。
-2. **新しいセッションでの自動更新：** 少なくとも1回の明示的な更新リクエストを行った後、新しいBrazeセッションが開始されたとき（例：`changeUser()`の後やセッションタイムアウト後）に、SDKは最後にリクエストされたプレースメントIDを再リクエストできます。
+1. **明示的な更新：**アクティブなセッション中の任意のタイミングで更新メソッドを呼び出すことができます。
+2. **新しいセッションでの自動更新：**少なくとも1回の明示的な更新リクエストを行った後、SDKは新しいBrazeセッションが開始されたとき（例えば、`changeUser()`の後やセッションタイムアウト後）に、最後にリクエストされたプレースメントIDを再リクエストできます。
 
 `subscribeToBannersUpdates()`の役割はプラットフォームによって異なります。
 
-- **iOSおよびAndroid：** `subscribeToBannersUpdates()`（Swiftでは`subscribeToUpdates()`）は更新コールバックを登録します。自動のセッション開始時の更新は、サブスクリプションがアクティブであるかどうかに依存しません。
-- **Web：** 自動のセッション開始時の更新は`subscribeToBannersUpdates()`が登録されていることに依存します。アクティブなサブスクリプションがない場合、SDKは新しいセッションで自動的に更新を繰り返しません。
+- **iOSおよびAndroid：**`subscribeToBannersUpdates()`（Swiftでは`subscribeToUpdates()`）は更新コールバックを登録します。自動セッション開始時の更新は、サブスクリプションがアクティブであるかどうかに依存しません。
+- **Web：**自動セッション開始時の更新は、`subscribeToBannersUpdates()`が登録されていることに紐付けられています。アクティブなサブスクリプションがない場合、SDKは新しいセッションで自動的に更新を繰り返しません。
 
-いずれの場合も、アプリのライフサイクルごとに少なくとも1回の明示的な更新リクエストを行う必要があります。これにより、SDKはどのプレースメントIDを最新の状態に保つかを把握できます。バナーは、最初の呼び出しなしに初回起動時に自動的にフェッチされることはなく、トラッキングされたプレースメントIDはアプリの再起動後にリセットされます。
+いずれの場合も、SDKがどのプレースメントIDを更新し続けるかを認識できるように、アプリのライフサイクルごとに少なくとも1回の明示的な更新リクエストを行う必要があります。バナーは初回起動時にその最初の呼び出しなしでは自動的にフェッチされず、トラッキングされるプレースメントIDはアプリの再起動後にリセットされます。
 
-自動のセッション開始時の更新は、レート制限トークンを消費しません。
+自動セッション開始時の更新はレート制限トークンを消費しません。
 
 {% alert tip %}
 バナーのダウンロードや表示の遅延を避けるため、できるだけ早くプレースメントを更新してください。
@@ -69,6 +69,15 @@ AppDelegate.braze?.banners.requestRefresh(placementIds: ["global_banner", "navig
 
 {% endtab %}
 {% tab Android %}
+
+`requestBannersRefresh()`は既存のバナーキャッシュにマージされます。渡したプレースメントIDのみが追加、更新、または削除されます。
+
+- サーバーがリクエストされたプレースメントに対してバナーを返した場合、そのプレースメントのキャッシュされたバナーが置き換えられます。
+- サーバーがリクエストされたプレースメントに対してバナーを返さなかった場合、そのプレースメントはキャッシュから削除されます。
+- リクエストしなかったプレースメントのキャッシュされたバナーはキャッシュに残り、元の有効期限で期限切れになります。
+
+1回の更新でリクエストできるプレースメントの数については、[プレースメントリクエストについて](#requests)を参照してください。時間の経過とともに異なるプレースメントのセットを更新し（例えば、現在の画面のプレースメント）、他のプレースメントのバナーをキャッシュに保持することができます。
+
 {% subtabs %}
 {% subtab Java %}
 
@@ -129,7 +138,7 @@ This feature is not currently supported on Roku.
 ### ステップ3:更新をリッスンする {#subscribeToBannersUpdates}
 
 {% alert tip %}
-このガイドのSDKメソッドを使用してバナーを挿入する場合、すべての分析イベント（インプレッションやクリックなど）は自動的に処理され、インプレッションはバナーが表示されているときにのみ記録されます。
+このガイドのSDKメソッドを使用してバナーを挿入する場合、すべての分析イベント（インプレッションやクリックなど）は自動的に処理され、インプレッションはバナーが表示されているときのみ記録されます。
 {% endalert %}
 
 {% tabs %}
@@ -150,7 +159,7 @@ braze.requestBannersRefresh(["global_banner", "navigation_square_banner"]);
 ```
 {% endsubtab %}
 {% subtab React %}
-Web Braze SDKでReactを使用している場合は、`useEffect`フック内で[`subscribeToBannersUpdates`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetobannersupdates)を設定し、リスナーの登録後に[`requestBannersRefresh`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestbannersrefresh)を呼び出します。
+Web Braze SDKでReactを使用している場合は、`useEffect`フック内で[`subscribeToBannersUpdates`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetobannersupdates)を設定し、リスナーを登録した後に[`requestBannersRefresh`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestbannersrefresh)を呼び出します。
 
 ```typescript
 import * as braze from "@braze/web-sdk";
@@ -175,7 +184,7 @@ useEffect(() => {
 {% tab Swift %}
 
 {% alert note %}
-バナー更新リスナーは、SDKのメモリ内バナー状態を反映します。1回の更新には、最新の`requestRefresh`呼び出しのプレースメントIDだけでなく、すでにキャッシュされていたプレースメント（例えば、以前の更新、別の画面、またはSDKの自動処理によるもの）も含まれる場合があります。特定のプレースメントのみに関心がある場合は、リスナー内で各バナーのプレースメントIDを確認し、残りをスキップしてください。リスナーを登録した後、Brazeから同期したいプレースメントに対して`requestRefresh`を呼び出してください。
+バナー更新リスナーは、SDKのインメモリバナー状態を反映します。1回の更新には、最新の`requestRefresh`呼び出しのプレースメントIDだけでなく、既にキャッシュされていたプレースメント（例えば、以前の更新、別の画面、またはSDKの自動処理によるもの）も含まれる場合があります。特定のプレースメントのみに関心がある場合は、リスナー内で各バナーのプレースメントIDを確認し、それ以外はスキップしてください。リスナーを登録した後、Brazeから同期したいプレースメントに対して`requestRefresh`を呼び出してください。
 {% endalert %}
 
 ```swift
@@ -193,7 +202,7 @@ brazeClient.braze()?.banners.requestRefresh(placementIds: placementIds)
 {% tab Android %}
 
 {% alert note %}
-バナー更新リスナーは、SDKのメモリ内バナー状態を反映します。1回の更新には、最新の`requestBannersRefresh`呼び出しのプレースメントIDだけでなく、すでにキャッシュされていたプレースメント（例えば、以前の更新、別の画面、またはSDKの自動処理によるもの）も含まれる場合があります。特定のプレースメントのみに関心がある場合は、リスナー内で各バナーのプレースメントIDを確認し、残りをスキップしてください。リスナーを登録した後、Brazeから同期したいプレースメントに対して`requestBannersRefresh`を呼び出してください。
+バナー更新リスナーは、SDKのインメモリバナー状態を反映します。1回の更新には、最新の`requestBannersRefresh`呼び出しのプレースメントIDだけでなく、既にキャッシュされていたプレースメント（例えば、以前の更新、別の画面、またはSDKの自動処理によるもの）も含まれる場合があります。特定のプレースメントのみに関心がある場合は、リスナー内で各バナーのプレースメントIDを確認し、それ以外はスキップしてください。リスナーを登録した後、Brazeから同期したいプレースメントに対して`requestBannersRefresh`を呼び出してください。
 {% endalert %}
 
 {% subtabs %}
@@ -282,7 +291,7 @@ This feature is not currently supported on Roku.
 ### ステップ4:プレースメントIDを使用して挿入する {#insertBanner}
 
 {% alert tip %}
-完全なステップバイステップのチュートリアルについては、[プレースメントIDによるバナーの表示]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners)をご確認ください。
+完全なステップバイステップのチュートリアルについては、[プレースメントIDによるバナーの表示]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners)を確認してください。
 {% endalert %}
 
 {% tabs %}
@@ -296,7 +305,7 @@ This feature is not currently supported on Roku.
 
 {% subtabs local %}
 {% subtab JavaScript %}
-Web Braze SDKでバニラJavaScriptを使用している場合は、[`insertBanner`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#insertbanner)メソッドを呼び出してコンテナ要素の内部HTMLを置換します。
+Web Braze SDKでバニラJavaScriptを使用している場合は、[`insertBanner`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#insertbanner)メソッドを呼び出してコンテナ要素の内部HTMLを置き換えます。
 
 ```javascript
 import * as braze from "@braze/web-sdk";
@@ -331,7 +340,7 @@ braze.requestBannersRefresh(["global_banner", "navigation_square_banner"]);
 {% endsubtab %}
 
 {% subtab React %}
-Web Braze SDKでReactを使用している場合は、[`insertBanner`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#insertbanner)メソッドを`ref`とともに呼び出してコンテナ要素の内部HTMLを置換します。
+Web Braze SDKでReactを使用している場合は、`ref`を使用して[`insertBanner`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#insertbanner)メソッドを呼び出し、コンテナ要素の内部HTMLを置き換えます。
 
 ```tsx
 import { useRef } from 'react';
@@ -356,7 +365,7 @@ export default function App() {
 {% endsubtabs %}
 
 {% alert tip %}
-インプレッションをトラッキングするには、`isControl`に対しても必ず`insertBanner`を呼び出してください。その後、コンテナを非表示にしたり折りたたんだりできます。
+インプレッションをトラッキングするには、`isControl`に対して`insertBanner`を必ず呼び出してください。その後、コンテナを非表示にしたり折りたたんだりできます。
 {% endalert %}
 
 {% endtab %}
@@ -414,15 +423,18 @@ if let braze = AppDelegate.braze {
 
 {% endtab %}
 {% tab Android %}
+
+更新後、SDKはそのプレースメントのキャッシュされたコンテンツが変更された場合（追加、削除、または更新）にのみ`BannerView`を更新します。変更されていない表示済みバナーはそのまま維持されます。`changeUser()`を呼び出すと、登録されたすべての`BannerView`が更新されます。
+
 {% subtabs %}
 {% subtab Java %}
-JavaコードでバナーをJavaで取得するには、以下を使用します。
+JavaコードでバナーToGetするには、以下を使用します。
 
 ```java
 Banner globalBanner = Braze.getInstance(context).getBanner("global_banner");
 ```
 
-AndroidビューレイアウトにバナーをXMLで作成できます。
+AndroidビューのレイアウトでバナーToCreateするには、以下のXMLを含めます。
 
 ```xml
 <com.braze.ui.banners.BannerView
@@ -434,7 +446,7 @@ AndroidビューレイアウトにバナーをXMLで作成できます。
 {% endsubtab %}
 
 {% subtab Kotlin %}
-Android Viewsを使用している場合は、このXMLを使用します。
+Android Viewsを使用している場合は、以下のXMLを使用します。
 
 ```xml
 <com.braze.ui.banners.BannerView
@@ -444,10 +456,10 @@ Android Viewsを使用している場合は、このXMLを使用します。
     app:placementId="global_banner" />
 ```
 
-Jetpack Composeを使用するには、アプリモジュールに`com.braze:android-sdk-jetpack-compose`アーティファクトを追加します。他のBraze Android SDKの依存関係と同じバージョンを使用してください。このモジュールは`android-sdk-ui`とは別で、`com.braze.jetpackcompose.banners`配下に[`Banner`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.banners/-banner.html)コンポーザブルを提供します。
+Jetpack Composeを使用するには、アプリモジュールに`com.braze:android-sdk-jetpack-compose`アーティファクトを追加します。他のBraze Android SDKの依存関係と同じバージョンを使用してください。このモジュールは`android-sdk-ui`とは別で、`com.braze.jetpackcompose.banners`配下の[`Banner`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.banners/-banner.html)コンポーザブルを提供します。
 
 {% alert note %}
-一部のCompose UIライブラリは独自の`Banner`コンポーザブルを定義しています。BrazeのAPIを呼び出すために`com.braze.jetpackcompose.banners.Banner`を明示的にインポートしてください。
+一部のCompose UIライブラリは独自の`Banner`コンポーザブルを定義しています。BrazeのAPIを呼び出すために、`com.braze.jetpackcompose.banners.Banner`を明示的にインポートしてください。
 {% endalert %}
 
 ```kotlin
@@ -459,9 +471,9 @@ fun myBannerSlot() {
 }
 ```
 
-オプションで`heightCallback`を渡すと、バナーサイズが変更されたときにレンダリングされた高さをdpで受け取ることができます。詳しくは[`Banner`のKDoc](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.banners/-banner.html)を参照してください。
+オプションで`heightCallback`を渡すと、バナーサイズが変更されたときにレンダリングされた高さをdp単位で受け取ることができます。詳細については、[`Banner`のKDoc](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.banners/-banner.html)を参照してください。
 
-Jetpack Composeモジュールを追加しない場合は、[`BannerView`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.banners/-banner-view/index.html)を[`AndroidView`](https://developer.android.com/reference/kotlin/androidx/compose/ui/viewinterop/AndroidView)でラップします。
+Jetpack Composeモジュールを追加しない場合は、[`BannerView`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.banners/-banner-view/index.html)を[`AndroidView`](https://developer.android.com/reference/kotlin/androidx/compose/ui/viewinterop/AndroidView)でラップしてください。
 
 ```kotlin
 import android.view.ViewGroup
@@ -485,7 +497,7 @@ fun myBannerSlot() {
 }
 ```
 
-KotlinでバナーをKotlinで取得するには、以下を使用します。
+KotlinでバナーToGetするには、以下を使用します。
 ```kotlin
 val banner = Braze.getInstance(context).getBanner("global_banner")
 ```
@@ -506,7 +518,7 @@ val banner = Braze.getInstance(context).getBanner("global_banner")
 }
 #endif
 ```
-最もシンプルな連携では、ビュー階層に以下のJavaScript XML（JSX）スニペットを追加し、プレースメントIDのみを指定します。
+最もシンプルな統合では、プレースメントIDだけを指定して以下のJavaScript XML（JSX）スニペットをビュー階層に追加します。
 
 ```javascript
 <Braze.BrazeBannerView
@@ -514,7 +526,7 @@ val banner = Braze.getInstance(context).getBanner("global_banner")
 />
 ```
 
-React Nativeでバナーのデータモデルを取得する、またはユーザーのキャッシュにそのプレースメントが存在するかを確認するには、以下を使用します。
+React NativeでバナーのデータモデルToGetする場合、またはユーザーのキャッシュにそのプレースメントが存在するかToCheckする場合は、以下を使用します。
 
 ```javascript
 const banner = await Braze.getBanner("global_banner");
@@ -536,7 +548,7 @@ This feature is not currently supported on Cordova.
 
 {% endtab %}
 {% tab Flutter %}
-最もシンプルな連携では、ビュー階層に以下のウィジェットを追加し、プレースメントIDのみを指定します。
+最もシンプルな統合では、プレースメントIDだけを指定して以下のウィジェットをビュー階層に追加します。
 
 ```dart
 BrazeBannerView(
@@ -569,7 +581,7 @@ This feature is not currently supported on Roku.
 
 ### ステップ5:テストバナーを送信する（オプション） {#handling-test-cards}
 
-バナーキャンペーンを開始する前に、[テストバナーを送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=banners)して連携を確認できます。テストバナーは別のメモリ内キャッシュに保存され、アプリの再起動後には保持されません。追加の設定は不要ですが、テストを表示するにはテストデバイスがフォアグラウンドプッシュ通知を受信できる必要があります。
+バナーキャンペーンを開始する前に、[テストバナーを送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=banners)して統合を確認できます。テストバナーは別のインメモリキャッシュに保存され、アプリの再起動後は保持されません。追加の設定は不要ですが、テストを表示するにはテストデバイスがフォアグラウンドプッシュ通知を受信できる必要があります。
 
 {% alert note %}
 テストバナーは他のバナーと同様ですが、次のアプリセッションで削除される点が異なります。
@@ -577,19 +589,19 @@ This feature is not currently supported on Roku.
 
 ## インプレッションの記録 {#log-impressions}
 
-Brazeは、SDKメソッドを使用してバナーを挿入する際、表示されているバナーのインプレッションを自動的に記録します。そのため、インプレッションを手動でトラッキングする必要はありません。
+Brazeは、SDKメソッドを使用してバナーを挿入すると、表示されているバナーのインプレッションを自動的に記録します。そのため、インプレッションを手動でトラッキングする必要はありません。
 
 ## クリックの記録 {#logging-clicks}
 
-バナークリックの記録に使用するメソッドは、バナーのレンダリング方法とクリックハンドラーの配置場所によって異なります。
+バナーのクリックを記録するために使用するメソッドは、バナーのレンダリング方法とクリックハンドラーの配置場所によって異なります。
 
 ### 標準バナーコンテンツ（自動） {#standard-banner-content-automatic}
 
-SDKのデフォルトのメソッドを使用してバナーを挿入し、バナーが標準エディターコンポーネント（画像、ボタン、テキスト）を使用している場合、クリックは自動的にトラッキングされます。SDKがこれらの要素にクリックリスナーをアタッチするため、追加のコードは不要です。
+デフォルトの組み込みSDKメソッドを使用してバナーを挿入し、バナーが標準エディターコンポーネント（画像、ボタン、テキスト）を使用している場合、クリックは自動的にトラッキングされます。SDKはこれらの要素にクリックリスナーをアタッチするため、追加のコードは必要ありません。
 
 ### カスタムコードブロック {#custom-code-blocks}
 
-バナーがBrazeダッシュボードの**カスタムコード**エディターブロックを使用している場合、カスタムHTML内からクリックを記録するために `brazeBridge.logClick()` を使用する必要があります。これは、SDKメソッドを使用してバナーをレンダリングしている場合でも該当します。SDKはカスタムコード内の要素にリスナーを自動的にアタッチできないためです。
+バナーがBrazeダッシュボードの**カスタムコード**エディターブロックを使用している場合、そのカスタムHTML内からクリックを記録するには `brazeBridge.logClick()` を使用する必要があります。これは、SDKメソッドを使用してバナーをレンダリングしている場合でも適用されます。SDKはカスタムコード内の要素にリスナーを自動的にアタッチできないためです。
 
 ```html
 <button onclick="brazeBridge.logClick()">
@@ -597,17 +609,17 @@ SDKのデフォルトのメソッドを使用してバナーを挿入し、バ�
 </button>
 ```
 
-詳細なリファレンスについては、[バナーのカスタムコードとJavaScriptブリッジ]({{site.baseurl}}/user_guide/channels/banners/custom_code)を参照してください。`brazeBridge` は、バナーの内部HTMLと親のBraze SDK間の通信レイヤーを提供します。
+詳細なリファレンスについては、[バナーのカスタムコードとJavaScriptブリッジ]({{site.baseurl}}/user_guide/channels/banners/custom_code)を参照してください。`brazeBridge` は、バナーの内部HTMLと親のBraze SDKの間の通信レイヤーを提供します。
 
 ### カスタムUI実装（ヘッドレス） {#custom-ui-implementations-headless}
 
-バナーHTMLをレンダリングする代わりに、バナーの[カスタムプロパティ](#custom-properties)を使用して完全にカスタムのUIを構築している場合は、アプリケーションコードからクリックとインプレッションを手動で記録する必要があります。SDKがバナーをレンダリングしていないため、カスタムUI要素とのインタラクションを自動的にトラッキングする方法がありません。
+バナーHTMLをレンダリングするのではなく、バナーの[カスタムプロパティ](#custom-properties)を使用して完全にカスタムUIを構築している場合、アプリケーションコードからクリックとインプレッションを手動で記録する必要があります。SDKがバナーをレンダリングしていないため、カスタムUI要素とのインタラクションを自動的にトラッキングする方法がありません。
 
-メソッドシグネチャと詳細については、[Braze SDKリファレンスドキュメント]({{site.baseurl}}/developer_guide/references)を参照してください。
+メソッドのシグネチャと詳細については、[Braze SDKリファレンスドキュメント]({{site.baseurl}}/developer_guide/references)を参照してください。
 
 #### インプレッションの記録 {#logging-impressions}
 
-カスタムUIがバナーを「閲覧済み」と見なしたときに、プラットフォームのバナーインプレッションメソッドを呼び出してください。重複イベントを避けるために、インプレッションとしてカウントする条件のロバストなロジックを構築してください。たとえば、バナーがビューポートに入ったとき（または同等のタイミング）にのみ記録し、同じバナーが再びスクロールで表示されたときや、新しいビューイベントなしにコンポーネントが再レンダリングされたときには再度記録しないようにしてください。
+カスタムUIがバナーを「閲覧済み」と見なしたときに、プラットフォームのバナーインプレッションメソッドを呼び出します。重複イベントを避けるため、インプレッションとしてカウントする条件に堅牢なロジックを構築してください。たとえば、バナーがビューポートに入った（または同等の状態になった）ときにのみ記録し、同じバナーが再びスクロールで表示に戻った場合や、新しいビューイベントなしにコンポーネントが再レンダリングされた場合には記録しないようにします。
 
 {% tabs %}
 {% tab Web %}
@@ -666,7 +678,7 @@ braze.logBannerImpression("placement_id_homepage_top");
 
 #### クリックの記録
 
-ユーザーがカスタムバナー（または特定のボタン）をタップしたときに、プラットフォームのバナークリックメソッドを呼び出してください。クリックが特定のボタンに対するものである場合は、分析がクリックを正しく帰属できるように、オプションの `buttonId` を渡してください。
+ユーザーがカスタムバナー（または特定のボタン）をタップしたときに、プラットフォームのバナークリックメソッドを呼び出します。クリックが特定のボタンに対するものである場合は、オプションの `buttonId` を渡して、分析がクリックを正しく帰属できるようにします。
 
 {% tabs %}
 {% tab Web %}
@@ -720,13 +732,13 @@ braze.logBannerClicked("placement_id_homepage_top", buttonId);  // buttonID para
 {% endtab %}
 {% endtabs %}
 
-## 非表示のログ記録 {#log-dismissals}
+## 非表示の記録 {#log-dismissals}
 
-バナーの非表示をプログラムで行うと、ユーザーがアクティブに非表示にしたバナーがプレースメントから削除されます。非表示にされたバナーは、そのユーザーに対して抑制されます。次にプレースメントのリストが更新されたとき、ユーザーが対象であれば新しいバナーが返されます。
+バナーの非表示は、ユーザーが能動的にバナーを閉じた際に、プレースメントからバナーをプログラム的に削除します。非表示にされたバナーは、そのユーザーに対して抑制されます。次回プレースメントのリストが更新された際、ユーザーが対象であれば新しいバナーが返されます。
 
 ### 前提条件
 
-バナーの非表示をログ記録するために必要な最小SDKバージョンは以下のとおりです。
+バナーの非表示を記録するために必要な最小SDKバージョンは以下の通りです。
 
 {% sdk_min_versions swift:14.1.0 android:42.1.0 web:6.7.1 %}
 
@@ -734,7 +746,7 @@ braze.logBannerClicked("placement_id_homepage_top", buttonId);  // buttonID para
 
 #### 標準バナー統合（ドラッグ＆ドロップエディター） {#standard-banner-integrations-drag-and-drop-editor}
 
-バナーがドラッグ＆ドロップエディターを使用し、非表示ボタンコンポーネントを含んでいる場合、追加のコードは必要ありません。ユーザーが非表示ボタンをクリックすると、メッセージが非表示になり、非表示がトリガーされ、分析用の非表示イベントが記録されます。
+バナーがドラッグ＆ドロップエディターを使用し、非表示ボタンコンポーネントを含んでいる場合、追加のコードは必要ありません。ユーザーが非表示ボタンをクリックすると、メッセージが非表示になり、非表示がトリガーされ、分析用に非表示イベントが記録されます。
 
 #### カスタムコードブロック
 
@@ -746,13 +758,13 @@ braze.logBannerClicked("placement_id_homepage_top", buttonId);  // buttonID para
 </button>
 ```
 
-#### プログラムでバナーを非表示にする {#dismiss-a-banner-programmatically}
+#### プログラムによるバナーの非表示 {#dismiss-a-banner-programmatically}
 
 ドラッグ＆ドロップエディターで作成した非表示ボタン付きの標準 `BrazeBannerView` を使用している場合、追加のコードは必要ありません。非表示は自動的に処理されます。
 
-カスタムUI統合の場合、Brazeインスタンスの非表示メソッドを直接呼び出して、プログラムでバナーを非表示にし、非表示イベントをログ記録できます。非表示メソッドは複数回呼び出しても安全です。SDKは同じバナーに対する重複呼び出しを無視します。
+カスタムUI統合の場合、Brazeインスタンスのdismissメソッドを直接呼び出して、プログラムでバナーを非表示にし、非表示イベントを記録できます。dismissメソッドは複数回呼び出しても安全です。SDKは同じバナーに対する重複した呼び出しを無視します。
 
-プログラムでバナーを非表示にするために必要な最小SDKバージョンは以下のとおりです。
+プログラムでバナーを非表示にするために必要な最小SDKバージョンは以下の通りです。
 
 {% sdk_min_versions swift:15.1.0 android:42.3.0 web:6.9.0 reactnative:22.0.0 flutter:20.0.0 %}
 
@@ -805,7 +817,7 @@ Braze.getInstance(context).dismissBanner("your-placement-id")
 
 {% tab Swift %}
 
-バナーのコンテキストが利用可能な場合、`dismiss()` を使用します。このメソッドはべき等で、`onDismiss` コールバックを自動的に起動します。コンテキストが利用できない場合は、バナーに対して `dismiss(using:)` を直接呼び出します。どちらのメソッドもメインスレッドから呼び出す必要があります。
+バナーのコンテキストが利用可能な場合、`dismiss()` を使用します。このメソッドは冪等であり、`onDismiss` コールバックを自動的に起動します。コンテキストが利用できない場合は、バナーに対して直接 `dismiss(using:)` を呼び出します。両方のメソッドはメインスレッドから呼び出す必要があります。
 
 ```swift
 // Preferred: dismiss via context.
@@ -815,7 +827,7 @@ banner.context?.dismiss()
 banner.dismiss(using: braze)
 ```
 
-Objective-Cでは、`[banner.context dismiss]` および `[banner dismissUsing:braze]` として利用できます。
+Objective-Cでは、これらは `[banner.context dismiss]` および `[banner dismissUsing:braze]` として利用できます。
 
 {% endtab %}
 
@@ -832,16 +844,16 @@ braze.dismissBanner("your-placement-id");
 {% endtab %}
 {% endtabs %}
 
-### バナー非表示時のカスタム分析をログ記録する {#log-custom-analytics-on-banner-dismissal}
+### バナー非表示時のカスタム分析の記録 {#log-custom-analytics-on-banner-dismissal}
 
-バナーが非表示になったときにカスタムロジック（分析のログ記録など）を実行するには、SDKの非表示コールバックを使用します。コールバックは、バナーの `placementId`、`stableKey`、`trackingId` を含むイベントオブジェクトを受け取ります。
+バナーが非表示にされた際にカスタムロジック（分析の記録など）を実行するには、SDKの非表示コールバックを使用します。コールバックは、バナーの `placementId`、`stableKey`、および `trackingId` を含むイベントオブジェクトを受け取ります。
 
 {% tabs %}
 {% tab Web %}
-[`Banner.subscribeToDismissedEvent()`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.banner.html#subscribetodismissedevent) を使用して、特定のバナーが非表示になったときにカスタムロジックを実行します。バナーを表示する前にイベントを購読してください。
+[`Banner.subscribeToDismissedEvent()`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.banner.html#subscribetodismissedevent) を使用して、特定のバナーが非表示にされた際にカスタムロジックを実行します。バナーを表示する前にイベントをサブスクライブしてください。
 
 {% alert note %}
-`Banner.subscribeToDismissedEvent()` にはWeb SDK 6.9.0以降が必要です。それ以前のバージョンでは、`braze.subscribeToBannersUpdates()` を使用し、更新されたバナーマップにバナーが存在しなくなったことを確認して非表示を検出してください。
+`Banner.subscribeToDismissedEvent()` にはWeb SDK 6.9.0以降が必要です。それ以前のバージョンでは、`braze.subscribeToBannersUpdates()` を使用し、更新されたバナーマップにバナーが存在しなくなったかどうかを確認して非表示を検出してください。
 {% endalert %}
 
 {% subtabs %}
@@ -892,7 +904,7 @@ useEffect(() => {
 {% endtab %}
 
 {% tab Android %}
-[`BannerView`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.banners/-banner-view/index.html) にオプションの [`onDismissCallback`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.banners/-banner-view/on-dismiss-callback.html) プロパティを設定します。
+[`BannerView`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.banners/-banner-view/index.html) のオプションのプロパティ [`onDismissCallback`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.banners/-banner-view/on-dismiss-callback.html) を設定します。
 
 {% subtabs %}
 {% subtab Java %}
@@ -949,7 +961,7 @@ bannerView.onDismiss = { event in
 {% endtab %}
 
 {% tab React Native %}
-`Braze.BrazeBannerView` に `onDismiss` プロパティを設定して、バナーが非表示になったときにカスタムロジックを実行します。
+`Braze.BrazeBannerView` に `onDismiss` プロップを設定して、バナーが非表示にされた際にカスタムロジックを実行します。
 
 ```javascript
 import Braze from "@braze/react-native-sdk";
@@ -965,7 +977,7 @@ import Braze from "@braze/react-native-sdk";
 {% endtab %}
 
 {% tab Flutter %}
-`BrazeBannerView` に `onDismiss` パラメーターを設定して、バナーが非表示になったときにカスタムロジックを実行します。
+`BrazeBannerView` に `onDismiss` パラメーターを設定して、バナーが非表示にされた際にカスタムロジックを実行します。
 
 ```dart
 BrazeBannerView(
@@ -979,20 +991,20 @@ BrazeBannerView(
 {% endtab %}
 {% endtabs %}
 
-### 保留中の非表示ストレージの上限 {#pending-dismissal-storage-cap}
+### 保留中の非表示のストレージ上限 {#pending-dismissal-storage-cap}
 
 非表示イベントは、次の `requestBannersRefresh` 呼び出し時にBrazeサーバーに同期されるまで、保留中のエントリとしてローカルに保存されます。
 
 {% alert warning %}
-まれに、同期が成功しないまま大量の非表示が蓄積した場合、古い保留中の非表示が削除されることがあります。その場合、以前に非表示にしたバナーが次の同期が正常に完了するまで再表示される可能性があります。このリスクを最小限に抑えるために、アプリがネットワーク接続を回復するたびに `requestBannersRefresh` を呼び出してください。
+同期が成功しないまま大量の非表示が蓄積されるまれなケースでは、古い保留中の非表示が削除される場合があります。この場合、次の同期が正常に完了するまで、以前に非表示にしたバナーが再表示される可能性があります。このリスクを最小限に抑えるため、アプリがネットワーク接続を回復するたびに `requestBannersRefresh` を呼び出してください。
 {% endalert %}
 
 ## サイズと寸法 {#dimensions-and-sizing}
 
-バナーのサイズと寸法について知っておくべきことは以下のとおりです。
+バナーの寸法とサイズについて知っておくべきことは以下のとおりです。
 
 - コンポーザーではさまざまな寸法でバナーをプレビューできますが、その情報はSDKに保存または送信されません。
-- HTMLはレンダリングされるコンテナの全幅を占めます。
+- HTMLは、レンダリングされるコンテナの全幅を占めます。
 - 固定寸法の要素を作成し、コンポーザーでそれらの寸法をテストすることをお勧めします。
 
 ## カスタムプロパティ {#custom-properties}

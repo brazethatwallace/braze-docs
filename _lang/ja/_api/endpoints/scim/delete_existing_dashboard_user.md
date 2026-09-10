@@ -15,7 +15,7 @@ description: "この記事では、ダッシュボードのユーザーアカウ
 /scim/v2/Users/{id}
 {% endapimethod %}
 
-> このエンドポイントを使用して、SCIM [`POST`]({{site.baseurl}}/api/endpoints/scim/post_create_user_account)メソッドによって返されるリソース`id`を指定することで、既存のダッシュボードユーザーを永続的に削除できます。
+> このエンドポイントを使用して、SCIM [`POST`]({{site.baseurl}}/api/endpoints/scim/post_create_user_account)メソッドによって返されるリソース`id`を指定することで、既存のダッシュボードユーザーを完全に削除できます。
 
 これは、Brazeダッシュボードの**会社ユーザー**セクションでユーザーを削除するのと同様です。
 
@@ -43,7 +43,7 @@ description: "この記事では、ダッシュボードのユーザーアカウ
 ```http
 Content-Type: application/json
 X-Request-Origin: YOUR-REQUEST-ORIGIN-HERE
-Authorization: Bearer YOUR-REST-API-KEY
+Authorization: Bearer YOUR-SCIM-TOKEN-HERE
 ```
 
 ## リクエスト例 {#example-request}
@@ -56,12 +56,15 @@ curl --location --request DELETE 'https://rest.iad-01.braze.com/scim/v2/Users/df
 
 ## レスポンス {#response}
 
-### エラーレスポンス例 {#example-error-response}
+### 成功レスポンス例 {#example-success-response}
+
+ユーザーが完全に削除されると、エンドポイントは以下を返します。
 
 ```http
-HTTP/1.1 204 Not Found
-Content-Type: text/html; charset=UTF-8
+HTTP/1.1 204 No Content
 ```
+
+### エラーレスポンス例 {#example-error-responses}
 
 このIDを持つ開発者がBrazeに存在しない場合、エンドポイントは次のように応答します。
 ```http
@@ -74,4 +77,18 @@ Content-Type: text/html; charset=UTF-8
     "status": 404
 }
 ```
+
+最後に残った会社ユーザーを削除しようとすると、エンドポイントは`500 Internal Server Error`レスポンスを返し、ユーザーは削除されません。
+
+```http
+HTTP/1.1 500 Internal Server Error
+Content-Type: application/json
+
+{
+    "schemas": ["urn:ietf:params:scim:api:messages:2.0:Error"],
+    "detail": "Failed to delete user",
+    "status": 500
+}
+```
+
 {% endapi %}

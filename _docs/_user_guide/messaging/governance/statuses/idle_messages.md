@@ -55,7 +55,7 @@ Braze stops idle Canvases that meet any of these criteria:
 
 For Canvases without end dates, a user entry or edit resets the one-year countdown. When Braze stops Canvases, it notifies company users in the dashboard and by email.
 
-The maximum duration of a Canvas is the longest possible time a user can take to complete that Canvas. This duration includes expirations for Content Cards and in-app messages.
+The maximum duration of a Canvas is the longest possible time a user can take to complete that Canvas. This duration includes expirations for Content Cards and in-app messages. If your Canvas contains any rate-limited steps, Braze adds an extra seven days to the maximum duration to allow for potential rate limit queuing.
 
 Use this table to keep an idle Canvas active. Idle status and auto-stop use different windows: a Canvas without an end date becomes idle after 11 months plus its maximum duration without activity, and Braze auto-stops it after 12 months plus its maximum duration.
 

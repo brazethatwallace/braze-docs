@@ -12,7 +12,7 @@ page_order: 1.3
 
 ## Sobre a análise preditiva de eventos {#about-predictive-event-analytics}
 
-Assim que a previsão terminar de treinar e esta página estiver populada, você pode começar a usar [filtros]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/messaging_users#filters) em segmentos ou Campaigns para começar a usar os resultados do modelo. Se você deseja ajuda para decidir quem direcionar e por quê, esta página pode ajudar com base na precisão histórica do modelo e nas suas próprias metas comerciais.
+Assim que a previsão estiver concluída e esta página estiver populada, você pode começar a usar [filtros]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/messaging_users#filters) em Segments ou Campaigns para começar a usar os resultados do modelo. Se você quiser ajuda para decidir quem direcionar e por quê, esta página pode ajudar com base na precisão histórica do modelo e nos seus próprios objetivos de negócios.
 
 Estes são os componentes que compõem a análise preditiva de eventos:
 
@@ -21,11 +21,11 @@ Estes são os componentes que compõem a análise preditiva de eventos:
 - [Precisão estimada](#estimated_results)
 - [Tabela de correlação de eventos](#correlation_table)
 
-A distribuição das pontuações de probabilidade para todo o público de previsão é exibida no topo da página em um gráfico. Usuários em buckets mais à direita têm pontuações mais altas e são mais propensos a realizar o evento. Usuários em buckets mais à esquerda são menos propensos a realizar o evento. O controle deslizante abaixo do gráfico permitirá que você selecione uma seção de usuários e estime quais seriam os resultados de direcionar esses usuários.
+A distribuição das pontuações de probabilidade para todo o público de previsão é exibida no topo da página. Usuários em buckets mais à direita têm pontuações mais altas e são mais propensos a realizar o evento. Usuários em buckets mais à esquerda são menos propensos a realizar o evento. O controle deslizante abaixo do gráfico permite selecionar uma seção de usuários e estimar quais seriam os resultados ao direcionar esses usuários.
 
-À medida que você move os controles deslizantes para diferentes posições, a barra na metade esquerda do painel informará quantos usuários do público total de previsão seriam direcionados usando a parte da população que você selecionou.
+Conforme você move os controles do controle deslizante para diferentes posições, a barra na metade esquerda do painel informa quantos usuários, do total do público de previsão, seriam direcionados usando a parte da população que você selecionou.
 
-![À medida que você move os controles deslizantes para diferentes posições, a barra na metade esquerda do painel informará quantos usuários do público total de previsão seriam direcionados usando a parte da população que você selecionou.]({% image_buster /assets/img/purchasePrediction/purchaseTargeting.png %}){: style="max-width:90%"}
+![Conforme você move os controles do controle deslizante para diferentes posições, a barra na metade esquerda do painel informa quantos usuários, do total do público de previsão, seriam direcionados usando a parte da população que você selecionou.]({% image_buster /assets/img/purchasePrediction/purchaseTargeting.png %}){: style="max-width:90%"}
 
 ## Pontuação de probabilidade {#purchase_score}
 
@@ -90,8 +90,10 @@ Os dados de correlação para prévia das previsões serão parcialmente ocultos
 
 ## Solução de problemas {#troubleshooting}
 
-### Não é possível criar uma previsão {#unable-to-create-a-prediction}
+### Comportamento de eventos passados insuficiente {#not-enough-past-event-behavior}
 
-Se você não conseguir criar uma previsão para um evento personalizado, isso pode ser devido ao tamanho insuficiente da amostra. A Braze estima o número de usuários que realizaram o evento e, se um número suficiente de usuários não tiver realizado o evento, a amostra pode não fornecer dados suficientes para treinar o modelo. Nesse caso, o sistema pode extrapolar para nenhum usuário, impedindo a criação da previsão.
+Ao criar uma previsão de Eventos Preditivos, você pode ver a mensagem "This Prediction will fail to build given the very low number of past event behavior" ou uma mensagem semelhante sobre comportamento de eventos passados.
 
-Para criar uma previsão bem-sucedida, certifique-se de que um número suficiente de usuários no seu público de previsão tenha realizado o evento personalizado de destino. O limite exato varia, mas eventos com uso muito baixo na sua base de usuários podem não fornecer dados suficientes para um treinamento confiável do modelo.
+A Braze precisa de usuários suficientes que realizaram o evento-alvo na janela de treinamento para construir o modelo. O modelo normalmente requer pelo menos 3.500 usuários rotulados como **Past Event Behavior** nessa janela. Eventos com uso muito baixo em toda a sua base de usuários podem não atingir esse limite.
+
+Se você tiver menos usuários qualificados, amplie o público da sua previsão ou estenda a janela de eventos antes de compilar a previsão. Para ver as etapas de configuração, consulte [Criar uma previsão de evento]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/creating_an_event_prediction).

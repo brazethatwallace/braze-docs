@@ -18,75 +18,75 @@ Braze stoppt inaktive Campaigns und Canvases automatisch zu den zugehörigen Sto
 
 Braze stoppt inaktive Campaigns, die eines der folgenden Kriterien erfüllen:
 
-- Eine geplante einmalige Sendung liegt sieben Tage hinter dem Sendedatum
-- Eine geplante oder aktionsbasierte Campaign mit Enddatum liegt sieben Tage hinter dem Enddatum
-- Eine Campaign ohne Enddatum hat seit einem Jahr keine Nachricht gesendet, keine:n Nutzer:in in eine Kontrollgruppe aufgenommen und wurde nicht bearbeitet
+- Ein geplanter einmaliger Versand liegt mehr als sieben Tage nach dem Sendedatum
+- Eine geplante oder aktionsbasierte Campaign mit einem Enddatum liegt mehr als sieben Tage nach dem Enddatum
+- Eine Campaign ohne Enddatum hat seit einem Jahr keine Nachricht gesendet, keine Nutzer:innen in eine Kontrollgruppe aufgenommen und wurde nicht bearbeitet
 
-Bei Campaigns ohne Enddatum setzt eine Sendung, eine Kontrollgruppen-Aufnahme oder eine Bearbeitung den Countdown von einem Jahr zurück. Wenn Braze Campaigns stoppt, benachrichtigt es die Unternehmensnutzer:innen im Dashboard und per E-Mail.
+Bei Campaigns ohne Enddatum setzt ein Versand, eine Kontrollgruppenaufnahme oder eine Bearbeitung den Einjahres-Countdown zurück. Wenn Braze Campaigns stoppt, werden Unternehmensnutzer:innen im Dashboard und per E-Mail benachrichtigt.
 
-Braze stoppt Campaigns zum späteren der beiden Zeitpunkte: dem Standard-Stoppzeitpunkt oder einem Tag nach der letzten Konversions-Frist. Sendungen einer Gewinnervariante oder personalisierten Variante werden als geplante Sendungen behandelt, und Braze stoppt sie sieben Tage nach dem Versand dieser Variante. Campaigns werden täglich um 4 Uhr UTC gestoppt.
+Braze stoppt Campaigns zum späteren Zeitpunkt aus dem Standard-Stoppdatum und einem Tag nach der letzten Konversionsfrist. Versendungen einer Gewinnervariante oder personalisierten Variante werden als geplante Versendungen behandelt, und Braze stoppt sie sieben Tage nach dem Versand dieser Variante. Campaigns werden täglich um 4 Uhr UTC gestoppt.
 
-Content Cards werden erst nach Ablauf ihrer Gültigkeitsfrist gestoppt und unterliegen ebenfalls den Stoppkriterien für inaktive Campaigns sowie der Konversions-Frist-Regel. Einzelheiten finden Sie unter [Wie funktioniert das Stoppen von Content Cards?](#how-does-stopping-content-cards-work).
+Content Cards werden erst nach Ablauf ihres Ablaufdatums gestoppt und unterliegen ebenfalls den Stoppkriterien für inaktive Campaigns sowie der Konversionsfrist-Regel. Weitere Informationen finden Sie unter [Wie funktioniert das Stoppen von Content Cards?](#how-does-stopping-content-cards-work).
 
-Verwenden Sie diese Tabelle, um eine inaktive Campaign aktiv zu halten. Inaktiv-Status und automatisches Stoppen verwenden unterschiedliche Zeitfenster: Eine Campaign ohne Enddatum wird nach 11 Monaten ohne Aktivität inaktiv, und Braze stoppt sie nach einem Jahr automatisch.
+Verwenden Sie diese Tabelle, um eine inaktive Campaign aktiv zu halten. Inaktivstatus und automatisches Stoppen verwenden unterschiedliche Zeitfenster: Eine Campaign ohne Enddatum wird nach 11 Monaten ohne Aktivität inaktiv, und Braze stoppt sie automatisch nach einem Jahr.
 
-| Grund für den Inaktiv-Status | Schritte, um die Campaign wieder zu aktivieren |
+| Grund für den Inaktivstatus | Schritte, um die Campaign wieder aktiv zu machen |
 |---|---|
-| Eine geplante einmalige Sendung liegt hinter dem Sendedatum | Planen Sie eine zukünftige Sendung |
-| Eine geplante oder aktionsbasierte Campaign hat ein Enddatum, das verstrichen ist | Verlängern Sie das Enddatum |
-| Eine Campaign ohne Enddatum hat seit 11 Monaten keine Nachricht gesendet, keine:n Nutzer:in in eine Kontrollgruppe aufgenommen und wurde nicht bearbeitet | Senden Sie eine Nachricht oder bearbeiten Sie die Campaign |
+| Geplanter einmaliger Versand liegt nach dem Sendedatum | Planen Sie einen zukünftigen Versand |
+| Geplante oder aktionsbasierte Campaign hat ein abgelaufenes Enddatum | Verlängern Sie das Enddatum |
+| Campaign ohne Enddatum hat seit 11 Monaten keine Nachricht gesendet, keine Nutzer:innen in eine Kontrollgruppe aufgenommen und wurde nicht bearbeitet | Senden Sie eine Nachricht oder bearbeiten Sie die Campaign |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="So halten Sie eine inaktive Campaign aktiv" }
 
-Feature-Flag-Campaigns und Feature-Flag-Experimente werden nicht inaktiv und werden nicht automatisch gestoppt.
+Feature-Flag-Campaigns und Feature-Flag-Experimente werden nicht inaktiv und nicht automatisch gestoppt.
 
 ### In-App-Nachricht-Campaigns {#in-app-message-campaigns}
 
-Aktionsbasierte In-App-Nachricht-Campaigns werden nach 30 Tagen ohne Sendung, Kontrollgruppen-Aufnahme oder Bearbeitung inaktiv. Eine inaktive In-App-Nachricht-Campaign wird weiterhin gemäß ihrer Konfiguration zugestellt. Je nach Ihrem Workspace kann Braze sie als [vorlagenbasierte In-App-Nachricht]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#what-are-templated-in-app-messages) zustellen.
+Aktionsbasierte In-App-Nachricht-Campaigns werden nach 30 Tagen ohne Versand, Kontrollgruppenaufnahme oder Bearbeitung inaktiv. Eine inaktive In-App-Nachricht-Campaign wird weiterhin gemäß ihrer Konfiguration ausgeliefert. Je nach Workspace kann Braze sie als [vorlagisierte In-App-Nachricht]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#what-are-templated-in-app-messages) ausliefern.
 
-Eine Sendung, Kontrollgruppen-Aufnahme oder Bearbeitung versetzt die Campaign wieder in den aktiven Status und setzt das 30-Tage-Fenster zurück. Das automatische Stoppen folgt weiterhin den Sieben-Tage- und Ein-Jahres-Regeln unter [Inaktive Campaigns](#idle-campaigns), nicht dem 30-Tage-Inaktivitätsfenster.
+Ein Versand, eine Kontrollgruppenaufnahme oder eine Bearbeitung setzt die Campaign wieder auf den aktiven Status zurück und startet das 30-Tage-Fenster neu. Das automatische Stoppen folgt weiterhin den Sieben-Tage- und Einjahres-Regeln unter [Inaktive Campaigns](#idle-campaigns) und nicht dem 30-Tage-Inaktivfenster.
 
 ## Inaktive Canvases {#idle-canvases}
 
-Braze stoppt inaktive Canvases, die eines der folgenden Kriterien erfüllen:
+Braze stoppt inaktive Canvases, die eines dieser Kriterien erfüllen:
 
-- Eine geplante einmalige Sendung liegt mehr als sieben Tage hinter ihrem Sendedatum und ihrer [maximalen Dauer]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#maximum-duration)
-- Ein geplanter oder aktionsbasierter Canvas mit Enddatum liegt mehr als sieben Tage hinter seinem Enddatum und seiner maximalen Dauer
-- Ein Canvas ohne Enddatum hat seit mehr als 12 Monaten zuzüglich seiner maximalen Dauer keine Nutzer:innen aufgenommen und wurde nicht bearbeitet
+- Ein geplanter Einmalversand liegt mehr als sieben Tage nach seinem Sendedatum und seiner [maximalen Dauer]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#maximum-duration)
+- Ein geplantes oder aktionsbasiertes Canvas mit einem Enddatum liegt mehr als sieben Tage nach seinem Enddatum und seiner maximalen Dauer
+- Ein Canvas ohne Enddatum hat seit mehr als 12 Monaten plus seiner maximalen Dauer keine Nutzer:innen aufgenommen und wurde nicht bearbeitet
 
-Bei Canvases ohne Enddatum setzt eine Nutzeraufnahme oder Bearbeitung den Countdown von einem Jahr zurück. Wenn Braze Canvases stoppt, benachrichtigt es die Unternehmensnutzer:innen im Dashboard und per E-Mail.
+Bei Canvases ohne Enddatum setzt ein Nutzereintritt oder eine Bearbeitung den Einjahres-Countdown zurück. Wenn Braze Canvases stoppt, werden Unternehmensnutzer:innen im Dashboard und per E-Mail benachrichtigt.
 
-Die maximale Dauer eines Canvas ist die längste mögliche Zeit, die Nutzer:innen benötigen können, um diesen Canvas abzuschließen. Diese Dauer umfasst die Gültigkeitsfristen für Content Cards und In-App-Nachrichten.
+Die maximale Dauer eines Canvas ist die längstmögliche Zeit, die Nutzer:innen benötigen können, um dieses Canvas abzuschließen. Diese Dauer umfasst Ablaufzeiten für Content Cards und In-App-Nachrichten. Wenn Ihr Canvas Schritte mit Rate-Limits enthält, fügt Braze der maximalen Dauer zusätzlich sieben Tage hinzu, um mögliche Rate-Limit-Warteschlangen zu berücksichtigen.
 
-Verwenden Sie diese Tabelle, um einen inaktiven Canvas aktiv zu halten. Inaktiv-Status und automatisches Stoppen verwenden unterschiedliche Zeitfenster: Ein Canvas ohne Enddatum wird nach 11 Monaten zuzüglich seiner maximalen Dauer ohne Aktivität inaktiv, und Braze stoppt ihn nach 12 Monaten zuzüglich seiner maximalen Dauer automatisch.
+Verwenden Sie diese Tabelle, um ein inaktives Canvas aktiv zu halten. Inaktivitätsstatus und automatisches Stoppen verwenden unterschiedliche Zeitfenster: Ein Canvas ohne Enddatum wird nach 11 Monaten plus seiner maximalen Dauer ohne Aktivität inaktiv, und Braze stoppt es automatisch nach 12 Monaten plus seiner maximalen Dauer.
 
-| Grund für den Inaktiv-Status | Schritte, um den Canvas wieder zu aktivieren |
+| Grund für den Inaktivitätsstatus | Schritte, um das Canvas wieder zu aktivieren |
 |---|---|
-| Eine geplante einmalige Sendung liegt hinter dem Sendedatum und der maximalen Dauer | Planen Sie eine zukünftige Sendung |
-| Ein geplanter oder aktionsbasierter Canvas hat ein Enddatum und eine maximale Dauer, die verstrichen sind | Verlängern Sie das Enddatum |
-| Ein Canvas ohne Enddatum hat seit 11 Monaten zuzüglich seiner maximalen Dauer keine Nutzer:innen aufgenommen und wurde nicht bearbeitet | Nehmen Sie eine:n Nutzer:in auf oder bearbeiten Sie den Canvas |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="So halten Sie einen inaktiven Canvas aktiv" }
+| Der geplante Einmalversand liegt nach dem Sendedatum und der maximalen Dauer | Planen Sie einen zukünftigen Versand |
+| Ein geplantes oder aktionsbasiertes Canvas hat ein Enddatum und eine maximale Dauer, die überschritten wurden | Verlängern Sie das Enddatum |
+| Ein Canvas ohne Enddatum hat seit 11 Monaten plus seiner maximalen Dauer keine Nutzer:innen aufgenommen und wurde nicht bearbeitet | Nehmen Sie Nutzer:innen auf oder bearbeiten Sie das Canvas |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="So halten Sie ein inaktives Canvas aktiv" }
 
-Canvases mit Feature-Flag-Schritten werden nicht inaktiv und werden nicht automatisch gestoppt.
+Canvases mit Feature-Flag-Schritten werden nicht inaktiv und nicht automatisch gestoppt.
 
-Informationen zu Messaging-Interaktionsdaten bei gestoppten Campaigns und Canvases finden Sie unter [Informationen zur Verfügbarkeit von Messaging-Interaktionsdaten]({{site.baseurl}}/messaging_interaction_data).
+Informationen zu Messaging-Interaktionsdaten bei gestoppten Campaigns und Canvases finden Sie unter [Über die Verfügbarkeit von Messaging-Interaktionsdaten]({{site.baseurl}}/messaging_interaction_data).
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 
 ### Für welche Campaigns oder Canvases gilt das? {#what-campaigns-or-canvases-does-this-apply-to}
 
-Dies gilt für Campaigns und Canvases, die die in diesem Artikel genannten Kriterien bereits erfüllen, und für solche, die sie später erfüllen.
+Dies gilt für Campaigns und Canvases, die bereits die in diesem Artikel genannten Kriterien erfüllen, sowie für solche, die die Kriterien zu einem späteren Zeitpunkt erfüllen.
 
 ### Wie erkenne ich, ob eine Campaign oder ein Canvas inaktiv ist? {#how-do-i-know-if-a-campaign-or-canvas-is-idle}
 
-Um inaktive Campaigns und Canvases zu finden, gehen Sie zur Seite **Campaigns** oder **Canvas** und filtern Sie nach **Idle**. Das Datum, an dem Braze die Campaign oder den Canvas stoppt, wird als Spalte in der Liste angezeigt.
+Um inaktive Campaigns und Canvases zu finden, gehen Sie zur Seite **Campaigns** oder **Canvas** und filtern Sie nach **Idle**. Das Datum, an dem Braze die Campaign oder das Canvas stoppt, wird als Spalte in der Liste angezeigt.
 
 ![Der Filter „Idle“ auf der Campaigns-Seite.]({% image_buster /assets/img/idle_filter.png %}){: style="max-width:80%;"}
 
-### Was passiert, wenn eine inaktive Campaign oder ein inaktiver Canvas aktualisiert wird? {#what-happens-if-an-idle-campaign-or-canvas-is-updated}
+### Was passiert, wenn eine inaktive Campaign oder ein inaktives Canvas aktualisiert wird? {#what-happens-if-an-idle-campaign-or-canvas-is-updated}
 
-Wenn Sie eine Campaign aktualisieren, die keine Nachricht gesendet hat, oder einen Canvas, der keine Nutzer:innen aufgenommen hat, wird der Countdown zurückgesetzt.
+Wenn Sie eine Campaign aktualisieren, die keine Nachricht gesendet hat, oder ein Canvas, in das keine Nutzer:innen eingetreten sind, wird der Countdown zurückgesetzt.
 
-### Was passiert mit Campaigns, die seit einem Jahr keine Nachricht gesendet haben (oder Canvases, die seit einem Jahr keine Nutzer:innen aufgenommen haben), aber ein Enddatum in der Zukunft haben? {#what-happens-to-campaigns-that-havent-sent-a-message-in-one-year-or-canvases-that-havent-entered-users-in-one-year-but-have-an-end-date-in-the-future}
+### Was passiert mit Campaigns, die seit einem Jahr keine Nachricht gesendet haben (oder Canvases, in die seit einem Jahr keine Nutzer:innen eingetreten sind), aber ein Enddatum in der Zukunft haben? {#what-happens-to-campaigns-that-havent-sent-a-message-in-one-year-or-canvases-that-havent-entered-users-in-one-year-but-have-an-end-date-in-the-future}
 
 Braze stoppt diese Campaigns und Canvases sieben Tage nach dem Enddatum um 4 Uhr UTC.
 
@@ -96,19 +96,19 @@ Nein. Das automatische Stoppen sorgt dafür, dass nur die notwendigen Campaigns 
 
 ### Wer erhält E-Mail-Benachrichtigungen über gestoppte Campaigns und Canvases? {#who-receives-email-notifications-about-stopped-campaigns-and-canvases}
 
-Standardmäßig sind alle Nutzer:innen mit Administratorberechtigungen für E-Mail-Benachrichtigungen über automatisch gestoppte Campaigns und Canvases angemeldet. Die Erstellerin oder der Ersteller der Campaign oder des Canvas wird immer benachrichtigt, wenn diese:r gestoppt wird. Um die Empfänger:innen zu verwalten, gehen Sie zu **Einstellungen** > **Administratoreinstellungen** > **Benachrichtigungseinstellungen** und fügen Sie Empfänger:innen zu **Campaign Automatically Stopped** und **Canvas Automatically Stopped** hinzu oder entfernen Sie sie.
+Standardmäßig erhalten alle Nutzer:innen mit Administratorberechtigungen E-Mail-Benachrichtigungen über automatisch gestoppte Campaigns und Canvases. Die Person, die die Campaign oder das Canvas erstellt hat, wird immer benachrichtigt, wenn diese gestoppt werden. Um Empfänger:innen zu verwalten, gehen Sie zu **Einstellungen** > **Admin-Einstellungen** > **Benachrichtigungseinstellungen** und fügen Sie Empfänger:innen unter **Campaign Automatically Stopped** und **Canvas Automatically Stopped** hinzu oder entfernen Sie sie.
 
 ### Wie funktioniert das Stoppen von Content Cards? {#how-does-stopping-content-cards-work}
 
-Content Cards in Campaigns werden erst nach Ablauf ihrer Gültigkeitsfrist und der entsprechenden Pufferfrist gestoppt. Braze stoppt sie zum späteren der beiden Zeitpunkte: der Pufferfrist (einmalige Sendung, Enddatum oder ohne Enddatum) und der Gültigkeitsfrist.
+Content Cards in Campaigns werden erst nach Ablauf ihres Verfallsdatums und der entsprechenden Pufferzeit gestoppt. Braze stoppt sie zum späteren Zeitpunkt aus Pufferzeit (einmaliger Versand, Enddatum oder kein Enddatum) und Verfallsdatum.
 
-Beispiel: Wenn eine Content Card am 1. April abläuft, eine einmalige Sendung ist und eine Konversions-Frist von 10 Tagen hat, stoppt Braze sie am 12. April (10 Tage nach der Konversions-Frist, plus ein Tag). Wenn eine Content Card am 1. April abläuft, API-getriggert ist und seit dem 15. März keine Nachrichten gesendet hat, läuft sie am 15. März des folgenden Jahres ab.
+Wenn eine Content Card beispielsweise am 1. April abläuft, einmalig versendet wird und eine Konversions-Frist von 10 Tagen hat, stoppt Braze sie am 12. April (10 Tage nach der Konversions-Frist plus ein Tag). Wenn eine Content Card am 1. April abläuft, API-getriggert ist und seit dem 15. März keine Nachrichten mehr gesendet hat, läuft sie am 15. März des folgenden Jahres ab.
 
-Canvases werden erst gestoppt, nachdem ihre Content Cards gestoppt wurden, das heißt, nachdem ihre maximale Dauer verstrichen ist.
+Canvases werden erst gestoppt, nachdem ihre Content Cards gestoppt wurden, d. h. nachdem ihre maximale Dauer abgelaufen ist.
 
-### Ich habe ein Feature-Flag-Experiment in meinem Canvas. Bleibt der Canvas aktiv, nachdem mein Feature-Flag gesetzt wurde? {#i-have-a-feature-flag-experiment-in-my-canvas-after-my-feature-flag-is-set-does-the-canvas-remain-active}
+### Ich habe ein Feature-Flag-Experiment in meinem Canvas. Bleibt das Canvas aktiv, nachdem mein Feature-Flag gesetzt wurde? {#i-have-a-feature-flag-experiment-in-my-canvas-after-my-feature-flag-is-set-does-the-canvas-remain-active}
 
-Ja. Canvases mit Feature-Flag-Schritten werden nicht automatisch gestoppt und werden nicht inaktiv. Feature-Flag-Campaigns und Feature-Flag-Experimente unterliegen derselben Ausnahme.
+Ja. Canvases mit Feature-Flag-Schritten werden nicht automatisch gestoppt und werden nicht als inaktiv eingestuft. Feature-Flag-Campaigns und Feature-Flag-Experimente folgen derselben Ausnahme.
 
 ### Warum erscheinen inaktive Campaigns, wenn ich die Campaign-Liste nur nach aktiven filtere? {#why-do-idle-campaigns-appear-when-i-filter-the-campaign-list-to-active-only}
 

@@ -85,8 +85,8 @@ Authorization: Bearer YOUR-SCIM-TOKEN-KEY
 | `schemas` | Erforderlich | String-Array | Erwarteter SCIM-2.0-Schemaname für das Nutzer:innen-Objekt. |
 | `userName` | Erforderlich | String | Die E-Mail-Adresse der Nutzer:in. |
 | `name` | Erforderlich | JSON-Objekt | Dieses Objekt enthält den Vornamen und den Nachnamen der Nutzer:in. |
-| `department` | Erforderlich | String | Gültiger Abteilungs-String aus der [Dokumentation zu Abteilungs-Strings]({{site.baseurl}}/api/objects_filters/scim_api_appendix). |
-| `permissions` | Optional | JSON-Objekt | Berechtigungsobjekt wie in der [Dokumentation zum Berechtigungsobjekt]({{site.baseurl}}/api/objects_filters/scim_api_appendix) beschrieben. |
+| `department` | Optional | String | Gültiger Abteilungs-String aus der [Dokumentation zu Abteilungs-Strings]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_department-strings). Lassen Sie den Wert weg oder übergeben Sie einen leeren String, wenn die Abteilung unbekannt ist. |
+| `permissions` | Optional | JSON-Objekt | Berechtigungsobjekt wie in der [Dokumentation zum Berechtigungsobjekt]({{site.baseurl}}/api/objects_filters/scim_api_appendix) beschrieben. Wenn weggelassen oder leer, weist Braze standardmäßig schreibgeschützte Workspace-Berechtigungen für den unter **SCIM Provisioning** konfigurierten Standard-Workspace zu. Nach der Migration zu granularen Berechtigungen umfasst dies schreibgeschützte Workspace-Berechtigungen. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ## Beispielanfrage {#example-request}
@@ -140,7 +140,8 @@ curl --location --request POST 'https://rest.iad-01.braze.com/scim/v2/Users' \
         "familyName": "User"
     },
     "department": "finance",
-    "lastSignInAt": "Thursday, January 1, 1970 12:00:00 AM",
+    "lastSignInAt": "NA",
+    "createdAt": "NA",
     "permissions": {
         "companyPermissions": ["manage_company_settings"],
         "roles": [
@@ -216,7 +217,8 @@ curl --location --request POST 'https://rest.iad-01.braze.com/scim/v2/Users' \
 | `department` | String | Gültiger Abteilungs-String aus der [Dokumentation zu Abteilungs-Strings]({{site.baseurl}}/api/objects_filters/scim_api_appendix). |
 | `permissions` | JSON-Objekt | Berechtigungsobjekt wie in der [Dokumentation zum Berechtigungsobjekt]({{site.baseurl}}/api/objects_filters/scim_api_appendix) beschrieben. |
 | `id` | String | Von Braze generierte ID, die für die Suche und Verwaltung von Nutzer:innen-Konten verwendet wird. |
-| `lastSignInAt` | String | Datum der letzten erfolgreichen Anmeldung in UTC-Zeit. |
+| `createdAt` | String | Datum, an dem das Nutzer:innen-Konto erstellt wurde, in UTC. Gibt `NA` zurück, wenn nicht festgelegt. |
+| `lastSignInAt` | String | Datum der letzten erfolgreichen Anmeldung in UTC. Gibt `NA` zurück, wenn sich die Nutzer:in noch nicht angemeldet hat. Format: `YYYY Mon DD, H:MM AM/PM`. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Antwortparameter" }
 
 ### Fehlerzustände {#error-states}

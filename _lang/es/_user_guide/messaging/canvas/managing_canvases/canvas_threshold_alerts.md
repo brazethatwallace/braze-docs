@@ -24,7 +24,7 @@ Establece un umbral de volumen o porcentaje para las entradas de usuarios o los 
 
 Las alertas se configuran a nivel de Canvas, y puedes configurarlas tanto para Canvas activos como en borrador. Para abrir la página **Gestionar alertas** de un Canvas, puedes:
 
-- Ir a **Mensajería** > **Canvas** y seleccionar **Gestionar alertas** desde el menú contextual de un Canvas individual.
+- Ir a **Messaging** > **Canvas** y seleccionar **Gestionar alertas** en el menú contextual de un Canvas individual.
 - Para Canvas activos, abrir **Canvas Analytics** y seleccionar **Gestionar alertas**.
 
 Desde la página **Gestionar alertas**, selecciona **Configurar alerta** para crear una nueva alerta.
@@ -33,7 +33,7 @@ Desde la página **Gestionar alertas**, selecciona **Configurar alerta** para cr
 
 Dale un nombre a tu alerta y confirma el Canvas al que se aplica.
 
-![El panel Configurar alerta que muestra los campos de nombre de alerta y nombre de Canvas, un grupo de reglas vacío y una barra lateral de resumen para reglas de alerta, programación y notificaciones.]({% image_buster /assets/img/canvas_threshold_alerts/configure_alert.png %})
+![El panel Configurar alerta mostrando los campos de nombre de alerta y nombre de Canvas, un grupo de reglas vacío y una barra lateral de resumen para reglas de alerta, programación y notificaciones.]({% image_buster /assets/img/canvas_threshold_alerts/configure_alert.png %})
 
 ## Paso 3: Configurar reglas de alerta {#step-3-set-alert-rules}
 
@@ -44,8 +44,8 @@ Las reglas de alerta definen el umbral que desencadena una notificación. Puedes
 
 Para cada regla, elige una comparación (menor que, mayor que, menor o igual que, mayor o igual que, o igual a), una unidad y un umbral.
 
-- **Volumen:** Compara el recuento absoluto en la ventana de verificación actual. Por ejemplo, "Entradas de usuarios menor que 3.000" marca un Canvas que normalmente está alcanzando a miles de usuarios pero que se ha detenido repentinamente, una señal de un problema de audiencia o entrada upstream que vale la pena investigar.
-- **Porcentaje:** Compara el recuento actual con una línea base para este Canvas. La línea base es el promedio de la misma ventana de tiempo durante los 7 días anteriores. Por ejemplo, si la alerta se verifica cada 3 horas, una verificación de 2–5 pm se compara con el promedio de las siete ventanas anteriores de 2–5 pm. Una regla de "Mensajes enviados menor que 50%" marca una caída por debajo de la mitad del volumen habitual.
+- **Volumen:** Compara el recuento absoluto en la ventana de verificación actual. Por ejemplo, "Entradas de usuarios menor que 3,000" marca un Canvas que normalmente alcanza a miles de usuarios, pero que se ha detenido repentinamente, una señal de un problema de audiencia o entrada upstream que vale la pena investigar.
+- **Porcentaje:** Compara el recuento actual con una línea base para este Canvas. La línea base es el promedio de la misma ventana de tiempo durante los 7 días anteriores. Por ejemplo, si la alerta se verifica cada 3 horas, una verificación de 2 a 5 p. m. se compara con el promedio de las siete ventanas previas de 2 a 5 p. m. Una regla de "Mensajes enviados menor que 50%" marca una caída a menos de la mitad de ese volumen habitual.
 
 Los umbrales son números enteros. Para reglas de porcentaje con **menor que** o **menor o igual que**, introduce un valor de 1 a 100. Para **mayor que**, **mayor o igual que** o **igual a**, el porcentaje puede ser 0 o superior, incluyendo valores por encima de 100, para que puedas alertar sobre un pico en relación con la línea base.
 
@@ -53,22 +53,22 @@ Puedes agrupar múltiples reglas juntas, incluyendo la combinación de reglas de
 
 ## Paso 4: Configura el horario de alertas {#step-4-set-the-alert-schedule}
 
-Define con qué frecuencia se verifican tus reglas de alerta. Puedes configurar la frecuencia de verificación en cualquier intervalo de 3 a 12 horas (en incrementos de 1 hora), o cada 24 horas. Una vez activada, una alerta continúa verificándose según este horario mientras la alerta y su Canvas asociado estén activos.
+Define con qué frecuencia se comprueban tus reglas de alerta. Puedes configurar la frecuencia de comprobación en cualquier intervalo de 3 a 12 horas (en incrementos de 1 hora), o cada 24 horas. Una vez activada, una alerta continúa comprobándose según este horario mientras la alerta y su Canvas asociado estén activos.
 
 ## Paso 5: Configurar las notificaciones {#step-5-set-up-notifications}
 
-Elige quién debe recibir una notificación cuando se cumple una regla de alerta, y cómo se le notifica:
+Elige quién debe recibir una notificación cuando se cumpla una regla de alerta y cómo se le notifica:
 
-- **Correo electrónico:** Añade una o más direcciones de correo electrónico de los destinatarios
-- **Webhook:** Introduce la URL del webhook para notificar, y opcionalmente añade encabezados de solicitud personalizados requeridos por tu destino de webhook
+- **Correo electrónico:** Añade una o más direcciones de correo electrónico de destinatarios
+- **Webhook:** Introduce la URL del webhook para notificar y, opcionalmente, añade encabezados de solicitud personalizados que requiera tu destino de webhook
 
 Puedes habilitar uno o ambos métodos de notificación para una sola alerta.
 
-Las alertas de webhook son útiles para enrutar notificaciones a plataformas externas, como un canal de Slack; para más información, consulta la documentación de Slack sobre [envío de mensajes mediante webhooks entrantes](https://docs.slack.dev/messaging/sending-messages-using-incoming-webhooks/). Cada notificación de webhook envía una carga útil JSON con el nombre de la alerta, la ventana de evaluación y las condiciones que desencadenaron la alerta. Cada condición incluye un `threshold_unit` de `volume` o `percentage`. Las condiciones de porcentaje también incluyen `percentage_metric_value` (el recuento observado como porcentaje de número entero respecto a la línea base). `metric_value` es siempre el recuento absoluto.
+Las alertas de webhook son útiles para enrutar notificaciones a plataformas externas, como un canal de Slack. Para más información, consulta la documentación de Slack sobre [enviar mensajes usando webhooks entrantes](https://docs.slack.dev/messaging/sending-messages-using-incoming-webhooks/). Cada notificación de webhook envía una carga útil JSON con el nombre de la alerta, la ventana de evaluación y las condiciones que activaron la alerta. Cada condición incluye un `threshold_unit` de `volume` o `percentage`. Las condiciones de porcentaje también incluyen `percentage_metric_value` (el recuento observado como porcentaje en número entero de la línea base). `metric_value` es siempre el recuento absoluto.
 
 ### Ejemplo de carga útil de webhook {#example-webhook-payload}
 
-A continuación se muestra un ejemplo de la carga útil JSON enviada en una solicitud POST a tu endpoint de webhook cuando se desencadena una alerta. La primera condición es una regla de volumen. La segunda es una regla de porcentaje: 51.235 mensajes enviados, lo que representa un 57 % de la línea base de la misma ventana de 7 días, frente a un umbral de más del 55 %.
+A continuación se muestra un ejemplo de la carga útil JSON enviada en una solicitud POST a tu endpoint de webhook cuando se activa una alerta. La primera condición es una regla de volumen. La segunda es una regla de porcentaje: 51.235 mensajes enviados, lo que representa un 57 % de la línea base de la misma ventana de 7 días, frente a un umbral de más del 55 %.
 
 ```json
 {
@@ -102,13 +102,19 @@ A continuación se muestra un ejemplo de la carga útil JSON enviada en una soli
 
 ## Paso 6: Guarda tu alerta {#step-6-save-your-alert}
 
-Revisa las reglas de tu alerta, el horario y la configuración de notificaciones en el panel de resumen y, a continuación, selecciona **Save alert**.
+Revisa las reglas de tu alerta, la programación y la configuración de notificaciones en el panel de resumen, y luego selecciona **Save alert**.
 
 ## Paso 7: Activar la alerta {#step-7-activate-the-alert}
 
-Guardar una alerta no la activa. Para activarla, ve a la página **Administrar alertas** y usa el alternador de **Estado** de tu alerta. Una alerta permanece activa hasta que la desactives o hasta que su Canvas asociado deje de estar activo. La columna **Alertas configuradas** en la página de **Canvas** muestra un icono de campana para cualquier Canvas que tenga al menos una alerta guardada.
+Guardar una alerta no la activa. Para activarla, ve a la página **Administrar alertas** y usa el alternador de **Estado** de tu alerta. Una alerta permanece activa hasta que la desactivas o hasta que su Canvas asociado deja de estar activo. La columna **Alertas configuradas** en la página de **Canvas** muestra un icono de campana para cualquier Canvas que tenga al menos una alerta guardada.
 
 ## Consideraciones {#considerations}
 
-- **Canvas en borrador:** Puedes configurar una alerta de umbral para un Canvas que aún está en borrador, pero la alerta no comenzará a verificar tus reglas hasta que el Canvas se lance.
-- **Línea base de porcentaje:** Las reglas de porcentaje necesitan siete días completos previos con la misma ventana después del lanzamiento del Canvas. Hasta que esas ventanas existan, o cuando el promedio de la línea base sea cero (sin actividad en esas ventanas anteriores), las reglas de porcentaje no desencadenan una notificación.
+- **Canvas en borrador:** Puedes configurar una alerta de umbral para un Canvas que aún esté en borrador, pero la alerta no comenzará a verificar tus reglas hasta que el Canvas se lance.
+- **Línea base de porcentaje:** Las reglas de porcentaje necesitan siete días completos previos de la misma ventana después de que el Canvas se lance. Hasta que esas ventanas existan, o cuando el promedio de la línea base sea cero (sin actividad en esas ventanas previas), las reglas de porcentaje no desencadenan una notificación.
+
+## Preguntas frecuentes {#frequently-asked-questions}
+
+### ¿Las alertas de umbral de Canvas cuentan para el uso de webhooks? {#do-canvas-threshold-alerts-count-toward-webhook-usage}
+
+No. Las alertas de umbral de Canvas no cuentan para los límites de velocidad de webhooks ni para las métricas de uso.

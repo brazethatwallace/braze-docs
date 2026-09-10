@@ -5,23 +5,23 @@ Wir wenden auf diesen Endpunkt das standardmäßige Braze-Rate-Limit von 250.000
 
 <!---PUT /scim/v2/Users/YOUR_ID_HERE--->
 {% elsif include.endpoint == "update dashboard user" %}
-Dieser Endpunkt hat ein Rate-Limit von 5.000 Anfragen pro Tag und Unternehmen. Dieses Rate-Limit wird mit den `/scim/v2/Users/` GET-, DELETE- und POST-Endpunkten geteilt, wie in [API-Rate-Limits]({{site.baseurl}}/api/api_limits) dokumentiert.
+Dieser Endpunkt hat ein Rate-Limit von 20.000 Anfragen pro Tag und Unternehmen. Dieses Rate-Limit wird mit den `/scim/v2/Users/` GET-, DELETE- und POST-Endpunkten geteilt, wie in [API-Rate-Limits]({{site.baseurl}}/api/api_limits) dokumentiert.
 
 <!---GET /scim/v2/Users/YOUR_ID_HERE--->
 {% elsif include.endpoint == "look up dashboard user" %}
-Dieser Endpunkt hat ein Rate-Limit von 5.000 Anfragen pro Tag und Unternehmen. Dieses Rate-Limit wird mit den `/scim/v2/Users/` PUT-, GET-, DELETE- und POST-Endpunkten geteilt, wie in [API-Rate-Limits]({{site.baseurl}}/api/api_limits) dokumentiert.
+Dieser Endpunkt hat ein Rate-Limit von 20.000 Anfragen pro Tag und Unternehmen. Dieses Rate-Limit wird mit den `/scim/v2/Users/` PUT-, GET-, DELETE- und POST-Endpunkten geteilt, wie in [API-Rate-Limits]({{site.baseurl}}/api/api_limits) dokumentiert.
 
 <!---DELETE /scim/v2/Users/YOUR_ID_HERE--->
 {% elsif include.endpoint == "delete dashboard user" %}
-Dieser Endpunkt hat ein Rate-Limit von 5.000 Anfragen pro Tag und Unternehmen. Dieses Rate-Limit wird mit den `/scim/v2/Users/` PUT-, GET- und POST-Endpunkten geteilt, wie in [API-Rate-Limits]({{site.baseurl}}/api/api_limits) dokumentiert.
+Dieser Endpunkt hat ein Rate-Limit von 20.000 Anfragen pro Tag und Unternehmen. Dieses Rate-Limit wird mit den `/scim/v2/Users/` PUT-, GET- und POST-Endpunkten geteilt, wie in [API-Rate-Limits]({{site.baseurl}}/api/api_limits) dokumentiert.
 
 <!---POST /scim/v2/Users--->
 {% elsif include.endpoint == "create dashboard user" %}
-Dieser Endpunkt hat ein Rate-Limit von 5.000 Anfragen pro Tag und Unternehmen. Dieses Rate-Limit wird mit den `/scim/v2/Users/` PUT-, GET- und DELETE-Endpunkten geteilt, wie in [API-Rate-Limits]({{site.baseurl}}/api/api_limits) dokumentiert.
+Dieser Endpunkt hat ein Rate-Limit von 20.000 Anfragen pro Tag und Unternehmen. Dieses Rate-Limit wird mit den `/scim/v2/Users/` PUT-, GET- und DELETE-Endpunkten geteilt, wie in [API-Rate-Limits]({{site.baseurl}}/api/api_limits) dokumentiert.
 
 <!---GET /scim/v2/Users--->
 {% elsif include.endpoint == "look up dashboard user email" %}
-Dieser Endpunkt hat ein Rate-Limit von 5.000 Anfragen pro Tag und Unternehmen. Dieses Rate-Limit wird mit den `/scim/v2/Users/` PUT-, GET-, DELETE- und POST-Endpunkten geteilt, wie in [API-Rate-Limits]({{site.baseurl}}/api/api_limits) dokumentiert.
+Dieser Endpunkt hat ein Rate-Limit von 20.000 Anfragen pro Tag und Unternehmen. Dieses Rate-Limit wird mit den `/scim/v2/Users/` PUT-, GET-, DELETE- und POST-Endpunkten geteilt, wie in [API-Rate-Limits]({{site.baseurl}}/api/api_limits) dokumentiert.
 
 <!---/users/external_id/rename-->
 <!---/users/external_id/remove-->
@@ -34,15 +34,15 @@ Für diesen Endpunkt gilt ein Rate-Limit von 1.000 Anfragen pro Minute, wie in [
 {% elsif include.endpoint == "users track" %}
 Die Rate-Limits für diesen Endpunkt variieren je nach Ihrem Vertrag. Für Kund:innen mit Datenpunkten in ihrem Preismodell wendet Braze ein Burst-Limit von 3.000 Anfragen pro drei Sekunden an. Für alle anderen Kund:innen werden die Limits gemäß Ihren Vertragsbedingungen konfiguriert. Die aktuellen Limits für Ihr Konto finden Sie im Dashboard unter **Einstellungen** > **APIs und Bezeichner** > **API-Nutzungs-Dashboard**.
 
-Jede `/users/track`-Anfrage kann insgesamt bis zu 75 Objekte enthalten, verteilt auf `attributes`, `events` und `purchases`. Jedes Objekt kann eine:n Nutzer:in aktualisieren. Ein einzelnes Kundenprofil kann durch mehrere Objekte aktualisiert werden.
+Jede `/users/track`-Anfrage kann insgesamt bis zu 75 Objekte enthalten, verteilt auf `attributes`, `events` und `purchases`. Jedes Objekt kann eine:n Nutzer:in aktualisieren. Ein einzelnes Nutzerprofil kann durch mehrere Objekte aktualisiert werden.
 
 Für Kund:innen, die Monthly Active Users CY 24-25, Universal MAU, Web MAU oder Mobile MAU erworben haben, gelten zusätzliche Rate-Limits. Weitere Informationen finden Sie unter [Monthly Active Users CY 24-25 Limits]({{site.baseurl}}/api/endpoints/user_data/post_user_track#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau).
 
 {% details Ältere Rate-Limits %}
-Für Kund:innen mit älteren Rate-Limits kann jede `/users/track`-Anfrage bis zu 75 Attribut-Objekte, 75 Event-Objekte und 75 Kauf-Objekte enthalten. Jedes Objekt kann eine:n Nutzer:in aktualisieren, was insgesamt maximal 225 Objekte pro Anfrage ergibt. Ein einzelnes Kundenprofil kann durch mehrere Objekte aktualisiert werden.
+Für Kund:innen mit älteren Rate-Limits kann jede `/users/track`-Anfrage bis zu 75 Attribut-Objekte, 75 Event-Objekte und 75 Kauf-Objekte enthalten. Jedes Objekt kann eine:n Nutzer:in aktualisieren, was insgesamt maximal 225 Objekte pro Anfrage ergibt. Ein einzelnes Nutzerprofil kann durch mehrere Objekte aktualisiert werden.
 {% enddetails %}
 
-Weitere Informationen finden Sie unter [API-Rate-Limits]({{site.baseurl}}/api/api_limits). Bitte wenden Sie sich an Ihren CSM, um eine Erhöhung anzufordern.
+Weitere Informationen finden Sie unter [API-Rate-Limits]({{site.baseurl}}/api/api_limits). Wenden Sie sich an Ihren Customer-Success-Manager, um eine Erhöhung anzufordern.
 
 <!---/users/export/ids-->
 
@@ -51,7 +51,7 @@ Wenn Sie Braze am oder nach dem 22. August 2024 aktiviert haben, gilt für diese
 
 Sie können das Rate-Limit dieses Endpunkts auf 40 Anfragen pro Sekunde erhöhen, indem Sie die folgenden Anforderungen erfüllen:
 
-- Für Ihren Workspace ist das Standard-Rate-Limit (250 Anfragen pro Minute) aktiviert. Wenden Sie sich an Ihren Braze Account Manager:in, um weitere Unterstützung beim Entfernen bereits bestehender Rate-Limits zu erhalten.
+- Für Ihren Workspace ist das Standard-Rate-Limit (250 Anfragen pro Minute) aktiviert. Wenden Sie sich an Ihren Braze Account Manager, um weitere Unterstützung beim Entfernen bereits bestehender Rate-Limits zu erhalten.
 - Ihre Anfrage enthält den `fields_to_export`-Parameter, um alle Felder aufzulisten, die Sie erhalten möchten.
 
 {% alert important %}
@@ -135,7 +135,7 @@ Sie können über diesen Endpunkt pro Tag bis zu 100 benutzerdefinierte Sende-Be
 
 <!---/subscription/status/set-->
 {% elsif include.endpoint == "subscription status set" %}
-Für diesen Endpunkt gilt ein Rate-Limit von 5.000 Anfragen pro Minute, das zwischen den Endpunkten `/subscription/status/set` und `/v2/subscription/status/set` geteilt wird, wie in [API-Rate-Limits]({{site.baseurl}}/api/api_limits) dokumentiert.
+Für diesen Endpunkt gilt ein gemeinsames Rate-Limit von 5.000 Anfragen pro Minute, das zwischen den Endpunkten `/subscription/status/set` und `/v2/subscription/status/set` geteilt wird, wie in [API-Rate-Limits]({{site.baseurl}}/api/api_limits) dokumentiert.
 
 <!-- Add this phrase back ", as documented in [API rate limits]({{site.baseurl}}/api/api_limits)" to CDI endpoints for GA -->
 

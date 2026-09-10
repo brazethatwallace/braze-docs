@@ -143,6 +143,38 @@ config_only: true
 
 
 
+### `date_published`
+
+The `date_published` key records the first day an article was available on the public site. The New in Braze Docs card on the homepage uses this field to surface recently published articles.
+
+This key accepts a quoted ISO 8601 date string (`YYYY-MM-DD`). Do not use Jekyll's reserved `date` key. Dates are UTC calendar dates.
+
+Set `date_published` once, when the article first ships. Use today's UTC date, or the UTC date you expect this pull request to merge. The value must not be in the past. Confirm the date is still accurate before you merge. Do not change it later.
+
+If the page first shipped with [`hidden`](#hide-page-from-navigation) set to `true` (or [`config_only`](#navigation-only)), add `date_published` on the pull request that makes the page public, unless a date is already present. If a date is already present, keep it.
+
+CI requires this field on new public articles under `_docs/` in the `user_guide`, `developer_guide`, `api`, `partners`, and `help` collections. Pages with `hidden: true`, `config_only`, or [`layout: redirect`](page_layouts.md#redirect) are exempt. Redirect stubs stay exempt (they are not public articles). Existing articles without the field are not backfilled. If you add the field to an already-public article, the date must be older than 14 days (so it does not appear on the New card) and must not be in the future.
+
+The homepage card includes a page when all of the following are true:
+
+- `date_published` is present and valid
+- `hidden` is not `true`
+- `config_only` is not `true`
+- `layout` is not `redirect`
+- `date_published` is within the last 14 days
+
+Run the check locally with `python3 scripts/check_date_published.py --base origin/develop`.
+
+### Usage example
+
+```markdown
+---
+date_published: "2026-08-25"
+---
+```
+
+
+
 ### `hidden`
 
 The `hidden` key is used to hide a page from the left-side navigation on Braze Docs. This key accepts the boolean values `true` or `false`.

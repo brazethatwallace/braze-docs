@@ -89,32 +89,36 @@ class MainActivity : ComponentActivity() {
 </ScrollView>
 ```
 
-!!단계
+!!step
 lines-MainApplication.kt=12
 
-### 1. 디버깅 활성화(선택 사항) {#1-enable-debugging-optional}
+### 1. 디버깅 활성화(선택 사항) {#1-enable-debugging-optional} {#1-enable-debugging-optional}
 
 개발 중 문제 해결을 쉽게 하기 위해 디버깅을 활성화하는 것을 고려하세요.
 
-!!단계
+!!step
 lines-MainApplication.kt=21-28
 
-### 2. 배너 업데이트 구독 {#2-subscribe-to-banner-updates}
+### 2. 배너 업데이트 구독 {#2-subscribe-to-banner-updates} {#2-subscribe-to-banner-updates}
 
-배너가 업데이트될 때마다 실행되는 핸들러를 등록하려면 `subscribeToBannersUpdates()`를 사용하십시오.
+`subscribeToBannersUpdates()`를 사용하여 배너가 업데이트될 때마다 실행되는 핸들러를 등록합니다.
 
-!!단계
+!!step
 lines-MainActivity.kt=10-14
 
-### 3. 배치 새로고침 {#3-refresh-your-placements}
+### 3. 배치 새로고침 {#3-refresh-your-placements} {#3-refresh-your-placements}
 
-Braze SDK를 초기화한 후, 해당 배치에 대한 최신 배너 콘텐츠를 가져오려면 `requestBannersRefresh(["PLACEMENT_ID"])`를 호출하세요.
+Braze SDK를 초기화한 후 `requestBannersRefresh(["PLACEMENT_ID"])`를 호출하여 해당 배치에 대한 최신 배너 콘텐츠를 가져옵니다.
 
-!!단계
+이 호출은 기존 배너 캐시에 병합됩니다. 요청한 배치 ID만 추가, 업데이트 또는 제거됩니다. 다른 배치에 대한 캐시된 배너는 캐시에 유지되며 원래 만료 시간에 만료됩니다. 서버가 요청된 배치에 대해 배너를 반환하지 않으면 해당 배치는 캐시에서 제거됩니다.
+
+!!step
 lines-banners.xml=15-19
 
-### 4. `banners.xml`에서 `BannerView` 정의하기 {#4-define-bannerview-in-your-bannersxml}
+### 4. `banners.xml`에서 `BannerView` 정의 {#4-define-bannerview-in-your-bannersxml} {#4-define-bannerview-in-your-bannersxml}
 
-`banners.xml`에서 `app:placementId="PLACEMENT_ID"`를 포함한 `<com.braze.ui.banners.BannerView>` 요소를 선언하세요. Braze는 이 요소를 사용하여 UI에 배너를 삽입합니다.
+`banners.xml`에서 `app:placementId="PLACEMENT_ID"`를 포함하는 `<com.braze.ui.banners.BannerView>` 요소를 선언합니다. Braze는 이 요소를 사용하여 UI에 배너를 삽입합니다.
+
+새로고침 후 SDK는 해당 배치의 콘텐츠가 변경된 경우에만 `BannerView`를 업데이트합니다. 변경되지 않은 표시된 배너는 그대로 유지됩니다.
 
 {% endscrolly %}

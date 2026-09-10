@@ -285,7 +285,17 @@ Operator se integra con OpenAI para generar resultados. Para más información s
 
 ## Próximos pasos {#next-steps}
 
-- [Comenzar con Operator]({{site.baseurl}}/user_guide/brazeai/operator): accede y usa Operator
-- [Biblioteca de prompts]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library): explora prompts de ejemplo listos para usar
-- [Revisar acciones]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions): revisa y aprueba los cambios propuestos por Operator
-- [Solución de problemas]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting): consulta problemas comunes y soluciones
+{% article_tiles %}
+- name: Comenzar con Operator
+  link: /docs/user_guide/brazeai/operator
+  description: Accede y usa Operator en el panel de Braze.
+- name: Biblioteca de prompts
+  link: /docs/user_guide/brazeai/operator/prompt_library
+  description: Explora prompts de ejemplo listos para usar.
+- name: Revisar acciones
+  link: /docs/user_guide/brazeai/operator/reviewing_actions
+  description: Revisa y aprueba los cambios propuestos por Operator.
+- name: Solución de problemas
+  link: /docs/user_guide/brazeai/operator/troubleshooting
+  description: Consulta problemas comunes y soluciones.
+{% endarticle_tiles %}

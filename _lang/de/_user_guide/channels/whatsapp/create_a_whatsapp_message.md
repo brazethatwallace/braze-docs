@@ -20,29 +20,29 @@ search_rank: 1
 
 Bevor Sie beginnen, stellen Sie sicher, dass Folgendes vorhanden ist:
 
-| Anforderung | Beschreibung |
+| Voraussetzung | Beschreibung |
 | --- | --- |
-| Campaign oder Canvas | Richten Sie eine [Campaign]({{site.baseurl}}/user_guide/messaging/campaigns) oder ein [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) ein, bevor Sie Ihre WhatsApp-Nachricht verfassen. |
-| WhatsApp-Kanal einrichten | Schließen Sie den [WhatsApp-Einrichtungsprozess]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup) ab: Bestätigen Sie die Richtlinien, richten Sie Ihre Verbindung ein und konfigurieren Sie die Versand-Infrastruktur. |
-| Genehmigte Templates | Erstellen und genehmigen Sie für vom Unternehmen initiierte Sendungen Templates bei Meta. Weitere Informationen finden Sie in [Schritt 3 der WhatsApp-Einrichtung]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup#step-3-create-whatsapp-templates). |
+| Campaign oder Canvas | Richten Sie eine [Campaign]({{site.baseurl}}/user_guide/messaging/campaigns) oder ein [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) ein, bevor Sie Ihre WhatsApp-Nachricht erstellen. |
+| WhatsApp-Kanal einrichten | Schließen Sie den [WhatsApp-Einrichtungsablauf]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup) ab: Bestätigen Sie die Richtlinien, richten Sie Ihre Verbindung ein und konfigurieren Sie die Versandinfrastruktur. |
+| Genehmigte Templates | Erstellen und genehmigen Sie für vom Unternehmen initiierte Nachrichten Templates bei Meta. Weitere Informationen finden Sie in [Schritt 3 der WhatsApp-Einrichtung]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup#step-3-create-whatsapp-templates). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen für WhatsApp-Nachrichten" }
 
 ## Nachrichtentyp {#message-type}
 
 WhatsApp unterstützt zwei Nachrichtentypen in Braze:
 
-- **Template-Nachrichten:** Für vom Unternehmen initiierte Konversationen. Templates müssen vor dem Versand bei Meta genehmigt werden.
-- **Antwortnachrichten:** Zum Antworten auf eingehende Nachrichten von Nutzer:innen innerhalb eines aktiven 24-Stunden-Konversationsfensters.
+- **Template-Nachrichten:** Verwenden Sie diese für vom Unternehmen initiierte Konversationen. Templates müssen vor dem Versand bei Meta genehmigt werden.
+- **Antwortnachrichten:** Verwenden Sie diese, um auf eingehende Nachrichten von Nutzer:innen innerhalb eines aktiven 24-Stunden-Konversationsfensters zu antworten.
 
 ## Abo-Gruppe {#subscription-group}
 
-Wählen Sie für jede Nachrichtenvariante oder jeden Canvas-Nachrichten-Schritt eine WhatsApp-Abo-Gruppe aus. Die Abo-Gruppe bestimmt, welche Absenderkonfiguration verwendet wird und welche Nutzer:innen zum Empfang der Nachricht berechtigt sind.
+Wählen Sie für jede Nachrichtenvariante oder jeden Canvas-Nachrichten-Schritt eine WhatsApp-Abo-Gruppe aus. Die Abo-Gruppe legt fest, welche Absenderkonfiguration verwendet wird und welche Nutzer:innen berechtigt sind, die Nachricht zu empfangen.
 
 ## Sprachen für Template-Nachrichten {#languages-for-template-messages}
 
 Jedes genehmigte Template ist an eine bestimmte Sprache gebunden. Konfigurieren Sie separate Varianten oder Canvas-Schritte, wenn Sie mehrere Template-Sprachen unterstützen möchten.
 
-Wenn Sie Text in einer Rechts-nach-links-Sprache hinzufügen, lesen Sie [Rechts-nach-links-Nachrichten erstellen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
+Wenn Sie Texte in einer Sprache mit Rechts-nach-links-Schreibrichtung hinzufügen, lesen Sie [Nachrichten mit Rechts-nach-links-Schreibrichtung erstellen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 
 ## Erstellung {#step-2-compose-your-whatsapp-message}
 
@@ -200,7 +200,17 @@ Die folgenden Call-to-Action-Typen werden für WhatsApp-Nachrichten unterstützt
 
 Nachdem Sie Ihre WhatsApp-Nachricht erstellt haben, fahren Sie mit dem Aufbau und der Validierung Ihres Versands fort:
 
-- [Planen Sie Ihre Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign) oder konfigurieren Sie [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) weiter
-- [Stellen Sie die Zielgruppe zusammen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) und legen Sie [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) fest
-- [Senden Sie Testnachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=whatsapp)
-- Sehen Sie sich das [WhatsApp-Reporting]({{site.baseurl}}/user_guide/channels/whatsapp/reporting) an
+{% article_tiles %}
+- name: Canvas erstellen
+  link: /docs/user_guide/messaging/canvas/create_a_canvas
+- name: Campaign planen
+  link: /docs/user_guide/messaging/campaigns/schedule_your_campaign
+- name: Zielgruppe zusammenstellen
+  link: /docs/user_guide/messaging/messaging_fundamentals/target_users
+- name: Konversions-Events
+  link: /docs/user_guide/messaging/messaging_fundamentals/conversion_events
+- name: Testnachrichten senden
+  link: /docs/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=whatsapp
+- name: WhatsApp-Reporting
+  link: /docs/user_guide/channels/whatsapp/reporting
+{% endarticle_tiles %}

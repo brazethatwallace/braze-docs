@@ -142,7 +142,7 @@ Profile
 Cet événement représente les mises à jour de profil d'un utilisateur.
 
 {% alert important %}
-L'événement de mise à jour de profil utilisateur est en version bêta. Contactez votre gestionnaire du succès des clients ou votre gestionnaire de compte pour y accéder.
+L'événement de mise à jour de profil utilisateur est en version bêta. Contactez votre gestionnaire de la satisfaction client ou votre gestionnaire de compte pour y accéder.
 {% endalert %}
 
 {% tabs %}
@@ -204,6 +204,31 @@ L'événement de mise à jour de profil utilisateur est en version bêta. Contac
     "external_user_id" : "(optional, string) [PII] External ID of the user",
     "timezone" : "(optional, string) Time zone of the user",
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  }
+}
+```
+{% endtab %}
+
+{% tab Shopify %}
+```json
+// User Profile Update (users.profile.Update)
+
+{
+  "variables" : {
+    "identifier" : {
+      "customId" : {
+        "key" : "user_id",
+        "namespace" : "braze",
+        "value" : "(required, string) [PII] Braze user ID of the user who performed this event"
+      }
+    },
+    "input" : {
+      "email" : "(optional, string) [PII] Email address of the user",
+      "firstName" : "(optional, string) [PII] First name of the user",
+      "lastName" : "(optional, string) [PII] Last name of the user",
+      "locale" : "(optional, string) [PII] Language of the user",
+      "phone" : "(optional, string) [PII] Phone number of the user in e.164 format"
+    }
   }
 }
 ```

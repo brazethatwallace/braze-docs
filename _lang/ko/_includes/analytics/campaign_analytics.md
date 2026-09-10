@@ -192,7 +192,7 @@ The **Message Performance** panel outlines how well your message has performed a
 캠페인 분석의 WhatsApp 발송 수는 전달 시도를 반영합니다. Meta가 메시지 카테고리(마케팅, 유틸리티, 인증, 서비스)별로 과금하는 경우 소비되는 크레딧이 다를 수 있습니다.
 
 - Braze에서 작성된 응답 메시지는 Braze WhatsApp 크레딧을 소비하지 않습니다.
-- 방향성 발송 볼륨을 확인하려면 **Analytics** > **Daily Stats**를 사용하세요. 캠페인 또는 Canvas별 크레딧 세부 내역은 제공되지 않습니다.
+- 방향성 발송 볼륨을 확인하려면 **Analytics** > **Daily Stats**를 사용하세요. Campaign 또는 Canvas별 크레딧 세부 내역은 제공되지 않습니다.
 
 {% endif %}
 
@@ -265,7 +265,8 @@ The **Message Performance** panel outlines how well your message has performed a
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#messages-sent">Messages Sent</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Messages Sent' %} <br><br>
-                이 값은 <a href="/docs/user_guide/message_building_by_channel/content_cards/create/card_creation/#differences-between-creating-cards-at-launch-or-항목-versus-at-first-impression">카드 생성</a> 시 선택한 항목에 따라 다르게 계산됩니다:<br><br>
+                이 값은
+                <a href="/docs/user_guide/message_building_by_channel/content_cards/create/card_creation/#differences-between-creating-cards-at-launch-or-entry-versus-at-first-impression">카드 생성</a> 시 선택한 항목에 따라 다르게 계산됩니다:<br><br>
                 <ul>
                     <li><b>시작 또는 단계 진입 시:</b> 생성되어 볼 수 있는 카드의 수입니다. 사용자가 카드를 실제로 조회했는지 여부는 포함되지 않습니다.</li>
                     <li><b>첫 노출 시:</b> 사용자에게 표시된 카드 수입니다.</li>
@@ -358,7 +359,7 @@ _Messages Sent_는 볼 수 있도록 제공된 Content Cards를 의미하고, _U
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#primary-conversions">Primary Conversions</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or 주요 전환 Event' %}</td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or Primary Conversion Event' %}</td>
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-daily-impressions">Unique Daily Impressions</a></td>
@@ -532,11 +533,11 @@ _연기_는 현재 Currents 또는 Braze Snowflake 기능(예: 쿼리 빌더, SQ
 
 이 통계는 Braze가 개발한 독점 분석 모델을 사용하여 기계 열람이 존재하지 않는 것처럼 캠페인의 고유 열람율 추정치를 재구성합니다. 이메일 발신자로부터 일부 열람 이벤트에 대한 *Machine Opens* 레이블을 받지만, 이러한 레이블은 실제 열람을 기계 열람으로 잘못 분류하는 경우가 많습니다. 즉, *Other Opens*는 실제 사용자에 의한 열람 수를 과소 추정할 가능성이 높습니다. 대신 Braze는 각 캠페인의 클릭 데이터를 사용하여 실제 사용자가 메시지를 열어본 비율을 추론합니다. 이를 통해 Apple의 MPP를 비롯한 다양한 기계 열람 메커니즘을 보완합니다.
 
-_Estimated Real Open Rate_는 이메일 발송이 시작된 후 24시간이 지나면 계산되며, 이후 매 72시간마다 재계산됩니다.
+Braze는 캠페인이 충분한 이메일을 발송한 후 _Estimated Real Open Rate_를 주기적으로 평가합니다. 평가 이후 Braze는 최소 72시간이 지난 후 한 번 더 재평가할 수 있으며, 캠페인의 발송 볼륨이 변경되지 않은 경우에도 마찬가지입니다. 추가 재평가에는 발송 볼륨 증가가 필요합니다.
 
-이 측정기준은 지속적으로 재계산되므로, _Estimated Real Open Rate_ 값은 새로운 참여 신호(예: 열람 및 클릭)가 수신되어 모델에 반영됨에 따라 시간이 지나면서 변경될 수 있습니다. 실제로 _Estimated Real Open Rate_는 캠페인이 활성 상태인 동안 매일 업데이트될 수 있습니다.
+Braze는 처음에 배리언트당 최대 10,000개의 전달된 이메일을 평가하지만, 해당 볼륨에 도달한다고 해서 추정치가 보장되는 것은 아닙니다. 각 배리언트는 *Machine Opens*가 있는 수신자와 *Machine Opens*가 없는 수신자 모두로부터 충분한 자격 클릭이 필요합니다.
 
-일반적으로 통계가 성공적으로 계산되려면 약 10,000개의 전달된 이메일이 필요하지만, 이 수치는 클릭률에 따라 달라질 수 있습니다. 통계를 계산할 수 없는 경우 열에 "--"가 표시됩니다.
+자격 클릭 활동이 충분하지 않으면 열에 "--"가 표시됩니다. Braze가 배리언트를 재평가할 때, 추가 자격 클릭으로 추정치가 생성될 수 있습니다.
 
 ###### 고려 사항 {#considerations}
 
@@ -566,7 +567,7 @@ Estimated Real Open Rate는 Campaigns에서만 사용할 수 있으며, Currents
 {% alert note %}
 _Button 1 Clicks_ 및 _Button 2 Clicks_에 대한 보고는 인앱 메시지에서 **Identifier for Reporting**을 각각 "0"과 "1"로 지정한 경우에만 작동합니다.
 
-!["Identifier for Reporting" 필드의 값이 "0"입니다.]({% image_buster /assets/img/identifier_for_reporting.png %}){: style="max-width:50%;"}
+!["Identifier for Reporting" 필드의 값이 "0"인 화면.]({% image_buster /assets/img/identifier_for_reporting.png %}){: style="max-width:50%;"}
 {% endalert %}
 
 <style>
@@ -738,7 +739,7 @@ _Direct Opens_는 메시지의 직접 열람으로 카운트되는 상호작용�
 
 _발송_ 수가 _고유 수신자_ 수를 초과할 수 있는 이유는 다음과 같습니다:
 
-- **재자격이 활성화된 경우:** 캠페인 또는 Canvas 설정에서 재자격이 활성화되면, Segment 및 전달 기준을 충족하는 사용자가 동일한 푸시 알림을 여러 번 받을 수 있습니다. 이로 인해 총 발송 수가 증가합니다.
+- **재자격이 활성화된 경우:** Campaign 또는 Canvas 설정에서 재자격이 활성화되면, Segment 및 전달 기준을 충족하는 사용자가 동일한 푸시 알림을 여러 번 받을 수 있습니다. 이로 인해 총 발송 수가 증가합니다.
 - **사용자가 여러 기기를 가진 경우:** 재자격이 활성화되지 않은 경우, 사용자가 프로필에 연결된 여러 기기를 가지고 있기 때문일 수 있습니다. 예를 들어, 사용자가 스마트폰과 태블릿을 모두 가지고 있으면 푸시 알림이 등록된 모든 기기로 전송됩니다. 각 전달은 발송으로 카운트되지만, 고유 수신자는 한 명만 기록됩니다.
 - **사용자가 여러 앱에 할당된 경우:** 사용자가 여러 앱(예: 새 앱 테스트 시)에 연결되어 있으면 각 앱에서 동일한 푸시 알림을 받을 수 있습니다. 이로 인해 발송 수가 증가합니다.
 

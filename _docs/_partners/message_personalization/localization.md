@@ -15,6 +15,9 @@ guide_featured_list:
   - name: "Crowdin"
     link: /docs/partners/message_personalization/localization/crowdin
     image: /assets/img/braze_icons/zap.svg
+  - name: "Globalization Partners International"
+    link: /docs/partners/message_personalization/localization/gpi
+    image: /assets/img/braze_icons/globe-02.svg
   - name: "LILT"
     link: /docs/partners/message_personalization/localization/lilt
     image: /assets/img/braze_icons/layers-three-01.svg

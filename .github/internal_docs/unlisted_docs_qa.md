@@ -95,14 +95,11 @@ Click each URL. It should return HTTP 200 and render either the full page or, fo
 - [ ] [Message Template Assistant](http://127.0.0.1:5006/docs/template_assistant/) — `private_betas/message_template_assistant.md`
 - [ ] [POST: Track Users (Bulk)](http://127.0.0.1:5006/docs/track_users_bulk/) — `private_betas/post_track_users_bulk.md`
 - [ ] [POST: Track Users (Bulk) for Braze Partners](http://127.0.0.1:5006/docs/track_users_bulk_partners/) — `private_betas/post_track_users_bulk_partners.md`
-- [ ] [Rate Limiting for Push Campaigns and Multichannel Canvases](http://127.0.0.1:5006/docs/rate_limiting_v3/) — `private_betas/rate_limiting_v3.md`
-- [ ] [Creating an RCS Message](http://127.0.0.1:5006/docs/create_rcs_message/) — `private_betas/rich_cards.md`
 - [ ] [Sender Verification](http://127.0.0.1:5006/docs/sender_verification/) — `private_betas/sender_verification.md`
 - [ ] [Shopify](http://127.0.0.1:5006/docs/shopify/) — `private_betas/shopify_beta.md`
 - [ ] [Upgrading Shopify (Custom)](http://127.0.0.1:5006/docs/shopify_custom_upgrade/) — `private_betas/shopify_beta/shopify_custom_integration_upgrade.md`
 - [ ] [Upgrading Shopify](http://127.0.0.1:5006/docs/shopify_standard_upgrade/) — `private_betas/shopify_beta/shopify_standard_integration_upgrade.md`
 - [ ] [Shopify Upgrade Overview](http://127.0.0.1:5006/docs/shopify_upgrade_overview/) — `private_betas/shopify_beta/shopify_upgrade_overview.md`
-- [ ] [Shopify Collections Sync](http://127.0.0.1:5006/docs/shopify_collections_sync/) — `private_betas/shopify_collections_sync.md`
 - [ ] [In-app message surveys](http://127.0.0.1:5006/docs/user_guide/channels/in_app_messages/drag_and_drop/surveys/) — `channels/in_app_messages/drag_and_drop/surveys.md`
 - [ ] [Landing page surveys](http://127.0.0.1:5006/docs/user_guide/messaging/landing_pages/create_landing_pages/surveys/) — `messaging/landing_pages/create_landing_pages/surveys.md`
 - [ ] [Workspace rate limits](http://127.0.0.1:5006/docs/workspace_rate_limits/) — `private_betas/workspace_rate_limits.md`
@@ -170,14 +167,11 @@ urls=(
   "http://127.0.0.1:5006/docs/template_assistant/"
   "http://127.0.0.1:5006/docs/track_users_bulk/"
   "http://127.0.0.1:5006/docs/track_users_bulk_partners/"
-  "http://127.0.0.1:5006/docs/rate_limiting_v3/"
-  "http://127.0.0.1:5006/docs/create_rcs_message/"
   "http://127.0.0.1:5006/docs/sender_verification/"
   "http://127.0.0.1:5006/docs/shopify/"
   "http://127.0.0.1:5006/docs/shopify_custom_upgrade/"
   "http://127.0.0.1:5006/docs/shopify_standard_upgrade/"
   "http://127.0.0.1:5006/docs/shopify_upgrade_overview/"
-  "http://127.0.0.1:5006/docs/shopify_collections_sync/"
   "http://127.0.0.1:5006/docs/user_guide/channels/in_app_messages/drag_and_drop/surveys/"
   "http://127.0.0.1:5006/docs/user_guide/messaging/landing_pages/create_landing_pages/surveys/"
   "http://127.0.0.1:5006/docs/workspace_rate_limits/"

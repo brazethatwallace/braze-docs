@@ -17,41 +17,42 @@ BrazeはSnowflakeとの2つの統合を提供しています。これらを組�
 
 ### データ共有（BrazeからSnowflakeへ） {#data-sharing-braze-to-snowflake}
 
-Snowflakeの[セキュアデータ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing)を使用すると、Snowflakeインスタンスから直接Brazeのエンゲージメントおよびキャンペーンデータに安全かつリアルタイムでアクセスできます。アカウント間で実際のデータがコピーまたは転送されることはありません。すべての共有は、Snowflake独自のサービスレイヤーとメタデータストアを通じて行われます。
+Snowflakeの[セキュアデータ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing)を使用すると、BrazeのエンゲージメントおよびキャンペーンデータにSnowflakeインスタンスから直接、安全かつリアルタイムにアクセスできます。アカウント間でデータがコピーまたは転送されることはなく、すべての共有はSnowflake独自のサービスレイヤーとメタデータストアを通じて行われます。
 
-**データ共有は、以下のような場合に使用してください。**
+**データ共有は次のような場合に使用してください。**
 - Snowflake SQLを使用してBrazeのイベントおよびキャンペーンデータをクエリする
 - 複雑なレポートを作成し、アトリビューションモデリングを実行する
-- Brazeデータをお使いのSnowflakeデータウェアハウス内の他のデータと結合する
+- BrazeデータをSnowflakeデータウェアハウス内の他のデータと結合する
 - チャネル、業界、デバイスプラットフォーム全体でエンゲージメントデータをベンチマークする
 
 設定手順については、[Snowflakeデータ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing)を参照してください。
 
-### Cloud Data Ingestion（SnowflakeからBrazeへ） {#cloud-data-ingestion-snowflake-to-braze}
+### クラウドデータインジェスチョン（SnowflakeからBrazeへ） {#cloud-data-ingestion-snowflake-to-braze}
 
-[Cloud Data Ingestion（CDI）]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)を使用すると、Snowflakeインスタンスから直接Brazeにデータを同期できます。これにより、Brazeのユーザー属性、イベント、購入データを、信頼できる唯一の情報源であるデータウェアハウスと常に最新の状態に保つことができます。
+[クラウドデータインジェスチョン（CDI）]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)を使用すると、Snowflakeインスタンスから直接Brazeにデータを同期できます。これにより、ユーザー属性、イベント、購入データを、信頼できるデータソースであるデータウェアハウスと常に同期した状態でBrazeに保持できます。
 
-**Cloud Data Ingestionは、以下のような場合に使用してください。**
-- Snowflakeからユーザー属性をBrazeのユーザープロファイルに同期する
-- SnowflakeからBrazeにイベントデータまたは購入データを送信する
-- データウェアハウスで行われるデータ変換とBrazeを同期させる
-- SnowflakeからBrazeへのカスタムETLパイプラインの構築とメンテナンスを回避する
+**クラウドデータインジェスチョンは次のような場合に使用してください。**
+- Snowflakeからのユーザー属性をBrazeのユーザープロファイルに同期する
+- Snowflakeからイベントまたは購入データをBrazeに送信する
+- データウェアハウスで行われるデータ変換とBrazeを同期した状態に保つ
+- SnowflakeからBrazeへのカスタムETLパイプラインの構築やメンテナンスを回避する
 
-Snowflakeのデータ共有の詳細については、[Introduction to Secure Data Sharing](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html#how-does-secure-data-sharing-work)を参照してください。
+Snowflakeのデータ共有について詳しくは、[Introduction to Secure Data Sharing](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html#how-does-secure-data-sharing-work)を参照してください。
 
 ## 前提条件 {#prerequisites}
 
-この機能を使用する前に、以下を完了する必要があります。
+この機能を使用するには、以下を完了する必要があります。
 
 | 要件 | 説明 |
 | ----------- | ----------- |
 | Brazeアクセス | Brazeでこの機能にアクセスするには、Brazeアカウントまたはカスタマーサクセスマネージャーに連絡する必要があります。 |
-| Snowflakeアカウント | `admin`権限を持つSnowflakeアカウント。非HIPAAのお客様の場合、Snowflake StandardまたはEnterprise Editionがサポートされています。HIPAA準拠のデータ共有には、Business Critical Editionが必要です。 |
+| Brazeワークスペース権限 | データ共有を表示するには、[Currents統合の表示]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)権限が必要です。データ共有の作成、更新、削除を行うには、[Currents統合の編集]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)権限が必要です。 |
+| Snowflakeアカウント | `admin`権限を持つSnowflakeアカウントが必要です。HIPAA非対象の顧客の場合、Snowflake StandardまたはEnterprise Editionがサポートされています。HIPAA準拠のデータ共有には、Business Critical Editionが必要です。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## セキュアデータ共有の設定 {#setting-up-secure-data-sharing}
 
-Snowflakeでは、[データプロバイダー](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html#providers)と[データコンシューマー](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html#consumers)の間でデータ共有が行われます。この仕組みでは、Brazeアカウントがデータ共有を作成・送信するデータプロバイダーであり、Snowflakeアカウントがデータ共有を使用してデータベースを作成するデータコンシューマーとなります。詳細については、[Snowflake: Consuming Shared Data](https://docs.snowflake.com/en/user-guide/data-share-consumers)を参照してください。
+Snowflakeでは、データ共有は[データプロバイダー](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html#providers)と[データコンシューマー](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html#consumers)の間で行われます。このコンテキストでは、Brazeアカウントがデータ共有を作成して送信するデータプロバイダーであり、Snowflakeアカウントがデータ共有を使用してデータベースを作成するデータコンシューマーです。詳細については、[Snowflake: 共有データの利用](https://docs.snowflake.com/en/user-guide/data-share-consumers)を参照してください。
 
 ### ステップ1:Brazeからデータ共有を送信する {#step-1-send-the-datashare-from-braze}
 
@@ -67,21 +68,21 @@ Snowflakeでは、[データプロバイダー](https://docs.snowflake.net/manua
 3. 新しいデータベースをクエリするための権限を付与します。
 
 {% alert warning %}
-Brazeダッシュボードで共有を削除して再作成した場合は、以前作成したデータベースをドロップし、`CREATE DATABASE <name> FROM SHARE <provider_account>.<share_name>` を使用して再作成し、インバウンド共有をクエリする必要があります。
-同じSnowflakeアカウントにデータを共有する複数のワークスペースがある場合は、マルチワークスペース構成の管理に関するガイダンスとして[Snowflakeデータ共有に関するよくある質問]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/faqs)を参照してください。
+Brazeダッシュボードで共有を削除して再作成した場合、以前作成したデータベースをドロップし、`CREATE DATABASE <name> FROM SHARE <provider_account>.<share_name>` を使用して再作成する必要があります。
+複数のワークスペースが同じSnowflakeアカウントにデータを共有している場合は、[Snowflakeデータ共有に関するFAQ]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/faqs)でマルチワークスペース構成の管理に関するガイダンスを参照してください。
 {% endalert %}
 
 ## 使用方法と可視化 {#usage-and-visualization}
 
-データ共有がプロビジョニングされた後、受信データ共有からデータベースを作成する必要があります。これにより、共有されたすべてのテーブルがSnowflakeインスタンスに表示され、インスタンスに保存されている他のデータと同様にクエリできるようになります。ただし、共有データは読み取り専用であり、クエリのみ可能で、変更や削除はできません。
+データ共有がプロビジョニングされたら、受信データ共有からデータベースを作成する必要があります。これにより、共有されたすべてのテーブルがSnowflakeインスタンスに表示され、インスタンスに保存されている他のデータと同様にクエリできるようになります。ただし、共有データは読み取り専用であり、クエリのみ可能で、変更や削除はできません。
 
-Currentsと同様に、Snowflakeセキュアデータ共有を使用して以下のことが可能です。
+Currentsと同様に、Snowflakeセキュアデータ共有を使用して次のことができます。
 
 {% multi_lang_include partners/data_sharing_use_cases.md %}
 
-利用可能なテーブルとカラムの完全なリストについては、[SQLテーブルリファレンス]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables)を参照してください。Snowflakeデータ共有には、そのリファレンスに記載されているすべてのテーブルに加えて、スナップショット、キャンペーンおよびキャンバスの変更ログ、エージェントコンソールイベント、メッセージリトライイベント用のSnowflake専用テーブルも含まれています。
+利用可能なテーブルとカラムの完全なリストについては、[SQLテーブルリファレンス]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables)を参照してください。Snowflakeデータ共有には、このリファレンスに記載されているすべてのテーブルに加え、スナップショット、キャンペーンおよびキャンバスの変更ログ、エージェントコンソールイベント、メッセージリトライイベント用のSnowflake専用テーブルが含まれます。
 
-また、[生のテーブルスキーマをダウンロード](/docs/assets/download_file/data-sharing-raw-table-schemas.txt)してテキストファイルとして取得することもできます。
+[生のテーブルスキーマ](/docs/assets/download_file/data-sharing-raw-table-schemas.txt)をテキストファイルとしてダウンロードすることもできます。
 
 ### ユーザーIDスキーマ {#user-id-schema}
 
@@ -102,7 +103,7 @@ Currentsと同様に、Snowflakeセキュアデータ共有を使用して以下
 {% multi_lang_include partners/snowflake/non_breaking_changes.md %}
 
 {% alert important %}
-新しいカラムは非破壊的変更とみなされるため、Brazeでは`SELECT *`クエリを使用する代わりに、各クエリで対象のカラムを明示的にリストすることを強くお勧めします。あるいは、カラムを明示的に指定したビューを作成し、テーブルを直接クエリする代わりにそれらのビューをクエリする方法も検討してください。
+新しいカラムは非破壊的変更とみなされるため、Brazeでは各クエリで`SELECT *`クエリを使用する代わりに、対象のカラムを明示的にリストすることを強くお勧めします。または、カラムを明示的に指定するビューを作成し、テーブルを直接クエリする代わりにそのビューをクエリすることもできます。
 {% endalert %}
 
 #### 破壊的変更 {#breaking-changes}
@@ -111,19 +112,19 @@ Currentsと同様に、Snowflakeセキュアデータ共有を使用して以下
 
 ### Snowflakeリージョン {#snowflake-regions}
 
-Brazeは現在、すべてのユーザーレベルデータをSnowflake AWS US East-1、EU-Central（フランクフルト）、AP-Northeast-1（東京）、AP-Southeast-2（シドニー）、AP-Southeast-3（ジャカルタ）リージョンでホストしています。これらのリージョン以外のユーザーについては、BrazeはAWS、Azure、またはGCPの任意のリージョンでSnowflakeインフラをホストしている共同顧客に対してデータ共有を提供できます。
+Brazeは現在、すべてのユーザーレベルのデータをSnowflake AWS US East-1、EU-Central（フランクフルト）、AP-Northeast-1（東京）、AP-Southeast-2（シドニー）、AP-Southeast-3（ジャカルタ）リージョンでホストしています。これらのリージョン以外のユーザーに対して、BrazeはAWS、Azure、またはGCPの任意のリージョンでSnowflakeインフラをホストしている共同顧客にデータ共有を提供できます。
 
 ### データリテンション {#data-retention}
 
 #### リテンションポリシー {#retention-policy}
 
-2年以上前のデータはアーカイブされ、長期ストレージに移動されます。アーカイブプロセスの一環として、すべてのイベントは匿名化され、個人を特定できる情報（PII）に関連する機密フィールドは除去されます（`properties`のようなオプションのPIIフィールドも含まれます）。アーカイブされたデータには引き続き`user_id`フィールドが含まれており、すべてのイベントデータにわたるユーザーごとの分析が可能です。
+2年以上前のデータはすべてアーカイブされ、長期ストレージに移動されます。アーカイブプロセスの一環として、すべてのイベントは匿名化され、個人を特定できる情報（PII）に該当する機密フィールドは除去されます（これには`properties`などのオプションPIIフィールドも含まれます）。アーカイブされたデータには`user_id`フィールドが引き続き含まれるため、すべてのイベントデータにわたるユーザー単位の分析が可能です。
 
-各イベントの直近2年間のデータについては、対応する`USERS_*_SHARED`ビューでクエリできます。さらに、各イベントには`USERS_*_SHARED_ALL`ビューがあり、匿名化されたデータと匿名化されていないデータの両方を返すクエリに使用できます。
+各イベントの対応する`USERS_*_SHARED`ビューで、直近2年間のデータをクエリできます。さらに、各イベントには`USERS_*_SHARED_ALL`ビューがあり、匿名化されたデータと匿名化されていないデータの両方を返すクエリが可能です。
 
-#### 履歴データ {#historical-data}
+#### 過去のデータ {#historical-data}
 
-Snowflakeの履歴イベントデータのアーカイブは2019年4月まで遡ります。BrazeがSnowflakeにデータを保存し始めた最初の数か月間は、プロダクトの変更が行われたため、一部のデータの見た目がわずかに異なったり、null値が含まれていたりする場合があります（当時はすべての利用可能なフィールドにデータを渡していなかったためです）。2019年8月より前のデータを含む結果は、期待と多少異なる可能性があることを前提としてください。
+Snowflakeの過去のイベントデータのアーカイブは2019年4月まで遡ります。BrazeがSnowflakeにデータを保存し始めた最初の数か月間、プロダクトの変更が行われたため、一部のデータが若干異なって見えたり、一部のnull値が含まれている場合があります（当時はすべての利用可能なフィールドにデータを渡していなかったためです）。2019年8月以前のデータを含む結果は、想定と若干異なる可能性があることを前提としてください。
 
 ### 一般データ保護規則（GDPR）コンプライアンス {#general-data-protection-regulation-gdpr-compliance}
 
@@ -131,18 +132,18 @@ Snowflakeの履歴イベントデータのアーカイブは2019年4月まで遡
 
 ### 共有データのクエリ：`TIME`とクエリパフォーマンス {#querying-shared-data-time-and-query-performance}
 
-データ共有ビュー（`USERS_BEHAVIORS_CUSTOMEVENT_SHARED`など）のイベントデータは、**`TIME`フィールドでクラスタリングされています**。**イベントの発生時刻**でフィルタリングする場合は、**`TIME`**を優先フィルターとして使用してください。**`TIME`**で行を制限するクエリは、クラスタリングがイベント時刻に一致するため、一般的に**`SF_CREATED_AT`**でフィルタリングするクエリよりも**パフォーマンスが高く**なります。
+データ共有ビュー（例：`USERS_BEHAVIORS_CUSTOMEVENT_SHARED`）のイベントデータは、**`TIME`フィールドでクラスタリングされています**。**イベントが発生した時間**でフィルタリングする場合は、推奨フィルターとして**`TIME`**を使用してください。**`TIME`**で行を絞り込むクエリは、**`SF_CREATED_AT`**でフィルタリングするクエリよりも一般的に**パフォーマンスが高くなります**。これはクラスタリングがイベント時間に合わせて配置されているためです。
 
 | フィールド | 意味 |
 | ----- | ------- |
-| `TIME` | イベントが発生した時点のUnixタイムスタンプです。発生時刻でフィルタリングする場合に推奨されます。 |
-| `SF_CREATED_AT` | 行がSnowflakeに読み込まれた時点のタイムスタンプ（取り込み時刻）です。 |
+| `TIME` | イベントが発生した時刻のUnixタイムスタンプ。発生時刻でフィルタリングする場合はこちらを推奨します。 |
+| `SF_CREATED_AT` | 行がSnowflakeに読み込まれた時刻のタイムスタンプ（取り込み時刻）。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="共有データのクエリ：TIMEとクエリパフォーマンス" }
 
 ### クエリの速度、パフォーマンス、コスト {#speed-performance-cost-of-queries}
 
-データに対して実行されるクエリの速度、パフォーマンス、コストは、データのクエリに使用するウェアハウスのサイズによって決まります。分析でアクセスするデータ量によっては、クエリを成功させるためにより大きなウェアハウスサイズを使用する必要がある場合もあります。Snowflakeには、最適なサイズの決定方法に関する優れたリソースがあります。[ウェアハウスの概要](https://docs.snowflake.net/manuals/user-guide/warehouses-overview.html)や[ウェアハウスの考慮事項](https://docs.snowflake.net/manuals/user-guide/warehouses-considerations.html)をご参照ください。
+データに対して実行されるクエリの速度、パフォーマンス、コストは、データのクエリに使用するウェアハウスサイズによって決まります。場合によっては、分析のためにアクセスするデータ量に応じて、クエリを正常に実行するためにより大きなウェアハウスサイズを使用する必要があることがあります。Snowflakeには、最適なサイズの決定方法に関する優れたリソースが用意されています。[ウェアハウスの概要](https://docs.snowflake.net/manuals/user-guide/warehouses-overview.html)や[ウェアハウスに関する考慮事項](https://docs.snowflake.net/manuals/user-guide/warehouses-considerations.html)をご覧ください。
 
-> Snowflakeの設定時に参考にできるクエリの例については、[サンプルクエリ]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/sample_queries)および[ETLイベントパイプラインの設定]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/etl_pipline_setup)の例をご確認ください。
+> Snowflakeの設定時に参照できるクエリの例については、[サンプルクエリ]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/sample_queries)および[ETLイベントパイプラインの設定]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/etl_pipline_setup)の例をご確認ください。
 
-設定手順については、[クラウドデータインジェスション：データウェアハウス統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations)を参照してください。
+設定手順については、[クラウドデータ取り込み：データウェアハウス統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations)を参照してください。

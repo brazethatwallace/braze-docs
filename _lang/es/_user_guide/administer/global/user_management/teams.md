@@ -14,7 +14,7 @@ description: "Este artículo de referencia explica cómo utilizar Braze Teams en
 
 Los equipos se pueden configurar según la ubicación de la base de clientes, el idioma y los atributos personalizados, de modo que los miembros del equipo y los que no lo son tengan un acceso diferente a las características de mensajería y a los datos de clientes. Se pueden asignar filtros y etiquetas de equipo en varias herramientas de participación. No hay límite en cuanto al número de equipos que puedes crear en tu espacio de trabajo.
 
-Los equipos no están disponibles en todos los contratos de Braze. Para acceder a esta característica, ponte en contacto con tu director de cuentas de Braze o [contáctanos](mailto:success@braze.com) para una consulta.
+Los equipos no están disponibles en todos los contratos de Braze. La página **Internal Teams** solo aparece cuando la característica de equipos está habilitada para tu empresa. Para crear o editar equipos, los usuarios necesitan el permiso "Edit Teams". Para habilitar los equipos, ponte en contacto con tu director de cuentas de Braze o [contáctanos](mailto:success@braze.com) para una consulta.
 
 ## ¿En qué se diferencian los equipos de los conjuntos de permisos y los roles? {#how-do-teams-differ-from-permission-sets-and-roles}
 
@@ -22,7 +22,7 @@ Los equipos no están disponibles en todos los contratos de Braze. Para acceder 
 
 ## Crear equipos {#creating-teams}
 
-Ve a **Configuración** > **Equipos internos** y selecciona <i class="fas fa-plus" aria-label="Añadir"></i> **Añadir equipo**.
+Ve a **Configuración** > **Equipos internos** y selecciona <i class="fas fa-plus" aria-label="Añadir"></i> **Añadir equipo**. Necesitas el permiso de espacio de trabajo **Editar equipos** para crear un equipo.
 
 ![Ventana para añadir un nuevo equipo.]({% image_buster /assets/img_archive/adding_a_team.png %})
 
@@ -32,33 +32,33 @@ Si un equipo se define por un atributo personalizado, un idioma o un país, pued
 
 ## Asignar usuarios a equipos {#assign-users-to-teams}
 
-Los administradores de Braze y los usuarios limitados con el permiso a nivel de empresa "Can Manage Company Settings" pueden asignar permisos a nivel de equipo a un usuario de la empresa con acceso limitado. Cuando se asigna a un equipo, los usuarios de la empresa se limitan a solo leer o escribir datos disponibles para sus equipos particulares, como el idioma del usuario, la ubicación o un atributo personalizado, según se definió cuando se creó el equipo.
+Los administradores de Braze y los usuarios con acceso limitado que tengan el permiso a nivel de empresa "Can Manage Company Settings" pueden asignar permisos a nivel de equipo a un usuario de la empresa con acceso limitado. Cuando se asigna a un equipo, los usuarios de la empresa quedan limitados a leer o escribir únicamente los datos disponibles para sus equipos en particular, como el idioma del usuario, la ubicación o el atributo personalizado, según se haya definido cuando se creó el equipo.
 
-### Limitar los permisos de un usuario de la empresa sin eliminar al usuario {#limit-company-user-permissions-without-deleting-a-user}
+### Limitar los permisos de un usuario de la empresa sin eliminarlo {#limit-company-user-permissions-without-deleting-a-user}
 
-Para impedir que un usuario de la empresa inicie sesión y al mismo tiempo conservar su cuenta, [suspende al usuario]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users#suspending-company-users). La suspensión pone la cuenta en un estado inactivo en el que el usuario no puede iniciar sesión.
+Para impedir que un usuario de la empresa inicie sesión mientras se conserva su cuenta, [suspende al usuario]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users#suspending-company-users) en su lugar. La suspensión pone la cuenta en un estado inactivo en el que el usuario no puede iniciar sesión.
 
-Si el usuario debe poder seguir iniciando sesión con capacidades limitadas, ve a **Configuración** > **Usuarios de la empresa**, selecciona al usuario y edita sus permisos. Elimina los permisos a nivel de espacio de trabajo para Campaigns, Canvas, Segments y datos de usuario, y deja solo el acceso mínimo, por ejemplo, "View Media Library Assets". Para más información, consulta [Editar los permisos de un usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#edit-a-users-permissions).
+Si el usuario debe poder seguir iniciando sesión con capacidades limitadas, ve a **Configuración** > **Configuración de la empresa** > **Administración de usuarios** > **Usuarios de la empresa**, selecciona al usuario y edita sus permisos. Elimina los permisos a nivel de espacio de trabajo para Campaigns, Canvas, Segments y datos de usuario, y deja solo el acceso mínimo; por ejemplo, "View Media Library Assets". Para más información, consulta [Editar los permisos de un usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#edit-a-users-permissions).
 
-Los permisos de equipo funcionan sobre los permisos del espacio de trabajo. Si asignas al usuario a un equipo, otorga solo los permisos mínimos a nivel de equipo que necesite y no otorgues permisos para Campaigns, Canvas, Segments o perfiles de usuario. El usuario permanece en el espacio de trabajo y puede iniciar sesión, pero no puede realizar la mayoría de las acciones de mensajería o audiencia.
+Los permisos de equipo funcionan sobre los permisos del espacio de trabajo. Si asignas al usuario a un equipo, concede únicamente los permisos mínimos a nivel de equipo que necesite, y no otorgues permisos para Campaigns, Canvas, Segments o perfiles de usuario. El usuario permanecerá en el espacio de trabajo y podrá iniciar sesión, pero no podrá realizar la mayoría de las acciones de mensajería o audiencia.
 
-Para asignar un usuario a un equipo, navega a **Configuración** > **Usuarios de la empresa** y selecciona al usuario que deseas agregar a tu equipo.
+Para asignar un usuario a un equipo, ve a **Configuración** > **Configuración de la empresa** > **Administración de usuarios** > **Usuarios de la empresa** y selecciona el usuario que deseas añadir a tu equipo.
 
-Luego realiza los siguientes pasos:
+A continuación, sigue estos pasos:
 
-1. En la sección **Permisos a nivel de espacio de trabajo**, agrega al usuario al espacio de trabajo correspondiente si aún no está incluido.
+1. En la sección **Permisos a nivel de espacio de trabajo**, añade al usuario al espacio de trabajo correspondiente si aún no está incluido.
 
 ![Permisos a nivel de espacio de trabajo con el permiso de plantilla de banner configurado.]({% image_buster /assets/img/team_level_permissions.png %})
 
 {: start="2"}
-2. Selecciona **+ Agregar permisos a nivel de equipo** y luego selecciona el **equipo** al que deseas agregar a este usuario.
-3. Asigna permisos específicos desde la sección de permisos del **equipo**.
+2. Selecciona **+ Add team-level permissions** y luego selecciona el **equipo** al que deseas añadir a este usuario.
+3. Asigna permisos específicos desde la sección de permisos de **equipo**.
 
 ![Permisos de plantilla de página de destino a nivel de equipo.]({% image_buster /assets/img/teams.png %})
 
 ### Permisos disponibles a nivel de equipo {#available-team-level-permissions}
 
-Los siguientes son todos los permisos disponibles que puedes asignar a nivel de equipo. Cualquier permiso que no aparezca aquí solo se otorga a nivel de espacio de trabajo, y estos permisos aparecerán como "--" en la columna de permisos de **equipos**.
+A continuación se muestran todos los permisos disponibles que puedes asignar a nivel de equipo. Cualquier permiso que no aparezca aquí solo se otorga a nivel de espacio de trabajo, y estos permisos aparecerán como "--" en la columna de permisos de **equipos**.
 
 - Ver Campaigns
 - Editar Campaigns
@@ -88,11 +88,11 @@ Los siguientes son todos los permisos disponibles que puedes asignar a nivel de 
 - Archivar plantillas de webhook
 - Ver plantillas de enlaces de correo electrónico
 - Editar plantillas de enlaces de correo electrónico
-- Ver activos de la biblioteca multimedia
-- Editar activos de la biblioteca multimedia
-- Eliminar activos de la biblioteca multimedia
+- Ver activos de la biblioteca de medios
+- Editar activos de la biblioteca de medios
+- Eliminar activos de la biblioteca de medios
 - Exportar datos de usuario
-- Ver perfiles de usuario (PII oculta)
+- Ver perfiles de usuario (PII censurada)
 - Ver PII
 - Editar usuarios del panel
 - Editar plantillas de Canvas
@@ -102,7 +102,7 @@ Los siguientes son todos los permisos disponibles que puedes asignar a nivel de 
 - Editar informes del panel
 - Eliminar informes del panel
 
-Para ver las descripciones de lo que incluye cada permiso de usuario y cómo utilizarlos, consulta nuestra sección de [Permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
+Para ver las descripciones de lo que incluye cada permiso de usuario y cómo utilizarlos, consulta nuestra sección [Permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 
 ## Asignar etiquetas de equipo {#tags-and-filters}
 
@@ -150,7 +150,7 @@ En este escenario, Michelle sigue siendo miembro del equipo de Desarrollo, pero 
 
 ![Permisos personalizados con un permiso a nivel de espacio de trabajo y 15 permisos basados en equipo.]({% image_buster /assets/img_archive/scenario2.png %})
 
-Dado que Michelle tiene el permiso a nivel de espacio de trabajo de "Acceder a Campaigns, Canvas, tarjetas, Content Blocks, conmutadores de características, Segments, biblioteca de medios y centros de preferencias", puede ver y asignar otros filtros de equipo a la campaña que crea.
+Dado que Michelle tiene permisos a nivel de espacio de trabajo como "View Campaigns" y "Edit Campaigns", puede ver y asignar otros filtros de equipo a la campaña que crea.
 
 ![Menú desplegable de etiqueta de equipo de Campaign con múltiples etiquetas de equipo.]({% image_buster /assets/img_archive/team_permissions_scenario2.gif %})
 
@@ -159,30 +159,30 @@ Al igual que en el primer escenario, Michelle debe añadir la etiqueta del equip
 {% endtab %}
 {% endtabs %}
 
-## Pruebas con equipos {#test-with-teams}
+## Prueba con equipos {#test-with-teams}
 
-Un posible ejemplo de uso de los equipos es crear un sistema de aprobación basado en equipos para probar y lanzar contenido en un entorno de producción.
+Un posible ejemplo para equipos es crear un sistema de aprobación basado en equipos para probar y lanzar contenido en un entorno de producción.
 
-Para ello, crea un equipo "Desarrollo" que solo tenga acceso a usuarios de prueba. Puedes limitar un equipo para que solo acceda a usuarios de prueba si tus usuarios de prueba son identificables mediante un atributo personalizado. Luego, añade el atributo personalizado como definición al crear o editar el equipo (consulta la sección anterior [Crear equipos](#creating-Teams)). Tus aprobadores deben tener acceso a todos los usuarios.
+Para hacerlo, crea un equipo "Desarrollo" que solo tenga acceso a usuarios de prueba. Puedes limitar un equipo para que solo acceda a usuarios de prueba si tus usuarios de prueba son identificables mediante un atributo personalizado. Luego, añade el atributo personalizado como definición al crear o editar el equipo (consulta la sección anterior [Crear equipos](#creating-Teams)). Tus aprobadores deben tener acceso a todos los usuarios.
 
 El proceso general sería el siguiente:
 
-1. El equipo de Desarrollo crea una campaña y añade la etiqueta de equipo "Desarrollo".
-2. El equipo de Desarrollo lanza la campaña a los usuarios de prueba.
-3. El equipo de Aprobación valida el diseño local de la campaña, lo promueve y lo lanza. Para lanzar, el equipo de Aprobación cambia la etiqueta de equipo de "Desarrollo" a "[Todos los equipos]" y relanza la campaña.
+1. El equipo de desarrollo crea una campaña y añade la etiqueta de equipo "Desarrollo".
+2. El equipo de desarrollo lanza la campaña a usuarios de prueba.
+3. El equipo aprobador valida el diseño local de la campaña, la promueve y la lanza. Para lanzar, el equipo aprobador cambia la etiqueta de equipo de "Desarrollo" a "[Todos los equipos]" y relanza la campaña.
 
 Para cambios en campañas activas:
 
-1. El equipo de Desarrollo clona la campaña en ejecución, añade la etiqueta de equipo "Desarrollo" y guarda.
-2. El equipo de Desarrollo realiza las ediciones y las comparte con el equipo de Aprobación.
-3. El equipo de Aprobación elimina la etiqueta de equipo "Desarrollo", pausa la campaña anterior y lanza la nueva campaña.
+1. El equipo de desarrollo clona la campaña en ejecución, añade la etiqueta de equipo "Desarrollo" y guarda.
+2. El equipo de desarrollo realiza las ediciones y las comparte con el equipo aprobador.
+3. El equipo aprobador elimina la etiqueta de equipo "Desarrollo", pausa la campaña anterior y lanza la nueva campaña.
 
 ## Archivar un equipo existente {#archive-an-existing-team}
 
 Puedes archivar equipos desde la página **Equipos internos**.
 
-Selecciona uno o varios equipos para archivar. Si el equipo no está asociado con ningún objeto dentro de Braze, el equipo se archiva de inmediato. Si el equipo está asociado con un objeto, se te presenta una opción para eliminar el equipo después del proceso de archivado o reemplazar el equipo.
+Selecciona uno o varios equipos para archivar. Si el equipo no está asociado con ningún objeto dentro de Braze, se archiva de inmediato. Si el equipo está asociado con un objeto, se te presenta una opción para eliminar el equipo después del proceso de archivado o reemplazar el equipo.
 
-![Archivado de un equipo que está asociado con un objeto en Braze]({% image_buster /assets/img_archive/archive_a_team.png %}){: style="max-width:70%;"}
+![Archivar un equipo asociado con un objeto en Braze]({% image_buster /assets/img_archive/archive_a_team.png %}){: style="max-width:70%;"}
 
 Los administradores de Braze pueden desarchivar un equipo seleccionando el equipo archivado y seleccionando **Desarchivar**.

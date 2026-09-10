@@ -59,10 +59,15 @@ description: "Obtén información sobre los mensajes dentro de la aplicación y 
 {% endsdktab %}
 {% endsdktabs %}
 
-## Siguientes pasos {#next-steps}
+## Próximos pasos {#next-steps}
 
-¿Listo para profundizar? Consulta estos tutoriales paso a paso:
+¿Listo para profundizar más? Consulta estos tutoriales paso a paso:
 
-- Ajusta el momento de entrega de los mensajes [aplazando y restaurando mensajes desencadenados]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/deferring_triggered_messages).
-- Refina la segmentación de mensajes [estableciendo reglas de visualización condicional]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/conditionally_displaying_messages).
-- Adapta el aspecto de tu marca [personalizando el estilo de los mensajes con pares clave-valor]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/customizing_message_styling).
+{% article_tiles %}
+- name: Diferir y restaurar mensajes desencadenados
+  link: /docs/developer_guide/in_app_messages/tutorials/deferring_triggered_messages
+- name: Establecer reglas de visualización condicional
+  link: /docs/developer_guide/in_app_messages/tutorials/conditionally_displaying_messages
+- name: Personalizar el estilo de los mensajes con pares clave-valor
+  link: /docs/developer_guide/in_app_messages/tutorials/customizing_message_styling
+{% endarticle_tiles %}

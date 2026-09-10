@@ -17,7 +17,7 @@ Você pode manter o fluxo da conversa com acompanhamentos. O Operator lembra das
 
 ## Pré-requisitos {#prerequisites}
 
-O Operator tem as mesmas permissões que você, então certas ações exigem a permissão relevante para aquela área. Por exemplo, gerar uma imagem requer *Editar ativos da biblioteca de mídia*. Se você não encontrar um ponto de entrada, verifique suas permissões com seu administrador. Para saber mais, consulte [Lista de permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
+O Operator tem as mesmas permissões que você, então certas ações exigem a permissão relevante para aquela superfície. Por exemplo, gerar uma imagem requer *Editar ativos da biblioteca de mídia*. Se você não vê um ponto de entrada, verifique suas permissões com seu administrador. Para saber mais, consulte [Lista de permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
 
 ## Navegar pelo dashboard {#navigate-the-dashboard}
 
@@ -285,7 +285,17 @@ O Operator se integra com a OpenAI para gerar resultados. Para saber mais sobre 
 
 ## Próximas etapas {#next-steps}
 
-- [Comece a usar o Operator]({{site.baseurl}}/user_guide/brazeai/operator): acesse e use o Operator
-- [Biblioteca de prompts]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library): explore exemplos de prompts prontos para uso
-- [Revisar ações]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions): revise e aprove as alterações propostas pelo Operator
-- [Solução de problemas]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting): consulte problemas comuns e soluções
+{% article_tiles %}
+- name: Comece a usar o Operator
+  link: /docs/user_guide/brazeai/operator
+  description: Acesse e use o Operator no dashboard da Braze.
+- name: Biblioteca de prompts
+  link: /docs/user_guide/brazeai/operator/prompt_library
+  description: Explore exemplos de prompts prontos para uso.
+- name: Revisar ações
+  link: /docs/user_guide/brazeai/operator/reviewing_actions
+  description: Revise e aprove as alterações propostas pelo Operator.
+- name: Solução de problemas
+  link: /docs/user_guide/brazeai/operator/troubleshooting
+  description: Consulte problemas comuns e soluções.
+{% endarticle_tiles %}

@@ -10,22 +10,22 @@ page_order: 1.3
 
 > Une fois que votre prédiction a été créée et entraînée, vous avez accès à la page **Analyses prédictives**. Cette page vous aide à décider quels utilisateurs vous devez cibler en fonction de leur score de probabilité ou de leur catégorie.
 
-## À propos des analyses prédictives des événements {#about-predictive-event-analytics}
+## À propos des analyses prédictives d'événements {#about-predictive-event-analytics}
 
-Dès que la prédiction est terminée et que cette page est remplie, vous pouvez commencer à utiliser les [filtres]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/messaging_users#filters) dans les Segments ou les Campaigns pour exploiter les résultats du modèle. Si vous souhaitez de l'aide pour décider qui cibler et pourquoi, cette page peut vous guider en fonction de l'exactitude historique du modèle et de vos propres objectifs métier.
+Dès que la prédiction est terminée et que cette page est remplie, vous pouvez commencer à utiliser les [filtres]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/messaging_users#filters) dans les Segments ou les Campaigns pour commencer à exploiter les résultats du modèle. Si vous souhaitez de l'aide pour décider qui cibler et pourquoi, cette page peut vous guider en fonction de l'exactitude historique du modèle et de vos propres objectifs métier.
 
-Tels sont les composants des analyses prédictives des événements :
+Voici les composants des analyses prédictives d'événements :
 
 - [Score de probabilité](#purchase_score)
 - [Qualité de prédiction](#prediction_quality)
 - [Précision estimée](#estimated_results)
 - [Tableau de corrélation des événements](#correlation_table)
 
-La distribution des scores de probabilité pour l'ensemble de l'audience de prédiction est affichée en haut de la page. Les utilisateurs des compartiments situés plus à droite ont des scores plus élevés et sont plus susceptibles de réaliser l'événement. Les utilisateurs des compartiments situés plus à gauche sont moins susceptibles de réaliser l'événement. Le curseur situé sous le graphique vous permet de sélectionner une section d'utilisateurs et d'estimer quels seraient les résultats du ciblage de ces utilisateurs.
+La répartition des scores de probabilité pour l'ensemble de l'audience de prédiction est affichée en haut de la page. Les utilisateurs dans les compartiments situés plus à droite ont des scores plus élevés et sont plus susceptibles de réaliser l'événement. Les utilisateurs dans les compartiments situés plus à gauche sont moins susceptibles de réaliser l'événement. Le curseur situé sous le graphique vous permet de sélectionner une section d'utilisateurs et d'estimer les résultats que vous obtiendriez en ciblant ces utilisateurs.
 
-Lorsque vous déplacez les curseurs sur différentes positions, la barre située dans la moitié gauche du panneau vous indique combien d'utilisateurs, sur l'ensemble de l'audience de prédiction, seraient ciblés en utilisant la partie de la population que vous avez sélectionnée.
+Lorsque vous déplacez les poignées du curseur vers différentes positions, la barre dans la moitié gauche du panneau vous indique combien d'utilisateurs de l'ensemble de l'audience de prédiction seraient ciblés en utilisant la partie de la population que vous avez sélectionnée.
 
-![Lorsque vous déplacez les curseurs sur différentes positions, la barre située dans la moitié gauche du panneau vous indique combien d'utilisateurs, sur l'ensemble de l'audience de prédiction, seraient ciblés en utilisant la partie de la population que vous avez sélectionnée.]({% image_buster /assets/img/purchasePrediction/purchaseTargeting.png %}){: style="max-width:90%"}
+![Lorsque vous déplacez les poignées du curseur vers différentes positions, la barre dans la moitié gauche du panneau vous indique combien d'utilisateurs de l'ensemble de l'audience de prédiction seraient ciblés en utilisant la partie de la population que vous avez sélectionnée.]({% image_buster /assets/img/purchasePrediction/purchaseTargeting.png %}){: style="max-width:90%"}
 
 ## Score de probabilité {#purchase_score}
 
@@ -90,8 +90,10 @@ Les données de corrélation pour les aperçus de prédictions seront partiellem
 
 ## Résolution des problèmes {#troubleshooting}
 
-### Impossible de créer une prédiction {#unable-to-create-a-prediction}
+### Pas assez de comportements d'événements passés {#not-enough-past-event-behavior}
 
-Si vous ne parvenez pas à créer une prédiction pour un événement personnalisé, cela peut être dû à un échantillon de taille insuffisante. Braze estime le nombre d'utilisateurs ayant effectué l'événement. Si un nombre insuffisant d'utilisateurs a effectué l'événement, l'échantillon peut ne pas fournir suffisamment de données pour entraîner le modèle. Dans ce cas, le système peut extrapoler à zéro utilisateur, empêchant ainsi la création de la prédiction.
+Lors de la création d'une prédiction d'événements prédictifs, vous pouvez voir le message « This Prediction will fail to build given the very low number of past event behavior » ou un message similaire concernant les comportements d'événements passés.
 
-Pour créer une prédiction avec succès, assurez-vous qu'un nombre suffisant d'utilisateurs dans votre audience de prédiction ont effectué votre événement personnalisé cible. Le seuil exact varie, mais les événements très peu utilisés par votre base d'utilisateurs peuvent ne pas fournir suffisamment de données pour un entraînement fiable du modèle.
+Braze a besoin d'un nombre suffisant d'utilisateurs ayant effectué l'événement cible dans la fenêtre d'entraînement pour construire le modèle. Le modèle nécessite généralement au moins 3 500 utilisateurs étiquetés comme **Past Event Behavior** dans cette fenêtre. Les événements très peu utilisés au sein de votre base d'utilisateurs peuvent ne pas atteindre ce seuil.
+
+Si vous disposez de moins d'utilisateurs éligibles, élargissez votre audience de prédiction ou étendez la fenêtre d'événement avant de créer la prédiction. Pour les étapes de configuration, consultez [Créer une prédiction d'événement]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/creating_an_event_prediction).

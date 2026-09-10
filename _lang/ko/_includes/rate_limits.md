@@ -5,23 +5,23 @@
 
 <!---PUT /scim/v2/Users/YOUR_ID_HERE--->
 {% elsif include.endpoint == "update dashboard user" %}
-이 엔드포인트는 회사당 일일 5,000건의 요청 제한이 적용됩니다. 이 사용량 제한은 [API 사용량 제한]({{site.baseurl}}/api/api_limits)에 설명된 대로 `/scim/v2/Users/` GET, DELETE 및 POST 엔드포인트와 공유됩니다.
+이 엔드포인트는 회사당 일일 20,000건의 요청 제한이 적용됩니다. 이 사용량 제한은 [API 사용량 제한]({{site.baseurl}}/api/api_limits)에 설명된 대로 `/scim/v2/Users/` GET, DELETE 및 POST 엔드포인트와 공유됩니다.
 
 <!---GET /scim/v2/Users/YOUR_ID_HERE--->
 {% elsif include.endpoint == "look up dashboard user" %}
-이 엔드포인트는 회사당 일일 5,000건의 요청 제한이 적용됩니다. 이 사용량 제한은 [API 사용량 제한]({{site.baseurl}}/api/api_limits)에 설명된 대로 `/scim/v2/Users/` PUT, GET, DELETE 및 POST 엔드포인트와 공유됩니다.
+이 엔드포인트는 회사당 일일 20,000건의 요청 제한이 적용됩니다. 이 사용량 제한은 [API 사용량 제한]({{site.baseurl}}/api/api_limits)에 설명된 대로 `/scim/v2/Users/` PUT, GET, DELETE 및 POST 엔드포인트와 공유됩니다.
 
 <!---DELETE /scim/v2/Users/YOUR_ID_HERE--->
 {% elsif include.endpoint == "delete dashboard user" %}
-이 엔드포인트는 회사당 일일 5,000건의 요청 제한이 적용됩니다. 이 사용량 제한은 [API 사용량 제한]({{site.baseurl}}/api/api_limits)에 설명된 대로 `/scim/v2/Users/` PUT, GET 및 POST 엔드포인트와 공유됩니다.
+이 엔드포인트는 회사당 일일 20,000건의 요청 제한이 적용됩니다. 이 사용량 제한은 [API 사용량 제한]({{site.baseurl}}/api/api_limits)에 설명된 대로 `/scim/v2/Users/` PUT, GET 및 POST 엔드포인트와 공유됩니다.
 
 <!---POST /scim/v2/Users--->
 {% elsif include.endpoint == "create dashboard user" %}
-이 엔드포인트는 회사당 일일 5,000건의 요청 제한이 적용됩니다. 이 사용량 제한은 [API 사용량 제한]({{site.baseurl}}/api/api_limits)에 설명된 대로 `/scim/v2/Users/` PUT, GET 및 DELETE 엔드포인트와 공유됩니다.
+이 엔드포인트는 회사당 일일 20,000건의 요청 제한이 적용됩니다. 이 사용량 제한은 [API 사용량 제한]({{site.baseurl}}/api/api_limits)에 설명된 대로 `/scim/v2/Users/` PUT, GET 및 DELETE 엔드포인트와 공유됩니다.
 
 <!---GET /scim/v2/Users--->
 {% elsif include.endpoint == "look up dashboard user email" %}
-이 엔드포인트는 회사당 일일 5,000건의 요청 제한이 적용됩니다. 이 사용량 제한은 [API 사용량 제한]({{site.baseurl}}/api/api_limits)에 설명된 대로 `/scim/v2/Users/` PUT, GET, DELETE 및 POST 엔드포인트와 공유됩니다.
+이 엔드포인트는 회사당 일일 20,000건의 요청 제한이 적용됩니다. 이 사용량 제한은 [API 사용량 제한]({{site.baseurl}}/api/api_limits)에 설명된 대로 `/scim/v2/Users/` PUT, GET, DELETE 및 POST 엔드포인트와 공유됩니다.
 
 <!---/users/external_id/rename-->
 <!---/users/external_id/remove-->

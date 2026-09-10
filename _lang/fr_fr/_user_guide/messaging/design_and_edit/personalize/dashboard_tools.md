@@ -11,31 +11,31 @@ description: "Cet article de référence décrit l'expérience Ajouter une perso
 
 Pour les règles de syntaxe Liquid, les balises prises en charge et les modèles avancés, consultez [Utiliser Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid) et [Balises de personnalisation prises en charge]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags).
 
-## Ajouter une personnalisation dans les éditeurs et les paramètres {#add-personalization-in-composers-and-settings}
+## Ajouter la personnalisation dans les compositeurs et les paramètres {#add-personalization-in-composers-and-settings}
 
-L'outil **Ajouter une personnalisation** apparaît à côté des champs de texte modélisés dans l'ensemble du tableau de bord, notamment :
+L'outil **Add Personalization** apparaît à côté des champs de texte modélisés dans l'ensemble du tableau de bord, notamment :
 
-- **Les étapes de Campaign et de Canvas** pour les canaux qui prennent en charge Liquid dans le corps ou les en-têtes (par exemple, e-mail, notification push, SMS, messages in-app, Content Cards et webhooks).
-- **Les éditeurs par glisser-déposer**, où le contrôle se trouve souvent dans la barre d'outils du bloc ou de l'éditeur. Par exemple, dans les messages in-app par glisser-déposer, vous pouvez sélectionner **Ajouter une personnalisation**, choisir un type de personnalisation, puis placer l'extrait de code généré dans votre contenu avant de prévisualiser sous **Prévisualisation et test**. Pour plus de notes spécifiques à chaque canal, consultez l'article sur le glisser-déposer ou l'éditeur de votre canal (comme [Paramètres de style des messages in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#add-liquid) ou [Créer un e-mail par glisser-déposer]({{site.baseurl}}/user_guide/channels/email/drag_and_drop)).
-- **Les éditeurs spécialisés** qui exposent un sélecteur de personnalisation — par exemple, les [recommandations d'articles]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations) utilisent des options de **Type de personnalisation** comme **Recommandation d'articles** dans le même type de fenêtre.
-- **Les pages de destination**, où vous pouvez ajouter de la personnalisation Liquid dans l'éditeur par glisser-déposer ou dans les paramètres de page et de bloc. Pour plus de détails, consultez [Personnaliser les pages de destination]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages).
+- **Les étapes Campaign et Canvas** pour les canaux prenant en charge Liquid dans le corps ou les en-têtes (par exemple, l'e-mail, les notifications push, les SMS, les messages in-app, les Content Cards et les webhooks).
+- **Les éditeurs par glisser-déposer**, où le contrôle se trouve souvent dans la barre d'outils du bloc ou de l'éditeur. Par exemple, dans les messages in-app par glisser-déposer, vous pouvez sélectionner **Add Personalization**, choisir un type de personnalisation, puis placer l'extrait de code généré dans votre contenu avant de prévisualiser sous **Preview & Test**. Pour des notes spécifiques à chaque canal, consultez l'article sur le glisser-déposer ou le compositeur de votre canal (comme [Paramètres de style des messages in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#add-liquid) ou [Créer un e-mail avec le glisser-déposer]({{site.baseurl}}/user_guide/channels/email/drag_and_drop)).
+- **Les compositeurs spécialisés** qui exposent un sélecteur de personnalisation — par exemple, les [recommandations d'articles]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations) utilisent des options **Personalization Type** comme **Item Recommendation** dans le même type de fenêtre.
+- **Les pages de destination**, où vous pouvez ajouter la personnalisation Liquid dans l'éditeur par glisser-déposer ou dans les paramètres de page et de bloc. Pour plus de détails, consultez [Personnaliser les pages de destination]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages).
 
 ## Insérer des variables pré-formatées et des valeurs par défaut {#insert-pre-formatted-variables-and-defaults}
 
-L'outil **Ajouter une personnalisation** vous aide à insérer du Liquid avec des valeurs par défaut facultatives afin que des données de profil vides ne cassent pas votre texte.
+L'outil **Ajouter une personnalisation** vous aide à insérer du Liquid avec des valeurs par défaut optionnelles afin que des données de profil vides ne perturbent pas votre texte.
 
-![La fenêtre modale Ajouter une personnalisation qui apparaît après avoir sélectionné Insérer une personnalisation. La fenêtre modale comporte des champs pour le type de personnalisation, l'attribut, la valeur par défaut facultative, et affiche un aperçu de la syntaxe Liquid.]({% image_buster /assets/img_archive/insert_liquid_var_arrow.png %}){: style="max-width:90%;"}
+![La fenêtre modale Ajouter une personnalisation qui apparaît après avoir sélectionné l'insertion de personnalisation. La fenêtre modale contient des champs pour le type de personnalisation, l'attribut, la valeur par défaut optionnelle, et affiche un aperçu de la syntaxe Liquid.]({% image_buster /assets/img_archive/insert_liquid_var_arrow.png %}){: style="max-width:90%;"}
 
-L'outil insère le Liquid avec la valeur par défaut que vous avez spécifiée à l'emplacement de votre curseur. Le point d'insertion est également indiqué par la zone d'aperçu, qui affiche le texte avant et après. Si un bloc de texte est surligné, le texte surligné sera remplacé.
+L'outil insère du Liquid avec la valeur par défaut que vous avez spécifiée à l'endroit où se trouvait votre curseur. Le point d'insertion est également indiqué par la zone d'aperçu, qui affiche le texte avant et après. Si un bloc de texte est surligné, le texte surligné sera remplacé.
 
-![Un GIF de la fenêtre modale Ajouter une personnalisation montrant l'utilisateur insérant « fellow traveler » comme valeur par défaut, et la fenêtre modale remplaçant le texte surligné « name » dans l'éditeur par l'extrait de code Liquid.]({% image_buster /assets/img_archive/insert_var_shot.gif %})
+![Un GIF de la fenêtre modale Ajouter une personnalisation montrant l'utilisateur qui saisit « fellow traveler » comme valeur par défaut, et la fenêtre modale remplaçant le texte surligné « name » dans le compositeur par l'extrait de code Liquid.]({% image_buster /assets/img_archive/insert_var_shot.gif %})
 
-Vous pouvez toujours taper {% raw %}`{{`{% endraw %} dans de nombreux éditeurs pour utiliser l'autocomplétion, ou coller des balises provenant d'ailleurs ; pour plus de détails, consultez [Insérer des balises]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#inserting-tags) dans **Utiliser Liquid**.
+Vous pouvez également taper {% raw %}`{{`{% endraw %} dans de nombreux compositeurs pour utiliser l'autocomplétion, ou coller des tags provenant d'ailleurs ; pour plus de détails, consultez [Insérer des tags]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#inserting-tags) dans **Utiliser Liquid**.
 
-### Affecter des variables {#assign-variables}
+### Assigner des variables {#assign-variables}
 
 {% raw %}
-Certaines opérations en Liquid nécessitent de stocker la valeur que vous souhaitez manipuler dans une variable. C'est souvent le cas lorsque votre instruction Liquid inclut plusieurs attributs, propriétés d'événement ou filtres.
+Certaines opérations en Liquid nécessitent de stocker la valeur que vous souhaitez manipuler en tant que variable. C'est souvent le cas lorsque votre instruction Liquid inclut plusieurs attributs, propriétés d'événement ou filtres.
 
 Par exemple, supposons que vous souhaitiez additionner deux entiers de données personnalisées.
 
@@ -47,7 +47,7 @@ Vous ne pouvez pas utiliser :
 {{custom_attribute.${one}}} | plus: {{custom_attribute.${two}}}
 ```
 
-Ce Liquid ne fonctionne pas car vous ne pouvez pas référencer plusieurs attributs sur une seule ligne ; vous devez affecter une variable à au moins une de ces valeurs avant que les fonctions mathématiques ne s'exécutent. L'addition de deux attributs personnalisés nécessite deux lignes de Liquid : une pour affecter l'attribut personnalisé à une variable, et une pour effectuer l'addition.
+Ce code Liquid ne fonctionne pas car vous ne pouvez pas référencer plusieurs attributs sur une seule ligne ; vous devez assigner une variable à au moins une de ces valeurs avant que les fonctions mathématiques ne s'exécutent. Additionner deux attributs personnalisés nécessite deux lignes de Liquid : une pour assigner l'attribut personnalisé à une variable, et une pour effectuer l'addition.
 
 #### Exemple Liquid correct {#correct-liquid-example}
 
@@ -62,13 +62,13 @@ Vous pouvez utiliser :
 
 Calculons le solde actuel d'un utilisateur en additionnant le solde de sa carte cadeau et le solde de ses récompenses :
 
-Tout d'abord, utilisez la balise `assign` pour substituer l'attribut personnalisé `current_rewards_balance` par le terme « balance ». Vous disposez maintenant d'une variable nommée `balance`, que vous pouvez manipuler.
+Tout d'abord, utilisez le tag `assign` pour remplacer l'attribut personnalisé `current_rewards_balance` par le terme « balance ». Cela signifie que vous disposez désormais d'une variable nommée `balance`, que vous pouvez manipuler.
 
 ```liquid
 {% assign balance = {{custom_attribute.${current_rewards_balance}}} %}
 ```
 
-Ensuite, utilisez le filtre `plus` pour combiner le solde de la carte cadeau de chaque utilisateur avec son solde de récompenses, représenté par `{{balance}}`.
+Ensuite, nous utiliserons le filtre `plus` pour combiner le solde de la carte cadeau de chaque utilisateur avec son solde de récompenses, représenté par `{{balance}}`.
 
 ```liquid
 {% assign balance = {{custom_attribute.${current_rewards_balance}}} %}
@@ -77,34 +77,42 @@ You have ${{custom_attribute.${giftcard_balance} | plus: {{balance}}}} to spend!
 {% endraw %}
 
 {% alert tip %}
-Vous vous retrouvez à affecter les mêmes variables dans chaque message ? Au lieu de réécrire la balise `assign` à chaque fois, vous pouvez l'enregistrer en tant que bloc de contenu et la placer en haut de votre message.<br><br>
+Vous vous retrouvez à assigner les mêmes variables dans chaque message ? Au lieu de réécrire le tag `assign` à chaque fois, vous pouvez enregistrer ce tag en tant que bloc de contenu et le placer en haut de votre message.<br><br>
 
 1. [Créez un bloc de contenu]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks#create-a-content-block).
 2. Donnez un nom à votre bloc de contenu (sans espaces ni caractères spéciaux).
 3. Sélectionnez **Modifier** en bas de la page.
-4. Saisissez vos balises `assign`.
+4. Saisissez vos tags `assign`.
 
 Tant que le bloc de contenu se trouve en haut de votre message, chaque fois que la variable est insérée dans votre message en tant qu'objet, elle fera référence à l'attribut personnalisé que vous avez choisi !
 {% endalert %}
 
 ## Améliorations de l'éditeur Liquid {#liquid-editor-enhancements}
 
-Ces fonctionnalités du tableau de bord facilitent le travail avec Liquid pendant la rédaction de vos messages.
+Ces comportements du tableau de bord facilitent l'utilisation de Liquid lors de la rédaction de vos messages.
 
 ### Étiquettes de couleur {#color-labels}
 
-Chaque élément Liquid correspond à une couleur, ce qui vous permet de différencier votre Liquid en un coup d'œil dans l'éditeur.
+Chaque élément Liquid correspond à une couleur, ce qui vous permet de différencier vos éléments Liquid d'un coup d'œil dans votre éditeur Liquid.
 
-![Diagramme des différentes étiquettes de couleur pour les différents éléments Liquid.]({% image_buster /assets/img/liquid_color_code.png %})
+![Diagramme des différentes étiquettes de couleur pour les éléments Liquid.]({% image_buster /assets/img/liquid_color_code.png %})
 
 ### Liquid prédictif {#predictive-liquid}
 
-Vous pouvez également utiliser le Liquid prédictif pour les attributs personnalisés, les noms d'attributs et plus encore lorsque vous créez vos messages personnalisés.
+Vous pouvez également utiliser le Liquid prédictif pour les attributs personnalisés, les noms d'attributs et bien plus encore lors de la création de vos messages personnalisés.
 
-![Braze suggérant différents attributs Liquid au fur et à mesure que du texte est saisi dans un champ.]({% image_buster /assets/img/liquid_auto_complete.gif %}){: style="max-width:70%;"}
+![Braze suggérant différents attributs Liquid à mesure que du texte est saisi dans un champ.]({% image_buster /assets/img/liquid_auto_complete.gif %}){: style="max-width:70%;"}
 
 ## Étapes suivantes {#next-steps}
 
-- [Utiliser Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid) — syntaxe, `assign`, conditions et filtres dans Braze
-- [Définir des valeurs par défaut]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values) — valeurs par défaut en Liquid au-delà de la fenêtre modale
-- [Filtres]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters) — formater les dates, les calculs, les chaînes de caractères et plus encore
+{% article_tiles %}
+- name: Utiliser Liquid
+  link: /docs/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid
+  description: Syntaxe, balises assign, conditions et filtres dans Braze.
+- name: Définir des valeurs par défaut
+  link: /docs/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values
+  description: Définissez des valeurs par défaut dans Liquid au-delà de la fenêtre modale Ajouter une personnalisation.
+- name: Filtres
+  link: /docs/user_guide/messaging/design_and_edit/personalize/liquid/filters
+  description: Formatez les dates, les opérations mathématiques, les chaînes de caractères et plus encore.
+{% endarticle_tiles %}

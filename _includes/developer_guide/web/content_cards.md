@@ -143,6 +143,10 @@ The [ClassicCard](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.clas
 | `url` | The URL that will be opened after the card is clicked on. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Classic" }
 
+### Image formats
+
+Content Card images (including GIFs) are rendered using standard HTML `<img>` tags. GIF support depends on the user's browser capabilities and does not require a minimum Web SDK version. All modern browsers support GIF playback natively.
+
 ## Control group
 
 If you use the default Content Cards feed, impressions and clicks will be automatically tracked.

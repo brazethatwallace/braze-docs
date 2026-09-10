@@ -10,10 +10,6 @@ page_order: 3.5
 
 > Knowledge sources help your AI agents interpret catalog data and retrieve the right information to meet your goals. For an introduction to Braze Agents, see [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents). To add knowledge to an agent, see [Create custom agents]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources).
 
-{% alert important %}
-Knowledge sources for Agent Console are currently in early access. Contact your Braze account manager if you're interested in participating in this early access.
-{% endalert %}
-
 ## How it works
 
 Knowledge sources are a type of agent context. An AI agent can reference a knowledge source to retrieve data from the catalog more accurately than if the catalog is referenced directly in the agent's instructions. 

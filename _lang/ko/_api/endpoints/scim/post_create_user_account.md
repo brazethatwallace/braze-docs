@@ -85,9 +85,9 @@ Authorization: Bearer YOUR-SCIM-TOKEN-KEY
 | `schemas` | 필수 | 문자열 배열 | 사용자 오브젝트에 대한 예상 SCIM 2.0 스키마 이름입니다. |
 | `userName` | 필수 | 문자열 | 사용자의 이메일 주소입니다. |
 | `name` | 필수 | JSON 오브젝트 | 이 오브젝트에는 사용자의 이름과 성이 포함되어 있습니다. |
-| `department` | 필수 | 문자열 | [부서 문자열 설명서]({{site.baseurl}}/api/objects_filters/scim_api_appendix)에 있는 유효한 부서 문자열입니다. |
-| `permissions` | 선택 사항 | JSON 오브젝트 | [권한 오브젝트 설명서]({{site.baseurl}}/api/objects_filters/scim_api_appendix)에 설명된 권한 오브젝트입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
+| `department` | 선택 사항 | 문자열 | [부서 문자열 설명서]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_department-strings)에 있는 유효한 부서 문자열입니다. 알 수 없는 경우 생략하거나 빈 문자열을 전달합니다. |
+| `permissions` | 선택 사항 | JSON 오브젝트 | [권한 오브젝트 설명서]({{site.baseurl}}/api/objects_filters/scim_api_appendix)에 설명된 권한 오브젝트입니다. 생략하거나 비어 있으면 Braze는 **SCIM Provisioning**에 구성된 기본 워크스페이스에 기본 읽기 전용 워크스페이스 권한을 할당합니다. 세분화된 권한 마이그레이션 후에는 보기 전용 워크스페이스 권한이 포함됩니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## 예시 요청 {#example-request}
 ```bash
@@ -140,7 +140,8 @@ curl --location --request POST 'https://rest.iad-01.braze.com/scim/v2/Users' \
         "familyName": "User"
     },
     "department": "finance",
-    "lastSignInAt": "Thursday, January 1, 1970 12:00:00 AM",
+    "lastSignInAt": "NA",
+    "createdAt": "NA",
     "permissions": {
         "companyPermissions": ["manage_company_settings"],
         "roles": [
@@ -216,8 +217,9 @@ curl --location --request POST 'https://rest.iad-01.braze.com/scim/v2/Users' \
 | `department` | 문자열 | [부서 문자열 설명서]({{site.baseurl}}/api/objects_filters/scim_api_appendix)에 있는 유효한 부서 문자열입니다. |
 | `permissions` | JSON 오브젝트 | [권한 오브젝트 설명서]({{site.baseurl}}/api/objects_filters/scim_api_appendix)에 설명된 권한 오브젝트입니다. |
 | `id` | 문자열 | 사용자 계정을 검색하고 관리하는 데 사용되는 Braze에서 생성한 ID입니다. |
-| `lastSignInAt` | 문자열 | 마지막으로 성공한 로그인 날짜(UTC 시간 기준)입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="응답 매개변수" }
+| `createdAt` | 문자열 | 사용자 계정이 생성된 날짜(UTC 기준)입니다. 설정되지 않은 경우 `NA`를 반환합니다. |
+| `lastSignInAt` | 문자열 | 마지막으로 성공한 로그인 날짜(UTC 기준)입니다. 사용자가 로그인한 적이 없으면 `NA`를 반환합니다. 형식: `YYYY Mon DD, H:MM AM/PM`. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Response parameters" }
 
 ### 오류 상태 {#error-states}
 

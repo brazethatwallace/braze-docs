@@ -16,30 +16,30 @@ channel: email
 Antes de comenzar la configuración de Amazon SES, confirma que tienes lo siguiente:
 
 - Nombres de dominio de envío
-- Nombres de pools de IP (como marketing, transaccional, staging)
-- El número de direcciones IP para cada pool de IP
+- Nombres de grupos de IP (como marketing, transaccional, staging)
+- El número de direcciones IP para cada grupo de IP
 - Sufijo preferido para los dominios de seguimiento de clics (como "clicks" o "click", "links" o "link")
 
 ## Ejemplo de configuración {#setup-example}
 
-Una configuración típica de Amazon SES se ve de la siguiente manera:
+Una configuración típica de Amazon SES tiene el siguiente aspecto:
 
 - **Nombre de subcuenta:** braze
 - **Clúster:** eu-02
 
-| Pool de IP | Número de IPs | Conjunto de configuración | Dominio de envío | Dominio de seguimiento de clics |
+| Grupo de IP | Número de IP | Conjunto de configuración | Dominio de envío | Dominio de seguimiento de clics |
 | --- | --- | --- | --- | --- |
 | `eu02_braze_marketing` | 1 IP | `eu02_braze_marketing_set1` | `demo.braze.com` | `clicks.demo.braze.com` |
 | `eu02_braze_transactional` | 1 IP | `eu02_braze_transactional_set1` | `dev.braze.com` | `clicks.dev.braze.com` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Ejemplo de configuración" }
 
 {% alert note %}
-El clúster y el nombre de subcuenta se añaden automáticamente a los pools de IP y los conjuntos de configuración.
+El clúster y el nombre de la subcuenta se añaden automáticamente a los grupos de IP y los conjuntos de configuración.
 {% endalert %}
 
-## Ejemplos de configuración de dominios de seguimiento de clics {#click-tracking-domain-configuration-examples}
+## Ejemplos de configuración de dominio de seguimiento de clics {#click-tracking-domain-configuration-examples}
 
-Las siguientes tablas son ejemplos de posibles configuraciones de dominios de seguimiento de clics según tu preferencia de marca.
+Las siguientes tablas son ejemplos de posibles configuraciones de dominio de seguimiento de clics según tu preferencia de marca.
 
 ### Un dominio de seguimiento de clics para cada dominio de envío {#one-click-tracking-domain-for-each-sending-domain}
 
@@ -66,13 +66,16 @@ Esto se basa en la regla de que el dominio de seguimiento de clics debe coincidi
 ## Consideraciones {#considerations}
 
 - Los pools de IP en Amazon SES solo alojan la dirección IP en sí, mientras que los conjuntos de configuración alojan los dominios de envío y el dominio de seguimiento de clics.
-- Cada conjunto de configuración solo puede tener un pool de IP asignado a la vez, pero se pueden crear múltiples conjuntos de configuración que utilicen el mismo pool de IP con diferentes dominios de envío.
-- Amazon SES gestiona los registros rDNS y A de forma interna, ya que mantiene relaciones estrechas con los proveedores de buzón de entrada para ayudar a reconocer las direcciones IP.
-- Cada dominio de envío tiene un identificador MAIL FROM asociado para ayudar con las validaciones SPF.
+- Cada conjunto de configuración solo puede tener un pool de IP asignado a la vez, pero podemos crear múltiples conjuntos de configuración que pueden usar el mismo pool de IP con diferentes dominios de envío.
+- Amazon SES gestiona los registros rDNS y A internamente, ya que mantienen relaciones estrechas con los proveedores de buzón de entrada para ayudar a reconocer las direcciones IP.
+- Cada dominio de envío tiene un identificador MAIL FROM adjunto para ayudar con las validaciones SPF.
     - El valor para cada dominio de envío es "e".
-    - El valor MAIL FROM no cambia la dirección del remitente que ven tus clientes.
-- El inicio y el fin del periodo de mensajes trampa no están disponibles si utilizas Amazon SES como tu proveedor de servicios de correo electrónico.
+    - El valor MAIL FROM no cambia la dirección De que ven tus clientes.
+- Los campos de inicio del periodo de mensaje trampa y fin del periodo de mensaje trampa no están disponibles si usas Amazon SES como tu proveedor de servicios de correo electrónico.
 
 ## Próximos pasos {#next-steps}
 
-- [Configurar SSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/)
+{% article_tiles %}
+- name: Configurar SSL
+  link: /docs/user_guide/channels/email/email_setup/ssl
+{% endarticle_tiles %}

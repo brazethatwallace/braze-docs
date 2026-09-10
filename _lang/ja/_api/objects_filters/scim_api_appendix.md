@@ -17,14 +17,14 @@ alias: /scim_api_appendix/
 
 既存のSCIM統合および[レガシーSCIM APIオブジェクト]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api)は、きめ細かな権限の移行後も引き続き動作しますが、Brazeは2026年12月にレガシーSCIM API値の受け入れを停止します。
 
-すぐに対応する必要はありません。ただし、きめ細かな権限に移行する権限について統合を確認してください。たとえば、現在APIで `basic_access` を送信している場合は、きめ細かな権限への移行後に特定の権限を含めるよう統合を更新してください（例: `"appGroupPermissions":["view_campaigns","edit_campaigns"]`）。Brazeは、既存の統合が壊れないよう、きめ細かな権限の移行後も `basic_access` などのレガシー文字列を引き続き受け入れます。
+すぐに対応する必要はありません。ただし、きめ細かな権限に移行する権限について統合を確認してください。たとえば、現在APIで`basic_access`を送信している場合は、きめ細かな権限への移行後に特定の権限を含めるよう統合を更新してください（例：`"appGroupPermissions":["view_campaigns","edit_campaigns"]`）。Brazeは、既存の統合が壊れないよう、きめ細かな権限の移行後も`basic_access`などのレガシー文字列を引き続き受け入れます。
 
 ## 権限オブジェクト {#permissions-object}
 
 権限オブジェクトは、SCIM ID権限を通じてユーザーリソースとやり取りする際の一部のリクエストおよびレスポンスに含まれるフィールドです。
 
 {% alert note %}
-アプリグループはBrazeでワークスペースに名称変更されましたが、このページのキーは引き続き旧用語を参照しています（例: `appGroup`、`appGroupName`）。
+アプリグループはBrazeでワークスペースに名称変更されましたが、このページのキーは引き続き旧用語を参照しています（例：`appGroup`、`appGroupName`）。
 {% endalert %}
 
 ```
@@ -53,8 +53,8 @@ alias: /scim_api_appendix/
 | --- | --- | --- | --- |
 | `appGroupName` | 任意 | 文字列 | ワークスペースの名前。このオブジェクトに含まれる権限がどのワークスペースに対するものかを指定するために使用されます。 |
 | `appGroupId` | `appGroupName`がない場合は必須 | 文字列 | ワークスペースのID。ワークスペースを指定する代替手段として使用されます。 |
-| `appGroupPermissionSets` | 任意 | 配列 | 単一の[ワークスペース権限セットオブジェクト]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-permissions-set-object)を含む配列。 |
-| `appGroupPermissions` | 必須 | 配列 | [ワークスペース権限文字列]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-strings)テーブルのワークスペースレベルの権限文字列の配列。文字列が存在する場合、ユーザーが指定されたワークスペースに対して対応する権限を持つことを意味します。 |
+| `appGroupPermissionSets` | 任意 | 配列 | 単一の[ワークスペース権限セットオブジェクト]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-permissions-set-object)を含む配列。ワークスペースエントリごとに`appGroupPermissions`または`appGroupPermissionSets`のいずれか一方を指定してください（両方は指定しないでください）。 |
+| `appGroupPermissions` | 条件付きで必須 | 配列 | [ワークスペース権限文字列]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-strings)テーブルのワークスペースレベルの権限文字列の配列。`appGroupPermissionSets`が指定されていない場合に必須です。 |
 | `team` | 任意 | 配列 | [チーム権限オブジェクト]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_team-permissions-object)の配列。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Workspace permissions object" }
 
@@ -65,7 +65,7 @@ alias: /scim_api_appendix/
 | キー | 必須 | データ型 | 説明 |
 | --- | --- | --- | --- |
 | `appGroupPermissionSetName` | 任意 | 文字列 | このワークスペースに対してユーザーに割り当てられるワークスペース権限セットの名前。 |
-| `appGroupPermissionSetID` | `appGroupPermissionSetName`がない場合は必須 | 文字列 | ワークスペースのID。このワークスペースに対してユーザーに割り当てられるワークスペース権限セットを指定する代替手段として使用されます。 |
+| `appGroupPermissionSetId` | `appGroupPermissionSetName`がない場合は必須 | 文字列 | ワークスペース権限セットのID。このワークスペースに対してユーザーに割り当てられるワークスペース権限セットを指定する代替手段として使用されます。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Workspace permissions set object #workspace-permissions-set-object" }
 
 ### チーム権限オブジェクト {#team-permissions-object}
@@ -158,6 +158,13 @@ alias: /scim_api_appendix/
 | View Decisioning Studio Guardrails | `view_decisioning_studio_guardrails` |
 | Launch キャンペーン | `launch_campaigns` |
 | Launch キャンバス | `launch_canvases` |
+| Approve キャンペーン | `approve_deny_campaigns` |
+| Approve キャンバス | `approve_deny_canvases` |
+| Send キャンペーン, キャンバス | `send_campaigns_canvases` |
+| Publish Cards | `publish_cards` |
+| Export User Data | `export_user_data` |
+| View PII | `view_pii` |
+| View User Profiles (PII Redacted) | `view_user_profile` |
 | Edit Dashboard Users | `edit_dashboard_users` |
 | Edit Media Library Assets | `edit_media_library_assets` |
 | Delete Media Library Assets | `delete_media_library_assets` |
@@ -287,7 +294,7 @@ alias: /scim_api_appendix/
 
 
 {% alert important %}
-Brazeでは、ユーザーアクセスをより柔軟に管理できる[きめ細かな権限]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/?sdktab=granular%20permissions)が提供されるようになりました。詳細については、[きめ細かな権限への移行]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)および[Granular SCIM API]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api/)タブを参照して、きめ細かなSCIM APIオブジェクトと付録をご確認ください。Brazeは2026年12月にレガシーSCIM API値の受け入れを停止します。
+Brazeでは、ユーザーアクセスをより柔軟に管理できる[きめ細かな権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions?sdktab=granular%20permissions)が提供されるようになりました。詳細については、[きめ細かな権限への移行]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)および[Granular SCIM API]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api/)タブを参照して、きめ細かなSCIM APIオブジェクトと付録をご確認ください。Brazeは2026年12月にレガシーSCIM API値の受け入れを停止します。
 {% endalert %}
 
 ## 権限オブジェクト
@@ -295,7 +302,7 @@ Brazeでは、ユーザーアクセスをより柔軟に管理できる[きめ�
 権限オブジェクトは、SCIM ID権限を通じてユーザーリソースとやり取りする際の一部のリクエストおよびレスポンスに含まれるフィールドです。
 
 {% alert note %}
-アプリグループはBrazeでワークスペースに名称変更されましたが、このページのキーは引き続き旧用語を参照しています（例: `appGroup`、`appGroupName`）。
+アプリグループはBrazeでワークスペースに名称変更されましたが、このページのキーは引き続き旧用語を参照しています（例：`appGroup`、`appGroupName`）。
 {% endalert %}
 
 ```
@@ -324,8 +331,8 @@ Brazeでは、ユーザーアクセスをより柔軟に管理できる[きめ�
 | --- | --- | --- | --- |
 | `appGroupName` | 任意 | 文字列 | ワークスペースの名前。このオブジェクトに含まれる権限がどのワークスペースに対するものかを指定するために使用されます。 |
 | `appGroupId` | `appGroupName`がない場合は必須 | 文字列 | ワークスペースのID。ワークスペースを指定する代替手段として使用されます。 |
-| `appGroupPermissionSets` | 任意 | 配列 | 単一の[ワークスペース権限セットオブジェクト]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_workspace-permissions-set-object)を含む配列。 |
-| `appGroupPermissions` | 必須 | 配列 | [ワークスペース権限文字列]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_workspace-strings)テーブルのワークスペースレベルの権限文字列の配列。文字列が存在する場合、ユーザーが指定されたワークスペースに対して対応する権限を持つことを意味します。 |
+| `appGroupPermissionSets` | 任意 | 配列 | 単一の[ワークスペース権限セットオブジェクト]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_workspace-permissions-set-object)を含む配列。ワークスペースエントリごとに`appGroupPermissions`または`appGroupPermissionSets`のいずれか一方を指定してください（両方は指定しないでください）。 |
+| `appGroupPermissions` | 条件付きで必須 | 配列 | [ワークスペース権限文字列]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_workspace-strings)テーブルのワークスペースレベルの権限文字列の配列。`appGroupPermissionSets`が指定されていない場合に必須です。 |
 | `team` | 任意 | 配列 | [チーム権限オブジェクト]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_team-permissions-object)の配列。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Workspace permissions object #workspace-permission-object" }
 
@@ -336,7 +343,7 @@ Brazeでは、ユーザーアクセスをより柔軟に管理できる[きめ�
 | キー | 必須 | データ型 | 説明 |
 | --- | --- | --- | --- |
 | `appGroupPermissionSetName` | 任意 | 文字列 | このワークスペースに対してユーザーに割り当てられるワークスペース権限セットの名前。 |
-| `appGroupPermissionSetID` | `appGroupPermissionSetName`がない場合は必須 | 文字列 | ワークスペースのID。このワークスペースに対してユーザーに割り当てられるワークスペース権限セットを指定する代替手段として使用されます。 |
+| `appGroupPermissionSetId` | `appGroupPermissionSetName`がない場合は必須 | 文字列 | ワークスペース権限セットのID。このワークスペースに対してユーザーに割り当てられるワークスペース権限セットを指定する代替手段として使用されます。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Workspace permissions set object #workspace-permissions-set-object" }
 
 ### チーム権限オブジェクト
@@ -377,13 +384,14 @@ Brazeでは、ユーザーアクセスをより柔軟に管理できる[きめ�
 | --- | --- |
 | Admin | `admin` |
 | Access キャンペーン, キャンバス, Cards, セグメント, Media Library | `basic_access` |
-| Approve and Deny キャンバス | `approve_deny_campaigns` |
+| Approve キャンペーン | `approve_deny_campaigns` |
+| Approve キャンバス | `approve_deny_canvases` |
 | Send キャンペーン, キャンバス | `send_campaigns_canvases` |
 | Publish Cards | `publish_cards` |
 | Edit セグメント | `edit_segments` |
 | Export User Data | `export_user_data` |
 | View PII | `view_pii` |
-| View User Profiles PII Compliant | `view_user_profile` |
+| View User Profiles (PII Redacted) | `view_user_profile` |
 | Manage Dashboard Users | `manage_dashboard_users` |
 | Manage Media Library Assets | `manage_media_library` |
 | View Usage Data | `view_usage_data` |
@@ -408,12 +416,13 @@ Brazeでは、ユーザーアクセスをより柔軟に管理できる[きめ�
 | --- | --- |
 | Admin | `admin` |
 | Access キャンペーン, キャンバス, Cards, セグメント, Media Library | `basic_access` |
-| Approve and Deny キャンバス | `approve_deny_campaigns` |
+| Approve キャンペーン | `approve_deny_campaigns` |
+| Approve キャンバス | `approve_deny_canvases` |
 | Send キャンペーン, キャンバス | `send_campaigns_canvases` |
 | Publish Cards | `publish_cards` |
 | Edit セグメント | `edit_segments` |
 | Export User Data | `export_user_data` |
-| View User Profile | `view_user_profile` |
+| View User Profiles (PII Redacted) | `view_user_profile` |
 | Manage Dashboard Users | `manage_dashboard_users` |
 | Manage Media Library Assets | `manage_media_library` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Team permission strings #team" }

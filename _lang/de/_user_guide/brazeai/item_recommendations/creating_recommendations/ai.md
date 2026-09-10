@@ -17,7 +17,7 @@ Verwenden Sie KI-Artikelempfehlungen, um die beliebtesten Produkte zu berechnen 
 [KI-Personalisierte Empfehlungen](#recommendation-types) funktionieren am besten mit mindestens einigen Hundert Katalogartikeln, höchstens 100.000 Katalogartikeln und in der Regel mindestens 30.000 Nutzer:innen mit Kauf- oder Interaktionsdaten. Dies ist nur ein grober Richtwert und kann variieren. Die anderen Empfehlungstypen können mit weniger Daten arbeiten, auch wenn **Beliebteste** als Fallback verwendet wird.
 {% endalert %}
 
-{% multi_lang_include brazeai/recommendations/KI.md section="Plan-specific features" %}
+{% multi_lang_include brazeai/recommendations/ai.md section="Plan-specific features" %}
 
 ## KI-Artikelempfehlung erstellen {#creating-an-ai-item-recommendation}
 

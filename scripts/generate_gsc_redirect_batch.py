@@ -6,7 +6,7 @@ legacy-IA locale mirrors.
 
 Usage:
   python3 scripts/generate_gsc_redirect_batch.py --gsc-csv /path/to/Table.csv
-  python3 scripts/generate_gsc_redirect_batch.py --gsc-csv /path/to/Table.csv --fill-legacy-mirrors --max-bulk 9500 --apply
+  python3 scripts/generate_gsc_redirect_batch.py --gsc-csv /path/to/Table-failed-only.csv --failed-only --path-regex custom_objects --apply --marker "// GSC ..."
 """
 
 from __future__ import annotations
@@ -19,13 +19,22 @@ import sys
 from collections import Counter
 from pathlib import Path
 
+from locale_redirect_utils import (
+    LOCALES,
+    LOCALE_IN_PATH,
+    add_locale_prefix,
+    format_validurl_line,
+    is_bulk_eligible_source,
+    is_en_bulk_source,
+    parse_validurls,
+    strip_locale_prefix,
+)
+
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 REDIRECT_JS = PROJECT_ROOT / "assets/js/broken_redirect_list.js"
 BULK_JSON = PROJECT_ROOT / "assets/redirects/bulk-redirects.json"
 
-LOCALES = ("ko", "es", "fr", "pt-br", "ja", "de")
 LOCALE_SEGMENT = r"(?:ko|es|fr|pt-br|ja|de)"
-LOCALE_IN_PATH = re.compile(rf"^/docs/{LOCALE_SEGMENT}(/|$)")
 DOUBLE_LOCALE_RE = re.compile(rf"^/docs/({LOCALE_SEGMENT})/\1(/.*)$")
 
 LEGACY_IA_MARKERS = (
@@ -40,40 +49,12 @@ LEGACY_IA_MARKERS = (
     "message_orchestration",
 )
 
-VALIDURLS_RE = re.compile(
-    r"validurls\['((?:\\'|[^'])*)'\]\s*=\s*'((?:\\'|[^'])*)'\s*;"
-)
-
-
-def unescape_js_string(value: str) -> str:
-    return value.replace("\\'", "'")
-
-
-def escape_js_string(value: str) -> str:
-    return value.replace("'", "\\'")
-
-
-def parse_validurls(js_text: str) -> dict[str, str]:
-    entries: dict[str, str] = {}
-    for line in js_text.splitlines():
-        stripped = line.strip()
-        if not stripped or stripped.startswith("//"):
-            continue
-        match = VALIDURLS_RE.search(stripped)
-        if not match:
-            continue
-        source = unescape_js_string(match.group(1))
-        dest = unescape_js_string(match.group(2))
-        entries[source] = dest
-    return entries
-
 
 def normalize_gsc_path(url: str) -> str:
     return url.replace("https://www.braze.com", "").rstrip("/")
 
 
 def split_path_query(path: str) -> tuple[str, str]:
-    """Return (path_without_query, ?query_suffix)."""
     if "?" not in path:
         return path.rstrip("/"), ""
     base, query = path.split("?", 1)
@@ -84,40 +65,6 @@ def join_path_query(path: str, query: str) -> str:
     if not query or "?" in path:
         return path
     return path.rstrip("/") + query
-
-
-def strip_locale_prefix(path: str) -> tuple[str | None, str]:
-    match = re.match(rf"^/docs/({LOCALE_SEGMENT})(/.*)$", path)
-    if not match:
-        return None, path
-    return match.group(1), f"/docs{match.group(2)}"
-
-
-def add_locale_prefix(locale: str, path: str) -> str:
-    if path.startswith("http://") or path.startswith("https://"):
-        return path
-    if LOCALE_IN_PATH.match(path):
-        return path
-    if path.startswith("/docs/"):
-        return f"/docs/{locale}{path[5:]}"
-    return path
-
-
-def is_en_bulk_source(path: str) -> bool:
-    if not path.startswith("/docs/"):
-        return False
-    if LOCALE_IN_PATH.match(path):
-        return False
-    if "#" in path.split("?", 1)[0]:
-        return False
-    if "?" in path:
-        return False
-    return True
-
-
-def is_bulk_eligible_source(path: str) -> bool:
-    base = path.split("?", 1)[0]
-    return "#" not in base and "?" not in path
 
 
 def is_legacy_ia(path: str) -> bool:
@@ -137,15 +84,7 @@ def liquid_leak_destination(path: str) -> str | None:
     return dest
 
 
-def format_validurl_line(source: str, dest: str) -> str:
-    return (
-        f"validurls['{escape_js_string(source)}'] = "
-        f"'{escape_js_string(dest)}';"
-    )
-
-
 def count_bulk_export(validurls: dict[str, str]) -> int:
-  # lightweight mirror of generate_bulk_redirects rules
     seen: set[str] = set()
     count = 0
     for source, destination in validurls.items():
@@ -184,7 +123,6 @@ def build_entries(
             return
         if source in entries:
             if entries[source] != dest and entries[source] != dest_base:
-                # Same pathname, different tab query — use generic destination.
                 entries[source] = dest_base
                 stats[f"merge_query_conflict_{kind}"] += 1
             return
@@ -215,7 +153,6 @@ def build_entries(
         locale, en_path = strip_locale_prefix(path_only)
         if locale and en_path in existing:
             ldest = add_locale_prefix(locale, existing[en_path])
-            # Prefer mirrored EN destination; only append GSC query when EN dest has none.
             add(path_only, join_path_query(ldest, query), "gsc_mirror")
 
     if fill_legacy_mirrors:
@@ -247,6 +184,21 @@ def build_entries(
     return entries, dict(stats)
 
 
+def filter_entries(
+    entries: dict[str, str],
+    include_regex: re.Pattern[str] | None,
+    exclude_regex: re.Pattern[str] | None,
+) -> dict[str, str]:
+    filtered: dict[str, str] = {}
+    for source, dest in entries.items():
+        if include_regex and not include_regex.search(source):
+            continue
+        if exclude_regex and exclude_regex.search(source):
+            continue
+        filtered[source] = dest
+    return filtered
+
+
 def apply_entries(js_path: Path, entries: dict[str, str], marker: str) -> None:
     text = js_path.read_text(encoding="utf-8")
     if marker in text:
@@ -265,15 +217,50 @@ def apply_entries(js_path: Path, entries: dict[str, str], marker: str) -> None:
     js_path.write_text(text.replace(placeholder, f"{block}\n{placeholder}", 1), encoding="utf-8")
 
 
+def load_gsc_paths(csv_path: Path, failed_only: bool) -> list[str]:
+    paths: set[str] = set()
+    with csv_path.open(encoding="utf-8") as handle:
+        for row in csv.DictReader(handle):
+            if failed_only and row.get("Status", "").lower() != "failed":
+                continue
+            url = row.get("URL", "").strip()
+            if url:
+                paths.add(normalize_gsc_path(url))
+    return sorted(paths)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--gsc-csv", type=Path, required=True)
+    parser.add_argument(
+        "--failed-only",
+        action="store_true",
+        help="Only read rows with Status=Failed from the GSC export",
+    )
+    parser.add_argument(
+        "--path-regex",
+        type=str,
+        default="",
+        help="Only apply generated entries whose source matches this regex",
+    )
+    parser.add_argument(
+        "--exclude-regex",
+        type=str,
+        default="",
+        help="Drop generated entries whose source matches this regex",
+    )
     parser.add_argument(
         "--fill-legacy-mirrors",
         action="store_true",
         help="Add legacy-IA locale mirrors until --max-bulk is reached",
     )
     parser.add_argument("--max-bulk", type=int, default=9500)
+    parser.add_argument(
+        "--marker",
+        type=str,
+        default="",
+        help="Comment marker for the inserted block (required with --apply)",
+    )
     parser.add_argument("--apply", action="store_true")
     args = parser.parse_args()
 
@@ -281,19 +268,16 @@ def main() -> int:
         print(f"CSV not found: {args.gsc_csv}", file=sys.stderr)
         return 1
 
-    gsc_paths = sorted(
-        {
-            normalize_gsc_path(row["URL"].strip())
-            for row in csv.DictReader(args.gsc_csv.open(encoding="utf-8"))
-            if row.get("URL", "").strip()
-        }
-    )
-
+    gsc_paths = load_gsc_paths(args.gsc_csv, args.failed_only)
     js_text = REDIRECT_JS.read_text(encoding="utf-8")
     validurls = parse_validurls(js_text)
     entries, stats = build_entries(
         gsc_paths, validurls, args.fill_legacy_mirrors, args.max_bulk
     )
+
+    include_re = re.compile(args.path_regex) if args.path_regex else None
+    exclude_re = re.compile(args.exclude_regex) if args.exclude_regex else None
+    entries = filter_entries(entries, include_re, exclude_re)
 
     current_bulk = len(json.loads(BULK_JSON.read_text())) if BULK_JSON.is_file() else 0
     merged = dict(validurls)
@@ -304,7 +288,7 @@ def main() -> int:
     for key in sorted(stats):
         if key != "total":
             print(f"  {key}: {stats[key]}")
-    print(f"New entries: {stats.get('total', 0)}")
+    print(f"New entries after filter: {len(entries)}")
     print(f"Current bulk redirects: {current_bulk}")
     print(f"Projected bulk redirects: {projected_bulk}")
 
@@ -312,10 +296,14 @@ def main() -> int:
         print("\nDry run. Re-run with --apply to write broken_redirect_list.js")
         return 0
 
-    marker = (
+    marker = args.marker or (
         f"// GSC {args.gsc_csv.stem}: locale mirrors, liquid leaks, "
         "and legacy-IA fill"
     )
+    if not entries:
+        print("No entries to apply after filtering.", file=sys.stderr)
+        return 1
+
     apply_entries(REDIRECT_JS, entries, marker)
     print(f"\nWrote {len(entries)} entries to {REDIRECT_JS.relative_to(PROJECT_ROOT)}")
     return 0

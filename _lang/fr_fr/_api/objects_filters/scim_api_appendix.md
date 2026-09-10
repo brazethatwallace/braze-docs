@@ -17,7 +17,7 @@ alias: /scim_api_appendix/
 
 Les intégrations SCIM existantes et les [objets de l'API SCIM héritée]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api) continuent de fonctionner après la migration vers les permissions granulaires, mais Braze cessera d'accepter les valeurs de l'API SCIM héritée en décembre 2026.
 
-Aucune action immédiate n'est requise de votre part. Cependant, passez en revue vos intégrations pour les permissions qui migrent vers les permissions granulaires. Par exemple, si vous envoyez actuellement `basic_access` dans l'API, mettez à jour votre intégration après la migration vers les permissions granulaires pour inclure les permissions spécifiques (par exemple, `"appGroupPermissions":["view_campaigns","edit_campaigns"]`). Braze continue d'accepter les chaînes héritées, comme `basic_access`, après la migration vers les permissions granulaires afin que les intégrations existantes ne soient pas interrompues.
+Aucune action immédiate n'est requise de votre part. Cependant, passez en revue vos intégrations pour identifier les permissions qui migrent vers les permissions granulaires. Par exemple, si vous envoyez actuellement `basic_access` dans l'API, mettez à jour votre intégration après la migration vers les permissions granulaires pour inclure les permissions spécifiques (par exemple, `"appGroupPermissions":["view_campaigns","edit_campaigns"]`). Braze continue d'accepter les chaînes héritées, comme `basic_access`, après la migration vers les permissions granulaires afin que les intégrations existantes ne soient pas interrompues.
 
 ## Objet permissions {#permissions-object}
 
@@ -53,8 +53,8 @@ Un objet permissions d'espace de travail valide est un objet JSON avec les paire
 | --- | --- | --- | --- |
 | `appGroupName` | Facultatif | Chaîne de caractères | Nom de l'espace de travail. Utilisé pour spécifier à quel espace de travail les permissions contenues dans cet objet s'appliquent. |
 | `appGroupId` | Obligatoire si `appGroupName` est absent | Chaîne de caractères | ID de l'espace de travail, servant de méthode alternative pour spécifier l'espace de travail. |
-| `appGroupPermissionSets` | Facultatif | Tableau | Tableau contenant un seul [objet ensemble de permissions d'espace de travail]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-permissions-set-object). |
-| `appGroupPermissions` | Obligatoire | Tableau | Tableau de chaînes de permissions au niveau de l'espace de travail provenant du tableau [Chaînes de permissions d'espace de travail]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-strings), dans lequel la présence de la chaîne indique que l'utilisateur dispose de la permission correspondante pour l'espace de travail spécifié. |
+| `appGroupPermissionSets` | Facultatif | Tableau | Tableau contenant un seul [objet ensemble de permissions d'espace de travail]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-permissions-set-object). Fournissez soit `appGroupPermissions`, soit `appGroupPermissionSets` par entrée d'espace de travail, mais pas les deux. |
+| `appGroupPermissions` | Obligatoire sous condition | Tableau | Tableau de chaînes de permissions au niveau de l'espace de travail provenant du tableau [Chaînes de permissions d'espace de travail]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-strings). Obligatoire lorsque `appGroupPermissionSets` n'est pas fourni. |
 | `team` | Facultatif | Tableau | Tableau d'[objets permissions Teams]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_team-permissions-object). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Objet permissions d'espace de travail" }
 
@@ -65,7 +65,7 @@ Un objet ensemble de permissions d'espace de travail valide est un objet JSON av
 | Clé | Obligatoire | Type de données | Description |
 | --- | --- | --- | --- |
 | `appGroupPermissionSetName` | Facultatif | Chaîne de caractères | Nom de l'ensemble de permissions d'espace de travail attribué à l'utilisateur pour cet espace de travail. |
-| `appGroupPermissionSetID` | Obligatoire si `appGroupPermissionSetName` est absent | Chaîne de caractères | ID de l'espace de travail, servant de méthode alternative pour spécifier l'ensemble de permissions d'espace de travail attribué à l'utilisateur pour cet espace de travail. |
+| `appGroupPermissionSetId` | Obligatoire si `appGroupPermissionSetName` est absent | Chaîne de caractères | ID de l'ensemble de permissions d'espace de travail, servant de méthode alternative pour spécifier l'ensemble de permissions attribué à l'utilisateur pour cet espace de travail. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Objet ensemble de permissions d'espace de travail #workspace-permissions-set-object" }
 
 ### Objet permissions Teams {#team-permissions-object}
@@ -158,6 +158,13 @@ Un objet rôle valide est un objet JSON avec les paires clé-valeur suivantes :
 | View Decisioning Studio Guardrails | `view_decisioning_studio_guardrails` |
 | Launch Campaigns | `launch_campaigns` |
 | Launch Canvases | `launch_canvases` |
+| Approve Campaigns | `approve_deny_campaigns` |
+| Approve Canvases | `approve_deny_canvases` |
+| Send Campaigns, Canvases | `send_campaigns_canvases` |
+| Publish Cards | `publish_cards` |
+| Export User Data | `export_user_data` |
+| View PII | `view_pii` |
+| View User Profiles (PII Redacted) | `view_user_profile` |
 | Edit Dashboard Users | `edit_dashboard_users` |
 | Edit Media Library Assets | `edit_media_library_assets` |
 | Delete Media Library Assets | `delete_media_library_assets` |
@@ -287,7 +294,7 @@ Un objet rôle valide est un objet JSON avec les paires clé-valeur suivantes :
 
 
 {% alert important %}
-Braze propose désormais des [permissions granulaires]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/?sdktab=granular%20permissions), un moyen plus flexible de gérer l'accès des utilisateurs. Pour en savoir plus, consultez [Migration vers les permissions granulaires]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) et l'onglet [API SCIM granulaire]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api/) pour afficher les objets et annexes de l'API SCIM granulaire. Braze cessera d'accepter les valeurs de l'API SCIM héritée en décembre 2026.
+Braze propose désormais des [permissions granulaires]({{site.baseurl}}/user_guide/administer/global/user_management/permissions?sdktab=granular%20permissions), un moyen plus flexible de gérer l'accès des utilisateurs. Pour en savoir plus, consultez [Migration vers les permissions granulaires]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) et l'onglet [Granular SCIM API]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api/) pour afficher les objets et annexes de l'API SCIM granulaire. Braze cessera d'accepter les valeurs de l'API SCIM héritée en décembre 2026.
 {% endalert %}
 
 ## Objet permissions
@@ -324,8 +331,8 @@ Un objet permissions d'espace de travail valide est un objet JSON avec les paire
 | --- | --- | --- | --- |
 | `appGroupName` | Facultatif | Chaîne de caractères | Nom de l'espace de travail. Utilisé pour spécifier à quel espace de travail les permissions contenues dans cet objet s'appliquent. |
 | `appGroupId` | Obligatoire si `appGroupName` est absent | Chaîne de caractères | ID de l'espace de travail, servant de méthode alternative pour spécifier l'espace de travail. |
-| `appGroupPermissionSets` | Facultatif | Tableau | Tableau contenant un seul [objet ensemble de permissions d'espace de travail]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_workspace-permissions-set-object). |
-| `appGroupPermissions` | Obligatoire | Tableau | Tableau de chaînes de permissions au niveau de l'espace de travail provenant du tableau [Chaînes de permissions d'espace de travail]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_workspace-strings), dans lequel la présence de la chaîne indique que l'utilisateur dispose de la permission correspondante pour l'espace de travail spécifié. |
+| `appGroupPermissionSets` | Facultatif | Tableau | Tableau contenant un seul [objet ensemble de permissions d'espace de travail]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_workspace-permissions-set-object). Fournissez soit `appGroupPermissions`, soit `appGroupPermissionSets` par entrée d'espace de travail, mais pas les deux. |
+| `appGroupPermissions` | Obligatoire sous condition | Tableau | Tableau de chaînes de permissions au niveau de l'espace de travail provenant du tableau [Chaînes de permissions d'espace de travail]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_workspace-strings). Obligatoire lorsque `appGroupPermissionSets` n'est pas fourni. |
 | `team` | Facultatif | Tableau | Tableau d'[objets permissions Teams]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_team-permissions-object). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Objet permissions d'espace de travail #workspace-permission-object" }
 
@@ -336,7 +343,7 @@ Un objet ensemble de permissions d'espace de travail valide est un objet JSON av
 | Clé | Obligatoire | Type de données | Description |
 | --- | --- | --- | --- |
 | `appGroupPermissionSetName` | Facultatif | Chaîne de caractères | Nom de l'ensemble de permissions d'espace de travail attribué à l'utilisateur pour cet espace de travail. |
-| `appGroupPermissionSetID` | Obligatoire si `appGroupPermissionSetName` est absent | Chaîne de caractères | ID de l'espace de travail, servant de méthode alternative pour spécifier l'ensemble de permissions d'espace de travail attribué à l'utilisateur pour cet espace de travail. |
+| `appGroupPermissionSetId` | Obligatoire si `appGroupPermissionSetName` est absent | Chaîne de caractères | ID de l'ensemble de permissions d'espace de travail, servant de méthode alternative pour spécifier l'ensemble de permissions attribué à l'utilisateur pour cet espace de travail. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Objet ensemble de permissions d'espace de travail #workspace-permissions-set-object" }
 
 ### Objet permissions Teams
@@ -377,13 +384,14 @@ Un objet rôle valide est un objet JSON avec les paires clé-valeur suivantes :
 | --- | --- |
 | Admin | `admin` |
 | Access Campaigns, Canvases, Cards, Segments, Media Library | `basic_access` |
-| Approve and Deny Canvases | `approve_deny_campaigns` |
+| Approve Campaigns | `approve_deny_campaigns` |
+| Approve Canvases | `approve_deny_canvases` |
 | Send Campaigns, Canvases | `send_campaigns_canvases` |
 | Publish Cards | `publish_cards` |
 | Edit Segments | `edit_segments` |
 | Export User Data | `export_user_data` |
 | View PII | `view_pii` |
-| View User Profiles PII Compliant | `view_user_profile` |
+| View User Profiles (PII Redacted) | `view_user_profile` |
 | Manage Dashboard Users | `manage_dashboard_users` |
 | Manage Media Library Assets | `manage_media_library` |
 | View Usage Data | `view_usage_data` |
@@ -408,163 +416,16 @@ Un objet rôle valide est un objet JSON avec les paires clé-valeur suivantes :
 | --- | --- |
 | Admin | `admin` |
 | Access Campaigns, Canvases, Cards, Segments, Media Library | `basic_access` |
-| Approve and Deny Canvases | `approve_deny_campaigns` |
+| Approve Campaigns | `approve_deny_campaigns` |
+| Approve Canvases | `approve_deny_canvases` |
 | Send Campaigns, Canvases | `send_campaigns_canvases` |
 | Publish Cards | `publish_cards` |
 | Edit Segments | `edit_segments` |
 | Export User Data | `export_user_data` |
-| View User Profile | `view_user_profile` |
+| View User Profiles (PII Redacted) | `view_user_profile` |
 | Manage Dashboard Users | `manage_dashboard_users` |
 | Manage Media Library Assets | `manage_media_library` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Chaînes de permissions Teams #team" }
-
-### Chaînes de départements {#department-strings}
-
-| Affichage dans l'interface | Chaîne API SCIM |
-| --- | --- |
-| Agency / Third Party | `agency` |
-| BI / Analytics | `bi` |
-| C-Suite | `c_suite` |
-| Engineering | `engineering` |
-| Finance | `finance` |
-| Marketing / Editorial | `marketing` |
-| Product Management | `pm` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Chaînes de départements" }
-{% endsdktab %}
-{% sdktab Legacy SCIM API %}
-
-
-{% alert important %}
-Braze propose désormais des [permissions granulaires]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/?sdktab=granular%20permissions), un moyen plus flexible de gérer l'accès des utilisateurs. Pour en savoir plus, consultez [Migration vers les permissions granulaires]({{site.baseurl}}/granular_permissions_migration) et l'onglet [API SCIM granulaire]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api/) pour afficher les objets et annexes de l'API SCIM granulaire. Braze cessera d'accepter les valeurs de l'API SCIM héritée en décembre 2026.
-{% endalert %}
-
-## Objet permissions
-
-L'objet permissions est un champ présent dans certaines requêtes et réponses lors de l'interaction avec la ressource utilisateur via les permissions d'ID SCIM.
-
-{% alert note %}
-Les groupes d'applications ont été renommés en espaces de travail dans Braze, mais les clés de cette page font toujours référence à l'ancienne terminologie (par exemple, `appGroup`, `appGroupName`).
-{% endalert %}
-
-```
-{
-  "permissions": {
-    "companyPermissions": (required, array),
-    "appGroup": (required, array)
-  }
-}
-```
-
-Un objet permissions valide est un objet JSON avec les paires clé-valeur suivantes :
-
-| Clé | Obligatoire | Type de données | Description |
-| --- | --- | --- | --- |
-| `companyPermissions` | Facultatif | Tableau | Tableau de chaînes de permissions au niveau de l'entreprise provenant du tableau [Chaînes de permissions d'entreprise]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_company), dans lequel la présence de la chaîne indique que l'utilisateur dispose de la permission correspondante. |
-| `roles` | Facultatif | Tableau | Tableau d'[objets rôle]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_role-object). |
-| `appGroup` | Obligatoire | Tableau | Tableau d'[objets permissions d'espace de travail]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_workspace-permission-object). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Objet permissions" }
-
-### Objet permissions d'espace de travail {#workspace-permission-object}
-
-Un objet permissions d'espace de travail valide est un objet JSON avec les paires clé-valeur suivantes :
-
-| Clé | Obligatoire | Type de données | Description |
-| --- | --- | --- | --- |
-| `appGroupName` | Facultatif | Chaîne de caractères | Nom de l'espace de travail. Utilisé pour spécifier à quel espace de travail les permissions contenues dans cet objet s'appliquent. |
-| `appGroupId` | Obligatoire si `appGroupName` est absent | Chaîne de caractères | ID de l'espace de travail, servant de méthode alternative pour spécifier l'espace de travail. |
-| `appGroupPermissionSets` | Facultatif | Tableau | Tableau contenant un seul [objet ensemble de permissions d'espace de travail]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_workspace-permissions-set-object). |
-| `appGroupPermissions` | Obligatoire | Tableau | Tableau de chaînes de permissions au niveau de l'espace de travail provenant du tableau [Chaînes de permissions d'espace de travail]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_workspace-strings), dans lequel la présence de la chaîne indique que l'utilisateur dispose de la permission correspondante pour l'espace de travail spécifié. |
-| `team` | Facultatif | Tableau | Tableau d'[objets permissions Teams]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_team-permissions-object). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Objet permissions d'espace de travail" }
-
-### Objet ensemble de permissions d'espace de travail
-
-Un objet ensemble de permissions d'espace de travail valide est un objet JSON avec les paires clé-valeur suivantes :
-
-| Clé | Obligatoire | Type de données | Description |
-| --- | --- | --- | --- |
-| `appGroupPermissionSetName` | Facultatif | Chaîne de caractères | Nom de l'ensemble de permissions d'espace de travail attribué à l'utilisateur pour cet espace de travail. |
-| `appGroupPermissionSetID` | Obligatoire si `appGroupPermissionSetName` est absent | Chaîne de caractères | ID de l'espace de travail, servant de méthode alternative pour spécifier l'ensemble de permissions d'espace de travail attribué à l'utilisateur pour cet espace de travail. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Objet ensemble de permissions d'espace de travail" }
-
-### Objet permissions Teams
-
-Un objet permissions Teams valide est un objet JSON avec les paires clé-valeur suivantes :
-
-| Clé | Obligatoire | Type de données | Description |
-| --- | --- | --- | --- |
-| `teamName` | Facultatif | Chaîne de caractères | Nom de l'équipe, qui peut être utilisé pour spécifier à quelle équipe les permissions contenues dans cet objet s'appliquent. |
-| `teamId` | Obligatoire si `teamName` est absent | Chaîne de caractères | ID de l'équipe, servant de méthode alternative pour spécifier l'équipe. |
-| `teamPermissions` | Obligatoire | Tableau | Tableau de chaînes de permissions au niveau de l'équipe provenant du tableau [Chaînes de permissions Teams]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_team), dans lequel la présence de la chaîne indique que l'utilisateur dispose de la permission correspondante pour l'équipe spécifiée. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Objet permissions Teams" }
-
-## Objet rôle
-
-Un objet rôle valide est un objet JSON avec les paires clé-valeur suivantes :
-
-| Clé | Obligatoire | Type de données | Description |
-| --- | --- | --- | --- |
-| `roleName` | Facultatif | Chaîne de caractères | Nom du rôle attribué à l'utilisateur. |
-| `roleId` | Obligatoire si `roleName` est absent | Chaîne de caractères | ID du rôle, servant de méthode alternative pour spécifier le rôle. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Objet rôle" }
-
-## Annexes
-
-### Chaînes de permissions d'entreprise
-
-| Affichage dans l'interface | Chaîne API SCIM |
-| --- | --- |
-| Administrator | `admin` |
-| Can Manage Company Settings | `manage_company_settings` |
-| Can Add/Remove Workspaces | `add_remove_app_groups` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Chaînes de permissions d'entreprise" }
-
-### Chaînes de permissions d'espace de travail
-
-| Nom de la permission | Chaîne API SCIM |
-| --- | --- |
-| Admin | `admin` |
-| Access Campaigns, Canvases, Cards, Segments, Media Library | `basic_access` |
-| Approve and Deny Canvases | `approve_deny_campaigns` |
-| Send Campaigns, Canvases | `send_campaigns_canvases` |
-| Publish Cards | `publish_cards` |
-| Edit Segments | `edit_segments` |
-| Export User Data | `export_user_data` |
-| View PII | `view_pii` |
-| View User Profiles PII Compliant | `view_user_profile` |
-| Manage Dashboard Users | `manage_dashboard_users` |
-| Manage Media Library Assets | `manage_media_library` |
-| View Usage Data | `view_usage_data` |
-| Import and Update User Data | `import_update_user_data` |
-| View Billing Details | `view_billing_details` |
-| Access Dev Console | `dev_console` |
-| Launch Content Blocks | `launch_content_blocks` |
-| Manage External Integrations | `manage_external_integrations` |
-| Manage Apps | `manage_apps` |
-| Manage Teams | `manage_teams` |
-| Manage Events, Attributes, Purchases | `manage_events_attributes_purchases` |
-| Manage Tags | `manage_tags` |
-| Manage Email Settings | `manage_email_settings` |
-| Manage Subscription Groups | `manage_subscription_groups` |
-| Manage Approval Settings | `manage_approval_settings` |
-| Manage Catalogs Dashboard Permission | `manage_catalogs_dashboard_permission` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Chaînes de permissions d'espace de travail" }
-
-### Chaînes de permissions Teams
-
-| Nom de la permission | Chaîne API SCIM |
-| --- | --- |
-| Admin | `admin` |
-| Access Campaigns, Canvases, Cards, Segments, Media Library | `basic_access` |
-| Approve and Deny Canvases | `approve_deny_campaigns` |
-| Send Campaigns, Canvases | `send_campaigns_canvases` |
-| Publish Cards | `publish_cards` |
-| Edit Segments | `edit_segments` |
-| Export User Data | `export_user_data` |
-| View User Profile | `view_user_profile` |
-| Manage Dashboard Users | `manage_dashboard_users` |
-| Manage Media Library Assets | `manage_media_library` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Chaînes de permissions Teams" }
 
 ### Chaînes de départements
 

@@ -113,22 +113,44 @@ When a user sends inbound media, Braze exposes its URLs in [Currents SMS inbound
 {% endtab %}
 {% tab RCS %}
 
-#### RCS message types
+#### RCS message types {#rcs-message-types}
 
 | Message type | Fields and settings | Limits and behavior |
 | --- | --- | --- |
 | **Text** | Required message body, optional suggested replies or Open URL actions, optional SMS fallback, and link shortening | The message body can contain up to 1,600 or 3,072 characters, depending on the SMS service provider. Add up to five suggestions. |
-| **Media** | Required image, video, document, or audio; optional message body; optional suggestions, SMS fallback, and link shortening | The message body can contain up to 1,600 or 3,072 characters, depending on the provider, and is billed as an additional RCS message. Add up to five suggestions. |
-| **Card** | Media card or text-only card, title, description, buttons, optional suggestions, and optional SMS fallback | The title can contain up to 200 characters. The description can contain up to 1,600 or 2,000 characters, depending on the provider. Add between one and four buttons. Provider support determines whether text-only cards and suggestions outside the card are available. |
+| **Media** | Required image, video, document, or audio; optional message body; optional suggestions, SMS fallback, and link shortening | The message body can contain up to 1,600 or 3,072 characters, depending on the provider, and is billed as an additional RCS message. Add up to five suggestions. Not all providers support standalone **Media** messages (for example, Twilio). |
+| **Card** | Media card or text-only card, title, description, buttons, optional suggestions, and optional SMS fallback | The title can contain up to 200 characters. The description can contain up to 1,600 or 2,000 characters, depending on the provider. Add between one and four buttons. See [Provider support for Card messages](#provider-support-for-card-messages) for layout and field availability. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="RCS message types, fields, and limits" }
 
-Suggestions can be suggested replies, which pre-populate the user's text input, or Open URL actions. Add up to 25 characters of text to each suggestion and a URL of up to 2,048 characters to each Open URL action.
+#### Card layouts
 
-For any RCS message type, turn on **Send SMS if RCS fails** to add a fallback message of up to 1,600 characters. The selected subscription group must contain an SMS sender. For **Card** messages, links in the description aren't clickable; use an Open URL button instead.
+RCS **Card** messages combine media, text, and buttons into a single unit. Choose a layout in the composer:
 
-Some SMS service providers don't support standalone **Media** messages or text-only cards. The composer displays only the supported RCS message types. For **Card** messages, link shortening applies only to links in the SMS fallback.
+| Card layout | Required fields | Optional fields |
+| --- | --- | --- |
+| **Text-only** | Title, description, and at least one card button | Up to three additional card buttons, suggestions outside the card (when supported), and SMS fallback |
+| **Media** | Image, GIF, or video and at least one card button | Title, description, up to three additional card buttons, suggestions outside the card (when supported), and SMS fallback |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="RCS card layouts" }
+
+Use Liquid to personalize card titles, descriptions, media, and buttons. URLs entered as plain text in the title or description aren't clickable—add an **Open URL** card button instead.
+
+Suggestions can be suggested replies, which pre-populate the user's text input, or Open URL actions. Add up to 25 characters of text to each suggestion and a URL of up to 2,048 characters to each Open URL action. Turn on **Send SMS if RCS fails** to add a fallback message of up to 1,600 characters when RCS delivery fails. The selected subscription group must contain an SMS sender. Link shortening applies only to links in the SMS fallback body, not to card button URLs.
 
 RCS message billing depends on the message type and content. For basic, rich, and rich card billing rules, see [RCS message billing]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator#rcs-message-billing).
+
+#### Provider support for Card messages {#provider-support-for-card-messages}
+
+Availability of RCS message types and Card options depends on your SMS service provider. The composer displays only supported types and fields.
+
+| Capability | Infobip | Twilio |
+| --- | --- | --- |
+| Standalone **Media** message type | Supported | Not supported |
+| Text-only card layout | Supported | Not supported |
+| Media card layout | Supported | Supported |
+| Suggestions outside the card | Supported | Not supported |
+| Card buttons | Supported (1–4) | Supported (1–4) |
+| Description character limit | Up to 2,000 characters | Up to 1,600 characters |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Provider support for RCS Card messages" }
 
 #### RCS media specifications
 

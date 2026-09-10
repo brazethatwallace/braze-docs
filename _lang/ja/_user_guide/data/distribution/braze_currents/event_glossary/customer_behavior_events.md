@@ -63,6 +63,7 @@ search_rank: 7
 
 <!--overview-end-->
 
+
 {% api %}
 ## ランダムバケット番号更新イベント {#random-bucket-number-update-events}
 
@@ -248,7 +249,7 @@ Custom Events
 
 ### プロパティの詳細 {#property-details}
 
-- カスタムイベントの場合、ペイロードには、イベントに関連付けられている任意の[カスタムイベントプロパティ]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties)も含まれます。
+- カスタムイベントの場合、ペイロードには、イベントに関連付けられている任意の[カスタムイベントプロパティ]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties#custom-event-properties)も含まれます。
 - `ad_id`、`ad_id_type`、および `ad_tracking_enabled` の場合、ネイティブSDKを介してiOS IDFAおよびAndroid GoogleアドIDを明示的に収集する必要があります。詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift)、[Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id)のリンク先を参照してください。
 - Kafkaを使って[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)データをインジェストしている場合、`ad_id` 送信用の機能フリッパーを有効にするには、カスタマーサクセスマネージャーまたはアカウントマネージャーにお問い合わせください。
 

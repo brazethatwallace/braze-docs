@@ -5036,6 +5036,54 @@ def repair_duplicate_adjacent_target_audiences_include(content):
     return content, []
 
 
+_MULTI_LANG_INCLUDE_RE = re.compile(
+    r"(\{%\s*multi_lang_include\s+)([^%]+?)(\s*%\})",
+    re.DOTALL,
+)
+
+
+def repair_multi_lang_include_paths(english_content, translated_content):
+    """Restore canonical English include paths in ``multi_lang_include`` tags.
+
+    Include filenames are not localized (for example ``ai.md`` must not become
+    ``KI.md`` in German). Parameters such as ``section="..."`` are preserved
+    from the English source when counts match.
+    """
+    en_matches = list(_MULTI_LANG_INCLUDE_RE.finditer(english_content))
+    tr_matches = list(_MULTI_LANG_INCLUDE_RE.finditer(translated_content))
+
+    if not en_matches:
+        return translated_content, []
+
+    if len(en_matches) != len(tr_matches):
+        return translated_content, [
+            "multi_lang_include — count mismatch "
+            f"(English: {len(en_matches)}, translated: {len(tr_matches)}); "
+            "skipped auto-repair"
+        ]
+
+    repairs = []
+    result = translated_content
+    for match, en_match in zip(reversed(tr_matches), reversed(en_matches)):
+        en_inner = en_match.group(2)
+        tr_inner = match.group(2)
+        if tr_inner != en_inner:
+            result = (
+                result[:match.start(2)]
+                + en_inner
+                + result[match.end(2):]
+            )
+            repairs.append(
+                "multi_lang_include — restored include path "
+                f"'{en_inner.strip()}'"
+            )
+
+    if len(repairs) > 1:
+        repairs = [f"multi_lang_include — restored {len(repairs)} include paths"]
+
+    return result, repairs
+
+
 # ``</a>`` immediately followed by a letter (CJK/Latin) without whitespace.
 _ANCHOR_LETTER_RUNON_AFTER_CLOSE_RE = re.compile(
     r"</a>([A-Za-z\u00C0-\u024F\u3040-\u9FFF\uAC00-\uD7A3])"
@@ -7879,6 +7927,11 @@ def qc_check_file(english_path, translated_path, lang_key):
         english_content, translated_content
     )
     findings["repairs"].extend(apitag_repairs)
+
+    translated_content, include_repairs = repair_multi_lang_include_paths(
+        english_content, translated_content
+    )
+    findings["repairs"].extend(include_repairs)
 
     translated_content, glossary_id_repairs = repair_glossary_identifiers(
         english_content, translated_content, lang_key

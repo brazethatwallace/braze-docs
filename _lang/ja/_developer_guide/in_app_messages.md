@@ -63,6 +63,11 @@ description: "アプリ内メッセージと、Braze SDKでの設定方法につ
 
 さらに詳しく知りたいですか？以下のステップバイステップのチュートリアルをご覧ください。
 
-- [トリガーメッセージの遅延と復元]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/deferring_triggered_messages)で、メッセージ配信のタイミングを微調整できます。
-- [条件付き表示ルールの設定]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/conditionally_displaying_messages)で、メッセージのターゲティングを精緻化できます。
-- [キーと値のペアによるメッセージスタイリングのカスタマイズ]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/customizing_message_styling)で、ブランドの外観に合わせることができます。
+{% article_tiles %}
+- name: トリガーメッセージの遅延と復元
+  link: /docs/developer_guide/in_app_messages/tutorials/deferring_triggered_messages
+- name: 条件付き表示ルールの設定
+  link: /docs/developer_guide/in_app_messages/tutorials/conditionally_displaying_messages
+- name: キーと値のペアによるメッセージスタイルのカスタマイズ
+  link: /docs/developer_guide/in_app_messages/tutorials/customizing_message_styling
+{% endarticle_tiles %}

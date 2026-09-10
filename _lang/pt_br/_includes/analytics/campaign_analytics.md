@@ -123,40 +123,40 @@ O número de atualizações da campanha por outros membros da sua equipe é rast
 <!--
 ### Message Performance
 
-The **Message Performance** panel outlines how well your message has performed across various dimensions. The metrics in this panel vary depending on your chosen canal de envio de mensagens, and whether or not you are running a multivariate test. You can click on the <i class="fa fa-eye prévia-icon"></i> **prévia** icon to view your message for each variant or channel.
+The **Message Performance** panel outlines how well your message has performed across various dimensions. The metrics in this panel vary depending on your chosen messaging channel, and whether or not you are running a multivariate test. You can click on the <i class="fa fa-eye preview-icon"></i> **Preview** icon to view your message for each variant or channel.
 -->
 {% if include.channel == "Content Card" %}
 ### Desempenho do Content Card {#content-card-performance}
 
-O painel **Content Card Performance** descreve o desempenho da sua mensagem em várias dimensões. As métricas neste painel variam dependendo do canal de envio de mensagens escolhido e se você está ou não executando um teste multivariante. Você pode clicar no ícone de <i class="fa fa-eye prévia-icon"></i> **prévia** para visualizar sua mensagem para cada variante ou canal.
+O painel **Content Card Performance** descreve o desempenho da sua mensagem em várias dimensões. As métricas neste painel variam dependendo do canal de envio de mensagens escolhido e se você está ou não executando um teste multivariante. Você pode clicar no ícone <i class="fa fa-eye preview-icon"></i> **Prévia** para visualizar sua mensagem para cada variante ou canal.
 
 ![Análise de desempenho da mensagem do Content Card]({% image_buster /assets/img/cc-message-performance.png %})
 
 {% elsif include.channel == "email" %}
 ### Desempenho de e-mail {#email-performance}
 
-O painel **Email Performance** descreve o desempenho da sua mensagem em várias dimensões. As métricas neste painel variam dependendo do canal de envio de mensagens escolhido e se você está ou não executando um teste multivariante. Você pode selecionar o ícone de <i class="fa fa-eye prévia-icon"></i> **prévia** para visualizar sua mensagem para cada variante ou canal.
+O painel **Email Performance** descreve o desempenho da sua mensagem em várias dimensões. As métricas neste painel variam dependendo do canal de envio de mensagens escolhido e se você está ou não executando um teste multivariante. Você pode selecionar o ícone <i class="fa fa-eye preview-icon"></i> **Prévia** para visualizar sua mensagem para cada variante ou canal.
 
 ![Análise de desempenho da mensagem de e-mail]({% image_buster /assets/img_archive/email_message_performance.png %})
 
 {% elsif include.channel == "in-app message" %}
 ### Desempenho de mensagem no app {#in-app-message-performance}
 
-O painel **In-App Message Performance** descreve o desempenho da sua mensagem em várias dimensões. As métricas neste painel variam dependendo do canal de envio de mensagens escolhido e se você está ou não executando um teste multivariante. Você pode clicar no ícone de <i class="fa fa-eye prévia-icon"></i> **prévia** para visualizar sua mensagem para cada variante ou canal.
+O painel **In-App Message Performance** descreve o desempenho da sua mensagem em várias dimensões. As métricas neste painel variam dependendo do canal de envio de mensagens escolhido e se você está ou não executando um teste multivariante. Você pode clicar no ícone <i class="fa fa-eye preview-icon"></i> **Prévia** para visualizar sua mensagem para cada variante ou canal.
 
 ![Análise de desempenho da mensagem no app]({% image_buster /assets/img_archive/iam_message_performance.png %})
 
 {% elsif include.channel == "push" %}
 ### Desempenho de push {#push-performance}
 
-O painel **Push Performance** descreve o desempenho da sua mensagem em várias dimensões. As métricas neste painel variam dependendo do canal de envio de mensagens escolhido e se você está ou não executando um teste multivariante. Você pode clicar no ícone de <i class="fa fa-eye prévia-icon"></i> **prévia** para visualizar sua mensagem para cada variante ou canal.
+O painel **Push Performance** descreve o desempenho da sua mensagem em várias dimensões. As métricas neste painel variam dependendo do canal de envio de mensagens escolhido e se você está ou não executando um teste multivariante. Você pode clicar no ícone <i class="fa fa-eye preview-icon"></i> **Prévia** para visualizar sua mensagem para cada variante ou canal.
 
 ![Análise de desempenho da mensagem push]({% image_buster /assets/img_archive/push_message_performance.png %})
 
 {% elsif include.channel == "SMS" %}
 ### Desempenho de SMS/MMS/RCS {#smsmmsrcs-performance}
 
-O painel **SMS/MMS/RCS Performance** descreve o desempenho da sua mensagem em várias dimensões. As métricas neste painel variam dependendo do canal de envio de mensagens escolhido e se você está ou não executando um teste multivariante. Você pode clicar no ícone de <i class="fa fa-eye prévia-icon"></i> **prévia** para visualizar sua mensagem para cada variante ou canal.
+O painel **SMS/MMS/RCS Performance** descreve o desempenho da sua mensagem em várias dimensões. As métricas neste painel variam dependendo do canal de envio de mensagens escolhido e se você está ou não executando um teste multivariante. Você pode clicar no ícone <i class="fa fa-eye preview-icon"></i> **Prévia** para visualizar sua mensagem para cada variante ou canal.
 
 ![Painel de desempenho de SMS/MMS/RCS que inclui uma tabela de métricas para um grupo de controle, Variante 1 e Variante 2.]({% image_buster /assets/img_archive/sms_message_performance.png %})
 
@@ -165,24 +165,24 @@ O painel **SMS/MMS/RCS Performance** descreve o desempenho da sua mensagem em v�
 
 O painel **Banner Performance** descreve o desempenho da sua mensagem em várias dimensões. Essas métricas variam dependendo do seu canal de envio de mensagens e se você está ou não realizando um teste multivariante.
 
-![Painel de desempenho de SMS/MMS que inclui uma tabela de métricas para um grupo de controle, Variante 1 e Variante 2.]({% image_buster /assets/img/banners/banner_performance.png %})
+![Painel de desempenho de Banner que inclui uma tabela de métricas para um grupo de controle, Variante 1 e Variante 2.]({% image_buster /assets/img/banners/banner_performance.png %})
 
 {% elsif include.channel == "KakaoTalk" %}
 ### Desempenho do KakaoTalk {#kakaotalk-performance}
 
-O painel **KakaoTalk Performance** descreve o desempenho da sua mensagem em várias dimensões. As métricas neste painel variam dependendo do canal de envio de mensagens escolhido e se você está ou não executando um teste multivariante. Você pode clicar no ícone de <i class="fa fa-eye prévia-icon"></i> **prévia** para visualizar sua mensagem para cada variante ou canal.
+O painel **KakaoTalk Performance** descreve o desempenho da sua mensagem em várias dimensões. As métricas neste painel variam dependendo do canal de envio de mensagens escolhido e se você está ou não executando um teste multivariante. Você pode clicar no ícone <i class="fa fa-eye preview-icon"></i> **Prévia** para visualizar sua mensagem para cada variante ou canal.
 
 {% elsif include.channel == "webhook" %}
 ### Desempenho de webhook {#webhook-performance}
 
-O painel **Webhook Performance** descreve o desempenho da sua mensagem em várias dimensões. As métricas neste painel variam dependendo do canal de envio de mensagens escolhido e se você está ou não executando um teste multivariante. Você pode clicar no ícone de <i class="fa fa-eye prévia-icon"></i> **prévia** para visualizar sua mensagem para cada variante ou canal.
+O painel **Webhook Performance** descreve o desempenho da sua mensagem em várias dimensões. As métricas neste painel variam dependendo do canal de envio de mensagens escolhido e se você está ou não executando um teste multivariante. Você pode clicar no ícone <i class="fa fa-eye preview-icon"></i> **Prévia** para visualizar sua mensagem para cada variante ou canal.
 
 ![Painel de desempenho de webhook que inclui uma tabela de métricas para um grupo de controle e Variante 1.]({% image_buster /assets/img/webhook_message_performance.png %})
 
 {% elsif include.channel == "whatsapp" %}
 ### Desempenho do WhatsApp {#whatsapp-performance}
 
-O painel **WhatsApp Performance** descreve o desempenho da sua mensagem em várias dimensões. As métricas neste painel variam dependendo do canal de envio de mensagens escolhido e se você está ou não executando um teste multivariante. Você pode clicar no ícone de <i class="fa fa-eye prévia-icon"></i> **prévia** para visualizar sua mensagem para cada variante ou canal.
+O painel **WhatsApp Performance** descreve o desempenho da sua mensagem em várias dimensões. As métricas neste painel variam dependendo do canal de envio de mensagens escolhido e se você está ou não executando um teste multivariante. Você pode clicar no ícone <i class="fa fa-eye preview-icon"></i> **Prévia** para visualizar sua mensagem para cada variante ou canal.
 
 ![Painel de desempenho do WhatsApp que inclui uma tabela de métricas para a Variante 1.]({% image_buster /assets/img/whatsapp_message_performance.png %})
 
@@ -201,7 +201,7 @@ Se você quiser simplificar sua visualização, clique em <i class="fas fa-plus"
 
 #### Mapas de calor {#heatmaps}
 
-Usando mapas de calor, você pode ver o desempenho dos diferentes links em uma única campanha de e-mail. Na seção **Message Analytics**, acesse o painel **Email Performance**. Selecione **prévia & Heatmap** para visualizar uma prévia da sua campanha de e-mail e o mapa de calor. Alternativamente, você pode selecionar o hyperlink no nome da variante para ver o mapa de calor.
+Usando mapas de calor, você pode ver o desempenho dos diferentes links em uma única campanha de e-mail. Na seção **Message Analytics**, acesse o painel **Email Performance**. Selecione **Preview & Heatmap** para visualizar uma prévia da sua campanha de e-mail e o mapa de calor. Alternativamente, você pode selecionar o hyperlink no nome da variante para ver o mapa de calor.
 
 {% alert note %}
 A análise de dados da campanha exibe dados de cliques para até 100 URLs únicas por variante, classificadas por total de cliques. As URLs são agrupadas pela sua forma normalizada, que não inclui parâmetros de consulta. Se uma variante tiver mais de 100 URLs únicas normalizadas, apenas as 100 com mais cliques são exibidas. Os dados de cliques para URLs além desse limite ainda existem, mas não aparecerão no dashboard ou no mapa de calor. Quando o alias de link está ativado, os cliques são rastreados por ID de link em vez de URL bruta, o que normalmente resulta em menos entradas únicas e torna esse limite menos provável de ser atingido.
@@ -358,7 +358,7 @@ Para as definições completas de todas as métricas de Banners, consulte o [Glo
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#primary-conversions">Primary Conversions</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or conversão primária Event' %}</td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or Primary Conversion Event' %}</td>
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-daily-impressions">Unique Daily Impressions</a></td>
@@ -532,11 +532,11 @@ Observe que os _Adiamentos_ estão atualmente disponíveis apenas usando os recu
 
 Esta estatística utiliza um modelo analítico proprietário criado pela Braze para reconstruir uma estimativa da taxa de abertura única da campanha como se as aberturas por máquina não existissem. Enquanto recebemos rótulos de *Machine Opens* em alguns eventos de abertura de remetentes de e-mail, esses rótulos podem frequentemente classificar aberturas reais como aberturas por máquina. Em outras palavras, as *Other Opens* provavelmente são uma subestimação das aberturas reais (por usuários reais). Em vez disso, a Braze usa dados de cliques de cada campanha para inferir a taxa na qual humanos reais abriram a mensagem. Isso compensa vários mecanismos de abertura por máquina, incluindo o MPP da Apple.
 
-A _Estimated Real Open Rate_ é calculada 24 horas após o início do envio do e-mail e é recalculada a cada 72 horas a partir de então.
+A Braze avalia periodicamente a _Estimated Real Open Rate_ após uma campanha ter enviado e-mails suficientes. Após uma avaliação, a Braze pode reavaliar a métrica uma vez após pelo menos 72 horas, mesmo que o volume de envio da campanha não tenha mudado. Reavaliações adicionais requerem aumento no volume de envio.
 
-Como essa métrica é recalculada de forma contínua, o valor da _Estimated Real Open Rate_ pode mudar ao longo do tempo à medida que novos sinais de engajamento (como aberturas e cliques) são recebidos e incorporados ao modelo. Na prática, a _Estimated Real Open Rate_ pode continuar a ser atualizada diariamente enquanto uma campanha permanece ativa.
+A Braze avalia inicialmente até 10.000 e-mails entregues por variação, mas atingir esse volume não garante uma estimativa. Cada variação também precisa de cliques qualificados suficientes de destinatários com *Machine Opens* e destinatários sem *Machine Opens*.
 
-Normalmente, são necessários cerca de 10.000 e-mails entregues para que a estatística seja calculada com sucesso, embora esse número possa variar dependendo da taxa de cliques. Se a estatística não puder ser calculada, a coluna exibe "--".
+Se a atividade de cliques qualificados permanecer insuficiente, a coluna exibirá "--". Quando a Braze reavalia a variação, cliques qualificados adicionais podem produzir uma estimativa.
 
 ###### Considerações {#considerations}
 
@@ -690,7 +690,7 @@ Aqui está uma análise de algumas métricas-chave que você pode ver ao revisar
 
 ##### Rastreamento de cancelamentos de inscrição {#tracking-unsubscribes}
 
-Os cancelamentos de inscrição por push não estão incluídos como uma métrica na análise de dados de campanha e dependem de atualizações no status de push de um usuário por provedores como Apple ou Google. Essas atualizações podem ser pouco frequentes e imprevisíveis. Como resultado, os cancelamentos de inscrição por push não são incluídos como uma métrica na análise de dados de campanha por push.
+Os cancelamentos de inscrição por push não estão incluídos como uma métrica na análise de dados da campanha e dependem de atualizações no status de push de um usuário por provedores como Apple ou Google. Essas atualizações podem ser pouco frequentes e imprevisíveis. Como resultado, os cancelamentos de inscrição por push não são incluídos como uma métrica na análise de dados de campanha por push.
 
 No entanto, o rastreamento manual de cancelamentos de inscrição por push ainda pode fornecer insights valiosos sobre as respostas dos usuários à frequência das notificações e à relevância do conteúdo. Aqui estão duas opções para rastrear cancelamentos de inscrição por push: usando filtros de Segment ou filtros personalizados.
 
@@ -931,7 +931,7 @@ O painel **Keyword Responses** mostra uma linha do tempo das palavras-chave rece
 
 Aqui, você também pode ver a distribuição de respostas de cada categoria de palavra-chave para determinar os próximos passos para [redirecionamento]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns) e para convenientemente [criar um Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment).
 
-![Uma tabela que tem colunas para Keyword Category, Response Distribution e Retargeting, onde você tem a opção de criar um segmento com a categoria de palavra-chave.]({% image_buster /assets/img/sms/keyword_segments.png %})
+![Uma tabela que tem colunas para Keyword Category, Response Distribution e Retargeting, onde você tem a opção de criar um Segment com a categoria de palavra-chave.]({% image_buster /assets/img/sms/keyword_segments.png %})
 
 {% endif %}
 

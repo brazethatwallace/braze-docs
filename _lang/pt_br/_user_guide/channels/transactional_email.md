@@ -17,32 +17,36 @@ description: "Envie e-mails de transação para notificações críticas e urgen
 
 O e-mail de transação está disponível apenas como parte de pacotes selecionados da Braze. Entre em contato com o seu CSM da Braze ou abra um [ticket de suporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) para mais detalhes.
 
-Antes de começar, verifique se você tem o seguinte:
+Antes de começar, certifique-se de ter o seguinte:
 
 - [Configuração de e-mail]({{site.baseurl}}/user_guide/channels/email/email_setup) concluída, incluindo configuração de IP e domínio, autenticação e aquecimento de IP
 - Uma **chave da API REST da Braze** com a permissão `transactional.send`
 
 ## Casos de uso {#use-cases}
 
-O e-mail de transação foi criado para enviar mensagens não promocionais disparadas por serviços. Os casos de uso mais comuns incluem os seguintes:
+O e-mail de transação foi projetado para enviar mensagens não promocionais disparadas por serviços. Os casos de uso mais comuns incluem:
 
 | Caso de uso | Explicação |
 | --- | --- |
-| Confirmações de pedido | Confirmar que a compra de um cliente foi recebida e está sendo processada. |
+| Confirmações de pedido | Confirmar que a compra do cliente foi recebida e está sendo processada. |
 | Redefinições de senha | Entregar links seguros e urgentes para que os clientes redefinam suas credenciais de conta. |
-| Notificações de envio | Notificar os clientes quando o pedido foi enviado, incluindo informações de rastreamento e datas estimadas de entrega. |
+| Notificações de envio | Notificar os clientes quando o pedido foi despachado, incluindo informações de rastreamento e datas estimadas de entrega. |
 | Alertas de conta | Enviar notificações críticas relacionadas à conta, como falhas de pagamento, alterações de inscrição ou alertas de segurança. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Casos de uso" }
 
-## Como o e-mail de transação difere do e-mail de marketing {#how-transactional-email-differs-from-marketing-email}
+## Como o e-mail de transação se diferencia do e-mail de marketing {#how-transactional-email-differs-from-marketing-email}
 
 Os e-mails de transação são enviados por meio de uma [API HTTP transacional]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email) dedicada da Braze, otimizada para velocidade e confiabilidade. Diferentemente dos e-mails de marketing, os e-mails de transação:
 
 - Não exigem que o usuário tenha optado por receber comunicações de marketing
-- São disparados por chamadas de API em vez de disparadores agendados ou baseados em ação
-- Oferecem suporte a entrega quase em tempo real para conteúdo sensível ao tempo
+- São disparados por chamadas de API em vez de disparos agendados ou baseados em ação
+- Suportam entrega quase em tempo real para conteúdo sensível ao tempo
 
 ## Próximos passos {#next-steps}
 
-- [Criar um e-mail de transação]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email)
-- [Rastreamento]({{site.baseurl}}/user_guide/channels/transactional_email/tracking)
+{% article_tiles %}
+- name: Criar um e-mail de transação
+  link: /docs/user_guide/channels/transactional_email/create_a_transactional_email
+- name: Rastreamento
+  link: /docs/user_guide/channels/transactional_email/tracking
+{% endarticle_tiles %}

@@ -48,17 +48,26 @@ Tu URL debe coincidir con el [punto final de SDK de la API]({{site.baseurl}}/use
 
 | URL | Información |
 | --- | ----------- |
-| `script-src https://js.appboycdn.com` | Obligatoria cuando se utiliza la integración alojada en CDN. |
-| `script-src 'unsafe-eval'` | Obligatoria cuando se utiliza el fragmento de código de integración que contiene la referencia a `appboyQueue`. Para evitar el uso de esta directiva, [integra el SDK utilizando NPM]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup?tab=package%20manager). |
-| `script-src 'nonce-...'`<br>o<br>`script-src 'unsafe-inline'` | Obligatoria para determinados mensajes dentro de la aplicación, como HTML personalizado. |
+| `script-src https://js.appboycdn.com` | Obligatorio cuando se utiliza la integración alojada en CDN. |
+| `script-src 'unsafe-eval'` | Obligatorio cuando se utiliza el fragmento de código de integración que contiene la referencia a `appboyQueue`. Para evitar el uso de esta directiva, [integra el SDK utilizando NPM]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup?tab=package%20manager). |
+| `script-src 'nonce-...'`<br>o<br>`script-src 'unsafe-inline'` | Obligatorio para determinados mensajes dentro de la aplicación, como HTML personalizado. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="script-src #script-src" }
 
 ### `img-src` {#img-src}
 
 | URL | Información |
 | --- | ----------- |
-| `img-src: appboy-images.com braze-images.com cdn.braze.eu` | Obligatoria cuando se utilizan imágenes alojadas en el CDN de Braze. Los nombres de host pueden variar según el clúster del dashboard.<br><br>**Importante:** Si utilizas fuentes personalizadas, también tienes que incluir `font-src`. |
+| `img-src: appboy-images.com braze-images.com cdn.braze.com cdn.braze.eu` | Obligatorio cuando se utilizan imágenes alojadas en el CDN de Braze. Incluye los cuatro nombres de host del CDN para asegurar que las imágenes se carguen correctamente en todos los clústeres del panel.<br><br>**Importante:** Si utilizas fuentes personalizadas, también tienes que incluir `font-src`. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="img-src #img-src" }
+
+#### Nombres de host del CDN {#cdn-hostnames}
+
+Añade todos los siguientes nombres de host a tu directiva `img-src`:
+
+- `appboy-images.com`
+- `braze-images.com`
+- `cdn.braze.com`
+- `cdn.braze.eu`
 
 ## Font Awesome {#font-awesome}
 

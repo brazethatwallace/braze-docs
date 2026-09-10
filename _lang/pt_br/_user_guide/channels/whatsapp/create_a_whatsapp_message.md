@@ -25,7 +25,7 @@ Antes de começar, verifique se você tem o seguinte:
 | Campaign ou Canvas | Configure uma [Campaign]({{site.baseurl}}/user_guide/messaging/campaigns) ou um [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) antes de criar sua mensagem do WhatsApp. |
 | Configuração do canal do WhatsApp | Conclua o [fluxo de configuração do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup): reconheça as políticas, configure sua conexão e defina a infraestrutura de envio. |
 | Modelos aprovados | Para envios iniciados pela empresa, crie e aprove modelos na Meta. Para mais detalhes, consulte a [etapa 3 da configuração do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup#step-3-create-whatsapp-templates). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos de mensagem do WhatsApp" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos de mensagens do WhatsApp" }
 
 ## Tipo de mensagem {#message-type}
 
@@ -36,13 +36,13 @@ O WhatsApp oferece suporte a dois tipos de mensagem na Braze:
 
 ## Grupo de inscrições {#subscription-group}
 
-Selecione um grupo de inscrições do WhatsApp para cada variante de mensagem ou etapa de Mensagem do Canvas. O grupo de inscrições determina qual configuração de remetente é usada e quais usuários são elegíveis para receber a mensagem.
+Selecione um grupo de inscrições do WhatsApp para cada variante de mensagem ou etapa de mensagem do Canvas. O grupo de inscrições determina qual configuração de remetente é usada e quais usuários são elegíveis para receber a mensagem.
 
 ## Idiomas para mensagens de modelo {#languages-for-template-messages}
 
 Cada modelo aprovado está vinculado a um idioma específico. Configure variantes separadas ou etapas do Canvas quando precisar oferecer suporte a vários idiomas de modelo.
 
-Se estiver adicionando texto em um idioma da direita para a esquerda, consulte [Criação de mensagens da direita para a esquerda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
+Se você estiver adicionando texto em um idioma da direita para a esquerda, consulte [Criação de mensagens da direita para a esquerda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 
 ## Composição {#step-2-compose-your-whatsapp-message}
 
@@ -198,9 +198,19 @@ Os seguintes tipos de chamada para ação são compatíveis com mensagens do Wha
 
 ## Próximas etapas {#next-steps}
 
-Após compor sua mensagem do WhatsApp, continue criando e validando seu envio:
+Depois de compor sua mensagem do WhatsApp, continue criando e validando seu envio:
 
-- [Agendar sua Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign) ou continue configurando o [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)
-- [Direcionar usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) e definir [eventos de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)
-- [Enviar mensagens de teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=whatsapp)
-- Consultar os [relatórios do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/reporting)
+{% article_tiles %}
+- name: Criar um Canvas
+  link: /docs/user_guide/messaging/canvas/create_a_canvas
+- name: Agendar sua campanha
+  link: /docs/user_guide/messaging/campaigns/schedule_your_campaign
+- name: Direcionar usuários
+  link: /docs/user_guide/messaging/messaging_fundamentals/target_users
+- name: Eventos de conversão
+  link: /docs/user_guide/messaging/messaging_fundamentals/conversion_events
+- name: Enviar mensagens de teste
+  link: /docs/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=whatsapp
+- name: Relatórios do WhatsApp
+  link: /docs/user_guide/channels/whatsapp/reporting
+{% endarticle_tiles %}

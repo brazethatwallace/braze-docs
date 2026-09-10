@@ -22,7 +22,7 @@ L'objet `trigger_properties` et la syntaxe {% raw %}`api_trigger_properties.${pr
 
 ## Corps de l'objet {#object-body}
 
-L'objet `trigger_properties` prend en charge les chaînes de caractères, les nombres, les booléens, les dates, les objets et les tableaux comme types de données.
+L'objet `trigger_properties` prend en charge les types de données suivants : chaînes de caractères, nombres, booléens, dates, objets et tableaux.
 
 ```json
 {
@@ -36,16 +36,37 @@ L'objet `trigger_properties` prend en charge les chaînes de caractères, les no
         "country" : "US"
       }
     },
-    "related_skus": ["123", "456", "789"]
+    "related_skus": ["123", "456", "789"],
+    "line_items": [
+      {
+        "sku": "WH-9000",
+        "name": "Wireless Headphones",
+        "quantity": 1,
+        "pricing": {
+          "amount": 79.99,
+          "currency": "USD"
+        }
+      },
+      {
+        "sku": "RS-450",
+        "name": "Running Shoes",
+        "quantity": 2,
+        "pricing": {
+          "amount": 129.99,
+          "currency": "USD"
+        }
+      }
+    ]
   }
 }
 ```
 
 ## Exemples de modèles Liquid {#liquid-templating-examples}
 
-Référencez les propriétés de déclencheur dans vos modèles de message en utilisant l'espace de noms `api_trigger_properties` :
+Référencez les propriétés de déclencheur dans vos modèles de messages en utilisant l'espace de noms `api_trigger_properties` :
 
 - Chaînes de caractères : {% raw %}`{{api_trigger_properties.${product_name}}}`{% endraw %} renvoie `"shoes"`
 - Nombres : {% raw %}`{{api_trigger_properties.${product_price}}}`{% endraw %} renvoie `79.99`
 - Objets imbriqués : {% raw %}`{{api_trigger_properties.${details}.${color}}}`{% endraw %} renvoie `"red"`
 - Éléments de tableau : {% raw %}`{{api_trigger_properties.${related_skus}[0]}}`{% endraw %} renvoie `"123"`
+- Tableaux d'objets complexes : {% raw %}`{{api_trigger_properties.${line_items}[0]}}`{% endraw %} renvoie le premier objet d'élément de ligne

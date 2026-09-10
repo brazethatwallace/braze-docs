@@ -57,8 +57,17 @@ Sua URL deve corresponder ao [endpoint de SDK da API]({{site.baseurl}}/user_guid
 
 | URL | Informações |
 |---|-----------|
-| `img-src: appboy-images.com braze-images.com cdn.braze.eu` | Obrigatória ao usar imagens hospedadas pelo CDN da Braze. Os nomes de host podem variar de acordo com o cluster do dashboard.<br><br>**Importante:** Se você estiver usando fontes personalizadas, também será necessário incluir `font-src`. |
+| `img-src: appboy-images.com braze-images.com cdn.braze.com cdn.braze.eu` | Obrigatória ao usar imagens hospedadas pela rede de distribuição de conteúdo (CDN) da Braze. Inclua todos os quatro hostnames de CDN para garantir que as imagens sejam carregadas corretamente em todos os clusters do dashboard.<br><br>**Importante:** Se você estiver usando fontes personalizadas, também será necessário incluir `font-src`. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="img-src #img-src" }
+
+#### Hostnames de CDN {#cdn-hostnames}
+
+Adicione todos os hostnames a seguir à sua diretiva `img-src`:
+
+- `appboy-images.com`
+- `braze-images.com`
+- `cdn.braze.com`
+- `cdn.braze.eu`
 
 ## Font Awesome {#font-awesome}
 

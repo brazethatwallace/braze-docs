@@ -24,7 +24,7 @@ lazy_partner_tabs: true
 これらのイベントは、[クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder)、[SQLセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments)、および[Snowflakeデータシェアリング]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)でSQLテーブルとしても利用できます。SQLテーブルスキーマとカラムの詳細については、[SQLテーブルリファレンス]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables)を参照してください。
 {% endalert %}
 
-追加のイベント権限へのアクセスが必要な場合は、アカウントマネージャーに連絡するか、[サポートチケット]({{site.baseurl}}/braze_support)を開いてください。この記事で必要な情報が見つからない場合は、[顧客行動イベントライブラリ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)または[Currentsサンプルデータの例](https://github.com/Appboy/currents-examples/tree/master/sample-data)をご確認ください。
+追加のイベント権限へのアクセスが必要な場合は、アカウントマネージャーに連絡するか、[サポートチケット]({{site.baseurl}}/user_guide/administer/personal/braze_support)を開いてください。この記事で必要な情報が見つからない場合は、[顧客行動イベントライブラリ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)または[Currentsサンプルデータの例](https://github.com/Appboy/currents-examples/tree/master/sample-data)をご確認ください。
 
 {% enddetails %}
 

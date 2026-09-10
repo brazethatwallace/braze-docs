@@ -112,3 +112,9 @@ Saving an alert doesn't activate it. To turn it on, go to the **Manage Alerts** 
 
 - **Draft Canvases:** You can set up a threshold alert for a Canvas that's still in draft, but the alert won't start checking against your rules until the Canvas launches.
 - **Percentage baseline:** Percentage rules need seven complete prior same-window days after the Canvas launches. Until those windows exist, or when the baseline average is zero (no activity in those prior windows), percentage rules don't trigger a notification.
+
+## Frequently asked questions
+
+### Do Canvas threshold alerts count toward webhook usage?
+
+No. Canvas threshold alerts don't count toward webhook rate limits or usage metrics.

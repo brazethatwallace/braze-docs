@@ -1,12 +1,12 @@
 ## 分析を表示する {#viewing-analytics}
 
-キャンペーンを開始したら、そのキャンペーンの詳細ページに戻って主要な指標を確認できます。**キャンペーン**ページに移動し、キャンペーンを選択して詳細ページを開きます。{% if include.channel != "banner" %}{% if include.channel == "Content カード" %}Content Cards{% elsif include.channel == "banner" %}バナー{% elsif include.channel == "email" %}メール{% elsif include.channel == "in-app message" %}アプリ内メッセージ{% elsif include.channel == "KakaoTalk" %}KakaoTalkメッセージ{% elsif include.channel == "push" %}プッシュメッセージ{% elsif include.channel == "SMS" %}SMSメッセージ{% elsif include.channel == "whatsapp" %}WhatsAppメッセージ{% elsif include.channel == "webhook" %}webhook{% endif %}をキャンバスで送信した場合は、[キャンバス分析]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics)を参照してください。{% endif %}
+キャンペーンを開始したら、そのキャンペーンの詳細ページに戻って主要な指標を確認できます。**キャンペーン**ページに移動し、キャンペーンを選択して詳細ページを開きます。{% if include.channel != "banner" %}{% if include.channel == "Content Card" %}Content Cards{% elsif include.channel == "banner" %}バナー{% elsif include.channel == "email" %}メール{% elsif include.channel == "in-app message" %}アプリ内メッセージ{% elsif include.channel == "KakaoTalk" %}KakaoTalkメッセージ{% elsif include.channel == "push" %}プッシュメッセージ{% elsif include.channel == "SMS" %}SMSメッセージ{% elsif include.channel == "whatsapp" %}WhatsAppメッセージ{% elsif include.channel == "webhook" %}webhook{% endif %}をキャンバスで送信した場合は、[キャンバス分析]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics)を参照してください。{% endif %}
 
 {% alert tip %}
 レポートに記載されている用語や指標の定義をお探しですか？以下を参照してください。
   {% if include.channel == "email" %}[メール分析用語集]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary)
   {% elsif include.channel == "banner" %}[レポート指標用語集]({{site.baseurl}}/user_guide/analytics/metrics_glossary)でバナーによるフィルタリングを行ってください。
-  {% elsif include.channel == "Content カード" %}[レポート指標用語集]({{site.baseurl}}/user_guide/analytics/metrics_glossary)でContent Cardsによるフィルタリングを行ってください。
+  {% elsif include.channel == "Content Card" %}[レポート指標用語集]({{site.baseurl}}/user_guide/analytics/metrics_glossary)でContent Cardsによるフィルタリングを行ってください。
   {% elsif include.channel == "in-app message" %}[レポート指標用語集]({{site.baseurl}}/user_guide/analytics/metrics_glossary)でアプリ内メッセージによるフィルタリングを行ってください。
   {% elsif include.channel == "push" %}[レポート指標用語集]({{site.baseurl}}/user_guide/analytics/metrics_glossary)でプッシュによるフィルタリングを行ってください。
   {% elsif include.channel == "SMS" %}[レポート指標用語集]({{site.baseurl}}/user_guide/analytics/metrics_glossary)でSMS/MMSおよびRCSによるフィルタリングを行ってください。
@@ -24,7 +24,7 @@
 
 **キャンペーンの詳細**パネルには、
   {% if include.channel == "banner" %}バナー
-  {% elsif include.channel == "Content カード" %}コンテンツカード
+  {% elsif include.channel == "Content Card" %}Content Card
   {% elsif include.channel == "email" %}メール
   {% elsif include.channel == "in-app message" %}アプリ内メッセージ
   {% elsif include.channel == "KakaoTalk" %}KakaoTalkメッセージ
@@ -46,7 +46,7 @@ WhatsAppチャネルには既読率が含まれます。この指標は既読通
 {% endalert %}
 {% endif %}
 
-{% if include.channel == "Content カード" %}
+{% if include.channel == "Content Card" %}
 ![キャンペーンのパフォーマンスを判断するために使用される指標の概要を含むキャンペーン詳細パネル。]({% image_buster /assets/img/cc-campaign-details.png %})
 
 {% elsif include.channel == "banner" %}
@@ -90,11 +90,11 @@ WhatsAppチャネルには既読率が含まれます。この指標は既読通
 
 サンプリングの動作、**正確な統計を計算**、**到達可能なユーザー**のセグメンテーションの詳細については、[セグメントサイズの測定]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size)を参照してください。
 
-{% if include.channel == "Content カード" %}
+{% if include.channel == "Content Card" %}
 
 #### コントロールグループ {#cc-control-group}
 
-個々のコンテンツカードの影響を測定するには、A/Bテストに[コントロールグループ]({{site.baseurl}}/user_guide/intelligence/multivariate_testing#step-4-choose-a-segment-and-distribute-your-users-across-variants)を追加できます。トップレベルの**キャンペーンの詳細**パネルには、コントロールグループバリアントの指標は含まれません。
+個々のContent Cardの影響を測定するには、A/Bテストに[コントロールグループ]({{site.baseurl}}/user_guide/intelligence/multivariate_testing#step-4-choose-a-segment-and-distribute-your-users-across-variants)を追加できます。トップレベルの**キャンペーンの詳細**パネルには、コントロールグループバリアントの指標は含まれません。
 
 {% elsif include.channel == "SMS" %}
 
@@ -125,7 +125,7 @@ WhatsAppチャネルには既読率が含まれます。この指標は既読通
 
 The **Message Performance** panel outlines how well your message has performed across various dimensions. The metrics in this panel vary depending on your chosen messaging channel, and whether or not you are running a multivariate test. You can click on the <i class="fa fa-eye preview-icon"></i> **Preview** icon to view your message for each variant or channel.
 -->
-{% if include.channel == "Content カード" %}
+{% if include.channel == "Content Card" %}
 ### Content Cardsのパフォーマンス {#content-card-performance}
 
 **Content Cardsパフォーマンス**パネルでは、メッセージがさまざまな側面でどの程度のパフォーマンスを示したかを確認できます。このパネルの指標は、選択したメッセージングチャネルや、多変量テストを実行しているかどうかに応じて異なります。<i class="fa fa-eye preview-icon"></i>**プレビュー**アイコンをクリックすると、バリアントやチャネルごとにメッセージを表示できます。
@@ -240,9 +240,9 @@ The **Message Performance** panel outlines how well your message has performed a
 
 {% endif %}
 
-{% if include.channel == "Content カード" %}
+{% if include.channel == "Content Card" %}
 
-#### コンテンツカードの指標 {#content-card-metrics}
+#### Content Cardの指標 {#content-card-metrics}
 
 以下は、メッセージのパフォーマンスを確認する際に表示される主な指標の内訳です。すべてのContent Cards指標の完全な定義については、[レポート指標用語集]({{site.baseurl}}/user_guide/analytics/metrics_glossary)を参照し、Content Cardsでフィルタリングしてください。
 
@@ -252,8 +252,8 @@ The **Message Performance** panel outlines how well your message has performed a
     }
 </style>
 
-<table aria-label="コンテンツカードの指標">
-    <caption class="sr-only">コンテンツカードのパフォーマンス指標</caption>
+<table aria-label="Content Cardの指標">
+    <caption class="sr-only">Content Cardのパフォーマンス指標</caption>
     <thead>
         <tr>
             <th>指標</th>
@@ -265,7 +265,7 @@ The **Message Performance** panel outlines how well your message has performed a
             <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#messages-sent">Messages Sent</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Messages Sent' %} <br><br>
                 この計算方法は、
-                <a href="/docs/user_guide/message_building_by_channel/content_cards/create/card_creation/#differences-between-creating-cards-at-launch-or-エントリ-versus-at-first-impression">カード作成</a> で選択した内容によって異なります：<br><br>
+                <a href="/docs/user_guide/message_building_by_channel/content_cards/create/card_creation/#differences-between-creating-cards-at-launch-or-entry-versus-at-first-impression">カード作成</a> で選択した内容によって異なります：<br><br>
                 <ul>
                     <li><b>開始時またはステップエントリ時：</b>作成され、閲覧可能なカードの数です。ユーザーがカードを閲覧したかどうかはカウントされません。</li>
                     <li><b>最初のインプレッション発生時：</b>ユーザーに表示されたカードの数です。</li>
@@ -278,7 +278,7 @@ The **Message Performance** panel outlines how well your message has performed a
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-impressions">Unique Impressions</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Impressions' %} <span style="white-space: nowrap">このカウントは、</span>ユーザーがコンテンツカードを2回目に閲覧しても増加しません。</td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Impressions' %} <span style="white-space: nowrap">このカウントは、</span>ユーザーがContent Cardを2回目に閲覧しても増加しません。</td>
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-daily-impressions">Unique Daily Impressions</a></td>
@@ -296,14 +296,14 @@ The **Message Performance** panel outlines how well your message has performed a
 </table>
 
 {% alert note %}
-インプレッションの記録方法については、Web、Android、iOSで若干のニュアンスの違いがあります。一般的にBrazeは、ユーザーがフィード内の特定のコンテンツカードまでスクロールした後、カードが表示されたときにインプレッションを記録します。
+インプレッションの記録方法については、Web、Android、iOSで若干のニュアンスの違いがあります。一般的にBrazeは、ユーザーがフィード内の特定のContent Cardまでスクロールした後、カードが表示されたときにインプレッションを記録します。
 {% endalert %}
 
 #### ユニークデイリーインプレッションとユニークインプレッション {#unique-daily-impressions-versus-unique-impressions}
 
 メッセージの可視性をカバーする指標がいくつかあります。これには_Unique Daily Impressions_と_Unique Impressions_が含まれます。これらの指標をよりよく理解するために、いくつかのシナリオ例を見てみましょう。
 
-例えば、今日コンテンツカードを閲覧し、翌日に同じキャンペーンから新しいカードを受け取り、さらにその翌日にも受け取った場合、_Unique Daily Impression_として3回カウントされます。ただし、_Unique Impression_は1回のみカウントされます。また、カードがデバイスで利用可能であったため、_Messages Sent_の数にもカウントされます。
+例えば、今日Content Cardを閲覧し、翌日に同じキャンペーンから新しいカードを受け取り、さらにその翌日にも受け取った場合、_Unique Daily Impression_として3回カウントされます。ただし、_Unique Impression_は1回のみカウントされます。また、カードがデバイスで利用可能であったため、_Messages Sent_の数にもカウントされます。
 
 別の例として、15万件の_Messages Sent_を示すContent Cardsキャンペーンで5件の_Unique Impressions_があるとします。これは、カードが（バックエンドで）15万人のオーディエンスに利用可能になったものの、その送信後に以下のステップをすべて実行したのはわずか5人のユーザーのデバイスだけだったことを意味します：
 
@@ -358,7 +358,7 @@ _Messages Sent_は閲覧可能なContent Cardsを指し、_Unique Daily Impressi
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#primary-conversions">Primary Conversions</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or 1次コンバージョン Event' %}</td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or Primary Conversion Event' %}</td>
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-daily-impressions">Unique Daily Impressions</a></td>
@@ -514,7 +514,7 @@ Brazeは、開封トラッキングピクセルが読み込まれたときにメ
 
 - **クリッピング：** HTMLを短縮・簡素化し、未使用のスタイルやアセットを削除し、メッセージ全体のサイズをクライアントの制限内に収めてください。Gmailの場合、[メールサイズ]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling#email-size)に記載されているように約102&nbsp;KB未満を目指してください。
 - **受信トレイセキュリティと画像の読み込み：** デフォルトで画像を読み込むかどうかを変更できるのは、受信者（またはそのITポリシー）のみです。
-- **スパム配置：** [メールの到達性の改善]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability)とリストの衛生管理に注力してください。メールが一貫してスパムに振り分けられ、指標がおかしく見える場合は、[Brazeサポート]({{site.baseurl}}/user_guide/administer/personal/braze_support)にお問い合わせください。
+- **スパム配置：** [メールの配信到達性の改善]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability)とリストの衛生管理に注力してください。メールが一貫してスパムに振り分けられ、指標がおかしく見える場合は、[Brazeサポート]({{site.baseurl}}/user_guide/administer/personal/braze_support)にお問い合わせください。
 
 **セキュリティまたはボットによるリンクへのアクティビティ**
 
@@ -526,17 +526,17 @@ Brazeは、開封トラッキングピクセルが読み込まれたときにメ
 
 _延期_は_ソフトバウンス_とは異なります。この再試行期間中にメールが正常に配信されなかった場合、Brazeは送信されたキャンペーンごとに1つのソフトバウンスイベントを送信します。2025年2月25日以前は、これらの再試行は1回のキャンペーン送信に対して複数のソフトバウンスとしてカウントされていました。
 
-_延期_は現在、CurrentsまたはBraze Snowflake機能（クエリビルダー、SQLセグメント、Snowflakeデータ共有など）を使用した場合のみ利用可能です。{% multi_lang_include product_feedback_cta.md context="gap" feature="Deferrals in campaign or キャンバス analytics" %}
+_延期_は現在、CurrentsまたはBraze Snowflake機能（クエリビルダー、SQLセグメント、Snowflakeデータ共有など）を使用した場合のみ利用可能です。{% multi_lang_include product_feedback_cta.md context="gap" feature="Deferrals in campaign or Canvas analytics" %}
 
 ##### 推定実質開封率 {#estimated-real-open-rate}
 
 この統計は、Brazeが独自に作成した分析モデルを使用して、マシン開封が存在しないかのようにキャンペーンのユニーク開封率の推定値を再構築するものです。一部の開封イベントについてメール送信者から*Machine Opens*というラベルを受け取る場合がありますが、これらのラベルは実際の開封をマシン開封と誤って分類することが多いです。つまり、*Other Opens*は（実際のユーザーによる）実際の開封を過小評価している可能性が高いです。代わりに、Brazeは各キャンペーンのクリックデータを使用して、実際の人間がメッセージを開封した率を推測します。これにより、AppleのMPPを含むさまざまなマシン開封メカニズムが補われます。
 
-_推定実質開封率_はメール送信開始から24時間後に算出され、その後72時間ごとに再計算されます。
+Brazeはキャンペーンが十分な数のメールを送信した後に_推定実質開封率_を評価します。評価後、Brazeはキャンペーンの送信量が変わらなくても、少なくとも72時間経過後に1回再評価を行うことがあります。追加の再評価には送信量の増加が必要です。
 
-この指標は継続的に再計算されるため、_推定実質開封率_の値は時間の経過とともに変化する可能性があります。新しいエンゲージメントシグナル（開封やクリックなど）が受信され、モデルに組み込まれるにつれて値は変動します。実際には、_推定実質開封率_はキャンペーンがアクティブな間、毎日更新され続けることがあります。
+Brazeは最初にバリエーションごとに最大10,000通の配信済みメールを評価しますが、そのボリュームに達しても推定が保証されるわけではありません。各バリエーションには、*Machine Opens*のある受信者と*Machine Opens*のない受信者の両方から十分な適格クリックが必要です。
 
-通常、統計を正常に計算するには配信済みメールが約10,000通必要ですが、この数はクリック率によって異なります。統計が計算できない場合、その列には「--」と表示されます。
+適格なクリックアクティビティが不十分な場合、その列には「--」と表示されます。Brazeがバリエーションを再評価すると、追加の適格クリックによって推定が生成される場合があります。
 
 ###### 注意事項 {#considerations}
 
@@ -625,7 +625,7 @@ _推定実質開封率_はメール送信開始から24時間後に算出され�
 
 #### コントロールグループとバリアント間の差異
 
-アプリ内メッセージキャンペーンでバリアントを50対50に分割した場合、コントロールグループがバリアントよりもわずかに高い割合になることがあります（例：コントロールグループが51%、バリアントが49%）。この差異はレンダリング時間の違いによって生じます。例えば、バリアントメッセージが大きな画像やテンプレート化されたConnected Contentを使用していて、レンダリングが完了する前にユーザーが離脱した場合、コントロールグループはメッセージを表示せずにインプレッションを記録します。
+アプリ内メッセージキャンペーンでバリアントを50対50に分割した場合、コントロールグループがバリアントよりもわずかに高い割合になることがあります（例：コントロールグループが51%、バリアントが49%）。この差異はレンダリング時間の違いによって生じます。例えば、バリアントメッセージが大きな画像やテンプレート化されたコネクテッドコンテンツを使用していて、レンダリングが完了する前にユーザーが離脱した場合、コントロールグループはメッセージを表示せずにインプレッションを記録します。
 
 コントロールグループとバリアントグループの分布はほぼ均等になるように意図されていますが、バリアントへの割り当てはアプリ内メッセージが実際にデバイスに送信されたときに行われます。一部のユーザーはアプリ内メッセージをトリガーしない場合があり（例：必要なカスタムイベントをトリガーするアクションを行わない）、これがグループサイズの差異を引き起こす可能性があります。
 

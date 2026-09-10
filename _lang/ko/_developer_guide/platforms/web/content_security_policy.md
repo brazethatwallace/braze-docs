@@ -42,7 +42,7 @@ URL은 선택한 `baseUrl` 초기화 옵션의 [API SDK 엔드포인트]({{site.
 | URL | 정보 |
 |---|-----------|
 | `connect-src https://sdk.iad-01.braze.com` | SDK가 Braze API와 통신할 수 있도록 허용합니다. 선택한 `baseUrl` 초기화 옵션의 [API SDK 엔드포인트]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints)와 일치하도록 이 URL을 변경하세요. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="connect-src" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="connect-src #connect-src" }
 
 ### `script-src` {#script-src}
 
@@ -51,14 +51,23 @@ URL은 선택한 `baseUrl` 초기화 옵션의 [API SDK 엔드포인트]({{site.
 | `script-src https://js.appboycdn.com` | CDN 호스팅 통합을 사용할 때 필요합니다. |
 | `script-src 'unsafe-eval'` | `appboyQueue`에 대한 참조가 포함된 통합 스니펫을 사용할 때 필요합니다. 이 지시문을 사용하지 않으려면 대신 [NPM을 사용하여 SDK를 통합]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup?tab=package%20manager)하세요. |
 | `script-src 'nonce-...'`<br>또는<br>`script-src 'unsafe-inline'` | 커스텀 HTML과 같은 특정 인앱 메시지에 필요합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="script-src" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="script-src #script-src" }
 
 ### `img-src` {#img-src}
 
 | URL | 정보 |
 |---|-----------|
-| `img-src: appboy-images.com braze-images.com cdn.braze.eu` | Braze CDN 호스팅 이미지를 사용할 때 필요합니다. 호스트 이름은 대시보드 클러스터에 따라 다를 수 있습니다.<br><br>**중요:** 커스텀 글꼴을 사용하는 경우 `font-src`도 포함해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="img-src" }
+| `img-src: appboy-images.com braze-images.com cdn.braze.com cdn.braze.eu` | Braze CDN 호스팅 이미지를 사용할 때 필요합니다. 모든 대시보드 클러스터에서 이미지가 올바르게 로드되도록 네 개의 CDN 호스트 이름을 모두 포함하세요.<br><br>**중요:** 커스텀 글꼴을 사용하는 경우 `font-src`도 포함해야 합니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="img-src #img-src" }
+
+#### CDN 호스트 이름 {#cdn-hostnames}
+
+다음 호스트 이름을 모두 `img-src` 지시문에 추가하세요.
+
+- `appboy-images.com`
+- `braze-images.com`
+- `cdn.braze.com`
+- `cdn.braze.eu`
 
 ## Font Awesome {#font-awesome}
 

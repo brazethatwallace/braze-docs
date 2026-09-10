@@ -1,23 +1,23 @@
 ---
-nav_title: 到達性センター
-article_title: 到達性センター
+nav_title: 配信到達性センター
+article_title: 配信到達性センター
 alias: "/deliverability_center/"
 page_order: 4
-description: "このリファレンス記事では、到達性センターのセットアップ方法について説明します。到達性センターは、マーケターがメール送信ドメインとIPレピュテーションを確認し、メールの到達性を把握できる機能です。"
+description: "このリファレンス記事では、配信到達性センターのセットアップ方法について説明します。配信到達性センターは、マーケターがメール送信ドメインとIPレピュテーションを確認し、メールの到達性を把握できる機能です。"
 channel:
   - email
 
 ---
 
-# 到達性センター {#deliverability-center}
+# 配信到達性センター {#deliverability-center}
 
-> 到達性センターは、[Gmail Postmaster Tools](https://www.gmail.com/postmaster/)の使用をサポートし、送信済みメールのデータを追跡して送信ドメインに関するデータを収集することで、メールパフォーマンスに関するより深いインサイトを提供します。
+> 配信到達性センターは、[Gmail Postmaster Tools](https://www.gmail.com/postmaster/)の使用をサポートし、送信済みメールのデータを追跡して送信ドメインに関するデータを収集することで、メールパフォーマンスに関するより深いインサイトを提供します。
 
-メールの到達性は、キャンペーン成功の核心です。Brazeダッシュボードの到達性センターを使用すると、**IPレピュテーション**または**配信エラー**別にドメインを表示し、メールの到達性に関する潜在的な問題を発見してトラブルシューティングできます。
+メールの到達性は、キャンペーン成功の核心です。Brazeダッシュボードの配信到達性センターを使用すると、**IPレピュテーション**または**配信エラー**別にドメインを表示し、メールの到達性に関する潜在的な問題を発見してトラブルシューティングできます。
 
-到達性センターにアクセスするには、ワークスペースに対する以下のドロップダウンに記載されている[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)が必要です。
+配信到達性センターにアクセスするには、ワークスペースに対する以下のドロップダウンに記載されている[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)が必要です。
 
-{% details 到達性センターのユーザー権限 %}
+{% details 配信到達性センターのユーザー権限 %}
 
 - キャンペーンの表示
 - キャンペーンの編集
@@ -65,7 +65,7 @@ channel:
 
 ## Google Postmaster アカウントの設定 {#set-up-your-google-postmaster-account}
 
-到達性センターに接続する前に、Google Postmaster Tools アカウントを設定する必要があります。Google Postmaster の設定には、仕事用または個人用の Gmail アカウントを使用できます。
+配信到達性センターに接続する前に、Google Postmaster Tools アカウントを設定する必要があります。Google Postmaster の設定には、仕事用または個人用の Gmail アカウントを使用できます。
 
 1. [Google Postmaster Tools ダッシュボード](https://postmaster.google.com/managedomains?pli=1)にアクセスします。
 2. ページの下部で、<i class="fas fa-plus-circle"></i>**ドメインを追加**を選択します。
@@ -76,7 +76,7 @@ channel:
 7. ルート（親）ドメインを検証した後、送信サブドメインを Google Postmaster に追加します。
 
 {% alert note %}
-サブドメインが Google Postmaster の到達性センターに含まれていない場合、ルート（親）ドメインのみを Google Postmaster に追加したことが原因である可能性があります。Google Postmaster でルートドメインが検証されると、サブドメインを追加でき、それらは自動的に検証されます。このプロセスにより、Google がサブドメインレベルの指標を報告できるようになり、その指標を Braze の到達性センターに取り込むことができます。
+サブドメインが Google Postmaster の配信到達性センターに含まれていない場合、ルート（親）ドメインのみを Google Postmaster に追加したことが原因である可能性があります。Google Postmaster でルートドメインが検証されると、サブドメインを追加でき、それらは自動的に検証されます。このプロセスにより、Google がサブドメインレベルの指標を報告できるようになり、その指標を Braze の配信到達性センターに取り込むことができます。
 {% endalert %}
 
 ## Google Postmasterの統合 {#integrating-google-postmaster}
@@ -88,16 +88,16 @@ Google Postmaster Toolの接続を再認証するには、**パートナー連�
 詳細については、[新しいPostmaster Toolsに関するGoogleの発表](https://support.google.com/mail/answer/16594218?hl=en)を参照してください。
 {% endalert %}
 
-到達性センターをセットアップする前に、ドメインが[Gmail Postmaster Toolsに追加](https://support.google.com/mail/answer/9981691?hl=en)されていることを確認してください。
+配信到達性センターをセットアップする前に、ドメインが[Gmail Postmaster Toolsに追加](https://support.google.com/mail/answer/9981691?hl=en)されていることを確認してください。
 
-以下の手順に従ってGoogle Postmasterと統合し、到達性センターをセットアップします。
+以下の手順に従ってGoogle Postmasterと統合し、配信到達性センターをセットアップします。
 
 1. **Analytics** > **メールのパフォーマンス**に移動します。
-2. **到達性センター**タブを選択します。<br>![Google Postmasterが未接続の到達性センター。]({% image_buster /assets/img_archive/deliverability_center1.png %})
+2. **配信到達性センター**タブを選択します。<br>![Google Postmasterが未接続の配信到達性センター。]({% image_buster /assets/img_archive/deliverability_center1.png %})
 3. **Connect with Google Postmaster**を選択します。
 4. Googleアカウントを選択し、**Allow**を選択して、Postmaster Toolsに登録されたドメインのメールトラフィック指標をBrazeが表示できるようにします。
 
-検証済みのドメインが到達性センターに表示されます。
+検証済みのドメインが配信到達性センターに表示されます。
 
 ![Google Postmasterの2つの検証済みドメイン。レピュテーションは中と低。]({% image_buster /assets/img_archive/deliverability_center2.png %})
 
@@ -105,7 +105,7 @@ Brazeダッシュボードで**パートナー連携** > **テクノロジーパ
 
 ### 無効または期限切れの認証 {#invalid-or-expired-authorization}
 
-Google Postmaster Toolsの認証情報が無効であるというアラートを受け取った場合でも、Brazeからのメール送信には**影響しません**。BrazeとGoogle Postmaster間の接続のみが切断され、再接続するまでGmailのレピュテーションとエラーデータが到達性センターに同期されなくなります。
+Google Postmaster Toolsの認証情報が無効であるというアラートを受け取った場合でも、Brazeからのメール送信には**影響しません**。BrazeとGoogle Postmaster間の接続のみが切断され、再接続するまでGmailのレピュテーションとエラーデータが配信到達性センターに同期されなくなります。
 
 統合を復元するには、**パートナー連携** > **テクノロジーパートナー**に移動し、**Google Postmaster**を開いて**Disconnect**を選択し、接続フローを再度実行します（[Google Postmasterの統合](#integrating-google-postmaster)と同じ手順です）。
 
@@ -170,17 +170,17 @@ Brazeに表示されるスパム苦情データは、Microsoft、Yahoo、Comcast
 
 ## Microsoft Smart Network Data Services（SNDS）の設定 {#set-up-microsoft-smart-network-data-services-snds}
 
-Microsoft がメインのメールボックスプロバイダーである場合、到達性センターで Microsoft SNDS データを確認できます。これには、Amazon SES、SendGrid、または SparkPost を使用するワークスペースの専用送信 IP が含まれます。このデータを使用して、IP の健全性を監視し、Microsoft の受信トレイプロバイダーが送信をどのように評価しているかを把握できます。
+Microsoft がメインのメールボックスプロバイダーである場合、配信到達性センターで Microsoft SNDS データを確認できます。これには、Amazon SES、SendGrid、または SparkPost を使用するワークスペースの専用送信 IP が含まれます。このデータを使用して、IP の健全性を監視し、Microsoft の受信トレイプロバイダーが送信をどのように評価しているかを把握できます。
 
 Microsoft SNDS は、Outlook、Hotmail、Live などの Microsoft 受信トレイプロバイダーから報告されたスパム苦情と送信量に関する IP レベルのデータを提供します。
 
 {% alert important %}
-到達性センターにデータが表示されない場合は、IP アドレスのリストを添えて[サポート]({{site.baseurl}}/user_guide/administer/personal/braze_support)にお問い合わせください。
+配信到達性センターにデータが表示されない場合は、IP アドレスのリストを添えて[サポート]({{site.baseurl}}/user_guide/administer/personal/braze_support)にお問い合わせください。
 {% endalert %}
 
 ### Amazon SES
 
-Amazon SES を通じてメールを送信するワークスペースの場合、到達性センターには専用送信 IP の Microsoft SNDS メトリクスが表示されます。Braze は、この機能がワークスペースで有効になると、最大90日分の過去の SNDS データをバックフィルします。
+Amazon SES を通じてメールを送信するワークスペースの場合、配信到達性センターには専用送信 IP の Microsoft SNDS メトリクスが表示されます。Braze は、この機能がワークスペースで有効になると、最大90日分の過去の SNDS データをバックフィルします。
 
 ![Microsoft SNDS の結果例。サンプル IP、受信者数、RCPT コマンド、DATA コマンド、フィルター結果、苦情率が含まれています。]({% image_buster /assets/img_archive/deliverability_center_msnds.png %})
 
@@ -231,7 +231,7 @@ Microsoft は、SNDS レポートにスパムトラップヒット数やトラ�
 トラップメッセージ期間の開始列と終了列は、アクティビティ期間中にトラップアカウントに送信された最初と最後のメッセージが IP から受信された時期を示していました。
 
 {% alert tip %}
-Braze で確認済みドメインに関連するレコードを探している場合、到達性センターには Google Postmaster または Microsoft SNDS からのデータが表示されるため、いずれかのプラットフォームに Braze と共有するデータがない可能性があります。あるいは、一貫したメール配信を維持することで、より高いレピュテーションにつながる可能性があります。
+Braze で確認済みドメインに関連するレコードを探している場合、配信到達性センターには Google Postmaster または Microsoft SNDS からのデータが表示されるため、いずれかのプラットフォームに Braze と共有するデータがない可能性があります。あるいは、一貫したメール配信を維持することで、より高いレピュテーションにつながる可能性があります。
 {% endalert %}
 
 ## スパム苦情とフィードバックループ {#spam-complaints-and-feedback-loops}

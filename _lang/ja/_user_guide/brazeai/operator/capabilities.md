@@ -17,7 +17,7 @@ Operatorはワークスペースを理解しているため（カスタム属性
 
 ## 前提条件 {#prerequisites}
 
-オペレーターはあなたと同じ権限を持っているため、特定のアクションにはそのサーフェスに関連する権限が必要です。たとえば、画像を生成するには*メディアライブラリアセットの編集*権限が必要です。エントリポイントが表示されない場合は、管理者に権限を確認してください。詳細については、[権限の一覧]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions)を参照してください。
+オペレーターはあなたと同じ権限を持っているため、特定のアクションにはそのサーフェスに対する関連する権限が必要です。たとえば、画像を生成するには*メディアライブラリアセットの編集*権限が必要です。エントリポイントが表示されない場合は、管理者に権限を確認してください。詳細については、[権限の一覧]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions)を参照してください。
 
 ## ダッシュボードのナビゲーション {#navigate-the-dashboard}
 
@@ -285,7 +285,17 @@ Operatorは出力を生成するためにOpenAIと統合しています。Braze�
 
 ## 次のステップ {#next-steps}
 
-- [Operatorを始める]({{site.baseurl}}/user_guide/brazeai/operator)：Operatorへのアクセスと使用方法
-- [プロンプトライブラリ]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library)：すぐに使えるプロンプト例を閲覧
-- [アクションのレビュー]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions)：Operatorが提案した変更のレビューと承認
-- [トラブルシューティング]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting)：一般的な問題と解決策のリファレンス
+{% article_tiles %}
+- name: Operatorを始める
+  link: /docs/user_guide/brazeai/operator
+  description: Brazeダッシュボードで Operator にアクセスして使用します。
+- name: プロンプトライブラリ
+  link: /docs/user_guide/brazeai/operator/prompt_library
+  description: すぐに使えるプロンプト例を閲覧できます。
+- name: アクションのレビュー
+  link: /docs/user_guide/brazeai/operator/reviewing_actions
+  description: Operatorが提案した変更をレビューして承認します。
+- name: トラブルシューティング
+  link: /docs/user_guide/brazeai/operator/troubleshooting
+  description: 一般的な問題と解決策を参照できます。
+{% endarticle_tiles %}

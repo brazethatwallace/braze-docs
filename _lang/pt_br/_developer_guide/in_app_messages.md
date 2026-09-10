@@ -59,10 +59,15 @@ description: "Saiba mais sobre mensagens no app e como configurá-las para o SDK
 {% endsdktab %}
 {% endsdktabs %}
 
-## Próximos passos {#next-steps}
+## Próximas etapas {#next-steps}
 
 Pronto para se aprofundar? Confira estes tutoriais passo a passo:
 
-- Ajuste o momento da entrega de mensagens [adiando e restaurando mensagens disparadas]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/deferring_triggered_messages).
-- Refine o direcionamento de mensagens [definindo regras de exibição condicional]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/conditionally_displaying_messages).
-- Combine com a identidade visual da sua marca [personalizando o estilo das mensagens com pares de chave-valor]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/customizing_message_styling).
+{% article_tiles %}
+- name: Adiando e restaurando mensagens disparadas
+  link: /docs/developer_guide/in_app_messages/tutorials/deferring_triggered_messages
+- name: Definindo regras de exibição condicional
+  link: /docs/developer_guide/in_app_messages/tutorials/conditionally_displaying_messages
+- name: Personalizando o estilo de mensagens com pares chave-valor
+  link: /docs/developer_guide/in_app_messages/tutorials/customizing_message_styling
+{% endarticle_tiles %}

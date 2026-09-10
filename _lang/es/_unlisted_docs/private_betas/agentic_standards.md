@@ -1,7 +1,7 @@
 ---
 nav_title: Estándares agénticos
 article_title: Estándares agénticos
-permalink: /campaign_qa_agent/
+permalink: /agentic_standards/
 description: "Este artículo de referencia cubre los estándares agénticos, incluyendo cómo funcionan los estándares de Campaign y las mejores prácticas."
 hidden: true
 ---

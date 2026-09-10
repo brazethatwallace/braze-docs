@@ -33,10 +33,6 @@ Before you start, you need the following:
 | Enabled Braze AI Agent step | See the Early Access note in this section. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-{% alert important %}
-Braze Agents, Canvas Context, and Connected Content Authorization Tokens are all in Early Access. If you're interested in leveraging this solution, speak to your Braze CSM about enabling these tools.
-{% endalert %}
-
 ## Integrate Fullstory
 
 ### Step 1: Set up Fullstory for Session Summary API enablement {#step-1}

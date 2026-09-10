@@ -90,8 +90,10 @@ Correlation data for preview predictions will be partially hidden. A purchase is
 
 ## Troubleshooting
 
-### Unable to create a prediction
+### Not enough past event behavior {#not-enough-past-event-behavior}
 
-If you're unable to create a prediction for a custom event, this may be due to insufficient sample size. Braze estimates the number of users who have performed the event, and if enough users haven't performed the event, the sample may not provide sufficient data to train the model. In this case, the system may extrapolate to no users, preventing prediction creation.
+When building a Predictive Events prediction, you may see "This Prediction will fail to build given the very low number of past event behavior" or a similar message about past event behavior.
 
-To create a successful prediction, make sure that a sufficient number of users in your prediction audience have performed your target custom event. The exact threshold varies, but events with very low usage across your user base may not provide enough data for reliable model training.
+Braze needs enough users who performed the target event in the training window to build the model. The model typically requires at least 3,500 users labeled as **Past Event Behavior** in that window. Events with very low usage across your user base may not meet this threshold.
+
+If you have fewer qualifying users, broaden your prediction audience or extend the event window before you build the prediction. For setup steps, see [Create an event prediction]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/creating_an_event_prediction).

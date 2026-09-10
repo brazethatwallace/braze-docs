@@ -364,7 +364,7 @@ Auf der Grundlage der getrackten Interaktionsdaten könnten die Anwendungsfälle
 - **Kundenbindungs-Programme:** Heben Sie Produkte hervor, mit denen Kund:innen ihre Treuepunkte oder Rewards auf der Grundlage ihres aktuellen Punktestandes maximieren können.
 - **Bildungsinhalte:** Schlagen Sie neue Kurse oder Inhalte vor, die auf den Themen der bereits konsumierten oder gekauften Materialien basieren.
 
-{% multi_lang_include brazeai/recommendations/KI.md section="Plan-specific features" %}
+{% multi_lang_include brazeai/recommendations/ai.md section="Plan-specific features" %}
 
 ## Häufig gestellte Fragen {#faq}
 

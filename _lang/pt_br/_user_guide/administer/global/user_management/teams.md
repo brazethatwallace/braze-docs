@@ -14,7 +14,7 @@ description: "Este artigo de referência cobre como usar as Equipes da Braze no 
 
 As Equipes podem ser configuradas com base no local da base de clientes, idioma e atributos personalizados, para que os membros da Equipe e os não membros tenham acesso diferente a recursos de envio de mensagens e dados de clientes. Filtros e tags de Equipe podem ser atribuídos em várias ferramentas de engajamento. Não há limite para quantas equipes você pode criar no seu espaço de trabalho.
 
-As Equipes não estão disponíveis em todos os contratos da Braze. Para acessar esse recurso, entre em contato com seu gerente de conta da Braze ou [fale com a gente](mailto:success@braze.com) para uma consulta.
+As Equipes não estão disponíveis em todos os contratos da Braze. A página **Internal Teams** aparece apenas quando o recurso de Equipes está ativado para a sua empresa. Para criar ou editar equipes, os usuários precisam da permissão "Edit Teams". Para ativar as Equipes, entre em contato com seu gerente de conta da Braze ou [fale com a gente](mailto:success@braze.com) para uma consulta.
 
 ## Como as equipes diferem dos conjuntos de permissões e funções? {#how-do-teams-differ-from-permission-sets-and-roles}
 
@@ -22,7 +22,7 @@ As Equipes não estão disponíveis em todos os contratos da Braze. Para acessar
 
 ## Criar Equipes {#creating-teams}
 
-Acesse **Configurações** > **Equipes internas** e selecione <i class="fas fa-plus"></i> **Adicionar equipe**.
+Acesse **Configurações** > **Equipes internas** e selecione <i class="fas fa-plus"></i> **Adicionar equipe**. Você precisa da permissão de espaço de trabalho **Editar equipes** para criar uma equipe.
 
 ![Janela para adicionar uma nova Equipe.]({% image_buster /assets/img_archive/adding_a_team.png %})
 
@@ -32,77 +32,77 @@ Se uma Equipe for definida por um atributo personalizado, idioma ou país, você
 
 ## Atribuir usuários a equipes {#assign-users-to-teams}
 
-Administradores da Braze e usuários limitados com a permissão de nível de empresa "Can Manage Company Settings" podem atribuir permissões de nível de equipe a um usuário da empresa com acesso limitado. Quando atribuídos a uma equipe, os usuários da empresa ficam limitados a apenas ler ou gravar dados disponíveis para suas equipes específicas, como idioma do usuário, local ou atributo personalizado, conforme definido quando a equipe foi criada.
+Os administradores da Braze e os usuários limitados com a permissão no nível da empresa "Can Manage Company Settings" podem atribuir permissões no nível de equipe a um usuário da empresa com acesso limitado. Quando atribuídos a uma equipe, os usuários da empresa ficam limitados a apenas ler ou gravar dados disponíveis para suas equipes específicas, como idioma do usuário, local ou atributo personalizado, conforme definido quando a equipe foi criada.
 
 ### Limitar permissões de usuário da empresa sem excluir um usuário {#limit-company-user-permissions-without-deleting-a-user}
 
 Para impedir que um usuário da empresa faça login e ao mesmo tempo preservar sua conta, [suspenda o usuário]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users#suspending-company-users). A suspensão coloca a conta em um estado inativo em que o usuário não consegue fazer login.
 
-Se o usuário precisar continuar podendo fazer login com capacidades limitadas, acesse **Configurações** > **Usuários da empresa**, selecione o usuário e edite suas permissões. Remova as permissões de nível de espaço de trabalho para Campaigns, Canvas, Segments e dados de usuários, e deixe apenas o acesso mínimo — por exemplo, "View Media Library Assets". Para saber mais, consulte [Editar permissões de um usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#edit-a-users-permissions).
+Se o usuário precisar continuar podendo fazer login com capacidades limitadas, acesse **Configurações** > **Configurações da Empresa** > **Gerenciamento de Usuários** > **Usuários da Empresa**, selecione o usuário e edite suas permissões. Remova as permissões no nível do espaço de trabalho para Campaigns, Canvas, Segments e dados de usuários, e deixe apenas o acesso mínimo — por exemplo, "View Media Library Assets". Para saber mais, consulte [Editar permissões de um usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#edit-a-users-permissions).
 
-As permissões de equipe funcionam sobre as permissões de espaço de trabalho. Se você atribuir o usuário a uma equipe, conceda apenas as permissões mínimas de nível de equipe necessárias e não conceda permissões para Campaigns, Canvas, Segments ou perfis de usuário. Eles permanecem no espaço de trabalho e podem fazer login, mas não conseguem executar a maioria das ações de envio de mensagens ou de público.
+As permissões de equipe funcionam sobre as permissões do espaço de trabalho. Se você atribuir o usuário a uma equipe, conceda apenas as permissões mínimas no nível de equipe necessárias e não conceda permissões para Campaigns, Canvas, Segments ou perfis de usuário. O usuário permanece no espaço de trabalho e pode fazer login, mas não consegue executar a maioria das ações de envio de mensagens ou de público.
 
-Para atribuir um usuário a uma equipe, acesse **Configurações** > **Usuários da empresa** e selecione o usuário que você deseja adicionar à sua equipe.
+Para atribuir um usuário a uma equipe, acesse **Configurações** > **Configurações da Empresa** > **Gerenciamento de Usuários** > **Usuários da Empresa** e selecione o usuário que deseja adicionar à sua equipe.
 
-Em seguida, execute as seguintes etapas:
+Em seguida, siga estas etapas:
 
-1. Na seção **Permissões de nível de espaço de trabalho**, adicione o usuário ao espaço de trabalho apropriado, caso ele ainda não esteja incluído.
+1. Na seção **Permissões no nível do espaço de trabalho**, adicione o usuário ao espaço de trabalho apropriado, caso ele ainda não esteja incluído.
 
-![Permissões de nível de espaço de trabalho com a permissão de modelo de banner definida.]({% image_buster /assets/img/team_level_permissions.png %})
+![Permissões no nível do espaço de trabalho com a permissão de modelo de banner definida.]({% image_buster /assets/img/team_level_permissions.png %})
 
 {: start="2"}
-2. Selecione **+ Adicionar permissões de nível de equipe** e, em seguida, selecione a **Equipe** à qual você deseja adicionar esse usuário.
+2. Selecione **+ Adicionar permissões no nível de equipe** e, em seguida, selecione a **Equipe** à qual deseja adicionar este usuário.
 3. Atribua permissões específicas na seção de permissões da **Equipe**.
 
-![Permissões de modelo de landing page de nível de equipe.]({% image_buster /assets/img/teams.png %})
+![Permissões de modelo de landing page no nível de equipe.]({% image_buster /assets/img/teams.png %})
 
-### Permissões de nível de equipe disponíveis {#available-team-level-permissions}
+### Permissões disponíveis no nível de equipe {#available-team-level-permissions}
 
-A seguir estão todas as permissões disponíveis que você pode atribuir no nível de equipe. Quaisquer permissões não listadas aqui são concedidas apenas no nível do espaço de trabalho, e essas permissões aparecerão como "--" na coluna de permissões de **Equipes**.
+A seguir estão todas as permissões disponíveis que você pode atribuir no nível de equipe. Quaisquer permissões não listadas aqui são concedidas apenas no nível do espaço de trabalho e aparecerão como "--" na coluna de permissões de **Equipes**.
 
-- Ver Campaigns
-- Editar Campaigns
-- Arquivar Campaigns
-- Lançar Campaigns
-- Aprovar Campaigns
-- Ver Canvas
-- Editar Canvas
-- Arquivar Canvas
-- Lançar Canvas
-- Aprovar Canvas
-- Ver Content Blocks
-- Editar Content Blocks
-- Arquivar Content Blocks
-- Lançar Content Blocks
-- Ver Segments
-- Editar Segments
-- Arquivar Segments
-- Ver modelos de mensagem no app
-- Editar modelos de mensagem no app
-- Arquivar modelos de mensagem no app
-- Ver modelos de e-mail
-- Editar modelos de e-mail
-- Arquivar modelos de e-mail
-- Ver modelos de webhook
-- Editar modelos de webhook
-- Arquivar modelos de webhook
-- Ver modelos de link de e-mail
-- Editar modelos de link de e-mail
-- Ver ativos da biblioteca de mídia
-- Editar ativos da biblioteca de mídia
-- Excluir ativos da biblioteca de mídia
-- Exportar dados de usuários
-- Ver perfis de usuário (IPI ocultada)
-- Ver IPI
-- Editar usuários do dashboard
-- Editar modelos de Canvas
-- Ver modelos de Canvas
-- Arquivar modelos de Canvas
-- Ver relatórios do dashboard
-- Editar relatórios do dashboard
-- Excluir relatórios do dashboard
+- View Campaigns
+- Edit Campaigns
+- Archive Campaigns
+- Launch Campaigns
+- Approve Campaigns
+- View Canvases
+- Edit Canvases
+- Archive Canvases
+- Launch Canvases
+- Approve Canvases
+- View Content Blocks
+- Edit Content Blocks
+- Archive Content Blocks
+- Launch Content Blocks
+- View Segments
+- Edit Segments
+- Archive Segments
+- View IAM Templates
+- Edit IAM Templates
+- Archive IAM Templates
+- View Email Templates
+- Edit Email Templates
+- Archive Email Templates
+- View Webhook Templates
+- Edit Webhook Templates
+- Archive Webhook Templates
+- View Email Link Templates
+- Edit Email Link Templates
+- View Media Library Assets
+- Edit Media Library Assets
+- Delete Media Library Assets
+- Export User Data
+- View User Profiles (PII Redacted)
+- View PII
+- Edit Dashboard Users
+- Edit Canvas Templates
+- View Canvas Templates
+- Archive Canvas Templates
+- View Dashboard Reports
+- Edit Dashboard Reports
+- Delete Dashboard Reports
 
-Para ver descrições do que cada permissão de usuário inclui e como usá-las, consulte nossa seção [Permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
+Para ver as descrições do que cada permissão de usuário inclui e como usá-las, consulte nossa seção [Permissões de Usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 
 ## Atribuir tags de Equipe {#tags-and-filters}
 
@@ -150,7 +150,7 @@ Neste cenário, Michelle ainda é membro da Equipe Development, mas também tem 
 
 ![Permissões personalizadas com uma permissão de nível de espaço de trabalho e 15 permissões baseadas em equipe.]({% image_buster /assets/img_archive/scenario2.png %})
 
-Como Michelle tem a permissão de nível de espaço de trabalho "Acessar Campaigns, Canvas, cartões, Content Blocks, Feature Flags, Segments, biblioteca de mídia e Central de Preferências", ela pode visualizar e atribuir outros filtros de Equipe à campanha que criar.
+Como Michelle tem permissões de nível de espaço de trabalho como "View Campaigns" e "Edit Campaigns", ela pode visualizar e atribuir outros filtros de Equipe à campanha que criar.
 
 ![Menu suspenso de tag de Equipe da campanha com múltiplas tags de Equipe.]({% image_buster /assets/img_archive/team_permissions_scenario2.gif %})
 
@@ -163,7 +163,7 @@ Assim como no primeiro cenário, Michelle deve adicionar a tag de Equipe Develop
 
 Um possível caso de uso para equipes é criar um sistema de aprovação baseado em equipes para testar e lançar conteúdo em um ambiente de produção.
 
-Para isso, crie uma equipe "Desenvolvimento" que tenha acesso apenas a usuários teste. Você pode limitar uma equipe para acessar apenas usuários teste se seus usuários teste forem identificáveis por um atributo personalizado. Em seguida, adicione o atributo personalizado como definição ao criar ou editar a equipe (consulte a seção anterior [Criando equipes](#creating-Teams)). Seus aprovadores devem ter acesso a todos os usuários.
+Para isso, crie uma equipe "Desenvolvimento" que tenha acesso apenas a usuários teste. Você pode limitar uma equipe para acessar apenas usuários teste se eles puderem ser identificados por um atributo personalizado. Em seguida, adicione o atributo personalizado como definição ao criar ou editar a equipe (consulte a seção anterior [Criando equipes](#creating-Teams)). Seus aprovadores devem ter acesso a todos os usuários.
 
 O processo geral seria o seguinte:
 
@@ -183,6 +183,6 @@ Você pode arquivar equipes na página **Equipes internas**.
 
 Selecione uma ou mais equipes para arquivar. Se a equipe não estiver associada a nenhum objeto na Braze, ela será arquivada imediatamente. Se a equipe estiver associada a um objeto, será apresentada uma opção para remover a equipe após o processo de arquivamento ou substituir a equipe.
 
-![Arquivando uma equipe associada a um objeto na Braze]({% image_buster /assets/img_archive/archive_a_team.png %}){: style="max-width:70%;"}
+![Arquivando uma equipe que está associada a um objeto na Braze]({% image_buster /assets/img_archive/archive_a_team.png %}){: style="max-width:70%;"}
 
 Os administradores da Braze podem desarquivar uma equipe selecionando a equipe arquivada e clicando em **Desarquivar**.

@@ -43,24 +43,22 @@ Vous ne pouvez plus créer ni dupliquer de Canvas avec l'éditeur d'origine. Not
 
 {% enddetails %}
 
-## Ce qu'il faut savoir {#things-to-know}
+## Choses à savoir {#things-to-know}
 
 - Le contexte n'est disponible qu'à titre de référence dans Liquid. Pour filtrer sur les propriétés au sein du Canvas, utilisez plutôt la [segmentation par propriétés d'événement]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects).
 - Pour les canaux de messages in-app, vous pouvez référencer `context` et `event_properties` dans un Canvas. `event_properties` est accessible lorsqu'il est inclus dans la première étape du Canvas, car celle-ci est basée sur un déclencheur.
-- Vous ne pouvez pas utiliser `event_properties` dans l'étape Message principale. À la place, vous pouvez utiliser `context` ou ajouter une étape de parcours d'action avec l'événement correspondant **avant** l'étape Message qui inclut `event_properties`.
-- Lorsqu'une étape de parcours d'action contient un déclencheur « A envoyé un message SMS entrant » ou « A envoyé un message WhatsApp entrant », les étapes suivantes du Canvas peuvent inclure une propriété Liquid SMS ou WhatsApp. Cela reflète le fonctionnement des propriétés d'événement dans les Canvas. De cette façon, vous pouvez tirer parti de vos messages pour enregistrer et référencer des données first-party sur les profils utilisateur et la messagerie conversationnelle.
+- Vous ne pouvez pas utiliser `event_properties` dans l'étape Message principale. À la place, vous pouvez utiliser `context` ou ajouter une étape Parcours d'action avec l'événement correspondant **avant** l'étape Message qui inclut `event_properties`.
+- Lorsqu'une étape Parcours d'action contient un déclencheur « A envoyé un message entrant SMS » ou « A envoyé un message entrant WhatsApp », les étapes Canvas suivantes peuvent inclure une propriété Liquid SMS ou WhatsApp. Cela reflète le fonctionnement des propriétés d'événement dans les Canvas. De cette façon, vous pouvez tirer parti de vos messages pour enregistrer et référencer des données first-party sur les profils utilisateur et la messagerie conversationnelle.
 
 {% alert note %}
-L'éligibilité de l'audience est évaluée une seule fois à l'entrée dans le Canvas. Si un utilisateur est fusionné lors de l'entrée, l'utilisateur identifié continue à travers le Canvas et n'est pas réévalué par rapport aux critères de Segment du Canvas.
+L'éligibilité de l'audience est évaluée une seule fois à l'entrée dans le Canvas. Si un utilisateur est fusionné pendant l'entrée, l'utilisateur identifié continue à travers le Canvas et n'est pas réévalué par rapport aux critères de Segment du Canvas.
 {% endalert %}
 
 {% multi_lang_include alerts/tip_alerts.md alert='Reference properties from triggering event' %}
 
 ### Horodatages {#timestamps}
 
-Si vous utilisez des horodatages avec un [type datetime]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties) provenant d'événements qui déclenchent des Canvas basés sur une action, lesquels sont référencés via le [contexte]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties), les horodatages sont normalisés en UTC.
-
-Compte tenu de ce comportement, Braze recommande fortement d'utiliser un filtre Liquid de fuseau horaire comme dans l'exemple suivant afin de garantir que vos messages sont envoyés avec votre [fuseau horaire préféré]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters).
+Tous les horodatages dans Canvas sont normalisés en UTC. Compte tenu de ce comportement, Braze recommande fortement d'utiliser un filtre Liquid de fuseau horaire, comme dans l'exemple suivant, afin que vos messages soient envoyés dans votre [fuseau horaire préféré]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters).
 
 {% raw %}
 ```liquid
@@ -70,14 +68,14 @@ Compte tenu de ce comportement, Braze recommande fortement d'utiliser un filtre 
 
 ## Cas d'usage {#use-case}
 
-![Une étape de parcours d'action suivie d'une étape de délai et d'une étape de message pour les utilisateurs ayant ajouté un article à leur liste de souhaits, ainsi qu'un parcours pour tous les autres.]({% image_buster /assets/img_archive/canvas_entry_properties1.png %}){: style="float:right;max-width:30%;margin-left:15px;"}
+![Une étape Parcours d'action suivie d'une étape Délai et d'une étape Message pour les utilisateurs qui ont ajouté un article à leur liste de souhaits, et un parcours pour tous les autres.]({% image_buster /assets/img_archive/canvas_entry_properties1.png %}){: style="float:right;max-width:30%;margin-left:15px;"}
 
-Pour mieux comprendre les différences entre `context` et `event_properties`, considérons ce scénario dans lequel les utilisateurs entrent dans un Canvas basé sur une action s'ils effectuent l'événement personnalisé « ajouter un article à la liste de souhaits ».
+Pour mieux comprendre les différences entre `context` et `event_properties`, considérons ce scénario où les utilisateurs entrent dans un Canvas déclenché par une action lorsqu'ils effectuent l'événement personnalisé « ajouter un article à la liste de souhaits ».
 
-Le contexte est configuré dans l'étape [Planification de l'entrée]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-12-determine-your-canvas-entry-schedule) lors de la création d'un Canvas et correspond au moment où un utilisateur entre dans un Canvas. Le contexte peut également être référencé dans n'importe quelle étape de message.
+Le contexte est configuré dans l'étape [Planification d'entrée]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-12-determine-your-canvas-entry-schedule) de la création d'un Canvas et correspond au moment où un utilisateur entre dans un Canvas. Le contexte peut également être référencé dans n'importe quelle étape Message.
 
-Dans ce Canvas, nous avons un parcours utilisateur qui commence par une étape de parcours d'action pour déterminer si un utilisateur a ajouté un article à sa liste de souhaits. À partir de là, si l'utilisateur a ajouté un article, il bénéficie d'un délai avant de recevoir un message « Nouvel article dans votre liste de souhaits ! » à l'étape de message.
+Dans ce Canvas, nous avons un parcours utilisateur qui commence par une étape Parcours d'action pour déterminer si un utilisateur a ajouté un article à sa liste de souhaits. À partir de là, si l'utilisateur a ajouté un article, il passe par un délai avant de recevoir un message « Nouvel article dans votre liste de souhaits ! » de l'étape Message.
 
-La première étape de message dans un parcours utilisateur a accès aux `event_properties` personnalisées de votre étape de parcours d'action. Dans ce cas, nous pouvons inclure ``{% raw %} {{event_properties.${property_name}}} {% endraw %}`` dans cette étape de message dans le cadre du contenu de notre message. Si un utilisateur n'ajoute pas d'article à sa liste de souhaits, il emprunte le parcours « Tous les autres », ce qui signifie que les `event_properties` ne peuvent pas être référencées et reflètent une erreur de paramétrage non valide.
+La première étape Message d'un parcours utilisateur a accès aux `event_properties` personnalisées depuis votre étape Parcours d'action. Dans ce cas, nous pouvons inclure ``{% raw %} {{event_properties.${property_name}}} {% endraw %}`` dans cette étape Message dans le cadre du contenu de notre message. Si un utilisateur n'ajoute pas d'article à sa liste de souhaits, il suit le parcours Tous les autres, ce qui signifie que les `event_properties` ne peuvent pas être référencées et renvoient une erreur de paramètres invalides.
 
-Notez que vous n'aurez accès aux `event_properties` que si votre étape de message peut être retracée jusqu'à un parcours autre que « Tous les autres » dans une étape de parcours d'action. Si l'étape de message est connectée à un parcours « Tous les autres » mais peut être retracée jusqu'à une étape de parcours d'action dans le parcours utilisateur, vous avez toujours accès aux `event_properties`. Pour plus d'informations sur ces comportements, consultez [Étape de message]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step).
+Notez que vous n'aurez accès aux `event_properties` que si votre étape Message peut être retracée jusqu'à un parcours autre que Tous les autres dans une étape Parcours d'action. Si l'étape Message est connectée à un parcours Tous les autres mais peut être retracée jusqu'à une étape Parcours d'action dans le parcours utilisateur, alors vous avez également toujours accès aux `event_properties`. Pour plus d'informations sur ces comportements, consultez [Étape Message]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step).

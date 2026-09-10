@@ -14,14 +14,14 @@ tool:
 
 ## 機能の利用可能性 {#feature-availability}
 
-すべてのBraze顧客は、Google および Facebook へのオーディエンス同期にすぐにアクセスできます。アクションクレジットをご利用の顧客は、すべてのオーディエンス同期パートナーにアクセスできます。アクションクレジットをご利用でない顧客が追加のオーディエンス同期の送信先を利用するには、Audience Sync Pro を購入してください。詳細については、Brazeアカウントマネージャーにお問い合わせください。
+すべてのBrazeの顧客は、Google およびFacebookへのオーディエンス同期にすぐにアクセスできますが、アクションクレジットを利用している顧客はすべてのオーディエンス同期パートナーにアクセスできます。アクションクレジットを利用していない顧客が追加のオーディエンス同期の送信先を利用するには、Audience Sync Proを購入してください。詳細については、Brazeアカウントマネージャーにお問い合わせください。
 
 ## ユースケース {#use-cases}
 
-- 自社チャネルと有料チャネルを使用して高価値ユーザーをターゲティングし、追加の購入やエンゲージメントを促進します。
-- 高価値ユーザーの類似オーディエンスを作成し、新規ユーザー獲得のコストとコンバージョンを最適化します。
-- 他のマーケティングチャネルへの反応が低いユーザーに対して、広告でリターゲティングします。
-- 抑制オーディエンスを作成し、すでにブランドのロイヤルな消費者であるユーザーに広告が配信されないようにします。
+- 自社チャネルおよび有料チャネルを使用して高価値ユーザーをターゲティングし、追加の購入やエンゲージメントを促進する。
+- 高価値ユーザーの類似オーディエンスを作成し、新規ユーザー獲得コストを最適化してコンバージョンを向上させる。
+- 他のマーケティングチャネルへの反応が低いユーザーに広告でリターゲティングする。
+- すでにブランドのロイヤル消費者であるユーザーに広告が配信されないよう、抑制オーディエンスを作成する。
 
 ## 概要 {#overview}
 
@@ -31,108 +31,108 @@ table td {
 }
 </style>
 
-| 送信先 | オーディエンスメンバーのマッチにかかる時間 | レート制限 | 類似オーディエンスまたはアクタライク | ヒント |
+| 送信先 | オーディエンスメンバーのマッチングにかかる時間 | レート制限 | 類似オーディエンス | ヒント |
 | --- | --- | --- | --- | --- |
-| [Criteo]({{site.baseurl}}/partners/canvas_audience_sync/criteo_audience_sync) | 最大24時間 | 1分あたり250,000リクエスト。5秒ごとにバッチ処理され、自動リトライが行われます。 | はい | {::nomarkdown}<ul><li>Criteoは最大1,000件の広告オーディエンスをサポートしています。</li><li>最小オーディエンスサイズは500で、推奨は20,000以上です。</li></ul>{:/} |
-| [FacebookまたはInstagram]({{site.baseurl}}/partners/canvas_audience_sync/facebook_audience_sync) | 最大24時間 | 1時間あたり190,000広告アカウント | はい | {::nomarkdown}<ul><li>Facebookは最大500件の広告オーディエンスをサポートしています。</li><li>Facebookのオーディエンスには最低1,000人のユーザーが必要です。</li></ul>{:/} |
-| [Google 広告またはYouTube]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync) | 6〜12時間 | Googleのフィードバックに基づいて、5秒ごとにバッチ処理され自動リトライが行われます | いいえ | {::nomarkdown}<ul><li><b>カスタマーマッチ：</b>モバイル広告ID、またはメールアドレスか電話番号を使用します。</li><li>Google オーディエンスでは広告配信を開始するために最低5,000人のユーザーが必要です。</li><li>オーディエンスサイズは、最低1,000人のユーザーに達するまでゼロと表示されます。</li></ul>{:/} |
-| [LinkedIn]({{site.baseurl}}/partners/canvas_audience_sync/linkedin_audience_sync) | 48時間 | LinkedInは1秒あたり10件のクエリと1リクエストあたり100,000人のユーザーを処理します。Brazeは5秒ごとにユーザーをバッチ処理します。 | AI予測オーディエンス | {::nomarkdown}<ul><li>最小オーディエンスサイズは、位置情報ターゲティングを考慮して300メンバーです。</li><li>LinkedInのマッチ率はBrazeダッシュボードに表示されます。</li></ul>{:/} |
-| [Pinterest]({{site.baseurl}}/partners/canvas_audience_sync/pinterest_audience_sync) | 24〜48時間 | Pinterestは1秒あたり7件のクエリと1リクエストあたり1,900人のユーザーを処理します。Brazeは5秒ごとにユーザーをバッチ処理します。 | はい | Pinterestのオーディエンスには最低100人のユーザーが必要です。 |
-| [Snapchat]({{site.baseurl}}/partners/canvas_audience_sync/snapchat_audience_sync) | N/A | Snapchatは1秒あたり10件のクエリと1リクエストあたり100,000人のユーザーを処理します。Brazeは5秒ごとにユーザーをバッチ処理します。 | はい | Snapchatは最大1,000件の広告オーディエンスをサポートしています。 |
-| [The Trade Desk]({{site.baseurl}}/partners/canvas_audience_sync/trade_desk_audience_sync) | 最大24時間 | N/A | はい | {::nomarkdown}<ul><li>The Trade DeskのCRMオーディエンスには最小オーディエンスサイズの制限はありません。</li><li>The Trade Deskがサポートするオーディエンス数に制限はありません。</li><li>地域がEUに設定されたオーディエンスに同期する場合、電話番号はサポートされません。</li></ul>{:/} |
-| [TikTok]({{site.baseurl}}/partners/canvas_audience_sync/tiktok_audience_sync) | 24〜48時間 | TikTokは1秒あたり50件のクエリと1リクエストあたり10,000人のユーザーを処理します。Brazeは5秒ごとにユーザーをバッチ処理します。 | はい | {::nomarkdown}<ul><li>TikTokは最大400件の広告オーディエンスをサポートしています。</li><li>TikTokのオーディエンスでは広告配信を開始するために最低1,000人のユーザーが必要です。</li></ul>{:/} |
+| [Criteo]({{site.baseurl}}/partners/canvas_audience_sync/criteo_audience_sync) | 最大24時間 | 1分あたり250,000リクエスト。5秒ごとにバッチ処理され、自動リトライあり。 | あり | {::nomarkdown}<ul><li>Criteoは最大1,000の広告オーディエンスをサポートしています。</li><li>最小オーディエンスサイズは500で、推奨は20,000以上です。</li></ul>{:/} |
+| [FacebookまたはInstagram]({{site.baseurl}}/partners/canvas_audience_sync/facebook_audience_sync) | 最大24時間 | 1時間あたり190,000広告アカウント | あり | {::nomarkdown}<ul><li>Facebookは最大500の広告オーディエンスをサポートしています。</li><li>Facebookではオーディエンスに最低1,000人のユーザーが必要です。</li></ul>{:/} |
+| [Google 広告またはYouTube]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync) | 6〜12時間 | Googleのフィードバックに基づき、5秒ごとにバッチ処理され、自動リトライあり | なし | {::nomarkdown}<ul><li><b>カスタマーマッチ：</b>モバイル広告、またはメールアドレスもしくは電話番号を使用します。</li><li>Google オーディエンスでは広告の配信を開始するために最低5,000人のユーザーが必要です。</li><li>オーディエンスサイズは、ユーザーが最低1,000人に達するまでゼロと表示されます。</li></ul>{:/} |
+| [LinkedIn]({{site.baseurl}}/partners/canvas_audience_sync/linkedin_audience_sync) | 最大48時間 | Brazeは1リクエストあたり最大2,000人のユーザーをバッチ処理し、最大約13時間の自動リトライを行います。 | AI予測オーディエンス | {::nomarkdown}<ul><li>最小オーディエンスサイズは300メンバーで、ロケーションターゲティングが考慮されます。</li><li>LinkedInのマッチ率はBrazeダッシュボードに表示されます。</li></ul>{:/} |
+| [Pinterest]({{site.baseurl}}/partners/canvas_audience_sync/pinterest_audience_sync) | 24〜48時間 | Pinterestは1秒あたり7クエリ、1リクエストあたり1,900人のユーザーを処理します。Brazeは5秒ごとにユーザーをバッチ処理します。 | あり | Pinterestオーディエンスには最低100人のユーザーが必要です。 |
+| [Snapchat]({{site.baseurl}}/partners/canvas_audience_sync/snapchat_audience_sync) | N/A | Snapchatは1秒あたり10クエリ、1リクエストあたり100,000人のユーザーを処理します。Brazeは5秒ごとにユーザーをバッチ処理します。 | あり | Snapchatは最大1,000の広告オーディエンスをサポートしています。 |
+| [The Trade Desk]({{site.baseurl}}/partners/canvas_audience_sync/trade_desk_audience_sync) | 最大24時間 | N/A | あり | {::nomarkdown}<ul><li>The Trade DeskのCRMオーディエンスには最小オーディエンスサイズの制限はありません。</li><li>The Trade Deskがサポートするオーディエンス数に制限はありません。</li><li>EUに設定されたリージョンのオーディエンスに同期する場合、電話番号はサポートされません。</li></ul>{:/} |
+| [TikTok]({{site.baseurl}}/partners/canvas_audience_sync/tiktok_audience_sync) | 24〜48時間 | TikTokは1秒あたり50クエリ、1リクエストあたり10,000人のユーザーを処理します。Brazeは5秒ごとにユーザーをバッチ処理します。 | あり | {::nomarkdown}<ul><li>TikTokは最大400の広告オーディエンスをサポートしています。</li><li>TikTokオーディエンスでは広告の配信を開始するために最低1,000人のユーザーが必要です。</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="概要" }
 <sup>レート制限に達した場合、Brazeは13時間にわたって同期のリトライを行います。</sup>
 
 ## 仕組み {#how-it-works}
 
-GoogleやFacebookへのAudience Syncを使用するには、**テクノロジーパートナー**ページでパートナーを検索して広告アカウントを接続します。
+Google または Facebook に対してオーディエンス同期を使用するには、**テクノロジーパートナー**ページでパートナーを検索して広告アカウントを接続します。
 
-![Facebookテクノロジーパートナー。]({% image_buster /assets/img/audience_sync/facebook_partner.png %}){: style="max-width:35%;"} ![Google Adsテクノロジーパートナー。]({% image_buster /assets/img/audience_sync/google_ads_partner.png %}){: style="max-width:35%;"}
+![Facebookテクノロジーパートナー。]({% image_buster /assets/img/audience_sync/facebook_partner.png %}){: style="max-width:35%;"} ![Google 広告テクノロジーパートナー。]({% image_buster /assets/img/audience_sync/google_ads_partner.png %}){: style="max-width:35%;"}
 
-広告アカウントを接続した後、Audience Syncステップを含むキャンバスを作成できます。
+広告アカウントを接続したら、オーディエンス同期ステップを含むキャンバスを作成できます。
 
-![ユーザージャーニーにAudience Syncステップを追加するためのキャンバスコンポーネントメニュー。]({% image_buster /assets/img/audience_sync/audience_sync7.png %}){: style="max-width:75%;"}
+![ユーザージャーニーにオーディエンス同期ステップを追加するためのキャンバスコンポーネントメニュー。]({% image_buster /assets/img/audience_sync/audience_sync7.png %}){: style="max-width:75%;"}
 
 次に、オーディエンスを同期するパートナーを選択します。
 
-![Audience SyncステップでAudience Syncパートナーを選択するオプション。]({% image_buster /assets/img/audience_sync/audience_sync4.png %}){: style="max-width:85%;"}
+![オーディエンス同期ステップでオーディエンス同期パートナーを選択するオプション。]({% image_buster /assets/img/audience_sync/audience_sync4.png %}){: style="max-width:85%;"}
 
-各パートナーについて、Audience Syncステップの一部として以下を設定する必要があります。
+各パートナーについて、オーディエンス同期ステップの一部として以下を設定する必要があります。
 
 - 広告アカウント
 - オーディエンス
-- ユーザーを追加または削除するアクション
+- ユーザーの追加または削除のアクション
 - マッチするフィールド
 
-Brazeは、ユーザーがキャンバス内のAudience Syncステップに入るとすぐに同期することに注意してください。
+Brazeは、ユーザーがキャンバス内のオーディエンス同期ステップに入るとすぐに同期を実行します。
 
-各Audience Sync送信先について、Brazeが送信できるフィールドの要件はパートナーごとに異なる場合があります。詳細については、各パートナーのドキュメントを参照してください。
+オーディエンス同期の送信先ごとに、Brazeが送信できるフィールドについてパートナーの要件が異なる場合があります。詳細については、各パートナーのドキュメントを参照してください。
 
 ### Audience Sync Pro
 
-TikTok、Pinterest、Snapchat、CriteoなどのAudience Sync Proパートナーを使用するには、**テクノロジーパートナー**ページの**Audience Sync Pro**セクションで、Audience Sync Proの購入割り当てに基づいてパートナーを選択できます。
+Criteo、LinkedIn、Pinterest、Snapchat、TikTokなどのAudience Sync Proパートナーを使用するには、**テクノロジーパートナー**ページの**Audience Sync Pro**セクションで、Audience Sync Proの購入割り当てに基づいてパートナーを選択できます。
 
-![まだパートナーが選択されていないAudience Sync Pro。]({% image_buster /assets/img/audience_sync/audience_sync_pro1.png %}){: style="max-width:75%;"}
+![パートナーがまだ選択されていないAudience Sync Pro。]({% image_buster /assets/img/audience_sync/audience_sync_pro1.png %}){: style="max-width:75%;"}
 
 まず、使用するパートナーを選択します。Audience Sync Proを購入するたびに、3つのAudience Sync Pro送信先が割り当てられ、ダッシュボード内の各ワークスペースで利用できます。
 
-![Brazeに接続するパートナーを最大3つ選択するオプション。]({% image_buster /assets/img/audience_sync/audience_sync_pro2.png %}){: style="max-width:65%;"}
+![Brazeに接続する最大3つのパートナーを選択するオプション。]({% image_buster /assets/img/audience_sync/audience_sync_pro2.png %}){: style="max-width:65%;"}
 
-Audience Sync Proの送信先を選択した後、パートナータイルをクリックして、選択したパートナーの広告アカウントを接続します。
+Audience Sync Proの送信先を選択したら、パートナータイルをクリックして選択したパートナーの広告アカウントを接続します。
 
-![Audience SyncのパートナーとしてSnapchatとTikTokが選択されている例。]({% image_buster /assets/img/audience_sync/audience_sync_pro3a.png %}){: style="max-width:70%;"}
+![オーディエンス同期のパートナーとしてSnapchatとTikTokが選択されている例。]({% image_buster /assets/img/audience_sync/audience_sync_pro3a.png %}){: style="max-width:70%;"}
 
-![「Snapchatアカウント1件の接続に成功しました」というメッセージが表示されたSnapchat Audience Sync設定。]({% image_buster /assets/img/audience_sync/audience_sync_pro4.png %}){: style="max-width:70%;"}
+![「Snapchatアカウントを1つ正常に接続しました」というメッセージが表示されたSnapchatオーディエンス同期設定。]({% image_buster /assets/img/audience_sync/audience_sync_pro4.png %}){: style="max-width:70%;"}
 
-最後に、このAudience Sync Pro送信先を使用してキャンバスでAudience Syncステップを作成します。
+最後に、このAudience Sync Proの送信先を使用して、キャンバスでオーディエンス同期ステップを作成します。
 
-### バッチ処理とレイテンシー {#batching-and-latency}
+### バッチ処理とレイテンシ {#batching-and-latency}
 
-ユーザーがキャンバスのAudience Syncステップに入ると、BrazeはパートナーAPIにディスパッチする前にユーザー更新を集約するバッチ処理システムにキューイングします。バッチは以下のいずれかが発生したときに送信されます。
+ユーザーがキャンバスのオーディエンス同期ステップに入ると、Brazeはユーザーをバッチ処理システムにキューイングし、パートナーAPIにディスパッチする前にユーザーの更新を集約します。バッチは以下のいずれかが発生した時に送信されます。
 
-- **バッチがサイズ制限に達した場合。**これはパートナーによって異なります。
-  - デフォルトでは最大2,000ユーザーをサポートします
-  - Google Adsは最大10,000ユーザーをサポートします
+- **バッチがサイズの上限に達した場合。**これはパートナーによって異なります。
+  - デフォルトは最大2,000ユーザーをサポートします
+  - Google 広告は最大10,000ユーザーをサポートします
   - FacebookとTikTokは最大2,000ユーザーをサポートします
-- **バッチレイテンシータイマーが期限切れになった場合。**デフォルトは1時間ですが、パートナーごとに設定可能です。例えば、The Trade Deskは10分を使用します。
+- **バッチのレイテンシタイマーが期限切れになった場合。**デフォルトは1時間ですが、パートナーごとに設定可能です。例えば、The Trade Deskは10分を使用します。
 
-大量のキャンバスはバッチがより早く満たされるため、より早くディスパッチされる場合があります。少量のキャンバスはレイテンシータイマーが期限切れになるまで待機します。Brazeは固定のディスパッチ時間を保証しません。タイミングはバッチサイズと設定されたレイテンシーウィンドウに依存します。
+大量のキャンバスはバッチがより速く埋まるため、より早くディスパッチされる場合があります。少量のキャンバスはレイテンシタイマーが期限切れになるまで待機します。Brazeは固定のディスパッチ時間を保証しません。タイミングはバッチサイズと設定されたレイテンシウィンドウによって異なります。
 
-Brazeは監視とトラブルシューティングのために内部ログにディスパッチアクティビティを記録しますが、これらのタイムスタンプはクエリ可能なフィールドとしては公開されません。BrazeがパートナーAPIにバッチをディスパッチした後、パートナーは独自のサービスレベルアグリーメントに従ってオーディエンスの更新を処理します（通常6〜48時間）。
+Brazeはモニタリングとトラブルシューティングのために内部ログにディスパッチアクティビティを記録しますが、これらのタイムスタンプはクエリ可能なフィールドとして公開されていません。BrazeがパートナーAPIにバッチをディスパッチした後、パートナーは独自のサービスレベル契約に従ってオーディエンスの更新を処理します（通常6〜48時間）。
 
-Brazeは、個々のユーザーがマッチまたは同期されたことについてパートナーからの確認を受け取りません。パートナーの応答は受信のHTTP確認応答であり、マッチの確認ではありません。オーディエンスが追加されたことを確認するには、パートナーの広告プラットフォーム（Google Ads Audience マネージャーやMeta Business マネージャーなど）を確認してください。
+Brazeは、個々のユーザーがマッチまたは同期されたというパートナーからの確認を受け取りません。パートナーのレスポンスは受信のHTTP確認応答であり、マッチの確認ではありません。オーディエンスが正常に作成されたことを確認するには、パートナーの広告プラットフォーム（Google 広告オーディエンスマネージャーやMeta Business Managerなど）を確認してください。
 
-### Audience Syncエラーメール {#audience-sync-error-emails}
+### オーディエンス同期のエラーメール {#audience-sync-error-emails}
 
-エラーがパートナー連携全体に関連する場合（認証の問題など）、連携を接続したユーザーにメールが送信されます。そのユーザーが存在しなくなった場合、管理者がメールを受信します。
+エラーがパートナー連携全体に関連する場合（認証の問題など）、連携を接続したユーザーにメールが送信されます。そのユーザーが存在しなくなった場合は、管理者がメールを受け取ります。
 
-エラーがキャンバスのAudience Syncコンポーネントの問題に関連する場合（「オーディエンスが存在しません」など）、キャンバスを設定したユーザーにメールが送信されます。そのユーザーが存在しなくなった場合、会社の管理者にフォールバックされます。
+エラーがキャンバス内のオーディエンス同期コンポーネントの問題に関連する場合（「オーディエンスが存在しません」など）、キャンバスを設定したユーザーにメールが送信されます。そのユーザーが存在しなくなった場合は、会社の管理者にフォールバックされます。
 
-これらのメールの受信者を設定するには、カスタマーサクセスマネージャーに連絡して**通知設定**で受信者を追加してください。この設定は、連携エラーとAudience Syncコンポーネントエラーの両方をカバーします。追加した受信者は、エラーに関連付けられたユーザーに加えてこれらのメールを受信します。
+これらのメールの受信者を設定するには、カスタマーサクセスマネージャーに連絡して**通知設定**に受信者を追加してください。この設定は、連携エラーとオーディエンス同期コンポーネントエラーの両方を対象としています。追加された受信者は、エラーに関連付けられたユーザーに加えてこれらのメールを受信します。
 
 ## データプライバシーに関する考慮事項 {#data-privacy-considerations}
 
 {% alert important %}
-このドキュメントは、法的アドバイスを提供することを目的としたものではなく、法的アドバイスとして依拠することはできません。オーディエンス同期の使用は、特定の法的要件に従います。適用されるすべての法律を遵守して使用するために、法律顧問の助言を求めてください。
+このドキュメントは、法的助言を提供することを意図したものではなく、また法的助言として依拠することもできません。オーディエンス同期の使用には、特定の法的要件が適用されます。適用されるすべての法律に準拠して使用していることを確認するために、法律顧問の助言を求めてください。
 {% endalert %}
 
-広告トラッキング用のオーディエンスを構築する際、ユーザーの設定に基づいて特定のユーザーを含めるか除外し、[CCPA](https://oag.ca.gov/privacy/ccpa) における「販売または共有の拒否」権などのプライバシー法に準拠することが必要な場合があります。マーケターは、キャンバスのエントリ条件内でユーザーの適格性に関する適切なフィルターを実装する必要があります。以下のオプションが役立ちます。
+広告トラッキング用のオーディエンスを構築する際、ユーザーの設定に基づいて特定のユーザーを含めたり除外したりすることや、[CCPA](https://oag.ca.gov/privacy/ccpa)に基づく「販売または共有の拒否」権などのプライバシー法に準拠することが必要になる場合があります。マーケターは、キャンバスのエントリ条件内でユーザーの適格性に関連するフィルターを実装する必要があります。以下のオプションが役立ちます。
 
-[Braze SDKを通じてiOS IDFAを]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations)収集している場合、「広告トラッキング有効」フィルターを使用できます。値として`true`を選択すると、オプトインしたユーザーのみをオーディエンス同期の送信先に送信できます。
+[Braze SDKを通じてiOS IDFAを収集]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations)している場合、「広告トラッキング有効」フィルターを使用できます。値を`true`に設定して、オプトインしたユーザーのみをオーディエンス同期の送信先に送信します。
 
-![エントリオーディエンスが「広告トラッキング有効がtrue」に設定されたキャンバス。]({% image_buster /assets/img/audience_sync/audience_sync2.png %})
+![エントリオーディエンスが「広告トラッキング有効がtrue」のキャンバス。]({% image_buster /assets/img/audience_sync/audience_sync2.png %})
 
-`opt-ins`、`opt-outs`、`Do Not Sell Or Share`、またはその他の関連するカスタム属性を収集している場合、キャンバスのエントリ条件内にフィルターとしてこれらを含める必要があります。
+`opt-ins`、`opt-outs`、`Do Not Sell Or Share`、またはその他の関連するカスタム属性を収集している場合は、キャンバスのエントリ条件にフィルターとして含める必要があります。
 
-![エントリオーディエンスが「opted_in_marketingがtrue」に設定されたキャンバス。]({% image_buster /assets/img/audience_sync/audience_sync.png %})
+![エントリオーディエンスが「opted_in_marketingがtrueに等しい」のキャンバス。]({% image_buster /assets/img/audience_sync/audience_sync.png %})
 
-Brazeプラットフォーム内でこれらのデータ保護法に準拠する方法について詳しくは、[データ保護テクニカルアシスタンス]({{site.baseurl}}/dp-technical-assistance)を参照してください。
+Brazeプラットフォーム内でこれらのデータ保護法に準拠する方法の詳細については、[データ保護技術支援]({{site.baseurl}}/dp-technical-assistance)を参照してください。
 
 ## 広告ターゲティングに関する同意の管理 {#managing-consent-for-ad-targeting}
 
 広告主として、ユーザーの広告トラッキングまたはターゲティングに関する同意を管理する責任があります。
 
-ユーザーに広告を配信するには、適用されるすべての法律および規制、ならびに広告プラットフォームのポリシーおよび要件に準拠する必要があります。同意を得たユーザーのターゲティングおよび同期にのみBrazeを使用してください。
+ユーザーに広告を配信するには、適用されるすべての法律と規制、および広告プラットフォームのポリシーと要件を遵守する必要があります。同意を取得したユーザーに対してのみ、Brazeを使用してターゲティングと同期を行ってください。
 
-これらの広告プラットフォームのオーディエンスリストを最新の状態に保ち、同意を撤回したユーザーを削除するには、Audience Syncステップを使用して既存のオーディエンスリストからユーザーを削除するキャンバスを設定してください。
+これらの広告プラットフォームのオーディエンスリストを最新の状態に保ち、同意を撤回したユーザーを削除するには、Audience Sync ステップを使用して既存のオーディエンスリストからユーザーを削除するキャンバスを設定してください。

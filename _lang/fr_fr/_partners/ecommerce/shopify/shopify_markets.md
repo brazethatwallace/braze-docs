@@ -18,31 +18,32 @@ Shopify Markets est actuellement en bêta. Pour plus d'informations, contactez v
 
 ## Fonctionnement de l'intégration {#how-the-integration-works}
 
-Shopify Markets étend votre intégration Shopify existante. Connectez votre vitrine par défaut via le chemin d'intégration [standard]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration) ou [personnalisé (SDK)]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration), puis sélectionnez les marchés que vous souhaitez que Braze synchronise parmi les marchés configurés de votre boutique. Les intégrations existantes peuvent ajouter des marchés sans perturber les catalogues, les groupes d'abonnement ou les événements. Pour des instructions étape par étape, consultez [Configuration de Shopify Markets](#shopify-markets-setup).
+Shopify Markets étend votre intégration Shopify existante. Connectez votre boutique par défaut via le parcours d'intégration [standard]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration) ou [personnalisé (SDK)]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration), puis sélectionnez les marchés que vous souhaitez que Braze synchronise parmi les marchés configurés dans votre boutique. Les intégrations existantes peuvent ajouter des marchés sans perturber les catalogues, les groupes d'abonnement ou les événements. Pour des instructions détaillées, consultez [Configuration de Shopify Markets](#shopify-markets-setup).
 
 Shopify Markets offre les fonctionnalités suivantes :
 
-- **Profils tenant compte du marché.** L'intégration capture la locale Shopify de chaque utilisateur ainsi que les attributs standard de pays et de langue de Braze, afin que vous puissiez segmenter et déclencher par marché sans configuration personnalisée.
-- **Catalogues localisés.** Les données produits spécifiques au marché se synchronisent quotidiennement : prix, devise et disponibilité par marché, ainsi que les titres, descriptions et URL de produits traduits.
-- **Personnalisation tenant compte du marché.** Utilisez l'étiquette Liquid {% raw %}`{% shopify_market %}`{% endraw %} pour personnaliser avec les produits du catalogue de chaque marché de l'utilisateur, y compris le contenu traduit de Shopify. Vous pouvez également référencer les détails du marché, comme la devise de présentation, à partir des événements Shopify pris en charge comme `ecommerce.order_placed`.
-- **Repli sur la boutique par défaut.** Lorsqu'un utilisateur n'appartient à aucun de vos marchés connectés, Braze utilise les paramètres et produits de votre boutique par défaut, afin que chaque utilisateur reçoive un message complet et précis.
+- **Profils adaptés au marché :** L'intégration capture la locale Shopify de chaque utilisateur ainsi que les attributs standard de pays et de langue de Braze, ce qui vous permet de segmenter et de déclencher des messages par marché sans configuration personnalisée.
+- **Catalogues localisés :** Les données produit spécifiques à chaque marché sont synchronisées quotidiennement, y compris les prix et les devises, ainsi que les titres, descriptions et URL de produits traduits.
+- **Personnalisation adaptée au marché :** Utilisez l'étiquette Liquid {% raw %}`{% shopify_market %}`{% endraw %} pour personnaliser vos messages avec les produits du catalogue correspondant au marché de chaque utilisateur, y compris le contenu traduit par Shopify. Vous pouvez également référencer des détails de marché, tels que la devise de présentation, à partir d'événements Shopify pris en charge comme `ecommerce.order_placed`.
+- **Repli sur la boutique par défaut :** Lorsqu'un utilisateur n'appartient à aucun de vos marchés connectés, Braze utilise les paramètres et les produits de votre boutique par défaut, afin que chaque utilisateur reçoive un message complet et exact.
 
-Pour des exemples, consultez [Utiliser les données utilisateur Markets](#use-markets-user-data) et [Cas d'usage de catalogue tenant compte des marchés](#tutorial-show-products-and-prices-per-market).
+Pour des exemples, consultez [Utiliser les données utilisateur Markets](#use-markets-user-data) et [Tutoriel : Afficher les produits et les prix par marché](#tutorial-show-products-and-prices-per-market).
 
 ## Types de marchés Shopify pris en charge {#supported-shopify-market-types}
 
-Durant cette phase de la bêta, vous pouvez sélectionner jusqu'à 25 marchés mono-pays dans Braze, sous réserve des règles suivantes :
+Vous pouvez sélectionner jusqu'à 25 [marchés actifs à pays unique ou à plusieurs pays](https://help.shopify.com/en/manual/markets/getting-started/market-types#country-or-region-markets). Chaque pays ne peut appartenir qu'à un seul marché sélectionné.
 
-- Chaque marché sélectionné doit être un [marché mono-pays](https://help.shopify.com/en/manual/markets/getting-started/market-types#country-or-region-markets) actif. Les marchés B2B et de vente au détail ne sont pas pris en charge.
-  - Le paramètre « Utiliser les devises locales » de Shopify n'est pas pris en charge
-- Un pays ne peut appartenir qu'à un seul marché sélectionné.
-- Les marchés multi-pays ne sont pas pris en charge dans cette phase de la bêta.
+Les marchés de sous-régions, les marchés de vente au détail, les marchés B2B et les marchés de canaux ne sont pas pris en charge.
 
-Chaque marché sélectionné nécessite un catalogue de marché avec des produits actifs pour que Braze puisse prendre en charge :
+### Ce dont chaque marché a besoin {#what-each-market-needs}
 
-- La tarification spécifique au marché sur les produits, en utilisant la devise définie dans le catalogue de marché
-- La disponibilité des produits par marché
-- Les traductions de produits effectuées via l'application Shopify Translate & Adapt (comme le titre du produit ou le titre de la variante)
+Chaque marché sélectionné nécessite un catalogue de marché contenant des produits actifs. Braze lit les informations suivantes à partir de ce catalogue :
+
+| Données | Description |
+| --- | --- |
+| Prix | Définis dans le catalogue du marché, dans la devise spécifiée pour ce marché. Le paramètre « Use local currencies » de Shopify n'est pas pris en charge. |
+| Traductions | Traductions adaptées réalisées via l'application Shopify Translate & Adapt, telles que le titre du produit et le titre de la variante. Braze ne prend actuellement pas en charge les paramètres de langue spécifiques aux marchés. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Ce dont chaque marché a besoin" }
 
 ![Profil de marché Shopify pour un marché Australie.]({% image_buster /assets/img/shopify/shopify_markets_example.png %})
 
@@ -50,103 +51,186 @@ Chaque marché sélectionné nécessite un catalogue de marché avec des produit
 
 #### Général {#general}
 
-- **Une seule boutique connectée :** vous ne pouvez connecter qu'une seule boutique Shopify compatible Markets à un espace de travail Braze à la fois.
-- **Portée des locales :** les locales récupèrent les titres et descriptions de produits traduits en fonction de ce que vous avez configuré via l'application Shopify Translate & Adapt, ainsi que les URL spécifiques à la locale. Le prix, la devise et les autres champs de catalogue partagés restent identiques entre les locales au sein d'un marché. Par défaut, Braze utilise la [langue par défaut](https://help.shopify.com/en/manual/markets/languages) de chaque marché, la locale principale que Shopify attribue à ce marché. Si la prise en charge étendue des locales est activée pour votre compte, Braze synchronise les locales supplémentaires configurées pour ce marché.
+- **Un seul magasin connecté :** Vous ne pouvez connecter qu'un seul magasin Shopify compatible avec Markets à un espace de travail Braze à la fois.
+- **Portée des paramètres régionaux :** Les paramètres régionaux récupèrent les titres et descriptions de produits traduits en fonction de ce que vous avez configuré via l'application Shopify Translate & Adapt, ainsi que les URL spécifiques aux paramètres régionaux. Le prix, la devise et les autres champs partagés du catalogue restent identiques entre les paramètres régionaux au sein d'un marché. Par défaut, Braze utilise la [langue par défaut](https://help.shopify.com/en/manual/markets/languages) de chaque marché, c'est-à-dire le paramètre régional principal que Shopify attribue à ce marché. Si vous activez la prise en charge étendue des paramètres régionaux, Braze synchronise les paramètres régionaux supplémentaires configurés pour ce marché.
 
 #### Catalogue de marché {#market-catalog}
 
-- **Nouvelles vues de marché dans votre catalogue Shopify d'origine :** Markets ne crée pas de catalogues séparés. Au lieu de cela, ils sont affichés dans votre catalogue Shopify d'origine. Les données Markets sont ajoutées sous forme de nouvelles lignes de catalogue à votre catalogue Shopify.
-- **Sélections de catalogue :** jusqu'à 30 sélections de catalogue.
-- **Fréquence d'actualisation :** les données produits du catalogue de marché s'actualisent une fois par jour.
-- **Catalogues de marché avec tarification uniquement :** un catalogue de marché avec tarification uniquement définit des prix spécifiques au marché sans publier les produits sur un canal de vente. L'inventaire et la disponibilité des produits se synchronisent depuis votre catalogue de boutique par défaut, tandis que le prix reflète la liste de prix du catalogue de marché ou la tarification contextuelle.
-
-### Fonctionnalités non prises en charge {#unsupported-features}
-
-Les éléments suivants ne sont pas pris en charge dans cette bêta :
-
-- Déclencheurs de baisse de prix et de retour en stock pour les catalogues de marché
-- Double abonnement e-mail et SMS pour les groupes d'abonnement configurés par marché
-- Groupes de marchés imbriqués ou workflows de groupes de pays au-delà du modèle actuel de sélection mono-pays et multi-pays
-- Sélection de plus de 25 marchés
-- Export de catalogue pour les catalogues compatibles Markets
-- Parité complète avec la conversion en devise locale de Shopify, les règles d'arrondi et le comportement de prix le plus bas multi-catalogue lors de la navigation et du paiement
+- **Nouvelles vues de marché dans votre catalogue Shopify d'origine :** Markets ne crée pas de catalogues distincts. Au lieu de cela, Braze les affiche dans votre catalogue Shopify d'origine. Les données de marché sont ajoutées sous forme de nouvelles lignes de catalogue à votre catalogue Shopify.
+- **Sélections de catalogue :** Jusqu'à 30 sélections de catalogue.
+- **Fréquence d'actualisation :** Les données produit du catalogue de marché sont actualisées une fois par jour.
+- **Prix de marché et contenu localisé :** Les lignes de marché incluent le prix du marché et le `compare_at_price`, y compris les titres de produits et de variantes localisés ainsi que les URL de produits lorsque les traductions sont configurées via l'application Shopify Translate & Adapt.
+- **Quantité en stock :** Les lignes de marché incluent des valeurs de stock agrégées. Braze ne propose actuellement pas la possibilité de différencier le stock entre les emplacements.
+- **Baisse de prix :** Prise en charge pour les catalogues de marché. Un changement de prix dans un catalogue de marché se déclenche sur le prix de ce marché plutôt que sur le prix par défaut de votre magasin. Étant donné que les données produit du catalogue de marché sont actualisées une fois par jour, les baisses de prix sont détectées quotidiennement plutôt qu'au moment où le prix change dans Shopify.
+- **Retour en stock :** Le [retour en stock]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications) est pris en charge pour les produits de votre catalogue de magasin par défaut. Les lignes de marché ne déclenchent pas de notifications de retour en stock. Le retour en stock examine le stock total disponible pour une variante de produit dans tous les emplacements Shopify, de sorte qu'un ajout de stock dans un emplacement de vente au détail peut déclencher une notification.
 
 ## Configuration de Shopify Markets {#shopify-markets-setup}
 
-### Étape 1 : Connecter votre boutique Shopify compatible Markets {#step-1-connect-your-shopify-markets-enabled-store}
+### Si vous disposez déjà d'une intégration Shopify active {#if-you-already-have-an-active-shopify-integration}
 
-1. Connectez votre boutique en utilisant soit l'[intégration standard Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration) soit l'[intégration personnalisée Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration). Une fois votre boutique connectée, configurez Shopify Markets dans le compositeur de configuration.
-2. Complétez le flux OAuth et confirmez que Braze demande les portées Markets dans l'OAuth :
+Markets s'ajoute à votre intégration actuelle. Vous n'avez pas besoin de la déconnecter ni de reconstruire votre configuration.
+
+- Vos groupes d'abonnement deviennent vos groupes à l'échelle de la boutique et continuent de recevoir chaque abonnement, y compris les groupes supplémentaires que vous avez attribués.
+- Vos abonnés existants restent dans les groupes auxquels ils appartiennent déjà. Si vous ajoutez des groupes par pays ultérieurement, Braze n'y ajoute pas les abonnés existants.
+- Votre catalogue continue de se synchroniser. Les lignes de marché sont ajoutées à celui-ci plutôt qu'à un nouveau catalogue, et vos sélections existantes continuent de fonctionner avec vos lignes par défaut.
+- Votre boutique par défaut apparaît à côté de vos marchés sélectionnés, vous permettant d'attribuer des groupes d'abonnement et de créer des sélections de catalogue de la même manière.
+
+Si votre boutique est déjà connectée, commencez par l'[Étape 2](#step-2-select-your-market-user-data) pour en savoir plus sur chaque configuration et son fonctionnement.
+
+### Étape 1 : Connecter votre boutique Shopify avec Markets activé {#step-1-connect-your-shopify-markets-enabled-store}
+
+1. Connectez votre boutique en utilisant soit l'[intégration standard Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration), soit l'[intégration personnalisée Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration). Une fois votre boutique connectée, configurez Shopify Markets dans le compositeur de configuration.
+2. Complétez le flux OAuth et confirmez que Braze demande les portées markets dans l'OAuth :
    - `read_markets`
    - `read_publications`
    - `read_locales`
 3. Une fois l'autorisation réussie et le compositeur de configuration ouvert, sélectionnez **Begin Setup**.
 4. Activez les SDK Braze.
 
-### Étape 2 : Sélectionner votre marché et vos paramètres de données {#step-2-select-your-market-and-data-settings}
+### Étape 2 : Sélectionner les données utilisateur de votre marché {#step-2-select-your-market-user-data}
 
 1. Dans **Track Shopify Data**, sélectionnez **Sync Shopify Markets data**.
-2. Sélectionnez **Select Markets** pour choisir votre marché, et assurez-vous d'avoir choisi de suivre les événements comportementaux et les attributs utilisateur.
+2. Sélectionnez **Select Markets** pour choisir votre marché, et assurez-vous d'avoir sélectionné le suivi des événements comportementaux et des attributs utilisateur.
    - (Facultatif) Activez le remplissage historique
 
-#### Données utilisateur Markets {#markets-user-data}
+#### Données utilisateur des marchés {#markets-user-data}
 
-Pour prendre en charge Shopify Markets, Braze synchronise plus de données que les [événements et attributs standard]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#tracked-shopify-events) de l'intégration.
+Pour prendre en charge Shopify Markets, Braze synchronise des données supplémentaires au-delà des [événements et attributs standard]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#tracked-shopify-events) de l'intégration.
 
-Braze écrit ce contexte de marché supplémentaire sur chaque profil utilisateur :
+##### Attributs du profil utilisateur {#user-profile-attributes}
 
-| Type de donnée | Valeur | Source de données |
+| Attribut | Type de données | Description | Source des données |
+| --- | --- | --- | --- |
+| `shopify_locale` | Attribut personnalisé | La langue dans laquelle le client navigue sur votre boutique, comme `en` ou `fr-CA`. Elle change lorsqu'il change de langue sur la vitrine. | Locale du client Shopify |
+| `browser_language` | Attribut standard | La langue définie dans le navigateur du client. | SDK Braze |
+| `country` | Attribut standard | Le pays du client. | SDK Braze |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Attributs du profil utilisateur"}
+
+##### Propriétés d'événement de commande {#order-event-properties}
+
+| Propriété | Description | Source des données |
 | --- | --- | --- |
-| Attribut personnalisé | `shopify_locale` | Shopify |
-| Attribut standard | langue du navigateur | SDK Braze |
-| Attribut standard | pays | SDK Braze |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Type de donnée du profil utilisateur"}
+| `country` | Code pays à deux lettres du client. | L'adresse par défaut (`default_address`) du client dans Shopify, ou l'adresse de livraison (`shipping_address`) de la commande si aucune adresse par défaut n'est définie |
+| `presentment_currency` | La devise dans laquelle le client a payé, qui peut différer de la devise de votre boutique. | Devise de présentation de la commande Shopify |
+| `market_handle` | Identifiant du marché correspondant au pays du client. Vide lorsqu'aucun marché configuré ne correspond. | Braze, à partir de votre configuration de marché |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Propriétés d'événement de commande"}
 
-Braze collecte également les propriétés d'événement de commande supplémentaires suivantes pour prendre en charge le contexte des marchés :
+Ces propriétés sont ajoutées aux :
 
-| Type de donnée | Événements impactés | Nouvelles propriétés ajoutées |
-| --- | --- | --- |
-| Événements eCommerce recommandés | `ecommerce.order_placed`<br>`ecommerce.order_cancelled`<br>`ecommerce.order_refunded` | `country`, `presentment_currency`, `market_handle` |
-| Événements personnalisés | `shopify_paid_order`<br>`shopify_fulfilled_order`<br>`shopify_partially_fulfilled_order` | `country`, `presentment_currency`, `market_handle` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Type de donnée d'événement de commande"}
+- Événements eCommerce recommandés : `ecommerce.order_placed`, `ecommerce.order_cancelled`, `ecommerce.order_refunded`
+- Événements personnalisés : `shopify_paid_order`, `shopify_fulfilled_order`, `shopify_partially_fulfilled_order`
 
-Chaque propriété est dérivée des sources suivantes :
+##### Fonctionnement de ces propriétés d'événement de marché {#how-these-market-event-properties-work}
 
-| Propriété | Source de données |
+| Propriété | Fonctionnement |
 | --- | --- |
-| `country` | `default_address` du client Shopify ; si indisponible, Braze utilise `shipping_address` |
-| `presentment_currency` | Valeur monétaire de présentation Shopify |
-| `market_handle` | Marché Shopify configuré pour le pays de la commande ; défini uniquement lorsque les marchés sont configurés et que le pays correspond |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Sources de données des propriétés d'événement de commande"}
+| `market_handle` | `market_handle` est l'identifiant que vous avez donné au marché dans Shopify, comme `france`. Le même identifiant préfixe les ID de lignes de marché dans votre catalogue, comme `france_46714756268231`. Il est vide lorsque vous n'avez pas configuré de marchés, ou lorsque le pays de la commande ne correspond à aucun marché que vous avez configuré, donc vérifiez la présence d'une valeur vide avant de l'utiliser dans Liquid ou un filtre de Segment. |
+| `country` | `country` provient de l'adresse par défaut du client et utilise l'adresse de livraison (`shipping_address`) si l'adresse par défaut n'existe pas. Par exemple, un client en France qui envoie une commande au Japon conserve le marché France. |
+| Propriétés d'événement | Les propriétés d'événement sont un instantané du moment où l'événement s'est produit et ne changent pas par la suite. Si un client met à jour son adresse par défaut ultérieurement, les nouveaux événements utilisent son nouveau pays tandis que les événements passés conservent le pays avec lequel ils ont été enregistrés. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Fonctionnement des propriétés d'événement de marché"}
+
+##### Devise {#currency}
+
+Les événements Shopify de panier, de paiement et de commande pris en charge comportent deux ensembles de valeurs :
+- La devise de votre boutique dans les champs de prix et de total existants, inchangés
+- L'objet `presentment_currency` contenant les montants que le client a vus et payés
+
+Utilisez `presentment_currency` lorsque vous montrez à un client ce qu'il a payé, comme dans une confirmation de commande ou un message de panier abandonné. Utilisez les valeurs en devise de la boutique lorsque vous comparez le chiffre d'affaires entre les marchés, car elles sont déjà dans une seule devise.
+
+##### Informations produit localisées {#localized-product-information}
+
+Les événements Shopify pris en charge comportent les titres de produit et de variante dans la langue par défaut de votre boutique. Braze ne traduit pas les payloads d'événement.
+
+Les titres traduits, les descriptions et les URL de produit se trouvent dans les lignes de marché de votre catalogue. Pour afficher des informations produit localisées dans un message, recherchez le produit dans votre catalogue en utilisant l'ID du produit ou de la variante provenant de l'événement.
 
 ### Étape 3 : Gérer les utilisateurs {#step-3-manage-users}
 
 1. Sélectionnez votre type d'`external_id` dans le menu déroulant.
 2. Activez les abonnements e-mail et SMS depuis Shopify, ce qui permet à Braze de synchroniser les états d'abonnement e-mail et SMS depuis Shopify. Vous avez deux options :
-  - **Utiliser l'intégration :** Braze synchronise les états e-mail et SMS. Vous n'avez qu'à choisir les groupes d'abonnement vers lesquels ils se synchronisent.
-  - **Créer la vôtre :** pour un contrôle plus fin de la gestion des états, vous pouvez créer une intégration personnalisée en utilisant les endpoints de groupes d'abonnement Braze.
-3. Créez des groupes d'abonnement par défaut pour chaque pays associé à vos marchés synchronisés lors de la configuration.
-  - **Nouvelle intégration Shopify :** attribuez un groupe d'abonnement e-mail et SMS par défaut par pays.
-  - **Intégration Shopify existante :** le groupe par défaut actuel de votre boutique cesse de se synchroniser. Attribuez de nouveaux groupes e-mail et SMS par défaut par pays. Votre ancienne configuration ne se transfère pas automatiquement.
+   - **Utiliser l'intégration :** Braze synchronise les états e-mail et SMS. Sélectionnez les groupes d'abonnement vers lesquels ils se synchronisent.
+   - **Créer votre propre solution :** Pour un contrôle plus fin de la gestion des états, créez une intégration personnalisée en utilisant les endpoints de groupes d'abonnement de Braze.
+3. Sélectionnez les groupes d'abonnement vers lesquels le consentement Shopify se synchronise :
+   - **Groupes à l'échelle de la boutique (obligatoire) :** Sélectionnez au moins un groupe e-mail et un groupe SMS. Chaque abonnement que Braze reçoit de Shopify y est enregistré.
+   - **Groupes par pays (facultatif) :** Attribuez un ou plusieurs groupes à n'importe quel pays dans vos marchés synchronisés. Les abonnements y sont également enregistrés lorsque Braze peut déterminer le pays du client.
 
-#### Fonctionnement des abonnements et désabonnements {#how-opt-ins-and-unsubscribes-work}
+#### Fonctionnement des abonnements et des désabonnements {#how-opt-ins-and-opt-outs-work}
 
-Lors de la configuration, vous configurez des groupes d'abonnement e-mail et SMS par défaut pour chaque pays associé à vos marchés synchronisés (jusqu'à 25 pays). Cela est requis avant de pouvoir enregistrer la configuration de votre pays. Vous pouvez également attribuer des groupes d'abonnement supplémentaires par pays si vous souhaitez diriger le consentement vers plus d'une liste.
+Dans Shopify, chaque client a un état de consentement e-mail et un état de consentement SMS. Lorsque les clients s'abonnent, ils s'abonnent à votre marque, pas à un pays ou une liste.
 
-##### Le consentement s'applique à tous les pays configurés {#consent-applies-to-all-configured-countries}
+Braze enregistre chaque abonnement dans vos groupes à l'échelle de la boutique. Si vous configurez des groupes par pays et que Braze peut déterminer dans quel pays se trouve le client, l'abonnement est également enregistré dans les groupes de ce pays.
 
-Lorsque l'état de consentement d'un utilisateur change dans Shopify, Braze applique ce changement à tous les groupes d'abonnement par défaut de chaque pays liés à votre boutique connectée, pas seulement au pays spécifique de l'utilisateur :
-  - Si un utilisateur devient abonné dans Shopify, il est abonné au groupe d'abonnement e-mail ou SMS par défaut de chaque pays que vous avez configuré.
-  - Si un utilisateur se désabonne dans Shopify, il est désabonné du groupe d'abonnement e-mail ou SMS par défaut de chaque pays que vous avez configuré.
+Si vous ne configurez pas de groupes par pays, les abonnements sont enregistrés uniquement dans vos groupes à l'échelle de la boutique, ce qui correspond à la manière dont Shopify gère le consentement aujourd'hui.
 
-{% alert important %}
-Le consentement Shopify est par boutique, pas par pays. Dans Shopify, le consentement est suivi une fois pour l'e-mail et une fois pour le SMS par enregistrement client, et ne s'abonne ni ne se désabonne par pays ou par type de liste. Pour cette raison, Braze ne peut pas appliquer les changements de consentement à un seul pays ou un seul groupe d'abonnement. Un événement d'abonnement ou de désabonnement dans Shopify s'applique toujours à tous les groupes d'abonnement par défaut de vos pays configurés en même temps. <br><br> Au sein de Braze, cependant, vous pouvez avoir un contrôle plus granulaire des abonnements et désabonnements au niveau des groupes d'abonnement à mesure que les utilisateurs interagissent avec les canaux de communication.
+#### Comment Braze détermine le pays {#how-braze-determines-country}
+
+| Canal | Détermination du pays |
+| ------- | ---------------------------- |
+| E-mail   | Utilise d'abord la locale Shopify du client ; si elle n'est pas disponible, utilise l'attribut country de son profil Braze. |
+| SMS     | Utilise le pays du numéro de téléphone, tel que déterminé par les modèles de routage par pays E.164. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Détermination du pays par Braze selon le canal"}
+
+Une locale identifie un pays uniquement lorsqu'elle inclut une région, comme `fr-FR`. Une locale `fr` seule ne le permet pas.
+
+Pour le SMS, le pays provient du numéro de téléphone. L'acheteur doit être ajouté à un groupe d'abonnement capable d'envoyer des messages à ce numéro.
+
+#### Ce qui se passe lorsqu'une personne s'abonne {#what-happens-when-someone-opts-in}
+
+| Statut du pays                           | Groupes à l'échelle de la boutique | Groupes par pays                        |
+|------------------------------------------|-------------------|---------------------------------------|
+| Déterminé et configuré dans vos marchés | Abonné        | Abonné aux groupes de ce pays   |
+| Ne peut pas être déterminé                      | Abonné        | Non abonné                        |
+| Déterminé, mais non configuré dans vos marchés | Abonné    | Non abonné                        |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Résultats d'abonnement selon le statut du pays"}
+
+L'appartenance au groupe d'abonnement est basée sur les événements de consentement provenant de Shopify. Si le pays ou la locale d'un acheteur change, son appartenance au groupe ne change pas. Braze la met à jour uniquement lorsque Shopify envoie un nouvel événement de consentement, par exemple si le consentement est recueilli à nouveau auprès de l'acheteur sur Shopify après le changement de pays ou de locale.
+
+{% alert note %}
+Les groupes par pays contrôlent le consentement, pas la langue. Un pays peut avoir plus d'une langue. Les clients anglophones et francophones au Canada, `en-CA` et `fr-CA`, appartiennent au même groupe par pays. Utilisez `shopify_locale` dans vos messages pour spécifier la langue.
 {% endalert %}
 
+#### Ce qui se passe lorsqu'une personne se désabonne {#what-happens-when-someone-opts-out}
+
+Un désabonnement dans Shopify retire l'utilisateur de chaque groupe d'abonnement attribué à votre intégration Shopify. C'est identique que la personne se soit désabonnée via un site de marché ou via sa page de compte Shopify.
+
+Les groupes d'abonnement de votre espace de travail qui ne sont pas attribués à l'intégration ne sont pas affectés.
+
+#### Abonnements provenant de pays que vous n'avez pas configurés {#opt-ins-from-countries-you-havent-configured}
+
+Si un client s'abonne depuis un pays qui ne fait pas partie de vos marchés configurés, que vous ne l'ayez jamais ajouté ou que vous ayez retiré ce marché, il est abonné à vos groupes à l'échelle de la boutique. Il n'est ajouté à aucun groupe par pays.
+
+Configurer des marchés ne restreint pas les personnes auxquelles vous pouvez envoyer des messages. Si vous ne pouvez pas envoyer de messages vers un pays pour des raisons légales ou réglementaires, excluez ces utilisateurs avec un filtre de Segment ou redirigez-les vers un groupe d'abonnement distinct.
+
+{% alert tip %}
+Créez ce Segment comme une liste d'autorisation des pays que vous desservez, pas comme une liste d'exclusion de ceux que vous ne desservez pas. Les utilisateurs dont le pays n'a pas pu être déterminé n'ont aucune valeur de pays, donc une liste d'exclusion ne les détectera pas.
+{% endalert %}
+
+Pour le SMS, les autorisations par pays de chaque groupe d'abonnement contrôlent toujours la distribution. Un utilisateur dont le pays n'est pas autorisé sur le groupe ne recevra pas de messages de celui-ci.
+
+#### Les utilisateurs ne sont pas ajoutés aux groupes par pays ultérieurement {#users-arent-added-to-country-groups-later}
+
+Si Braze ne peut pas déterminer le pays d'un client lors de son abonnement, il est ajouté uniquement à vos groupes à l'échelle de la boutique. Si son pays devient connu ultérieurement, il n'est pas automatiquement ajouté aux groupes de ce pays.
+
+Lorsque vous activez Markets dans une boutique déjà intégrée, vos groupes d'abonnement existants deviennent vos groupes à l'échelle de la boutique. Les abonnés existants restent abonnés à ces groupes et ne sont pas automatiquement ajoutés aux nouveaux groupes par pays.
+
+Pour les ajouter vous-même, créez un Segment pour ces utilisateurs et abonnez-les en utilisant une étape [User Update]({{site.baseurl}}/user_update) de Canvas.
+
+#### Comptabiliser les abonnés entre les groupes {#counting-subscribers-across-groups}
+
+Un abonnement peut ajouter un utilisateur à plus d'un groupe d'abonnement, donc additionner les totaux des groupes compte la même personne plusieurs fois. Utilisez un Segment lorsque vous avez besoin d'un décompte d'abonnés uniques.
+
+#### Fonctionnement {#how-it-works}
+
+1. Un client s'abonne au SMS lors du paiement ou via un formulaire.
+2. Shopify envoie l'abonnement à Braze.
+3. Braze définit l'utilisateur comme en attente et envoie votre SMS de confirmation.
+4. Le client répond avec votre mot-clé de confirmation et devient abonné.
+5. S'il ne répond pas avant la fin de la fenêtre de confirmation, il reste en attente.
+
+Pour en savoir plus, consultez [Double abonnement]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in).
 ### Étape 4 : Synchroniser les produits {#step-4-sync-products}
 
 1. Pour synchroniser les produits au sein de votre marché, sélectionnez **Sync Shopify products and variants to Braze**.
-2. Attribuez l'**ID de catalogue** Braze et configurez tout paramètre supplémentaire.
+2. Attribuez l'ID de catalogue Braze et configurez les paramètres supplémentaires.
 
 Votre catalogue inclut une vue par marché pour les produits par défaut de votre boutique. Pour chaque produit publié sur votre marché, Braze ajoute une ligne de marché à votre catalogue existant, en plus des [champs de catalogue Shopify standard]({{site.baseurl}}/partners/ecommerce/shopify/shopify_catalogs#supported-shopify-catalog-data) déjà pris en charge. La synchronisation peut prendre quelques minutes si vous activez Shopify Markets sur une intégration existante.
 
@@ -154,76 +238,181 @@ Sur les lignes de marché, ces champs ont des valeurs spécifiques au marché :
 
 | Champ | Description |
 | --- | --- |
-| {% raw %}`market_handle`{% endraw %} | Identifie le marché pour la ligne. Les lignes du marché par défaut utilisent `default` ; les marchés supplémentaires utilisent leur identifiant (par exemple, `au`). |
-| {% raw %}`locale`{% endraw %} | Lorsque la prise en charge étendue des locales est activée, identifie la locale pour la ligne (par exemple, `fr`). |
-| {% raw %}`price`{% endraw %} | Prix spécifique au marché issu de la tarification contextuelle du marché. |
-| {% raw %}`compare_at_price`{% endraw %} | Prix comparatif spécifique au marché, ou `0` lorsque Shopify n'a pas de prix comparatif pour ce marché. |
-| {% raw %}`product_title`{% endraw %} | Titre du produit traduit lorsqu'une traduction Shopify existe pour la locale de la ligne. |
-| {% raw %}`variant_title`{% endraw %} | Titre de la variante traduit lorsqu'une traduction Shopify existe pour la locale de la ligne. |
-| {% raw %}`product_url`{% endraw %} | URL de la vitrine pour le marché et la locale lorsque les URL localisées sont activées ; sinon, il s'agit de l'URL produit `myshopify.com` par défaut. |
+| `id` | Un ID composite préfixé avec l'identifiant du marché, comme `france_46714756268231`. Les lignes par défaut conservent leurs ID d'article originaux. |
+| `market_handle` | L'identifiant que vous avez donné au marché dans Shopify, comme `france`. |
+| `locale` | La locale du marché, qui détermine la langue du contenu traduit. |
+| `price` | Prix spécifique au marché provenant de la tarification contextuelle du marché, après application des ajustements de liste de prix. |
+| `compare_at_price` | Prix comparatif spécifique au marché après ajustements. Braze retourne `0` lorsqu'aucun prix comparatif ne se résout pour ce marché, y compris lorsque la liste de prix du marché est configurée pour annuler les prix comparatifs. |
+| `product_title` et `variant_title` | Titres traduits, lorsque les traductions sont configurées via l'application Shopify Translate & Adapt. |
+| `product_url` | L'URL du produit pour ce marché. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Champs de catalogue des lignes de marché"}
 
-Les lignes de marché utilisent un `id` composite préfixé par l'identifiant du marché, comme `<market>_<variant_id>`. Lorsque la prise en charge étendue des locales est activée, l'ID inclut également la locale (par exemple, `<market>_<locale>_<variant_id>`). Vos produits par défaut conservent leurs ID d'origine.
+{% alert important %}
+`inventory_quantity` n'est pas inclus dans les lignes de marché. Il apparaît uniquement sur les lignes par défaut, où il reflète le stock total disponible pour une variante de produit à travers tous les emplacements Shopify.<br><br>Lorsque vous utilisez `compare_at_price` dans Liquid, vérifiez la valeur « 0 » avant de l'afficher ou de calculer une réduction. Un marché sans prix comparatif affiche un prix de zéro ou une réduction incorrecte.
+{% endalert %}
 
 ### Étape 5 : Activer les canaux {#step-5-activate-channels}
 
-1. (Facultatif) Choisissez d'activer ou non la **messagerie dans le navigateur**.
+1. (Facultatif) Sélectionnez si vous souhaitez activer la communication dans le navigateur.
 2. Sélectionnez **Finish Setup**.
 
-## Utiliser les données utilisateur Markets {#use-markets-user-data}
+## Utiliser les données utilisateur de Markets {#use-markets-user-data}
 
 Une fois ces attributs et propriétés présents sur les profils utilisateur, vous pouvez les utiliser pour cibler les utilisateurs par marché et personnaliser les messages.
 
 ### Cibler par marché dans la segmentation {#target-by-market-in-segmentation}
 
-Filtrez par pays, langue du navigateur ou `shopify_locale` dans les Segments et dans les critères d'entrée de Campaign ou Canvas. Par exemple, créez une audience d'utilisateurs dans un marché spécifique, ou divisez un Canvas par locale.
+Filtrez par pays, langue du navigateur ou `shopify_locale` dans les Segments et dans les critères d'entrée d'une Campaign ou d'un Canvas. Par exemple, constituez une audience d'utilisateurs sur un marché spécifique, ou divisez un Canvas par locale.
 
-### Personnaliser et déclencher avec Liquid {#personalize-and-trigger-with-liquid}
+### Déclencher et personnaliser avec Liquid {#trigger-and-personalize-with-liquid}
 
-Référencez les données directement dans vos messages.
+Référencez les données de marché dans vos messages avec ces variables Liquid.
 
-| Donnée utilisateur à référencer | Liquid à utiliser |
+#### Depuis le profil utilisateur {#from-the-user-profile}
+
+| Attribut | Liquid |
 | --- | --- |
-| La locale de l'utilisateur | {% raw %}`{{custom_attribute.${shopify_locale}}}`{% endraw %} |
-| Le pays de l'utilisateur | {% raw %}`{{${country}}}`{% endraw %} |
-| Le pays d'une commande (dans un message déclenché) | {% raw %}`{{event_properties.${country}}}`{% endraw %} |
-| Le marché d'une commande (dans un message déclenché) | {% raw %}`{{event_properties.${market_handle}}}`{% endraw %} |
-| La devise d'une commande (dans un message déclenché) | {% raw %}`{{event_properties.${presentment_currency}}}`{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Données utilisateur à référencer avec Liquid"}
+| La langue du client | {% raw %}`{{custom_attribute.${shopify_locale}}}`{% endraw %} |
+| Le pays du client | {% raw %}`{{${country}}}`{% endraw %} |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Variables Liquid du profil utilisateur Markets"}
 
-### Déclencher des messages à partir de l'activité de commande {#trigger-messages-from-order-activity}
+#### Depuis les événements de commande {#from-order-events}
 
-Les nouvelles propriétés de commande accompagnent chaque événement de commande, ce qui vous permet de déclencher un message à partir d'une commande et de personnaliser son contenu en utilisant des détails tenant compte du marché.
+| Propriété d'événement | Liquid |
+| --- | --- |
+| Le pays de la commande | {% raw %}`{{event_properties.${country}}}`{% endraw %} |
+| Le marché de la commande | {% raw %}`{{event_properties.${market_handle}}}`{% endraw %} |
+| La devise dans laquelle le client a payé | {% raw %}`{{event_properties.${metadata}.presentment_currency.code}}`{% endraw %} |
+| Le total de la commande dans cette devise | {% raw %}`{{event_properties.${metadata}.presentment_currency.<total_value>}}`{% endraw %} |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Variables Liquid des événements de commande Markets"}
 
-Une version simple dans le corps du message pourrait ressembler à :
+#### Afficher les prix dans la devise du client {#show-prices-in-the-customers-currency}
+
+Associez toujours un montant à son code de devise. Un montant affiché seul est l'erreur la plus courante dans les communications multi-marchés, car « 129.95 » signifie quelque chose de différent sur chaque marché.
+
+Utilisez le total de la commande pour les messages au niveau de la commande, comme une confirmation, et le prix du produit pour le contenu au niveau du produit, comme un panier ou une recommandation.
 
 {% raw %}
 ```liquid
-Thanks for your order! Your total: {{event_properties.${presentment_currency}}} {{event_properties.${total_value}}}
+Thanks for your order! Your total: {{event_properties.${metadata}.presentment_currency.code}}
+{{event_properties.${metadata}.presentment_currency.<total field>}}
 ```
 {% endraw %}
 
-Comme les propriétés sont sur l'événement lui-même, le message reste fidèle au marché de chaque utilisateur sans configuration supplémentaire.
+Comme ces propriétés accompagnent l'événement, le message reste exact pour le marché de chaque client sans configuration supplémentaire.
+
+#### Vérifier les valeurs vides {#check-for-empty-values}
+
+Deux valeurs ne seront pas toujours présentes, et toutes deux s'affichent incorrectement lorsqu'elles sont absentes.
+
+`market_handle` est vide lorsque le pays du client ne correspond à aucun marché configuré. Vérifiez avant de créer une branche dessus :
+
+{% raw %}
+```liquid
+{% if event_properties.${market_handle} != blank %}
+  ...
+{% endif %}
+```
+{% endraw %}
+
+`compare_at_price` renvoie `0` lorsqu'aucun prix de comparaison ne se résout pour ce marché. Vérifiez la valeur `0` avant de l'afficher ou de calculer une remise, sinon le client verra un prix barré à zéro.
+
+#### Afficher les informations produit localisées {#show-localized-product-information}
+
+Les noms de produits dans les événements sont dans la langue par défaut de votre boutique. Pour afficher des titres, descriptions ou URL de produits traduits, recherchez le produit dans votre catalogue en utilisant l'ID de produit ou de variante de l'événement. Pour un exemple, consultez le [Tutoriel : afficher les produits et les prix par marché](#tutorial-show-products-and-prices-per-market).
+
+### Déclencher des messages à partir de l'activité de commande {#trigger-messages-from-order-activity}
+
+Les propriétés de marché sont incluses avec les événements Shopify pris en charge, de sorte qu'une Campaign ou un Canvas déclenché par une commande peut les utiliser sans configuration supplémentaire. Ces événements incluent `country`, `presentment_currency` et `market_handle`.
+
+| Type d'événement | Événements |
+| --- | --- |
+| Événements eCommerce recommandés | `ecommerce.order_placed`, `ecommerce.order_cancelled`, `ecommerce.order_refunded` |
+| Événements personnalisés | `shopify_paid_order`, `shopify_fulfilled_order`, `shopify_partially_fulfilled_order` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Événements de commande Shopify Markets avec propriétés de marché"}
+
+`presentment_currency` offre la couverture la plus large par rapport aux autres. Elle est incluse avec les événements de panier, de paiement et de commande pris en charge, de sorte qu'un message de panier abandonné peut afficher le montant vu par le client même si les événements de panier ne contiennent pas `country` ou `market_handle`. Pour plus de détails, consultez [Devise](#currency).
+
+## Rapports Markets {#markets-reporting}
+
+Lorsque Markets est activé, Braze ventile le chiffre d'affaires et les performances des messages par pays.
+
+### Chiffre d'affaires par pays {#revenue-by-country}
+
+Votre rapport de chiffre d'affaires inclut une ventilation par pays en complément de la ventilation par application, à la fois sur la durée de vie et sur une période sélectionnée.
+
+Chaque commande est attribuée à un pays, et la totalité de son chiffre d'affaires est affectée à ce pays. Le pays est d'abord déterminé à partir de la commande, puis du profil de l'acheteur. Les commandes pour lesquelles aucune de ces informations n'est disponible apparaissent sous **Inconnu**.
+
+Le chiffre d'affaires est affiché en USD, comme le reste du rapport de chiffre d'affaires. Pour voir ce qu'un acheteur a réellement payé, utilisez `presentment_currency` sur l'événement de commande.
+
+### Performance par pays {#performance-by-country}
+
+Les analyses de Campaign et de Canvas incluent un tableau **Performance par pays** montrant les résultats d'un message dans chaque pays, ainsi qu'une ligne de total pour chaque pays. La devise et le chiffre d'affaires total sont agrégés à partir du champ `presentment_currency` de la commande.
+
+| Colonne | Ce qu'elle affiche |
+| --- | --- |
+| Pays | Chaque pays atteint par votre message. |
+| Devise | La devise utilisée pour le chiffre d'affaires de ce pays, agrégée à partir du champ presentment_currency. |
+| Chiffre d'affaires total | Le chiffre d'affaires attribué à ce pays. |
+| Achats | Les achats attribués à ce pays. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Détail des colonnes du tableau de performance par pays"}
+
+## Supprimer un marché {#remove-a-market}
+
+La suppression d'un marché empêche Braze de synchroniser de nouvelles données pour ses pays. Elle ne supprime pas les données que vous possédez déjà.
+
+### Groupes d'abonnement {#subscription-groups}
+
+La suppression d'un marché met à jour votre configuration des marchés. Elle ne supprime pas les groupes d'abonnement de votre espace de travail et ne retire pas les utilisateurs déjà abonnés aux groupes de pays.
+
+#### Ce qui change dans votre configuration {#what-changes-in-your-setup}
+
+- Les pays du marché supprimé n'apparaissent plus dans l'interface des marchés.
+- Braze retire les affectations de groupes d'abonnement de ces pays de votre configuration d'intégration.
+
+#### Ce qui reste identique {#what-stays-the-same}
+
+- Les groupes d'abonnement par pays restent dans votre espace de travail et demeurent disponibles pour le ciblage, mais Shopify ne synchronise plus les désinscriptions vers ces groupes. Les utilisateurs qui se désabonnent dans Shopify peuvent toujours apparaître comme abonnés dans ces groupes de pays, sauf si vous mettez à jour leur statut d'abonnement d'une autre manière, par exemple via les [endpoints de groupes d'abonnement]({{site.baseurl}}/api/endpoints/subscription_groups) ou un workflow de désinscription dans Braze.
+- Les utilisateurs déjà abonnés aux groupes de pays d'un marché supprimé restent abonnés.
+
+#### Synchronisation future du consentement {#future-consent-sync}
+
+- Les nouveaux abonnements des acheteurs dans les pays supprimés sont synchronisés uniquement vers vos groupes à l'échelle du magasin, de la même manière que les [abonnements provenant de pays que vous n'avez pas configurés](#opt-ins-from-countries-you-havent-configured).
+- Braze ne synchronise plus les nouveaux abonnements ni les désinscriptions vers les groupes de pays des pays supprimés.
+- Les groupes d'abonnement à l'échelle du magasin continuent de recevoir les mises à jour de consentement.
+
+### Données utilisateur {#user-data}
+
+- Les attributs déjà présents sur le profil d'un utilisateur, y compris `shopify_locale` et `country`, ne changent pas.
+- Le `market_handle` dans les nouveaux événements de commande n'est plus disponible.
+- Les filtres de Segment par marché Shopify pour les marchés supprimés ne sont plus disponibles.
+- Les références Liquid à un marché supprimé ne sont plus disponibles.
+
+### Catalogues {#catalogs}
+
+- Les lignes de marché pour ce marché cessent de s'actualiser et sont retirées de votre catalogue.
+- Les sélections de catalogue basées sur ces lignes de marché cessent de renvoyer des produits. Mettez-les à jour ou supprimez-les avant votre prochain envoi.
+- Vos lignes par défaut, ainsi que les sélections basées sur celles-ci, ne sont pas affectées.
 
 ## Tutoriel : Afficher les produits et les prix par marché {#tutorial-show-products-and-prices-per-market}
 
-Utilisez un catalogue tenant compte des marchés pour créer un seul message qui affiche à chaque utilisateur les produits et les prix de son propre marché.
+Utilisez un catalogue compatible avec les marchés pour créer un seul message qui montre à chaque utilisateur les produits et les prix de son propre marché.
 
 1. Créez une sélection qui utilise les données de marchés.
 2. Référencez la sélection dans un message avec Liquid.
 
 Vous pouvez utiliser un marché fixe lorsqu'un message cible un marché spécifique.
 
-### Étape 1 : Créer une sélection en utilisant les données de marchés {#step-1-create-a-selection-using-markets-data}
+### Étape 1 : Créer une sélection à partir des données de marchés {#step-1-create-a-selection-using-markets-data}
 
-Les [sélections]({{site.baseurl}}/catalog_selections) sont des ensembles de produits organisés que vous référencez dans les messages. Pour les catalogues Shopify avec des marchés synchronisés, la section **Filter settings** inclut une zone **Market scope** qui limite les données produits à un marché ou les personnalise par utilisateur.
+Les [sélections]({{site.baseurl}}/catalog_selections) sont des ensembles de produits que vous référencez dans vos messages. Pour les catalogues Shopify avec des marchés synchronisés, la section **Filter settings** inclut une zone **Market scope** qui limite les données produit à un seul marché ou les personnalise par utilisateur.
 
 1. Accédez à votre catalogue Shopify et ouvrez l'onglet **Selections**.
 2. Sélectionnez **Create Selection**, puis nommez la sélection, ajoutez une description facultative et définissez une limite de résultats.
-3. Dans **Filter settings**, sous **Market scope**, utilisez le menu déroulant **Market** pour choisir comment la sélection résout les produits spécifiques au marché :
-   - **Personalized :** chaque destinataire voit les produits et les prix du marché correspondant à l'attribut `country` de son profil.
-   - **A synced market :** sélectionnez un marché par nom pour fixer la sélection sur les produits et les prix de ce marché. Utilisez cette option lorsqu'un message cible un seul marché.
-4. Terminez tout critère de filtre supplémentaire, puis enregistrez la sélection.
+3. Dans **Filter settings**, sous **Market scope**, choisissez comment la sélection résout les produits spécifiques au marché dans le menu déroulant **Market** :
+   - **Personalized :** Chaque destinataire voit les produits et les prix du marché correspondant à l'attribut `country` de son profil.
+   - **A synced market :** Sélectionnez un marché par nom pour associer la sélection aux produits et prix de ce marché. Utilisez cette option lorsqu'un message cible un seul marché.
+4. Terminez les éventuels critères de filtre supplémentaires, puis enregistrez la sélection.
 5. Dans **Preview for user**, sélectionnez un utilisateur pour voir ce que la sélection renvoie pour ce profil. Les sélections qui utilisent **Personalized** ne peuvent être prévisualisées qu'après avoir sélectionné un utilisateur.
 
 | Cible | Filtre |
@@ -236,7 +425,7 @@ Les [sélections]({{site.baseurl}}/catalog_selections) sont des ensembles de pro
 Si vous ne spécifiez pas de marché, Braze utilise vos produits par défaut.
 {% endalert %}
 
-### Étape 2 : Ajouter des sélections de catalogue tenant compte des marchés aux messages {#step-2-add-market-aware-catalog-selections-to-messages}
+### Étape 2 : Ajouter des sélections de catalogue compatibles avec les marchés aux messages {#step-2-add-market-aware-catalog-selections-to-messages}
 
 Pour servir à chaque utilisateur les produits de son propre marché dans un seul message, créez une sélection avec ce filtre :
 
@@ -246,9 +435,9 @@ Pour servir à chaque utilisateur les produits de son propre marché dans un seu
 | `default_products` | `market_handle` | equals | `default` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Nom de la sélection et filtres associés"}
 
-Au moment de l'envoi, Braze remplace {% raw %}`{{shopify_market.handle}}`{% endraw %} par le marché de chaque utilisateur, de sorte que `market_products` donne à chacun les bons produits. `default_products` est le repli pour les utilisateurs sans marché correspondant.
+Au moment de l'envoi, Braze remplace {% raw %}`{{shopify_market.handle}}`{% endraw %} par le marché de chaque utilisateur, de sorte que `market_products` fournit à chacun les bons produits. `default_products` sert de solution de repli pour les utilisateurs sans marché correspondant.
 
-Référencez votre sélection dans votre message avec l'étiquette {% raw %}`{% shopify_market %}`{% endraw %} :
+Référencez votre sélection dans votre message avec la balise {% raw %}`{% shopify_market %}`{% endraw %} :
 
 {% raw %}
 ```liquid
@@ -268,7 +457,8 @@ Référencez votre sélection dans votre message avec l'étiquette {% raw %}`{% 
 {% endraw %}
 
 - Placez {% raw %}`{% shopify_market %}`{% endraw %} avant {% raw %}`{% catalog_selection_items %}`{% endraw %} afin que le marché de l'utilisateur soit défini avant l'exécution de la sélection.
-- Remplacez `<your_catalog_name>` par votre catalogue, et utilisez vos propres noms de sélection s'ils diffèrent.
-- La vérification {% raw %}`{{shopify_market.handle}}`{% endraw %} dirige les utilisateurs sans marché correspondant vers `default_products`, afin qu'ils reçoivent quand même des produits au lieu d'un message vide.
+- Remplacez `<your_catalog_name>` par le nom de votre catalogue, et utilisez vos propres noms de sélection s'ils diffèrent.
+- La vérification de {% raw %}`{{shopify_market.handle}}`{% endraw %} redirige les utilisateurs sans marché correspondant vers `default_products`, de sorte qu'ils reçoivent tout de même des produits au lieu d'un message vide.
+- Lorsque vous utilisez `compare_at_price` dans Liquid, vérifiez la valeur « 0 » avant de l'afficher ou de calculer une remise. Un marché sans prix comparatif affiche un prix de zéro ou produit une remise incorrecte.
 
 Prévisualisez en tant qu'utilisateur de votre marché pour confirmer que le message affiche les produits, les prix et les titres traduits de ce marché.

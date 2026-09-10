@@ -18,7 +18,7 @@ Desde la pestaña **Campaign Analytics**, puedes ver tus informes en una serie d
 
 ### Intervalo de fechas {#time-range}
 
-De forma predeterminada, el intervalo de tiempo para **Campaign Analytics** mostrará los últimos 90 días desde el momento actual. Esto significa que si la campaña se lanzó hace más de 90 días, los análisis mostrarán "0" para el intervalo de tiempo indicado. Para ver todos los análisis de campañas anteriores, ajusta el intervalo de tiempo del informe.
+De forma predeterminada, el intervalo de tiempo para **Campaign Analytics** mostrará los últimos 90 días desde el momento actual. Esto significa que si la campaña se lanzó hace más de 90 días, los análisis se mostrarán como "0" para el intervalo de tiempo indicado. Para ver todos los análisis de campañas anteriores, ajusta el intervalo de tiempo del informe.
 
 ### Detalles de la campaña {#campaign-details}
 
@@ -64,7 +64,7 @@ El canal de WhatsApp incluye la tasa de lectura. Esta métrica solo se entrega a
 {% elsif include.channel == "in-app message" %}
 ![Panel Campaign Details con un resumen de las métricas utilizadas para determinar el rendimiento de la campaña.]({% image_buster /assets/img/campaign_details_iam.png %})
 
-En Canvas, verás el rendimiento de los mensajes dentro de la aplicación mapeado en el Canvas que has creado. Puedes utilizar el panel de control de la parte superior de la página para borrar otros tipos de mensajería (canales) y ver solo los mensajes dentro de la aplicación en tu Canvas.
+En Canvas, verás el rendimiento de los mensajes dentro de la aplicación mapeado en el Canvas que has creado. Puedes utilizar el panel de control en la parte superior de la página para borrar otros tipos de mensajería (canales) y ver solo los mensajes dentro de la aplicación en tu Canvas.
 
 ![Una opción para seleccionar el canal, con la casilla de verificación de mensaje dentro de la aplicación seleccionada.]({% image_buster /assets/img/in-app_message_canvas_reporting.png %})
 
@@ -123,40 +123,40 @@ El número de actualizaciones de la campaña por parte de otros miembros de tu e
 <!--
 ### Message Performance
 
-The **Message Performance** panel outlines how well your message has performed across various dimensions. The metrics in this panel vary depending on your chosen messaging channel, and whether or not you are running a multivariate test. You can click on the <i class="fa fa-eye vista previa-icon"></i> **vista previa** icon to view your message for each variant or channel.
+The **Message Performance** panel outlines how well your message has performed across various dimensions. The metrics in this panel vary depending on your chosen messaging channel, and whether or not you are running a multivariate test. You can click on the <i class="fa fa-eye preview-icon"></i> **Preview** icon to view your message for each variant or channel.
 -->
 {% if include.channel == "Content Card" %}
 ### Rendimiento de la tarjeta de contenido {#content-card-performance}
 
-El panel **Content Card Performance** muestra el rendimiento de tu mensaje en varias dimensiones. Las métricas de este panel varían en función del canal de mensajería elegido y de si estás realizando o no una prueba multivariante. Puedes hacer clic en el icono <i class="fa fa-eye vista previa-icon"></i> **vista previa** para ver tu mensaje para cada variante o canal.
+El panel **Content Card Performance** muestra el rendimiento de tu mensaje en varias dimensiones. Las métricas de este panel varían en función del canal de mensajería elegido y de si estás realizando o no una prueba multivariante. Puedes hacer clic en el icono <i class="fa fa-eye preview-icon"></i> **Preview** para ver tu mensaje para cada variante o canal.
 
 ![Análisis del rendimiento de los mensajes de las tarjetas de contenido]({% image_buster /assets/img/cc-message-performance.png %})
 
 {% elsif include.channel == "email" %}
 ### Rendimiento del correo electrónico {#email-performance}
 
-El panel **Email Performance** muestra el rendimiento de tu mensaje en varias dimensiones. Las métricas de este panel varían en función del canal de mensajería elegido y de si estás realizando o no una prueba multivariante. Puedes seleccionar el icono <i class="fa fa-eye vista previa-icon"></i> **vista previa** para ver tu mensaje para cada variante o canal.
+El panel **Email Performance** muestra el rendimiento de tu mensaje en varias dimensiones. Las métricas de este panel varían en función del canal de mensajería elegido y de si estás realizando o no una prueba multivariante. Puedes seleccionar el icono <i class="fa fa-eye preview-icon"></i> **Preview** para ver tu mensaje para cada variante o canal.
 
 ![Análisis del rendimiento de los mensajes de correo electrónico]({% image_buster /assets/img_archive/email_message_performance.png %})
 
 {% elsif include.channel == "in-app message" %}
 ### Rendimiento de los mensajes dentro de la aplicación {#in-app-message-performance}
 
-El panel **In-App Message Performance** muestra el rendimiento de tu mensaje en varias dimensiones. Las métricas de este panel varían en función del canal de mensajería elegido y de si estás realizando o no una prueba multivariante. Puedes hacer clic en el icono <i class="fa fa-eye vista previa-icon"></i> **vista previa** para ver tu mensaje para cada variante o canal.
+El panel **In-App Message Performance** muestra el rendimiento de tu mensaje en varias dimensiones. Las métricas de este panel varían en función del canal de mensajería elegido y de si estás realizando o no una prueba multivariante. Puedes hacer clic en el icono <i class="fa fa-eye preview-icon"></i> **Preview** para ver tu mensaje para cada variante o canal.
 
 ![Análisis del rendimiento de los mensajes dentro de la aplicación]({% image_buster /assets/img_archive/iam_message_performance.png %})
 
 {% elsif include.channel == "push" %}
 ### Rendimiento de push {#push-performance}
 
-El panel **Push Performance** muestra el rendimiento de tu mensaje en varias dimensiones. Las métricas de este panel varían en función del canal de mensajería elegido y de si estás realizando o no una prueba multivariante. Puedes hacer clic en el icono <i class="fa fa-eye vista previa-icon"></i> **vista previa** para ver tu mensaje para cada variante o canal.
+El panel **Push Performance** muestra el rendimiento de tu mensaje en varias dimensiones. Las métricas de este panel varían en función del canal de mensajería elegido y de si estás realizando o no una prueba multivariante. Puedes hacer clic en el icono <i class="fa fa-eye preview-icon"></i> **Preview** para ver tu mensaje para cada variante o canal.
 
 ![Análisis del rendimiento de los mensajes push]({% image_buster /assets/img_archive/push_message_performance.png %})
 
 {% elsif include.channel == "SMS" %}
 ### Rendimiento de SMS/MMS/RCS {#smsmmsrcs-performance}
 
-El panel **SMS/MMS/RCS Performance** muestra el rendimiento de tu mensaje en varias dimensiones. Las métricas de este panel varían en función del canal de mensajería elegido y de si estás realizando o no una prueba multivariante. Puedes hacer clic en el icono <i class="fa fa-eye vista previa-icon"></i> **vista previa** para ver tu mensaje para cada variante o canal.
+El panel **SMS/MMS/RCS Performance** muestra el rendimiento de tu mensaje en varias dimensiones. Las métricas de este panel varían en función del canal de mensajería elegido y de si estás realizando o no una prueba multivariante. Puedes hacer clic en el icono <i class="fa fa-eye preview-icon"></i> **Preview** para ver tu mensaje para cada variante o canal.
 
 ![Panel de rendimiento de SMS/MMS/RCS que incluye una tabla de métricas para un grupo de control, la variante 1 y la variante 2.]({% image_buster /assets/img_archive/sms_message_performance.png %})
 
@@ -170,19 +170,19 @@ El panel **Banner Performance** muestra el rendimiento de tu mensaje en varias d
 {% elsif include.channel == "KakaoTalk" %}
 ### Rendimiento de KakaoTalk {#kakaotalk-performance}
 
-El panel **KakaoTalk Performance** muestra el rendimiento de tu mensaje en varias dimensiones. Las métricas de este panel varían en función del canal de mensajería elegido y de si estás realizando o no una prueba multivariante. Puedes hacer clic en el icono <i class="fa fa-eye vista previa-icon"></i> **vista previa** para ver tu mensaje para cada variante o canal.
+El panel **KakaoTalk Performance** muestra el rendimiento de tu mensaje en varias dimensiones. Las métricas de este panel varían en función del canal de mensajería elegido y de si estás realizando o no una prueba multivariante. Puedes hacer clic en el icono <i class="fa fa-eye preview-icon"></i> **Preview** para ver tu mensaje para cada variante o canal.
 
 {% elsif include.channel == "webhook" %}
 ### Rendimiento del webhook {#webhook-performance}
 
-El panel **Webhook Performance** muestra el rendimiento de tu mensaje en varias dimensiones. Las métricas de este panel varían en función del canal de mensajería elegido y de si estás realizando o no una prueba multivariante. Puedes hacer clic en el icono <i class="fa fa-eye vista previa-icon"></i> **vista previa** para ver tu mensaje para cada variante o canal.
+El panel **Webhook Performance** muestra el rendimiento de tu mensaje en varias dimensiones. Las métricas de este panel varían en función del canal de mensajería elegido y de si estás realizando o no una prueba multivariante. Puedes hacer clic en el icono <i class="fa fa-eye preview-icon"></i> **Preview** para ver tu mensaje para cada variante o canal.
 
 ![Panel de rendimiento de webhooks que incluye una tabla de métricas para un grupo de control y la variante 1.]({% image_buster /assets/img/webhook_message_performance.png %})
 
 {% elsif include.channel == "whatsapp" %}
 ### Rendimiento de WhatsApp {#whatsapp-performance}
 
-El panel **WhatsApp Performance** muestra el rendimiento de tu mensaje en varias dimensiones. Las métricas de este panel varían en función del canal de mensajería elegido y de si estás realizando o no una prueba multivariante. Puedes hacer clic en el icono <i class="fa fa-eye vista previa-icon"></i> **vista previa** para ver tu mensaje para cada variante o canal.
+El panel **WhatsApp Performance** muestra el rendimiento de tu mensaje en varias dimensiones. Las métricas de este panel varían en función del canal de mensajería elegido y de si estás realizando o no una prueba multivariante. Puedes hacer clic en el icono <i class="fa fa-eye preview-icon"></i> **Preview** para ver tu mensaje para cada variante o canal.
 
 ![Panel de rendimiento de WhatsApp que incluye una tabla de métricas para la variante 1.]({% image_buster /assets/img/whatsapp_message_performance.png %})
 
@@ -201,7 +201,7 @@ Si quieres simplificar la vista, haz clic en <i class="fas fa-plus"></i> **Add/R
 
 #### Mapas de calor {#heatmaps}
 
-Con los mapas de calor, puedes ver el éxito de los distintos enlaces de una misma campaña de correo electrónico. En la sección **Message Analytics**, ve al panel **Email Performance**. Selecciona **vista previa & Heatmap** para ver una vista previa de tu campaña de correo electrónico y el mapa de calor. También puedes seleccionar el hipervínculo del nombre de la variante para ver el mapa de calor.
+Con los mapas de calor, puedes ver el éxito de los distintos enlaces de una misma campaña de correo electrónico. En la sección **Message Analytics**, ve al panel **Email Performance**. Selecciona **Preview & Heatmap** para ver una vista previa de tu campaña de correo electrónico y el mapa de calor. También puedes seleccionar el hipervínculo en el nombre de la variante para ver el mapa de calor.
 
 {% alert note %}
 Los análisis de campaña muestran datos de clics para un máximo de 100 URL únicas por variante, ordenadas por clics totales. Las URL se agrupan por su forma normalizada, que no incluye parámetros de consulta. Si una variante tiene más de 100 URL normalizadas únicas, solo se muestran las 100 principales por número de clics. Los datos de clics de las URL que superan este límite siguen existiendo, pero no aparecerán en el panel ni en el mapa de calor. Cuando el aliasing de enlaces está habilitado, los clics se rastrean por ID de enlace en lugar de por URL sin procesar, lo que normalmente da como resultado menos entradas únicas y hace que sea menos probable alcanzar este límite.
@@ -213,7 +213,7 @@ En esta vista, puedes usar la opción **Show Heatmap** para obtener una vista vi
 Si los enlaces utilizan Liquid para URL dinámicas, las URL en las que se hizo clic pueden no coincidir lo suficiente con el enlace renderizado en el mensaje como para que el mapa de calor asocie los clics con ese enlace, por lo que esos enlaces podrían no aparecer en el mapa de calor. Para atribuir los datos de clics a los enlaces con plantillas en el mapa de calor, utiliza el [aliasing de enlaces]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing). Para obtener una imagen completa, utiliza los datos de clics del panel **Link Table by Total Clicks**.
 {% endalert %}
 
-![Ejemplo de la página vista previa & Heatmap que incluye una campaña de correo electrónico y un panel con ejemplos de alias de enlaces con su total de clics.]({% image_buster /assets/img_archive/email_heatmap_example.png %})
+![Ejemplo de la página Preview & Heatmap que incluye una campaña de correo electrónico y un panel con ejemplos de alias de enlaces con sus clics totales.]({% image_buster /assets/img_archive/email_heatmap_example.png %})
 
 ##### Clics de cancelación de suscripción en el mapa de calor frente a análisis de campaña {#heatmap-unsubscribe-clicks-versus-campaign-analytics}
 
@@ -358,7 +358,7 @@ Para obtener las definiciones completas de todas las métricas de banners, consu
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#primary-conversions">Primary Conversions</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or conversión primaria Event' %}</td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or Primary Conversion Event' %}</td>
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-daily-impressions">Unique Daily Impressions</a></td>
@@ -379,7 +379,7 @@ Para obtener las definiciones completas de todas las métricas de banners, consu
 
 Hay algunas métricas disponibles que cubren la visibilidad de tu mensaje. Esto incluye _Unique Daily Impressions_ e _Unique Impressions_. Veamos algunos escenarios de ejemplo para comprender mejor estas métricas.
 
-Supongamos que ves un banner hoy, luego ves el mismo banner mañana y de nuevo pasado mañana: se te contará como _Unique Daily Impression_ tres veces. Sin embargo, solo se te contabilizará una _Unique Impression_.
+Supongamos que ves un banner hoy, luego ves el mismo banner mañana, y de nuevo pasado mañana: se te contará como _Unique Daily Impression_ tres veces. Sin embargo, solo se te contabilizará una _Unique Impression_.
 
 Como otro ejemplo, supongamos que ves cinco _Unique Impressions_ en una campaña de banners. Esto significa que solo los dispositivos de cinco usuarios realizaron todos los pasos siguientes:
 
@@ -524,7 +524,7 @@ Algunos productos de seguridad de correo electrónico siguen los enlaces para bu
 
 Un aplazamiento se produce cuando un correo electrónico no se entrega inmediatamente, pero Braze reintenta el envío a través de tu ESP después de este fallo de entrega temporal para maximizar las posibilidades de entrega exitosa antes de que se detengan los intentos para esa campaña específica. SendGrid y SparkPost reintentan durante un máximo de 72 horas; Amazon SES reintenta durante un máximo de 14 horas. Las razones típicas de los aplazamientos incluyen la limitación de la tasa de volumen de correo electrónico basada en la reputación por parte del proveedor del buzón, problemas temporales de conectividad o errores de DNS.
 
-Los _aplazamientos_ difieren de los _rebotes blandos_. Si no se entregó correctamente ningún correo electrónico durante este periodo de reintento, Braze enviará un evento de rebote blando por cada intento de envío de campaña. Antes del 25 de febrero de 2025, estos reintentos se contabilizaban como múltiples rebotes blandos para 1 envío de campaña.
+Los _aplazamientos_ difieren de los _rebotes blandos_. Si no se entregó correctamente ningún correo electrónico durante este periodo de reintento, Braze enviará un evento de rebote blando por cada intento de envío de campaña. Antes del 25 de febrero de 2025, estos reintentos se contabilizaban como múltiples rebotes blandos para un envío de campaña.
 
 Ten en cuenta que los _aplazamientos_ actualmente solo están disponibles utilizando las características de Currents o Braze Snowflake (como el generador de consultas, SQL Segment, Snowflake Data Sharing). {% multi_lang_include product_feedback_cta.md context="gap" feature="Deferrals in campaign or Canvas analytics" %}
 
@@ -532,11 +532,11 @@ Ten en cuenta que los _aplazamientos_ actualmente solo están disponibles utiliz
 
 Esta estadística utiliza un modelo de análisis propio creado por Braze para reconstruir una estimación de la tasa de apertura única de la campaña como si las aperturas automáticas no existieran. Aunque recibimos etiquetas de *Machine Opens* en algunos eventos de apertura de los remitentes de correo electrónico, estas etiquetas a menudo pueden etiquetar aperturas reales como aperturas automáticas. En otras palabras, las *Other Opens* son probablemente una subestimación de las aperturas reales (por usuarios reales). En su lugar, Braze utiliza los datos de clics de cada campaña para deducir la tasa a la que los humanos reales abrieron el mensaje. Esto compensa varios mecanismos de apertura automática, incluido el MPP de Apple.
 
-La _Estimated Real Open Rate_ se calcula 24 horas después del inicio del envío del correo electrónico y se recalcula cada 72 horas a partir de entonces.
+Braze evalúa periódicamente la _Estimated Real Open Rate_ después de que una campaña haya enviado suficientes correos electrónicos. Tras una evaluación, Braze puede reevaluar la métrica una vez pasadas al menos 72 horas, incluso si el volumen de envío de la campaña no ha cambiado. Las reevaluaciones adicionales requieren un aumento en el volumen de envío.
 
-Dado que esta métrica se recalcula de forma continua, el valor de la _Estimated Real Open Rate_ puede cambiar con el tiempo a medida que se reciben nuevas señales de interacción (como aperturas y clics) y se incorporan al modelo. En la práctica, la _Estimated Real Open Rate_ puede seguir actualizándose diariamente mientras la campaña permanezca activa.
+Braze evalúa inicialmente hasta 10 000 correos electrónicos entregados por variante, pero alcanzar ese volumen no garantiza una estimación. Cada variante también necesita suficientes clics cualificados de destinatarios con *Machine Opens* y de destinatarios sin *Machine Opens*.
 
-Normalmente se necesitan unos 10 000 correos electrónicos entregados para que la estadística se calcule correctamente, aunque ese número puede variar en función de la tasa de clics. Si no se puede calcular la estadística, la columna muestra "--".
+Si la actividad de clics cualificados sigue siendo insuficiente, la columna muestra "--". Cuando Braze reevalúa la variante, los clics cualificados adicionales pueden producir una estimación.
 
 ###### Consideraciones {#considerations}
 
@@ -564,7 +564,7 @@ En última instancia, una vez que un correo electrónico sale de nuestros servid
 Aquí tienes algunas métricas clave de los mensajes dentro de la aplicación que puedes ver en tus análisis. Para ver las definiciones completas de todas las métricas de mensajes dentro de la aplicación utilizadas en Braze, consulta nuestro [Glosario de métricas de informes]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
 {% alert note %}
-Los informes sobre _Button 1 Clicks_ y _Button 2 Clicks_ solo funcionan cuando especificas el **Identifier for Reporting** como "0" y "1" respectivamente en el mensaje dentro de la aplicación.
+Los informes de _Button 1 Clicks_ y _Button 2 Clicks_ solo funcionan cuando especificas el **Identifier for Reporting** como "0" y "1" respectivamente en el mensaje dentro de la aplicación.
 
 ![El campo "Identifier for Reporting" con el valor "0".]({% image_buster /assets/img/identifier_for_reporting.png %}){: style="max-width:50%;"}
 {% endalert %}
@@ -907,7 +907,7 @@ Se puede acceder a métricas adicionales a través del [panel del administrador 
 
 ### Rendimiento histórico {#historical-performance}
 
-El panel **Historical Performance** te permite ver las métricas del panel **Message Performance** como un gráfico a lo largo del tiempo. Utiliza los filtros de la parte superior del panel para modificar las estadísticas y los canales que aparecen en el gráfico. El intervalo de tiempo de este gráfico siempre reflejará el intervalo de tiempo especificado en la parte superior de la página.
+El panel **Historical Performance** te permite ver las métricas del panel **Message Performance** como un gráfico a lo largo del tiempo. Utiliza los filtros en la parte superior del panel para modificar las estadísticas y los canales que aparecen en el gráfico. El intervalo de tiempo de este gráfico siempre reflejará el intervalo de tiempo especificado en la parte superior de la página.
 
 Para obtener un desglose día a día, haz clic en el menú hamburguesa <i class="fas fa-bars"></i> y selecciona **Download CSV** para recibir una exportación CSV del informe.
 
@@ -929,7 +929,7 @@ El panel **Keyword Responses** te muestra una cronología de las palabras clave 
 
 ![Panel de respuestas a palabras clave SMS/MMS/RCS a nivel de campaña que incluye un gráfico lineal de la distribución de palabras clave a lo largo del tiempo y una sección de categorías de palabras clave con casillas de verificación seleccionadas para adhesión voluntaria, cancelación de suscripción, ayuda, otros, más y asesoramiento.]({% image_buster /assets/img/sms/keyword_responses.png %})
 
-Aquí también puedes ver la distribución de la respuesta de cada categoría de palabras clave para determinar los próximos pasos para [reorientar]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns) y [crear un segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) cómodamente.
+Aquí también puedes ver la distribución de la respuesta de cada categoría de palabras clave para determinar los próximos pasos de [reorientación]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns) y [crear un segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) cómodamente.
 
 ![Una tabla con columnas para categoría de palabras clave, distribución de respuestas y reorientación, donde se te ofrece la opción de crear un segmento con la categoría de palabras clave.]({% image_buster /assets/img/sms/keyword_segments.png %})
 
@@ -979,7 +979,7 @@ Los mensajes entrantes se truncan a partir de 1600 caracteres.
 
 ## Informe de retención {#retention-report}
 
-Los informes de retención muestran las tasas a las que tus usuarios han realizado un evento de retención seleccionado a lo largo de períodos de tiempo en una campaña específica{% if include.channel != "banner" %} o Canvas{% endif %}. Para más información, consulta [Informes de retención]({{site.baseurl}}/user_guide/analytics/reports/retention_reports).
+Los informes de retención muestran las tasas a las que tus usuarios han realizado un evento de retención seleccionado a lo largo de períodos de tiempo en una campaña{% if include.channel != "banner" %} o Canvas{% endif %} específica. Para más información, consulta [Informes de retención]({{site.baseurl}}/user_guide/analytics/reports/retention_reports).
 
 ## Informe de embudo {#funnel-report}
 

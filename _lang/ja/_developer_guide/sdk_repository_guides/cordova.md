@@ -17,21 +17,22 @@ Braze Cordova SDKは、Brazeのメッセージング、分析、ユーザーエ�
 - [Brazeユーザーガイド](https://www.braze.com/docs/user_guide/introduction/)
 - [Braze開発者ガイド](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=cordova)
 
-## 最低バージョン要件 {#minimum-version-requirements}
+## 最小バージョン要件 {#minimum-version-requirements}
 
-| Braze プラグイン | Cordova Android | Cordova iOS |
+以下の表は、Braze Cordova SDKでサポートされている最小バージョンを示しています。
+
+| Brazeプラグイン | Cordova Android | Cordova iOS |
 | ------------ | --------------- | ----------- |
 | 10.0.0+      | >= 13.0.0       | >= 5.0.0    |
 | 2.31.0+      | >= 12.0.0       | >= 5.0.0    |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="最低バージョン要件" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="最小バージョン要件" }
 
-このSDKは、基盤となるBrazeネイティブSDKの要件も継承します。以下のリンク先にあるAndroidおよびSwift SDKの要件リストも必ず確認してください。
-* [Android SDKの要件](https://github.com/braze-inc/braze-android-sdk?tab=readme-ov-file#version-information)
-* [Swift SDKの要件](https://github.com/braze-inc/braze-swift-sdk?tab=readme-ov-file#version-information)
+このSDKは、基盤となるBrazeネイティブSDKの要件も継承します。[braze-inc/braze-android-sdk](https://github.com/braze-inc/braze-android-sdk)および[braze-inc/braze-swift-sdk](https://github.com/braze-inc/braze-swift-sdk)で定義されているバージョンサポート情報も必ず遵守してください。
 
 ## SDKのインストール {#installing-the-sdk}
-{% alert warning %}
-Braze Cordova SDKは、以下の方法でのみ追加してください。他の方法でインストールしようとすると、セキュリティ上の問題につながる可能性があります。
+
+{% alert important %}
+Braze Cordova SDKは、以下の方法のみを使用して追加してください。他の方法を使用すると、セキュリティリスクが発生する可能性があります。
 {% endalert %}
 ``` text
 # To use the base SDK functionality, install using the `master` branch.

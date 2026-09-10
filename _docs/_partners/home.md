@@ -140,11 +140,13 @@ Braze Alloys is Braze's technology partner program. Partners extend the Braze pl
 
 ## G
 
+- [Globalization Partners International]({{site.baseurl}}/partners/message_personalization/localization/gpi)
 - [Google Audience Sync]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync)
 - [Google Cloud Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/google_cloud_storage_for_currents)
 - [Google Gemini]({{site.baseurl}}/partners/ai_model_providers/google_gemini)
 - [GRAVTY®]({{site.baseurl}}/partners/data_and_analytics/loyalty/lji)
 - [GrowthLoop]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/growthloop)
+- [GrowSurf]({{site.baseurl}}/partners/message_personalization/referrals/growsurf)
 
 </div>
 

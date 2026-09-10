@@ -17,7 +17,7 @@ Vous pouvez animer la conversation avec des messages de suivi. Operator se souvi
 
 ## Prérequis {#prerequisites}
 
-Operator dispose des mêmes permissions que vous, ce qui signifie que certaines actions nécessitent la permission correspondante pour cette surface. Par exemple, la génération d'une image nécessite la permission *Modifier les ressources de la bibliothèque multimédia*. Si vous ne voyez pas de point d'entrée, vérifiez vos permissions auprès de votre administrateur. Pour plus d'informations, consultez la [Liste des permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
+Operator dispose des mêmes autorisations que vous, de sorte que certaines actions nécessitent l'autorisation correspondante pour cette surface. Par exemple, la génération d'une image nécessite l'autorisation *Modifier les ressources de la bibliothèque multimédia*. Si vous ne voyez pas de point d'entrée, vérifiez vos autorisations auprès de votre administrateur. Pour en savoir plus, consultez la [Liste des autorisations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
 
 ## Naviguer dans le tableau de bord {#navigate-the-dashboard}
 
@@ -285,7 +285,17 @@ Operator s'intègre à OpenAI pour générer des résultats. Pour en savoir plus
 
 ## Étapes suivantes {#next-steps}
 
-- [Premiers pas avec Operator]({{site.baseurl}}/user_guide/brazeai/operator) : accédez à Operator et utilisez-le
-- [Bibliothèque de prompts]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library) : parcourez des exemples de prompts prêts à l'emploi
-- [Vérifier les actions]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions) : vérifiez et approuvez les modifications proposées par Operator
-- [Résolution des problèmes]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting) : consultez les problèmes courants et leurs solutions
+{% article_tiles %}
+- name: Premiers pas avec Operator
+  link: /docs/user_guide/brazeai/operator
+  description: Accédez à Operator et utilisez-le dans le tableau de bord de Braze.
+- name: Bibliothèque de prompts
+  link: /docs/user_guide/brazeai/operator/prompt_library
+  description: Parcourez des exemples de prompts prêts à l'emploi.
+- name: Vérifier les actions
+  link: /docs/user_guide/brazeai/operator/reviewing_actions
+  description: Vérifiez et approuvez les modifications proposées par Operator.
+- name: Résolution des problèmes
+  link: /docs/user_guide/brazeai/operator/troubleshooting
+  description: Consultez les problèmes courants et leurs solutions.
+{% endarticle_tiles %}

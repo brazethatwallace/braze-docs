@@ -15,11 +15,11 @@ description: "Durchsuchen Sie Braze-Technologie-Partner (Alloys) und Integration
 
 ### Wie finde ich eine Braze-Technologie-Partnerintegration? {#how-do-i-find-a-braze-technology-partner-integration}
 
-Durchsuchen Sie die alphabetische Liste auf dieser Seite oder springen Sie zu einer Buchstabenüberschrift, um einen Partner nach Namen zu finden. Jeder Eintrag verlinkt zum jeweiligen Braze-Integrationsartikel des Partners.
+Durchsuchen Sie die alphabetische Liste auf dieser Seite oder springen Sie zu einem Buchstaben, um einen Partner nach Name zu finden. Jeder Eintrag verlinkt zum jeweiligen Braze-Integrationsartikel des Partners.
 
 ### Was ist Braze Alloys? {#what-is-braze-alloys}
 
-Braze Alloys ist das Technologie-Partnerprogramm von Braze. Partner erweitern die Braze-Plattform um ergänzende Funktionen für Daten, Inhalte, Attribution und Orchestrierung, die in diesem Hub dokumentiert sind.
+Braze Alloys ist das Technologie-Partnerprogramm von Braze. Partner erweitern die Braze-Plattform um ergänzende Daten-, Content-, Attribution- und Orchestrierungsfunktionen, die in diesem Hub dokumentiert sind.
 
 <div class="partners-az-list" markdown="1">
 
@@ -140,11 +140,13 @@ Braze Alloys ist das Technologie-Partnerprogramm von Braze. Partner erweitern di
 
 ## G
 
+- [Globalization Partners International]({{site.baseurl}}/partners/message_personalization/localization/gpi)
 - [Google Audience Sync]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync)
 - [Google Cloud Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/google_cloud_storage_for_currents)
 - [Google Gemini]({{site.baseurl}}/partners/ai_model_providers/google_gemini)
 - [GRAVTY®]({{site.baseurl}}/partners/data_and_analytics/loyalty/lji)
 - [GrowthLoop]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/growthloop)
+- [GrowSurf]({{site.baseurl}}/partners/message_personalization/referrals/growsurf)
 
 </div>
 
@@ -410,12 +412,12 @@ Eine vollständige, durchsuchbare und filterbare Liste aller Braze-Technologie-P
 
 ## Fehlerbehebung bei Partnerverbindungen {#troubleshooting-partner-connections}
 
-Wenn die Integration eine Einrichtung auf der Braze-Seite erfordert, melden Sie sich in Ihrem Braze-Dashboard an und navigieren Sie zu **Partnerintegrationen** > **Technologie-Partner**.
+Wenn die Integration eine Einrichtung auf Braze-Seite erfordert, melden Sie sich in Ihrem Braze-Dashboard an und navigieren Sie zu **Partnerintegrationen** > **Technologie-Partner**.
 
 {% alert note %}
-Vollständig partnereigene Integrationen sind hier möglicherweise nicht aufgeführt. Lesen Sie die partnerspezifische Dokumentation, um die Zuständigkeit für die Integration und die Konfigurationsschritte zu überprüfen.
+Integrationen, die vollständig vom Partner verwaltet werden, sind hier möglicherweise nicht aufgeführt. Lesen Sie die partnerspezifische Dokumentation, um die Zuständigkeit für die Integration und die Konfigurationsschritte zu überprüfen.
 {% endalert %}
 
-Wenn Sie für einen Partner in Braze **Ungültige Zugangsdaten** sehen, die Integration im Dashboard des Partners aber korrekt aussieht, trennen Sie die Integration auf der Technologie-Partnerseite und verbinden Sie sie erneut. Bestätigen Sie API-Schlüssel, OAuth-Token und Berechtigungen auf der Partnerseite.
+Wenn in Braze **Ungültige Zugangsdaten** für einen Partner angezeigt werden, die Integration im Dashboard des Partners jedoch korrekt aussieht, trennen Sie die Integration auf der Technologie-Partnerseite und verbinden Sie sie erneut. Bestätigen Sie API-Schlüssel, OAuth-Token und Berechtigungen auf der Partnerseite.
 
-Einige externe Dashboards (z. B. Tools zur Zustellbarkeits- oder Posteingangsüberwachung) können einen anderen Verbindungs- oder Verifizierungsstatus anzeigen als die Braze-Technologie-Partnerseite. Verwenden Sie die Partner-Kachel in Braze für den Verbindungsstatus, auf den sich Braze für Synchronisierung und Versand stützt.
+Einige externe Dashboards (z. B. Tools zur Zustellbarkeits- oder Posteingangs-Überwachung) können einen anderen Verbindungs- oder Verifizierungsstatus anzeigen als die Braze-Technologie-Partnerseite. Verwenden Sie die Partner-Kachel in Braze für den Verbindungsstatus, auf den Braze sich für Synchronisierung und Versand stützt.

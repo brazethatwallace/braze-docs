@@ -35,7 +35,7 @@ Para usar esse endpoint, você precisará de um token SCIM. Você usará a Origi
 
 | Parâmetro | Obrigatório | Tipo de dados | Descrição |
 |---|---|---|---|
-| `id` | Obrigatório | String | A ID do recurso do usuário. Este parâmetro é retornado pelos métodos `POST` `/scim/v2/Users/` ou `GET` `/scim/v2/Users?filter=userName eq "user@example.com"`. |
+| `id` | Obrigatório | String | O ID do recurso do usuário. Esse parâmetro é retornado pelos métodos `POST` `/scim/v2/Users/` ou `GET` `/scim/v2/Users?filter=userName eq "user@example.com"`. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de caminho" }
 
 ## Corpo da solicitação {#request-body}
@@ -43,7 +43,7 @@ Para usar esse endpoint, você precisará de um token SCIM. Você usará a Origi
 ```http
 Content-Type: application/json
 X-Request-Origin: YOUR-REQUEST-ORIGIN-HERE
-Authorization: Bearer YOUR-REST-API-KEY
+Authorization: Bearer YOUR-SCIM-TOKEN-HERE
 ```
 
 ## Exemplo de solicitação {#example-request}
@@ -56,14 +56,17 @@ curl --location --request DELETE 'https://rest.iad-01.braze.com/scim/v2/Users/df
 
 ## Resposta {#response}
 
-### Exemplo de resposta de erro {#example-error-response}
+### Exemplo de resposta bem-sucedida {#example-success-response}
+
+Quando o usuário é excluído permanentemente, o endpoint retorna:
 
 ```http
-HTTP/1.1 204 Not Found
-Content-Type: text/html; charset=UTF-8
+HTTP/1.1 204 No Content
 ```
 
-Se um desenvolvedor com essa ID não existir na Braze, o endpoint responderá com:
+### Exemplos de resposta de erro {#example-error-responses}
+
+Se um desenvolvedor com esse ID não existir na Braze, o endpoint responderá com:
 ```http
 HTTP/1.1 404 Not Found
 Content-Type: text/html; charset=UTF-8
@@ -74,4 +77,18 @@ Content-Type: text/html; charset=UTF-8
     "status": 404
 }
 ```
+
+Se você tentar excluir o último usuário restante da empresa, o endpoint retornará uma resposta `500 Internal Server Error` e não excluirá o usuário:
+
+```http
+HTTP/1.1 500 Internal Server Error
+Content-Type: application/json
+
+{
+    "schemas": ["urn:ietf:params:scim:api:messages:2.0:Error"],
+    "detail": "Failed to delete user",
+    "status": 500
+}
+```
+
 {% endapi %}

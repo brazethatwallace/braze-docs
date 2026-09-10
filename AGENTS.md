@@ -31,12 +31,13 @@ For the full reference — descriptions, when-to-use guidance, and invocation sy
 | [`tam-solutions`](.github/skills/tam-solutions/SKILL.md) | Converting TAM solution assets into public User Guide example articles |
 | [`slack-to-docs`](.github/skills/slack-to-docs/SKILL.md) | Mining SME Slack channels for source-verified doc PRs with dedup and thread citations |
 | [`audit-page-seo`](.github/skills/audit-page-seo/SKILL.md) | SEO/AEO page scoring, link fix tables, and pilot recommendation packets for `_docs/` |
+| [`release-notes-community-post`](.github/skills/release-notes-community-post/SKILL.md) | Drafting a Braze Community announcement from the latest or specified release notes |
 
 ## How to invoke (Cursor)
 
 - **Routine `_docs/` edits:** Describe the task; no tag required. The repo bootstrap rule points agents at `braze-docs`.
 - **Verification:** Invoke **`/reference-repos`** from chat, or ask to “verify against source.” Open [`braze-workspace.code-workspace`](braze-workspace.code-workspace) so `platform` and SDK repos are sibling folders.
-- **Heavy workflows:** Invoke from chat once (for example `/redirect-management`, `/support-analyzer`, `/salesforce-migration`, `/docs-discrepancies`, `/slack-to-docs`, `image-curator`, `/image-pruner`, `/screenshot-pii-audit`, `/spell-check`, `/create-pr`).
+- **Heavy workflows:** Invoke from chat once (for example `/redirect-management`, `/support-analyzer`, `/salesforce-migration`, `/docs-discrepancies`, `/slack-to-docs`, `image-curator`, `/image-pruner`, `/screenshot-pii-audit`, `/spell-check`, `/create-pr`, `/release-notes-community-post`).
 
 Inside `SKILL.md` files and agent rules, cross-reference other skills with `braze-docs:skill-name` or relative links — not `@` or `/`. See [CAPABILITIES.md](CAPABILITIES.md#cross-referencing-skills-in-instructions).
 

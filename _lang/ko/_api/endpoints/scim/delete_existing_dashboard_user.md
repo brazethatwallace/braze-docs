@@ -43,7 +43,7 @@ description: "이 문서에서는 대시보드 사용자 계정 제거 Braze 엔
 ```http
 Content-Type: application/json
 X-Request-Origin: YOUR-REQUEST-ORIGIN-HERE
-Authorization: Bearer YOUR-REST-API-KEY
+Authorization: Bearer YOUR-SCIM-TOKEN-HERE
 ```
 
 ## 요청 예시 {#example-request}
@@ -56,14 +56,17 @@ curl --location --request DELETE 'https://rest.iad-01.braze.com/scim/v2/Users/df
 
 ## 응답 {#response}
 
-### 오류 응답 예시 {#example-error-response}
+### 성공 응답 예시 {#example-success-response}
+
+사용자가 영구적으로 삭제되면 엔드포인트는 다음을 반환합니다:
 
 ```http
-HTTP/1.1 204 Not Found
-Content-Type: text/html; charset=UTF-8
+HTTP/1.1 204 No Content
 ```
 
-이 ID를 가진 개발자가 Braze에 존재하지 않는 경우 엔드포인트는 다음과 같이 응답합니다:
+### 오류 응답 예시 {#example-error-responses}
+
+해당 ID를 가진 개발자가 Braze에 존재하지 않는 경우 엔드포인트는 다음과 같이 응답합니다:
 ```http
 HTTP/1.1 404 Not Found
 Content-Type: text/html; charset=UTF-8
@@ -74,4 +77,18 @@ Content-Type: text/html; charset=UTF-8
     "status": 404
 }
 ```
+
+마지막 남은 회사 사용자를 삭제하려고 하면 엔드포인트는 `500 Internal Server Error` 응답을 반환하며 사용자를 삭제하지 않습니다:
+
+```http
+HTTP/1.1 500 Internal Server Error
+Content-Type: application/json
+
+{
+    "schemas": ["urn:ietf:params:scim:api:messages:2.0:Error"],
+    "detail": "Failed to delete user",
+    "status": 500
+}
+```
+
 {% endapi %}

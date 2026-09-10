@@ -14,7 +14,7 @@ description: "Cet article de référence traite de l'utilisation des Teams Braze
 
 Les Teams peuvent être constituées en fonction de la localisation des clients, de la langue et d'attributs personnalisés, de sorte que les membres et les non-membres d'une équipe aient un accès différent aux fonctionnalités d'envoi de messages et aux données clients. Des filtres et des étiquettes d'équipe peuvent être attribués à différents outils d'engagement. Il n'y a aucune limite au nombre d'équipes que vous pouvez créer dans votre espace de travail.
 
-L'option Teams n'est pas disponible sur tous les contrats Braze. Pour accéder à cette fonctionnalité, contactez votre gestionnaire de compte Braze ou [contactez-nous](mailto:success@braze.com) pour une consultation.
+L'option Teams n'est pas disponible sur tous les contrats Braze. La page **Internal Teams** n'apparaît que lorsque la fonctionnalité Teams est activée pour votre entreprise. Pour créer ou modifier des équipes, les utilisateurs doivent disposer de l'autorisation « Edit Teams ». Pour activer Teams, contactez votre gestionnaire de compte Braze ou [contactez-nous](mailto:success@braze.com) pour une consultation.
 
 ## En quoi les Teams diffèrent-elles des ensembles d'autorisations et des rôles ? {#how-do-teams-differ-from-permission-sets-and-roles}
 
@@ -22,7 +22,7 @@ L'option Teams n'est pas disponible sur tous les contrats Braze. Pour accéder �
 
 ## Créer des Teams {#creating-teams}
 
-Allez dans **Paramètres** > **Équipes internes** et sélectionnez <i class="fas fa-plus"></i> **Ajouter une équipe**.
+Allez dans **Paramètres** > **Équipes internes** et sélectionnez <i class="fas fa-plus"></i> **Ajouter une équipe**. Vous devez disposer de l'autorisation d'espace de travail **Modifier les équipes** pour créer une équipe.
 
 ![Fenêtre permettant d'ajouter une nouvelle équipe.]({% image_buster /assets/img_archive/adding_a_team.png %})
 
@@ -32,17 +32,17 @@ Si une équipe est définie par un attribut personnalisé, une langue ou un pays
 
 ## Assigner des utilisateurs à des Teams {#assign-users-to-teams}
 
-Les administrateurs Braze et les utilisateurs à accès limité disposant de l'autorisation au niveau de l'entreprise « Can Manage Company Settings » peuvent attribuer des autorisations au niveau de l'équipe à un utilisateur de l'entreprise disposant d'un accès limité. Lorsqu'ils sont assignés à une Team, les utilisateurs de l'entreprise sont limités à la lecture ou à l'écriture des données disponibles pour leurs Teams spécifiques, telles que la langue de l'utilisateur, l'emplacement ou l'attribut personnalisé, tels que définis lors de la création de la Team.
+Les administrateurs Braze et les utilisateurs à accès limité disposant de l'autorisation au niveau de l'entreprise « Can Manage Company Settings » peuvent attribuer des autorisations au niveau de l'équipe à un utilisateur de l'entreprise disposant d'un accès limité. Lorsqu'ils sont assignés à une équipe, les utilisateurs de l'entreprise sont limités à la lecture ou à l'écriture des données disponibles pour leurs équipes respectives, telles que la langue de l'utilisateur, l'emplacement ou l'attribut personnalisé, selon la définition établie lors de la création de l'équipe.
 
-### Limiter les autorisations d'un utilisateur de l'entreprise sans supprimer l'utilisateur {#limit-company-user-permissions-without-deleting-a-user}
+### Limiter les autorisations d'un utilisateur de l'entreprise sans supprimer le compte {#limit-company-user-permissions-without-deleting-a-user}
 
 Pour empêcher un utilisateur de l'entreprise de se connecter tout en préservant son compte, [suspendez l'utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users#suspending-company-users). La suspension place le compte dans un état inactif où l'utilisateur ne peut pas se connecter.
 
-Si l'utilisateur doit pouvoir continuer à se connecter avec des capacités limitées, accédez à **Paramètres** > **Utilisateurs de l'entreprise**, sélectionnez l'utilisateur et modifiez ses autorisations. Supprimez les autorisations au niveau de l'espace de travail pour les Campaigns, les Canvas, les Segments et les données utilisateur, et ne laissez qu'un accès minimal, par exemple « View Media Library Assets ». Pour plus d'informations, consultez [Modifier les autorisations d'un utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#edit-a-users-permissions).
+Si l'utilisateur doit pouvoir continuer à se connecter avec des capacités limitées, accédez à **Paramètres** > **Paramètres de l'entreprise** > **Gestion des utilisateurs** > **Utilisateurs de l'entreprise**, sélectionnez l'utilisateur et modifiez ses autorisations. Supprimez les autorisations au niveau de l'espace de travail pour les Campaigns, les Canvas, les Segments et les données utilisateur, et ne conservez qu'un accès minimal, par exemple « View Media Library Assets ». Pour plus d'informations, consultez [Modifier les autorisations d'un utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#edit-a-users-permissions).
 
-Les autorisations de Team fonctionnent en complément des autorisations de l'espace de travail. Si vous assignez l'utilisateur à une Team, n'accordez que les autorisations minimales au niveau de l'équipe dont il a besoin, et n'accordez pas d'autorisations pour les Campaigns, les Canvas, les Segments ou les profils utilisateur. L'utilisateur reste dans l'espace de travail et peut se connecter, mais il ne peut pas effectuer la plupart des actions de communication ou d'audience.
+Les autorisations d'équipe s'ajoutent aux autorisations de l'espace de travail. Si vous assignez l'utilisateur à une équipe, accordez uniquement les autorisations au niveau de l'équipe dont il a besoin au minimum, et n'accordez pas d'autorisations pour les Campaigns, les Canvas, les Segments ou les profils utilisateur. L'utilisateur reste dans l'espace de travail et peut se connecter, mais il ne peut pas effectuer la plupart des actions de communication ou d'audience.
 
-Pour assigner un utilisateur à une Team, accédez à **Paramètres** > **Utilisateurs de l'entreprise** et sélectionnez l'utilisateur que vous souhaitez ajouter à votre Team.
+Pour assigner un utilisateur à une équipe, accédez à **Paramètres** > **Paramètres de l'entreprise** > **Gestion des utilisateurs** > **Utilisateurs de l'entreprise** et sélectionnez un utilisateur que vous souhaitez ajouter à votre équipe.
 
 Effectuez ensuite les étapes suivantes :
 
@@ -51,14 +51,14 @@ Effectuez ensuite les étapes suivantes :
 ![Autorisations au niveau de l'espace de travail avec l'ensemble d'autorisations Banner Template.]({% image_buster /assets/img/team_level_permissions.png %})
 
 {: start="2"}
-2. Sélectionnez **+ Add team-level permissions**, puis sélectionnez la **Team** à laquelle vous souhaitez ajouter cet utilisateur.
+2. Sélectionnez **+ Add team-level permissions**, puis sélectionnez l'équipe (**Team**) à laquelle vous souhaitez ajouter cet utilisateur.
 3. Attribuez des autorisations spécifiques depuis la section des autorisations **Team**.
 
 ![Autorisations de modèle de page de destination au niveau de l'équipe.]({% image_buster /assets/img/teams.png %})
 
-### Autorisations disponibles au niveau de la Team {#available-team-level-permissions}
+### Autorisations disponibles au niveau de l'équipe {#available-team-level-permissions}
 
-Voici toutes les autorisations disponibles que vous pouvez attribuer au niveau de la Team. Les autorisations non répertoriées ici ne sont accordées qu'au niveau de l'espace de travail, et ces autorisations apparaîtront sous la forme « -- » dans la colonne des autorisations **Teams**.
+Voici toutes les autorisations disponibles que vous pouvez attribuer au niveau de l'équipe. Toutes les autorisations non répertoriées ici ne sont accordées qu'au niveau de l'espace de travail, et ces autorisations apparaîtront sous la forme « -- » dans la colonne des autorisations **Teams**.
 
 - View Campaigns
 - Edit Campaigns
@@ -102,7 +102,7 @@ Voici toutes les autorisations disponibles que vous pouvez attribuer au niveau d
 - Edit Dashboard Reports
 - Delete Dashboard Reports
 
-Pour consulter les descriptions de ce que chaque autorisation utilisateur inclut et comment les utiliser, consultez notre section [Autorisations utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
+Pour consulter les descriptions de chaque autorisation utilisateur et savoir comment les utiliser, consultez notre section [Autorisations utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 
 ## Attribuer des étiquettes d'équipe {#tags-and-filters}
 
@@ -150,7 +150,7 @@ Dans ce scénario, Michelle est toujours membre de l'équipe Development, mais e
 
 ![Autorisations personnalisées avec une autorisation au niveau de l'espace de travail et 15 autorisations basées sur l'équipe.]({% image_buster /assets/img_archive/scenario2.png %})
 
-Comme Michelle dispose de l'autorisation au niveau de l'espace de travail « Accéder aux Campaigns, Canvas, cartes, Content Blocks, indicateurs de fonctionnalité, Segments, bibliothèque multimédia et centres de préférences », elle peut voir et attribuer d'autres filtres d'équipe à la campagne qu'elle crée.
+Comme Michelle dispose d'autorisations au niveau de l'espace de travail telles que « View Campaigns » et « Edit Campaigns », elle peut voir et attribuer d'autres filtres d'équipe à la campagne qu'elle crée.
 
 ![Menu déroulant des étiquettes d'équipe de la campagne avec plusieurs étiquettes d'équipe.]({% image_buster /assets/img_archive/team_permissions_scenario2.gif %})
 
@@ -161,19 +161,19 @@ Comme dans le premier scénario, Michelle doit ajouter l'étiquette d'équipe De
 
 ## Tester avec Teams {#test-with-teams}
 
-Un cas d'usage possible pour Teams est de créer un système d'approbation basé sur Teams pour tester et lancer du contenu dans un environnement de production.
+Un cas d'usage possible pour Teams consiste à créer un système d'approbation basé sur Teams pour tester et lancer du contenu dans un environnement de production.
 
-Pour ce faire, créez une équipe « Développement » qui n'a accès qu'aux utilisateurs test. Vous pouvez limiter une équipe à l'accès aux seuls utilisateurs test si vos utilisateurs test sont identifiables par un attribut personnalisé. Ensuite, ajoutez l'attribut personnalisé comme définition lors de la création ou de la modification de l'équipe (voir la section précédente [Créer des Teams](#creating-Teams)). Vos approbateurs doivent avoir accès à tous les utilisateurs.
+Pour ce faire, créez une équipe « Développement » qui n'a accès qu'aux utilisateurs test. Vous pouvez limiter une équipe à n'accéder qu'aux utilisateurs test si vos utilisateurs test sont identifiables par un attribut personnalisé. Ensuite, ajoutez l'attribut personnalisé comme définition lors de la création ou de la modification de l'équipe (voir la section précédente [Créer des équipes](#creating-Teams)). Vos approbateurs doivent avoir accès à tous les utilisateurs.
 
 Le processus général serait le suivant :
 
 1. L'équipe de développement crée une Campaign et ajoute le tag d'équipe « Développement ».
 2. L'équipe de développement lance la Campaign auprès des utilisateurs test.
-3. L'équipe d'approbation valide la conception locale de la Campaign, la promeut et la lance. Pour le lancement, l'équipe d'approbation remplace le tag d'équipe « Développement » par « [All Teams] » et relance la Campaign.
+3. L'équipe d'approbation valide la conception locale de la Campaign, la promeut et la lance. Pour la lancer, l'équipe d'approbation remplace le tag d'équipe « Développement » par « [All Teams] » et relance la Campaign.
 
 Pour les modifications apportées aux Campaigns actives :
 
-1. L'équipe de développement clone la Campaign en cours, ajoute le tag d'équipe « Développement » et enregistre.
+1. L'équipe de développement clone la Campaign en cours d'exécution, ajoute le tag d'équipe « Développement » et enregistre.
 2. L'équipe de développement effectue les modifications et les partage avec l'équipe d'approbation.
 3. L'équipe d'approbation supprime le tag d'équipe « Développement », met en pause la Campaign précédente et lance la nouvelle Campaign.
 

@@ -2,7 +2,10 @@
 
 ## Prerequisites
 
-You'll need ["View PII" permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) to use Query Builder, since it allows direct access to some customer data.
+To use Query Builder, you'll need the following [permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/):
+
+- **View PII:** Query Builder allows direct access to some customer data.
+- **View Dashboard Reports:** This permission is required for non-admin users to view Query Builder in the dashboard.
 
 ## Using the Query Builder
 

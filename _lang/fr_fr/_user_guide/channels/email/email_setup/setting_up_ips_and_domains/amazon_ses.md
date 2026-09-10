@@ -11,18 +11,18 @@ channel: email
 
 > Braze utilise Amazon Simple Email Service (SES) comme fournisseur de services d'e-mail marketing par défaut lors de la configuration initiale des e-mails. Si la configuration requise ne correspond pas aux fonctionnalités d'Amazon SES, contactez l'assistance Braze pour avoir la possibilité de finaliser la configuration dans SparkPost ou SendGrid.
 
-## Conditions préalables {#prerequisites}
+## Prérequis {#prerequisites}
 
-Avant de commencer la configuration d'Amazon SES, vérifiez que vous disposez des éléments suivants :
+Avant de commencer la configuration d'Amazon SES, confirmez que vous disposez des éléments suivants :
 
 - Noms de domaines d'envoi
-- Noms de pools d'IP (tels que marketing, transaction, staging)
+- Noms de pools d'IP (tels que marketing, transactionnel, staging)
 - Le nombre d'adresses IP pour chaque pool d'IP
-- Le suffixe souhaité pour les domaines de suivi des clics (tel que « clicks » ou « click », « links » ou « link »)
+- Suffixe préféré pour les domaines de suivi des clics (tel que « clicks » ou « click », « links » ou « link »)
 
 ## Exemple de configuration {#setup-example}
 
-Une configuration Amazon SES typique se présente comme suit :
+Une configuration typique d'Amazon SES ressemble à ce qui suit :
 
 - **Nom du sous-compte :** braze
 - **Cluster :** eu-02
@@ -37,9 +37,9 @@ Une configuration Amazon SES typique se présente comme suit :
 Le cluster et le nom du sous-compte sont automatiquement ajoutés aux pools d'IP et aux jeux de configuration.
 {% endalert %}
 
-## Exemples de configuration de domaines de suivi des clics {#click-tracking-domain-configuration-examples}
+## Exemples de configuration du domaine de suivi des clics {#click-tracking-domain-configuration-examples}
 
-Les tableaux suivants présentent des exemples de configurations possibles de domaines de suivi des clics en fonction de vos préférences de branding.
+Les tableaux suivants sont des exemples de configurations possibles du domaine de suivi des clics en fonction de vos préférences en matière de branding.
 
 ### Un domaine de suivi des clics pour chaque domaine d'envoi {#one-click-tracking-domain-for-each-sending-domain}
 
@@ -63,16 +63,19 @@ Ceci repose sur la règle selon laquelle le domaine de suivi des clics doit corr
 | braze_marketing - 1 IP | braze_marketing_set | `email4.example.com` | `clicks.email1.example.com` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Un domaine de suivi des clics pour tous les domaines d'envoi" }
 
-## Remarques importantes {#considerations}
+## Considérations {#considerations}
 
-- Les pools d'IP sur Amazon SES hébergent uniquement l'adresse IP elle-même, tandis que les jeux de configuration hébergent les domaines d'envoi et le domaine de suivi des clics.
-- Chaque jeu de configuration ne peut avoir qu'un seul pool d'IP affecté à la fois, mais il est possible de créer plusieurs jeux de configuration utilisant le même pool d'IP avec des domaines d'envoi différents.
-- Amazon SES gère les enregistrements rDNS et A en interne, car ils entretiennent des relations étroites avec les fournisseurs de boîtes de réception afin de faciliter la reconnaissance des adresses IP.
-- Chaque domaine d'envoi possède un identifiant MAIL FROM qui lui est associé pour faciliter les validations SPF.
+- Les pools d'IP sur Amazon SES hébergent uniquement l'adresse IP elle-même, tandis que les ensembles de configuration hébergent les domaines d'envoi et le domaine de suivi des clics.
+- Chaque ensemble de configuration ne peut avoir qu'un seul pool d'IP attribué à la fois, mais nous pouvons créer plusieurs ensembles de configuration qui utilisent le même pool d'IP avec des domaines d'envoi différents.
+- Amazon SES gère les enregistrements rDNS et A en interne, car ils entretiennent des relations étroites avec les fournisseurs de boîtes de réception afin d'aider à reconnaître les adresses IP.
+- Chaque domaine d'envoi possède un identifiant MAIL FROM associé pour faciliter les validations SPF.
     - La valeur pour chaque domaine d'envoi est « e ».
-    - La valeur MAIL FROM ne modifie pas l'adresse d'expéditeur que vos clients voient.
-- Les périodes de début et de fin des messages trap ne sont pas disponibles si vous utilisez Amazon SES comme fournisseur de services d'e-mail marketing.
+    - La valeur MAIL FROM ne modifie pas l'adresse From que vos clients voient.
+- Les périodes de début et de fin des messages piège ne sont pas disponibles si vous utilisez Amazon SES comme fournisseur de services d'e-mailing.
 
 ## Étapes suivantes {#next-steps}
 
-- [Configurer le SSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/)
+{% article_tiles %}
+- name: Configurer le SSL
+  link: /docs/user_guide/channels/email/email_setup/ssl
+{% endarticle_tiles %}

@@ -35,7 +35,7 @@ Enter a name and description for the landing page. These details are used to sea
 
 #### Site details
 
-Set up metatags to customize how your page appears on the browser tab and optimize for search engine results. These will be visible to your customers.
+Set up metatags to customize how your page appears on the browser tab and optimize for search engine results. These are visible to your customers.
 
 We suggest following these best practices:
 
@@ -49,7 +49,7 @@ We suggest following these best practices:
 
 ### Step 3: Customize the page
 
-If you haven't already, select **Save as draft**. To start customizing your page, select **Edit landing page**. The drag-and-drop editor will preload with a default template that you can customize to fit your use case.
+If you haven't already, select **Save as draft**. To start customizing your page, select **Edit landing page**. The drag-and-drop editor preloads with a default template that you can customize to fit your use case.
 
 ![An example landing page being created in the drag-and-drop editor.]({% image_buster /assets/img/landing_pages/template.png %})
 
@@ -136,7 +136,11 @@ When enabled, you can also reverse stack columns to control the vertical order o
 
 ![The "Vertically stack on smaller screens" toggle in the "Customize columns" section.]({% image_buster /assets/img/landing_pages/device_responsive_toggle.png %}){: style="max-width:50%;"}
 
-{% multi_lang_include drag_and_drop/hide_rows_and_blocks_by_device.md channel='landing_page' %}
+#### Hide rows and blocks by device
+
+You can hide a row or block on desktop or on tablet and mobile devices. Select the row or block on the canvas. In the properties panel, select **Hide on**, then select **Desktop** or **Tablet and smaller devices**.
+
+A hidden row or block doesn't appear for that device type in the drag-and-drop editor preview or on the live landing page.
 
 #### Optional and required fields
 

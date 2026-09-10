@@ -43,7 +43,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie ein SCIM-Token. Verwenden Sie di
 ```http
 Content-Type: application/json
 X-Request-Origin: YOUR-REQUEST-ORIGIN-HERE
-Authorization: Bearer YOUR-REST-API-KEY
+Authorization: Bearer YOUR-SCIM-TOKEN-HERE
 ```
 
 ## Beispielanfrage {#example-request}
@@ -56,14 +56,17 @@ curl --location --request DELETE 'https://rest.iad-01.braze.com/scim/v2/Users/df
 
 ## Antwort {#response}
 
-### Beispiel einer Fehlerantwort {#example-error-response}
+### Beispiel einer erfolgreichen Antwort {#example-success-response}
+
+Wenn die/der Nutzer:in dauerhaft gelöscht wurde, gibt der Endpunkt Folgendes zurück:
 
 ```http
-HTTP/1.1 204 Not Found
-Content-Type: text/html; charset=UTF-8
+HTTP/1.1 204 No Content
 ```
 
-Wenn eine Entwickler:in mit dieser ID nicht in Braze existiert, antwortet der Endpunkt mit:
+### Beispiele für Fehlerantworten {#example-error-responses}
+
+Wenn ein:e Entwickler:in mit dieser ID nicht in Braze existiert, antwortet der Endpunkt mit:
 ```http
 HTTP/1.1 404 Not Found
 Content-Type: text/html; charset=UTF-8
@@ -74,4 +77,18 @@ Content-Type: text/html; charset=UTF-8
     "status": 404
 }
 ```
+
+Wenn Sie versuchen, die/den letzte:n verbleibende:n Unternehmensnutzer:in zu löschen, gibt der Endpunkt eine `500 Internal Server Error`-Antwort zurück und löscht die/den Nutzer:in nicht:
+
+```http
+HTTP/1.1 500 Internal Server Error
+Content-Type: application/json
+
+{
+    "schemas": ["urn:ietf:params:scim:api:messages:2.0:Error"],
+    "detail": "Failed to delete user",
+    "status": 500
+}
+```
+
 {% endapi %}

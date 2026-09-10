@@ -31,6 +31,23 @@ By default, the Content Card feed will automatically refresh when:
 To dynamically show up-to-date Content Cards without manually refreshing, select **At first impression** during card creation. These cards will be refreshed when they are available.
 {% endalert %}
 
+### Real-time delivery
+
+Braze also sends Content Card updates to the device as soon as they happen, over a live connection that the SDK maintains during the session. Users don't need to start a new session or wait for a refresh to see the change.
+
+Real-time delivery covers the following updates:
+
+- A user becomes eligible for a Content Card campaign during a session.
+- A user advances to a Content Card step in a Canvas.
+- A card is removed from a user's feed.
+- A card is sent through the API, such as with the [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages), [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns), or [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases) endpoint.
+
+Real-time delivery requires the following minimum SDK versions:
+
+{% sdk_min_versions swift:18.0.0 android:43.1.1 web:6.12.0 %}
+
+On earlier SDK versions, cards continue to arrive at session start and on refresh.
+
 ### Manual refresh
 
 To manually refresh the feed at a specific time:

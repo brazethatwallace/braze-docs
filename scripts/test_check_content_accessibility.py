@@ -59,6 +59,12 @@ class TestSpatialDirectionals:
         v = spatial_violations_for('This selection returns items below the threshold.\n')
         assert v == []
 
+    def test_allows_above_a_threshold(self):
+        v = spatial_violations_for(
+            'Add filters relevant to your use case—for example, targeting only users with a cart value above a threshold.\n'
+        )
+        assert v == []
+
     def test_allows_above_allotment_numeric_comparison(self):
         v = spatial_violations_for(
             'Requests above that allotment still send but are not covered by SLA.\n'

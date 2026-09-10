@@ -195,6 +195,10 @@ For conversion rate definitions and step-level analytics, see [Analytics and con
 | Can't save after archiving a variation | An archived variation is still referenced downstream; review step connections and restore or replace the variation |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Editor symptom" }
 
+{% alert note %}
+If you have the same Canvas open in multiple browser tabs, saving in one tab can overwrite changes made in another stale tab. This race condition can lead to audience filters being removed or unintended changes being applied. To prevent data loss, close any duplicate tabs before editing and saving a Canvas.
+{% endalert %}
+
 If the editor freezes on a large or complex Canvas, try the following:
 
 - Clear browser cache and cookies, then reload the page. Company ad blockers or browser extensions may interfere with the Braze platform.

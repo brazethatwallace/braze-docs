@@ -208,6 +208,31 @@ Profile
 }
 ```
 {% endtab %}
+
+{% tab Shopify %}
+```json
+// User Profile Update (users.profile.Update)
+
+{
+  "variables" : {
+    "identifier" : {
+      "customId" : {
+        "key" : "user_id",
+        "namespace" : "braze",
+        "value" : "(required, string) [PII] Braze user ID of the user who performed this event"
+      }
+    },
+    "input" : {
+      "email" : "(optional, string) [PII] Email address of the user",
+      "firstName" : "(optional, string) [PII] First name of the user",
+      "lastName" : "(optional, string) [PII] Last name of the user",
+      "locale" : "(optional, string) [PII] Language of the user",
+      "phone" : "(optional, string) [PII] Phone number of the user in e.164 format"
+    }
+  }
+}
+```
+{% endtab %}
 {% endtabs %}
 
 {% endapi %}

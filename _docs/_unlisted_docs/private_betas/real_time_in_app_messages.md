@@ -37,13 +37,12 @@ Real-time delivery changes when a message reaches the device. Display behavior s
 
 Real-time delivery requires the following minimum SDK versions:
 
-{% sdk_min_versions swift:18.0.0 android:43.1.1 %}
+{% sdk_min_versions swift:18.0.0 android:43.1.1 web:6.12.0 %}
 
 Devices continue to receive in-app messages at session start regardless of SDK version.
 
 ## Current limitations
 
-- **The Web SDK isn't yet supported:** Real-time delivery is available for the Swift and Android SDKs during early access.
 - **Edits to a live campaign apply at the next session start:** If you change an in-app message that a device has already received, that device keeps the version it has until the user's next session begins.
 
 ## Participate in early access

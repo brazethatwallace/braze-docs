@@ -10,6 +10,13 @@ import os
 import re
 import subprocess
 import pathlib
+import sys
+
+SCRIPT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)))
+if SCRIPT_DIR not in sys.path:
+    sys.path.insert(0, SCRIPT_DIR)
+
+from locale_redirect_utils import format_validurl_line, mirror_en_redirect_to_locales, parse_validurls
 
 # Global variables
 PROJECT_ROOT = os.environ.get('PROJECT_ROOT')
@@ -204,6 +211,7 @@ def main():
                 existing_norm.add((norm_for_compare(parsed[0]), norm_for_compare(parsed[1])))
 
         # Build redirects, skip duplicates (ignoring trailing slashes)
+        new_redirects: list[tuple[str, str]] = []
         for line in changed_files:
             redirect_line = create_redirect(line)
             if not redirect_line:
@@ -211,10 +219,41 @@ def main():
             parsed = parse_redirect(redirect_line)
             comp = (norm_for_compare(parsed[0]), norm_for_compare(parsed[1])) if parsed else None
             if comp and comp not in existing_norm:
-                idx = find_insertion_point(lines, parsed[0])
-                lines.insert(idx, redirect_line + "\n")
-                existing_norm.add(comp)
-                redirects_added += 1
+                new_redirects.append(parsed)
+
+        if not new_redirects:
+            print("All renamed files in this branch already have redirects. No additional redirects are needed.")
+            return
+
+        validurls = parse_validurls("".join(lines))
+        mirror_lines: list[str] = []
+        mirror_existing = set(validurls.keys())
+        for source, destination in new_redirects:
+            for locale_source, locale_dest in mirror_en_redirect_to_locales(
+                source, destination, validurls
+            ):
+                if locale_source in mirror_existing:
+                    continue
+                mirror_lines.append(format_validurl_line(locale_source, locale_dest) + "\n")
+                mirror_existing.add(locale_source)
+
+        for source, destination in new_redirects:
+            redirect_line = f"validurls['{source}'] = '{destination}';"
+            comp = (norm_for_compare(source), norm_for_compare(destination))
+            idx = find_insertion_point(lines, source)
+            lines.insert(idx, redirect_line + "\n")
+            existing_norm.add(comp)
+            redirects_added += 1
+
+        if mirror_lines:
+            placeholder_idx = next(
+                (i for i, line in enumerate(lines) if line.strip() == placeholder_comment),
+                len(lines),
+            )
+            for mirror_line in sorted(set(mirror_lines)):
+                lines.insert(placeholder_idx, mirror_line)
+                placeholder_idx += 1
+            print(f"Added {len(set(mirror_lines))} locale mirror redirect(s) for new EN entries.")
 
         if redirects_added == 0:
             # Renamed files exist, but all redirects already present
