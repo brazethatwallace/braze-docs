@@ -522,6 +522,8 @@ if (banner) {
 
 #### Subscribe to Banner Updates
 
+The subscriber receives the SDK's in-memory Banner cache. A single update can include placements from earlier refreshes, not only the placement IDs from the most recent `requestBannersRefresh` call.
+
 ``` typescript
 import { insertBanner, subscribeToBannersUpdates } from "@braze/web-sdk";
 
@@ -572,6 +574,8 @@ subscribeToBannersUpdates((banners) => {
 When you call `dismissBanner(banner)`, the SDK handles the Banner dismissal state, removes the Banner from active Banner updates, notifies the Banner's dismissed event subscribers, and syncs the dismissal to Braze. Custom UIs should use `subscribeToBannersUpdates` to react to the dismissed Banner being removed rather than treating `dismissBanner` as only a local UI change or only an analytics logging method.
 
 #### Request Banner Refresh
+
+`requestBannersRefresh()` merges into the existing Banner cache. Only the placement IDs you request are added, updated, or removed. Cached Banners for other placements stay in the cache and expire at their original expiry time. If the server returns no Banner for a requested placement, that placement is dropped from the cache.
 
 ``` typescript
 import { requestBannersRefresh } from "@braze/web-sdk";
@@ -848,9 +852,9 @@ The following table describes the available Braze Web SDK distributions.
 
 | Name | Description | npm | CDN URL
 | ---- | ----------- | --- | -------
-| Full | Full SDK with UI. When using the npm version, JavaScript bundlers remove unused code, including UI code. | `@braze/web-sdk` | https://js.appboycdn.com/web-sdk/6.12/braze.min.js
-| Core | Contains the SDK without UI. Implement your own UI for In-App Messages and Content Cards when using this version of the SDK. Use the full library for most integrations because it provides customizable UI elements through CSS. | N/A | https://js.appboycdn.com/web-sdk/6.12/braze.core.min.js
-| No-AMD | Contains the full SDK without AMD support. This is useful if your site uses RequireJS or another AMD module-loader, but you prefer to load the SDK through the CDN. | N/A | https://js.appboycdn.com/web-sdk/6.12/braze.no-amd.min.js
+| Full | Full SDK with UI. When using the npm version, JavaScript bundlers remove unused code, including UI code. | `@braze/web-sdk` | https://js.appboycdn.com/web-sdk/7.1/braze.min.js
+| Core | Contains the SDK without UI. Implement your own UI for In-App Messages and Content Cards when using this version of the SDK. Use the full library for most integrations because it provides customizable UI elements through CSS. | N/A | https://js.appboycdn.com/web-sdk/7.1/braze.core.min.js
+| No-AMD | Contains the full SDK without AMD support. This is useful if your site uses RequireJS or another AMD module-loader, but you prefer to load the SDK through the CDN. | N/A | https://js.appboycdn.com/web-sdk/7.1/braze.no-amd.min.js
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Libraries" }
 
 ## Supported Browsers
@@ -861,7 +865,7 @@ The following table describes the available Braze Web SDK distributions.
 
 ## Debugging & Troubleshooting
 
-Pass the option `enableLogging: true` to the initialize function (`braze.initialize('YOUR-API-KEY-HERE', { baseUrl: 'YOUR-SDK-ENDPOINT', enableLogging: true });`) to cause Braze to log to the javascript console. This is valuable for development but is visible to all users, so remove this option or [provide an alternate logger](https://js.appboycdn.com/web-sdk/6.12/doc/modules/braze.html#setlogger) before you release your page to production.
+Pass the option `enableLogging: true` to the initialize function (`braze.initialize('YOUR-API-KEY-HERE', { baseUrl: 'YOUR-SDK-ENDPOINT', enableLogging: true });`) to cause Braze to log to the javascript console. This is valuable for development but is visible to all users, so remove this option or [provide an alternate logger](https://js.appboycdn.com/web-sdk/7.1/doc/modules/braze.html#setlogger) before you release your page to production.
 
 ## Font Awesome
 
