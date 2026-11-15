@@ -30,8 +30,8 @@ repositories {
 }
 // ...
 dependencies {
-  `implementation 'com.braze:android-sdk-ui:43.1.+'`
-  `implementation 'com.braze:android-sdk-location:43.1.+'`
+  `implementation 'com.braze:android-sdk-ui:45.0.+'`
+  `implementation 'com.braze:android-sdk-location:45.0.+'`
 }
 // ...
 ```
@@ -67,7 +67,7 @@ Tool | Minimum supported version
 :----|:----
 minSdk|5.0+ / API 21+ (Lollipop and up)
 targetSdk|37
-Kotlin|`org.jetbrains.kotlin:kotlin-stdlib:2.2.20`
+Kotlin|`org.jetbrains.kotlin:kotlin-stdlib:2.4.21`
 Firebase Cloud Messaging|25.1.1
 Font Awesome|4.3.0
 
