@@ -1605,5 +1605,6 @@
   "_api/endpoints/data_objects/user_relationships/put_replace_user_relationship.md": "2026-08-31T22:22:17+00:00",
   "_api/endpoints/data_objects/user_relationships.md": "2026-08-31T22:22:17+00:00",
   "_api/endpoints/data_objects.md": "2026-08-31T22:22:17+00:00",
-  "_partners/message_personalization/referrals/growsurf.md": "2026-09-08T21:00:01+00:00"
+  "_partners/message_personalization/referrals/growsurf.md": "2026-09-08T21:00:01+00:00",
+  "_partners/message_personalization/localization/gpi.md": "2026-09-09T16:12:52+00:00"
 }
